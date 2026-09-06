@@ -4,6 +4,12 @@ The governing scope and acceptance criteria are in [GOAL.md](../GOAL.md).
 This log distinguishes finished work from queued work; a plan is not a completed
 research result.
 
+Latest batch: DAC 2026 IDs 387, 389, 397, 399, 401 and 406 bring
+current drafts to 391, leaving 103 descriptions uncoded. Register-power scope,
+profiling versus performance, geometry-only printing evidence, composite search
+objectives, PUD evidence tiers and neighbor-search efficiency limits remain explicit.
+All 418 draft papers have source-separated packets; independent acceptance remains pending.
+
 Latest batch: DAC 2026 IDs 368, 373, 374, 375, 378 and 380 bring
 current drafts to 385, leaving 109 descriptions uncoded. Heterogeneous expert
 placement, commercial-tool versus independent checks, fault-bound scope,

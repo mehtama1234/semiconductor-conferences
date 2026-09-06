@@ -10,7 +10,7 @@ def test_current_drafts_preserve_identity_and_numeric_disagreement():
     rows = read_jsonl(ROOT / "data/current-description-coding-v1.jsonl")
     sources = {r["paper_id"]: r for r in read_jsonl(ROOT / "dac/data/paper-evidence-2026.jsonl")}
     branches = {r["theme_id"]: r["subthemes"] for r in json.loads((ROOT / "data/taxonomy-v1-evidence.json").read_text())["themes"]}
-    assert len(rows) == len({r["paper_id"] for r in rows}) == 385
+    assert len(rows) == len({r["paper_id"] for r in rows}) == 391
     for row in rows:
         for key in ["title", "evidence_url", "analysis_edition", "evidence_collection_date"]:
             assert row[key] == sources[row["paper_id"]][key]
@@ -286,3 +286,7 @@ def test_current_drafts_preserve_identity_and_numeric_disagreement():
     assert crystal["metrics"] == []
     ddf = next(r for r in rows if r["paper_id"] == "dac-2026-research378")
     assert "proof assumptions were not inspected" in ddf["limits"][0]
+    page = next(r for r in rows if r["paper_id"] == "dac-2026-research401")
+    assert "not fabricated PAGE modifications" in page["limits"][0]
+    chiser = next(r for r in rows if r["paper_id"] == "dac-2026-research399")
+    assert "manufacturing-weighted" in chiser["metrics"][0]["metric"]

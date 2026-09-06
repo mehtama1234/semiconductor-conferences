@@ -6,8 +6,8 @@ The first four previously uncoded records, selected by paper-ID order, have
 research1138 (ARTEMIS). Exact official source URLs and row locators accompany
 each record. All are pending independent review and retain description-level
 evidence status. They are not added to the 49-record selected adjudication sample.
-With sixty-five batches, 385 additional drafts are available;
-109 of the 543 current DAC descriptions still need initial technical coding.
+With sixty-six batches, 391 additional drafts are available;
+103 of the 543 current DAC descriptions still need initial technical coding.
 Draft coverage does not mean complete technical evidence. Research1691's extraction
 has been repaired, but its energy/power boundary remains unresolved.
 
@@ -740,6 +740,17 @@ percentage loss or remaining-throughput claim without a definition.
 | 378 DDF | Timing-anomaly-free dataflow discipline | Proof is reported, but its assumptions are not yet reviewed |
 | 380 ChiPlanner | Early timing-aware partition/physical planning | Slack improvements do not establish timing closure or cost savings |
 
-All 385 records have source-separated review packets. Next: resolve the ATB
+## Sixty-sixth batch
+
+| Paper | Mechanism | Evidence boundary |
+|---|---|---|
+| 387 CODA | Cooperative register distribution/arbitration | Register-file power is not whole-GPU power |
+| 389 Toki | Joint soft-core and host-DMA HBM profiling | Core count is not measured throughput; artifact claim unverified |
+| 397 Lipcon | Learned spatial printing compensation | Geometry gains are qualitative, not assay validation |
+| 399 ChiSER | Surrogate-guided chiplet search | Weighted objective differs from separate energy or cost savings |
+| 401 PAGE | Circuit/architecture PUD GEMV co-design | COTS baseline, modified circuits and system simulation remain distinct |
+| 406 PS-CAM | Range-CAM and adaptive-radius neighbor search | Query-level efficiency ratios require matched baseline/accuracy details |
+
+All 391 records have source-separated review packets. Next: resolve the ATB
 numeric comparison from primary evidence and continue uncoded descriptions in
 stable order, preserving gaps and possible counterexamples.
