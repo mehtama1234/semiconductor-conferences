@@ -4,6 +4,12 @@ The governing scope and acceptance criteria are in [GOAL.md](../GOAL.md).
 This log distinguishes finished work from queued work; a plan is not a completed
 research result.
 
+Latest batch: DAC 2026 IDs 368, 373, 374, 375, 378 and 380 bring
+current drafts to 385, leaving 109 descriptions uncoded. Heterogeneous expert
+placement, commercial-tool versus independent checks, fault-bound scope,
+qualitative cache results, proof assumptions and chiplet slack limits remain explicit.
+All 412 draft papers have source-separated packets; independent acceptance remains pending.
+
 Latest batch: DAC 2026 IDs 335, 341, 343, 358, 363 and 365 bring
 current drafts to 379, leaving 115 descriptions uncoded. Slack conventions,
 GNN efficiency boundaries, ANNS bottleneck attribution, Lyra acceleration wording,
