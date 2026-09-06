@@ -39,8 +39,9 @@ are captured, 543 records are routed for review, and 49 are adjudicated.
 - [Primary evidence on LLM systems](../isca/pages/primary-evidence-llm-systems.md)
 - [Primary evidence batch 2: PIM scheduling and cross-layer ECC](../isca/pages/primary-evidence-batch-2026-2.md)
 - [Primary evidence batch 3: training-free self-speculative decoding](../isca/pages/primary-evidence-batch-2026-3.md)
+- [Primary evidence batch 4: processing-using-DRAM reliability](../isca/pages/primary-evidence-batch-2026-4.md)
 
-ISCA currently combines official program metadata, eight primary-preprint-backed
+ISCA currently combines official program metadata, nine primary-preprint-backed
 records, and five low-confidence secondary-index excerpts pending primary
 verification.
 
