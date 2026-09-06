@@ -6,8 +6,8 @@ The first four previously uncoded records, selected by paper-ID order, have
 research1138 (ARTEMIS). Exact official source URLs and row locators accompany
 each record. All are pending independent review and retain description-level
 evidence status. They are not added to the 49-record selected adjudication sample.
-With fifteen batches, 85 additional drafts are available;
-409 of the 543 current DAC descriptions still need initial technical coding.
+With sixteen batches, 91 additional drafts are available;
+403 of the 543 current DAC descriptions still need initial technical coding.
 
 ## Evidence requiring care
 
@@ -188,6 +188,17 @@ percentage loss or remaining-throughput claim without a definition.
 | 149 TRIDENT | Fused triple sparse multiplication | Accelerator average and CPU/GPU maxima differ; kernel gains are not application gains |
 | 1494 AvaTEE | Attested commitments and trusted CPU arbitration | 19.7× slowdown describes the vulnerable baseline, not an AvaTEE gain; evaluation is FPGA-based |
 
-All 85 records have source-separated review packets. Next: resolve the ATB
+## Sixteenth batch
+
+| Paper | Mechanism | Evidence boundary |
+|---|---|---|
+| 1495 PMU-Faker | PMU event timing-risk characterization | 118 events and four demonstrations are not prevalence or success rates; no attack executed |
+| 1497 Hardware interrupts | Interrupt observability and security characterization | Six vulnerable interrupts lack platform/permission coverage; demonstration count is not general exploitability |
+| 1499 KCD-CAM | Charge-domain CAM range search and voxel hashing | KNN gains are not full perception gains; accuracy and peripheral accounting are unknown |
+| 150 RISCSmith | Typed instruction generation and online differential fuzzing | Bug counts do not establish severity or correctness coverage; budgets and confirmations are missing |
+| 1519 AgenticDSE | Agent-guided multi-phase chiplet BO | Equal exploration counts do not ensure equal compute; token reductions are not financial savings |
+| 1524 GPU DAG scheduling | Kernel parallelism control and timing analysis | Worst-case bound and measured-runtime reductions remain separate; safety assumptions need full text |
+
+All 91 records have source-separated review packets. Next: resolve the ATB
 numeric comparison from primary evidence and continue uncoded descriptions in
 stable order, preserving gaps and possible counterexamples.

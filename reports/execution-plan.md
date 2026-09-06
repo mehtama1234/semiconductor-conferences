@@ -4,6 +4,12 @@ The governing scope and acceptance criteria are in [GOAL.md](../GOAL.md).
 This log distinguishes finished work from queued work; a plan is not a completed
 research result.
 
+Latest batch: DAC 2026 IDs 1495, 1497, 1499, 150, 1519 and 1524 bring
+current drafts to 91, leaving 403 descriptions uncoded. Event/demonstration counts,
+KNN versus perception scope, fuzzing budgets, token versus financial cost and
+analytical versus measured timing remain explicit. All 118 draft papers have
+source-separated packets; independent acceptance remains pending.
+
 Latest batch: DAC 2026 IDs 1468, 1473, 1474, 1480, 149 and 1494 bring
 current drafts to 85, leaving 409 descriptions uncoded. Epoch versus convergence
 time, ground-plane geometry versus signal integrity, baseline slowdowns versus
