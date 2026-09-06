@@ -9,10 +9,13 @@ project. It is deliberately a metadata baseline, not a technical trend study.
 |---|---:|---:|---|---|
 | ISCA | 2025 | 135 papers | Official program metadata | Title/session inventory and coverage comparison |
 | ISCA | 2026 | 173 papers | Official program metadata | Title/session inventory and coverage comparison |
+| DAC | 2025 | 419 research manuscripts | Official conference program | Research-program inventory and coverage comparison |
+| DAC | 2026 | 543 research manuscripts | Official conference program | Research-program inventory and coverage comparison |
 
-The 2025 inventory is in `isca/data/papers-2025-program.jsonl`; the 2026
-inventory is in `isca/data/papers-2026-program.jsonl`. Both are linked to their
-official program pages in `isca/data/sources.jsonl`.
+The ISCA inventories are in `isca/data/papers-2025-program.jsonl` and
+`isca/data/papers-2026-program.jsonl`. The DAC inventories are in
+`dac/data/papers-2025-program.jsonl` and `dac/data/papers-2026-program.jsonl`.
+All four are linked to official program pages in their conference source ledgers.
 
 ## Interpretation boundary
 

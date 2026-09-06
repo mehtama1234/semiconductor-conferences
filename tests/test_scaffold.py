@@ -52,6 +52,15 @@ def test_isca_historical_inventory_is_separate_and_metadata_only() -> None:
     assert all(row["problem"] is None and row["metrics"] == [] for row in rows)
 
 
+def test_dac_historical_inventory_is_separate_and_metadata_only() -> None:
+    rows = [json.loads(line) for line in (ROOT / "dac/data/papers-2025-program.jsonl").read_text().splitlines() if line.strip()]
+    assert len(rows) == 419
+    assert len({row["paper_id"] for row in rows}) == len(rows)
+    assert all(row["target_edition"] == 2025 and row["analysis_edition"] == 2025 for row in rows)
+    assert all(row["access_status"] == "official_historical_program_metadata_only" for row in rows)
+    assert all(row["problem"] is None and row["metrics"] == [] for row in rows)
+
+
 def test_isca_crossref_metadata_keeps_technical_claims_unclassified() -> None:
     rows = [json.loads(line) for line in (ROOT / "isca/data/crossref-metadata-2026.jsonl").read_text().splitlines() if line.strip()]
     assert len(rows) >= 150
