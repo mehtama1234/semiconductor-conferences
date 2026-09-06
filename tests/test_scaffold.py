@@ -68,3 +68,10 @@ def test_dac_adjudicated_batch_has_cited_technical_fields() -> None:
     assert len(rows) == 8
     assert all(row["evidence_url"] and row["evidence_span"] for row in rows)
     assert all(row["problem"] and row["method_or_artifact"] and row["metrics"] for row in rows)
+
+
+def test_dac_theme_triage_is_not_final_adjudication() -> None:
+    rows = [json.loads(line) for line in (ROOT / "dac/data/theme-triage-2026.jsonl").read_text().splitlines() if line.strip()]
+    assert len(rows) == 543
+    assert all(row["triage_status"] == "keyword_routing_only" for row in rows)
+    assert all(row["classification_confidence"] == "not_adjudicated" for row in rows)
