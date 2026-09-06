@@ -6,8 +6,8 @@ The first four previously uncoded records, selected by paper-ID order, have
 research1138 (ARTEMIS). Exact official source URLs and row locators accompany
 each record. All are pending independent review and retain description-level
 evidence status. They are not added to the 49-record selected adjudication sample.
-With thirty-two batches, 187 additional drafts are available;
-307 of the 543 current DAC descriptions still need initial technical coding.
+With thirty-three batches, 193 additional drafts are available;
+301 of the 543 current DAC descriptions still need initial technical coding.
 Draft coverage does not mean complete technical evidence. Research1691's extraction
 has been repaired, but its energy/power boundary remains unresolved.
 
@@ -377,6 +377,17 @@ percentage loss or remaining-throughput claim without a definition.
 | 208 S2CIM | Affine-split FeFET storage/computation | 50% attack success does not prove chance or zero leakage; universal threat claim unsupported |
 | 2083 CHiRM-DSE | Rule-mined CodeLLM pragma exploration | Same time budget but no numeric QoR or surrogate error supplied |
 
-All 187 records have source-separated review packets. Next: resolve the ATB
+## Thirty-third batch
+
+| Paper | Mechanism | Evidence boundary |
+|---|---|---|
+| 2085 Prelude | Snapshot/priming state reconstruction | Processor/baseline-specific debugging gains; replay correctness assumptions unresolved |
+| 209 Generative ILT | Policy/imitation GAN refinement | No quantitative mask/runtime result or global optimum proved |
+| 2094 DAPA | Distribution-weighted piecewise activation | 16× GELU/DSP figures are components, not Transformer gains |
+| 2098 PiMM-NoC | Heterogeneous tiles and RL/MCTS mapping | Simulated mapping/accelerator comparisons are separate |
+| 210 CryoZip | Windowed syndrome compression | Predecoded bandwidth and standalone compression differ; energy boundaries distinct |
+| 2105 Acc-SpMV / OmniSpMV | Reordering, tiling and CUDA balancing | Title/library discrepancy retained; twelve device/baseline/aggregation results kept separate |
+
+All 193 records have source-separated review packets. Next: resolve the ATB
 numeric comparison from primary evidence and continue uncoded descriptions in
 stable order, preserving gaps and possible counterexamples.

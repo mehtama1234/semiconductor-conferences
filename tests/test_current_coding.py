@@ -10,7 +10,7 @@ def test_current_drafts_preserve_identity_and_numeric_disagreement():
     rows = read_jsonl(ROOT / "data/current-description-coding-v1.jsonl")
     sources = {r["paper_id"]: r for r in read_jsonl(ROOT / "dac/data/paper-evidence-2026.jsonl")}
     branches = {r["theme_id"]: r["subthemes"] for r in json.loads((ROOT / "data/taxonomy-v1-evidence.json").read_text())["themes"]}
-    assert len(rows) == len({r["paper_id"] for r in rows}) == 187
+    assert len(rows) == len({r["paper_id"] for r in rows}) == 193
     for row in rows:
         for key in ["title", "evidence_url", "analysis_edition", "evidence_collection_date"]:
             assert row[key] == sources[row["paper_id"]][key]
@@ -117,3 +117,7 @@ def test_current_drafts_preserve_identity_and_numeric_disagreement():
     secure = next(r for r in rows if r["paper_id"] == "dac-2026-research208")
     assert secure["metrics"][3]["value"] == 50
     assert "need not be chance" in secure["limits"][0]
+    spmv = next(r for r in rows if r["paper_id"] == "dac-2026-research2105")
+    assert len(spmv["metrics"]) == 12
+    assert spmv["metrics"][0]["qualifier"] == "average"
+    assert spmv["metrics"][1]["qualifier"] == "up to"
