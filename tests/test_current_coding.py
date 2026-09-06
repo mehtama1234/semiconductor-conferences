@@ -10,7 +10,7 @@ def test_current_drafts_preserve_identity_and_numeric_disagreement():
     rows = read_jsonl(ROOT / "data/current-description-coding-v1.jsonl")
     sources = {r["paper_id"]: r for r in read_jsonl(ROOT / "dac/data/paper-evidence-2026.jsonl")}
     branches = {r["theme_id"]: r["subthemes"] for r in json.loads((ROOT / "data/taxonomy-v1-evidence.json").read_text())["themes"]}
-    assert len(rows) == len({r["paper_id"] for r in rows}) == 307
+    assert len(rows) == len({r["paper_id"] for r in rows}) == 313
     for row in rows:
         for key in ["title", "evidence_url", "analysis_edition", "evidence_collection_date"]:
             assert row[key] == sources[row["paper_id"]][key]
@@ -227,3 +227,9 @@ def test_current_drafts_preserve_identity_and_numeric_disagreement():
     assert detector["metrics"][4]["value"] == [2.1, 2.5]
     vla = next(r for r in rows if r["paper_id"] == "dac-2026-research2721")
     assert vla["metrics"][0]["metric"] == "success length improvement"
+    pangaea = next(r for r in rows if r["paper_id"] == "dac-2026-research2762")
+    assert "not achieved reduction" in pangaea["metrics"][0]["condition"]
+    assert "bp/microjoule" in pangaea["metrics"][2]["condition"]
+    lin = next(r for r in rows if r["paper_id"] == "dac-2026-research2756")
+    assert lin["metrics"][3]["metric"] == "CNOT count reduction"
+    assert lin["metrics"][3]["qualifier"] == "average"

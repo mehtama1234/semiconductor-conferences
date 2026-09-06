@@ -6,8 +6,8 @@ The first four previously uncoded records, selected by paper-ID order, have
 research1138 (ARTEMIS). Exact official source URLs and row locators accompany
 each record. All are pending independent review and retain description-level
 evidence status. They are not added to the 49-record selected adjudication sample.
-With fifty-two batches, 307 additional drafts are available;
-187 of the 543 current DAC descriptions still need initial technical coding.
+With fifty-three batches, 313 additional drafts are available;
+181 of the 543 current DAC descriptions still need initial technical coding.
 Draft coverage does not mean complete technical evidence. Research1691's extraction
 has been repaired, but its energy/power boundary remains unresolved.
 
@@ -597,6 +597,17 @@ percentage loss or remaining-throughput claim without a definition.
 | 2737 Verification RL | EDA-assisted testbench feedback | Qualitative gains; generated tests are not complete correctness oracles |
 | 2753 Token-stationary MoE | Variable-token systolic execution | Padding avoidance and outperformance lack numeric system evaluation |
 
-All 307 records have source-separated review packets. Next: resolve the ATB
+## Fifty-third batch
+
+| Paper | Mechanism | Evidence boundary |
+|---|---|---|
+| 2756 Lin-search | Pruned iterative-deepening CNOT synthesis | Small exact benchmarks differ from larger rewriting gains |
+| 2760 NotSoTiny | Living RTL benchmark curation | Refresh/deduplication does not prove contamination absence |
+| 2762 PANGAEA | Cross-stage pangenome fusion | Profiled bandwidth differs from three efficiency metrics |
+| 2771 PLONK-Hammer | Faulty-proof privacy study | Qualitative leakage with unspecified threat/evaluation conditions |
+| 2773 FlashHD | Hierarchical in-flash HDC filtering | Full recall and gains unquantified; exactness conditions absent |
+| 2778 ExCave | Shared inversion and background caching | Qualitative image/runtime claims only |
+
+All 313 records have source-separated review packets. Next: resolve the ATB
 numeric comparison from primary evidence and continue uncoded descriptions in
 stable order, preserving gaps and possible counterexamples.
