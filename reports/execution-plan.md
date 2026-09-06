@@ -4,15 +4,16 @@ The governing scope and acceptance criteria are in [GOAL.md](../GOAL.md).
 This log distinguishes finished work from queued work; a plan is not a completed
 research result.
 
-Latest historical batch: six additional DAC 2025 descriptions (034, 039, 048,
-051, 054, 068) extend the prior six drafts with conditional metrics and explicit
-taxonomy-fit limits. With the temporal pilot, 15
-of 24 accessible historical descriptions are drafted; nine remain uncoded and 395
+Latest historical batch: the final nine accessible DAC 2025 descriptions (085,
+097, 1016, 1017, 103, 1034, 1039, 1042, 105) have technical drafts with
+conditional metrics and taxonomy-fit limits. With the temporal pilot, all 24
+accessible historical descriptions are drafted; 395 inventory records remain uncoded and
 remain without substantive descriptions. The work queue now tracks draft paths
 and draft-only counts separately from the unchanged 72-record selected sample.
 All independent acceptance remains pending. See
-[historical coding](historical-description-coding-v1.md). Next: remaining nine
-descriptions, then full-paper condition recovery and comparable population design.
+[historical coding](historical-description-coding-v1.md). Next: source-label
+reconciliation, draft review packets, full-paper condition recovery and comparable
+population design. Description-pass completeness is not independent acceptance.
 
 | Subgoal | State | Next deliverable |
 |---|---|---|
