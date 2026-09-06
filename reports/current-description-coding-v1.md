@@ -6,8 +6,8 @@ The first four previously uncoded records, selected by paper-ID order, have
 research1138 (ARTEMIS). Exact official source URLs and row locators accompany
 each record. All are pending independent review and retain description-level
 evidence status. They are not added to the 49-record selected adjudication sample.
-With fifty-five batches, 325 additional drafts are available;
-169 of the 543 current DAC descriptions still need initial technical coding.
+With fifty-six batches, 331 additional drafts are available;
+163 of the 543 current DAC descriptions still need initial technical coding.
 Draft coverage does not mean complete technical evidence. Research1691's extraction
 has been repaired, but its energy/power boundary remains unresolved.
 
@@ -630,6 +630,17 @@ percentage loss or remaining-throughput claim without a definition.
 | 2824 ISA-PM | Small-width flexible ECPM | ATP does not separately establish latency or area reduction |
 | 2829 STLGen | Structured NL2-to-STL conversion | Trajectory consistency is not exhaustive semantic equivalence |
 
-All 325 records have source-separated review packets. Next: resolve the ATB
+## Fifty-sixth batch
+
+| Paper | Mechanism | Evidence boundary |
+|---|---|---|
+| 2832 IsoLock | Isomorphic MUX interconnect locking | Key metric/proof domain unspecified; not universal security |
+| 2838 Floquet PPV | Biorthogonal subspace projection | Qualitative numerical improvements only |
+| 284 PRS | Diversified parallel SAT | PAR2 differs from latency; 64-core ratio reference missing |
+| 2845 AdaGScale | View-adaptive tile intersection bounds | Nonzero PSNR loss; bounds differ from accumulation size |
+| 285 HydraCEC | Task-graph parallel sweeping | Competitor and scaling comparisons have different references |
+| 2851 Synchoros | Wire-aware CGRA energy estimation | Undefined accuracy is not a worst-case error guarantee |
+
+All 331 records have source-separated review packets. Next: resolve the ATB
 numeric comparison from primary evidence and continue uncoded descriptions in
 stable order, preserving gaps and possible counterexamples.
