@@ -1,0 +1,33 @@
+from pathlib import Path
+
+import pytest
+
+from scripts.build_work_queue import build, unique_index
+
+ROOT = Path(__file__).resolve().parents[1]
+
+
+def test_queue_preserves_inventory_and_evidence_boundaries():
+    rows, summary, _ = build(ROOT)
+    by_id = unique_index(rows)
+    assert len(rows) == sum(summary["corpus_counts"].values()) == 1546
+    assert summary["coded_count"] == 72
+    # Secondary CODO is an alias of a primary-backed paper, not a seventh paper.
+    codo = by_id["isca-2026-program-002"]
+    assert codo["secondary_alias_id"] == "isca-2026-codo"
+    assert codo["collection_status"] == "cited_technical_source"
+    assert codo["paper_id"] not in summary["secondary_pending_ids"]
+    assert len(summary["secondary_pending_ids"]) == 5
+    assert by_id["isca-2026-program-158"]["identity_status"] == "missing_title_requires_inventory_review"
+    historical = [r for r in rows if r["conference_id"] == "dac" and r["analysis_edition"] == 2025]
+    assert sum(r["collection_status"] == "substantive_description" for r in historical) == 24
+    assert all(r["coding_status"] == "not_coded" for r in historical)
+    reviewed = by_id["dac-2026-research1211"]
+    assert reviewed["preliminary_review"] == "revise"
+    assert reviewed["independent_review_status"] == "pending"
+    assert all(r["independent_review_status"] != "accepted" for r in rows)
+
+
+def test_duplicate_identity_fails_instead_of_silently_overwriting():
+    with pytest.raises(ValueError, match="Duplicate paper ID"):
+        unique_index([{"paper_id": "same"}, {"paper_id": "same"}])

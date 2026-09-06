@@ -6,8 +6,8 @@ research result.
 
 | Subgoal | State | Next deliverable |
 |---|---|---|
-| 1. Recovered checkpoint | In progress | Reconciled reports, validation, and reviewed local commit |
-| 2. Coverage and priorities | Queued | Paper-level disposition and claim-priority queue |
+| 1. Recovered checkpoint | Complete: `216135d` | Preserved evidence and end-to-end scope |
+| 2. Coverage and priorities | Complete inventory join; manual prioritization ongoing | Refine thin-theme/counterexample priorities |
 | 3. Technical evidence | Partial: 72 coded records | Source passages and experimental conditions for synthesis anchors |
 | 4. Taxonomy and explanations | Provisional taxonomy and pages exist | Reviewed mechanism categories and claim-to-paper explanations |
 | 5. Independent review | Pending; 72 records unreviewed | Source-grounded packets, followed by independent verdicts |
@@ -26,18 +26,30 @@ research result.
   removed a duplicated review-status sentence and an already-completed historical
   inventory instruction.
 
-The recovered evidence increment and planning changes remain uncommitted.
+The recovered evidence increment and planning changes were committed as `216135d`.
+
+## Coverage queue batch
+
+- Added a reproducible [work queue](research-work-queue.md) covering all 1,546
+  records across five conference editions, with separate collection, coding,
+  source-depth, and independent-review states. Identified 33 synthesis anchors.
+- Reconciled six secondary aliases to program IDs. CODO already has primary
+  evidence, leaving five unresolved secondary-only papers. Corrected report
+  counts without deleting the historical discovery record.
+- Identified unresolved DOI IDs 128 and 158; ID 158 also has an empty title and
+  requires inventory review before treating it as an ordinary paper.
+- Added boundary tests for duplicate IDs, secondary overlap, historical missing
+  evidence, and preliminary versus independent review. All 45 tests pass.
+- Located the author-hosted MTIA 300 paper through the official company article:
+  https://aisystemcodesign.github.io/papers/MTIA300_ISCA2026.pdf.
+  Paper extraction and source-tier revision are still pending.
 
 ## Next concrete batch
 
-1. Review the complete pending diff, verify report consistency, and commit only
-   the recovered evidence and planning changes belonging to this project.
-2. Construct a reproducible queue joining program IDs, DOI metadata, coded
-   evidence, and synthesis references. Preserve separate collection, coding,
-   evidence-depth, and review states; include all current and historical records.
-3. Identify the six ISCA secondary records and two unresolved DOI records by ID.
-   Assign a source-recovery action to each. Prioritize synthesis anchors whose
-   central claims depend on descriptions, abstracts, or company sources.
+1. Commit the queue and report corrections after checking the generated artifacts.
+2. Resolve the missing-title inventory row and inspect exact primary sources for
+   the five unresolved secondary papers listed in the queue.
+3. Refine priorities for underrepresented taxonomy categories and counterexamples.
 4. Prepare the first source-grounded review packet for MTIA 300: distinguish
    networking/collective results from end-to-end training results, preserve the
    company-source tier, and obtain paper-level conditions where accessible.

@@ -7,6 +7,7 @@ organized around technical questions, not just conference names.
 
 - [End-to-end goal](../GOAL.md)
 - [Execution plan and current tasks](execution-plan.md)
+- [Complete inventory and research work queue](research-work-queue.md)
 - [Collection status](collection-status.md)
 - [Initial 2026 direction signals](initial-2026-direction-signals.md)
 - [Cross-conference direction synthesis](cross-conference-direction-v0.md)
@@ -52,7 +53,7 @@ are captured, 543 records are routed for review, and 49 are adjudicated.
 - [Memory, ECC, and PIM reliability topical analysis](../isca/pages/memory-ecc-pim-reliability.md)
 
 ISCA currently combines official program metadata, fifteen primary/institutional/company-backed
-records, and six low-confidence secondary-index excerpts pending primary
+records, and five low-confidence secondary-only papers pending primary
 verification.
 
 ## ICCAD 2026 / 2025 fallback

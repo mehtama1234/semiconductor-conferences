@@ -1,0 +1,44 @@
+{
+  "coded_count": 72,
+  "collection_counts": {
+    "cited_technical_source": 72,
+    "metadata_only": 951,
+    "secondary_only": 5,
+    "substantive_description": 518
+  },
+  "corpus_counts": {
+    "dac-2025": 419,
+    "dac-2026": 543,
+    "iccad-2025": 276,
+    "isca-2025": 135,
+    "isca-2026": 173
+  },
+  "inventory_paths": [
+    "dac/data/papers-2025-program.jsonl",
+    "dac/data/papers-2026-program.jsonl",
+    "iccad/data/papers-2025-program.jsonl",
+    "isca/data/papers-2025-program.jsonl",
+    "isca/data/papers-2026-program.jsonl"
+  ],
+  "limits": [
+    "Priority is review routing, not importance or prevalence.",
+    "Source tier does not establish full-text extraction or independent acceptance.",
+    "Historical challenge/rate-limit outcomes are preserved; metadata-only does not mean inaccessible.",
+    "Independent review remains pending; same-model preliminary review is separate.",
+    "Coverage is selected for recoverability and diversity; unidentified counterexamples and thin taxonomy branches still need manual prioritization."
+  ],
+  "record_count": 1546,
+  "schema": "research-work-queue.v1",
+  "secondary_pending_ids": [
+    "isca-2026-program-001",
+    "isca-2026-program-010",
+    "isca-2026-program-058",
+    "isca-2026-program-059",
+    "isca-2026-program-060"
+  ],
+  "synthesis_anchor_count": 33,
+  "unresolved_isca_doi_ids": [
+    "isca-2026-program-128",
+    "isca-2026-program-158"
+  ]
+}

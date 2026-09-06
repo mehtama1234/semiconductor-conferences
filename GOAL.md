@@ -53,7 +53,7 @@ synthesis. Coverage gaps and unresolved claims are part of the deliverable.
 
 | Corpus | Inventory | Technically coded sample | Main limitation |
 |---|---:|---:|---|
-| ISCA 2026 | 173 | 15 | Mixed primary, institutional, and company sources; six secondary queue records remain outside this sample |
+| ISCA 2026 | 173 | 15 | Mixed primary, institutional, and company sources; five secondary-only papers remain outside this sample; a sixth secondary record overlaps CODO |
 | DAC 2026 | 543 | 49 | Official descriptions captured across the inventory; most records still need coding and full-paper conditions |
 | ICCAD 2025 fallback | 276 | 8 | Most fallback records remain metadata-only |
 
@@ -79,7 +79,7 @@ unrelated work.
 
 Build a paper-level queue from inventories and synthesis references. Track
 collection, identity resolution, coding, evidence depth, and independent review
-separately. Prioritize central synthesis claims, the six ISCA secondary records,
+separately. Prioritize central synthesis claims, the five unresolved ISCA secondary papers,
 missing DOI matches, underrepresented categories, and potential counterexamples.
 Use a documented stable order within priority groups instead of discoverability.
 
