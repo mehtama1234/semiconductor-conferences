@@ -6,8 +6,8 @@ The first four previously uncoded records, selected by paper-ID order, have
 research1138 (ARTEMIS). Exact official source URLs and row locators accompany
 each record. All are pending independent review and retain description-level
 evidence status. They are not added to the 49-record selected adjudication sample.
-With fifty-four batches, 319 additional drafts are available;
-175 of the 543 current DAC descriptions still need initial technical coding.
+With fifty-five batches, 325 additional drafts are available;
+169 of the 543 current DAC descriptions still need initial technical coding.
 Draft coverage does not mean complete technical evidence. Research1691's extraction
 has been repaired, but its energy/power boundary remains unresolved.
 
@@ -619,6 +619,17 @@ percentage loss or remaining-throughput claim without a definition.
 | 2794 SwitchMT | Adaptive spiking task scheduling | Qualitative learning gains, no measured hardware efficiency |
 | 2804 Undocumented instructions | Discovery/classification/security workflow | Classifier accuracy differs from security recall; sets may overlap |
 
-All 319 records have source-separated review packets. Next: resolve the ATB
+## Fifty-fifth batch
+
+| Paper | Mechanism | Evidence boundary |
+|---|---|---|
+| 2805 Cal Orchestrator | Drift-aware BO and RL/ILP scheduling | Qualitative testbed gains and uninspected release |
+| 2806 LHGstore | Degree-adaptive learned indexing | Throughput differs from qualitative analytics gains |
+| 2817 EHPC | Volatile-RRAM probabilistic optimization | Fabricated demo, simulated timing and floorplan metrics differ |
+| 282 HiBand | Array co-execution and reconfigurable NoC | GPU-style reference is not necessarily a measured commercial GPU |
+| 2824 ISA-PM | Small-width flexible ECPM | ATP does not separately establish latency or area reduction |
+| 2829 STLGen | Structured NL2-to-STL conversion | Trajectory consistency is not exhaustive semantic equivalence |
+
+All 325 records have source-separated review packets. Next: resolve the ATB
 numeric comparison from primary evidence and continue uncoded descriptions in
 stable order, preserving gaps and possible counterexamples.

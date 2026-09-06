@@ -4,6 +4,12 @@ The governing scope and acceptance criteria are in [GOAL.md](../GOAL.md).
 This log distinguishes finished work from queued work; a plan is not a completed
 research result.
 
+Latest batch: DAC 2026 IDs 2805, 2806, 2817, 282, 2824 and 2829 bring
+current drafts to 325, leaving 169 descriptions uncoded. Calibration evidence,
+graph-throughput scope, fabricated/simulated optimization, NoC baseline identity,
+ATP and formalization limits remain explicit. All 352 draft papers have
+source-separated packets; independent acceptance remains pending.
+
 Latest batch: DAC 2026 IDs 278, 2780, 279, 2793, 2794 and 2804 bring
 current drafts to 319, leaving 175 descriptions uncoded. Cell-search scope,
 detection/correction distinctions, mitigation boundaries, qualitative prediction
