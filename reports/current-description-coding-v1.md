@@ -6,8 +6,8 @@ The first four previously uncoded records, selected by paper-ID order, have
 research1138 (ARTEMIS). Exact official source URLs and row locators accompany
 each record. All are pending independent review and retain description-level
 evidence status. They are not added to the 49-record selected adjudication sample.
-With forty-nine batches, 289 additional drafts are available;
-205 of the 543 current DAC descriptions still need initial technical coding.
+With fifty batches, 295 additional drafts are available;
+199 of the 543 current DAC descriptions still need initial technical coding.
 Draft coverage does not mean complete technical evidence. Research1691's extraction
 has been repaired, but its energy/power boundary remains unresolved.
 
@@ -564,6 +564,17 @@ percentage loss or remaining-throughput claim without a definition.
 | 2621 Code switching | Min-cut compilation | Minimality domain and weighted physical costs unknown |
 | 2631 ARC-SRAM | Local addressing and charge reuse | Cell-array gains from research PDK, not fabricated-node evidence |
 
-All 289 records have source-separated review packets. Next: resolve the ATB
+## Fiftieth batch
+
+| Paper | Mechanism | Evidence boundary |
+|---|---|---|
+| 2637 RangeLFS | Range tree and partial-page writeback | Device/API alignment claim needs verification |
+| 2642 LLM4SDC | Specification/path/constraint agents | One average quality figure, not three separately measured improvements |
+| 2646 TOPCELL | GRPO topology generation | 7 nm speedup differs from qualitative 2 nm evaluation |
+| 2648 PD-Net | Device-invariant leakage features | Success/divergence counts do not exhaust 70 settings |
+| 2650 RESP | Self-calibrated structured pruning | Scores at 40% sparsity; ambiguous baseline percentage convention |
+| 2670 HIP-MaN | Periodic phase navigation | Longer-path tradeoff; speed does not establish collision safety |
+
+All 295 records have source-separated review packets. Next: resolve the ATB
 numeric comparison from primary evidence and continue uncoded descriptions in
 stable order, preserving gaps and possible counterexamples.

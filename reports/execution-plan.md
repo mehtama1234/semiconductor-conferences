@@ -4,6 +4,12 @@ The governing scope and acceptance criteria are in [GOAL.md](../GOAL.md).
 This log distinguishes finished work from queued work; a plan is not a completed
 research result.
 
+Latest batch: DAC 2026 IDs 2637, 2642, 2646, 2648, 2650 and 2670 bring
+current drafts to 295, leaving 199 descriptions uncoded. ZNS alignment claims,
+constraint-quality aggregation, node-specific topology results, non-exhaustive
+attack outcomes and pruning/navigation tradeoffs remain explicit. All 322 draft
+papers have source-separated packets; independent acceptance remains pending.
+
 Latest batch: DAC 2026 IDs 257, 259, 2596, 2620, 2621 and 2631 bring
 current drafts to 289, leaving 205 descriptions uncoded. Speculative-decoding
 conditions, energy-efficiency scope, quantum compiler proof/artifact gaps,
