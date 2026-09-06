@@ -6,8 +6,8 @@ The first four previously uncoded records, selected by paper-ID order, have
 research1138 (ARTEMIS). Exact official source URLs and row locators accompany
 each record. All are pending independent review and retain description-level
 evidence status. They are not added to the 49-record selected adjudication sample.
-With forty batches, 235 additional drafts are available;
-259 of the 543 current DAC descriptions still need initial technical coding.
+With forty-one batches, 241 additional drafts are available;
+253 of the 543 current DAC descriptions still need initial technical coding.
 Draft coverage does not mean complete technical evidence. Research1691's extraction
 has been repaired, but its energy/power boundary remains unresolved.
 
@@ -465,6 +465,17 @@ percentage loss or remaining-throughput claim without a definition.
 | 2317 UltraSketchLLM | Sub-bit sketches and hardware-friendly operators | Speedup is versus naive sketch, not dense inference |
 | 2319 ChipModeler | Hierarchical reference-model generation | Undefined performance, capacity and cycle-time claims kept distinct |
 
-All 235 records have source-separated review packets. Next: resolve the ATB
+## Forty-first batch
+
+| Paper | Mechanism | Evidence boundary |
+|---|---|---|
+| 2329 ShortCircuit | AlphaZero-guided AIG generation | Size baseline ABC differs from unnamed rollout-speed comparator |
+| 2330 HP-CIM | ReRAM hash/CAM sparse attention | Baseline/quality/device conditions missing across reported ranges |
+| 2333 PBA-rGAT-Edge | Residual graph attention timing prediction | R-squared is not percentage accuracy or signoff evidence |
+| 2336 EKAN compact modeling | Physics-prior neural-to-symbolic distillation | Qualitative accuracy and SPICE readiness; solver tests absent |
+| 2345 ScoutAttention | Layer-ahead sparse CPU/GPU attention | Within-2.4% convention ambiguous; offload and quality checks needed |
+| 2346 WF-PINN | Weak-form self-supervised device surrogate | Unspecified error units; inference speed excludes training in its wording |
+
+All 241 records have source-separated review packets. Next: resolve the ATB
 numeric comparison from primary evidence and continue uncoded descriptions in
 stable order, preserving gaps and possible counterexamples.

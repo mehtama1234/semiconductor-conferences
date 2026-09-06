@@ -4,6 +4,12 @@ The governing scope and acceptance criteria are in [GOAL.md](../GOAL.md).
 This log distinguishes finished work from queued work; a plan is not a completed
 research result.
 
+Latest batch: DAC 2026 IDs 2329, 2330, 2333, 2336, 2345 and 2346 bring
+current drafts to 241, leaving 253 descriptions uncoded. Rollout versus ABC
+comparators, CIM quality parity, R-squared semantics, qualitative symbolic-model
+validation and device-surrogate error units remain explicit. All 268 draft papers
+have source-separated packets; independent acceptance remains pending.
+
 Latest batch: DAC 2026 IDs 2300, 2306, 2307, 2313, 2317 and 2319 bring
 current drafts to 235, leaving 259 descriptions uncoded. Mobile runtime scope,
 unverified CVE report counts, qualitative fault coverage, approximate expert inputs,
