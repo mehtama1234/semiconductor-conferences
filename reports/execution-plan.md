@@ -4,6 +4,12 @@ The governing scope and acceptance criteria are in [GOAL.md](../GOAL.md).
 This log distinguishes finished work from queued work; a plan is not a completed
 research result.
 
+Latest batch: DAC 2026 IDs 3153, 3154, 320, 3208, 3214 and 3237 bring
+current drafts to 373, leaving 121 descriptions uncoded. Emulator metric semantics,
+negative power-reduction wording, spatial-cut scope, extreme scheduling ratios,
+quantization-time boundaries and photonic hardware-in-loop limits remain explicit.
+All 400 draft papers have source-separated packets; independent acceptance remains pending.
+
 Latest batch: DAC 2026 IDs 3100, 3120, 3121, 3129, 3145 and 315 bring
 current drafts to 367, leaving 127 descriptions uncoded. Architecture-specific
 FPGA aggregates, phase-level accelerator metrics, exponent compression boundaries,
