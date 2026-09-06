@@ -4,6 +4,12 @@ The governing scope and acceptance criteria are in [GOAL.md](../GOAL.md).
 This log distinguishes finished work from queued work; a plan is not a completed
 research result.
 
+Latest batch: DAC 2026 IDs 520, 523, 529, 538, 544 and 550 bring
+current drafts to 409, leaving 85 descriptions uncoded. Superconductor component
+scope, learned-lemma soundness, PIM transaction gaps, TP migration costs,
+DRAM fault denominators and SPICE-versus-silicon distinctions remain explicit.
+All 436 draft papers have source-separated packets; independent acceptance remains pending.
+
 Latest batch: DAC 2026 IDs 461, 462, 484, 513, 514 and 518 bring
 current drafts to 403, leaving 91 descriptions uncoded. MoE metric scope,
 IDS improvement units, swapping capacity semantics, checkpoint recovery gaps,

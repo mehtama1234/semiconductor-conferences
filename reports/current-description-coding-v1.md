@@ -6,8 +6,8 @@ The first four previously uncoded records, selected by paper-ID order, have
 research1138 (ARTEMIS). Exact official source URLs and row locators accompany
 each record. All are pending independent review and retain description-level
 evidence status. They are not added to the 49-record selected adjudication sample.
-With sixty-eight batches, 403 additional drafts are available;
-91 of the 543 current DAC descriptions still need initial technical coding.
+With sixty-nine batches, 409 additional drafts are available;
+85 of the 543 current DAC descriptions still need initial technical coding.
 Draft coverage does not mean complete technical evidence. Research1691's extraction
 has been repaired, but its energy/power boundary remains unresolved.
 
@@ -773,6 +773,17 @@ percentage loss or remaining-throughput claim without a definition.
 | 514 Phantom | Constraint-filtered synthetic PCIe traces | Unnamed task-specific ratio is not a speed or validity result |
 | 518 FlexiCTS | CPPR-aware cross-die buffer assignment | Construction guarantee and all-corner timing require review |
 
-All 403 records have source-separated review packets. Next: resolve the ATB
+## Sixty-ninth batch
+
+| Paper | Mechanism | Evidence boundary |
+|---|---|---|
+| 520 Superconductor minimization | Polarity/register retiming and interface redesign | JJ counts differ from area/energy; amplifier evidence is component-level |
+| 523 LeGend | Reusable global latch embeddings | Lemma guidance requires validity checks; acceleration unquantified |
+| 529 Onyx | Locality-balanced PIM transactions | Real prototype, but performance and correctness evidence remain incomplete |
+| 538 Amoeba | Runtime tensor-parallel transformation | Trace throughput does not establish SLOs or migration cost |
+| 544 DRCA | Dual-rail DRAM bitwise computation | Failure ratio lacks absolute rates and fault conditions |
+| 550 EPiCell | Electro-physical graph surrogate | SPICE errors and median ranking correlations are separate, not silicon validation |
+
+All 409 records have source-separated review packets. Next: resolve the ATB
 numeric comparison from primary evidence and continue uncoded descriptions in
 stable order, preserving gaps and possible counterexamples.
