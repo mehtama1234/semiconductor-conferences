@@ -245,6 +245,15 @@ def test_learning_index_links_the_three_workstreams() -> None:
     text = (ROOT / "reports/learning-index-v0.md").read_text()
     for marker in ("DAC 2026", "ISCA 2026", "ICCAD 2026 / 2025 fallback", "Cross-conference direction synthesis"):
         assert marker in text
+    assert "Technology direction synthesis v1" in text
+
+
+def test_root_synthesis_preserves_evidence_asymmetry_and_next_requirements() -> None:
+    text = (ROOT / "reports/technology-direction-synthesis-v1.md").read_text()
+    assert "67-record adjudication sample" in text
+    assert "not a prevalence estimate" in text
+    assert "independent adversarial LLM or human review" in text
+    assert "Conference complementarity" in text
 
 
 def test_detailed_taxonomy_and_adversarial_protocol_exist() -> None:
