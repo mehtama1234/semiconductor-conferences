@@ -6,8 +6,8 @@ The first four previously uncoded records, selected by paper-ID order, have
 research1138 (ARTEMIS). Exact official source URLs and row locators accompany
 each record. All are pending independent review and retain description-level
 evidence status. They are not added to the 49-record selected adjudication sample.
-With thirty-six batches, 211 additional drafts are available;
-283 of the 543 current DAC descriptions still need initial technical coding.
+With thirty-seven batches, 217 additional drafts are available;
+277 of the 543 current DAC descriptions still need initial technical coding.
 Draft coverage does not mean complete technical evidence. Research1691's extraction
 has been repaired, but its energy/power boundary remains unresolved.
 
@@ -421,6 +421,17 @@ percentage loss or remaining-throughput claim without a definition.
 | 2184 Adana | Adaptive asymmetric quantization co-design | Power is not energy; numeric precision and accuracy conditions missing |
 | 2199 ExpertFlow | Predictive expert cache and token scheduling | GPU memory is not total system memory; throughput is not latency |
 
-All 211 records have source-separated review packets. Next: resolve the ATB
+## Thirty-seventh batch
+
+| Paper | Mechanism | Evidence boundary |
+|---|---|---|
+| 2207 PRISM | Priority-aware group-scale encoding | Group scale is not per-value precision; accuracy scores unspecified |
+| 2216 Safe-IoT | Memory-efficient NTT and LUT multiplication | ATP, throughput and on-chip RAM factors have separate meanings/baselines |
+| 223 iHyperG | Delta hypergraphs and selective refinement | Update and partitioning stage gains cannot be multiplied |
+| 2230 WSC-Cost | Stitching/interposer cost modeling | No numeric validation error, costs or production assumptions |
+| 2235 CoX-MoE | Coalesced AMX CPU/GPU expert execution | Separate throughput maxima; hardware and quality parity unknown |
+| 2243 MIRAGE | Hierarchical sparse multivector retrieval | Computation reduction is not measured runtime speedup |
+
+All 217 records have source-separated review packets. Next: resolve the ATB
 numeric comparison from primary evidence and continue uncoded descriptions in
 stable order, preserving gaps and possible counterexamples.

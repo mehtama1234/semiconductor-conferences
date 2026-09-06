@@ -4,6 +4,12 @@ The governing scope and acceptance criteria are in [GOAL.md](../GOAL.md).
 This log distinguishes finished work from queued work; a plan is not a completed
 research result.
 
+Latest batch: DAC 2026 IDs 2207, 2216, 223, 2230, 2235 and 2243 bring
+current drafts to 217, leaving 277 descriptions uncoded. Shared-scale precision,
+ATP versus throughput, incremental stage boundaries, cost-model validation gaps
+and retrieval computation versus runtime remain explicit. All 244 draft papers
+have source-separated packets; independent acceptance remains pending.
+
 Latest batch: DAC 2026 IDs 2159, 2169, 2177, 2179, 2184 and 2199 bring
 current drafts to 211, leaving 283 descriptions uncoded. Optimization quality,
 diffusion decoding parity, separate PEX/simulation stages, F1/accuracy conventions,
