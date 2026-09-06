@@ -4,6 +4,12 @@ The governing scope and acceptance criteria are in [GOAL.md](../GOAL.md).
 This log distinguishes finished work from queued work; a plan is not a completed
 research result.
 
+Latest batch: DAC 2026 IDs 640, 641, 648, 649, 651 and 656 bring
+current drafts to 427, leaving 67 descriptions uncoded. Unnamed accelerator
+metrics, qualitative detection/fill results, SEM data limits, NUMA aggregation
+and predistortion operating-range semantics remain explicit.
+All 454 draft papers have source-separated packets; independent acceptance remains pending.
+
 Latest batch: DAC 2026 IDs 607, 609, 616, 617, 625 and 628 bring
 current drafts to 421, leaving 73 descriptions uncoded. SSD simulation scope,
 management overhead, peripheral-model validity, nonlinear approximation,

@@ -6,8 +6,8 @@ The first four previously uncoded records, selected by paper-ID order, have
 research1138 (ARTEMIS). Exact official source URLs and row locators accompany
 each record. All are pending independent review and retain description-level
 evidence status. They are not added to the 49-record selected adjudication sample.
-With seventy-one batches, 421 additional drafts are available;
-73 of the 543 current DAC descriptions still need initial technical coding.
+With seventy-two batches, 427 additional drafts are available;
+67 of the 543 current DAC descriptions still need initial technical coding.
 Draft coverage does not mean complete technical evidence. Research1691's extraction
 has been repaired, but its energy/power boundary remains unresolved.
 
@@ -806,6 +806,17 @@ percentage loss or remaining-throughput claim without a definition.
 | 625 AttestLLM | Activation watermark and TEE attestation | Security and overhead claims are unquantified |
 | 628 Faster-MoA | Tree pruning and prefill/decode overlap | Accuracy percentage convention and quality-matched latency need review |
 
-All 421 records have source-separated review packets. Next: resolve the ATB
+## Seventy-second batch
+
+| Paper | Mechanism | Evidence boundary |
+|---|---|---|
+| 640 AMBER | Bit-transposed compression and bit-serial compute | Unnamed compute metric is not assumed throughput |
+| 641 TorR | Cached hyperdimensional detection | Qualitative energy/AP; control labels are not measured frame rates |
+| 648 DiffFill | Learned capacitance and differentiable fill | Proxy delay is not signoff timing; gains unquantified |
+| 649 DiffTail | Masked synthesis and process-correlated metrics | Tail detection claims do not establish yield gains |
+| 651 Laelaps | NUMA cache/thread/eviction coordination | Geometric mean and overhead require workload/accounting context |
+| 656 ASG-MOENN | Power-adaptive sparse-expert predistortion | Operating dB span differs from linearization or energy improvement |
+
+All 427 records have source-separated review packets. Next: resolve the ATB
 numeric comparison from primary evidence and continue uncoded descriptions in
 stable order, preserving gaps and possible counterexamples.
