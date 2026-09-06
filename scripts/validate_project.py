@@ -44,6 +44,8 @@ def validate(root: Path = ROOT) -> dict:
         "iccad_fallback_paper_metadata_present": normalized_metadata_rows(read_jsonl(root / "iccad/data/papers-2025-program.jsonl")) and all(row.get("target_edition") == 2026 and row.get("analysis_edition") == 2025 and row.get("access_status") == "official_fallback_program_pdf_metadata_only" for row in read_jsonl(root / "iccad/data/papers-2025-program.jsonl")),
         "isca_normalized_metadata_present": normalized_metadata_rows(read_jsonl(root / "isca/data/papers.jsonl")),
         "dac_program_capture_present": program_rows_valid(read_jsonl(root / "dac/data/program-presentations.jsonl")) and all(row.get("record_status") == "program_metadata_only" and row.get("program_url") for row in read_jsonl(root / "dac/data/program-presentations.jsonl")) and normalized_metadata_rows(read_jsonl(root / "dac/data/papers-2026-program.jsonl")),
+        "dac_paper_evidence_capture_present": all(row.get("fetch_status") in {"ok", "error"} and row.get("evidence_url") for row in read_jsonl(root / "dac/data/paper-evidence-2026.jsonl")),
+        "dac_adjudicated_batch_has_evidence": all(row.get("evidence_url") and row.get("evidence_span") and row.get("problem") and row.get("method_or_artifact") and row.get("limits") for row in read_jsonl(root / "dac/data/adjudicated-2026-batch.jsonl")),
     }
     return {"contract": "semiconductor-conference-scaffold.v1", "status": "passed" if all(checks.values()) else "failed", "checks": checks, "conference_count": len(conferences), "taxonomy_theme_count": len(taxonomy.get("themes", []))}
 

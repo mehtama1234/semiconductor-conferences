@@ -54,3 +54,17 @@ def test_iccad_fallback_keeps_target_and_analysis_editions_distinct() -> None:
     assert len({row["doi_or_identifier"] for row in rows}) == len(rows)
     assert all(row["target_edition"] == 2026 and row["analysis_edition"] == 2025 for row in rows)
     assert all(row["classification_confidence"] == "not_classified" for row in rows)
+
+
+def test_dac_evidence_rows_keep_source_and_status() -> None:
+    rows = [json.loads(line) for line in (ROOT / "dac/data/paper-evidence-2026.jsonl").read_text().splitlines() if line.strip()]
+    assert len(rows) >= 10
+    assert all(row["evidence_url"].startswith("https://63dac.conference-program.com/") for row in rows)
+    assert all(row["fetch_status"] in {"ok", "error"} for row in rows)
+
+
+def test_dac_adjudicated_batch_has_cited_technical_fields() -> None:
+    rows = [json.loads(line) for line in (ROOT / "dac/data/adjudicated-2026-batch.jsonl").read_text().splitlines() if line.strip()]
+    assert len(rows) == 8
+    assert all(row["evidence_url"] and row["evidence_span"] for row in rows)
+    assert all(row["problem"] and row["method_or_artifact"] and row["metrics"] for row in rows)
