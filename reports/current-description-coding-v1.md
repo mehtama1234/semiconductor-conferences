@@ -6,8 +6,8 @@ The first four previously uncoded records, selected by paper-ID order, have
 research1138 (ARTEMIS). Exact official source URLs and row locators accompany
 each record. All are pending independent review and retain description-level
 evidence status. They are not added to the 49-record selected adjudication sample.
-With fifty-one batches, 301 additional drafts are available;
-193 of the 543 current DAC descriptions still need initial technical coding.
+With fifty-two batches, 307 additional drafts are available;
+187 of the 543 current DAC descriptions still need initial technical coding.
 Draft coverage does not mean complete technical evidence. Research1691's extraction
 has been repaired, but its energy/power boundary remains unresolved.
 
@@ -586,6 +586,17 @@ percentage loss or remaining-throughput claim without a definition.
 | 2708 M²CAM | Adaptive multilevel genome matching | Dataset evaluation differs from measured silicon; baseline mapping absent |
 | 271 CAL-DSE | Causal graph-guided CPU search | Hypervolume is not CPU performance; causal validation unspecified |
 
-All 301 records have source-separated review packets. Next: resolve the ATB
+## Fifty-second batch
+
+| Paper | Mechanism | Evidence boundary |
+|---|---|---|
+| 2713 PQC RISC-V | Modular CV-X-IF scalar crypto ALU | Post-synthesis area; standards/release claims not independently verified |
+| 2717 Sparse 3D operators | Fusion, approximation and mixed precision | Operator gains differ from end-to-end gains; quality convention unknown |
+| 272 ZK-Flex | Multi-precision POLY/EC co-design | Area efficiency is not area reduction; proof boundary unspecified |
+| 2721 DySL-VLA | Action-guided distilled layer skipping | Success length is not success rate or measured acceleration |
+| 2737 Verification RL | EDA-assisted testbench feedback | Qualitative gains; generated tests are not complete correctness oracles |
+| 2753 Token-stationary MoE | Variable-token systolic execution | Padding avoidance and outperformance lack numeric system evaluation |
+
+All 307 records have source-separated review packets. Next: resolve the ATB
 numeric comparison from primary evidence and continue uncoded descriptions in
 stable order, preserving gaps and possible counterexamples.

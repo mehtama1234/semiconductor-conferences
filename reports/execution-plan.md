@@ -4,6 +4,12 @@ The governing scope and acceptance criteria are in [GOAL.md](../GOAL.md).
 This log distinguishes finished work from queued work; a plan is not a completed
 research result.
 
+Latest batch: DAC 2026 IDs 2713, 2717, 272, 2721, 2737 and 2753 bring
+current drafts to 307, leaving 187 descriptions uncoded. Post-synthesis crypto,
+operator/end-to-end scope, proof efficiency, VLA success length and qualitative
+verification/dataflow claims remain explicit. All 334 draft papers have
+source-separated packets; independent acceptance remains pending.
+
 Latest batch: DAC 2026 IDs 2686, 2694, 2698, 270, 2708 and 271 bring
 current drafts to 301, leaving 193 descriptions uncoded. NAND recovery denominators,
 spectral scaling, retained Bayesian compute, refresh-overhead limits, dataset

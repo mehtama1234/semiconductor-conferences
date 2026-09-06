@@ -10,7 +10,7 @@ def test_current_drafts_preserve_identity_and_numeric_disagreement():
     rows = read_jsonl(ROOT / "data/current-description-coding-v1.jsonl")
     sources = {r["paper_id"]: r for r in read_jsonl(ROOT / "dac/data/paper-evidence-2026.jsonl")}
     branches = {r["theme_id"]: r["subthemes"] for r in json.loads((ROOT / "data/taxonomy-v1-evidence.json").read_text())["themes"]}
-    assert len(rows) == len({r["paper_id"] for r in rows}) == 301
+    assert len(rows) == len({r["paper_id"] for r in rows}) == 307
     for row in rows:
         for key in ["title", "evidence_url", "analysis_edition", "evidence_collection_date"]:
             assert row[key] == sources[row["paper_id"]][key]
@@ -222,3 +222,8 @@ def test_current_drafts_preserve_identity_and_numeric_disagreement():
     causal = next(r for r in rows if r["paper_id"] == "dac-2026-research271")
     assert causal["metrics"][0]["metric"] == "hypervolume improvement"
     assert "not 4.12x processor performance" in causal["limits"][0]
+    detector = next(r for r in rows if r["paper_id"] == "dac-2026-research2717")
+    assert detector["metrics"][4]["metric"] == "end-to-end speedup"
+    assert detector["metrics"][4]["value"] == [2.1, 2.5]
+    vla = next(r for r in rows if r["paper_id"] == "dac-2026-research2721")
+    assert vla["metrics"][0]["metric"] == "success length improvement"
