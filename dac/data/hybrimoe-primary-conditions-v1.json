@@ -1,0 +1,28 @@
+{
+  "schema": "supplementary-primary-conditions.v1",
+  "paper_id": "dac-2025-research1019",
+  "title": "HybriMoE: Hybrid CPU-GPU Scheduling and Cache Management for Efficient MoE Inference",
+  "source_id": "dac-2025-hybrimoe-arxiv-v1",
+  "source_url": "https://arxiv.org/html/2504.05897v1",
+  "source_version": "2504.05897v1",
+  "capture_date": "2026-09-06",
+  "source_tier": "primary_author_preprint",
+  "identity_status": "normalized_title_and_all_six_authors_match_program",
+  "raw_capture_path": "dac/data/raw/hybrimoe-2504.05897v1.html",
+  "raw_sha256": "c3abc86bb6e0f10858363a319122f10b2c3ae92727e31385f822aadba6283455",
+  "extraction_scope": "Implementation and experimental prose; plotted data and malformed HTML ablation table not transcribed",
+  "conditions": {
+    "hardware": {"gpu": "NVIDIA RTX A6000", "cpu": "Intel Xeon Gold 5220R", "cpu_cores_used": 10, "locator": "S6.SS1.SSS1"},
+    "models": {"names": ["Mixtral-8x7B-Instruct", "DeepSeek-V2-Lite-Chat", "Qwen2-57B-A14B-Instruct"], "locator": "S6.SS1.SSS2"},
+    "implementation": {"base": "kTransformers and llama.cpp kernels", "quantization": "4-bit Marlin as described by authors; implementation provenance not independently verified", "locator": "S5"},
+    "prefill": {"datasets": ["MT Bench", "Vicuna Bench", "ChatGPT Prompts"], "approximate_input_tokens": [32, 128, 512, 1024], "gpu_expert_cache_ratios": [0.25, 0.5, 0.75], "locators": ["S6.SS1.SSS5", "S6.SS2.SSS1"]},
+    "decode": {"dataset": "ChatGPT Prompts", "locator": "S6.SS1.SSS5"}
+  },
+  "metrics": [
+    {"metric": "TTFT speedup", "value": 1.33, "unit": "x", "qualifier": "average", "baseline": "kTransformers", "aggregation": "across input lengths and cache configurations; weighting unspecified", "locator": "S6.SS2.SSS1"},
+    {"metric": "decode throughput improvement", "value": 1.70, "unit": "x", "qualifier": "average", "baseline": "kTransformers", "aggregation": "model/cache comparison; weighting unspecified", "locator": "S6.SS2.SSS2"}
+  ],
+  "remaining_unknowns": ["Exact software commits", "Repeat count and variance", "Batch/concurrency settings in extracted prose", "Accuracy parity", "Aggregation weights"],
+  "interpretation_limits": ["Single identified hardware setup with cache-ratio variation is not demonstrated hardware diversity.", "No attack evaluation establishes a connection to Icarus.", "Selected-section extraction is not independent reproduction or complete full-paper adjudication.", "Version pinned for reproducibility; equivalence to final proceedings version not verified."],
+  "independent_review_status": "pending"
+}

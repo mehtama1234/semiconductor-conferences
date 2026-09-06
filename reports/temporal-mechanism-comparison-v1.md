@@ -34,6 +34,10 @@ metrics for subsequent full-paper extraction.
 
 ## Temporal conclusion
 
+A [HybriMoE primary-condition supplement](../dac/reports/hybrimoe-primary-conditions-v1.md)
+now resolves some missing 2025 experimental details. It is kept outside this
+description-tier comparison until equivalent 2026 source depth is available.
+
 The sample establishes related technical mechanisms in both editions and exposes
 concrete differences worth investigating. It does not establish that any topic
 is rising or declining. A historical absence cannot be inferred from the 395

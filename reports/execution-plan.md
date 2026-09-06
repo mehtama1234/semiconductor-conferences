@@ -19,6 +19,14 @@ sample and must not be double-counted. Next: full-paper condition recovery,
 taxonomy adjudication, independent review and comparable population design.
 Description-pass completeness is not independent acceptance.
 
+Primary-depth increment: HybriMoE arXiv v1 matches the official title and six
+authors. Selected implementation/experiment sections now support a separate
+[conditions supplement](../dac/reports/hybrimoe-primary-conditions-v1.md), including
+the named kTransformers baseline for both headline averages. Raw HTML is hashed;
+table/plot extraction, accuracy parity, independent review and final-version
+reconciliation remain open. The description-tier pilot and sample counts are
+unchanged. Next: equivalent Icarus source depth and other synthesis-anchor gaps.
+
 | Subgoal | State | Next deliverable |
 |---|---|---|
 | 1. Recovered checkpoint | Complete: `216135d` | Preserved evidence and end-to-end scope |
