@@ -26,6 +26,6 @@ three still need original text captured. Abstracts do not supply all full-paper
 conditions, and source capture does not replace independent judgment.
 
 No packet is accepted merely because it exists. The separate coverage index lists
-33 synthesis anchors for scheduling and is excluded from judge inputs to avoid
+37 synthesis anchors for scheduling and is excluded from judge inputs to avoid
 priming conclusions. The corrected preflight reports 69 pass / 3 review rather
 than manufacturing support by comparing uncaptured summaries with themselves.

@@ -21,10 +21,11 @@ ranking, or proof that a direction is rising.
 
 ## Executive interpretation
 
-The strongest shared signal is a change in the unit of engineering. Papers are
-increasingly optimizing a coupled loop—model or algorithm, architecture,
+The selected evidence contains multiple examples of coupled engineering.
+These papers optimize a loop spanning model or algorithm, architecture,
 compiler/runtime, memory/interconnect, physical constraints, and reliability—rather
-than optimizing one layer in isolation.
+than treating each layer as an isolated design problem. This is a pattern within
+the selected sample, not a measured increase over time.
 
 The most defensible conclusion is therefore a capability statement:
 

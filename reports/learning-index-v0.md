@@ -13,6 +13,7 @@ organized around technical questions, not just conference names.
 - [Cross-conference direction synthesis](cross-conference-direction-v0.md)
 - [Technology direction synthesis v1](technology-direction-synthesis-v1.md)
 - [Technology direction evidence map](../data/technology-direction-evidence-v1.json)
+- [Synthesis reference reconciliation](synthesis-mapping-review-2026-09-06.md)
 - [Evidence-derived taxonomy](../data/taxonomy-v1-evidence.json)
 - [Detailed taxonomy and coding guide](taxonomy-coding-guide-v1.md)
 - [Adversarial judge protocol](adversarial-judge-protocol-v1.md)

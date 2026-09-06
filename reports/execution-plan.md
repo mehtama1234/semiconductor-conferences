@@ -62,6 +62,20 @@ The recovered evidence increment and planning changes were committed as `216135d
 
 ## Open dependencies and limits
 
+Synthesis mapping batch: corrected three semantically misplaced references
+(quantum synthesis under AI design, RSizing under the telemetry-attack example,
+and Energon under physical integration). Added direct HLS/technology-mapping and
+multi-fidelity references, yielding 37 unique anchors. The changed links carry
+rationales and a non-independent reconciliation status; see
+[mapping review](synthesis-mapping-review-2026-09-06.md). The synthesis opening
+now describes a selected-sample pattern rather than an unsupported increase.
+
+Source retrieval check: the ECC-PIM institutional page is browser-readable but
+direct Python retrieval returned HTTP 403. Its original capture gap remains;
+no access bypass was attempted. Panmnesia's public publications page was checked
+but the visible listing did not supply an exact 2026 author-paper link. These
+are limited route outcomes, not proof of permanent source unavailability.
+
 Original-source capture batch: 18 arXiv abstracts and two author-PDF abstracts
 now have matching normalized titles, raw/text hashes, capture dates, and source
 locators. All 20 are embedded separately from researcher summaries. The remaining

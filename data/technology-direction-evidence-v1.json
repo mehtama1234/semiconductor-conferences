@@ -8,88 +8,370 @@
     {
       "direction_id": "tool-grounded-ai-design-verification",
       "label": "Tool-grounded AI for design and verification",
-      "subskills": ["hierarchical multi-agent chiplet design", "PPA-aware RTL generation", "RL Verilog generation", "HLS bug localization and correction", "LLM-controlled HLS exploration", "executable technology-map evolution"],
+      "subskills": [
+        "hierarchical multi-agent chiplet design",
+        "PPA-aware RTL generation",
+        "RL Verilog generation",
+        "HLS bug localization and correction",
+        "LLM-controlled HLS exploration",
+        "executable technology-map evolution"
+      ],
       "evidence": [
-        {"conference_id": "dac", "analysis_edition": 2026, "paper_id": "dac-2026-research031", "evidence_tier": "official_description"},
-        {"conference_id": "iccad", "analysis_edition": 2025, "paper_id": "iccad-2025-1207", "evidence_tier": "primary_preprint"},
-        {"conference_id": "iccad", "analysis_edition": 2025, "paper_id": "iccad-2025-1222", "evidence_tier": "primary_preprint"},
-        {"conference_id": "iccad", "analysis_edition": 2025, "paper_id": "iccad-2025-110", "evidence_tier": "primary_preprint"},
-        {"conference_id": "iccad", "analysis_edition": 2025, "paper_id": "iccad-2025-1027", "evidence_tier": "primary_preprint"},
-        {"conference_id": "isca", "analysis_edition": 2026, "paper_id": "isca-2026-program-002", "evidence_tier": "primary_preprint"}
+        {
+          "conference_id": "dac",
+          "analysis_edition": 2026,
+          "paper_id": "dac-2026-research1110",
+          "evidence_tier": "official_description",
+          "mapping_rationale": "LLM-generated HLS architecture with synthesizable FPGA output supports design generation grounded in hardware implementation.",
+          "mapping_review_status": "researcher_reconciliation_not_independent"
+        },
+        {
+          "conference_id": "dac",
+          "analysis_edition": 2026,
+          "paper_id": "dac-2026-research865",
+          "evidence_tier": "official_description",
+          "mapping_rationale": "LLM-guided HLS directive search supports the HLS design-space exploration subskill.",
+          "mapping_review_status": "researcher_reconciliation_not_independent"
+        },
+        {
+          "conference_id": "dac",
+          "analysis_edition": 2026,
+          "paper_id": "dac-2026-research535",
+          "evidence_tier": "official_description",
+          "mapping_rationale": "Planner/Evolver/Evaluator code evolution and benchmark evaluation support tool-grounded technology mapping.",
+          "mapping_review_status": "researcher_reconciliation_not_independent"
+        },
+        {
+          "conference_id": "iccad",
+          "analysis_edition": 2025,
+          "paper_id": "iccad-2025-1207",
+          "evidence_tier": "primary_preprint"
+        },
+        {
+          "conference_id": "iccad",
+          "analysis_edition": 2025,
+          "paper_id": "iccad-2025-1222",
+          "evidence_tier": "primary_preprint"
+        },
+        {
+          "conference_id": "iccad",
+          "analysis_edition": 2025,
+          "paper_id": "iccad-2025-110",
+          "evidence_tier": "primary_preprint"
+        },
+        {
+          "conference_id": "iccad",
+          "analysis_edition": 2025,
+          "paper_id": "iccad-2025-1027",
+          "evidence_tier": "primary_preprint"
+        },
+        {
+          "conference_id": "isca",
+          "analysis_edition": 2026,
+          "paper_id": "isca-2026-program-002",
+          "evidence_tier": "primary_preprint"
+        }
       ],
       "limits": "The records support tool-grounded mechanisms, not average-case correctness, model/API cost, transfer across design suites, or production adoption."
     },
     {
       "direction_id": "data-movement-as-contract",
       "label": "Data movement as an algorithm/architecture contract",
-      "subskills": ["MoE expert traffic placement", "disaggregated compute/network/storage", "CXL near-memory search", "OS/hardware tiering", "row-aligned sparse-attention PIM", "KV-cache management", "CPU/PIM contention scheduling"],
+      "subskills": [
+        "MoE expert traffic placement",
+        "disaggregated compute/network/storage",
+        "CXL near-memory search",
+        "OS/hardware tiering",
+        "row-aligned sparse-attention PIM",
+        "KV-cache management",
+        "CPU/PIM contention scheduling"
+      ],
       "evidence": [
-        {"conference_id": "dac", "analysis_edition": 2026, "paper_id": "dac-2026-research108", "evidence_tier": "official_description"},
-        {"conference_id": "dac", "analysis_edition": 2026, "paper_id": "dac-2026-research1028", "evidence_tier": "official_description"},
-        {"conference_id": "dac", "analysis_edition": 2026, "paper_id": "dac-2026-research1113", "evidence_tier": "official_description"},
-        {"conference_id": "isca", "analysis_edition": 2026, "paper_id": "isca-2026-program-005", "evidence_tier": "primary_preprint"},
-        {"conference_id": "isca", "analysis_edition": 2026, "paper_id": "isca-2026-program-155", "evidence_tier": "primary_preprint"},
-        {"conference_id": "isca", "analysis_edition": 2026, "paper_id": "isca-2026-program-003", "evidence_tier": "primary_preprint"},
-        {"conference_id": "isca", "analysis_edition": 2026, "paper_id": "isca-2026-program-007", "evidence_tier": "primary_preprint"},
-        {"conference_id": "isca", "analysis_edition": 2026, "paper_id": "isca-2026-program-008", "evidence_tier": "primary_preprint"},
-        {"conference_id": "isca", "analysis_edition": 2026, "paper_id": "isca-2026-program-044", "evidence_tier": "company_author_source"},
-        {"conference_id": "isca", "analysis_edition": 2026, "paper_id": "isca-2026-program-045", "evidence_tier": "company_author_source"},
-        {"conference_id": "isca", "analysis_edition": 2026, "paper_id": "isca-2026-program-069", "evidence_tier": "primary_author_paper"},
-        {"conference_id": "iccad", "analysis_edition": 2025, "paper_id": "iccad-2025-1103", "evidence_tier": "primary_preprint"}
+        {
+          "conference_id": "dac",
+          "analysis_edition": 2026,
+          "paper_id": "dac-2026-research108",
+          "evidence_tier": "official_description"
+        },
+        {
+          "conference_id": "dac",
+          "analysis_edition": 2026,
+          "paper_id": "dac-2026-research1028",
+          "evidence_tier": "official_description"
+        },
+        {
+          "conference_id": "dac",
+          "analysis_edition": 2026,
+          "paper_id": "dac-2026-research1113",
+          "evidence_tier": "official_description"
+        },
+        {
+          "conference_id": "isca",
+          "analysis_edition": 2026,
+          "paper_id": "isca-2026-program-005",
+          "evidence_tier": "primary_preprint"
+        },
+        {
+          "conference_id": "isca",
+          "analysis_edition": 2026,
+          "paper_id": "isca-2026-program-155",
+          "evidence_tier": "primary_preprint"
+        },
+        {
+          "conference_id": "isca",
+          "analysis_edition": 2026,
+          "paper_id": "isca-2026-program-003",
+          "evidence_tier": "primary_preprint"
+        },
+        {
+          "conference_id": "isca",
+          "analysis_edition": 2026,
+          "paper_id": "isca-2026-program-007",
+          "evidence_tier": "primary_preprint"
+        },
+        {
+          "conference_id": "isca",
+          "analysis_edition": 2026,
+          "paper_id": "isca-2026-program-008",
+          "evidence_tier": "primary_preprint"
+        },
+        {
+          "conference_id": "isca",
+          "analysis_edition": 2026,
+          "paper_id": "isca-2026-program-044",
+          "evidence_tier": "company_author_source"
+        },
+        {
+          "conference_id": "isca",
+          "analysis_edition": 2026,
+          "paper_id": "isca-2026-program-045",
+          "evidence_tier": "company_author_source"
+        },
+        {
+          "conference_id": "isca",
+          "analysis_edition": 2026,
+          "paper_id": "isca-2026-program-069",
+          "evidence_tier": "primary_author_paper"
+        },
+        {
+          "conference_id": "iccad",
+          "analysis_edition": 2025,
+          "paper_id": "iccad-2025-1103",
+          "evidence_tier": "primary_preprint"
+        }
       ],
       "limits": "Workloads, topologies, memory technologies, and metrics differ; no CXL, PIM, HBM, or scheduler ranking is supported."
     },
     {
       "direction_id": "reliability-security-design-loop",
       "label": "Reliability and security move into the main design loop",
-      "subskills": ["cross-layer ECC", "ECC-aware bank-PIM", "physical PuD interference", "NPU fault mitigation", "joint EM/IR modeling", "telemetry side channels", "adversarial MoE disruption"],
+      "subskills": [
+        "cross-layer ECC",
+        "ECC-aware bank-PIM",
+        "physical PuD interference",
+        "NPU fault mitigation",
+        "joint EM/IR modeling",
+        "telemetry side channels",
+        "adversarial MoE disruption"
+      ],
       "evidence": [
-        {"conference_id": "dac", "analysis_edition": 2026, "paper_id": "dac-2026-research043", "evidence_tier": "official_description"},
-        {"conference_id": "dac", "analysis_edition": 2026, "paper_id": "dac-2026-research046", "evidence_tier": "official_description"},
-        {"conference_id": "dac", "analysis_edition": 2026, "paper_id": "dac-2026-research1054", "evidence_tier": "official_description"},
-        {"conference_id": "isca", "analysis_edition": 2026, "paper_id": "isca-2026-program-004", "evidence_tier": "primary_preprint"},
-        {"conference_id": "isca", "analysis_edition": 2026, "paper_id": "isca-2026-program-009", "evidence_tier": "institutional_abstract"},
-        {"conference_id": "isca", "analysis_edition": 2026, "paper_id": "isca-2026-program-024", "evidence_tier": "primary_preprint"},
-        {"conference_id": "iccad", "analysis_edition": 2025, "paper_id": "iccad-2025-1080", "evidence_tier": "author_pdf"}
+        {
+          "conference_id": "dac",
+          "analysis_edition": 2026,
+          "paper_id": "dac-2026-research043",
+          "evidence_tier": "official_description"
+        },
+        {
+          "conference_id": "dac",
+          "analysis_edition": 2026,
+          "paper_id": "dac-2026-research046",
+          "evidence_tier": "official_description"
+        },
+        {
+          "conference_id": "dac",
+          "analysis_edition": 2026,
+          "paper_id": "dac-2026-research1054",
+          "evidence_tier": "official_description"
+        },
+        {
+          "conference_id": "isca",
+          "analysis_edition": 2026,
+          "paper_id": "isca-2026-program-004",
+          "evidence_tier": "primary_preprint"
+        },
+        {
+          "conference_id": "isca",
+          "analysis_edition": 2026,
+          "paper_id": "isca-2026-program-009",
+          "evidence_tier": "institutional_abstract"
+        },
+        {
+          "conference_id": "isca",
+          "analysis_edition": 2026,
+          "paper_id": "isca-2026-program-024",
+          "evidence_tier": "primary_preprint"
+        },
+        {
+          "conference_id": "iccad",
+          "analysis_edition": 2025,
+          "paper_id": "iccad-2025-1000",
+          "evidence_tier": "author_pdf",
+          "mapping_rationale": "Energon studies GPU power/thermal side channels and a threat model, supporting telemetry-based confidentiality attacks, not thermal integration optimization.",
+          "mapping_review_status": "researcher_reconciliation_not_independent"
+        }
       ],
       "limits": "Threat, fault, thermal, and physical-integrity models are distinct and cannot be reduced to one robustness score."
     },
     {
       "direction_id": "physical-integration-optimization-variable",
       "label": "Physical integration becomes an optimization variable",
-      "subskills": ["chiplet thermal reduction", "3D-IC thermal solving", "3D-stacked LLM placement", "package power-plane synthesis", "layout-aware agentic design", "thermal-straggler management"],
+      "subskills": [
+        "chiplet thermal reduction",
+        "3D-IC thermal solving",
+        "3D-stacked LLM placement",
+        "package power-plane synthesis",
+        "layout-aware agentic design",
+        "thermal-straggler management"
+      ],
       "evidence": [
-        {"conference_id": "dac", "analysis_edition": 2026, "paper_id": "dac-2026-research1065", "evidence_tier": "official_description"},
-        {"conference_id": "iccad", "analysis_edition": 2025, "paper_id": "iccad-2025-1103", "evidence_tier": "primary_preprint"},
-        {"conference_id": "iccad", "analysis_edition": 2025, "paper_id": "iccad-2025-1000", "evidence_tier": "primary_preprint"},
-        {"conference_id": "isca", "analysis_edition": 2026, "paper_id": "isca-2026-program-153", "evidence_tier": "primary_preprint"}
+        {
+          "conference_id": "dac",
+          "analysis_edition": 2026,
+          "paper_id": "dac-2026-research1065",
+          "evidence_tier": "official_description"
+        },
+        {
+          "conference_id": "iccad",
+          "analysis_edition": 2025,
+          "paper_id": "iccad-2025-1103",
+          "evidence_tier": "primary_preprint"
+        },
+        {
+          "conference_id": "isca",
+          "analysis_edition": 2026,
+          "paper_id": "isca-2026-program-153",
+          "evidence_tier": "primary_preprint"
+        },
+        {
+          "conference_id": "iccad",
+          "analysis_edition": 2025,
+          "paper_id": "iccad-2025-1207",
+          "evidence_tier": "primary_preprint",
+          "mapping_rationale": "MAHL links hierarchical chiplet design, AI-to-hardware mapping and design-space exploration; supports design-flow integration, not demonstrated manufacturing readiness.",
+          "mapping_review_status": "researcher_reconciliation_not_independent"
+        }
       ],
       "limits": "The evidence does not establish manufacturing readiness, a winning packaging technology, or generalization beyond evaluated geometry, materials, devices, and workloads."
     },
     {
       "direction_id": "multifidelity-physics-aware-search",
       "label": "Search and modeling become multi-fidelity and physics-aware",
-      "subskills": ["robust Bayesian analog sizing", "multi-fidelity exploration", "silicon-calibrated PPA surrogates", "physics-informed EM/IR", "exact quantum synthesis", "device stochasticity as computation"],
+      "subskills": [
+        "robust Bayesian analog sizing",
+        "multi-fidelity exploration",
+        "silicon-calibrated PPA surrogates",
+        "physics-informed EM/IR",
+        "exact quantum synthesis",
+        "device stochasticity as computation"
+      ],
       "evidence": [
-        {"conference_id": "dac", "analysis_edition": 2026, "paper_id": "dac-2026-research046", "evidence_tier": "official_description"},
-        {"conference_id": "dac", "analysis_edition": 2026, "paper_id": "dac-2026-research1101", "evidence_tier": "official_description"},
-        {"conference_id": "iccad", "analysis_edition": 2025, "paper_id": "iccad-2025-1080", "evidence_tier": "author_pdf"},
-        {"conference_id": "iccad", "analysis_edition": 2025, "paper_id": "iccad-2025-130", "evidence_tier": "primary_preprint"}
+        {
+          "conference_id": "dac",
+          "analysis_edition": 2026,
+          "paper_id": "dac-2026-research046",
+          "evidence_tier": "official_description"
+        },
+        {
+          "conference_id": "dac",
+          "analysis_edition": 2026,
+          "paper_id": "dac-2026-research1101",
+          "evidence_tier": "official_description"
+        },
+        {
+          "conference_id": "iccad",
+          "analysis_edition": 2025,
+          "paper_id": "iccad-2025-1080",
+          "evidence_tier": "author_pdf"
+        },
+        {
+          "conference_id": "iccad",
+          "analysis_edition": 2025,
+          "paper_id": "iccad-2025-130",
+          "evidence_tier": "primary_preprint"
+        },
+        {
+          "conference_id": "dac",
+          "analysis_edition": 2026,
+          "paper_id": "dac-2026-research031",
+          "evidence_tier": "official_description",
+          "mapping_rationale": "Exact T-library synthesis optimizes a quantum resource objective; supports the exact-synthesis subskill only, not learned or multi-fidelity optimization.",
+          "mapping_review_status": "researcher_reconciliation_not_independent"
+        },
+        {
+          "conference_id": "dac",
+          "analysis_edition": 2026,
+          "paper_id": "dac-2026-research1186",
+          "evidence_tier": "official_description",
+          "mapping_rationale": "XSearch combines low/high fidelity simulation and Bayesian microarchitecture exploration, directly supporting the multi-fidelity subskill.",
+          "mapping_review_status": "researcher_reconciliation_not_independent"
+        }
       ],
       "limits": "Search quality requires baseline budgets, constraint-violation analysis, model error, and independent reproduction; headline surrogate or figure-of-merit gains are conditional."
     },
     {
       "direction_id": "workload-specialized-accelerators",
       "label": "Specialized accelerators encode workload structure",
-      "subskills": ["outlier-aware LUT GEMM", "low-bit multiplier sharing", "structured-sparsity dataflow", "MoE routing co-design", "graph/rendering specialization", "training-free speculative decoding"],
+      "subskills": [
+        "outlier-aware LUT GEMM",
+        "low-bit multiplier sharing",
+        "structured-sparsity dataflow",
+        "MoE routing co-design",
+        "graph/rendering specialization",
+        "training-free speculative decoding"
+      ],
       "evidence": [
-        {"conference_id": "dac", "analysis_edition": 2026, "paper_id": "dac-2026-research1182", "evidence_tier": "official_description"},
-        {"conference_id": "isca", "analysis_edition": 2026, "paper_id": "isca-2026-program-020", "evidence_tier": "primary_preprint"},
-        {"conference_id": "isca", "analysis_edition": 2026, "paper_id": "isca-2026-program-005", "evidence_tier": "primary_preprint"},
-        {"conference_id": "isca", "analysis_edition": 2026, "paper_id": "isca-2026-program-006", "evidence_tier": "primary_preprint"},
-        {"conference_id": "isca", "analysis_edition": 2026, "paper_id": "isca-2026-program-007", "evidence_tier": "primary_preprint"},
-        {"conference_id": "isca", "analysis_edition": 2026, "paper_id": "isca-2026-program-008", "evidence_tier": "primary_preprint"},
-        {"conference_id": "iccad", "analysis_edition": 2025, "paper_id": "iccad-2025-1103", "evidence_tier": "primary_preprint"}
+        {
+          "conference_id": "dac",
+          "analysis_edition": 2026,
+          "paper_id": "dac-2026-research1182",
+          "evidence_tier": "official_description"
+        },
+        {
+          "conference_id": "isca",
+          "analysis_edition": 2026,
+          "paper_id": "isca-2026-program-020",
+          "evidence_tier": "primary_preprint"
+        },
+        {
+          "conference_id": "isca",
+          "analysis_edition": 2026,
+          "paper_id": "isca-2026-program-005",
+          "evidence_tier": "primary_preprint"
+        },
+        {
+          "conference_id": "isca",
+          "analysis_edition": 2026,
+          "paper_id": "isca-2026-program-006",
+          "evidence_tier": "primary_preprint"
+        },
+        {
+          "conference_id": "isca",
+          "analysis_edition": 2026,
+          "paper_id": "isca-2026-program-007",
+          "evidence_tier": "primary_preprint"
+        },
+        {
+          "conference_id": "isca",
+          "analysis_edition": 2026,
+          "paper_id": "isca-2026-program-008",
+          "evidence_tier": "primary_preprint"
+        },
+        {
+          "conference_id": "iccad",
+          "analysis_edition": 2025,
+          "paper_id": "iccad-2025-1103",
+          "evidence_tier": "primary_preprint"
+        }
       ],
       "limits": "Speedup claims remain conditional on model suite, sequence length, accuracy, area, energy, precision, and baseline hardware."
     }

@@ -15,7 +15,7 @@ first. The reviewer must evaluate numerical conditions, assumptions, limitations
 and a neighboring taxonomy category. The packet contains no independent verdict;
 do not treat its readiness state as acceptance.
 
-`review-packet-coverage.json` is the scheduling index, including 33 synthesis
+`review-packet-coverage.json` is the scheduling index, including 37 synthesis
 anchors. Do not include it in judge input: it reveals which conclusions the
 project is trying to support. Generated packets intentionally omit synthesis
 conclusions and previous same-model verdicts.
