@@ -36,6 +36,13 @@ def test_isca_metadata_rows_preserve_unknown_evidence() -> None:
     assert all(row["problem"] is None and row["metrics"] == [] for row in rows)
 
 
+def test_isca_program_inventory_is_metadata_only() -> None:
+    rows = [json.loads(line) for line in (ROOT / "isca/data/papers-2026-program.jsonl").read_text().splitlines() if line.strip()]
+    assert len(rows) >= 100
+    assert len({row["paper_id"] for row in rows}) == len(rows)
+    assert all(row["access_status"] == "official_program_metadata_only" for row in rows)
+
+
 def test_dac_program_records_preserve_program_only_status() -> None:
     rows = [json.loads(line) for line in (ROOT / "dac/data/program-presentations.jsonl").read_text().splitlines() if line.strip()]
     assert len(rows) >= 500
