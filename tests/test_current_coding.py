@@ -10,7 +10,7 @@ def test_current_drafts_preserve_identity_and_numeric_disagreement():
     rows = read_jsonl(ROOT / "data/current-description-coding-v1.jsonl")
     sources = {r["paper_id"]: r for r in read_jsonl(ROOT / "dac/data/paper-evidence-2026.jsonl")}
     branches = {r["theme_id"]: r["subthemes"] for r in json.loads((ROOT / "data/taxonomy-v1-evidence.json").read_text())["themes"]}
-    assert len(rows) == len({r["paper_id"] for r in rows}) == 91
+    assert len(rows) == len({r["paper_id"] for r in rows}) == 97
     for row in rows:
         for key in ["title", "evidence_url", "analysis_edition", "evidence_collection_date"]:
             assert row[key] == sources[row["paper_id"]][key]
@@ -57,3 +57,8 @@ def test_current_drafts_preserve_identity_and_numeric_disagreement():
     assert "measured" in dag["metrics"][1]["metric"]
     pmu = next(r for r in rows if r["paper_id"] == "dac-2026-research1495")
     assert pmu["metrics"][0]["unit"] == "events"
+    loha = next(r for r in rows if r["paper_id"] == "dac-2026-research1560")
+    assert all(m["metric"] == "throughput improvement" for m in loha["metrics"])
+    filco = next(r for r in rows if r["paper_id"] == "dac-2026-research1569")
+    assert len(filco["metrics"]) == 1
+    assert filco["metrics"][0]["qualifier"] == "jointly reported range"

@@ -6,8 +6,8 @@ The first four previously uncoded records, selected by paper-ID order, have
 research1138 (ARTEMIS). Exact official source URLs and row locators accompany
 each record. All are pending independent review and retain description-level
 evidence status. They are not added to the 49-record selected adjudication sample.
-With sixteen batches, 91 additional drafts are available;
-403 of the 543 current DAC descriptions still need initial technical coding.
+With seventeen batches, 97 additional drafts are available;
+397 of the 543 current DAC descriptions still need initial technical coding.
 
 ## Evidence requiring care
 
@@ -199,6 +199,17 @@ percentage loss or remaining-throughput claim without a definition.
 | 1519 AgenticDSE | Agent-guided multi-phase chiplet BO | Equal exploration counts do not ensure equal compute; token reductions are not financial savings |
 | 1524 GPU DAG scheduling | Kernel parallelism control and timing analysis | Worst-case bound and measured-runtime reductions remain separate; safety assumptions need full text |
 
-All 91 records have source-separated review packets. Next: resolve the ATB
+## Seventeenth batch
+
+| Paper | Mechanism | Evidence boundary |
+|---|---|---|
+| 1534 DRΛMA | Hybrid-grid detailed routing and adaptive search | Nine of ten designs are violation-free, not the entire benchmark |
+| 155 AccelCIM | SRAM CIM macro/array dataflow exploration | Cycle-accurate and post-layout analysis are not fabricated-chip measurements; no numeric result supplied |
+| 1552 Beyond Exact | Divergence-aware GPU block WCET analysis | Lower timing estimates are not faster execution; exactness depends on constraints |
+| 1560 LOHA | CPU traversal and speculative in-storage re-ranking | Numeric results are throughput, not latency; recall and concurrency are unknown |
+| 1562 PG-GNN | Physics-guided residual/active timing characterization | Mean errors do not bound worst corners or independently establish signoff readiness |
+| 1569 FILCO | Reconfigurable accelerator composition and DSE | Joint throughput/efficiency range cannot be split into two established per-metric ranges |
+
+All 97 records have source-separated review packets. Next: resolve the ATB
 numeric comparison from primary evidence and continue uncoded descriptions in
 stable order, preserving gaps and possible counterexamples.
