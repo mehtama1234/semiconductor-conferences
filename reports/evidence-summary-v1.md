@@ -1,39 +1,39 @@
 # Adjudicated evidence coverage — v1
 
-This report audits the current 54-record adjudication sample. It is not a
+This report audits the current 59-record adjudication sample. It is not a
 conference prevalence estimate, market forecast, or ranking.
 
 ## Coverage
 
 | Conference | Records |
 |---|---:|
-| dac | 44 |
+| dac | 49 |
 | iccad | 5 |
 | isca | 5 |
 
 | Evidence tier | Records |
 |---|---:|
-| official_description | 44 |
+| official_description | 49 |
 | primary_or_author_copy | 10 |
 
 ## Theme distribution
 
 | Theme | Selected records |
 |---|---:|
-| architecture-and-accelerators | 11 |
+| architecture-and-accelerators | 12 |
 | power-reliability-and-security | 9 |
+| ai-assisted-eda | 7 |
+| design-methodology-and-tooling | 7 |
 | memory-interconnect-and-storage | 7 |
-| design-methodology-and-tooling | 6 |
-| ai-assisted-eda | 5 |
 | physical-design-and-manufacturing | 5 |
+| verification-and-validation | 5 |
 | chiplets-3d-and-packaging | 4 |
-| verification-and-validation | 4 |
 | analog-mixed-signal-and-emerging-devices | 2 |
 | systems-applications-and-workloads | 1 |
 
 ## Field completeness
 
-54 of 54 records have all required technical fields populated.
+59 of 59 records have all required technical fields populated.
 Missing-field counts are recorded in the machine-readable JSON; an empty field means the evidence did not support a claim, not that the paper lacks the property.
 
 ## Limits

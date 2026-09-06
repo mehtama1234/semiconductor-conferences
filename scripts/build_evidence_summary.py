@@ -12,6 +12,7 @@ PATHS = (
     "dac/data/adjudicated-2026-batch.jsonl",
     "dac/data/adjudicated-2026-batch-2.jsonl",
     "dac/data/adjudicated-2026-batch-3.jsonl",
+    "dac/data/adjudicated-2026-batch-4.jsonl",
     "iccad/data/adjudicated-2025-batch.jsonl",
     "isca/data/adjudicated-2026-batch.jsonl",
 )
@@ -83,7 +84,7 @@ def build(root: Path) -> tuple[dict, str]:
     lines = [
         "# Adjudicated evidence coverage — v1",
         "",
-        "This report audits the current 54-record adjudication sample. It is not a",
+        "This report audits the current 59-record adjudication sample. It is not a",
         "conference prevalence estimate, market forecast, or ranking.",
         "",
         "## Coverage",
