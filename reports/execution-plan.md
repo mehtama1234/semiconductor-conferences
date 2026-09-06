@@ -4,6 +4,12 @@ The governing scope and acceptance criteria are in [GOAL.md](../GOAL.md).
 This log distinguishes finished work from queued work; a plan is not a completed
 research result.
 
+Latest batch: DAC 2026 IDs 607, 609, 616, 617, 625 and 628 bring
+current drafts to 421, leaving 73 descriptions uncoded. SSD simulation scope,
+management overhead, peripheral-model validity, nonlinear approximation,
+unquantified attestation and MoA accuracy conventions remain explicit.
+All 448 draft papers have source-separated packets; independent acceptance remains pending.
+
 Latest batch: DAC 2026 IDs 552, 553, 561, 574, 577 and 588 bring
 current drafts to 415, leaving 79 descriptions uncoded. Matrix integration scope,
 thermal comparison populations, kernel-only speed, FHE baseline separation,
