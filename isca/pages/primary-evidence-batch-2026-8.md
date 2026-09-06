@@ -1,4 +1,11 @@
-# ISCA 2026 company-source evidence batch 8
+# ISCA 2026 MTIA 300 evidence batch 8
+
+Update, 2026-09-06: the technical record now cites the
+[author-hosted paper](https://aisystemcodesign.github.io/papers/MTIA300_ISCA2026.pdf).
+The [source review packet](../../reports/mtia300-source-review-packet.md) records
+benchmark conditions and counterexamples. The discussion below preserves the
+company article's claims; its exact 940 GB/s and less-than-0.5% figures remain
+article-attributed rather than paper-verified.
 
 ## MTIA 300: integrated networking and collective offload
 

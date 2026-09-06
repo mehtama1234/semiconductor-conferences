@@ -155,13 +155,16 @@ def test_isca_adjudicated_batch_seven_preserves_company_source_tier() -> None:
     assert all(row["limits"] for row in rows)
 
 
-def test_isca_adjudicated_batch_eight_preserves_company_source_tier() -> None:
+def test_isca_adjudicated_batch_eight_separates_paper_and_company_claims() -> None:
     rows = [json.loads(line) for line in (ROOT / "isca/data/adjudicated-2026-batch-8.jsonl").read_text().splitlines() if line.strip()]
     assert len(rows) == 1
     assert rows[0]["paper_id"] == "isca-2026-program-069"
     assert rows[0]["doi_or_identifier"] == "10.1109/ISCA66397.2026.00085"
-    assert rows[0]["evidence_url"].startswith("https://engineering.fb.com/")
-    assert rows[0]["classification_confidence"] == "medium_company_author_source"
+    assert rows[0]["evidence_url"].startswith("https://aisystemcodesign.github.io/")
+    assert rows[0]["classification_confidence"] == "high_primary_author_pdf"
+    assert rows[0]["supplemental_sources"][0]["tier"] == "company_author_source"
+    assert rows[0]["independent_review_status"] == "pending"
+    assert not any("940" in metric or "0.5%" in metric for metric in rows[0]["metrics"])
     assert rows[0]["limits"]
 
 

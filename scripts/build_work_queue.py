@@ -96,7 +96,7 @@ def build(root: Path) -> tuple[list[dict], dict, str]:
             "detail_capture_status": capture,
             "coding_status": "coded_selected_sample" if record else "not_coded",
             "evidence_tier": source_tier(record) if record else "official_description" if substantive else "secondary_indexed_excerpt" if indexed else "program_metadata",
-            "evidence_depth_status": "requires_source_depth_review" if record else "not_assessed",
+            "evidence_depth_status": record.get("evidence_depth_status", "requires_source_depth_review") if record else "not_assessed",
             "independent_review_status": "pending" if record else "not_ready",
             "preliminary_review": preliminary.get(paper_id, {}).get("decision"),
             "preliminary_review_mode": preliminary.get(paper_id, {}).get("judge_mode"),

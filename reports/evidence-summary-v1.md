@@ -13,10 +13,10 @@ conference prevalence estimate, market forecast, or ranking.
 
 | Evidence tier | Records |
 |---|---:|
-| company_author_source | 3 |
+| company_author_source | 2 |
 | institutional_abstract | 1 |
 | official_description | 49 |
-| primary_or_author_copy | 19 |
+| primary_or_author_copy | 20 |
 
 ## Theme distribution
 

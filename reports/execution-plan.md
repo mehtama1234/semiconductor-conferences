@@ -42,19 +42,22 @@ The recovered evidence increment and planning changes were committed as `216135d
   evidence, and preliminary versus independent review. All 45 tests pass.
 - Located the author-hosted MTIA 300 paper through the official company article:
   https://aisystemcodesign.github.io/papers/MTIA300_ISCA2026.pdf.
-  A [partial source review packet](mtia300-source-review-packet.md) now records
-  communication-benchmark conditions and counterexamples. Table inspection,
-  field-by-field source-tier revision, and independent review remain pending.
+  The [source review packet](mtia300-source-review-packet.md) records benchmark
+  conditions and counterexamples. Tables I and IV were visually inspected and
+  the record revised to cite selected full-text evidence. Company-only exact
+  figures remain supplemental; cost accounting and independent review are pending.
 
 ## Next concrete batch
 
 1. Queue and report corrections committed as `bcc3347`; continue source extraction.
-2. Resolve the missing-title inventory row and inspect exact primary sources for
-   the five unresolved secondary papers listed in the queue.
+2. The [identity check](../isca/reports/program-identity-check-2026-09-06.md)
+   confirms the blank official slot: 173 captured rows include 172 titles.
+   Add explicit denominator/inclusion handling, preserving stable IDs, and
+   inspect primary sources for the five unresolved secondary papers.
 3. Refine priorities for underrepresented taxonomy categories and counterexamples.
-4. Prepare the first source-grounded review packet for MTIA 300: distinguish
-   networking/collective results from end-to-end training results, preserve the
-   company-source tier, and obtain paper-level conditions where accessible.
+4. MTIA selected full-text extraction is recorded; prepare the complete independent
+   review input from its revised record and taxonomy branch. Preserve company
+   attribution for supplemental metrics and leave cost inputs unresolved.
 
 ## Open dependencies and limits
 
