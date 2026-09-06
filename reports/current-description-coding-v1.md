@@ -6,8 +6,8 @@ The first four previously uncoded records, selected by paper-ID order, have
 research1138 (ARTEMIS). Exact official source URLs and row locators accompany
 each record. All are pending independent review and retain description-level
 evidence status. They are not added to the 49-record selected adjudication sample.
-With seventy-eight batches, 463 additional drafts are available;
-31 of the 543 current DAC descriptions still need initial technical coding.
+With seventy-nine batches, 469 additional drafts are available;
+25 of the 543 current DAC descriptions still need initial technical coding.
 Draft coverage does not mean complete technical evidence. Research1691's extraction
 has been repaired, but its energy/power boundary remains unresolved.
 
@@ -883,6 +883,17 @@ percentage loss or remaining-throughput claim without a definition.
 | 837 CrediX | Regional credit buffer pooling | 65.6% is synthetic-traffic backpressure, not throughput |
 | 838 SePArate | Weakly supervised defect segmentation | Qualitative segmentation is not root-cause evidence |
 
-All 463 records have source-separated review packets. Next: resolve the ATB
+## Seventy-ninth batch
+
+| Paper | Mechanism | Evidence boundary |
+|---|---|---|
+| 843 Quad-gradient sizing | Library-native timing/power gradients | Reported improvements are percentage-point differences |
+| 848 TT-SEAL | Selective TT-core encryption | Adversarial-transfer robustness is not full confidentiality |
+| 859 SoberDSE | Learned optimizer selection | DSE improvement metric and accuracy convention unspecified |
+| 863 PRICE | Runtime arithmetic-intensity transformations | Comparable memory reduction lacks numerical size |
+| 868 FSGen | Fused/sparse generator and estimates | Distinct unnamed performance/efficiency factors retained |
+| 874 RTL-BenchMT | Agent-assisted benchmark maintenance | Method-only description; revisions require independent oracles |
+
+All 469 records have source-separated review packets. Next: resolve the ATB
 numeric comparison from primary evidence and continue uncoded descriptions in
 stable order, preserving gaps and possible counterexamples.

@@ -4,6 +4,12 @@ The governing scope and acceptance criteria are in [GOAL.md](../GOAL.md).
 This log distinguishes finished work from queued work; a plan is not a completed
 research result.
 
+Latest batch: DAC 2026 IDs 843, 848, 859, 863, 868 and 874 bring
+current drafts to 469, leaving 25 descriptions uncoded. Percentage-point sizing,
+selective-encryption scope, unnamed DSE metrics, memory comparison limits,
+generator metric definitions and benchmark-revision gaps remain explicit.
+All 496 draft papers have source-separated packets; independent acceptance remains pending.
+
 Latest batch: DAC 2026 IDs 800, 816, 821, 827, 837 and 838 bring
 current drafts to 463, leaving 31 descriptions uncoded. ECC lifetime conditions,
 alternative DVFS modes, encrypted recovery semantics, OPC metric definitions,
