@@ -3,6 +3,7 @@
   "derived_from": [
     "dac/data/adjudicated-2026-batch.jsonl",
     "dac/data/adjudicated-2026-batch-2.jsonl",
+    "dac/data/adjudicated-2026-batch-3.jsonl",
     "iccad/data/adjudicated-2025-batch.jsonl",
     "isca/data/adjudicated-2026-batch.jsonl"
   ],
@@ -31,6 +32,7 @@
       "label": "Analog, mixed-signal, and emerging devices",
       "subsubthemes": {
         "neuromorphic-quantum-and-non-von-neumann": [
+          "analog-continuous-time-rram-cim-neural-ode",
           "neutral-atom-qec-mapping-and-scheduling"
         ]
       },
@@ -97,6 +99,7 @@
         ],
         "optimization-and-search-methods": [
           "differentiable-task-graph-partitioning",
+          "hypergraph-quantum-circuit-template-matching",
           "zero-shot-reinforcement-learning-for-logic-optimization"
         ],
         "synthesis-and-compilation": [
@@ -120,6 +123,8 @@
           "near-memory-communication-lower-bounds"
         ],
         "memory-hierarchy-and-persistence": [
+          "kv-cache-centric-embodied-planning-memory-management",
+          "open-fpga-scale-up-interconnect-platform",
           "os-hardware-cxl-tiered-memory",
           "row-aligned-sparse-attention-pim"
         ]
@@ -202,6 +207,7 @@
       "label": "Verification and validation",
       "subsubthemes": {
         "formal-and-functional-verification": [
+          "hidden-pmu-reverse-engineering-and-covert-channel",
           "hierarchical-learning-for-sequential-formal-analysis",
           "structure-guided-llm-sva-generation"
         ],

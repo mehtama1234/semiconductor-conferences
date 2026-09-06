@@ -30,7 +30,7 @@ def audit(root: Path) -> dict:
     valid_sub = {theme["theme_id"]: set(theme["subthemes"]) for theme in taxonomy["themes"]}
     valid_subsub = {(theme["theme_id"], sub): set(values) for theme in taxonomy["themes"] for sub, values in theme.get("subsubthemes", {}).items()}
     evidence = {row["paper_id"]: row for row in read(root / "dac/data/paper-evidence-2026.jsonl")}
-    records = read(root / "dac/data/adjudicated-2026-batch.jsonl") + read(root / "dac/data/adjudicated-2026-batch-2.jsonl") + read(root / "iccad/data/adjudicated-2025-batch.jsonl") + read(root / "isca/data/adjudicated-2026-batch.jsonl")
+    records = read(root / "dac/data/adjudicated-2026-batch.jsonl") + read(root / "dac/data/adjudicated-2026-batch-2.jsonl") + read(root / "dac/data/adjudicated-2026-batch-3.jsonl") + read(root / "iccad/data/adjudicated-2025-batch.jsonl") + read(root / "isca/data/adjudicated-2026-batch.jsonl")
     checks = []
     for record in records:
         source = evidence.get(record["paper_id"])

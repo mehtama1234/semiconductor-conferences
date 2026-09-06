@@ -25,9 +25,10 @@ organized around technical questions, not just conference names.
 - [Data movement, memory, packaging, and physical constraints](../dac/pages/data-movement-memory-and-integration.md)
 - [Reliability, security, and verification](../dac/pages/reliability-security-and-verification.md)
 - [Additional evidence batch](../dac/pages/evidence-batch-2.md)
+- [Deeper mechanisms evidence batch](../dac/pages/evidence-batch-3.md)
 
 DAC currently has the deepest paper-level evidence: all 543 research descriptions
-are captured, 543 records are routed for review, and 39 are adjudicated.
+are captured, 543 records are routed for review, and 44 are adjudicated.
 
 ## ISCA 2026
 
