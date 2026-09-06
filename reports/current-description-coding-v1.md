@@ -6,8 +6,8 @@ The first four previously uncoded records, selected by paper-ID order, have
 research1138 (ARTEMIS). Exact official source URLs and row locators accompany
 each record. All are pending independent review and retain description-level
 evidence status. They are not added to the 49-record selected adjudication sample.
-With seventy-five batches, 445 additional drafts are available;
-49 of the 543 current DAC descriptions still need initial technical coding.
+With seventy-six batches, 451 additional drafts are available;
+43 of the 543 current DAC descriptions still need initial technical coding.
 Draft coverage does not mean complete technical evidence. Research1691's extraction
 has been repaired, but its energy/power boundary remains unresolved.
 
@@ -850,6 +850,17 @@ percentage loss or remaining-throughput claim without a definition.
 | 732 PCB co-design | Joint rail/signal resource routing | DC claims do not establish AC integrity or manufactured outcomes |
 | 733 PIANO | Learned admittance reduction | Voltage error statistic unspecified; DC and design-flow speedups differ |
 
-All 445 records have source-separated review packets. Next: resolve the ATB
+## Seventy-sixth batch
+
+| Paper | Mechanism | Evidence boundary |
+|---|---|---|
+| 734 sMoE | Dependency-aware serverless expert scaling | Cost depends on billing/load; P95 compliance lacks thresholds |
+| 739 SDP | Adaptive expert-informed sizing prior | Optimization speed and unnamed circuit metrics remain separate |
+| 752 CQ-CiM | Joint embedding compression/quantization | Method-only description; example hardware is not evaluated coverage |
+| 754 Delay-constrained eSLIM | SAT local replacement with timing constraints | Qualitative delay benefit includes area-improvement tradeoff |
+| 760 SP2RINT | Progressive physical inverse training | Training speed is not inference speed or fabrication evidence |
+| 776 DiffSP | Relaxed sequence pairs and MILP legalization | Geometric legality is not full analog signoff |
+
+All 451 records have source-separated review packets. Next: resolve the ATB
 numeric comparison from primary evidence and continue uncoded descriptions in
 stable order, preserving gaps and possible counterexamples.

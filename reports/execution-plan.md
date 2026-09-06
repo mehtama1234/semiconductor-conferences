@@ -4,6 +4,12 @@ The governing scope and acceptance criteria are in [GOAL.md](../GOAL.md).
 This log distinguishes finished work from queued work; a plan is not a completed
 research result.
 
+Latest batch: DAC 2026 IDs 734, 739, 752, 754, 760 and 776 bring
+current drafts to 451, leaving 43 descriptions uncoded. Serverless cost scope,
+unnamed sizing metrics, method-only CiM evidence, synthesis area tradeoff,
+optical training boundaries and placement legality limits remain explicit.
+All 478 draft papers have source-separated packets; independent acceptance remains pending.
+
 Latest batch: DAC 2026 IDs 701, 713, 720, 727, 732 and 733 bring
 current drafts to 445, leaving 49 descriptions uncoded. Qualitative RAG/placement,
 uninspected control-proof conditions, synthesized decoder timing, PCB DC scope
