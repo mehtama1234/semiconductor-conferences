@@ -4,6 +4,12 @@ The governing scope and acceptance criteria are in [GOAL.md](../GOAL.md).
 This log distinguishes finished work from queued work; a plan is not a completed
 research result.
 
+Latest batch: DAC 2026 IDs 2871, 2880, 2884, 2886, 2887 and 2888 bring
+current drafts to 337, leaving 157 descriptions uncoded. Repair oracles, UVM
+coverage, accelerator PPA conditions, nested ATLAS outcomes, estimation-stage
+speed and qualitative TPU kernel claims remain explicit. All 364 draft papers
+have source-separated packets; independent acceptance remains pending.
+
 Latest batch: DAC 2026 IDs 2832, 2838, 284, 2845, 285 and 2851 bring
 current drafts to 331, leaving 163 descriptions uncoded. Locking proof/metric
 scope, qualitative oscillator results, parallel-solver reference configurations,

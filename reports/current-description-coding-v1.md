@@ -6,8 +6,8 @@ The first four previously uncoded records, selected by paper-ID order, have
 research1138 (ARTEMIS). Exact official source URLs and row locators accompany
 each record. All are pending independent review and retain description-level
 evidence status. They are not added to the 49-record selected adjudication sample.
-With fifty-six batches, 331 additional drafts are available;
-163 of the 543 current DAC descriptions still need initial technical coding.
+With fifty-seven batches, 337 additional drafts are available;
+157 of the 543 current DAC descriptions still need initial technical coding.
 Draft coverage does not mean complete technical evidence. Research1691's extraction
 has been repaired, but its energy/power boundary remains unresolved.
 
@@ -641,6 +641,17 @@ percentage loss or remaining-throughput claim without a definition.
 | 285 HydraCEC | Task-graph parallel sweeping | Competitor and scaling comparisons have different references |
 | 2851 Synchoros | Wire-aware CGRA energy estimation | Undefined accuracy is not a worst-case error guarantee |
 
-All 331 records have source-separated review packets. Next: resolve the ATB
+## Fifty-seventh batch
+
+| Paper | Mechanism | Evidence boundary |
+|---|---|---|
+| 2871 AkiraRust | FSM-guided semantic repair | Correctness oracle and timing scope unknown |
+| 2880 UVMarvel | Protocol/IR-guided UVM generation | Code coverage is not verification completeness |
+| 2884 Voyager | Configurable HLS and compiler generation | Utilization/PPA comparisons need resource and quality parity |
+| 2886 ATLAS | Asset/threat-to-assertion generation | 33 correct properties among 39 detected cases, not verified fixes |
+| 2887 HyperEFs | Adaptive clique resistance estimation | Stage speedup differs from full partitioning benefit |
+| 2888 MORPH | RNS and layout co-design for TPU ZKP | Qualitative kernel gains; full proving boundary absent |
+
+All 337 records have source-separated review packets. Next: resolve the ATB
 numeric comparison from primary evidence and continue uncoded descriptions in
 stable order, preserving gaps and possible counterexamples.
