@@ -6,8 +6,8 @@ The first four previously uncoded records, selected by paper-ID order, have
 research1138 (ARTEMIS). Exact official source URLs and row locators accompany
 each record. All are pending independent review and retain description-level
 evidence status. They are not added to the 49-record selected adjudication sample.
-With sixty-three batches, 373 additional drafts are available;
-121 of the 543 current DAC descriptions still need initial technical coding.
+With sixty-four batches, 379 additional drafts are available;
+115 of the 543 current DAC descriptions still need initial technical coding.
 Draft coverage does not mean complete technical evidence. Research1691's extraction
 has been repaired, but its energy/power boundary remains unresolved.
 
@@ -718,6 +718,17 @@ percentage loss or remaining-throughput claim without a definition.
 | 3214 TopGQ | Topological grouping and scale absorption | Quantization time is not inference time |
 | 3237 Light-Bound | Measured-noise-constrained photonic ViT training | Hardware-in-loop banks are not a complete optical ViT deployment |
 
-All 373 records have source-separated review packets. Next: resolve the ATB
+## Sixty-fourth batch
+
+| Paper | Mechanism | Evidence boundary |
+|---|---|---|
+| 335 BSPDN-Elite | Backside clock/signal allocation | Slack percentages do not establish timing closure |
+| 341 TAG | Topology-configurable GNN dataflow | Efficiency differs from energy consumption; resource matching absent |
+| 343 SpecANNS | Speculative in-storage graph search | I/O bottleneck share is not achieved latency reduction |
+| 358 Lyra | Generative FPGA differential verification | Ambiguous acceleration range retained; coverage is not completeness |
+| 363 Wafer networks | Hybrid-bonded reticle placement | Network maxima differ from application gains and may use different layouts |
+| 365 Macro placement | Practice-masked clustered RL | Industrial qualitative results differ from public benchmark slack metrics |
+
+All 379 records have source-separated review packets. Next: resolve the ATB
 numeric comparison from primary evidence and continue uncoded descriptions in
 stable order, preserving gaps and possible counterexamples.

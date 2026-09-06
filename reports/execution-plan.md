@@ -4,6 +4,12 @@ The governing scope and acceptance criteria are in [GOAL.md](../GOAL.md).
 This log distinguishes finished work from queued work; a plan is not a completed
 research result.
 
+Latest batch: DAC 2026 IDs 335, 341, 343, 358, 363 and 365 bring
+current drafts to 379, leaving 115 descriptions uncoded. Slack conventions,
+GNN efficiency boundaries, ANNS bottleneck attribution, Lyra acceleration wording,
+network/application scope and separate placement benchmark populations remain explicit.
+All 406 draft papers have source-separated packets; independent acceptance remains pending.
+
 Latest batch: DAC 2026 IDs 3153, 3154, 320, 3208, 3214 and 3237 bring
 current drafts to 373, leaving 121 descriptions uncoded. Emulator metric semantics,
 negative power-reduction wording, spatial-cut scope, extreme scheduling ratios,

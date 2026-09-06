@@ -10,7 +10,7 @@ def test_current_drafts_preserve_identity_and_numeric_disagreement():
     rows = read_jsonl(ROOT / "data/current-description-coding-v1.jsonl")
     sources = {r["paper_id"]: r for r in read_jsonl(ROOT / "dac/data/paper-evidence-2026.jsonl")}
     branches = {r["theme_id"]: r["subthemes"] for r in json.loads((ROOT / "data/taxonomy-v1-evidence.json").read_text())["themes"]}
-    assert len(rows) == len({r["paper_id"] for r in rows}) == 373
+    assert len(rows) == len({r["paper_id"] for r in rows}) == 379
     for row in rows:
         for key in ["title", "evidence_url", "analysis_edition", "evidence_collection_date"]:
             assert row[key] == sources[row["paper_id"]][key]
@@ -278,3 +278,7 @@ def test_current_drafts_preserve_identity_and_numeric_disagreement():
     assert "sign ambiguous" in gating["metrics"][0]["qualifier"]
     topgq = next(r for r in rows if r["paper_id"] == "dac-2026-research3214")
     assert "not GNN inference" in topgq["metrics"][0]["condition"]
+    specanns = next(r for r in rows if r["paper_id"] == "dac-2026-research343")
+    assert "not a measured reduction" in specanns["metrics"][0]["condition"]
+    lyra = next(r for r in rows if r["paper_id"] == "dac-2026-research358")
+    assert "up to 107x to 3343x" in lyra["metrics"][1]["qualifier"]
