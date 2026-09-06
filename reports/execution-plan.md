@@ -4,6 +4,12 @@ The governing scope and acceptance criteria are in [GOAL.md](../GOAL.md).
 This log distinguishes finished work from queued work; a plan is not a completed
 research result.
 
+Latest batch: DAC 2026 IDs 1431, 1434, 1438, 144, 1440 and 1441 bring
+current drafts to 73, leaving 421 descriptions uncoded. Power prediction versus
+power reduction, distinct software/hardware baselines, CNOT-depth assumptions and
+decoding versus request scope remain explicit. All 100 draft papers have
+source-separated packets; independent acceptance remains pending.
+
 Latest batch: DAC 2026 IDs 1414, 1417, 1419, 142, 1420 and 1430 bring
 current drafts to 67, leaving 427 descriptions uncoded. Fault-interaction masking,
 checkpoint frequency versus training time, precision versus effective bits and

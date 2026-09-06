@@ -10,7 +10,7 @@ def test_current_drafts_preserve_identity_and_numeric_disagreement():
     rows = read_jsonl(ROOT / "data/current-description-coding-v1.jsonl")
     sources = {r["paper_id"]: r for r in read_jsonl(ROOT / "dac/data/paper-evidence-2026.jsonl")}
     branches = {r["theme_id"]: r["subthemes"] for r in json.loads((ROOT / "data/taxonomy-v1-evidence.json").read_text())["themes"]}
-    assert len(rows) == len({r["paper_id"] for r in rows}) == 67
+    assert len(rows) == len({r["paper_id"] for r in rows}) == 73
     for row in rows:
         for key in ["title", "evidence_url", "analysis_edition", "evidence_collection_date"]:
             assert row[key] == sources[row["paper_id"]][key]
@@ -36,3 +36,8 @@ def test_current_drafts_preserve_identity_and_numeric_disagreement():
     assert "software" in faults["metrics"][3]["condition"]
     duet = next(r for r in rows if r["paper_id"] == "dac-2026-research1419")
     assert "not fixed uniform precision" in duet["metrics"][0]["condition"]
+    pihg = next(r for r in rows if r["paper_id"] == "dac-2026-research1438")
+    assert "software" in pihg["metrics"][0]["condition"]
+    assert "hardware" in pihg["metrics"][1]["condition"]
+    taco = next(r for r in rows if r["paper_id"] == "dac-2026-research1440")
+    assert taco["metrics"] == []

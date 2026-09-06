@@ -6,8 +6,8 @@ The first four previously uncoded records, selected by paper-ID order, have
 research1138 (ARTEMIS). Exact official source URLs and row locators accompany
 each record. All are pending independent review and retain description-level
 evidence status. They are not added to the 49-record selected adjudication sample.
-With twelve batches, 67 additional drafts are available;
-427 of the 543 current DAC descriptions still need initial technical coding.
+With thirteen batches, 73 additional drafts are available;
+421 of the 543 current DAC descriptions still need initial technical coding.
 
 ## Evidence requiring care
 
@@ -155,6 +155,17 @@ percentage loss or remaining-throughput claim without a definition.
 | 1420 IGNITE | Context-conditioned neural circuit simulation | No online training does not mean no context-generation or pretraining cost; R2 is not worst-case error |
 | 1430 Spike-PTSD | SNN adversarial robustness evaluation | Success rate lacks perturbation/knowledge conditions; no attack executed or clinical claim accepted |
 
-All 67 records have source-separated review packets. Next: resolve the ATB
+## Thirteenth batch
+
+| Paper | Mechanism | Evidence boundary |
+|---|---|---|
+| 1431 G-Power | Cross-GPU transfer and aggregated power-model knowledge | Prediction MAPE/correlation are not power savings; 22% improvement convention is unspecified |
+| 1434 G-Matcher | GPU multi-stage/multi-level layout pattern matching | Industrial Calibre and public CPU comparisons differ; perfect matching is limited to evaluated data |
+| 1438 PiHG | Pivot-centric HGNN feature/computation reuse | Software and hardware speed/energy ranges remain distinct; platform parity is unknown |
+| 144 Syndrome extraction | Quasi-abelian-code CNOT scheduling and pipelining | Claimed depth bound is not wall-clock latency or a measured logical error rate |
+| 1440 TACo | Hypervolume-guided zero-cost ViT search | GPU-days to GPU-hours lacks exact budgets; no numeric speedup inferred |
+| 1441 Adaptive KV prefetch | Token-fluctuation prediction and decoupled transfers | 256 tokens need not be all retained state; decoding speedup is not whole-request latency |
+
+All 73 records have source-separated review packets. Next: resolve the ATB
 numeric comparison from primary evidence and continue uncoded descriptions in
 stable order, preserving gaps and possible counterexamples.
