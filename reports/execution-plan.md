@@ -4,6 +4,13 @@ The governing scope and acceptance criteria are in [GOAL.md](../GOAL.md).
 This log distinguishes finished work from queued work; a plan is not a completed
 research result.
 
+Provenance increment: repaired missing explicit presentation-source IDs on all
+543 DAC 2026 description captures, preserving inventory provenance, dates and
+technical text. Source linking requires exact edition/host/paper identity and a
+registered source. All 58 draft packets now include source IDs and ledger paths;
+packet preparation rejects unregistered sources. This changes neither coding
+coverage nor independent acceptance. Continue the 463 uncoded descriptions.
+
 Latest batch: DAC 2026 IDs 1286, 1287, 1290, 1291, 1292 and 1298 bring
 current drafts to 31, leaving 463 descriptions uncoded. NASiC/V-ASIC naming
 conflict, CPU/storage dependencies of single-GPU training and SEM error-statistic

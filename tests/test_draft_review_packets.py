@@ -22,6 +22,7 @@ def test_draft_packets_are_source_separated_and_reproducible():
         assert packet["record_sha256"] == digest(json.dumps(packet["record_under_review"], sort_keys=True, ensure_ascii=False))
         assert packet["original_source_text"] != packet["record_under_review"]["method_or_artifact"]
         assert packet["source_locator"]["field"] == "description"
+        assert packet["original_source_id"] == f"dac-{packet['record_under_review']['analysis_edition']}-presentation-pages"
 
 
 @pytest.mark.parametrize("mutation", ["identity", "edition", "tier", "review", "taxonomy", "limits", "metric"])

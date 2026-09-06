@@ -37,6 +37,7 @@ def build(root: Path) -> list[dict]:
     drafts = unique_index([r for path in DRAFT_PATHS for r in read_jsonl(root / path)])
     sources = unique_index([r for year in [2025, 2026]
                             for r in read_jsonl(root / f"dac/data/paper-evidence-{year}.jsonl")])
+    registry = {r["source_id"]: r for r in read_jsonl(root / "dac/data/sources.jsonl")}
     protocol_path = "reports/adversarial-judge-protocol-v1.md"
     guide_path = "reports/taxonomy-coding-guide-v1.md"
     protocol_hash = digest((root / protocol_path).read_text())
@@ -47,6 +48,9 @@ def build(root: Path) -> list[dict]:
     for paper_id, draft in sorted(drafts.items()):
         source = sources.get(paper_id, {})
         validate_draft(draft, source, branches)
+        source_id = source.get("evidence_source_id")
+        if source_id not in registry:
+            raise ValueError(f"Draft source not registered: {paper_id}")
         packets.append({
             "schema": "draft-review-packet.v1", "paper_id": paper_id,
             "record_under_review": draft,
@@ -54,6 +58,8 @@ def build(root: Path) -> list[dict]:
             "original_source_text": source["description"],
             "original_source_sha256": digest(source["description"]),
             "original_source_url": source["evidence_url"],
+            "original_source_id": source_id,
+            "source_ledger_path": "dac/data/sources.jsonl",
             "original_source_capture_date": source["evidence_collection_date"],
             "source_locator": {"path": f"dac/data/paper-evidence-{draft['analysis_edition']}.jsonl",
                                "paper_id": paper_id, "field": "description"},

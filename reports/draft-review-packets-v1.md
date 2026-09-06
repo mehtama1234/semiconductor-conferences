@@ -8,6 +8,7 @@ not add packet counts to infer unique paper coverage. No independent verdict has
 been obtained for these drafts.
 
 Each packet includes the exact captured official description, URL, capture date,
+registered presentation-source ID and source-ledger path,
 source-row locator and text hash separately from the researcher-authored record
 under review and its hash. It links the existing judge protocol and coding guide
 with hashes and includes the assigned taxonomy branch. Candidate mechanisms and
@@ -28,6 +29,13 @@ labels remain in `inventory_origin_labels`. The program inventories are unchange
 395 unsuccessful historical captures are unchanged. No source text, capture date,
 metric or coding field was changed, and no new collection attempt is implied.
 Both DAC collection paths apply the same normalization to future successful rows.
+
+Provenance repair: all 543 current descriptions now explicitly reference
+`dac-2026-presentation-pages`, matching the historical captures' source-ID pattern.
+The migration requires the registered source, official HTTPS host, edition and
+exact paper identifier to agree, and rejects conflicting existing IDs. No source
+text, dates or inventory-source provenance changed. Draft packets carry this ID
+and reject unregistered capture sources; registration is provenance, not approval.
 
 ## Reproduce and check
 
