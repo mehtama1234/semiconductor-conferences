@@ -6,8 +6,8 @@ The first four previously uncoded records, selected by paper-ID order, have
 research1138 (ARTEMIS). Exact official source URLs and row locators accompany
 each record. All are pending independent review and retain description-level
 evidence status. They are not added to the 49-record selected adjudication sample.
-With sixty batches, 355 additional drafts are available;
-139 of the 543 current DAC descriptions still need initial technical coding.
+With sixty-one batches, 361 additional drafts are available;
+133 of the 543 current DAC descriptions still need initial technical coding.
 Draft coverage does not mean complete technical evidence. Research1691's extraction
 has been repaired, but its energy/power boundary remains unresolved.
 
@@ -685,6 +685,17 @@ percentage loss or remaining-throughput claim without a definition.
 | 3042 BREW-RC | Timing-derived ECC parity reconstruction | Tested products do not establish universal code recovery |
 | 3050 Graph training | Graph/hardware-adaptive parallelism | Sparse-attention and training ratios have different scopes |
 
-All 355 records have source-separated review packets. Next: resolve the ATB
+## Sixty-first batch
+
+| Paper | Mechanism | Evidence boundary |
+|---|---|---|
+| 3059 EPAR | Electromagnetic-to-Hamiltonian robustness modeling | Tested trend agreement is not universal gate-error prediction |
+| 3067 Scale-Gest | Battery-adaptive detector selection and ROI cropping | Laptop results and mean latency do not establish vehicle safety |
+| 3082 UGLMS-uSMILE | Live uncertainty-guided ADC testing | Linearity error is not effective resolution; setup costs unspecified |
+| 3087 Blind calibration | ConvRec/ResConv ADC error correction | Test chips do not establish integrated neural calibration hardware |
+| 3091 Shared logic | Multiple-output Boolean restructuring | Post-synthesis gains differ from physical implementation outcomes |
+| 3092 SecureRouter | Encrypted input-adaptive model routing | Confidentiality, leakage and accuracy claims need protocol evidence |
+
+All 361 records have source-separated review packets. Next: resolve the ATB
 numeric comparison from primary evidence and continue uncoded descriptions in
 stable order, preserving gaps and possible counterexamples.
