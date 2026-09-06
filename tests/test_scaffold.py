@@ -138,6 +138,15 @@ def test_learning_index_links_the_three_workstreams() -> None:
         assert marker in text
 
 
+def test_detailed_taxonomy_and_adversarial_protocol_exist() -> None:
+    taxonomy = (ROOT / "reports/taxonomy-coding-guide-v1.md").read_text()
+    protocol = (ROOT / "reports/adversarial-judge-protocol-v1.md").read_text()
+    assert "Observed sub-subskills" in taxonomy
+    assert "Adjudication boundary tests" in taxonomy
+    assert "Hostile judge prompt" in protocol
+    assert '"decision": "accept|revise|reject"' in protocol
+
+
 def test_evidence_taxonomy_contains_adjudicated_specificity() -> None:
     taxonomy = json.loads((ROOT / "data/taxonomy-v1-evidence.json").read_text())
     all_subsub = [value for theme in taxonomy["themes"] for values in theme.get("subsubthemes", {}).values() for value in values]

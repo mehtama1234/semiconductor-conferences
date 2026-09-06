@@ -10,6 +10,8 @@ organized around technical questions, not just conference names.
 - [Initial 2026 direction signals](initial-2026-direction-signals.md)
 - [Cross-conference direction synthesis](cross-conference-direction-v0.md)
 - [Evidence-derived taxonomy](../data/taxonomy-v1-evidence.json)
+- [Detailed taxonomy and coding guide](taxonomy-coding-guide-v1.md)
+- [Adversarial judge protocol](adversarial-judge-protocol-v1.md)
 - [Adversarial consistency preflight](adversarial-preflight-v0.json)
 
 ## DAC 2026
