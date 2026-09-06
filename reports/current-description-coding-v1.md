@@ -6,8 +6,8 @@ The first four previously uncoded records, selected by paper-ID order, have
 research1138 (ARTEMIS). Exact official source URLs and row locators accompany
 each record. All are pending independent review and retain description-level
 evidence status. They are not added to the 49-record selected adjudication sample.
-With seventy-six batches, 451 additional drafts are available;
-43 of the 543 current DAC descriptions still need initial technical coding.
+With seventy-seven batches, 457 additional drafts are available;
+37 of the 543 current DAC descriptions still need initial technical coding.
 Draft coverage does not mean complete technical evidence. Research1691's extraction
 has been repaired, but its energy/power boundary remains unresolved.
 
@@ -861,6 +861,17 @@ percentage loss or remaining-throughput claim without a definition.
 | 760 SP2RINT | Progressive physical inverse training | Training speed is not inference speed or fabrication evidence |
 | 776 DiffSP | Relaxed sequence pairs and MILP legalization | Geometric legality is not full analog signoff |
 
-All 451 records have source-separated review packets. Next: resolve the ATB
+## Seventy-seventh batch
+
+| Paper | Mechanism | Evidence boundary |
+|---|---|---|
+| 791 SemCom | Semantic allocation and fixed entropy models | Bit-exact decoding is not lossless imagery or flight evidence |
+| 793 RTL-3D | Learned timing-guided tier partition | Slack reductions need sign/absolute-value clarification |
+| 795 GSR-GNN | Reversible sparse circuit-graph training | Sampled graphs do not establish full-chip scaling |
+| 796 Prism | Pruned PIM distance computation | Throughput needs recall/resource-matched comparisons |
+| 797 Flip-Agent | Agent parameter-fault risk analysis | Qualitative attack claims; physical fault feasibility unestablished |
+| 799 Glass RDL routing | Double-sided pixel routing | Observed routability is not universal feasibility or yield |
+
+All 457 records have source-separated review packets. Next: resolve the ATB
 numeric comparison from primary evidence and continue uncoded descriptions in
 stable order, preserving gaps and possible counterexamples.
