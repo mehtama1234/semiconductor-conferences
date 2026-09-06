@@ -6,8 +6,8 @@ The first four previously uncoded records, selected by paper-ID order, have
 research1138 (ARTEMIS). Exact official source URLs and row locators accompany
 each record. All are pending independent review and retain description-level
 evidence status. They are not added to the 49-record selected adjudication sample.
-With sixty-six batches, 391 additional drafts are available;
-103 of the 543 current DAC descriptions still need initial technical coding.
+With sixty-seven batches, 397 additional drafts are available;
+97 of the 543 current DAC descriptions still need initial technical coding.
 Draft coverage does not mean complete technical evidence. Research1691's extraction
 has been repaired, but its energy/power boundary remains unresolved.
 
@@ -751,6 +751,17 @@ percentage loss or remaining-throughput claim without a definition.
 | 401 PAGE | Circuit/architecture PUD GEMV co-design | COTS baseline, modified circuits and system simulation remain distinct |
 | 406 PS-CAM | Range-CAM and adaptive-radius neighbor search | Query-level efficiency ratios require matched baseline/accuracy details |
 
-All 391 records have source-separated review packets. Next: resolve the ATB
+## Sixty-seventh batch
+
+| Paper | Mechanism | Evidence boundary |
+|---|---|---|
+| 407 AMS automation | Circuit-level analog cells in digital PnR | Measured jitter exceeds simulated range; conditions need reconciliation |
+| 440 PGSIM | Activity/correlation-aware RTL partitioning | Own-version and Verilator comparisons remain distinct |
+| 441 Cachence | Temporal/spatial cache allocation | Accuracy guarantee assumptions and performance metric unspecified |
+| 442 VALVE | In-storage consistent version traversal | Qualitative query gains and unreviewed consistency claim |
+| 444 GWrite | Memory-side replication fan-out | Software emulation is not native RNIC hardware |
+| 445 HyperAnalog | Transistor hypergraph representation | Unresolved model macro and qualitative results retained |
+
+All 397 records have source-separated review packets. Next: resolve the ATB
 numeric comparison from primary evidence and continue uncoded descriptions in
 stable order, preserving gaps and possible counterexamples.

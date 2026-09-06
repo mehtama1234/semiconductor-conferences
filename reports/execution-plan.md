@@ -4,6 +4,12 @@ The governing scope and acceptance criteria are in [GOAL.md](../GOAL.md).
 This log distinguishes finished work from queued work; a plan is not a completed
 research result.
 
+Latest batch: DAC 2026 IDs 407, 440, 441, 442, 444 and 445 bring
+current drafts to 397, leaving 97 descriptions uncoded. Simulated/measured jitter,
+simulation comparator scope, cache guarantee assumptions, storage consistency,
+software-emulated replication and unresolved model naming remain explicit.
+All 424 draft papers have source-separated packets; independent acceptance remains pending.
+
 Latest batch: DAC 2026 IDs 387, 389, 397, 399, 401 and 406 bring
 current drafts to 391, leaving 103 descriptions uncoded. Register-power scope,
 profiling versus performance, geometry-only printing evidence, composite search
