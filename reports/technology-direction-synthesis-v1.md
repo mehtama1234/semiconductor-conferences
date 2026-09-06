@@ -15,7 +15,7 @@ The evidence is intentionally asymmetric:
 - ICCAD: 2026 scope evidence and a 276-record 2025 fallback inventory; 8 primary
   or author-PDF-backed fallback adjudications.
 
-The 67-record adjudication sample is selected for recoverable evidence and
+The 69-record adjudication sample is selected for recoverable evidence and
 technical diversity. It is not a prevalence estimate, market forecast, conference
 ranking, or proof that a direction is rising.
 

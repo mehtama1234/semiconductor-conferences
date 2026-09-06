@@ -44,10 +44,11 @@ are captured, 543 records are routed for review, and 49 are adjudicated.
 - [Primary evidence batch 3: training-free self-speculative decoding](../isca/pages/primary-evidence-batch-2026-3.md)
 - [Primary evidence batch 4: processing-using-DRAM reliability](../isca/pages/primary-evidence-batch-2026-4.md)
 - [Primary evidence batch 5: ECC-aware reliable PIM](../isca/pages/primary-evidence-batch-2026-5.md)
+- [Primary evidence batch 6: agentic memory walls and lossless compression](../isca/pages/primary-evidence-batch-2026-6.md)
 - [Indexed evidence queue](../isca/pages/indexed-evidence-queue.md)
 - [Memory, ECC, and PIM reliability topical analysis](../isca/pages/memory-ecc-pim-reliability.md)
 
-ISCA currently combines official program metadata, ten primary/institutional-backed
+ISCA currently combines official program metadata, twelve primary/institutional-backed
 records, and six low-confidence secondary-index excerpts pending primary
 verification.
 
