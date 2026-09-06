@@ -10,7 +10,7 @@ def test_current_drafts_preserve_identity_and_numeric_disagreement():
     rows = read_jsonl(ROOT / "data/current-description-coding-v1.jsonl")
     sources = {r["paper_id"]: r for r in read_jsonl(ROOT / "dac/data/paper-evidence-2026.jsonl")}
     branches = {r["theme_id"]: r["subthemes"] for r in json.loads((ROOT / "data/taxonomy-v1-evidence.json").read_text())["themes"]}
-    assert len(rows) == len({r["paper_id"] for r in rows}) == 253
+    assert len(rows) == len({r["paper_id"] for r in rows}) == 259
     for row in rows:
         for key in ["title", "evidence_url", "analysis_edition", "evidence_collection_date"]:
             assert row[key] == sources[row["paper_id"]][key]
@@ -178,3 +178,7 @@ def test_current_drafts_preserve_identity_and_numeric_disagreement():
     assert "not raw execution overhead" in recon["limits"][0]
     ubfp = next(r for r in rows if r["paper_id"] == "dac-2026-research2378")
     assert "EEF is not defined" in ubfp["metrics"][0]["condition"]
+    hestia = next(r for r in rows if r["paper_id"] == "dac-2026-research2395")
+    assert hestia["metrics"][2]["metric"] == "unspecified scheduler advantage"
+    ltminer = next(r for r in rows if r["paper_id"] == "dac-2026-research240")
+    assert [m["value"] for m in ltminer["metrics"]] == [[1.1, 652.6], [1.8, 70.3], [3.9, 2050.9], [1.2, 17.3]]

@@ -4,6 +4,12 @@ The governing scope and acceptance criteria are in [GOAL.md](../GOAL.md).
 This log distinguishes finished work from queued work; a plan is not a completed
 research result.
 
+Latest batch: DAC 2026 IDs 239, 2394, 2395, 240, 241 and 2410 bring
+current drafts to 259, leaving 235 descriptions uncoded. Fabrication versus
+enumeration, production/simulation attribution, paired temporal-motif baselines,
+PCB comparison budgets and efficiency definitions remain explicit. All 286 draft
+papers have source-separated packets; independent acceptance remains pending.
+
 Latest batch: DAC 2026 IDs 2364, 2369, 2372, 2374, 2378 and 2385 bring
 current drafts to 253, leaving 241 descriptions uncoded. MAC area/power scope,
 security repair versus overhead savings, training comparator gaps, undefined EEF

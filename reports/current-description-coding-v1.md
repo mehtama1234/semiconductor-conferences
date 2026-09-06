@@ -6,8 +6,8 @@ The first four previously uncoded records, selected by paper-ID order, have
 research1138 (ARTEMIS). Exact official source URLs and row locators accompany
 each record. All are pending independent review and retain description-level
 evidence status. They are not added to the 49-record selected adjudication sample.
-With forty-three batches, 253 additional drafts are available;
-241 of the 543 current DAC descriptions still need initial technical coding.
+With forty-four batches, 259 additional drafts are available;
+235 of the 543 current DAC descriptions still need initial technical coding.
 Draft coverage does not mean complete technical evidence. Research1691's extraction
 has been repaired, but its energy/power boundary remains unresolved.
 
@@ -498,6 +498,17 @@ percentage loss or remaining-throughput claim without a definition.
 | 2378 UBFP-IMC | Wide bit-serial floating-point accumulation | Undefined EEF and unmapped factors; accumulation is only one stage |
 | 2385 UNCHARTED | Component-level GNN inverse design | Similarity threshold applies to a stated subset, not every circuit |
 
-All 253 records have source-separated review packets. Next: resolve the ATB
+## Forty-fourth batch
+
+| Paper | Mechanism | Evidence boundary |
+|---|---|---|
+| 239 EdgeSC | Stochastic FSM edge operators | Fabrication reported; each ratio's measurement conditions absent |
+| 2394 B-Flex | Equivalence-pruned FF search | Millions of mechanisms differ from twenty sampled topology syntheses |
+| 2395 Hestia | Attention-based SMT interference scheduling | Simulation/production result attribution and one metric undefined |
+| 240 LTMiner | Chunk-aligned temporal motif traversal | Four ranges kept paired with software/hardware and speed/energy |
+| 241 PCBgen | Knowledge-filtered schematic search with SPICE | LLM and human comparison budgets differ; ROI definition absent |
+| 2410 CAPA | Convertible mixed-precision GEMM | Efficiency factors are not raw area/power reductions |
+
+All 259 records have source-separated review packets. Next: resolve the ATB
 numeric comparison from primary evidence and continue uncoded descriptions in
 stable order, preserving gaps and possible counterexamples.
