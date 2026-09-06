@@ -6,8 +6,8 @@ The first four previously uncoded records, selected by paper-ID order, have
 research1138 (ARTEMIS). Exact official source URLs and row locators accompany
 each record. All are pending independent review and retain description-level
 evidence status. They are not added to the 49-record selected adjudication sample.
-With forty-four batches, 259 additional drafts are available;
-235 of the 543 current DAC descriptions still need initial technical coding.
+With forty-five batches, 265 additional drafts are available;
+229 of the 543 current DAC descriptions still need initial technical coding.
 Draft coverage does not mean complete technical evidence. Research1691's extraction
 has been repaired, but its energy/power boundary remains unresolved.
 
@@ -509,6 +509,17 @@ percentage loss or remaining-throughput claim without a definition.
 | 241 PCBgen | Knowledge-filtered schematic search with SPICE | LLM and human comparison budgets differ; ROI definition absent |
 | 2410 CAPA | Convertible mixed-precision GEMM | Efficiency factors are not raw area/power reductions |
 
-All 259 records have source-separated review packets. Next: resolve the ATB
+## Forty-fifth batch
+
+| Paper | Mechanism | Evidence boundary |
+|---|---|---|
+| 2416 Multi-row CFET | MCF pin access and hierarchical routing | Repeated/missing source enumeration; qualitative optimum/closure claims |
+| 2417 HBSpec | Bonded logic and tree-speculation scheduling | Three baseline ratios with unnamed performance metric |
+| 2424 XRel-Graph | Cross-layer learned protection selection | No quantitative reliability/deadline evaluation |
+| 2425 COM-BNN / RES-BNN | Reconfigurable serial MRAM computation | Naming mismatch and undefined 0.03%-power reference |
+| 2432 Hybrid PIM | SOT-MRAM/DRAM resource-dataflow exploration | Power consumption and efficiency comparisons differ |
+| 2443 Stitch | Assertion-guided LLM patching | Initial/improved/model rates separate; validation coverage unknown |
+
+All 265 records have source-separated review packets. Next: resolve the ATB
 numeric comparison from primary evidence and continue uncoded descriptions in
 stable order, preserving gaps and possible counterexamples.
