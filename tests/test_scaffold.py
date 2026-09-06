@@ -169,8 +169,10 @@ def test_each_conference_has_a_deep_page() -> None:
 
 
 def test_iccad_batch_keeps_2025_fallback_label() -> None:
-    rows = [json.loads(line) for line in (ROOT / "iccad/data/adjudicated-2025-batch.jsonl").read_text().splitlines() if line.strip()]
-    assert len(rows) == 5
+    rows = []
+    for path in (ROOT / "iccad/data/adjudicated-2025-batch.jsonl", ROOT / "iccad/data/adjudicated-2025-batch-2.jsonl"):
+        rows.extend(json.loads(line) for line in path.read_text().splitlines() if line.strip())
+    assert len(rows) == 8
     assert all(row["target_edition"] == 2026 and row["analysis_edition"] == 2025 for row in rows)
     assert all("primary" in row["classification_confidence"] for row in rows)
 
@@ -192,9 +194,9 @@ def test_detailed_taxonomy_and_adversarial_protocol_exist() -> None:
 
 def test_evidence_summary_is_explicitly_non_prevalence() -> None:
     summary = json.loads((ROOT / "reports/evidence-summary-v1.json").read_text())
-    assert summary["record_count"] == 59
+    assert summary["record_count"] == 62
     assert "not a conference prevalence estimate" in summary["selection_warning"]
-    assert summary["unreviewed_adversarial_judge_count"] == 59
+    assert summary["unreviewed_adversarial_judge_count"] == 62
 
 
 def test_adversarial_pre_review_is_labeled_as_non_independent() -> None:
@@ -215,7 +217,7 @@ def test_evidence_taxonomy_contains_adjudicated_specificity() -> None:
 def test_adversarial_preflight_is_explicit_about_its_limits() -> None:
     audit = json.loads((ROOT / "reports/adversarial-preflight-v0.json").read_text())
     assert audit["judge_mode"] == "deterministic_preflight_not_llm"
-    assert audit["record_count"] == 59
+    assert audit["record_count"] == 62
     assert audit["limits"]
 
 

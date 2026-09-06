@@ -6,6 +6,7 @@
     "dac/data/adjudicated-2026-batch-3.jsonl",
     "dac/data/adjudicated-2026-batch-4.jsonl",
     "iccad/data/adjudicated-2025-batch.jsonl",
+    "iccad/data/adjudicated-2025-batch-2.jsonl",
     "isca/data/adjudicated-2026-batch.jsonl"
   ],
   "status": "provisional_until_full_corpus_adjudication",
@@ -22,6 +23,7 @@
           "llm-evolution-of-technology-mapping",
           "llm-generated-hls-architecture-optimization",
           "llm-global-reasoning-for-hls-dse",
+          "multi-role-ppa-aware-verilog-generation",
           "preference-optimized-pcb-placement",
           "reinforcement-learning-verilog-generation"
         ]
@@ -38,7 +40,8 @@
       "subsubthemes": {
         "neuromorphic-quantum-and-non-von-neumann": [
           "analog-continuous-time-rram-cim-neural-ode",
-          "neutral-atom-qec-mapping-and-scheduling"
+          "neutral-atom-qec-mapping-and-scheduling",
+          "stochastic-spin-ferroelectric-neuropde"
         ]
       },
       "subthemes": [
@@ -85,6 +88,9 @@
           "analytical-3d-ic-thermal-simulation",
           "modular-reduced-order-chiplet-thermal-modeling",
           "thermal-aware-3d-stacked-llm-inference"
+        ],
+        "chiplet-partitioning-and-integration": [
+          "hierarchical-multi-agent-chiplet-design"
         ],
         "package-system-co-design": [
           "metal-density-constrained-package-power-plane-synthesis"

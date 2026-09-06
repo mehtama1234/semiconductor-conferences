@@ -8,7 +8,7 @@ is deliberately provisional because the evidence is asymmetric:
   author-preprint-backed adjudications, and five secondary-index excerpts still
   pending primary verification.
 - ICCAD has official 2026 CFP scope, a 276-paper 2025 fallback inventory, and
-  five primary/preprint/author-PDF-backed fallback adjudications.
+  eight primary/preprint/author-PDF-backed fallback adjudications.
 
 The machine-readable matrix is `data/cross-conference-matrix-v0.json`.
 
