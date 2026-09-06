@@ -10,7 +10,7 @@ def test_current_drafts_preserve_identity_and_numeric_disagreement():
     rows = read_jsonl(ROOT / "data/current-description-coding-v1.jsonl")
     sources = {r["paper_id"]: r for r in read_jsonl(ROOT / "dac/data/paper-evidence-2026.jsonl")}
     branches = {r["theme_id"]: r["subthemes"] for r in json.loads((ROOT / "data/taxonomy-v1-evidence.json").read_text())["themes"]}
-    assert len(rows) == len({r["paper_id"] for r in rows}) == 343
+    assert len(rows) == len({r["paper_id"] for r in rows}) == 349
     for row in rows:
         for key in ["title", "evidence_url", "analysis_edition", "evidence_collection_date"]:
             assert row[key] == sources[row["paper_id"]][key]
@@ -256,3 +256,7 @@ def test_current_drafts_preserve_identity_and_numeric_disagreement():
     assert "separate 50% maximum" in skist["limits"][0]
     react = next(r for r in rows if r["paper_id"] == "dac-2026-research2947")
     assert "Activation storage only" in react["metrics"][1]["condition"]
+    iads = next(r for r in rows if r["paper_id"] == "dac-2026-research2975")
+    assert "not the 256-unit prototype" in iads["metrics"][0]["condition"]
+    green = next(r for r in rows if r["paper_id"] == "dac-2026-research2970")
+    assert "1000-server scale is not established as a physical deployment" in green["limits"][0]
