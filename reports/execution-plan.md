@@ -4,6 +4,13 @@ The governing scope and acceptance criteria are in [GOAL.md](../GOAL.md).
 This log distinguishes finished work from queued work; a plan is not a completed
 research result.
 
+Latest accessible batch: six more DAC 2026 descriptions (1152, 1180, 1183,
+1185, 1187, 1194) have technical drafts, bringing this expansion to ten and
+leaving 484 current descriptions uncoded. NoiseXplore's three-class accuracy
+scope and DIA-CIM's author-claimed fabrication/measurement limits are explicit.
+Draft review packets now cover 37 unique papers, including three overlapping
+the selected sample. Continue stable-order coding and source-depth review.
+
 ATB follow-up: a provisional exact-title arXiv v1 match retains two author-name
 differences. The source table reproduces the arithmetic mismatch and uses
 different problem sizes across baseline and proposed rows. The
