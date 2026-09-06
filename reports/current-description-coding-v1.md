@@ -6,8 +6,8 @@ The first four previously uncoded records, selected by paper-ID order, have
 research1138 (ARTEMIS). Exact official source URLs and row locators accompany
 each record. All are pending independent review and retain description-level
 evidence status. They are not added to the 49-record selected adjudication sample.
-With twenty-three batches, 133 additional drafts are available;
-361 of the 543 current DAC descriptions still need initial technical coding.
+With twenty-four batches, 139 additional drafts are available;
+355 of the 543 current DAC descriptions still need initial technical coding.
 Draft coverage does not mean complete technical evidence. Research1691's extraction
 has been repaired, but its energy/power boundary remains unresolved.
 
@@ -278,6 +278,17 @@ percentage loss or remaining-throughput claim without a definition.
 | 177 ARES | Specification-derived IoT behavior oracles | Bug/CVE counts are author-reported; no independent disclosure verification |
 | 1784 Self-evolved ABC | Correctness/QoR-guided source evolution | No quantitative gain or validation scope; repository-wide autonomy unverified |
 
-All 133 records have source-separated review packets. Next: resolve the ATB
+## Twenty-fourth batch
+
+| Paper | Mechanism | Evidence boundary |
+|---|---|---|
+| 179 LLMVA | Iterative Verilog-A MTJ modeling and DTCO | Tape-out is not measured macro performance; Front-test/Post-test denominator unspecified |
+| 1793 Stone-Skimming | Correlated PTW side-channel characterization | No numeric leakage results or affected-platform scope; no attacks executed |
+| 1804 PeRIFi | Geometry-aware RF parameterization and search | DC connectivity does not establish all physical feasibility; training budgets differ |
+| 1813 RL4HDL | Diversity-guided synthesis compiler testing | Defect confirmations are author-reported; no comparable testing budget |
+| 1822 LHPA | Heterogeneous FPGA LPN pipeline | 52.80× lacks parameter/resource parity and protocol scope |
+| 1837 F-FPMAC | Carry-save accumulation and deferred normalization | Fewer overflows is not zero overflow; lower numerical error is not IEEE equivalence |
+
+All 139 records have source-separated review packets. Next: resolve the ATB
 numeric comparison from primary evidence and continue uncoded descriptions in
 stable order, preserving gaps and possible counterexamples.
