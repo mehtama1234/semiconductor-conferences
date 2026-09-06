@@ -75,3 +75,10 @@ def test_dac_theme_triage_is_not_final_adjudication() -> None:
     assert len(rows) == 543
     assert all(row["triage_status"] == "keyword_routing_only" for row in rows)
     assert all(row["classification_confidence"] == "not_adjudicated" for row in rows)
+
+
+def test_isca_indexed_excerpts_are_not_final_evidence() -> None:
+    rows = [json.loads(line) for line in (ROOT / "isca/data/indexed-evidence.jsonl").read_text().splitlines() if line.strip()]
+    assert len(rows) == 5
+    assert all(row["evidence_quality"] == "secondary_indexed_excerpt" for row in rows)
+    assert all(row["adjudication_status"] == "pending_primary_verification" for row in rows)

@@ -7,6 +7,7 @@ The project now has separate conference workspaces for ISCA, DAC, and ICCAD, a s
 Current inventory checkpoint:
 
 - ISCA 2026: 7 official program-title records normalized as metadata-only and hypothesis-only.
+- ISCA evidence: five 2026 papers now have substantive secondary-index excerpts with DOI metadata; all remain low-confidence and pending primary-source verification.
 - DAC 2026: 543 distinct official research-manuscript records normalized in `dac/data/papers-2026-program.jsonl`, plus 75 other program items; all technical fields remain unclassified.
 - DAC evidence: all 543 research pages returned substantive official descriptions; twenty records have evidence-cited adjudications across EDA, accelerators, memory, packaging, verification, security, and reliability.
 - DAC triage: all 543 descriptions now have keyword-backed routing candidates, explicitly marked non-adjudicated; the routing is for review queue construction only.
