@@ -104,3 +104,9 @@ def test_iccad_batch_keeps_2025_fallback_label() -> None:
     assert len(rows) == 2
     assert all(row["target_edition"] == 2026 and row["analysis_edition"] == 2025 for row in rows)
     assert all("primary" in row["classification_confidence"] for row in rows)
+
+
+def test_learning_index_links_the_three_workstreams() -> None:
+    text = (ROOT / "reports/learning-index-v0.md").read_text()
+    for marker in ("DAC 2026", "ISCA 2026", "ICCAD 2026 / 2025 fallback", "Cross-conference direction synthesis"):
+        assert marker in text
