@@ -40,9 +40,13 @@
     {
       "label": "Architecture and accelerators",
       "subsubthemes": {
+        "ai-accelerator-microarchitecture": [
+          "outlier-aware-lut-quantized-gemm"
+        ],
         "architecture-software-co-design": [
           "generative-sequential-cpu-design-space-exploration",
           "kl-guided-moe-pruning-and-restoration",
+          "moe-data-movement-forecasting-and-placement",
           "silicon-calibrated-hierarchical-cim-exploration"
         ],
         "specialized-ai-accelerators": [
@@ -104,6 +108,7 @@
       "subsubthemes": {
         "data-movement-and-locality": [
           "cxl-near-memory-ann-search",
+          "disaggregated-compute-network-storage-training",
           "near-memory-communication-lower-bounds"
         ],
         "memory-hierarchy-and-persistence": [
@@ -142,6 +147,9 @@
         "accelerator-reliability": [
           "fault-tolerant-block-floating-point-npu",
           "full-stack-npu-fault-mitigation"
+        ],
+        "energy-and-thermal-efficiency": [
+          "thermal-imbalance-concurrent-gpu-execution"
         ],
         "power-integrity-and-reliability": [
           "physics-informed-joint-em-ir-modeling"
