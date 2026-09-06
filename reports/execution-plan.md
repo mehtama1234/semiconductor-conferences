@@ -4,6 +4,12 @@ The governing scope and acceptance criteria are in [GOAL.md](../GOAL.md).
 This log distinguishes finished work from queued work; a plan is not a completed
 research result.
 
+Latest batch: DAC 2026 IDs 1286, 1287, 1290, 1291, 1292 and 1298 bring
+current drafts to 31, leaving 463 descriptions uncoded. NASiC/V-ASIC naming
+conflict, CPU/storage dependencies of single-GPU training and SEM error-statistic
+limits are explicit. All 58 draft papers have source-separated packets and remain
+unreviewed. Continue accessible coding and condition/identity reconciliation.
+
 Latest batch: DAC 2026 IDs 1267, 1268, 127, 1275, 1282 and 1284 extend
 current drafts to 25, leaving 469 descriptions uncoded. Optical model optimality,
 RowHammer counting versus complete defense, and random-error versus adversarial

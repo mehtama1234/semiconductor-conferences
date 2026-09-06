@@ -6,8 +6,8 @@ The first four previously uncoded records, selected by paper-ID order, have
 research1138 (ARTEMIS). Exact official source URLs and row locators accompany
 each record. All are pending independent review and retain description-level
 evidence status. They are not added to the 49-record selected adjudication sample.
-With five batches, 25 additional drafts are available;
-469 of the 543 current DAC descriptions still need initial technical coding.
+With six batches, 31 additional drafts are available;
+463 of the 543 current DAC descriptions still need initial technical coding.
 
 ## Evidence requiring care
 
@@ -78,6 +78,17 @@ percentage loss or remaining-throughput claim without a definition.
 | 1282 CPW-SMO | Set-attention common-source/mask generation | Nearly-2× process window and approximately-200× runtime gains omit training/amortization and physical validation |
 | 1284 WFH-BFs | Functional weight tiers, core hardening and adaptive pruning | Attack-cost and random-error results are separate; GFLOPs reductions are not measured energy savings |
 
-All 25 records have source-separated review packets. Next: resolve the ATB
+## Sixth batch
+
+| Paper | Mechanism | Evidence boundary |
+|---|---|---|
+| 1286 SlideFormer | Sliding GPU window with CPU updates and tiered I/O | Single GPU does not mean GPU-only memory or compute; 1.40–6.27× throughput lacks named baseline conditions |
+| 1287 MDP-ILT | Differentiable shot-level EBL/optical co-optimization | Exact model gradients are not physical accuracy or global optimality; results are qualitative |
+| 1290 Hybrid net/pin weighting | Analytical TNS/WNS placement objectives | Average 39%/6% gains omit signed-slack normalization and do not establish routed timing closure |
+| 1291 NASiC | CAM-selected 3D NAND multibit CIM | Result sentence calls the architecture V-ASIC; naming conflict and all numerical conditions remain unresolved |
+| 1292 IMPart | Integrate memetic operations into uncoarsening | Broad superiority is qualitative; seeds, balance constraints and budgets are missing |
+| 1298 FreqSEM | Frequency-guided SAM2 contour extraction | 0.334 nm mean/0.661 nm standard deviation are not maximum-error guarantees; 81 nm linewidth is not a process node |
+
+All 31 records have source-separated review packets. Next: resolve the ATB
 numeric comparison from primary evidence and continue uncoded descriptions in
 stable order, preserving gaps and possible counterexamples.
