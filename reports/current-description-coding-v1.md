@@ -6,8 +6,8 @@ The first four previously uncoded records, selected by paper-ID order, have
 research1138 (ARTEMIS). Exact official source URLs and row locators accompany
 each record. All are pending independent review and retain description-level
 evidence status. They are not added to the 49-record selected adjudication sample.
-With forty-eight batches, 283 additional drafts are available;
-211 of the 543 current DAC descriptions still need initial technical coding.
+With forty-nine batches, 289 additional drafts are available;
+205 of the 543 current DAC descriptions still need initial technical coding.
 Draft coverage does not mean complete technical evidence. Research1691's extraction
 has been repaired, but its energy/power boundary remains unresolved.
 
@@ -553,6 +553,17 @@ percentage loss or remaining-throughput claim without a definition.
 | 2560 Expert placement | Trajectory-derived reward learning | Qualitative single-design learning/generalization only |
 | 2566 PBA reuse | Slew-sensitive segment caching | CPU average and GPU range separate; safety proof domain absent |
 
-All 283 records have source-separated review packets. Next: resolve the ATB
+## Forty-ninth batch
+
+| Paper | Mechanism | Evidence boundary |
+|---|---|---|
+| 257 SpecMoE | Self-assisted speculative inference | Baseline absent; no-training does not prove exact decoding |
+| 259 HierPAS | Entropy-guided sparse mixed-precision attention | Energy efficiency is not speed; quality/operating points unknown |
+| 2596 Movable logical qubits | Teleportation-aware lattice compilation | Qualitative depth gain; promised artifact not verified |
+| 2620 DeInfer | Parallel decomposed-model system | Individual optimizations unspecified; detailed mechanism insufficient |
+| 2621 Code switching | Min-cut compilation | Minimality domain and weighted physical costs unknown |
+| 2631 ARC-SRAM | Local addressing and charge reuse | Cell-array gains from research PDK, not fabricated-node evidence |
+
+All 289 records have source-separated review packets. Next: resolve the ATB
 numeric comparison from primary evidence and continue uncoded descriptions in
 stable order, preserving gaps and possible counterexamples.

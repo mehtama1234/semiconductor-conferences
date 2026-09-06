@@ -4,6 +4,12 @@ The governing scope and acceptance criteria are in [GOAL.md](../GOAL.md).
 This log distinguishes finished work from queued work; a plan is not a completed
 research result.
 
+Latest batch: DAC 2026 IDs 257, 259, 2596, 2620, 2621 and 2631 bring
+current drafts to 289, leaving 205 descriptions uncoded. Speculative-decoding
+conditions, energy-efficiency scope, quantum compiler proof/artifact gaps,
+DeInfer mechanism insufficiency and research-PDK cell-array boundaries remain explicit.
+All 316 draft papers have source-separated packets; independent acceptance remains pending.
+
 Latest batch: DAC 2026 IDs 2540, 2545, 2550, 256, 2560 and 2566 bring
 current drafts to 283, leaving 211 descriptions uncoded. Atom-image versus control
 latency, qualitative HDL/simulator/reward evidence, preprocessing cost boundaries
