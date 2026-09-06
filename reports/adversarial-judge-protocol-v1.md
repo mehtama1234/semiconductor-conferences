@@ -1,8 +1,8 @@
 # Adversarial LLM/human judge protocol v1
 
-This protocol is the required next review layer for the 66 current adjudicated
+This protocol is the required next review layer for the 67 current adjudicated
 records. `scripts/audit_adjudications.py` is only a deterministic preflight; its
-66/66 pass result must not be described as an adversarial LLM judgment.
+67/67 pass result must not be described as an adversarial LLM judgment.
 
 ## Judge input
 

@@ -9,10 +9,11 @@ conference prevalence estimate, market forecast, or ranking.
 |---|---:|
 | dac | 49 |
 | iccad | 8 |
-| isca | 9 |
+| isca | 10 |
 
 | Evidence tier | Records |
 |---|---:|
+| institutional_abstract | 1 |
 | official_description | 49 |
 | primary_or_author_copy | 17 |
 
@@ -21,7 +22,7 @@ conference prevalence estimate, market forecast, or ranking.
 | Theme | Selected records |
 |---|---:|
 | architecture-and-accelerators | 13 |
-| power-reliability-and-security | 10 |
+| power-reliability-and-security | 11 |
 | memory-interconnect-and-storage | 9 |
 | ai-assisted-eda | 8 |
 | design-methodology-and-tooling | 7 |
@@ -33,7 +34,7 @@ conference prevalence estimate, market forecast, or ranking.
 
 ## Field completeness
 
-66 of 66 records have all required technical fields populated.
+67 of 67 records have all required technical fields populated.
 Missing-field counts are recorded in the machine-readable JSON; an empty field means the evidence did not support a claim, not that the paper lacks the property.
 
 ## Limits

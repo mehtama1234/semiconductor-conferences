@@ -130,6 +130,15 @@ def test_isca_adjudicated_batch_four_has_primary_preprint_evidence() -> None:
     assert rows[0]["problem"] and rows[0]["method_or_artifact"] and rows[0]["metrics"]
 
 
+def test_isca_adjudicated_batch_five_preserves_institutional_abstract_tier() -> None:
+    rows = [json.loads(line) for line in (ROOT / "isca/data/adjudicated-2026-batch-5.jsonl").read_text().splitlines() if line.strip()]
+    assert len(rows) == 1
+    assert rows[0]["title"].startswith("ECC Enabled Reliable")
+    assert rows[0]["evidence_url"].startswith("https://cris.technion.ac.il/")
+    assert rows[0]["classification_confidence"] == "medium_institutional_abstract"
+    assert rows[0]["limits"]
+
+
 def test_dac_program_records_preserve_program_only_status() -> None:
     rows = [json.loads(line) for line in (ROOT / "dac/data/program-presentations.jsonl").read_text().splitlines() if line.strip()]
     assert len(rows) >= 500
@@ -227,9 +236,9 @@ def test_detailed_taxonomy_and_adversarial_protocol_exist() -> None:
 
 def test_evidence_summary_is_explicitly_non_prevalence() -> None:
     summary = json.loads((ROOT / "reports/evidence-summary-v1.json").read_text())
-    assert summary["record_count"] == 66
+    assert summary["record_count"] == 67
     assert "not a conference prevalence estimate" in summary["selection_warning"]
-    assert summary["unreviewed_adversarial_judge_count"] == 66
+    assert summary["unreviewed_adversarial_judge_count"] == 67
 
 
 def test_adversarial_pre_review_is_labeled_as_non_independent() -> None:
@@ -250,7 +259,7 @@ def test_evidence_taxonomy_contains_adjudicated_specificity() -> None:
 def test_adversarial_preflight_is_explicit_about_its_limits() -> None:
     audit = json.loads((ROOT / "reports/adversarial-preflight-v0.json").read_text())
     assert audit["judge_mode"] == "deterministic_preflight_not_llm"
-    assert audit["record_count"] == 66
+    assert audit["record_count"] == 67
     assert audit["limits"]
 
 
