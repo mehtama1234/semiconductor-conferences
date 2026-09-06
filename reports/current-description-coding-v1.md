@@ -6,8 +6,8 @@ The first four previously uncoded records, selected by paper-ID order, have
 research1138 (ARTEMIS). Exact official source URLs and row locators accompany
 each record. All are pending independent review and retain description-level
 evidence status. They are not added to the 49-record selected adjudication sample.
-With thirty-eight batches, 223 additional drafts are available;
-271 of the 543 current DAC descriptions still need initial technical coding.
+With thirty-nine batches, 229 additional drafts are available;
+265 of the 543 current DAC descriptions still need initial technical coding.
 Draft coverage does not mean complete technical evidence. Research1691's extraction
 has been repaired, but its energy/power boundary remains unresolved.
 
@@ -443,6 +443,17 @@ percentage loss or remaining-throughput claim without a definition.
 | 2268 TierANNS / COGA | Queue-hinted CXL tiering | Title/description naming discrepancy; no numerical evaluation |
 | 2271 PeFoo-L | Layer-local forward-only preconditioning | No numeric convergence, quality or device-memory result |
 
-All 223 records have source-separated review packets. Next: resolve the ATB
+## Thirty-ninth batch
+
+| Paper | Mechanism | Evidence boundary |
+|---|---|---|
+| 2282 BS-KMQ | Boundary-suppressed nonlinear ADC quantization | PTQ, fine-tuning and simulation results have different conditions |
+| 2290 NoC DTCO | Monolithic/backside interconnect modeling | Raw source ends mid-sentence; preceding circuit/NoC results kept distinct |
+| 2293 PhotoMT | Photonic/digital Merkle execution | CPU and hardware baselines differ; exact arithmetic/energy boundaries unknown |
+| 2294 PIMA-SecDB | PIM FHE query/parameter co-design | Bootstrapping removal needs noise/security and query-scope checks |
+| 2297 IR-aware placement | GPU MNA and PDN/density optimization | Qualitative overhead/violation claims, not signoff proof |
+| 2298 VeRA+ | Scheduled vector drift compensation | Ten-year simulation differs from one-week measured device statistics |
+
+All 229 records have source-separated review packets. Next: resolve the ATB
 numeric comparison from primary evidence and continue uncoded descriptions in
 stable order, preserving gaps and possible counterexamples.

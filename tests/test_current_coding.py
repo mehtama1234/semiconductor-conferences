@@ -10,7 +10,7 @@ def test_current_drafts_preserve_identity_and_numeric_disagreement():
     rows = read_jsonl(ROOT / "data/current-description-coding-v1.jsonl")
     sources = {r["paper_id"]: r for r in read_jsonl(ROOT / "dac/data/paper-evidence-2026.jsonl")}
     branches = {r["theme_id"]: r["subthemes"] for r in json.loads((ROOT / "data/taxonomy-v1-evidence.json").read_text())["themes"]}
-    assert len(rows) == len({r["paper_id"] for r in rows}) == 223
+    assert len(rows) == len({r["paper_id"] for r in rows}) == 229
     for row in rows:
         for key in ["title", "evidence_url", "analysis_edition", "evidence_collection_date"]:
             assert row[key] == sources[row["paper_id"]][key]
@@ -149,3 +149,10 @@ def test_current_drafts_preserve_identity_and_numeric_disagreement():
     tieranns = next(r for r in rows if r["paper_id"] == "dac-2026-research2268")
     assert tieranns["metrics"] == []
     assert "description names COGA" in tieranns["limits"][0]
+    vera = next(r for r in rows if r["paper_id"] == "dac-2026-research2298")
+    assert "not absolute task accuracy" in vera["metrics"][0]["condition"]
+    assert "one-week" in vera["hardware_or_process_assumptions"]
+    assert "simulated" in vera["metrics"][0]["condition"]
+    noc = next(r for r in rows if r["paper_id"] == "dac-2026-research2290")
+    assert len(noc["metrics"]) == 8
+    assert "saved raw HTML" in noc["limits"][0]

@@ -4,6 +4,12 @@ The governing scope and acceptance criteria are in [GOAL.md](../GOAL.md).
 This log distinguishes finished work from queued work; a plan is not a completed
 research result.
 
+Latest batch: DAC 2026 IDs 2282, 2290, 2293, 2294, 2297 and 2298 bring
+current drafts to 229, leaving 265 descriptions uncoded. ADC evaluation stages,
+NoC source truncation (confirmed in saved raw HTML), photonic/FHE assumptions,
+qualitative IR-drop claims and measured-versus-simulated drift remain explicit.
+All 256 draft papers have source-separated packets; independent acceptance remains pending.
+
 Latest batch: DAC 2026 IDs 2245, 2254, 2256, 2265, 2268 and 2271 bring
 current drafts to 223, leaving 271 descriptions uncoded. Power boundaries,
 sequence-level accuracy, qualitative stochastic arithmetic, FHE comparison
