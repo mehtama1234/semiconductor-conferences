@@ -6,8 +6,8 @@ The first four previously uncoded records, selected by paper-ID order, have
 research1138 (ARTEMIS). Exact official source URLs and row locators accompany
 each record. All are pending independent review and retain description-level
 evidence status. They are not added to the 49-record selected adjudication sample.
-With sixty-one batches, 361 additional drafts are available;
-133 of the 543 current DAC descriptions still need initial technical coding.
+With sixty-two batches, 367 additional drafts are available;
+127 of the 543 current DAC descriptions still need initial technical coding.
 Draft coverage does not mean complete technical evidence. Research1691's extraction
 has been repaired, but its energy/power boundary remains unresolved.
 
@@ -696,6 +696,17 @@ percentage loss or remaining-throughput claim without a definition.
 | 3091 Shared logic | Multiple-output Boolean restructuring | Post-synthesis gains differ from physical implementation outcomes |
 | 3092 SecureRouter | Encrypted input-adaptive model routing | Confidentiality, leakage and accuracy claims need protocol evidence |
 
-All 361 records have source-separated review packets. Next: resolve the ATB
+## Sixty-second batch
+
+| Paper | Mechanism | Evidence boundary |
+|---|---|---|
+| 3100 3D FPGA placement | Layer-aware initialization and annealing | Four architecture-specific mean/max pairs remain separate |
+| 3120 DUET | Phase-specific disaggregated packages | TTFT, throughput and token interval are distinct metrics |
+| 3121 LEXI | Lossless exponent Huffman coding | Entropy is not full-value compressed size; communication differs from inference |
+| 3129 HW-Router | Live hardware-feedback serving | SLO improvements are percentage points, not relative percentages |
+| 3145 STAMP | Learned wafer tool-chain signatures | 7000 wafers is dataset size, not classification accuracy |
+| 315 TESLA | EM-derived handwriting trajectories | Character recognition and trajectory overlap are different outcomes |
+
+All 367 records have source-separated review packets. Next: resolve the ATB
 numeric comparison from primary evidence and continue uncoded descriptions in
 stable order, preserving gaps and possible counterexamples.

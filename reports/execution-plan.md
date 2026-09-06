@@ -4,6 +4,12 @@ The governing scope and acceptance criteria are in [GOAL.md](../GOAL.md).
 This log distinguishes finished work from queued work; a plan is not a completed
 research result.
 
+Latest batch: DAC 2026 IDs 3100, 3120, 3121, 3129, 3145 and 315 bring
+current drafts to 367, leaving 127 descriptions uncoded. Architecture-specific
+FPGA aggregates, phase-level accelerator metrics, exponent compression boundaries,
+SLO units, wafer dataset scope and handwriting recovery limits remain explicit.
+All 394 draft papers have source-separated packets; independent acceptance remains pending.
+
 Latest batch: DAC 2026 IDs 3059, 3067, 3082, 3087, 3091 and 3092 bring
 current drafts to 361, leaving 133 descriptions uncoded. Quantum trend agreement,
 laptop gesture conditions, ADC test/calibration scope, synthesis-stage metrics
