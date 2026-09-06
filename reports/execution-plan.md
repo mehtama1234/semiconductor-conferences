@@ -42,11 +42,13 @@ The recovered evidence increment and planning changes were committed as `216135d
   evidence, and preliminary versus independent review. All 45 tests pass.
 - Located the author-hosted MTIA 300 paper through the official company article:
   https://aisystemcodesign.github.io/papers/MTIA300_ISCA2026.pdf.
-  Paper extraction and source-tier revision are still pending.
+  A [partial source review packet](mtia300-source-review-packet.md) now records
+  communication-benchmark conditions and counterexamples. Table inspection,
+  field-by-field source-tier revision, and independent review remain pending.
 
 ## Next concrete batch
 
-1. Commit the queue and report corrections after checking the generated artifacts.
+1. Queue and report corrections committed as `bcc3347`; continue source extraction.
 2. Resolve the missing-title inventory row and inspect exact primary sources for
    the five unresolved secondary papers listed in the queue.
 3. Refine priorities for underrepresented taxonomy categories and counterexamples.
