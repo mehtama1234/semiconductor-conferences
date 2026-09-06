@@ -4,6 +4,12 @@ The governing scope and acceptance criteria are in [GOAL.md](../GOAL.md).
 This log distinguishes finished work from queued work; a plan is not a completed
 research result.
 
+Latest batch: DAC 2026 IDs 2107, 2123, 2125, 2128, 213 and 2131 bring
+current drafts to 199, leaving 295 descriptions uncoded. Physical biochip evidence,
+UPMEM scaling modality, operating-point parity, CIM learning conditions and
+qualitative monitoring/solver results remain explicit. All 226 draft papers have
+source-separated packets; independent acceptance remains pending.
+
 Latest batch: DAC 2026 IDs 2085, 209, 2094, 2098, 210 and 2105 bring
 current drafts to 193, leaving 301 descriptions uncoded. Debugging baselines,
 component-versus-system gains, simulated mapping, predecoder/energy boundaries

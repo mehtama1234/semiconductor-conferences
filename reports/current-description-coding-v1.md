@@ -6,8 +6,8 @@ The first four previously uncoded records, selected by paper-ID order, have
 research1138 (ARTEMIS). Exact official source URLs and row locators accompany
 each record. All are pending independent review and retain description-level
 evidence status. They are not added to the 49-record selected adjudication sample.
-With thirty-three batches, 193 additional drafts are available;
-301 of the 543 current DAC descriptions still need initial technical coding.
+With thirty-four batches, 199 additional drafts are available;
+295 of the 543 current DAC descriptions still need initial technical coding.
 Draft coverage does not mean complete technical evidence. Research1691's extraction
 has been repaired, but its energy/power boundary remains unresolved.
 
@@ -388,6 +388,17 @@ percentage loss or remaining-throughput claim without a definition.
 | 210 CryoZip | Windowed syndrome compression | Predecoded bandwidth and standalone compression differ; energy boundaries distinct |
 | 2105 Acc-SpMV / OmniSpMV | Reordering, tiling and CUDA balancing | Title/library discrepancy retained; twelve device/baseline/aggregation results kept separate |
 
-All 193 records have source-separated review packets. Next: resolve the ATB
+## Thirty-fourth batch
+
+| Paper | Mechanism | Evidence boundary |
+|---|---|---|
+| 2107 ODBP | Dependency-preserving biochip protocol obfuscation | Qualitative cost/resistance; no physical assay or fabricated validation |
+| 2123 DyPamear | Load-aware UPMEM dynamic graph mining | Real-hardware results reported; full scale-test modality and baseline resources unknown |
+| 2125 Overmind | Padé nonlinear functions and memory bypass | Throughput/efficiency need common operating point before deriving power |
+| 2128 CIM-MP | Pulse mapping and feature/gradient noise suppression | Accuracy convention and convergence assumptions unspecified |
+| 213 Per-core EM | Multicore physical leakage monitoring | No numeric attribution/secret-extraction rate or remote-compromise claim |
+| 2131 EastPCG | Spectral sparsification and neural tuning | Qualitative solver advantage; tolerances, setup cost and robustness unknown |
+
+All 199 records have source-separated review packets. Next: resolve the ATB
 numeric comparison from primary evidence and continue uncoded descriptions in
 stable order, preserving gaps and possible counterexamples.
