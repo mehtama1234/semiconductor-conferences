@@ -6,8 +6,8 @@ The first four previously uncoded records, selected by paper-ID order, have
 research1138 (ARTEMIS). Exact official source URLs and row locators accompany
 each record. All are pending independent review and retain description-level
 evidence status. They are not added to the 49-record selected adjudication sample.
-With four batches, nineteen additional drafts are available;
-475 of the 543 current DAC descriptions still need initial technical coding.
+With five batches, 25 additional drafts are available;
+469 of the 543 current DAC descriptions still need initial technical coding.
 
 ## Evidence requiring care
 
@@ -67,6 +67,17 @@ its 2.69× geometric-mean comparison against A100 is simulation-based at 500 MHz
 The description's ambiguous 0.067× penalty notation is not converted into a
 percentage loss or remaining-throughput claim without a definition.
 
-All nineteen records have source-separated review packets. Next: resolve the ATB
+## Fifth batch
+
+| Paper | Mechanism | Evidence boundary |
+|---|---|---|
+| 1267 MATCHA | Constraint-programmed memory allocation and heterogeneous schedules | Up-to-35% latency reduction versus MATCH is scoped to MLPerf Tiny and a two-accelerator SoC |
+| 1268 Bident | Topology-aware optical loss modeling and combiner optimization | Schematic simulation and model-bound optimality are not fabricated optical validation or universal optimality |
+| 127 DyTuner | Adaptive dynamic-shape operator tuning | Up-to-1.41×/1.64× versus BladeDISC/TorchInductor lacks shape distribution and tuning-time boundaries |
+| 1275 TRAC | ACT-triggered in-subarray row counting | Qualitative monitoring claims do not establish a complete RowHammer mitigation policy |
+| 1282 CPW-SMO | Set-attention common-source/mask generation | Nearly-2× process window and approximately-200× runtime gains omit training/amortization and physical validation |
+| 1284 WFH-BFs | Functional weight tiers, core hardening and adaptive pruning | Attack-cost and random-error results are separate; GFLOPs reductions are not measured energy savings |
+
+All 25 records have source-separated review packets. Next: resolve the ATB
 numeric comparison from primary evidence and continue uncoded descriptions in
 stable order, preserving gaps and possible counterexamples.

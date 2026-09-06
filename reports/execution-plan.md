@@ -4,6 +4,13 @@ The governing scope and acceptance criteria are in [GOAL.md](../GOAL.md).
 This log distinguishes finished work from queued work; a plan is not a completed
 research result.
 
+Latest batch: DAC 2026 IDs 1267, 1268, 127, 1275, 1282 and 1284 extend
+current drafts to 25, leaving 469 descriptions uncoded. Optical model optimality,
+RowHammer counting versus complete defense, and random-error versus adversarial
+evaluation boundaries are explicit. All 52 draft papers have source-separated
+packets; none has an independent acceptance verdict. Continue accessible coding
+and source-depth recovery.
+
 Latest increment: FlashFPS, BSGCN and DAP (DAC 2026 IDs 124, 1242, 1256)
 extend the current draft set to nineteen, leaving 475 descriptions uncoded.
 All 46 draft papers have source-separated packets. The builder now rejects
