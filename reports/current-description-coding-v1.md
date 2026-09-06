@@ -6,8 +6,8 @@ The first four previously uncoded records, selected by paper-ID order, have
 research1138 (ARTEMIS). Exact official source URLs and row locators accompany
 each record. All are pending independent review and retain description-level
 evidence status. They are not added to the 49-record selected adjudication sample.
-With ten batches, 55 additional drafts are available;
-439 of the 543 current DAC descriptions still need initial technical coding.
+With eleven batches, 61 additional drafts are available;
+433 of the 543 current DAC descriptions still need initial technical coding.
 
 ## Evidence requiring care
 
@@ -133,6 +133,17 @@ percentage loss or remaining-throughput claim without a definition.
 | 1382 AI+SAR | Pseudo-transposition and FFT-aware graph splitting | 3.45× applies to SAR imaging, not the complete AI+SAR application |
 | 1388 Parallel CEC | Sharing-aware factored-form partitioning | 40-core versus single-thread gains are not resource-matched; geometric means and maxima remain separate |
 
-All 55 records have source-separated review packets. Next: resolve the ATB
+## Eleventh batch
+
+| Paper | Mechanism | Evidence boundary |
+|---|---|---|
+| 1390 ATLAS | Decoupled GNN FIT ranking and calibration | Predicted reliability and selective-hardening results do not establish safety certification |
+| 1400 ActionFlow | Cross-request VLA prefill/decode pipeline | OpenVLA-7B frame-rate gain does not establish closed-loop latency or stability |
+| 1404 LS-Placer | Learned net/logic delays and slack-adaptive FPGA placement | Reported averages compare with Vivado 2021.2; benchmark identities are missing |
+| 1407 COmPOSER | Physics/learned-EM-assisted RF synthesis and layout | Post-layout 65-nm results are not fabricated-chip measurements; productivity accounting is unspecified |
+| 1409 CODA | Tensor-independent NPU dataflow search | Single-operator and fused-operator gains remain separate; not the ISCA CODO paper |
+| 1412 VRRAM | Gshuffle low-bit ViT and reconfigurable 3D lookup compute | Mixed weight precision is not uniform four-bit quantization; accuracy and efficiency baselines differ |
+
+All 61 records have source-separated review packets. Next: resolve the ATB
 numeric comparison from primary evidence and continue uncoded descriptions in
 stable order, preserving gaps and possible counterexamples.

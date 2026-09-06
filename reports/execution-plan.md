@@ -4,6 +4,14 @@ The governing scope and acceptance criteria are in [GOAL.md](../GOAL.md).
 This log distinguishes finished work from queued work; a plan is not a completed
 research result.
 
+Latest batch: DAC 2026 IDs 1390, 1400, 1404, 1407, 1409 and 1412 bring
+current drafts to 61, leaving 433 descriptions uncoded. Reliability certification,
+closed-loop control, fabricated-chip validation and mixed-precision distinctions
+remain explicit evidence limits. All 88 draft papers have source-separated
+packets; independent acceptance remains pending.
+
+The entries below record earlier checkpoints, not current totals.
+
 Latest batch: DAC 2026 IDs 1373, 1374, 1378, 138, 1382 and 1388 bring
 current drafts to 55, leaving 439 descriptions uncoded. CEC means/maxima and
 parallel-resource differences, SpMSpV versus broader workload coverage and
