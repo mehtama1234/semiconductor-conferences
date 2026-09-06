@@ -14,3 +14,8 @@ The machine-readable ledger is `dac/data/paper-evidence-2025.jsonl`. Only the
 The other 395 records remain metadata-only and are excluded from technical
 trend conclusions. No theme, method, metric, or prevalence claim is inferred
 from their titles.
+
+The official program also assigns all 419 research records to one or more
+provider-defined tracks. Those assignments are preserved in
+`dac/data/track-baseline-2025.json` as a program taxonomy baseline. They may
+route later review, but they are not treated as paper-level classifications.

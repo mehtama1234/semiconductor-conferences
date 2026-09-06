@@ -70,6 +70,14 @@ def test_dac_historical_evidence_coverage_is_honest() -> None:
     assert all(row["problem"] is None and row["theme_id"] is None for row in rows)
 
 
+def test_dac_historical_track_baseline_is_program_only() -> None:
+    baseline = json.loads((ROOT / "dac/data/track-baseline-2025.json").read_text())
+    assert baseline["record_count"] == 419
+    assert baseline["records_with_track_assignment"] == 419
+    assert baseline["track_counts"]
+    assert "not paper abstracts" in baseline["limits"]
+
+
 def test_isca_crossref_metadata_keeps_technical_claims_unclassified() -> None:
     rows = [json.loads(line) for line in (ROOT / "isca/data/crossref-metadata-2026.jsonl").read_text().splitlines() if line.strip()]
     assert len(rows) >= 150
