@@ -24,9 +24,9 @@ def test_queue_preserves_inventory_and_evidence_boundaries():
     assert summary["excluded_slot_ids"] == ["isca-2026-program-158"]
     historical = [r for r in rows if r["conference_id"] == "dac" and r["analysis_edition"] == 2025]
     assert sum(r["collection_status"] == "substantive_description" for r in historical) == 24
-    assert sum(r["coding_status"] == "technical_draft" for r in historical) == 9
-    assert sum(r["coding_status"] == "not_coded" for r in historical) == 410
-    assert summary["draft_paper_count"] == 12
+    assert sum(r["coding_status"] == "technical_draft" for r in historical) == 15
+    assert sum(r["coding_status"] == "not_coded" for r in historical) == 404
+    assert summary["draft_paper_count"] == 18
     assert "draft_requires_source_depth_and_review" in by_id["dac-2025-research002"]["priority_reasons"]
     reviewed = by_id["dac-2026-research1211"]
     assert reviewed["preliminary_review"] == "revise"

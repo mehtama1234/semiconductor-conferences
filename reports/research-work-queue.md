@@ -8,7 +8,7 @@ Drafts are tracked separately from the selected coded sample; neither status mea
 
 | Corpus | Captured rows | Eligible titles | Coded sample | Draft only |
 |---|---:|---:|---:|---:|
-| dac-2025 | 419 | 419 | 0 | 9 |
+| dac-2025 | 419 | 419 | 0 | 15 |
 | dac-2026 | 543 | 543 | 49 | 0 |
 | iccad-2025 | 276 | 276 | 8 | 0 |
 | isca-2025 | 135 | 135 | 0 | 0 |

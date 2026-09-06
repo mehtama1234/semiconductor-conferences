@@ -10,7 +10,7 @@ def test_historical_drafts_preserve_source_identity_and_uncertainty():
     sources = {r["paper_id"]: r for r in read_jsonl(ROOT / "dac/data/paper-evidence-2025.jsonl")}
     rows = read_jsonl(ROOT / "data/historical-description-coding-v1.jsonl")
     branches = {r["theme_id"]: r["subthemes"] for r in json.loads((ROOT / "data/taxonomy-v1-evidence.json").read_text())["themes"]}
-    assert len(rows) == len({r["paper_id"] for r in rows}) == 6
+    assert len(rows) == len({r["paper_id"] for r in rows}) == 12
     for row in rows:
         source = sources[row["paper_id"]]
         for key in ["title", "analysis_edition", "evidence_url", "evidence_collection_date", "evidence_source_id"]:
@@ -27,3 +27,7 @@ def test_historical_drafts_preserve_source_identity_and_uncertainty():
     assert by_id["dac-2025-research002"]["metrics"] == []
     assert by_id["dac-2025-research024"]["metrics"] == []
     assert by_id["dac-2025-research021"]["hardware_or_process_assumptions"] is None
+    assert by_id["dac-2025-research048"]["metrics"] == []
+    assert by_id["dac-2025-research054"]["metrics"] == []
+    assert by_id["dac-2025-research068"]["metrics"][0]["metric"] == "mesh generation speedup"
+    assert all("energy" not in m["metric"] for m in by_id["dac-2025-research051"]["metrics"])
