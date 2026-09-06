@@ -6,8 +6,8 @@ The first four previously uncoded records, selected by paper-ID order, have
 research1138 (ARTEMIS). Exact official source URLs and row locators accompany
 each record. All are pending independent review and retain description-level
 evidence status. They are not added to the 49-record selected adjudication sample.
-With thirty batches, 175 additional drafts are available;
-319 of the 543 current DAC descriptions still need initial technical coding.
+With thirty-one batches, 181 additional drafts are available;
+313 of the 543 current DAC descriptions still need initial technical coding.
 Draft coverage does not mean complete technical evidence. Research1691's extraction
 has been repaired, but its energy/power boundary remains unresolved.
 
@@ -355,6 +355,17 @@ percentage loss or remaining-throughput claim without a definition.
 | 2024 Rectilinear floorplanning | Differentiable shaping and flow legalization | Mean/max HPWL differ; proxy gain is not routed timing benefit |
 | 2027 Relay-GS | Temporal sorting reuse and rasterization | Quality tolerance and correction cost unknown; scene-dependent gains |
 
-All 175 records have source-separated review packets. Next: resolve the ATB
+## Thirty-first batch
+
+| Paper | Mechanism | Evidence boundary |
+|---|---|---|
+| 2030 Multi-task sparsity | Differential block loading across tasks | Task-switch gain is not inference throughput; accuracy budgets missing |
+| 2036 PipeGS | Hierarchical reuse and partitioned rendering | Hidden latency is not eliminated work; efficiency comparisons lack quality parity |
+| 2037 LRTA | GPU track assignment with layer reassignment | Routability estimation is not detailed-routing closure; no numeric result |
+| 2048 GNN FPGA floorplanning | Slot-level quality prediction and HLS DSE | 0.58 ms is prediction only; benchmark execution-time boundary unresolved |
+| 2056 GPU-FUZZ | Constraint-guided operator boundary testing | Thirteen bugs are author-reported; no confirmed exploitability or equal-budget comparison |
+| 2057 AccShield | Operator-sensitive faulty-array scheduling | Qualitative reliability/performance evidence; criticality and fault coverage unknown |
+
+All 181 records have source-separated review packets. Next: resolve the ATB
 numeric comparison from primary evidence and continue uncoded descriptions in
 stable order, preserving gaps and possible counterexamples.
