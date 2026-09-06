@@ -6,8 +6,8 @@ The first four previously uncoded records, selected by paper-ID order, have
 research1138 (ARTEMIS). Exact official source URLs and row locators accompany
 each record. All are pending independent review and retain description-level
 evidence status. They are not added to the 49-record selected adjudication sample.
-With fifty batches, 295 additional drafts are available;
-199 of the 543 current DAC descriptions still need initial technical coding.
+With fifty-one batches, 301 additional drafts are available;
+193 of the 543 current DAC descriptions still need initial technical coding.
 Draft coverage does not mean complete technical evidence. Research1691's extraction
 has been repaired, but its energy/power boundary remains unresolved.
 
@@ -575,6 +575,17 @@ percentage loss or remaining-throughput claim without a definition.
 | 2650 RESP | Self-calibrated structured pruning | Scores at 40% sparsity; ambiguous baseline percentage convention |
 | 2670 HIP-MaN | Periodic phase navigation | Longer-path tradeoff; speed does not establish collision safety |
 
-All 295 records have source-separated review packets. Next: resolve the ATB
+## Fifty-first batch
+
+| Paper | Mechanism | Evidence boundary |
+|---|---|---|
+| 2686 Adaptive RRT | Wordline interpolation and guided retry | Failed-page recovery differs from device reliability; retention modality unknown |
+| 2694 HySpecPro | Single-level spectral projection | Qualitative cut quality/scaling; motivation is not evaluated size |
+| 2698 BiBNN | Latent variational training and binary inference | 11.4% retained compute is not runtime or energy |
+| 270 3D-ReSAC | Refresh skip and ArrowMesh | Component-overhead extrema do not establish universal refresh elimination |
+| 2708 M²CAM | Adaptive multilevel genome matching | Dataset evaluation differs from measured silicon; baseline mapping absent |
+| 271 CAL-DSE | Causal graph-guided CPU search | Hypervolume is not CPU performance; causal validation unspecified |
+
+All 301 records have source-separated review packets. Next: resolve the ATB
 numeric comparison from primary evidence and continue uncoded descriptions in
 stable order, preserving gaps and possible counterexamples.
