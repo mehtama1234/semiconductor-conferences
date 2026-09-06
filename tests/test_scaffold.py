@@ -43,6 +43,15 @@ def test_isca_program_inventory_is_metadata_only() -> None:
     assert all(row["access_status"] == "official_program_metadata_only" for row in rows)
 
 
+def test_isca_historical_inventory_is_separate_and_metadata_only() -> None:
+    rows = [json.loads(line) for line in (ROOT / "isca/data/papers-2025-program.jsonl").read_text().splitlines() if line.strip()]
+    assert len(rows) == 135
+    assert len({row["paper_id"] for row in rows}) == len(rows)
+    assert all(row["target_edition"] == 2025 and row["analysis_edition"] == 2025 for row in rows)
+    assert all(row["access_status"] == "official_historical_program_metadata_only" for row in rows)
+    assert all(row["problem"] is None and row["metrics"] == [] for row in rows)
+
+
 def test_isca_crossref_metadata_keeps_technical_claims_unclassified() -> None:
     rows = [json.loads(line) for line in (ROOT / "isca/data/crossref-metadata-2026.jsonl").read_text().splitlines() if line.strip()]
     assert len(rows) >= 150
@@ -174,3 +183,9 @@ def test_adversarial_preflight_is_explicit_about_its_limits() -> None:
     assert audit["judge_mode"] == "deterministic_preflight_not_llm"
     assert audit["record_count"] == 49
     assert audit["limits"]
+
+
+def test_temporal_baseline_refuses_unsupported_directional_claims() -> None:
+    report = (ROOT / "reports/temporal-baseline-v1.md").read_text()
+    assert "135 papers" in report and "173 papers" in report
+    assert "No claim that a topic is rising" in report

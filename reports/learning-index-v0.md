@@ -15,6 +15,7 @@ organized around technical questions, not just conference names.
 - [Adversarial review status](adversarial-review-status-v1.md)
 - [Adjudicated evidence coverage](evidence-summary-v1.md)
 - [Adversarial consistency preflight](adversarial-preflight-v0.json)
+- [Temporal baseline and trend-claim boundary](temporal-baseline-v1.md)
 
 ## DAC 2026
 
