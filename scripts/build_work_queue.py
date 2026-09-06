@@ -11,6 +11,10 @@ from scripts.build_evidence_summary import PATHS, read_jsonl, source_tier
 from scripts.collect_isca_crossref_metadata import title_key
 from scripts.inventory_scope import title_eligible
 
+DRAFT_PATHS = ["data/temporal-comparative-coding-v1.jsonl",
+               "data/historical-description-coding-v1.jsonl",
+               "data/current-description-coding-v1.jsonl"]
+
 
 def unique_index(records: list[dict]) -> dict[str, dict]:
     result = {}
@@ -32,8 +36,7 @@ def build(root: Path) -> tuple[list[dict], dict, str]:
         row for path in sorted(root.glob("*/data/paper-evidence-20??.jsonl"))
         for row in read_jsonl(path)
     ])
-    draft_paths = [root / "data/temporal-comparative-coding-v1.jsonl",
-                   root / "data/historical-description-coding-v1.jsonl"]
+    draft_paths = [root / path for path in DRAFT_PATHS]
     drafts = defaultdict(list)
     for path in draft_paths:
         for draft in read_jsonl(path):

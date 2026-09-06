@@ -4,6 +4,15 @@ The governing scope and acceptance criteria are in [GOAL.md](../GOAL.md).
 This log distinguishes finished work from queued work; a plan is not a completed
 research result.
 
+Current DAC expansion: four previously uncoded 2026 records (1000, 1011, 1095,
+1138) have technical drafts and source-separated packets; 490 descriptions remain
+uncoded. The ATB description's stated 4.54× gain does not equal its TFLOPS endpoint
+ratio; this disagreement is preserved, not silently repaired. Other batch results
+are qualitative. [Batch report](current-description-coding-v1.md) documents limits.
+Draft packet coverage is now 31 papers, including three already in the unchanged
+72-record selected sample. Next: primary resolution of ATB metrics and continued
+accessible coding; independent review remains pending.
+
 Latest historical batch: the final nine accessible DAC 2025 descriptions (085,
 097, 1016, 1017, 103, 1034, 1039, 1042, 105) have technical drafts with
 conditional metrics and taxonomy-fit limits. With the temporal pilot, all 24
