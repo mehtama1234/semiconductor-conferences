@@ -4,6 +4,12 @@ The governing scope and acceptance criteria are in [GOAL.md](../GOAL.md).
 This log distinguishes finished work from queued work; a plan is not a completed
 research result.
 
+Latest batch: DAC 2026 IDs 160, 1605, 1608, 1610, 1612 and 1613 bring
+current drafts to 109, leaving 385 descriptions uncoded. EDP reference separation,
+precision-specific macro efficiency, quantum stage boundaries, power denominators
+and empirical robustness limits remain explicit. All 136 draft papers have
+source-separated packets; independent acceptance remains pending.
+
 Latest batch: DAC 2026 IDs 1570, 158, 1582, 1585, 1587 and 1596 bring
 current drafts to 103, leaving 391 descriptions uncoded. DRAM/area accounting,
 domain scale versus accuracy, model-specific decode gains, qualification limits

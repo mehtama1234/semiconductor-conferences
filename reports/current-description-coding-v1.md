@@ -6,8 +6,8 @@ The first four previously uncoded records, selected by paper-ID order, have
 research1138 (ARTEMIS). Exact official source URLs and row locators accompany
 each record. All are pending independent review and retain description-level
 evidence status. They are not added to the 49-record selected adjudication sample.
-With eighteen batches, 103 additional drafts are available;
-391 of the 543 current DAC descriptions still need initial technical coding.
+With nineteen batches, 109 additional drafts are available;
+385 of the 543 current DAC descriptions still need initial technical coding.
 
 ## Evidence requiring care
 
@@ -221,6 +221,17 @@ percentage loss or remaining-throughput claim without a definition.
 | 1587 CelestialEye | CPU decoding and FPGA stream-item processing | Qualitative BitMatcher comparison; no numeric speed/accuracy result |
 | 1596 PIMGRAG | Near-memory retrieval and PIM/GPU scheduling | Qualitative efficiency claims; no demonstrated factuality or whole-generation gain |
 
-All 103 records have source-separated review packets. Next: resolve the ATB
+## Nineteenth batch
+
+| Paper | Mechanism | Evidence boundary |
+|---|---|---|
+| 160 ROSA | Optical shift-and-add and noise-aware hybrid mapping | EDP reductions have different references and must not be compounded |
+| 1605 MANTIS | Microscaled SRAM-compatible charge-domain macro | TOPS/W depends on precision; 0.15 percentage-point loss is versus a quantized baseline |
+| 1608 Remote CZ compiler | Directional excitation transport with AOD assistance | Entangling-stage reduction is not total circuit speedup; fidelity and setup cost unknown |
+| 1610 BayesCVNN | Complex-valued uncertainty search and FPGA generation | Less than 10% GPU power is not a 10% reduction; model-specific speedups remain separate |
+| 1612 EARL | Entropy-gated RTL policy updates | Up-to-14.7% pass-rate gain has unspecified percentage convention and sampling budget |
+| 1613 STRAP-ViT | Anomalous-token detection and randomized transformations | Patch coverage is a chosen target, not measured detection; adaptive attack conditions unknown |
+
+All 109 records have source-separated review packets. Next: resolve the ATB
 numeric comparison from primary evidence and continue uncoded descriptions in
 stable order, preserving gaps and possible counterexamples.
