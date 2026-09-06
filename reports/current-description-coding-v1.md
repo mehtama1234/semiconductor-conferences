@@ -6,8 +6,8 @@ The first four previously uncoded records, selected by paper-ID order, have
 research1138 (ARTEMIS). Exact official source URLs and row locators accompany
 each record. All are pending independent review and retain description-level
 evidence status. They are not added to the 49-record selected adjudication sample.
-With twenty-five batches, 145 additional drafts are available;
-349 of the 543 current DAC descriptions still need initial technical coding.
+With twenty-six batches, 151 additional drafts are available;
+343 of the 543 current DAC descriptions still need initial technical coding.
 Draft coverage does not mean complete technical evidence. Research1691's extraction
 has been repaired, but its energy/power boundary remains unresolved.
 
@@ -300,6 +300,17 @@ percentage loss or remaining-throughput claim without a definition.
 | 1858 ReflectBench | Consensus/reflection testbench generation | Internal consensus is not independent validation; two benchmark comparisons remain separate |
 | 1859 iPCL-M | Generate/evaluate/optimize routing | 336× evaluator gain is not routing-flow speedup; zero test errors do not establish signoff |
 
-All 145 records have source-separated review packets. Next: resolve the ATB
+## Twenty-sixth batch
+
+| Paper | Mechanism | Evidence boundary |
+|---|---|---|
+| 1862 3D eFlash TSS | Thermal model, programming and calibration | Programming/task temperature ranges differ; prototype is not independent qualification |
+| 1872 SSD Reforge | Aging-aware intra-device parity | FEMU evidence; “up to 40% on average” aggregation unresolved |
+| 1878 BEV hardware-aware NAS | Model search and camera/LiDAR fusion | 2.3 percentage-point mAP gain; FPS does not establish vehicle safety |
+| 1885 PEACE | PE-granular compression and metadata execution | 88 GOPS/W denotes efficiency, not absolute throughput; baselines differ |
+| 1899 ACE-NAS | Joint topology/encoding proxy search | Training-free proxy is not zero compute; final model training remains separate |
+| 1900 KERV | Kinematic Kalman correction of speculation | Acceleration convention and success-rate tolerance unknown; no control-safety guarantee |
+
+All 151 records have source-separated review packets. Next: resolve the ATB
 numeric comparison from primary evidence and continue uncoded descriptions in
 stable order, preserving gaps and possible counterexamples.
