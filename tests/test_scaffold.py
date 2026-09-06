@@ -110,3 +110,17 @@ def test_learning_index_links_the_three_workstreams() -> None:
     text = (ROOT / "reports/learning-index-v0.md").read_text()
     for marker in ("DAC 2026", "ISCA 2026", "ICCAD 2026 / 2025 fallback", "Cross-conference direction synthesis"):
         assert marker in text
+
+
+def test_evidence_taxonomy_contains_adjudicated_specificity() -> None:
+    taxonomy = json.loads((ROOT / "data/taxonomy-v1-evidence.json").read_text())
+    all_subsub = [value for theme in taxonomy["themes"] for values in theme.get("subsubthemes", {}).values() for value in values]
+    assert "gpu-power-thermal-transformer-side-channel-leakage" in all_subsub
+    assert "silicon-calibrated-hierarchical-cim-exploration" in all_subsub
+
+
+def test_adversarial_preflight_is_explicit_about_its_limits() -> None:
+    audit = json.loads((ROOT / "reports/adversarial-preflight-v0.json").read_text())
+    assert audit["judge_mode"] == "deterministic_preflight_not_llm"
+    assert audit["record_count"] == 22
+    assert audit["limits"]

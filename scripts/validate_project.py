@@ -43,6 +43,8 @@ def validate(root: Path = ROOT) -> dict:
         "cross_conference_matrix_is_provisional": (root / "data/cross-conference-matrix-v0.json").exists() and json.loads((root / "data/cross-conference-matrix-v0.json").read_text(encoding="utf-8")).get("status") == "provisional_synthesis",
         "conference_deep_pages_present": all((root / folder / "pages").is_dir() and any((root / folder / "pages").glob("*.md")) for folder in ["isca", "dac", "iccad"]),
         "learning_index_present": (root / "reports/learning-index-v0.md").exists(),
+        "evidence_taxonomy_present": json.loads((root / "data/taxonomy-v1-evidence.json").read_text(encoding="utf-8")).get("taxonomy_version") == "v1-evidence-derived",
+        "adversarial_preflight_present": json.loads((root / "reports/adversarial-preflight-v0.json").read_text(encoding="utf-8")).get("judge_mode") == "deterministic_preflight_not_llm",
         "dac_program_signals_provenanced": all(row.get("source_id") in source_ids(root, "dac") and row.get("evidence_status") == "program_signal_only" for row in read_jsonl(root / "dac/data/program-signals.jsonl")),
         "iccad_scope_signals_provenanced": all(row.get("source_id") in source_ids(root, "iccad") and row.get("evidence_status") == "scope_signal_only" for row in read_jsonl(root / "iccad/data/program-signals.jsonl")),
         "iccad_fallback_paper_metadata_present": normalized_metadata_rows(read_jsonl(root / "iccad/data/papers-2025-program.jsonl")) and all(row.get("target_edition") == 2026 and row.get("analysis_edition") == 2025 and row.get("access_status") == "official_fallback_program_pdf_metadata_only" for row in read_jsonl(root / "iccad/data/papers-2025-program.jsonl")),

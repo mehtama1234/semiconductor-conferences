@@ -1,0 +1,176 @@
+{
+  "base_taxonomy": "data/taxonomy-v0.json",
+  "derived_from": [
+    "dac/data/adjudicated-2026-batch.jsonl",
+    "iccad/data/adjudicated-2025-batch.jsonl"
+  ],
+  "status": "provisional_until_full_corpus_adjudication",
+  "taxonomy_version": "v1-evidence-derived",
+  "themes": [
+    {
+      "label": "AI-assisted EDA",
+      "subsubthemes": {
+        "llm-assisted-design-flows": [
+          "llm-generated-hls-architecture-optimization",
+          "preference-optimized-pcb-placement"
+        ]
+      },
+      "subthemes": [
+        "generative-circuit-and-layout-synthesis",
+        "learned-design-space-exploration",
+        "llm-assisted-design-flows"
+      ],
+      "theme_id": "ai-assisted-eda"
+    },
+    {
+      "label": "Analog, mixed-signal, and emerging devices",
+      "subthemes": [
+        "analog-and-mixed-signal-synthesis",
+        "emerging-memory-and-devices",
+        "neuromorphic-quantum-and-non-von-neumann"
+      ],
+      "theme_id": "analog-mixed-signal-and-emerging-devices"
+    },
+    {
+      "label": "Architecture and accelerators",
+      "subsubthemes": {
+        "architecture-software-co-design": [
+          "generative-sequential-cpu-design-space-exploration",
+          "silicon-calibrated-hierarchical-cim-exploration"
+        ],
+        "specialized-ai-accelerators": [
+          "adaptive-sparsity-hyper-dimensional-graph-learning",
+          "topology-driven-dynamic-heterogeneous-gnn-acceleration"
+        ]
+      },
+      "subthemes": [
+        "ai-accelerator-microarchitecture",
+        "architecture-software-co-design",
+        "general-purpose-and-domain-specific-architecture",
+        "specialized-ai-accelerators"
+      ],
+      "theme_id": "architecture-and-accelerators"
+    },
+    {
+      "label": "Chiplets, 3D integration, and packaging",
+      "subsubthemes": {
+        "3d-stacking-and-thermal-management": [
+          "analytical-3d-ic-thermal-simulation"
+        ],
+        "package-system-co-design": [
+          "metal-density-constrained-package-power-plane-synthesis"
+        ]
+      },
+      "subthemes": [
+        "3d-stacking-and-thermal-management",
+        "chiplet-partitioning-and-integration",
+        "package-system-co-design"
+      ],
+      "theme_id": "chiplets-3d-and-packaging"
+    },
+    {
+      "label": "Design methodology and tooling",
+      "subsubthemes": {
+        "high-level-synthesis-and-compilers": [
+          "mlir-two-level-dataflow-accelerator-generation"
+        ],
+        "optimization-and-search-methods": [
+          "differentiable-task-graph-partitioning",
+          "zero-shot-reinforcement-learning-for-logic-optimization"
+        ],
+        "synthesis-and-compilation": [
+          "exact-t-cost-quantum-circuit-synthesis"
+        ]
+      },
+      "subthemes": [
+        "high-level-synthesis-and-compilers",
+        "optimization-and-search-methods",
+        "reproducibility-artifacts-and-benchmarks",
+        "synthesis-and-compilation"
+      ],
+      "theme_id": "design-methodology-and-tooling"
+    },
+    {
+      "label": "Memory, interconnect, and storage",
+      "subsubthemes": {
+        "data-movement-and-locality": [
+          "cxl-near-memory-ann-search"
+        ]
+      },
+      "subthemes": [
+        "chiplet-and-on-chip-interconnect",
+        "data-movement-and-locality",
+        "memory-hierarchy-and-persistence"
+      ],
+      "theme_id": "memory-interconnect-and-storage"
+    },
+    {
+      "label": "Physical design and manufacturing",
+      "subsubthemes": {
+        "placement-routing-and-timing": [
+          "fpga-accelerated-design-rule-checking"
+        ],
+        "timing-analysis-and-optimization": [
+          "gpu-accelerated-static-timing-analysis",
+          "statistical-sequential-constraint-characterization"
+        ]
+      },
+      "subthemes": [
+        "floorplanning-and-power-delivery",
+        "placement-routing-and-timing",
+        "process-aware-design",
+        "timing-analysis-and-optimization"
+      ],
+      "theme_id": "physical-design-and-manufacturing"
+    },
+    {
+      "label": "Power, reliability, and security",
+      "subsubthemes": {
+        "accelerator-reliability": [
+          "full-stack-npu-fault-mitigation"
+        ],
+        "power-integrity-and-reliability": [
+          "physics-informed-joint-em-ir-modeling"
+        ],
+        "side-channel-and-hardware-security": [
+          "adversarial-attacks-on-moe-offloading",
+          "gpu-power-thermal-transformer-side-channel-leakage"
+        ]
+      },
+      "subthemes": [
+        "accelerator-reliability",
+        "energy-and-thermal-efficiency",
+        "fault-tolerance-and-reliability",
+        "power-integrity-and-reliability",
+        "side-channel-and-hardware-security"
+      ],
+      "theme_id": "power-reliability-and-security"
+    },
+    {
+      "label": "Systems, applications, and workloads",
+      "subthemes": [
+        "datacenter-and-cloud-systems",
+        "edge-embedded-and-mobile-systems",
+        "scientific-robotics-and-domain-workloads"
+      ],
+      "theme_id": "systems-applications-and-workloads"
+    },
+    {
+      "label": "Verification and validation",
+      "subsubthemes": {
+        "formal-and-functional-verification": [
+          "hierarchical-learning-for-sequential-formal-analysis"
+        ],
+        "simulation-emulation-and-testing": [
+          "llm-assisted-hls-logic-debugging"
+        ]
+      },
+      "subthemes": [
+        "formal-and-functional-verification",
+        "hardware-security-validation",
+        "simulation-emulation-and-testing"
+      ],
+      "theme_id": "verification-and-validation"
+    }
+  ]
+}
