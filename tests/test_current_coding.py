@@ -10,7 +10,7 @@ def test_current_drafts_preserve_identity_and_numeric_disagreement():
     rows = read_jsonl(ROOT / "data/current-description-coding-v1.jsonl")
     sources = {r["paper_id"]: r for r in read_jsonl(ROOT / "dac/data/paper-evidence-2026.jsonl")}
     branches = {r["theme_id"]: r["subthemes"] for r in json.loads((ROOT / "data/taxonomy-v1-evidence.json").read_text())["themes"]}
-    assert len(rows) == len({r["paper_id"] for r in rows}) == 247
+    assert len(rows) == len({r["paper_id"] for r in rows}) == 253
     for row in rows:
         for key in ["title", "evidence_url", "analysis_edition", "evidence_collection_date"]:
             assert row[key] == sources[row["paper_id"]][key]
@@ -173,3 +173,8 @@ def test_current_drafts_preserve_identity_and_numeric_disagreement():
     assert fno["metrics"][0]["value"] == 1245550
     metric = next(r for r in rows if r["paper_id"] == "dac-2026-research2347")
     assert "description names MECA-CIM" in metric["limits"][0]
+    recon = next(r for r in rows if r["paper_id"] == "dac-2026-research2369")
+    assert [m["value"] for m in recon["metrics"]] == [23.5, 18.3]
+    assert "not raw execution overhead" in recon["limits"][0]
+    ubfp = next(r for r in rows if r["paper_id"] == "dac-2026-research2378")
+    assert "EEF is not defined" in ubfp["metrics"][0]["condition"]

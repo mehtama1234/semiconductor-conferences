@@ -6,8 +6,8 @@ The first four previously uncoded records, selected by paper-ID order, have
 research1138 (ARTEMIS). Exact official source URLs and row locators accompany
 each record. All are pending independent review and retain description-level
 evidence status. They are not added to the 49-record selected adjudication sample.
-With forty-two batches, 247 additional drafts are available;
-247 of the 543 current DAC descriptions still need initial technical coding.
+With forty-three batches, 253 additional drafts are available;
+241 of the 543 current DAC descriptions still need initial technical coding.
 Draft coverage does not mean complete technical evidence. Research1691's extraction
 has been repaired, but its energy/power boundary remains unresolved.
 
@@ -487,6 +487,17 @@ percentage loss or remaining-throughput claim without a definition.
 | 2360 Pareto DAG scheduling | Mapping-then-offset search | Evaluated constraints and tail latency do not prove universal safety |
 | 2361 SVACoder | RTL-grounded bidirectional assertion data | Benchmark Func.@1 does not establish general model superiority |
 
-All 247 records have source-separated review packets. Next: resolve the ATB
+## Forty-third batch
+
+| Paper | Mechanism | Evidence boundary |
+|---|---|---|
+| 2364 ADA / ADA-Plus | Adaptive MAC critical path | Array power and adjustment-circuit area use different denominators |
+| 2369 ReConnaissance | Multi-source reveal/conceal tracking | Repair reduces overhead savings; percentages are not raw overhead |
+| 2372 TsetlinWiSARD | FPGA automata-based weightless learning | Training/latency/resource baselines and convergence criteria absent |
+| 2374 MXP | Posit-inspired tapered microscaling | Quality/area/power claims are qualitative |
+| 2378 UBFP-IMC | Wide bit-serial floating-point accumulation | Undefined EEF and unmapped factors; accumulation is only one stage |
+| 2385 UNCHARTED | Component-level GNN inverse design | Similarity threshold applies to a stated subset, not every circuit |
+
+All 253 records have source-separated review packets. Next: resolve the ATB
 numeric comparison from primary evidence and continue uncoded descriptions in
 stable order, preserving gaps and possible counterexamples.
