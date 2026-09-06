@@ -154,6 +154,14 @@ def test_evidence_summary_is_explicitly_non_prevalence() -> None:
     assert summary["unreviewed_adversarial_judge_count"] == 49
 
 
+def test_adversarial_pre_review_is_labeled_as_non_independent() -> None:
+    rows = [json.loads(line) for line in (ROOT / "reports/adversarial-review-batch-2.jsonl").read_text().splitlines() if line.strip()]
+    assert len(rows) == 10
+    assert all(row["judge_mode"] == "same_model_adversarial_pre_review" for row in rows)
+    assert all(row["decision"] == "revise" for row in rows)
+    assert "not an independent adversarial LLM judgment" in (ROOT / "reports/adversarial-review-status-v1.md").read_text()
+
+
 def test_evidence_taxonomy_contains_adjudicated_specificity() -> None:
     taxonomy = json.loads((ROOT / "data/taxonomy-v1-evidence.json").read_text())
     all_subsub = [value for theme in taxonomy["themes"] for values in theme.get("subsubthemes", {}).values() for value in values]
