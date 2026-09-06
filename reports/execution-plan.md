@@ -4,6 +4,12 @@ The governing scope and acceptance criteria are in [GOAL.md](../GOAL.md).
 This log distinguishes finished work from queued work; a plan is not a completed
 research result.
 
+Latest batch: DAC 2026 IDs 1692, 1709, 1712, 1715, 1718 and 1732 bring
+current drafts to 127, leaving 367 descriptions uncoded. Perplexity units,
+simulated quantum break-even conditions, address-space capacity and component
+versus signing gains remain explicit. All 154 draft papers have source-separated
+packets; independent acceptance remains pending.
+
 Extraction repair: the research1691 truncation was caused by our tag-stripping
 regex, not missing source text. HTMLParser now preserves numeric inequalities.
 Auditing all 543 saved DAC 2026 captures found exactly one changed description.

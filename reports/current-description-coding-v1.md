@@ -6,8 +6,8 @@ The first four previously uncoded records, selected by paper-ID order, have
 research1138 (ARTEMIS). Exact official source URLs and row locators accompany
 each record. All are pending independent review and retain description-level
 evidence status. They are not added to the 49-record selected adjudication sample.
-With twenty-one batches, 121 additional drafts are available;
-373 of the 543 current DAC descriptions still need initial technical coding.
+With twenty-two batches, 127 additional drafts are available;
+367 of the 543 current DAC descriptions still need initial technical coding.
 Draft coverage does not mean complete technical evidence. Research1691's extraction
 has been repaired, but its energy/power boundary remains unresolved.
 
@@ -256,6 +256,17 @@ percentage loss or remaining-throughput claim without a definition.
 | 1665 CARAMEL | Nonblocking protected audit-log transmission | No numeric utilization/delivery bounds; buffering and threat assumptions unresolved |
 | 1691 Visual wakeup | Compact quantized CNN and accelerator | Extraction repaired from saved HTML; 64 nJ/frame at 30 FPS gives 1.92 µW, whereas the source reports 11 µW; accounting boundary unresolved |
 
-All 121 records have source-separated review packets. Next: resolve the ATB
+## Twenty-second batch
+
+| Paper | Mechanism | Evidence boundary |
+|---|---|---|
+| 1692 CORE | Power-of-two BCQ scales and FP-INT GEMM | Perplexity decrease is not percent; area/energy gains are not end-to-end LLM gains |
+| 1709 QAOA break-even compilation | Surface-code lattice surgery and proxy simulation | Two resource points have distinct error rates; algorithmic break-even is not classical quantum advantage |
+| 1712 RAM-CGRA | Reachability-table-guided mapping | Qualitative success/runtime evidence; preprocessing costs unknown |
+| 1715 Semi-virtual addressing | Deterministic LATM translation | Effective address space is not physical RAM; protection guarantees remain conditional |
+| 1718 RISC-Q | Parameterized quantum-controller generator | Introductory timing requirements are not measured results; release availability unverified |
+| 1732 Masked reduction | First-order masked ML-DSA arithmetic | 12.1× reduction versus 1.32× signing gain; TVLA non-detection is not leakage-proof security |
+
+All 127 records have source-separated review packets. Next: resolve the ATB
 numeric comparison from primary evidence and continue uncoded descriptions in
 stable order, preserving gaps and possible counterexamples.
