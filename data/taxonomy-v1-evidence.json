@@ -12,7 +12,8 @@
     "isca/data/adjudicated-2026-batch-3.jsonl",
     "isca/data/adjudicated-2026-batch-4.jsonl",
     "isca/data/adjudicated-2026-batch-5.jsonl",
-    "isca/data/adjudicated-2026-batch-6.jsonl"
+    "isca/data/adjudicated-2026-batch-6.jsonl",
+    "isca/data/adjudicated-2026-batch-7.jsonl"
   ],
   "status": "provisional_until_full_corpus_adjudication",
   "taxonomy_version": "v1-evidence-derived",
@@ -139,6 +140,9 @@
     {
       "label": "Memory, interconnect, and storage",
       "subsubthemes": {
+        "chiplet-and-on-chip-interconnect": [
+          "silicon-proven-cxl-port-based-routing-fabric"
+        ],
         "data-movement-and-locality": [
           "concurrent-pim-cpu-mobile-scheduling",
           "cxl-near-memory-ann-search",
@@ -147,6 +151,7 @@
         ],
         "memory-hierarchy-and-persistence": [
           "cross-layer-ecc-encode-once-decode-many",
+          "hyperscale-cxl-asic-os-deployment",
           "kv-cache-centric-embodied-planning-memory-management",
           "near-shannon-lossless-llm-weight-compression",
           "open-fpga-scale-up-interconnect-platform",

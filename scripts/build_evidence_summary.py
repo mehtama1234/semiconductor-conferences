@@ -21,6 +21,7 @@ PATHS = (
     "isca/data/adjudicated-2026-batch-4.jsonl",
     "isca/data/adjudicated-2026-batch-5.jsonl",
     "isca/data/adjudicated-2026-batch-6.jsonl",
+    "isca/data/adjudicated-2026-batch-7.jsonl",
 )
 REQUIRED_TECHNICAL_FIELDS = (
     "problem",
@@ -44,6 +45,8 @@ def source_tier(record: dict) -> str:
         return "official_description"
     if confidence == "medium_institutional_abstract":
         return "institutional_abstract"
+    if confidence == "medium_company_author_source":
+        return "company_author_source"
     return "other"
 
 

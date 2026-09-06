@@ -29,6 +29,9 @@ Evidence strength is recorded separately from taxonomy confidence:
    repository exposes a substantive abstract and bibliographic identity, but no
    captured full paper. Use for mechanism-level classification with stricter
    limits on numerical and implementation claims.
+6. `medium_company_author_source` — an official company or lead-author source
+   exposes implementation or deployment context for an exact program record,
+   but may frame results selectively and is not a substitute for the paper.
 
 The deepest label is earned only when the mechanism—not merely the application
 area—distinguishes the paper. For example, “LLM” is a workload; “row-aligned

@@ -15,7 +15,7 @@ The evidence is intentionally asymmetric:
 - ICCAD: 2026 scope evidence and a 276-record 2025 fallback inventory; 8 primary
   or author-PDF-backed fallback adjudications.
 
-The 69-record adjudication sample is selected for recoverable evidence and
+The 71-record adjudication sample is selected for recoverable evidence and
 technical diversity. It is not a prevalence estimate, market forecast, conference
 ranking, or proof that a direction is rising.
 
@@ -197,7 +197,7 @@ precision, and baseline hardware.
 | Conference | Strongest current contribution | Evidence boundary |
 |---|---|---|
 | DAC 2026 | Breadth of design-flow, accelerator, physical-design, memory, and reliability descriptions | Mostly official descriptions; selected 49 are not full-corpus prevalence |
-| ISCA 2026 | Deep primary cases for system architecture, LLM execution, memory, PIM, ECC, and thermal behavior | 10 primary/institutional records plus 6 secondary queue items; full program remains mostly metadata |
+| ISCA 2026 | Deep primary and industry-source cases for system architecture, LLM execution, memory, PIM, ECC, CXL, and thermal behavior | 14 primary/institutional/company records plus 6 secondary queue items; full program remains mostly metadata |
 | ICCAD 2025 fallback | Design automation, verification, chiplet, analog, security, and emerging-device depth | 2026 paper corpus unavailable; 2025 evidence cannot establish 2026 change |
 
 The conferences should therefore be read as complementary instruments: DAC gives
