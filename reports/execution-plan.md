@@ -4,6 +4,12 @@ The governing scope and acceptance criteria are in [GOAL.md](../GOAL.md).
 This log distinguishes finished work from queued work; a plan is not a completed
 research result.
 
+Latest batch: DAC 2026 IDs 2468, 2476, 2481, 2489, 2495 and 2504 bring
+current drafts to 271, leaving 223 descriptions uncoded. Sparse-format metadata,
+sampling versus end-to-end speed, schedulability, observed versus saved traffic,
+token matching and CPU/GPU comparison boundaries remain explicit. All 298 draft
+papers have source-separated packets; independent acceptance remains pending.
+
 Latest batch: DAC 2026 IDs 2416, 2417, 2424, 2425, 2432 and 2443 bring
 current drafts to 265, leaving 229 descriptions uncoded. CFET source gaps,
 unnamed HBSpec metrics, qualitative reliability, COM-BNN/RES-BNN naming,
