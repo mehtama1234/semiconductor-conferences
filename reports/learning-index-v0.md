@@ -38,8 +38,9 @@ are captured, 543 records are routed for review, and 49 are adjudicated.
 - [CODO dataflow compiler](../isca/pages/codo-dataflow-compiler.md)
 - [Primary evidence on LLM systems](../isca/pages/primary-evidence-llm-systems.md)
 - [Primary evidence batch 2: PIM scheduling and cross-layer ECC](../isca/pages/primary-evidence-batch-2026-2.md)
+- [Primary evidence batch 3: training-free self-speculative decoding](../isca/pages/primary-evidence-batch-2026-3.md)
 
-ISCA currently combines official program metadata, seven primary-preprint-backed
+ISCA currently combines official program metadata, eight primary-preprint-backed
 records, and five low-confidence secondary-index excerpts pending primary
 verification.
 
