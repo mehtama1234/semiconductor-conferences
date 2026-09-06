@@ -6,8 +6,8 @@ The first four previously uncoded records, selected by paper-ID order, have
 research1138 (ARTEMIS). Exact official source URLs and row locators accompany
 each record. All are pending independent review and retain description-level
 evidence status. They are not added to the 49-record selected adjudication sample.
-With thirty-nine batches, 229 additional drafts are available;
-265 of the 543 current DAC descriptions still need initial technical coding.
+With forty batches, 235 additional drafts are available;
+259 of the 543 current DAC descriptions still need initial technical coding.
 Draft coverage does not mean complete technical evidence. Research1691's extraction
 has been repaired, but its energy/power boundary remains unresolved.
 
@@ -454,6 +454,17 @@ percentage loss or remaining-throughput claim without a definition.
 | 2297 IR-aware placement | GPU MNA and PDN/density optimization | Qualitative overhead/violation claims, not signoff proof |
 | 2298 VeRA+ | Scheduled vector drift compensation | Ten-year simulation differs from one-week measured device statistics |
 
-All 229 records have source-separated review packets. Next: resolve the ATB
+## Fortieth batch
+
+| Paper | Mechanism | Evidence boundary |
+|---|---|---|
+| 2300 HeRo | Dependency/shape-aware mobile RAG scheduling | Maximum speedup; hardware, quality and energy conditions missing |
+| 2306 DefVul-Risk | Synthesis-defect knowledge and LLM risk triage | CVE report counts are author claims without identifiers |
+| 2307 STAC | Phase-aware activation protection | Coverage and overhead remain qualitative |
+| 2313 Weaver | Score-stratified approximate expert scheduling | Prior-layer input substitution needs paired quality/error checks |
+| 2317 UltraSketchLLM | Sub-bit sketches and hardware-friendly operators | Speedup is versus naive sketch, not dense inference |
+| 2319 ChipModeler | Hierarchical reference-model generation | Undefined performance, capacity and cycle-time claims kept distinct |
+
+All 235 records have source-separated review packets. Next: resolve the ATB
 numeric comparison from primary evidence and continue uncoded descriptions in
 stable order, preserving gaps and possible counterexamples.
