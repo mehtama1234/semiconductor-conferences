@@ -13,7 +13,7 @@ import json
 import re
 from pathlib import Path
 
-from scripts.build_review_packets import source_matches
+from scripts.build_review_packets import source_matches, captured_sources
 
 
 STOP = {"the", "and", "for", "with", "from", "that", "this", "into", "over", "than", "using", "via", "are", "its"}
@@ -31,7 +31,7 @@ def audit(root: Path) -> dict:
     taxonomy = json.loads((root / "data/taxonomy-v1-evidence.json").read_text(encoding="utf-8"))
     valid_sub = {theme["theme_id"]: set(theme["subthemes"]) for theme in taxonomy["themes"]}
     valid_subsub = {(theme["theme_id"], sub): set(values) for theme in taxonomy["themes"] for sub, values in theme.get("subsubthemes", {}).items()}
-    evidence = {row["paper_id"]: row for row in read(root / "dac/data/paper-evidence-2026.jsonl")}
+    evidence = captured_sources(root)
     records = read(root / "dac/data/adjudicated-2026-batch.jsonl") + read(root / "dac/data/adjudicated-2026-batch-2.jsonl") + read(root / "dac/data/adjudicated-2026-batch-3.jsonl") + read(root / "dac/data/adjudicated-2026-batch-4.jsonl") + read(root / "iccad/data/adjudicated-2025-batch.jsonl") + read(root / "iccad/data/adjudicated-2025-batch-2.jsonl") + read(root / "isca/data/adjudicated-2026-batch.jsonl") + read(root / "isca/data/adjudicated-2026-batch-2.jsonl") + read(root / "isca/data/adjudicated-2026-batch-3.jsonl") + read(root / "isca/data/adjudicated-2026-batch-4.jsonl") + read(root / "isca/data/adjudicated-2026-batch-5.jsonl") + read(root / "isca/data/adjudicated-2026-batch-6.jsonl") + read(root / "isca/data/adjudicated-2026-batch-7.jsonl") + read(root / "isca/data/adjudicated-2026-batch-8.jsonl")
     checks = []
     for record in records:
@@ -43,7 +43,7 @@ def audit(root: Path) -> dict:
         url_ok = record["evidence_url"].startswith(("https://63dac.conference-program.com/", "https://arxiv.org/", "https://zhiyaoxie.com/", "https://www.cse.cuhk.edu.hk/", "https://cris.technion.ac.il/", "https://panmnesia.com/", "https://www.linkedin.com/", "https://engineering.fb.com/", "https://aisystemcodesign.github.io/"))
         fields_present = all(record.get(field) for field in ("problem", "method_or_artifact", "limits", "metrics"))
         checks.append({"paper_id": record["paper_id"], "evidence_overlap": round(overlap, 3) if overlap is not None else None,
-                       "source_comparison_status": "captured_description_compared" if source_text else "original_source_text_missing_or_unmatched",
+                       "source_comparison_status": "captured_original_text_compared" if source_text else "original_source_text_missing_or_unmatched",
                        "taxonomy_valid": theme_ok and subsub_ok, "provenance_url_valid": url_ok,
                        "fields_present": fields_present,
                        "status": "pass" if overlap is not None and overlap >= 0.2 and theme_ok and subsub_ok and url_ok and fields_present else "review"})

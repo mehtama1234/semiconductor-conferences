@@ -20,7 +20,8 @@ def test_packets_do_not_promote_summaries_or_leak_synthesis():
     assert summary["synthesis_anchor_count"] == 33
     assert summary["independent_review_count"] == 0
     mtia = next(p for p in packets if p["paper_id"] == "isca-2026-program-069")
-    assert mtia["original_source_text"] is None
+    assert mtia["original_source_text"]
+    assert mtia["source_text_status"] == "captured_original_abstract"
     assert mtia["researcher_summary_not_original_source"]
     assert mtia["evidence_locators"]
     assert all(not p["independent_verdicts"] for p in packets)
@@ -30,7 +31,7 @@ def test_packets_do_not_promote_summaries_or_leak_synthesis():
 
 def test_audit_never_compares_uncaptured_summary_with_itself():
     result = audit(ROOT)
-    mtia = next(p for p in result["checks"] if p["paper_id"] == "isca-2026-program-069")
-    assert mtia["evidence_overlap"] is None
-    assert mtia["status"] == "review"
+    uncaptured = next(p for p in result["checks"] if p["paper_id"] == "isca-2026-program-045")
+    assert uncaptured["evidence_overlap"] is None
+    assert uncaptured["status"] == "review"
     assert result["review_count"] > 0

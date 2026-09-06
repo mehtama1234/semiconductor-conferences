@@ -20,10 +20,19 @@ anchors. Do not include it in judge input: it reveals which conclusions the
 project is trying to support. Generated packets intentionally omit synthesis
 conclusions and previous same-model verdicts.
 
-Current coverage: 72 prepared packets; 49 captured official descriptions and
-23 requiring original source capture; zero independent reviews. The latter
-includes primary-paper records such as MTIA: a primary source label and source
-locators do not mean original text is already embedded in a reproducible packet.
+Current coverage: 72 prepared packets; 49 official descriptions, 20 original
+abstracts, and three requiring original source capture; zero independent reviews.
+The abstracts include 18 arXiv pages and two author PDFs. Abstract capture does
+not complete full-text numerical verification, even when the packet has locators.
+
+Run `PYTHONPATH=.:src python3 scripts/capture_review_sources.py` to capture missing
+abstracts. The collector requires exact normalized title identity and records
+raw/text hashes, URLs, capture dates, and extraction boundaries. Successful
+captures are reused when the source URL and expected title are unchanged; this
+is a reproducible snapshot, not a claim that the source has never changed.
+`data/review-source-captures.jsonl` preserves normalized abstracts and retrieval
+outcomes; downloaded HTML/PDF inputs remain ignored under the raw-data policy.
+The collector requires BeautifulSoup4 and pypdf in addition to Python.
 
 The deterministic audit now reports source overlap as null when original text
 is absent. All required fields must be populated for its pass result, but field

@@ -34,9 +34,17 @@ def digest(value: str) -> str:
     return hashlib.sha256(value.encode("utf-8")).hexdigest()
 
 
+def captured_sources(root: Path) -> dict[str, dict]:
+    rows = read_jsonl(root / "dac/data/paper-evidence-2026.jsonl")
+    path = root / "data/review-source-captures.jsonl"
+    if path.exists():
+        rows += [r for r in read_jsonl(path) if r.get("evidence_status") == "substantive_abstract" and r.get("identity_status") == "exact_normalized_title"]
+    return unique_index(rows)
+
+
 def build(root: Path) -> tuple[list[dict], dict]:
     records = unique_index([r for path in PATHS for r in read_jsonl(root / path)])
-    captured = unique_index(read_jsonl(root / "dac/data/paper-evidence-2026.jsonl"))
+    captured = captured_sources(root)
     taxonomy = json.loads((root / "data/taxonomy-v1-evidence.json").read_text())
     branches = {theme["theme_id"]: theme for theme in taxonomy["themes"]}
     protocol = (root / "reports/adversarial-judge-protocol-v1.md").read_text()
@@ -45,7 +53,7 @@ def build(root: Path) -> tuple[list[dict], dict]:
     packets = []
     for paper_id, record in sorted(records.items()):
         source = captured.get(paper_id, {})
-        text = source.get("description") if source.get("evidence_status") == "substantive_description" else None
+        text = source.get("description") if source.get("evidence_status") in {"substantive_description", "substantive_abstract"} else None
         # A different URL can indicate a different source/version, even for one paper.
         aligned = bool(text and source_matches(record, source))
         gaps = []
@@ -64,7 +72,7 @@ def build(root: Path) -> tuple[list[dict], dict]:
             "original_source_url": source.get("evidence_url") if aligned else record.get("evidence_url"),
             "original_source_capture_date": source.get("evidence_collection_date") if aligned else None,
             "researcher_summary_not_original_source": record.get("evidence_span"),
-            "source_text_status": "captured_official_description" if aligned else "original_text_capture_required",
+            "source_text_status": ("captured_original_abstract" if source.get("evidence_status") == "substantive_abstract" else "captured_official_description") if aligned else "original_text_capture_required",
             "evidence_locators": record.get("evidence_locators", []),
             "taxonomy_branch": branches[record["theme_id"]],
             "coding_guide_sha256": digest(coding_guide),

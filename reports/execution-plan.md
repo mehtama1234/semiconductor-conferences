@@ -10,7 +10,7 @@ research result.
 | 2. Coverage and priorities | Complete inventory join; manual prioritization ongoing | Refine thin-theme/counterexample priorities |
 | 3. Technical evidence | Partial: 72 coded records | Source passages and experimental conditions for synthesis anchors |
 | 4. Taxonomy and explanations | Provisional taxonomy and pages exist | Reviewed mechanism categories and claim-to-paper explanations |
-| 5. Independent review | 72 packets prepared; zero independent reviews | Capture original text for 23 packets, then obtain verdicts |
+| 5. Independent review | 72 packets prepared; 69 include source text; zero independent reviews | Capture three remaining sources and full-paper conditions, then obtain verdicts |
 | 6. Temporal comparisons | Metadata inventories and title screen only | Comparable technical evidence with denominators and exclusions |
 | 7. Final package | Provisional synthesis exists | Dated, traceable synthesis passing evidence/review gates |
 
@@ -61,6 +61,14 @@ The recovered evidence increment and planning changes were committed as `216135d
    attribution for supplemental metrics and leave cost inputs unresolved.
 
 ## Open dependencies and limits
+
+Original-source capture batch: 18 arXiv abstracts and two author-PDF abstracts
+now have matching normalized titles, raw/text hashes, capture dates, and source
+locators. All 20 are embedded separately from researcher summaries. The remaining
+three source gaps are ECC-enabled PIM's institutional page, Panmnesia's article,
+and Vistara's author post. Audit results are now 69 pass / 3 review. Full-paper
+conditions and independent judgments remain unfinished. Earlier counts below
+are dated batch history, not current coverage.
 
 Review preparation now covers all 72 records (33 synthesis anchors). DAC's 49
 original descriptions are matched by exact paper/title/source identity while

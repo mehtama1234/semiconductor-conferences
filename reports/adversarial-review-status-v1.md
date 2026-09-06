@@ -21,10 +21,11 @@ human resolution of disagreements.
 and researcher summary from captured original source text, supplies the taxonomy
 branch, and identifies the protocol/coding-guide hashes. The 49 DAC descriptions
 match by exact paper ID/title and source URL (ignoring only the session query
-parameter). The 23 ISCA/ICCAD packets need original text captured; locators and
-earlier source reading do not replace that missing input.
+parameter). Twenty ISCA/ICCAD packets now include exact-title original abstracts;
+three still need original text captured. Abstracts do not supply all full-paper
+conditions, and source capture does not replace independent judgment.
 
 No packet is accepted merely because it exists. The separate coverage index lists
 33 synthesis anchors for scheduling and is excluded from judge inputs to avoid
-priming conclusions. The corrected preflight reports 49 pass / 23 review rather
+priming conclusions. The corrected preflight reports 69 pass / 3 review rather
 than manufacturing support by comparing uncaptured summaries with themselves.
