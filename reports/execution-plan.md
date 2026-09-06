@@ -4,6 +4,13 @@ The governing scope and acceptance criteria are in [GOAL.md](../GOAL.md).
 This log distinguishes finished work from queued work; a plan is not a completed
 research result.
 
+Latest batch: DAC 2026 IDs 1638, 1640, 1646, 1664, 1665 and 1691 bring
+current drafts to 121, leaving 373 descriptions uncoded. Research1691 is an
+explicitly incomplete draft because its captured description is truncated;
+recollect an intact official description or exact primary paper before accepting
+sub-mW performance or detailed mechanisms. All 148 draft papers have source-separated
+packets; simulator/CPU/GPU distinctions remain explicit and review is pending.
+
 Latest batch: DAC 2026 IDs 1619, 1622, 1628, 1629, 163 and 1632 bring
 current drafts to 115, leaving 379 descriptions uncoded. Random-noise versus
 arbitrary-error tolerance, benchmark validity, overlapping storage claims, TSN

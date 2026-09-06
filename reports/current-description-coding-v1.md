@@ -6,8 +6,10 @@ The first four previously uncoded records, selected by paper-ID order, have
 research1138 (ARTEMIS). Exact official source URLs and row locators accompany
 each record. All are pending independent review and retain description-level
 evidence status. They are not added to the 49-record selected adjudication sample.
-With twenty batches, 115 additional drafts are available;
-379 of the 543 current DAC descriptions still need initial technical coding.
+With twenty-one batches, 121 additional drafts are available;
+373 of the 543 current DAC descriptions still need initial technical coding.
+Draft coverage includes explicitly incomplete evidence, notably research1691;
+a draft disposition does not mean a complete technical extraction.
 
 ## Evidence requiring care
 
@@ -243,6 +245,17 @@ percentage loss or remaining-throughput claim without a definition.
 | 163 PFATS | Per-flow asynchronous TSN queuing | Jitter bound depends on traffic/system assumptions; interconnect subtheme fit remains provisional |
 | 1632 ECPrefix | Erasure-coded prefix-KV distribution | TTFT is not decoding or total response time; reconstruction/network costs unknown |
 
-All 115 records have source-separated review packets. Next: resolve the ATB
+## Twenty-first batch
+
+| Paper | Mechanism | Evidence boundary |
+|---|---|---|
+| 1638 Boundary recovery | SAT-sweeping hierarchical reconstruction | Algorithm attribution is title-level; no quantitative recovery/runtime evidence |
+| 1640 UniSpike | Destination-aggregated spike packets | Initial redundant traffic share differs from achieved gains; timing/accuracy costs unknown |
+| 1646 Learned-prior yield analysis | In-context cross-corner regression | Best mean error is not rare-tail yield validation; zero tuning omits pretraining costs |
+| 1664 p-MEM | Distribution-parameter storage and sampling | Layout-validated simulation, not silicon; CPU/GPU sampling figures remain distinct |
+| 1665 CARAMEL | Nonblocking protected audit-log transmission | No numeric utilization/delivery bounds; buffering and threat assumptions unresolved |
+| 1691 Visual wakeup | Incomplete smart-glasses CNN fragment | Truncated evidence; no measured sub-mW result accepted; recollect intact description/full paper |
+
+All 121 records have source-separated review packets. Next: resolve the ATB
 numeric comparison from primary evidence and continue uncoded descriptions in
 stable order, preserving gaps and possible counterexamples.
