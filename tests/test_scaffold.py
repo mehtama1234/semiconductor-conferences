@@ -82,3 +82,11 @@ def test_isca_indexed_excerpts_are_not_final_evidence() -> None:
     assert len(rows) == 5
     assert all(row["evidence_quality"] == "secondary_indexed_excerpt" for row in rows)
     assert all(row["adjudication_status"] == "pending_primary_verification" for row in rows)
+
+
+def test_cross_conference_matrix_preserves_evidence_asymmetry() -> None:
+    matrix = json.loads((ROOT / "data/cross-conference-matrix-v0.json").read_text())
+    assert matrix["status"] == "provisional_synthesis"
+    assert len(matrix["rows"]) >= 5
+    assert "industrial adoption" in matrix["prohibited_inference"]
+    assert "ICCAD has official 2026 CFP scope" in (ROOT / "reports/cross-conference-direction-v0.md").read_text()
