@@ -38,7 +38,7 @@ def audit(root: Path) -> dict:
         overlap = len(tokens(record["evidence_span"]) & tokens(source_text)) / max(1, len(tokens(record["evidence_span"])))
         theme_ok = record["theme_id"] in valid_sub and record["subtheme_id"] in valid_sub[record["theme_id"]]
         subsub_ok = record["subsubtheme_id"] in valid_subsub.get((record["theme_id"], record["subtheme_id"]), set())
-        url_ok = record["evidence_url"].startswith(("https://63dac.conference-program.com/", "https://arxiv.org/", "https://zhiyaoxie.com/"))
+        url_ok = record["evidence_url"].startswith(("https://63dac.conference-program.com/", "https://arxiv.org/", "https://zhiyaoxie.com/", "https://www.cse.cuhk.edu.hk/"))
         checks.append({"paper_id": record["paper_id"], "evidence_overlap": round(overlap, 3), "taxonomy_valid": theme_ok and subsub_ok, "provenance_url_valid": url_ok, "fields_present": all(record.get(field) for field in ("problem", "method_or_artifact", "limits", "metrics")), "status": "pass" if overlap >= 0.2 and theme_ok and subsub_ok and url_ok else "review"})
     return {"audit_version": "v0-deterministic-adversarial-preflight", "judge_mode": "deterministic_preflight_not_llm", "record_count": len(checks), "pass_count": sum(item["status"] == "pass" for item in checks), "review_count": sum(item["status"] == "review" for item in checks), "checks": checks, "limits": "A passing preflight does not establish truth, novelty, importance, or full-corpus representativeness; adversarial LLM/human review remains required."}
 

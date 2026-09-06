@@ -125,7 +125,7 @@ def test_each_conference_has_a_deep_page() -> None:
 
 def test_iccad_batch_keeps_2025_fallback_label() -> None:
     rows = [json.loads(line) for line in (ROOT / "iccad/data/adjudicated-2025-batch.jsonl").read_text().splitlines() if line.strip()]
-    assert len(rows) == 2
+    assert len(rows) == 5
     assert all(row["target_edition"] == 2026 and row["analysis_edition"] == 2025 for row in rows)
     assert all("primary" in row["classification_confidence"] for row in rows)
 
@@ -146,5 +146,5 @@ def test_evidence_taxonomy_contains_adjudicated_specificity() -> None:
 def test_adversarial_preflight_is_explicit_about_its_limits() -> None:
     audit = json.loads((ROOT / "reports/adversarial-preflight-v0.json").read_text())
     assert audit["judge_mode"] == "deterministic_preflight_not_llm"
-    assert audit["record_count"] == 36
+    assert audit["record_count"] == 39
     assert audit["limits"]

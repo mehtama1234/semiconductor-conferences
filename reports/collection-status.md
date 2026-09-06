@@ -11,8 +11,8 @@ Current inventory checkpoint:
 - DAC 2026: 543 distinct official research-manuscript records normalized in `dac/data/papers-2026-program.jsonl`, plus 75 other program items; all technical fields remain unclassified.
 - DAC evidence: all 543 research pages returned substantive official descriptions; twenty-nine records have evidence-cited adjudications across EDA, accelerators, memory, packaging, verification, security, quantum, and reliability.
 - DAC triage: all 543 descriptions now have keyword-backed routing candidates, explicitly marked non-adjudicated; the routing is for review queue construction only.
-- Taxonomy/audit: `data/taxonomy-v1-evidence.json` reconciles adjudicated subtheme and sub-subtheme IDs across all three conferences; `reports/adversarial-preflight-v0.json` passes 32/32 deterministic consistency checks. This is a preflight, not a substitute for adversarial LLM or human review.
-- ICCAD: 276 distinct 2025 program-paper records normalized as the explicitly labeled fallback for the 2026 target; two records now have primary/preprint evidence-cited adjudications, while the remaining fallback rows remain metadata-only.
+- Taxonomy/audit: `data/taxonomy-v1-evidence.json` reconciles adjudicated subtheme and sub-subtheme IDs across all three conferences; `reports/adversarial-preflight-v0.json` passes 39/39 deterministic consistency checks. This is a preflight, not a substitute for adversarial LLM or human review.
+- ICCAD: 276 distinct 2025 program-paper records normalized as the explicitly labeled fallback for the 2026 target; five records now have primary/preprint/author-PDF evidence-cited adjudications, while the remaining fallback rows remain metadata-only.
 
 DAC’s seven day-by-day program fragments are collected by `scripts/collect_dac_program.py`. The generated raw captures are locally reproducible evidence inputs and remain ignored by the repository’s raw-data policy; the normalized metadata ledgers are tracked.
 

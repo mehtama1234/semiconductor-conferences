@@ -13,7 +13,8 @@
       "subsubthemes": {
         "llm-assisted-design-flows": [
           "llm-generated-hls-architecture-optimization",
-          "preference-optimized-pcb-placement"
+          "preference-optimized-pcb-placement",
+          "reinforcement-learning-verilog-generation"
         ]
       },
       "subthemes": [
@@ -68,7 +69,8 @@
       "label": "Chiplets, 3D integration, and packaging",
       "subsubthemes": {
         "3d-stacking-and-thermal-management": [
-          "analytical-3d-ic-thermal-simulation"
+          "analytical-3d-ic-thermal-simulation",
+          "thermal-aware-3d-stacked-llm-inference"
         ],
         "package-system-co-design": [
           "metal-density-constrained-package-power-plane-synthesis"
@@ -127,6 +129,9 @@
       "subsubthemes": {
         "placement-routing-and-timing": [
           "fpga-accelerated-design-rule-checking"
+        ],
+        "process-aware-design": [
+          "robust-bayesian-analog-sizing"
         ],
         "timing-analysis-and-optimization": [
           "gpu-accelerated-static-timing-analysis",
