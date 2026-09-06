@@ -22,6 +22,11 @@ def normalized_metadata_rows(rows: list[dict]) -> bool:
     return bool(rows) and all(required <= row.keys() for row in rows)
 
 
+def program_rows_valid(rows: list[dict]) -> bool:
+    required = {"presentation_id", "conference_id", "title", "program_url", "source_url", "record_status", "evidence_limit"}
+    return bool(rows) and all(required <= row.keys() for row in rows)
+
+
 def validate(root: Path = ROOT) -> dict:
     register = json.loads((root / "data/conference-register.json").read_text(encoding="utf-8"))
     taxonomy = json.loads((root / "data/taxonomy-v0.json").read_text(encoding="utf-8"))
@@ -37,6 +42,7 @@ def validate(root: Path = ROOT) -> dict:
         "dac_program_signals_provenanced": all(row.get("source_id") in source_ids(root, "dac") and row.get("evidence_status") == "program_signal_only" for row in read_jsonl(root / "dac/data/program-signals.jsonl")),
         "iccad_scope_signals_provenanced": all(row.get("source_id") in source_ids(root, "iccad") and row.get("evidence_status") == "scope_signal_only" for row in read_jsonl(root / "iccad/data/program-signals.jsonl")),
         "isca_normalized_metadata_present": normalized_metadata_rows(read_jsonl(root / "isca/data/papers.jsonl")),
+        "dac_program_capture_present": program_rows_valid(read_jsonl(root / "dac/data/program-presentations.jsonl")) and all(row.get("record_status") == "program_metadata_only" and row.get("program_url") for row in read_jsonl(root / "dac/data/program-presentations.jsonl")) and normalized_metadata_rows(read_jsonl(root / "dac/data/papers-2026-program.jsonl")),
     }
     return {"contract": "semiconductor-conference-scaffold.v1", "status": "passed" if all(checks.values()) else "failed", "checks": checks, "conference_count": len(conferences), "taxonomy_theme_count": len(taxonomy.get("themes", []))}
 

@@ -34,3 +34,15 @@ def test_isca_metadata_rows_preserve_unknown_evidence() -> None:
     assert all(row["access_status"] == "official_program_metadata_only" for row in rows)
     assert all(row["classification_confidence"] == "hypothesis_only" for row in rows)
     assert all(row["problem"] is None and row["metrics"] == [] for row in rows)
+
+
+def test_dac_program_records_preserve_program_only_status() -> None:
+    rows = [json.loads(line) for line in (ROOT / "dac/data/program-presentations.jsonl").read_text().splitlines() if line.strip()]
+    assert len(rows) >= 500
+    assert sum(row["event_type"] == "Research Manuscript" for row in rows) >= 500
+    assert all(row["record_status"] == "program_metadata_only" for row in rows)
+    assert all(row["source_url"].startswith("https://63dac.conference-program.com/") for row in rows)
+    papers = [json.loads(line) for line in (ROOT / "dac/data/papers-2026-program.jsonl").read_text().splitlines() if line.strip()]
+    assert len(papers) == sum(row["event_type"] == "Research Manuscript" for row in rows)
+    assert all(row["classification_confidence"] == "not_classified" for row in papers)
+    assert all(row["theme_id"] is None and row["problem"] is None for row in papers)
