@@ -225,3 +225,11 @@ def test_temporal_baseline_refuses_unsupported_directional_claims() -> None:
     report = (ROOT / "reports/temporal-baseline-v1.md").read_text()
     assert "135 papers" in report and "173 papers" in report
     assert "No claim that a topic is rising" in report
+
+
+def test_title_shift_candidates_are_exploratory_only() -> None:
+    summary = json.loads((ROOT / "reports/title-shift-candidates-v1.json").read_text())
+    assert summary["status"] == "exploratory_metadata_only"
+    assert summary["comparisons"]["isca_2025_to_2026"]["old_record_count"] == 135
+    assert summary["comparisons"]["dac_2025_to_2026"]["new_record_count"] == 543
+    assert "technical evidence" in summary["limits"][0]
