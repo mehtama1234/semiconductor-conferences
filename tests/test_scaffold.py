@@ -182,6 +182,13 @@ def test_dac_theme_triage_is_not_final_adjudication() -> None:
     assert all(row["classification_confidence"] == "not_adjudicated" for row in rows)
 
 
+def test_dac_topical_map_preserves_description_level_boundary() -> None:
+    text = (ROOT / "dac/pages/topical-capability-map-2026.md").read_text()
+    assert "selected, evidence-recoverable sample" in text
+    assert "conference-wide prevalence" in text
+    assert "tool-grounded iteration" in text
+
+
 def test_isca_indexed_excerpts_are_not_final_evidence() -> None:
     rows = [json.loads(line) for line in (ROOT / "isca/data/indexed-evidence.jsonl").read_text().splitlines() if line.strip()]
     assert len(rows) == 6

@@ -28,6 +28,7 @@ organized around technical questions, not just conference names.
 - [Additional evidence batch](../dac/pages/evidence-batch-2.md)
 - [Deeper mechanisms evidence batch](../dac/pages/evidence-batch-3.md)
 - [Models, artifacts, and search evidence batch](../dac/pages/evidence-batch-4.md)
+- [DAC topical capability map](../dac/pages/topical-capability-map-2026.md)
 
 DAC currently has the deepest paper-level evidence: all 543 research descriptions
 are captured, 543 records are routed for review, and 49 are adjudicated.
