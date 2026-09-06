@@ -6,8 +6,8 @@ The first four previously uncoded records, selected by paper-ID order, have
 research1138 (ARTEMIS). Exact official source URLs and row locators accompany
 each record. All are pending independent review and retain description-level
 evidence status. They are not added to the 49-record selected adjudication sample.
-With twenty-seven batches, 157 additional drafts are available;
-337 of the 543 current DAC descriptions still need initial technical coding.
+With twenty-eight batches, 163 additional drafts are available;
+331 of the 543 current DAC descriptions still need initial technical coding.
 Draft coverage does not mean complete technical evidence. Research1691's extraction
 has been repaired, but its energy/power boundary remains unresolved.
 
@@ -322,6 +322,17 @@ percentage loss or remaining-throughput claim without a definition.
 | 1936 RTFL | Battery-aware client/quantization scheduling | No numeric convergence, energy or deadline result |
 | 1938 Phantom Walk | Proactive translation dissemination | Overall performance metric unspecified; migration is not eliminated |
 
-All 157 records have source-separated review packets. Next: resolve the ATB
+## Twenty-eighth batch
+
+| Paper | Mechanism | Evidence boundary |
+|---|---|---|
+| 194 TRACE | Hierarchical graph function-shift learning | Learned circuit behavior is not proved logical equivalence; no numeric results supplied |
+| 1942 PD-Swap | Phase-swapped FPGA attention | Decode throughput and relative speedup have missing model/context boundaries; overlap is not zero cost |
+| 1945 SafeGen | Knowledge-graph assertions and fault grading | Formal checking depends on generated specifications; no complete safety guarantee |
+| 1949 Athena | Static timing/probability leakage analysis | Analysis speedup does not reduce leakage; no numeric silicon accuracy supplied |
+| 1960 HyperLiDAR | Feature/HDC streaming adaptation | Retraining gain is not inference speedup; quality/forgetting unknown |
+| 1963 OHQS | Time-dependent quantum EMT solver | Error reduction is not quantum speedup; observed decay does not prove asymptotic complexity |
+
+All 163 records have source-separated review packets. Next: resolve the ATB
 numeric comparison from primary evidence and continue uncoded descriptions in
 stable order, preserving gaps and possible counterexamples.
