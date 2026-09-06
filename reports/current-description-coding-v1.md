@@ -6,8 +6,8 @@ The first four previously uncoded records, selected by paper-ID order, have
 research1138 (ARTEMIS). Exact official source URLs and row locators accompany
 each record. All are pending independent review and retain description-level
 evidence status. They are not added to the 49-record selected adjudication sample.
-With eight batches, 43 additional drafts are available;
-451 of the 543 current DAC descriptions still need initial technical coding.
+With nine batches, 49 additional drafts are available;
+445 of the 543 current DAC descriptions still need initial technical coding.
 
 ## Evidence requiring care
 
@@ -111,6 +111,17 @@ percentage loss or remaining-throughput claim without a definition.
 | 1331 Marlin | Head-sensitive prefix KV retrieval and overlap | TTFT/accuracy benefits are qualitative; this is not the similarly named quantization kernel |
 | 1334 PEL | Palette enhancement with tri-core FPGA processing | 18.13% BD-rate benefit is content/configuration-specific; eight-line latency is not complete codec latency |
 
-All 43 records have source-separated review packets. Next: resolve the ATB
+## Ninth batch
+
+| Paper | Mechanism | Evidence boundary |
+|---|---|---|
+| 1338 ZK-Tracer | Heterogeneous zkVM frontend tracing | 1829× frontend and 963× system gains have unnamed baselines and unresolved system boundaries |
+| 1348 TOB-Sched | Topological-order-balanced emulator scheduling | Scheduling runtime, TOB score and emulated time steps are separate metrics |
+| 1351 eLLM | Elastic shared activation/KV memory | Up-to-2.32× throughput lacks SLO/concurrency and host-memory conditions |
+| 1355 BluesFL | Instruction-oriented block slicing for LLM fault localization | 24 versus 7 localized bugs is not an accuracy percentage; historical per-bug cost is not current API pricing |
+| 1357 3D-DuRA | Dual-ring sparse attention on hybrid 3D memory compute | Infinity2B/VAR-d36 gains are model-specific; quality, area and technology parity remain unknown |
+| 1365 AiMX graph compiler | DMA layout conversion and graph/operator fusion | Reported 2.00–2.73× prefill and 18.50–38.29× decode gains require baseline/work-scope reconciliation; removing only profiled overhead cannot explain them |
+
+All 49 records have source-separated review packets. Next: resolve the ATB
 numeric comparison from primary evidence and continue uncoded descriptions in
 stable order, preserving gaps and possible counterexamples.

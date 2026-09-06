@@ -4,6 +4,12 @@ The governing scope and acceptance criteria are in [GOAL.md](../GOAL.md).
 This log distinguishes finished work from queued work; a plan is not a completed
 research result.
 
+Latest batch: DAC 2026 IDs 1338, 1348, 1351, 1355, 1357 and 1365 bring
+current drafts to 49, leaving 445 descriptions uncoded. Bug-count versus accuracy,
+frontend versus system speedup and AiMX baseline/work-scope limitations remain
+explicit. All 76 draft papers have source-separated packets; the original
+72-record selected sample remains separate and independently unaccepted.
+
 Latest batch: DAC 2026 IDs 1316, 1317, 1320, 1322, 1331 and 1334 bring
 current drafts to 43, leaving 451 descriptions uncoded. PIM component-factor
 denominators, fault-count versus signature-count requirements, and video-stage
