@@ -52,6 +52,14 @@ def test_isca_crossref_metadata_keeps_technical_claims_unclassified() -> None:
     assert all("technical claims" in row["limits"] for row in rows)
 
 
+def test_isca_adjudicated_batch_has_primary_preprint_evidence() -> None:
+    rows = [json.loads(line) for line in (ROOT / "isca/data/adjudicated-2026-batch.jsonl").read_text().splitlines() if line.strip()]
+    assert len(rows) == 1
+    assert rows[0]["evidence_url"].startswith("https://arxiv.org/")
+    assert rows[0]["problem"] and rows[0]["method_or_artifact"] and rows[0]["metrics"]
+    assert rows[0]["classification_confidence"] == "high_primary_preprint"
+
+
 def test_dac_program_records_preserve_program_only_status() -> None:
     rows = [json.loads(line) for line in (ROOT / "dac/data/program-presentations.jsonl").read_text().splitlines() if line.strip()]
     assert len(rows) >= 500
@@ -138,5 +146,5 @@ def test_evidence_taxonomy_contains_adjudicated_specificity() -> None:
 def test_adversarial_preflight_is_explicit_about_its_limits() -> None:
     audit = json.loads((ROOT / "reports/adversarial-preflight-v0.json").read_text())
     assert audit["judge_mode"] == "deterministic_preflight_not_llm"
-    assert audit["record_count"] == 31
+    assert audit["record_count"] == 32
     assert audit["limits"]
