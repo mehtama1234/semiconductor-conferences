@@ -97,3 +97,10 @@ def test_each_conference_has_a_deep_page() -> None:
         pages = list((ROOT / conference / "pages").glob("*.md"))
         assert pages
         assert any(len(page.read_text()) > 500 for page in pages)
+
+
+def test_iccad_batch_keeps_2025_fallback_label() -> None:
+    rows = [json.loads(line) for line in (ROOT / "iccad/data/adjudicated-2025-batch.jsonl").read_text().splitlines() if line.strip()]
+    assert len(rows) == 2
+    assert all(row["target_edition"] == 2026 and row["analysis_edition"] == 2025 for row in rows)
+    assert all("primary" in row["classification_confidence"] for row in rows)
