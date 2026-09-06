@@ -43,6 +43,15 @@ def test_isca_program_inventory_is_metadata_only() -> None:
     assert all(row["access_status"] == "official_program_metadata_only" for row in rows)
 
 
+def test_isca_crossref_metadata_keeps_technical_claims_unclassified() -> None:
+    rows = [json.loads(line) for line in (ROOT / "isca/data/crossref-metadata-2026.jsonl").read_text().splitlines() if line.strip()]
+    assert len(rows) >= 150
+    assert len({row["paper_id"] for row in rows}) == len(rows)
+    assert all(row["doi"] and row["publisher_url"] for row in rows)
+    assert all(row["record_status"] == "doi_metadata_only" for row in rows)
+    assert all("technical claims" in row["limits"] for row in rows)
+
+
 def test_dac_program_records_preserve_program_only_status() -> None:
     rows = [json.loads(line) for line in (ROOT / "dac/data/program-presentations.jsonl").read_text().splitlines() if line.strip()]
     assert len(rows) >= 500
