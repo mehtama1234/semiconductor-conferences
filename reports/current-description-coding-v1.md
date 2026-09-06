@@ -6,8 +6,8 @@ The first four previously uncoded records, selected by paper-ID order, have
 research1138 (ARTEMIS). Exact official source URLs and row locators accompany
 each record. All are pending independent review and retain description-level
 evidence status. They are not added to the 49-record selected adjudication sample.
-With twenty-eight batches, 163 additional drafts are available;
-331 of the 543 current DAC descriptions still need initial technical coding.
+With twenty-nine batches, 169 additional drafts are available;
+325 of the 543 current DAC descriptions still need initial technical coding.
 Draft coverage does not mean complete technical evidence. Research1691's extraction
 has been repaired, but its energy/power boundary remains unresolved.
 
@@ -333,6 +333,17 @@ percentage loss or remaining-throughput claim without a definition.
 | 1960 HyperLiDAR | Feature/HDC streaming adaptation | Retraining gain is not inference speedup; quality/forgetting unknown |
 | 1963 OHQS | Time-dependent quantum EMT solver | Error reduction is not quantum speedup; observed decay does not prove asymptotic complexity |
 
-All 163 records have source-separated review packets. Next: resolve the ATB
+## Twenty-ninth batch
+
+| Paper | Mechanism | Evidence boundary |
+|---|---|---|
+| 1966 HGP | Hamiltonian-block Fourier initialization | Subspace global optimization is not global VQA optimality; initial error is not runtime |
+| 1971 SSL test-point insertion | Learned functional embeddings and saliency | No pattern/coverage numbers; ATPG-free learning does not remove test validation |
+| 1976 CacheParallel | Fusion-stream caching and inter-step parallelism | Unspecified peak performance percentage cannot yield a precise speedup |
+| 1991 PCBgen3D | Datasheet-driven task-graph modeling | Component geometry is not electrical design; no numeric accuracy result |
+| 1999 HAP | Dynamic zero-point and reordered bit-serial execution | Mixed/grouped precision is not uniform bit width; quality parity unknown |
+| 200 TernaInfer | Packed ternary GPU inference | Lossless ternary encoding is not full-precision model equivalence; storage scope limited |
+
+All 169 records have source-separated review packets. Next: resolve the ATB
 numeric comparison from primary evidence and continue uncoded descriptions in
 stable order, preserving gaps and possible counterexamples.

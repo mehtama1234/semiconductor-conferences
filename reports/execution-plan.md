@@ -4,6 +4,12 @@ The governing scope and acceptance criteria are in [GOAL.md](../GOAL.md).
 This log distinguishes finished work from queued work; a plan is not a completed
 research result.
 
+Latest batch: DAC 2026 IDs 1966, 1971, 1976, 1991, 1999 and 200 bring
+current drafts to 169, leaving 325 descriptions uncoded. Subspace optimality,
+test validation, unspecified speedup conventions, component geometry and
+ternary-versus-full-precision fidelity remain explicit. All 196 draft papers have
+source-separated packets; independent acceptance remains pending.
+
 Latest batch: DAC 2026 IDs 194, 1942, 1945, 1949, 1960 and 1963 bring
 current drafts to 163, leaving 331 descriptions uncoded. Learned behavior versus
 formal guarantees, reconfiguration overhead, leakage-analysis scope, retraining
