@@ -3,7 +3,7 @@
 from __future__ import annotations
 
 import argparse
-import html
+from html.parser import HTMLParser
 import json
 import re
 import time
@@ -15,12 +15,30 @@ from urllib.request import Request, urlopen
 from scripts.normalize_dac_capture_labels import normalize
 
 
-TAG_RE = re.compile(r"<[^>]+>")
 SPACE_RE = re.compile(r"\s+")
 
 
 def clean(fragment: str) -> str:
-    return SPACE_RE.sub(" ", html.unescape(TAG_RE.sub(" ", fragment))).strip()
+    class TextParser(HTMLParser):
+        def __init__(self):
+            super().__init__(convert_charrefs=True)
+            self.parts = []
+
+        def handle_data(self, data):
+            self.parts.append(data)
+
+        def handle_starttag(self, tag, attrs):
+            if tag in {"br", "p", "div"}:
+                self.parts.append(" ")
+
+        def handle_endtag(self, tag):
+            if tag in {"p", "div"}:
+                self.parts.append(" ")
+
+    parser = TextParser()
+    parser.feed(fragment)
+    parser.close()
+    return SPACE_RE.sub(" ", "".join(parser.parts)).strip()
 
 
 def first(pattern: str, source: str) -> str | None:

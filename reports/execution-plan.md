@@ -4,6 +4,13 @@ The governing scope and acceptance criteria are in [GOAL.md](../GOAL.md).
 This log distinguishes finished work from queued work; a plan is not a completed
 research result.
 
+Extraction repair: the research1691 truncation was caused by our tag-stripping
+regex, not missing source text. HTMLParser now preserves numeric inequalities.
+Auditing all 543 saved DAC 2026 captures found exactly one changed description.
+The original capture date and truncated text are retained in correction provenance.
+The recovered draft records the energy/power discrepancy and remains unaccepted;
+coverage counts are unchanged. See [repair audit](dac-description-repair-v1.md).
+
 Latest batch: DAC 2026 IDs 1638, 1640, 1646, 1664, 1665 and 1691 bring
 current drafts to 121, leaving 373 descriptions uncoded. Research1691 is an
 explicitly incomplete draft because its captured description is truncated;

@@ -76,7 +76,8 @@ def test_current_drafts_preserve_identity_and_numeric_disagreement():
     prefix = next(r for r in rows if r["paper_id"] == "dac-2026-research1632")
     assert prefix["metrics"][0]["metric"] == "TTFT reduction"
     glasses = next(r for r in rows if r["paper_id"] == "dac-2026-research1691")
-    assert glasses["metrics"] == []
-    assert "truncated" in glasses["method_or_artifact"]
+    assert glasses["metrics"][1]["value"] == 64
+    assert glasses["metrics"][2]["value"] == 11
+    assert "1.92" in glasses["metrics"][2]["condition"]
     pmem = next(r for r in rows if r["paper_id"] == "dac-2026-research1664")
     assert "simulator" in pmem["hardware_or_process_assumptions"]

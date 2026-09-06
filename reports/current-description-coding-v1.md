@@ -8,8 +8,8 @@ each record. All are pending independent review and retain description-level
 evidence status. They are not added to the 49-record selected adjudication sample.
 With twenty-one batches, 121 additional drafts are available;
 373 of the 543 current DAC descriptions still need initial technical coding.
-Draft coverage includes explicitly incomplete evidence, notably research1691;
-a draft disposition does not mean a complete technical extraction.
+Draft coverage does not mean complete technical evidence. Research1691's extraction
+has been repaired, but its energy/power boundary remains unresolved.
 
 ## Evidence requiring care
 
@@ -254,7 +254,7 @@ percentage loss or remaining-throughput claim without a definition.
 | 1646 Learned-prior yield analysis | In-context cross-corner regression | Best mean error is not rare-tail yield validation; zero tuning omits pretraining costs |
 | 1664 p-MEM | Distribution-parameter storage and sampling | Layout-validated simulation, not silicon; CPU/GPU sampling figures remain distinct |
 | 1665 CARAMEL | Nonblocking protected audit-log transmission | No numeric utilization/delivery bounds; buffering and threat assumptions unresolved |
-| 1691 Visual wakeup | Incomplete smart-glasses CNN fragment | Truncated evidence; no measured sub-mW result accepted; recollect intact description/full paper |
+| 1691 Visual wakeup | Compact quantized CNN and accelerator | Extraction repaired from saved HTML; 64 nJ/frame at 30 FPS gives 1.92 µW, whereas the source reports 11 µW; accounting boundary unresolved |
 
 All 121 records have source-separated review packets. Next: resolve the ATB
 numeric comparison from primary evidence and continue uncoded descriptions in
