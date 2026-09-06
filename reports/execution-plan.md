@@ -4,6 +4,12 @@ The governing scope and acceptance criteria are in [GOAL.md](../GOAL.md).
 This log distinguishes finished work from queued work; a plan is not a completed
 research result.
 
+Latest batch: DAC 2026 IDs 1414, 1417, 1419, 142, 1420 and 1430 bring
+current drafts to 67, leaving 427 descriptions uncoded. Fault-interaction masking,
+checkpoint frequency versus training time, precision versus effective bits and
+context/pretraining costs remain explicit. All 94 draft papers have source-separated
+packets and no independent acceptance verdicts.
+
 Latest batch: DAC 2026 IDs 1390, 1400, 1404, 1407, 1409 and 1412 bring
 current drafts to 61, leaving 433 descriptions uncoded. Reliability certification,
 closed-loop control, fabricated-chip validation and mixed-precision distinctions

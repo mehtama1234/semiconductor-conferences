@@ -6,8 +6,8 @@ The first four previously uncoded records, selected by paper-ID order, have
 research1138 (ARTEMIS). Exact official source URLs and row locators accompany
 each record. All are pending independent review and retain description-level
 evidence status. They are not added to the 49-record selected adjudication sample.
-With eleven batches, 61 additional drafts are available;
-433 of the 543 current DAC descriptions still need initial technical coding.
+With twelve batches, 67 additional drafts are available;
+427 of the 543 current DAC descriptions still need initial technical coding.
 
 ## Evidence requiring care
 
@@ -144,6 +144,17 @@ percentage loss or remaining-throughput claim without a definition.
 | 1409 CODA | Tensor-independent NPU dataflow search | Single-operator and fused-operator gains remain separate; not the ISCA CODO paper |
 | 1412 VRRAM | Gshuffle low-bit ViT and reconfigurable 3D lookup compute | Mixed weight precision is not uniform four-bit quantization; accuracy and efficiency baselines differ |
 
-All 61 records have source-separated review packets. Next: resolve the ATB
+## Twelfth batch
+
+| Paper | Mechanism | Evidence boundary |
+|---|---|---|
+| 1414 EXPCheck | Age-budgeted expert checkpoint selection | Up-to-5× frequency is not training speedup; recovery consistency and failure model remain unknown |
+| 1417 Simultaneous DNN fault injection | Interaction mitigation and input pruning | Best 0% versus mean 0.2% false negatives; software and RTL speedups are distinct |
+| 1419 Duet | Distribution-aware pruning and bit-serial execution | Effective bits are not uniform precision; lossless high-order pruning does not imply globally lossless compression |
+| 142 PRO-V-R1 | Tool-feedback-trained RTL verification agent | Functional correctness and robust fault detection are separate empirical metrics, not formal guarantees |
+| 1420 IGNITE | Context-conditioned neural circuit simulation | No online training does not mean no context-generation or pretraining cost; R2 is not worst-case error |
+| 1430 Spike-PTSD | SNN adversarial robustness evaluation | Success rate lacks perturbation/knowledge conditions; no attack executed or clinical claim accepted |
+
+All 67 records have source-separated review packets. Next: resolve the ATB
 numeric comparison from primary evidence and continue uncoded descriptions in
 stable order, preserving gaps and possible counterexamples.
