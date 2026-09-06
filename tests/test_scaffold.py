@@ -26,3 +26,11 @@ def test_program_signals_are_not_presented_as_paper_adjudications() -> None:
         rows = [json.loads(line) for line in path.read_text().splitlines() if line.strip()]
         assert rows
         assert all("limit" in row or "evidence_limit" in row for row in rows)
+
+
+def test_isca_metadata_rows_preserve_unknown_evidence() -> None:
+    rows = [json.loads(line) for line in (ROOT / "isca/data/papers.jsonl").read_text().splitlines() if line.strip()]
+    assert len(rows) == 7
+    assert all(row["access_status"] == "official_program_metadata_only" for row in rows)
+    assert all(row["classification_confidence"] == "hypothesis_only" for row in rows)
+    assert all(row["problem"] is None and row["metrics"] == [] for row in rows)
