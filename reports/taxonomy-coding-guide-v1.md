@@ -25,6 +25,10 @@ Evidence strength is recorded separately from taxonomy confidence:
 4. `high_primary_preprint` or `high_primary_author_pdf` — author preprint/PDF
    supports the technical fields. Numerical claims still require limits and
    should not be treated as independently reproduced.
+5. `medium_institutional_abstract` — an institutional publication record or
+   repository exposes a substantive abstract and bibliographic identity, but no
+   captured full paper. Use for mechanism-level classification with stricter
+   limits on numerical and implementation claims.
 
 The deepest label is earned only when the mechanism—not merely the application
 area—distinguishes the paper. For example, “LLM” is a workload; “row-aligned
@@ -134,6 +138,13 @@ Observed sub-subskills:
 - `os-hardware-cxl-tiered-memory` — OS/hardware coordination for CXL tiering.
 - `row-aligned-sparse-attention-pim` — DRAM-row alignment and activation-aware
   scheduling for sparse attention without cache rewrites.
+- `concurrent-pim-cpu-mobile-scheduling` — idleness-aware admission of PIM work
+  into CPU access schedules under shared-bank and shared-bus interference.
+- `cross-layer-ecc-encode-once-decode-many` — coordinated on-die, link, and
+  system ECC using shared encoding, ordered decoding, and a correction budget.
+- `processing-using-dram-interference-reliability` — measurement of unintended
+  row/column coupling during simultaneous multiple-row activation plus physical
+  layout and column-screening mitigations.
 
 ### Physical design and manufacturing
 
@@ -177,6 +188,8 @@ Observed sub-subskills:
   `adversarial-attacks-on-moe-offloading`, and
   `gpu-power-thermal-transformer-side-channel-leakage` — distinct attack or
   defense mechanisms that must retain their threat models and attack surfaces.
+- `ecc-aware-reliable-bank-pim` — rank-level ECC, weak-cell masking, and bank
+  pipelining designed together so correction does not erase PIM utilization.
 
 ### Verification and validation
 

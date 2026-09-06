@@ -240,6 +240,8 @@ def test_detailed_taxonomy_and_adversarial_protocol_exist() -> None:
     assert "Adjudication boundary tests" in taxonomy
     assert "Hostile judge prompt" in protocol
     assert '"decision": "accept|revise|reject"' in protocol
+    assert "cross-layer-ecc-encode-once-decode-many" in taxonomy
+    assert "medium_institutional_abstract" in taxonomy
 
 
 def test_evidence_summary_is_explicitly_non_prevalence() -> None:
