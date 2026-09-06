@@ -1,0 +1,28 @@
+{
+  "schema": "source-recovery-assessment.v1",
+  "paper_id": "dac-2026-research1054",
+  "title": "Icarus's Wings: Disabling MoE Offloading Acceleration via a Universal Hidden Prefix Attack",
+  "check_date": "2026-09-06",
+  "status": "exact_title_repository_found_fulltext_not_recovered",
+  "source_id": "dac-2026-icarus-repository-check",
+  "repository_url": "https://github.com/qcm0224/Icarus-Wings",
+  "commit": "5f40e6717c892c09bed2845ca5cf7ff36faeb8ef",
+  "tree": "3d4c7d501565d510ca4b0270d754ba1ff94b832d",
+  "tree_url": "https://api.github.com/repos/qcm0224/Icarus-Wings/git/trees/3d4c7d501565d510ca4b0270d754ba1ff94b832d?recursive=1",
+  "tree_truncated": false,
+  "file_paths": ["LICENSE", "README.md", "imgs/intro_dac_demo.jpg"],
+  "readme_url": "https://raw.githubusercontent.com/qcm0224/Icarus-Wings/5f40e6717c892c09bed2845ca5cf7ff36faeb8ef/README.md",
+  "readme_raw_path": "dac/data/raw/icarus-readme-5f40e67.md",
+  "readme_sha256": "a2216ecf23040da7e516c22ddcf763a15126a8d91a5895c9f3a85939d4cf55f6",
+  "readme_findings": ["Exact paper title and DAC 2026 acceptance stated", "Hosted demo linked", "Deployment details and packaged code described as forthcoming"],
+  "additional_checks": [
+    {"route": "Exact-title and author web searches, including arXiv domain search", "outcome": "Official description and exact-title repository found; no matching primary paper recovered"},
+    {"url": "https://qcm0224.github.io/", "outcome": "Direct HTTP homepage readable and identifies Qichao Ma; homepage body supplied no paper link; not an exhaustive site audit"}
+  ],
+  "technical_evidence_status": "official_description_remains_best_captured_technical_source",
+  "unresolved": ["Named tested offloading systems", "Whether HybriMoE is evaluated", "Model and device identities", "Attacker embedding access and deployment assumptions", "Baseline versions and metric aggregation"],
+  "demo_executed": false,
+  "independent_review_status": "pending",
+  "revisit_conditions": ["Repository commit or release changes", "Author/preprint or publisher paper becomes locatable"],
+  "limits": "Limited discovery-route outcome, not proof of global or permanent paper unavailability. Repository existence is not full-text evidence, a complete released artifact, or independent reproduction. No attack was executed."
+}

@@ -37,6 +37,9 @@ metrics for subsequent full-paper extraction.
 A [HybriMoE primary-condition supplement](../dac/reports/hybrimoe-primary-conditions-v1.md)
 now resolves some missing 2025 experimental details. It is kept outside this
 description-tier comparison until equivalent 2026 source depth is available.
+The [Icarus source search](../dac/reports/icarus-source-recovery-20260906.md)
+found an exact-title project repository but no primary paper through the checked
+routes. Named baselines and a direct HybriMoE evaluation remain unverified.
 
 The sample establishes related technical mechanisms in both editions and exposes
 concrete differences worth investigating. It does not establish that any topic

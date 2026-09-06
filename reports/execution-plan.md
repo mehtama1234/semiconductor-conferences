@@ -27,6 +27,14 @@ table/plot extraction, accuracy parity, independent review and final-version
 reconciliation remain open. The description-tier pilot and sample counts are
 unchanged. Next: equivalent Icarus source depth and other synthesis-anchor gaps.
 
+Icarus follow-up: exact-title repository found and pinned, but the checked tree
+has no paper or implementation source. The README links a demo and says packaged
+code/deployment details are forthcoming. No demo was run. A
+[dated recovery record](../dac/reports/icarus-source-recovery-20260906.md) preserves
+the limited route outcome and unresolved comparison conditions. This is not a
+whole-project blocker; continue accessible technical coding and anchor evidence
+while revisiting publication channels when there is new evidence.
+
 | Subgoal | State | Next deliverable |
 |---|---|---|
 | 1. Recovered checkpoint | Complete: `216135d` | Preserved evidence and end-to-end scope |
