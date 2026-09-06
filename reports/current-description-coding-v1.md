@@ -6,8 +6,8 @@ The first four previously uncoded records, selected by paper-ID order, have
 research1138 (ARTEMIS). Exact official source URLs and row locators accompany
 each record. All are pending independent review and retain description-level
 evidence status. They are not added to the 49-record selected adjudication sample.
-With fifty-seven batches, 337 additional drafts are available;
-157 of the 543 current DAC descriptions still need initial technical coding.
+With fifty-eight batches, 343 additional drafts are available;
+151 of the 543 current DAC descriptions still need initial technical coding.
 Draft coverage does not mean complete technical evidence. Research1691's extraction
 has been repaired, but its energy/power boundary remains unresolved.
 
@@ -652,6 +652,17 @@ percentage loss or remaining-throughput claim without a definition.
 | 2887 HyperEFs | Adaptive clique resistance estimation | Stage speedup differs from full partitioning benefit |
 | 2888 MORPH | RNS and layout co-design for TPU ZKP | Qualitative kernel gains; full proving boundary absent |
 
-All 337 records have source-separated review packets. Next: resolve the ATB
+## Fifty-eighth batch
+
+| Paper | Mechanism | Evidence boundary |
+|---|---|---|
+| 2897 EXRA | Banked expandable RISC-V registers | Percentage speed-up convention and hardware overhead category missing |
+| 2914 LUNA | Integrator/LUT qubit readout | Classifier gains do not establish full QEC-loop gains |
+| 292 SmoothSpec | Dynamic draft/target resource partitioning | Qualitative single-node evaluation only |
+| 293 SkiST | Low-rank and sparse-timestep fine-tuning | 23.2/40.3 GB example differs from maximum memory reduction |
+| 2945 ReMemTier | Reversed workload-aware CXL tiering | Device/protocol roles need clarification; swap versus total time distinct |
+| 2947 REACT | Error-limiting activation compression | BER factor and activation storage are not total-system reliability/memory |
+
+All 343 records have source-separated review packets. Next: resolve the ATB
 numeric comparison from primary evidence and continue uncoded descriptions in
 stable order, preserving gaps and possible counterexamples.
