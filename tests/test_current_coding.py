@@ -10,7 +10,7 @@ def test_current_drafts_preserve_identity_and_numeric_disagreement():
     rows = read_jsonl(ROOT / "data/current-description-coding-v1.jsonl")
     sources = {r["paper_id"]: r for r in read_jsonl(ROOT / "dac/data/paper-evidence-2026.jsonl")}
     branches = {r["theme_id"]: r["subthemes"] for r in json.loads((ROOT / "data/taxonomy-v1-evidence.json").read_text())["themes"]}
-    assert len(rows) == len({r["paper_id"] for r in rows}) == 109
+    assert len(rows) == len({r["paper_id"] for r in rows}) == 115
     for row in rows:
         for key in ["title", "evidence_url", "analysis_edition", "evidence_collection_date"]:
             assert row[key] == sources[row["paper_id"]][key]
@@ -71,3 +71,7 @@ def test_current_drafts_preserve_identity_and_numeric_disagreement():
     assert "MXINT3 x MXINT3" in mantis["metrics"][1]["condition"]
     bayes = next(r for r in rows if r["paper_id"] == "dac-2026-research1610")
     assert bayes["metrics"][1]["unit"] == "percent of baseline power"
+    hddb = next(r for r in rows if r["paper_id"] == "dac-2026-research1619")
+    assert "random corruption" in hddb["metrics"][0]["condition"]
+    prefix = next(r for r in rows if r["paper_id"] == "dac-2026-research1632")
+    assert prefix["metrics"][0]["metric"] == "TTFT reduction"

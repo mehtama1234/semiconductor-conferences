@@ -6,8 +6,8 @@ The first four previously uncoded records, selected by paper-ID order, have
 research1138 (ARTEMIS). Exact official source URLs and row locators accompany
 each record. All are pending independent review and retain description-level
 evidence status. They are not added to the 49-record selected adjudication sample.
-With nineteen batches, 109 additional drafts are available;
-385 of the 543 current DAC descriptions still need initial technical coding.
+With twenty batches, 115 additional drafts are available;
+379 of the 543 current DAC descriptions still need initial technical coding.
 
 ## Evidence requiring care
 
@@ -232,6 +232,17 @@ percentage loss or remaining-throughput claim without a definition.
 | 1612 EARL | Entropy-gated RTL policy updates | Up-to-14.7% pass-rate gain has unspecified percentage convention and sampling budget |
 | 1613 STRAP-ViT | Anomalous-token detection and randomized transformations | Patch coverage is a chosen target, not measured detection; adaptive attack conditions unknown |
 
-All 109 records have source-separated review packets. Next: resolve the ATB
+## Twentieth batch
+
+| Paper | Mechanism | Evidence boundary |
+|---|---|---|
+| 1619 HDDB | HDC-encoded FeNAND SQL operations | Random TLC-cell corruption is not arbitrary fault tolerance; operation gains are not full-database gains |
+| 1622 N3Litho | GPU numerical/neural 3D field reconstruction | Fidelity and speedup are qualitative; downstream full-flow validation not demonstrated |
+| 1628 Attackonctf | Semantics-preserving benchmark obfuscation | Reduced detection does not alone prove benchmark validity; percentage conventions unspecified |
+| 1629 AQR-HNSW | Density-aware quantization and staged re-ranking | SIMD rate, QPS and build time differ; storage reductions must not be compounded |
+| 163 PFATS | Per-flow asynchronous TSN queuing | Jitter bound depends on traffic/system assumptions; interconnect subtheme fit remains provisional |
+| 1632 ECPrefix | Erasure-coded prefix-KV distribution | TTFT is not decoding or total response time; reconstruction/network costs unknown |
+
+All 115 records have source-separated review packets. Next: resolve the ATB
 numeric comparison from primary evidence and continue uncoded descriptions in
 stable order, preserving gaps and possible counterexamples.

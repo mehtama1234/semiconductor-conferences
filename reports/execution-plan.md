@@ -4,6 +4,12 @@ The governing scope and acceptance criteria are in [GOAL.md](../GOAL.md).
 This log distinguishes finished work from queued work; a plan is not a completed
 research result.
 
+Latest batch: DAC 2026 IDs 1619, 1622, 1628, 1629, 163 and 1632 bring
+current drafts to 115, leaving 379 descriptions uncoded. Random-noise versus
+arbitrary-error tolerance, benchmark validity, overlapping storage claims, TSN
+assumptions and TTFT scope remain explicit. All 142 draft papers have
+source-separated packets; independent acceptance remains pending.
+
 Latest batch: DAC 2026 IDs 160, 1605, 1608, 1610, 1612 and 1613 bring
 current drafts to 109, leaving 385 descriptions uncoded. EDP reference separation,
 precision-specific macro efficiency, quantum stage boundaries, power denominators
