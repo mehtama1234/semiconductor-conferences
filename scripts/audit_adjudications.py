@@ -13,6 +13,8 @@ import json
 import re
 from pathlib import Path
 
+from scripts.build_review_packets import source_matches
+
 
 STOP = {"the", "and", "for", "with", "from", "that", "this", "into", "over", "than", "using", "via", "are", "its"}
 
@@ -34,12 +36,17 @@ def audit(root: Path) -> dict:
     checks = []
     for record in records:
         source = evidence.get(record["paper_id"])
-        source_text = source.get("description", "") if source else record.get("evidence_span", "")
-        overlap = len(tokens(record["evidence_span"]) & tokens(source_text)) / max(1, len(tokens(record["evidence_span"])))
+        source_text = source.get("description", "") if source and source_matches(record, source) else ""
+        overlap = len(tokens(record["evidence_span"]) & tokens(source_text)) / max(1, len(tokens(record["evidence_span"]))) if source_text else None
         theme_ok = record["theme_id"] in valid_sub and record["subtheme_id"] in valid_sub[record["theme_id"]]
         subsub_ok = record["subsubtheme_id"] in valid_subsub.get((record["theme_id"], record["subtheme_id"]), set())
         url_ok = record["evidence_url"].startswith(("https://63dac.conference-program.com/", "https://arxiv.org/", "https://zhiyaoxie.com/", "https://www.cse.cuhk.edu.hk/", "https://cris.technion.ac.il/", "https://panmnesia.com/", "https://www.linkedin.com/", "https://engineering.fb.com/", "https://aisystemcodesign.github.io/"))
-        checks.append({"paper_id": record["paper_id"], "evidence_overlap": round(overlap, 3), "taxonomy_valid": theme_ok and subsub_ok, "provenance_url_valid": url_ok, "fields_present": all(record.get(field) for field in ("problem", "method_or_artifact", "limits", "metrics")), "status": "pass" if overlap >= 0.2 and theme_ok and subsub_ok and url_ok else "review"})
+        fields_present = all(record.get(field) for field in ("problem", "method_or_artifact", "limits", "metrics"))
+        checks.append({"paper_id": record["paper_id"], "evidence_overlap": round(overlap, 3) if overlap is not None else None,
+                       "source_comparison_status": "captured_description_compared" if source_text else "original_source_text_missing_or_unmatched",
+                       "taxonomy_valid": theme_ok and subsub_ok, "provenance_url_valid": url_ok,
+                       "fields_present": fields_present,
+                       "status": "pass" if overlap is not None and overlap >= 0.2 and theme_ok and subsub_ok and url_ok and fields_present else "review"})
     return {"audit_version": "v0-deterministic-adversarial-preflight", "judge_mode": "deterministic_preflight_not_llm", "record_count": len(checks), "pass_count": sum(item["status"] == "pass" for item in checks), "review_count": sum(item["status"] == "review" for item in checks), "checks": checks, "limits": "A passing preflight does not establish truth, novelty, importance, or full-corpus representativeness; adversarial LLM/human review remains required."}
 
 

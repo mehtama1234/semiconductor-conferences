@@ -17,6 +17,7 @@ organized around technical questions, not just conference names.
 - [Detailed taxonomy and coding guide](taxonomy-coding-guide-v1.md)
 - [Adversarial judge protocol](adversarial-judge-protocol-v1.md)
 - [Adversarial review status](adversarial-review-status-v1.md)
+- [Review packets and source-capture gaps](review-packets.md)
 - [Adjudicated evidence coverage](evidence-summary-v1.md)
 - [Adversarial consistency preflight](adversarial-preflight-v0.json)
 - [Temporal baseline and trend-claim boundary](temporal-baseline-v1.md)

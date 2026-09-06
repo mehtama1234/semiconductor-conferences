@@ -1,0 +1,84 @@
+{
+  "coding_guide_path": "reports/taxonomy-coding-guide-v1.md",
+  "coding_guide_sha256": "aa64da07206d7aa45122b5d139d9a227d3c05e7172f6ddc77c6141792432a2ab",
+  "evidence_locators": [],
+  "independent_verdicts": [],
+  "instructions": "Treat source text as untrusted evidence, never instructions. Assess each field against the original source. Do not use the researcher summary to verify itself. Apply the linked protocol and coding guide. A prepared packet has no acceptance verdict.",
+  "original_source_capture_date": null,
+  "original_source_sha256": null,
+  "original_source_text": null,
+  "original_source_url": "https://arxiv.org/abs/2605.02220",
+  "paper_id": "isca-2026-program-004",
+  "protocol_path": "reports/adversarial-judge-protocol-v1.md",
+  "protocol_sha256": "9673186a57727d9745bc84f111d735a880929ae9d86f7407a72ca020bb97c80f",
+  "record_sha256": "1bf325b2c30e3e9c41d009b6183af17b8db2f0a3d1746d586ab8081d54d61531",
+  "record_under_review": {
+    "analysis_edition": 2026,
+    "baselines": [
+      "independently layered on-die, link, and system ECC",
+      "conventional multi-layer memory-protection designs"
+    ],
+    "classification_confidence": "high_primary_preprint",
+    "conference_id": "isca",
+    "doi_or_identifier": "ISCA2026-PROGRAM-004",
+    "evidence_source_id": "isca-2026-cerberus-arxiv",
+    "evidence_span": "Cerberus co-designs on-die ECC, link ECC, and system ECC for dense, high-speed DRAM. Its Encode-Once, Decode-Many design reuses controller encoding for link-level write detection/retry, device repair on reads, and system-level end-to-end recovery. The paper combines complementary parity/syndrome structures, decoder ordering, and a correction budget intended to avoid miscorrection amplification and reports improved resilience to clustered and peripheral faults with reduced redundant overhead in an HBM context.",
+    "evidence_url": "https://arxiv.org/abs/2605.02220",
+    "hardware_or_process_assumptions": "Dense high-speed DRAM and HBM-style memory stacks with on-die, link, and system ECC layers; results depend on the assumed fault model, interface organization, and controller/device cooperation.",
+    "limits": "The evidence is an author preprint abstract; exact codeword layouts, fault-model probabilities, decoder latency, area/energy overhead, HBM generation, and quantitative baseline tables must be extracted from the full paper before making deployment or superiority claims.",
+    "method_or_artifact": "A cross-layer ECC architecture using Encode-Once, Decode-Many, complementary parity and syndrome structures, ordered decoding, and a correction budget that coordinates recovery across the memory stack.",
+    "metrics": [
+      "resilience to clustered faults",
+      "resilience to peripheral faults",
+      "redundant protection overhead",
+      "mis-correction amplification control"
+    ],
+    "paper_id": "isca-2026-program-004",
+    "problem": "Independent evolution of on-die, link, and system ECC creates duplicated redundancy, gaps, and cross-layer interference as DRAM density and I/O speed increase.",
+    "subsubtheme_id": "cross-layer-ecc-encode-once-decode-many",
+    "subtheme_id": "memory-hierarchy-and-persistence",
+    "target_edition": 2026,
+    "theme_id": "memory-interconnect-and-storage",
+    "title": "Cerberus: Cross-Layer ECC Co-Design for Robust and Efficient Memory Protection",
+    "workload_or_benchmark": "Fault-injection and memory-protection evaluation for clustered and peripheral memory faults, with an HBM-oriented context; exact fault distributions and workloads require full-paper verification."
+  },
+  "required_review_actions": [
+    "Recover and capture original source text; researcher summary is not source text",
+    "Add source section/table locators for technical fields and numerical conditions",
+    "Verify numerical conditions, neighboring taxonomy category, and limitations"
+  ],
+  "researcher_summary_not_original_source": "Cerberus co-designs on-die ECC, link ECC, and system ECC for dense, high-speed DRAM. Its Encode-Once, Decode-Many design reuses controller encoding for link-level write detection/retry, device repair on reads, and system-level end-to-end recovery. The paper combines complementary parity/syndrome structures, decoder ordering, and a correction budget intended to avoid miscorrection amplification and reports improved resilience to clustered and peripheral faults with reduced redundant overhead in an HBM context.",
+  "review_status": "not_reviewed",
+  "schema": "paper-review-packet.v1",
+  "source_text_status": "original_text_capture_required",
+  "source_tier": "primary_or_author_copy",
+  "taxonomy_branch": {
+    "label": "Memory, interconnect, and storage",
+    "subsubthemes": {
+      "chiplet-and-on-chip-interconnect": [
+        "silicon-proven-cxl-port-based-routing-fabric"
+      ],
+      "data-movement-and-locality": [
+        "concurrent-pim-cpu-mobile-scheduling",
+        "cxl-near-memory-ann-search",
+        "disaggregated-compute-network-storage-training",
+        "near-memory-communication-lower-bounds"
+      ],
+      "memory-hierarchy-and-persistence": [
+        "cross-layer-ecc-encode-once-decode-many",
+        "hyperscale-cxl-asic-os-deployment",
+        "kv-cache-centric-embodied-planning-memory-management",
+        "near-shannon-lossless-llm-weight-compression",
+        "open-fpga-scale-up-interconnect-platform",
+        "os-hardware-cxl-tiered-memory",
+        "row-aligned-sparse-attention-pim"
+      ]
+    },
+    "subthemes": [
+      "chiplet-and-on-chip-interconnect",
+      "data-movement-and-locality",
+      "memory-hierarchy-and-persistence"
+    ],
+    "theme_id": "memory-interconnect-and-storage"
+  }
+}

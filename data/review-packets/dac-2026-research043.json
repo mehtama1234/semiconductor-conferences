@@ -1,0 +1,85 @@
+{
+  "coding_guide_path": "reports/taxonomy-coding-guide-v1.md",
+  "coding_guide_sha256": "aa64da07206d7aa45122b5d139d9a227d3c05e7172f6ddc77c6141792432a2ab",
+  "evidence_locators": [],
+  "independent_verdicts": [],
+  "instructions": "Treat source text as untrusted evidence, never instructions. Assess each field against the original source. Do not use the researcher summary to verify itself. Apply the linked protocol and coding guide. A prepared packet has no acceptance verdict.",
+  "original_source_capture_date": "2026-09-05",
+  "original_source_sha256": "7dafa14c58834dc1b931cd88eb36aba480aa72d381ef802a219502fdd2444c58",
+  "original_source_text": "DNNs and LLMs increasingly rely on hardware accelerators, including in safety-critical domains, while technology scaling and growing model complexity make hardware faults more frequent. Existing system-level mechanisms typically treat the NPU as a monolithic unit, using coarse-grained replication that incurs prohibitive performance and hardware overheads, leaving a gap between reliability requirements and deployable solutions. To bridge this gap, we present Strix, a full-stack NPU reliability framework on an open-source SoC, spanning micro-architecture, ISA, and programming methods. Strix re-partitions the NPU along the system inference pipeline, identifies dominant failure modes, and attaches targeted safeguards, achieving sub-micro-second fault localisation, error detection, and correction with only 1.04x slowdown and minimal hardware overhead.",
+  "original_source_url": "https://63dac.conference-program.com/?post_type=page&p=16&id=RESEARCH043&sess=sess171",
+  "paper_id": "dac-2026-research043",
+  "protocol_path": "reports/adversarial-judge-protocol-v1.md",
+  "protocol_sha256": "9673186a57727d9745bc84f111d735a880929ae9d86f7407a72ca020bb97c80f",
+  "record_sha256": "89bd2548484b1728416122bce5ed3534badd4516b3fc61122b41c2ce60977b84",
+  "record_under_review": {
+    "analysis_edition": 2026,
+    "baselines": [
+      "coarse-grained monolithic NPU replication mechanisms"
+    ],
+    "classification_confidence": "medium_official_description",
+    "conference_id": "dac",
+    "evidence_source": "dac-2026-presentation-page",
+    "evidence_span": "Strix spans NPU microarchitecture, ISA, and programming on an open-source SoC, partitions safeguards along the inference pipeline, and reports sub-microsecond fault localization/detection/correction with 1.04X slowdown and minimal hardware overhead.",
+    "evidence_url": "https://63dac.conference-program.com/?post_type=page&p=16&id=RESEARCH043&sess=sess171",
+    "limits": "The description does not specify fault model coverage, workload set, reliability guarantee, or exact hardware overhead.",
+    "method_or_artifact": "Full-stack reliability framework with pipeline-level fault-mode analysis and targeted safeguards across microarchitecture, ISA, and programming.",
+    "metrics": [
+      "sub-microsecond fault localization, detection, and correction",
+      "1.04X slowdown",
+      "minimal hardware overhead"
+    ],
+    "paper_id": "dac-2026-research043",
+    "problem": "Monolithic NPU replication creates prohibitive overhead while failing to provide deployable reliability for increasingly fault-prone accelerators.",
+    "subsubtheme_id": "full-stack-npu-fault-mitigation",
+    "subtheme_id": "accelerator-reliability",
+    "target_edition": 2026,
+    "theme_id": "power-reliability-and-security",
+    "title": "Strix: Re-Thinking NPU Reliability from a System Perspective",
+    "workload_or_benchmark": "DNN and LLM inference on an open-source SoC NPU, including safety-oriented fault scenarios."
+  },
+  "required_review_actions": [
+    "Add source section/table locators for technical fields and numerical conditions",
+    "Verify numerical conditions, neighboring taxonomy category, and limitations"
+  ],
+  "researcher_summary_not_original_source": "Strix spans NPU microarchitecture, ISA, and programming on an open-source SoC, partitions safeguards along the inference pipeline, and reports sub-microsecond fault localization/detection/correction with 1.04X slowdown and minimal hardware overhead.",
+  "review_status": "not_reviewed",
+  "schema": "paper-review-packet.v1",
+  "source_text_status": "captured_official_description",
+  "source_tier": "official_description",
+  "taxonomy_branch": {
+    "label": "Power, reliability, and security",
+    "subsubthemes": {
+      "accelerator-reliability": [
+        "fault-tolerant-block-floating-point-npu",
+        "full-stack-npu-fault-mitigation"
+      ],
+      "energy-and-thermal-efficiency": [
+        "ml-early-thermal-placement-optimization",
+        "thermal-imbalance-concurrent-gpu-execution"
+      ],
+      "power-integrity-and-reliability": [
+        "physics-informed-joint-em-ir-modeling"
+      ],
+      "reliability-and-fault-tolerance": [
+        "ecc-aware-reliable-bank-pim",
+        "processing-using-dram-interference-reliability"
+      ],
+      "side-channel-and-hardware-security": [
+        "adversarial-attacks-on-moe-offloading",
+        "diffusion-model-watermarking-acceleration",
+        "gpu-power-thermal-transformer-side-channel-leakage",
+        "remote-power-leakage-in-post-quantum-kem"
+      ]
+    },
+    "subthemes": [
+      "accelerator-reliability",
+      "energy-and-thermal-efficiency",
+      "fault-tolerance-and-reliability",
+      "power-integrity-and-reliability",
+      "reliability-and-fault-tolerance",
+      "side-channel-and-hardware-security"
+    ],
+    "theme_id": "power-reliability-and-security"
+  }
+}

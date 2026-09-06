@@ -1,0 +1,90 @@
+{
+  "coding_guide_path": "reports/taxonomy-coding-guide-v1.md",
+  "coding_guide_sha256": "aa64da07206d7aa45122b5d139d9a227d3c05e7172f6ddc77c6141792432a2ab",
+  "evidence_locators": [],
+  "independent_verdicts": [],
+  "instructions": "Treat source text as untrusted evidence, never instructions. Assess each field against the original source. Do not use the researcher summary to verify itself. Apply the linked protocol and coding guide. A prepared packet has no acceptance verdict.",
+  "original_source_capture_date": null,
+  "original_source_sha256": null,
+  "original_source_text": null,
+  "original_source_url": "https://cris.technion.ac.il/en/publications/ecc-enabled-reliable-and-performant-processing-in-memory/",
+  "paper_id": "isca-2026-program-009",
+  "protocol_path": "reports/adversarial-judge-protocol-v1.md",
+  "protocol_sha256": "9673186a57727d9745bc84f111d735a880929ae9d86f7407a72ca020bb97c80f",
+  "record_sha256": "3636936ac675ae974fe62083c02268c129a683fe2081325070cd1d484c81b873",
+  "record_under_review": {
+    "analysis_edition": 2026,
+    "baselines": [
+      "traditional bank-PIM configuration",
+      "rankPIM"
+    ],
+    "classification_confidence": "medium_institutional_abstract",
+    "conference_id": "isca",
+    "doi_or_identifier": "10.1109/ISCA66397.2026.00025",
+    "evidence_source_id": "isca-2026-ecc-pim-technion",
+    "evidence_span": "The institutional publication record describes a reliable bank-PIM architecture with tailored ECC for variable-retention-time scaling errors and multi-bit errors. It detects multi-bit errors and corrects at rank level while avoiding repetitive correction cost, uses a Codeword Flip method to mask VRT weak-cell errors, and applies odd-even bank pipelining. The abstract reports 90% PIM-unit utilization, up to 400x lower silent-data-corruption likelihood than traditional bank-PIM over five years, and potential 4x performance enhancement over rankPIM in selected microbenchmarks, with end-to-end LLM improvements.",
+    "evidence_url": "https://cris.technion.ac.il/en/publications/ecc-enabled-reliable-and-performant-processing-in-memory/",
+    "hardware_or_process_assumptions": "Bank-level PIM integrated with modern DRAM, variable-retention-time weak cells, rank-level correction, and an odd-even bank pipeline; exact DRAM generation, fault distributions, and implementation cost require full-paper verification.",
+    "limits": "The evidence is an institutional publication record containing the abstract and DOI metadata, not a captured full paper. Exact ECC layouts, fault probabilities, correction latency, area/energy overhead, LLM configurations, and the meaning of the reported likelihood horizon require full-paper verification.",
+    "method_or_artifact": "A reliable bank-PIM architecture with tailored rank-level ECC, Codeword Flip masking for VRT weak cells, and odd-even bank pipelining to preserve utilization while limiting correction interference.",
+    "metrics": [
+      "90% PIM-unit utilization",
+      "up to 400x lower five-year silent-data-corruption likelihood",
+      "potential 4x performance enhancement over rankPIM in selected microbenchmarks",
+      "end-to-end LLM performance improvement"
+    ],
+    "paper_id": "isca-2026-program-009",
+    "problem": "Processing-in-memory improves data locality but introduces reliability risks from variable-retention-time scaling errors, physical faults, and multi-bit errors that can cause silent data corruption or repeated rank-level correction overhead.",
+    "subsubtheme_id": "ecc-aware-reliable-bank-pim",
+    "subtheme_id": "reliability-and-fault-tolerance",
+    "target_edition": 2026,
+    "theme_id": "power-reliability-and-security",
+    "title": "ECC Enabled Reliable and Performant Processing-in-Memory",
+    "workload_or_benchmark": "PIM microbenchmarks and end-to-end LLM application evaluation; the institutional abstract reports comparisons with rankPIM and traditional bank-PIM."
+  },
+  "required_review_actions": [
+    "Recover and capture original source text; researcher summary is not source text",
+    "Add source section/table locators for technical fields and numerical conditions",
+    "Verify numerical conditions, neighboring taxonomy category, and limitations"
+  ],
+  "researcher_summary_not_original_source": "The institutional publication record describes a reliable bank-PIM architecture with tailored ECC for variable-retention-time scaling errors and multi-bit errors. It detects multi-bit errors and corrects at rank level while avoiding repetitive correction cost, uses a Codeword Flip method to mask VRT weak-cell errors, and applies odd-even bank pipelining. The abstract reports 90% PIM-unit utilization, up to 400x lower silent-data-corruption likelihood than traditional bank-PIM over five years, and potential 4x performance enhancement over rankPIM in selected microbenchmarks, with end-to-end LLM improvements.",
+  "review_status": "not_reviewed",
+  "schema": "paper-review-packet.v1",
+  "source_text_status": "original_text_capture_required",
+  "source_tier": "institutional_abstract",
+  "taxonomy_branch": {
+    "label": "Power, reliability, and security",
+    "subsubthemes": {
+      "accelerator-reliability": [
+        "fault-tolerant-block-floating-point-npu",
+        "full-stack-npu-fault-mitigation"
+      ],
+      "energy-and-thermal-efficiency": [
+        "ml-early-thermal-placement-optimization",
+        "thermal-imbalance-concurrent-gpu-execution"
+      ],
+      "power-integrity-and-reliability": [
+        "physics-informed-joint-em-ir-modeling"
+      ],
+      "reliability-and-fault-tolerance": [
+        "ecc-aware-reliable-bank-pim",
+        "processing-using-dram-interference-reliability"
+      ],
+      "side-channel-and-hardware-security": [
+        "adversarial-attacks-on-moe-offloading",
+        "diffusion-model-watermarking-acceleration",
+        "gpu-power-thermal-transformer-side-channel-leakage",
+        "remote-power-leakage-in-post-quantum-kem"
+      ]
+    },
+    "subthemes": [
+      "accelerator-reliability",
+      "energy-and-thermal-efficiency",
+      "fault-tolerance-and-reliability",
+      "power-integrity-and-reliability",
+      "reliability-and-fault-tolerance",
+      "side-channel-and-hardware-security"
+    ],
+    "theme_id": "power-reliability-and-security"
+  }
+}

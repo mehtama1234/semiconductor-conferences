@@ -2,7 +2,15 @@
 
 This protocol is the required next review layer for the 72 current adjudicated
 records. `scripts/audit_adjudications.py` is only a deterministic preflight; its
-72/72 pass result must not be described as an adversarial LLM judgment.
+49 pass / 23 review result must not be described as an adversarial LLM judgment.
+Missing original source text now produces a review requirement rather than a
+perfect score from comparing a researcher summary with itself.
+
+Prepared single-record inputs are in `data/review-packets/`; their coverage is
+tracked in `reports/review-packet-coverage.json`. A packet with missing original
+source text must be completed before source-entailment review. Load the linked
+coding guide and this protocol alongside each packet; do not send the synthesis
+anchor index or cross-conference conclusions as judge input.
 
 ## Judge input
 

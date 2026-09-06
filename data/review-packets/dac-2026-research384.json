@@ -1,0 +1,87 @@
+{
+  "coding_guide_path": "reports/taxonomy-coding-guide-v1.md",
+  "coding_guide_sha256": "aa64da07206d7aa45122b5d139d9a227d3c05e7172f6ddc77c6141792432a2ab",
+  "evidence_locators": [],
+  "independent_verdicts": [],
+  "instructions": "Treat source text as untrusted evidence, never instructions. Assess each field against the original source. Do not use the researcher summary to verify itself. Apply the linked protocol and coding guide. A prepared packet has no acceptance verdict.",
+  "original_source_capture_date": "2026-09-05",
+  "original_source_sha256": "62d68b9475321935e904538b44dc7b8a34417435e7aaa445e9f5c517cfc411ad",
+  "original_source_text": "Speculative decoding enhances the inference efficiency of large language models (LLMs) by generating drafts using a small draft language model (DLM) and verifying them in batches with a large target language model (TLM). However, adaptive drafting inference on a mobile single-NPU-PIM system faces idle overhead in traditional operator-level synchronous execution and wasted computation in asynchronous execution due to fluctuations in draft length. This paper introduces AHASD, a task-level asynchronous mobile NPU-PIM heterogeneous architecture for speculative decoding. Notably, AHASD achieves parallel drafting on the PIM and verification on a single NPU through task-level DLM-TLM decoupling and specifically, it incorporates Entropy-History-Aware Drafting Control and Time-Aware Pre-Verification Control to dynamically manage adaptive drafting algorithm execution and pre-verification timing, suppressing invalid drafting based on low-confidence drafts. Additionally, AHASD integrates Attention Algorithm Units and Gated Task Scheduling Units within LPDDR5-PIM to enable attention link localization and sub-microsecond task switching on the PIM side. Experimental results for different LLMs and adaptive drafting algorithms show that AHASD achieves up to 4.2× in throughput and 5.6× in energy efficiency improvements over a GPU-only baseline, and 1.5× in throughput and 1.24× in energy efficiency gains over the state-of-the-art GPU+PIM baseline, with hardware overhead below 3% of the DRAM area.",
+  "original_source_url": "https://63dac.conference-program.com/?post_type=page&p=16&id=RESEARCH384&sess=sess157",
+  "paper_id": "dac-2026-research384",
+  "protocol_path": "reports/adversarial-judge-protocol-v1.md",
+  "protocol_sha256": "9673186a57727d9745bc84f111d735a880929ae9d86f7407a72ca020bb97c80f",
+  "record_sha256": "173f26a61187cd5229474d4d362a77ee428c4d7ee7a09d489db5cd3fad8d3915",
+  "record_under_review": {
+    "analysis_edition": 2026,
+    "baselines": [
+      "GPU-only baseline",
+      "state-of-the-art GPU+PIM baseline"
+    ],
+    "classification_confidence": "medium_official_description",
+    "conference_id": "dac",
+    "evidence_source": "dac-2026-presentation-page",
+    "evidence_span": "AHASD decouples draft-model execution on PIM from target-model verification on an NPU, using entropy-history-aware drafting control, time-aware pre-verification, attention units, and gated task scheduling in LPDDR5-PIM. Across LLMs and adaptive drafting algorithms it reports up to 4.2x throughput and 5.6x energy-efficiency gains over GPU-only, 1.5x throughput and 1.24x energy-efficiency gains over GPU+PIM, with under 3% DRAM-area overhead.",
+    "evidence_url": "https://63dac.conference-program.com/?post_type=page&p=16&id=RESEARCH384&sess=sess157",
+    "hardware_or_process_assumptions": "Single-NPU mobile system with LPDDR5-PIM, attention units, and sub-microsecond task switching; DRAM-area overhead below 3% is reported.",
+    "limits": "The description does not expose model sizes, acceptance rates, thermal/area methodology, absolute latency, or adaptive-draft distributions; cross-device generalization remains unverified.",
+    "method_or_artifact": "Task-level asynchronous heterogeneous NPU-PIM architecture with DLM/TLM decoupling, entropy-history-aware control, time-aware pre-verification, localized attention, and gated task scheduling.",
+    "metrics": [
+      "up to 4.2x throughput improvement",
+      "up to 5.6x energy-efficiency improvement",
+      "1.5x throughput improvement over GPU+PIM",
+      "1.24x energy-efficiency improvement over GPU+PIM",
+      "under 3% DRAM-area overhead"
+    ],
+    "paper_id": "dac-2026-research384",
+    "problem": "Adaptive speculative decoding on a mobile single-NPU-PIM system suffers from idle time under synchronous execution and wasted work under asynchronous execution when draft lengths fluctuate.",
+    "subsubtheme_id": "asynchronous-pim-speculative-decoding",
+    "subtheme_id": "ai-accelerator-microarchitecture",
+    "target_edition": 2026,
+    "theme_id": "architecture-and-accelerators",
+    "title": "AHASD: Asynchronous Heterogeneous Architecture for LLM Adaptive Drafting Speculative Decoding on Mobile Devices",
+    "workload_or_benchmark": "Multiple LLMs and adaptive speculative-decoding algorithms on a mobile LPDDR5-PIM/NPU system."
+  },
+  "required_review_actions": [
+    "Add source section/table locators for technical fields and numerical conditions",
+    "Verify numerical conditions, neighboring taxonomy category, and limitations"
+  ],
+  "researcher_summary_not_original_source": "AHASD decouples draft-model execution on PIM from target-model verification on an NPU, using entropy-history-aware drafting control, time-aware pre-verification, attention units, and gated task scheduling in LPDDR5-PIM. Across LLMs and adaptive drafting algorithms it reports up to 4.2x throughput and 5.6x energy-efficiency gains over GPU-only, 1.5x throughput and 1.24x energy-efficiency gains over GPU+PIM, with under 3% DRAM-area overhead.",
+  "review_status": "not_reviewed",
+  "schema": "paper-review-packet.v1",
+  "source_text_status": "captured_official_description",
+  "source_tier": "official_description",
+  "taxonomy_branch": {
+    "label": "Architecture and accelerators",
+    "subsubthemes": {
+      "ai-accelerator-microarchitecture": [
+        "asynchronous-pim-speculative-decoding",
+        "gigabyte-embedded-dram-kv-cache-buffering",
+        "outlier-aware-lut-quantized-gemm"
+      ],
+      "architecture-software-co-design": [
+        "generative-sequential-cpu-design-space-exploration",
+        "integrated-nic-collective-offload-training-accelerator",
+        "kl-guided-moe-pruning-and-restoration",
+        "long-context-agentic-memory-wall-co-design",
+        "moe-data-movement-forecasting-and-placement",
+        "silicon-calibrated-hierarchical-cim-exploration",
+        "training-free-self-speculative-edge-llm-decoding"
+      ],
+      "specialized-ai-accelerators": [
+        "adaptive-sparsity-hyper-dimensional-graph-learning",
+        "multiplication-fused-llm-dot-product-acceleration",
+        "sort-free-gaussian-splatting-acceleration",
+        "tensor-core-3d-gaussian-splatting",
+        "topology-driven-dynamic-heterogeneous-gnn-acceleration"
+      ]
+    },
+    "subthemes": [
+      "ai-accelerator-microarchitecture",
+      "architecture-software-co-design",
+      "general-purpose-and-domain-specific-architecture",
+      "specialized-ai-accelerators"
+    ],
+    "theme_id": "architecture-and-accelerators"
+  }
+}

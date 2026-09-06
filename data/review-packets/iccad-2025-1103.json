@@ -1,0 +1,78 @@
+{
+  "coding_guide_path": "reports/taxonomy-coding-guide-v1.md",
+  "coding_guide_sha256": "aa64da07206d7aa45122b5d139d9a227d3c05e7172f6ddc77c6141792432a2ab",
+  "evidence_locators": [],
+  "independent_verdicts": [],
+  "instructions": "Treat source text as untrusted evidence, never instructions. Assess each field against the original source. Do not use the researcher summary to verify itself. Apply the linked protocol and coding guide. A prepared packet has no acceptance verdict.",
+  "original_source_capture_date": null,
+  "original_source_sha256": null,
+  "original_source_text": null,
+  "original_source_url": "https://arxiv.org/abs/2508.07252",
+  "paper_id": "iccad-2025-1103",
+  "protocol_path": "reports/adversarial-judge-protocol-v1.md",
+  "protocol_sha256": "9673186a57727d9745bc84f111d735a880929ae9d86f7407a72ca020bb97c80f",
+  "record_sha256": "d51a6c18bc11b679a7fcc022ae730694da5552a666e9f223d8aa0327252386c2",
+  "record_under_review": {
+    "analysis_edition": 2025,
+    "baselines": [
+      "homogeneous 3D-stacked architecture",
+      "GPU baselines",
+      "state-of-the-art heterogeneous PIM-based LLM accelerator"
+    ],
+    "classification_confidence": "high_primary_preprint",
+    "conference_id": "iccad",
+    "doi_or_identifier": "10.1109/ICCAD66269.2025.11240805",
+    "evidence_source_id": "iccad-2025-tasa-arxiv",
+    "evidence_span": "Tasa addresses the thermal limits of 3D-stacked architectures by combining heterogeneous high-performance and high-efficiency cores with cross-stack thermal optimization and bandwidth-sharing scheduling. The abstract reports peak-temperature reductions of 5.55, 9.37, and 7.91 degrees Celsius for 48, 60, and 72 core configurations, plus 2.85x and 2.21x speedups for Llama-65B and GPT-3 66B inference over GPU baselines and a heterogeneous PIM accelerator.",
+    "evidence_url": "https://arxiv.org/abs/2508.07252",
+    "hardware_or_process_assumptions": "3D-stacked multi-DRAM-die-over-logic architecture with thermal constraints and heterogeneous cores; technology, cooling, and memory-stack assumptions require full-paper verification.",
+    "limits": "The evidence is an author preprint abstract; full-paper verification is needed for thermal-model calibration, area/cost overhead, memory bandwidth assumptions, and comparison fairness.",
+    "method_or_artifact": "Heterogeneous 3D-stacked architecture with high-performance cores for compute-intensive operators, high-efficiency cores for memory-intensive attention operators, cross-stack thermal balancing, and bandwidth-sharing scheduling.",
+    "metrics": [
+      "5.55, 9.37, and 7.91 degree Celsius peak-temperature reductions",
+      "2.85x Llama-65B inference speedup",
+      "2.21x GPT-3 66B inference speedup",
+      "thermal scalability and bandwidth utilization"
+    ],
+    "paper_id": "iccad-2025-1103",
+    "problem": "3D stacking increases memory bandwidth for autoregressive LLM decoding but creates more severe temperature, thermal-gradient, and scalability constraints than 2D designs.",
+    "subsubtheme_id": "thermal-aware-3d-stacked-llm-inference",
+    "subtheme_id": "3d-stacking-and-thermal-management",
+    "target_edition": 2026,
+    "theme_id": "chiplets-3d-and-packaging",
+    "title": "Tasa: Thermal-aware 3D-Stacked Architecture Design with Bandwidth Sharing for LLM Inference",
+    "workload_or_benchmark": "Llama-65B and GPT-3 66B inference with 48-, 60-, and 72-core configurations; comparisons include GPU and heterogeneous PIM-based accelerators."
+  },
+  "required_review_actions": [
+    "Recover and capture original source text; researcher summary is not source text",
+    "Add source section/table locators for technical fields and numerical conditions",
+    "Verify numerical conditions, neighboring taxonomy category, and limitations"
+  ],
+  "researcher_summary_not_original_source": "Tasa addresses the thermal limits of 3D-stacked architectures by combining heterogeneous high-performance and high-efficiency cores with cross-stack thermal optimization and bandwidth-sharing scheduling. The abstract reports peak-temperature reductions of 5.55, 9.37, and 7.91 degrees Celsius for 48, 60, and 72 core configurations, plus 2.85x and 2.21x speedups for Llama-65B and GPT-3 66B inference over GPU baselines and a heterogeneous PIM accelerator.",
+  "review_status": "not_reviewed",
+  "schema": "paper-review-packet.v1",
+  "source_text_status": "original_text_capture_required",
+  "source_tier": "primary_or_author_copy",
+  "taxonomy_branch": {
+    "label": "Chiplets, 3D integration, and packaging",
+    "subsubthemes": {
+      "3d-stacking-and-thermal-management": [
+        "analytical-3d-ic-thermal-simulation",
+        "modular-reduced-order-chiplet-thermal-modeling",
+        "thermal-aware-3d-stacked-llm-inference"
+      ],
+      "chiplet-partitioning-and-integration": [
+        "hierarchical-multi-agent-chiplet-design"
+      ],
+      "package-system-co-design": [
+        "metal-density-constrained-package-power-plane-synthesis"
+      ]
+    },
+    "subthemes": [
+      "3d-stacking-and-thermal-management",
+      "chiplet-partitioning-and-integration",
+      "package-system-co-design"
+    ],
+    "theme_id": "chiplets-3d-and-packaging"
+  }
+}

@@ -1,0 +1,82 @@
+{
+  "coding_guide_path": "reports/taxonomy-coding-guide-v1.md",
+  "coding_guide_sha256": "aa64da07206d7aa45122b5d139d9a227d3c05e7172f6ddc77c6141792432a2ab",
+  "evidence_locators": [],
+  "independent_verdicts": [],
+  "instructions": "Treat source text as untrusted evidence, never instructions. Assess each field against the original source. Do not use the researcher summary to verify itself. Apply the linked protocol and coding guide. A prepared packet has no acceptance verdict.",
+  "original_source_capture_date": "2026-09-05",
+  "original_source_sha256": "f3e697195caa407d8200dbb06b548b031222facc3d3e4844a718cac10151ad06",
+  "original_source_text": "The prevailing surrogate-guided paradigm for CPU design space exploration (DSE) suffers from a fundamental credit assignment problem, leading to high sample complexity. This work introduces GenDSE, which reformulates DSE as a sequential decision process. Its contributions are: (1) A Markov decision process that decomposes design configuration generation into context-dependent steps. (2) A GFlowNet-based configuration generator for implicit credit assignment, linking individual decisions to final outcomes. (3) Progressive Sketching, a training paradigm to overcome GFlowNet's data hunger. Experiments show GenDSE reduces simulation costs by 90% on average while achieving superior solution quality.",
+  "original_source_url": "https://63dac.conference-program.com/?post_type=page&p=16&id=RESEARCH1047&sess=sess113",
+  "paper_id": "dac-2026-research1047",
+  "protocol_path": "reports/adversarial-judge-protocol-v1.md",
+  "protocol_sha256": "9673186a57727d9745bc84f111d735a880929ae9d86f7407a72ca020bb97c80f",
+  "record_sha256": "4f4ece2e89747f7de4cceeed161006f1be0caf6c4b7b9dfe5988127e5d320ea5",
+  "record_under_review": {
+    "analysis_edition": 2026,
+    "baselines": [
+      "surrogate-guided CPU design-space exploration"
+    ],
+    "classification_confidence": "medium_official_description",
+    "conference_id": "dac",
+    "evidence_source": "dac-2026-presentation-page",
+    "evidence_span": "GenDSE reformulates CPU design-space exploration as a sequential decision process, uses a GFlowNet configuration generator and Progressive Sketching, and reduces simulation costs by 90% on average while maintaining superior solution quality.",
+    "evidence_url": "https://63dac.conference-program.com/?post_type=page&p=16&id=RESEARCH1047&sess=sess156",
+    "limits": "The description does not provide CPU configuration dimensions, absolute simulation budgets, or numerical solution-quality comparisons.",
+    "method_or_artifact": "Markov decision process with GFlowNet-based configuration generation and Progressive Sketching for data efficiency.",
+    "metrics": [
+      "90% average simulation-cost reduction",
+      "solution quality"
+    ],
+    "paper_id": "dac-2026-research1047",
+    "problem": "Surrogate-guided CPU design-space exploration suffers from credit-assignment problems and high simulation sample complexity.",
+    "subsubtheme_id": "generative-sequential-cpu-design-space-exploration",
+    "subtheme_id": "architecture-software-co-design",
+    "target_edition": 2026,
+    "theme_id": "architecture-and-accelerators",
+    "title": "GenDSE: Generative CPU Design Space Exploration via Sequential Decision Making",
+    "workload_or_benchmark": "CPU microarchitecture design-space exploration and simulation."
+  },
+  "required_review_actions": [
+    "Add source section/table locators for technical fields and numerical conditions",
+    "Verify numerical conditions, neighboring taxonomy category, and limitations"
+  ],
+  "researcher_summary_not_original_source": "GenDSE reformulates CPU design-space exploration as a sequential decision process, uses a GFlowNet configuration generator and Progressive Sketching, and reduces simulation costs by 90% on average while maintaining superior solution quality.",
+  "review_status": "not_reviewed",
+  "schema": "paper-review-packet.v1",
+  "source_text_status": "captured_official_description",
+  "source_tier": "official_description",
+  "taxonomy_branch": {
+    "label": "Architecture and accelerators",
+    "subsubthemes": {
+      "ai-accelerator-microarchitecture": [
+        "asynchronous-pim-speculative-decoding",
+        "gigabyte-embedded-dram-kv-cache-buffering",
+        "outlier-aware-lut-quantized-gemm"
+      ],
+      "architecture-software-co-design": [
+        "generative-sequential-cpu-design-space-exploration",
+        "integrated-nic-collective-offload-training-accelerator",
+        "kl-guided-moe-pruning-and-restoration",
+        "long-context-agentic-memory-wall-co-design",
+        "moe-data-movement-forecasting-and-placement",
+        "silicon-calibrated-hierarchical-cim-exploration",
+        "training-free-self-speculative-edge-llm-decoding"
+      ],
+      "specialized-ai-accelerators": [
+        "adaptive-sparsity-hyper-dimensional-graph-learning",
+        "multiplication-fused-llm-dot-product-acceleration",
+        "sort-free-gaussian-splatting-acceleration",
+        "tensor-core-3d-gaussian-splatting",
+        "topology-driven-dynamic-heterogeneous-gnn-acceleration"
+      ]
+    },
+    "subthemes": [
+      "ai-accelerator-microarchitecture",
+      "architecture-software-co-design",
+      "general-purpose-and-domain-specific-architecture",
+      "specialized-ai-accelerators"
+    ],
+    "theme_id": "architecture-and-accelerators"
+  }
+}

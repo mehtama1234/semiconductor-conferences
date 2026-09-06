@@ -1,0 +1,36 @@
+from pathlib import Path
+
+from scripts.audit_adjudications import audit
+from scripts.build_review_packets import build, source_matches
+
+ROOT = Path(__file__).resolve().parents[1]
+
+
+def test_source_matching_ignores_session_only_and_requires_identity():
+    record = {"paper_id": "p", "title": "A paper", "evidence_url": "https://63dac.conference-program.com/?id=RESEARCH108&p=16&sess=old"}
+    source = {**record, "evidence_url": "https://63dac.conference-program.com/?id=RESEARCH108&p=16&sess=new"}
+    assert source_matches(record, source)
+    assert not source_matches(record, {**source, "title": "Different paper"})
+    assert not source_matches(record, {**source, "evidence_url": source["evidence_url"].replace("108", "109")})
+
+
+def test_packets_do_not_promote_summaries_or_leak_synthesis():
+    packets, summary = build(ROOT)
+    assert summary["packet_count"] == 72
+    assert summary["synthesis_anchor_count"] == 33
+    assert summary["independent_review_count"] == 0
+    mtia = next(p for p in packets if p["paper_id"] == "isca-2026-program-069")
+    assert mtia["original_source_text"] is None
+    assert mtia["researcher_summary_not_original_source"]
+    assert mtia["evidence_locators"]
+    assert all(not p["independent_verdicts"] for p in packets)
+    assert all("synthesis_directions" not in p for p in packets)
+    assert all(p["original_source_sha256"] for p in packets if p["original_source_text"])
+
+
+def test_audit_never_compares_uncaptured_summary_with_itself():
+    result = audit(ROOT)
+    mtia = next(p for p in result["checks"] if p["paper_id"] == "isca-2026-program-069")
+    assert mtia["evidence_overlap"] is None
+    assert mtia["status"] == "review"
+    assert result["review_count"] > 0

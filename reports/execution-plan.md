@@ -10,7 +10,7 @@ research result.
 | 2. Coverage and priorities | Complete inventory join; manual prioritization ongoing | Refine thin-theme/counterexample priorities |
 | 3. Technical evidence | Partial: 72 coded records | Source passages and experimental conditions for synthesis anchors |
 | 4. Taxonomy and explanations | Provisional taxonomy and pages exist | Reviewed mechanism categories and claim-to-paper explanations |
-| 5. Independent review | Pending; 72 records unreviewed | Source-grounded packets, followed by independent verdicts |
+| 5. Independent review | 72 packets prepared; zero independent reviews | Capture original text for 23 packets, then obtain verdicts |
 | 6. Temporal comparisons | Metadata inventories and title screen only | Comparable technical evidence with denominators and exclusions |
 | 7. Final package | Provisional synthesis exists | Dated, traceable synthesis passing evidence/review gates |
 
@@ -61,6 +61,14 @@ The recovered evidence increment and planning changes were committed as `216135d
    attribution for supplemental metrics and leave cost inputs unresolved.
 
 ## Open dependencies and limits
+
+Review preparation now covers all 72 records (33 synthesis anchors). DAC's 49
+original descriptions are matched by exact paper/title/source identity while
+allowing session-link changes. The 23 ISCA/ICCAD packets retain original-text
+gaps explicitly. The deterministic audit was corrected to avoid self-comparison
+and now reports 49 pass / 23 review; it also requires populated fields to pass.
+All 50 tests pass. See [review packets](review-packets.md). Next: capture original
+primary text for these 23 records and complete source-grounded judge inputs.
 
 The denominator/recovery batch excludes slot 158 from title shares while keeping
 all 1,546 captured rows and their IDs. Shared inclusion rules cover the queue and

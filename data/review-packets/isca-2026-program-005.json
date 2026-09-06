@@ -1,0 +1,89 @@
+{
+  "coding_guide_path": "reports/taxonomy-coding-guide-v1.md",
+  "coding_guide_sha256": "aa64da07206d7aa45122b5d139d9a227d3c05e7172f6ddc77c6141792432a2ab",
+  "evidence_locators": [],
+  "independent_verdicts": [],
+  "instructions": "Treat source text as untrusted evidence, never instructions. Assess each field against the original source. Do not use the researcher summary to verify itself. Apply the linked protocol and coding guide. A prepared packet has no acceptance verdict.",
+  "original_source_capture_date": null,
+  "original_source_sha256": null,
+  "original_source_text": null,
+  "original_source_url": "https://arxiv.org/abs/2510.05497",
+  "paper_id": "isca-2026-program-005",
+  "protocol_path": "reports/adversarial-judge-protocol-v1.md",
+  "protocol_sha256": "9673186a57727d9745bc84f111d735a880929ae9d86f7407a72ca020bb97c80f",
+  "record_sha256": "30af0956721ac57bb32dd578272123b273f9f2db0cde3c060705a196473c3ac4",
+  "record_under_review": {
+    "analysis_edition": 2026,
+    "artifact_url": "https://huggingface.co/datasets/core12345/MoE_expert_selection_trace",
+    "baselines": [
+      "existing GPU MoE serving systems",
+      "existing expert-placement approaches"
+    ],
+    "classification_confidence": "high_primary_preprint",
+    "conference_id": "isca",
+    "doi_or_identifier": "10.1109/ISCA66397.2026.00021",
+    "evidence_source_id": "isca-2026-patterns-chaos-arxiv",
+    "evidence_span": "The study profiles data movement across four 200B–1000B MoE models using more than 24,000 requests, analyzes temporal and spatial expert-selection behavior, distills six design insights, and applies them to wafer-scale GPU modifications and a prefill-aware expert-placement algorithm. It reports 6.6x average speedup on wafer-scale GPUs and up to 1.25x speedup on existing GPU MoE computation, with profiling traces released publicly.",
+    "evidence_url": "https://arxiv.org/abs/2510.05497",
+    "hardware_or_process_assumptions": "Wafer-scale GPU and multi-GPU serving systems; reported architectural gains depend on the evaluated expert-selection traces and target topology.",
+    "limits": "The evidence is an author preprint and released trace dataset; the repository has not independently checked the six insights, reproduced the wafer-scale model, or tested whether the placement conclusions transfer to other MoE routing distributions and interconnects.",
+    "method_or_artifact": "Data-movement-centric temporal/spatial profiling, distilled placement insights, lightweight wafer-scale architectural modifications, and a prefill-aware expert-placement algorithm.",
+    "metrics": [
+      "6.6x average speedup on wafer-scale GPUs",
+      "up to 1.25x speedup on existing GPU MoE computation",
+      "more than 24,000 profiled requests",
+      "200B–1000B model scale"
+    ],
+    "paper_id": "isca-2026-program-005",
+    "problem": "Random expert selection in large Mixture-of-Experts inference creates data-movement overhead that can dominate serving systems.",
+    "subsubtheme_id": "moe-data-movement-forecasting-and-placement",
+    "subtheme_id": "architecture-software-co-design",
+    "target_edition": 2026,
+    "theme_id": "architecture-and-accelerators",
+    "title": "Patterns Behind Chaos: Forecasting Data Movement for Efficient Large-Scale MoE LLM Inference",
+    "workload_or_benchmark": "Four 200B–1000B MoE models released in 2025, more than 24,000 requests across diverse workloads, wafer-scale GPU architectures, and existing GPU systems."
+  },
+  "required_review_actions": [
+    "Recover and capture original source text; researcher summary is not source text",
+    "Add source section/table locators for technical fields and numerical conditions",
+    "Verify numerical conditions, neighboring taxonomy category, and limitations"
+  ],
+  "researcher_summary_not_original_source": "The study profiles data movement across four 200B–1000B MoE models using more than 24,000 requests, analyzes temporal and spatial expert-selection behavior, distills six design insights, and applies them to wafer-scale GPU modifications and a prefill-aware expert-placement algorithm. It reports 6.6x average speedup on wafer-scale GPUs and up to 1.25x speedup on existing GPU MoE computation, with profiling traces released publicly.",
+  "review_status": "not_reviewed",
+  "schema": "paper-review-packet.v1",
+  "source_text_status": "original_text_capture_required",
+  "source_tier": "primary_or_author_copy",
+  "taxonomy_branch": {
+    "label": "Architecture and accelerators",
+    "subsubthemes": {
+      "ai-accelerator-microarchitecture": [
+        "asynchronous-pim-speculative-decoding",
+        "gigabyte-embedded-dram-kv-cache-buffering",
+        "outlier-aware-lut-quantized-gemm"
+      ],
+      "architecture-software-co-design": [
+        "generative-sequential-cpu-design-space-exploration",
+        "integrated-nic-collective-offload-training-accelerator",
+        "kl-guided-moe-pruning-and-restoration",
+        "long-context-agentic-memory-wall-co-design",
+        "moe-data-movement-forecasting-and-placement",
+        "silicon-calibrated-hierarchical-cim-exploration",
+        "training-free-self-speculative-edge-llm-decoding"
+      ],
+      "specialized-ai-accelerators": [
+        "adaptive-sparsity-hyper-dimensional-graph-learning",
+        "multiplication-fused-llm-dot-product-acceleration",
+        "sort-free-gaussian-splatting-acceleration",
+        "tensor-core-3d-gaussian-splatting",
+        "topology-driven-dynamic-heterogeneous-gnn-acceleration"
+      ]
+    },
+    "subthemes": [
+      "ai-accelerator-microarchitecture",
+      "architecture-software-co-design",
+      "general-purpose-and-domain-specific-architecture",
+      "specialized-ai-accelerators"
+    ],
+    "theme_id": "architecture-and-accelerators"
+  }
+}
