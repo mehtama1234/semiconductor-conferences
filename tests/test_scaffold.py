@@ -65,7 +65,7 @@ def test_dac_evidence_rows_keep_source_and_status() -> None:
 
 def test_dac_adjudicated_batch_has_cited_technical_fields() -> None:
     rows = [json.loads(line) for line in (ROOT / "dac/data/adjudicated-2026-batch.jsonl").read_text().splitlines() if line.strip()]
-    assert len(rows) == 20
+    assert len(rows) == 29
     assert all(row["evidence_url"] and row["evidence_span"] for row in rows)
     assert all(row["problem"] and row["method_or_artifact"] and row["metrics"] for row in rows)
 
@@ -122,5 +122,5 @@ def test_evidence_taxonomy_contains_adjudicated_specificity() -> None:
 def test_adversarial_preflight_is_explicit_about_its_limits() -> None:
     audit = json.loads((ROOT / "reports/adversarial-preflight-v0.json").read_text())
     assert audit["judge_mode"] == "deterministic_preflight_not_llm"
-    assert audit["record_count"] == 22
+    assert audit["record_count"] == 31
     assert audit["limits"]

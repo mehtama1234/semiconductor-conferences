@@ -10,7 +10,7 @@ a description of at least 304 characters. Those descriptions are preserved in
 - Inventory: 543 unique research identifiers.
 - Provenance: official presentation URL, title, authors, session, and collection date.
 - Evidence capture: 543 substantive descriptions; 0 fetch errors in this capture.
-- Initial adjudication: 20 records with cited problem/method/workload/baseline/metric/limit fields.
+- Initial adjudication: 29 records with cited problem/method/workload/baseline/metric/limit fields.
 - Routing: all 543 records have transparent keyword-backed candidate themes in
   `dac/data/theme-triage-2026.jsonl`.
 

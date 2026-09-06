@@ -9,9 +9,9 @@ Current inventory checkpoint:
 - ISCA 2026: 7 official program-title records normalized as metadata-only and hypothesis-only.
 - ISCA evidence: five 2026 papers now have substantive secondary-index excerpts with DOI metadata; all remain low-confidence and pending primary-source verification.
 - DAC 2026: 543 distinct official research-manuscript records normalized in `dac/data/papers-2026-program.jsonl`, plus 75 other program items; all technical fields remain unclassified.
-- DAC evidence: all 543 research pages returned substantive official descriptions; twenty records have evidence-cited adjudications across EDA, accelerators, memory, packaging, verification, security, and reliability.
+- DAC evidence: all 543 research pages returned substantive official descriptions; twenty-nine records have evidence-cited adjudications across EDA, accelerators, memory, packaging, verification, security, quantum, and reliability.
 - DAC triage: all 543 descriptions now have keyword-backed routing candidates, explicitly marked non-adjudicated; the routing is for review queue construction only.
-- Taxonomy/audit: `data/taxonomy-v1-evidence.json` reconciles adjudicated subtheme and sub-subtheme IDs; `reports/adversarial-preflight-v0.json` passes 22/22 deterministic consistency checks. This is a preflight, not a substitute for adversarial LLM or human review.
+- Taxonomy/audit: `data/taxonomy-v1-evidence.json` reconciles adjudicated subtheme and sub-subtheme IDs; `reports/adversarial-preflight-v0.json` passes 31/31 deterministic consistency checks. This is a preflight, not a substitute for adversarial LLM or human review.
 - ICCAD: 276 distinct 2025 program-paper records normalized as the explicitly labeled fallback for the 2026 target; two records now have primary/preprint evidence-cited adjudications, while the remaining fallback rows remain metadata-only.
 
 DAC’s seven day-by-day program fragments are collected by `scripts/collect_dac_program.py`. The generated raw captures are locally reproducible evidence inputs and remain ignored by the repository’s raw-data policy; the normalized metadata ledgers are tracked.
