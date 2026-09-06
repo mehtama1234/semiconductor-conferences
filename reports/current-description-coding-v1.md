@@ -6,8 +6,8 @@ The first four previously uncoded records, selected by paper-ID order, have
 research1138 (ARTEMIS). Exact official source URLs and row locators accompany
 each record. All are pending independent review and retain description-level
 evidence status. They are not added to the 49-record selected adjudication sample.
-With twenty-nine batches, 169 additional drafts are available;
-325 of the 543 current DAC descriptions still need initial technical coding.
+With thirty batches, 175 additional drafts are available;
+319 of the 543 current DAC descriptions still need initial technical coding.
 Draft coverage does not mean complete technical evidence. Research1691's extraction
 has been repaired, but its energy/power boundary remains unresolved.
 
@@ -344,6 +344,17 @@ percentage loss or remaining-throughput claim without a definition.
 | 1999 HAP | Dynamic zero-point and reordered bit-serial execution | Mixed/grouped precision is not uniform bit width; quality parity unknown |
 | 200 TernaInfer | Packed ternary GPU inference | Lossless ternary encoding is not full-precision model equivalence; storage scope limited |
 
-All 169 records have source-separated review packets. Next: resolve the ATB
+## Thirtieth batch
+
+| Paper | Mechanism | Evidence boundary |
+|---|---|---|
+| 2006 Cell-independent placement | Transistor-level placement and MOL routing | Qualitative area/wirelength gains; closure and scalability unknown |
+| 2007 TransSyn | Cut synthesis and SAT refinement | Local optimum is not global; area gain includes placement |
+| 2011 Dart | Cross-stimulus DAG sharing | Separate Verilator/RTLflow maxima; correctness and preprocessing scope unresolved |
+| 2014 OpenACMv2 | Accuracy-budgeted approximate DCiM search | No numerical PPA/accuracy result; workflow compatibility is not reproduction |
+| 2024 Rectilinear floorplanning | Differentiable shaping and flow legalization | Mean/max HPWL differ; proxy gain is not routed timing benefit |
+| 2027 Relay-GS | Temporal sorting reuse and rasterization | Quality tolerance and correction cost unknown; scene-dependent gains |
+
+All 175 records have source-separated review packets. Next: resolve the ATB
 numeric comparison from primary evidence and continue uncoded descriptions in
 stable order, preserving gaps and possible counterexamples.
