@@ -11,6 +11,28 @@ from scripts.build_review_packets import digest, source_matches
 from scripts.build_work_queue import DRAFT_PATHS, unique_index
 
 
+def validate_draft(draft: dict, source: dict, branches: dict) -> None:
+    paper_id = draft.get("paper_id")
+    if (not source_matches(draft, source) or
+            source.get("analysis_edition") != draft.get("analysis_edition") or
+            source.get("evidence_status") != "substantive_description" or
+            not source.get("description")):
+        raise ValueError(f"Draft original source mismatch: {paper_id}")
+    if draft.get("source_tier") != "official_description" or draft.get("independent_review_status") != "pending":
+        raise ValueError(f"Draft evidence/review boundary violated: {paper_id}")
+    branch = branches.get(draft.get("theme_id"), {})
+    if draft.get("subtheme_id") not in branch.get("subthemes", {}):
+        raise ValueError(f"Draft taxonomy branch mismatch: {paper_id}")
+    if not draft.get("limits") or not draft.get("method_or_artifact") or not draft.get("problem"):
+        raise ValueError(f"Draft missing technical fields or limits: {paper_id}")
+    # Legacy paired drafts retain their original string metrics. Do not silently
+    # coerce them into structured, condition-checked numerical evidence.
+    if draft.get("coding_status") == "description_coding_draft_not_independently_adjudicated":
+        for metric in draft.get("metrics", []):
+            if not isinstance(metric, dict) or any(not metric.get(k) for k in ["metric", "unit", "qualifier", "condition"]) or "value" not in metric:
+                raise ValueError(f"Draft metric missing conditions: {paper_id}")
+
+
 def build(root: Path) -> list[dict]:
     drafts = unique_index([r for path in DRAFT_PATHS for r in read_jsonl(root / path)])
     sources = unique_index([r for year in [2025, 2026]
@@ -24,11 +46,7 @@ def build(root: Path) -> list[dict]:
     packets = []
     for paper_id, draft in sorted(drafts.items()):
         source = sources.get(paper_id, {})
-        if (not source_matches(draft, source) or
-                source.get("analysis_edition") != draft["analysis_edition"] or
-                source.get("evidence_status") != "substantive_description" or
-                not source.get("description")):
-            raise ValueError(f"Draft original source mismatch: {paper_id}")
+        validate_draft(draft, source, branches)
         packets.append({
             "schema": "draft-review-packet.v1", "paper_id": paper_id,
             "record_under_review": draft,

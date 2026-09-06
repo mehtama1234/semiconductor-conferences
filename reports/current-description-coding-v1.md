@@ -6,8 +6,8 @@ The first four previously uncoded records, selected by paper-ID order, have
 research1138 (ARTEMIS). Exact official source URLs and row locators accompany
 each record. All are pending independent review and retain description-level
 evidence status. They are not added to the 49-record selected adjudication sample.
-With three batches, sixteen additional drafts are available;
-478 of the 543 current DAC descriptions still need initial technical coding.
+With four batches, nineteen additional drafts are available;
+475 of the 543 current DAC descriptions still need initial technical coding.
 
 ## Evidence requiring care
 
@@ -56,6 +56,17 @@ sub-subtheme IDs.
 | 1222 AttentionCap | Symmetric attention and process embeddings for capacitance learning | Unseen-node transfer uses 5000 samples/4000 fine-tuning steps; 192× inference gain is not whole-chip extraction speed |
 | 1233 RM-CIMA | Co-design RL/MPC control and analog CIM | Recovery, latency and energy comparisons have different baselines; hardware-only attribution and physical-flight validation remain unknown |
 
-All sixteen records have source-separated review packets. Next: resolve the ATB
+## Fourth batch
+
+FlashFPS (124) removes sampling redundancy through pruning and inter-layer reuse;
+its 5.16× GPU and 2.69× accelerator figures are not established whole-network
+speedups. BSGCN (1242) tailors graph bands, traversal and caching to degree/reuse
+patterns; its average 1.41× and maximum 4.80× gains remain distinct. DAP (1256)
+co-designs distributed SpMM partitioning, CSC communication and dependency buffers;
+its 2.69× geometric-mean comparison against A100 is simulation-based at 500 MHz.
+The description's ambiguous 0.067× penalty notation is not converted into a
+percentage loss or remaining-throughput claim without a definition.
+
+All nineteen records have source-separated review packets. Next: resolve the ATB
 numeric comparison from primary evidence and continue uncoded descriptions in
 stable order, preserving gaps and possible counterexamples.

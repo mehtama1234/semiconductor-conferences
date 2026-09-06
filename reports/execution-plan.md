@@ -4,6 +4,13 @@ The governing scope and acceptance criteria are in [GOAL.md](../GOAL.md).
 This log distinguishes finished work from queued work; a plan is not a completed
 research result.
 
+Latest increment: FlashFPS, BSGCN and DAP (DAC 2026 IDs 124, 1242, 1256)
+extend the current draft set to nineteen, leaving 475 descriptions uncoded.
+All 46 draft papers have source-separated packets. The builder now rejects
+evidence-boundary and taxonomy/metric-condition regressions, with mutation tests;
+these are consistency gates, not semantic or independent acceptance. Legacy
+comparative metrics remain explicitly outside structured-condition validation.
+
 Latest batch: DAC 2026 records 1196, 1200, 1206, 121, 1222 and 1233 have
 technical drafts and source-separated packets. The expansion now covers sixteen
 records, leaving 478 current descriptions uncoded. Post-synthesis versus silicon,

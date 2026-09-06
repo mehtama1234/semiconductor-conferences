@@ -1,8 +1,8 @@
 # Draft review preparation — 2026-09-06
 
-The [packet ledger](../data/draft-review-packets-v1.jsonl) contains 43
+The [packet ledger](../data/draft-review-packets-v1.jsonl) contains 46
 source-separated inputs: 24 DAC 2025 drafts, three DAC 2026 comparison drafts,
-and sixteen additional DAC 2026 technical drafts. The three comparison drafts
+and nineteen additional DAC 2026 technical drafts. The three comparison drafts
 already belong to the separate 72-record selected sample; do
 not add packet counts to infer unique paper coverage. No independent verdict has
 been obtained for these drafts.
@@ -42,6 +42,10 @@ PYTHONPATH=.:src pytest -q
 Normalization is idempotent; a second run changes zero rows. Packet building
 rejects mismatched paper identity, edition, source URL or missing description.
 Tests verify source/interpretation separation, hashes and exact regeneration.
+Mutation tests also check rejection of wrong identity/edition, promoted source
+tier, premature acceptance, invalid taxonomy, absent limits and missing structured
+metric conditions. The original six comparative drafts retain legacy metric
+representations; passing preparation does not certify their numerical conditions.
 Next work is full-paper condition recovery, taxonomy adjudication and independent
 review through an available authorized route. These packets do not remove those
 gates or resolve the 395 missing historical descriptions.
