@@ -4,6 +4,12 @@ The governing scope and acceptance criteria are in [GOAL.md](../GOAL.md).
 This log distinguishes finished work from queued work; a plan is not a completed
 research result.
 
+Latest batch: DAC 2026 IDs 1839, 1841, 1846, 1853, 1858 and 1859 bring
+current drafts to 145, leaving 349 descriptions uncoded. Sparse kernel/system
+baselines, log-benchmark exceptions, thermal-error scope, internal consensus and
+evaluation-versus-routing speed remain explicit. All 172 draft papers have
+source-separated packets; independent acceptance remains pending.
+
 Latest batch: DAC 2026 IDs 179, 1793, 1804, 1813, 1822 and 1837 bring
 current drafts to 139, leaving 355 descriptions uncoded. Tape-out versus measurement,
 physical-feasibility scope, unverified defect confirmations, LPN comparison parity

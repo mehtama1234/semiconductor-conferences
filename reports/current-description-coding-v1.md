@@ -6,8 +6,8 @@ The first four previously uncoded records, selected by paper-ID order, have
 research1138 (ARTEMIS). Exact official source URLs and row locators accompany
 each record. All are pending independent review and retain description-level
 evidence status. They are not added to the 49-record selected adjudication sample.
-With twenty-four batches, 139 additional drafts are available;
-355 of the 543 current DAC descriptions still need initial technical coding.
+With twenty-five batches, 145 additional drafts are available;
+349 of the 543 current DAC descriptions still need initial technical coding.
 Draft coverage does not mean complete technical evidence. Research1691's extraction
 has been repaired, but its energy/power boundary remains unresolved.
 
@@ -289,6 +289,17 @@ percentage loss or remaining-throughput claim without a definition.
 | 1822 LHPA | Heterogeneous FPGA LPN pipeline | 52.80× lacks parameter/resource parity and protocol scope |
 | 1837 F-FPMAC | Carry-save accumulation and deferred normalization | Fewer overflows is not zero overflow; lower numerical error is not IEEE equivalence |
 
-All 139 records have source-separated review packets. Next: resolve the ATB
+## Twenty-fifth batch
+
+| Paper | Mechanism | Evidence boundary |
+|---|---|---|
+| 1839 Moderate-sparsity GPU inference | Three-layer sparse storage and mixed GPU execution | SpInfer kernel and FlashLLM end-to-end gains are not numeric dense-baseline gains |
+| 1841 SchemaCoder | Residual Q-Tree parser synthesis | Nine of fourteen applications outperform; pass@1 and score conventions unspecified |
+| 1846 COOL | Cooling-aware 3D point thermal surrogate | NMAE is not hotspot-error bound; no measured package validation |
+| 1853 SATM | Common-sign column training/mapping | Area/energy gains omit retraining, accuracy and peripheral scope |
+| 1858 ReflectBench | Consensus/reflection testbench generation | Internal consensus is not independent validation; two benchmark comparisons remain separate |
+| 1859 iPCL-M | Generate/evaluate/optimize routing | 336× evaluator gain is not routing-flow speedup; zero test errors do not establish signoff |
+
+All 145 records have source-separated review packets. Next: resolve the ATB
 numeric comparison from primary evidence and continue uncoded descriptions in
 stable order, preserving gaps and possible counterexamples.
