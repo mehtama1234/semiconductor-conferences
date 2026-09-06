@@ -4,6 +4,12 @@ The governing scope and acceptance criteria are in [GOAL.md](../GOAL.md).
 This log distinguishes finished work from queued work; a plan is not a completed
 research result.
 
+Latest batch: DAC 2026 IDs 130, 1300, 1302, 1307, 1308 and 1312 bring
+current drafts to 37, leaving 457 descriptions uncoded. C2C simulator capacity,
+prototype validation and workload optimization are kept distinct; the undefined
+memory-reduction metric is not promoted into a model-memory claim. All 64 draft
+papers have source-separated packets and remain independently unreviewed.
+
 Provenance increment: repaired missing explicit presentation-source IDs on all
 543 DAC 2026 description captures, preserving inventory provenance, dates and
 technical text. Source linking requires exact edition/host/paper identity and a

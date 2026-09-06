@@ -6,8 +6,8 @@ The first four previously uncoded records, selected by paper-ID order, have
 research1138 (ARTEMIS). Exact official source URLs and row locators accompany
 each record. All are pending independent review and retain description-level
 evidence status. They are not added to the 49-record selected adjudication sample.
-With six batches, 31 additional drafts are available;
-463 of the 543 current DAC descriptions still need initial technical coding.
+With seven batches, 37 additional drafts are available;
+457 of the 543 current DAC descriptions still need initial technical coding.
 
 ## Evidence requiring care
 
@@ -89,6 +89,17 @@ percentage loss or remaining-throughput claim without a definition.
 | 1292 IMPart | Integrate memetic operations into uncoarsening | Broad superiority is qualitative; seeds, balance constraints and budgets are missing |
 | 1298 FreqSEM | Frequency-guided SAM2 contour extraction | 0.334 nm mean/0.661 nm standard deviation are not maximum-error guarantees; 81 nm linewidth is not a process node |
 
-All 31 records have source-separated review packets. Next: resolve the ATB
+## Seventh batch
+
+| Paper | Mechanism | Evidence boundary |
+|---|---|---|
+| 130 C2C-Explorer | Prototype-calibrated interconnect simulation and Bayesian DSE | Simulator capacity, FPGA validation and 32-XPU workload study differ; 98.4% memory reduction has an unspecified memory category |
+| 1300 ComPart | Community-guided post-coarsening partition search | Solution quality claims omit objective, balance constraints and budgets |
+| 1302 AILFM | Oracle-imitation thermal/kernel-aware scheduling | Near-optimality, thermal safety and generalization are qualitative |
+| 1307 MASQ | Mask/stage-aware precision and diffusion acceleration | A100 and Orin NX gains retain separate baselines; quality and hardware-resource parity are unspecified |
+| 1308 SDM | FeFET sigmoid computation for soft decisions | 93.2% MNIST accuracy under 40 mV variation is not universal variation tolerance or demonstrated silicon robustness |
+| 1312 QAgent | Per-qubit multi-agent RL placement | Up-to-53.9% cost reduction lacks cost definition and training budget; not demonstrated fault-tolerant hardware |
+
+All 37 records have source-separated review packets. Next: resolve the ATB
 numeric comparison from primary evidence and continue uncoded descriptions in
 stable order, preserving gaps and possible counterexamples.
