@@ -61,6 +61,29 @@ does not establish that one packaging approach will win; it shows that thermal
 and bandwidth constraints are being evaluated together rather than as isolated
 post-layout checks.
 
+### 6. Memory protection is becoming a cross-layer design capability
+
+The detailed ISCA memory cluster makes this direction more precise. COSM treats
+CPU/PIM concurrency as a bank- and bus-contention scheduling problem; Cerberus
+coordinates ECC layers across the memory stack; PuDGhost measures interference
+from unintended rows and columns on real DRAM chips; and the ECC-enabled PIM
+record co-designs correction with bank utilization. HBM-CASO is retained as a
+secondary-only queue item until a primary source is recovered.
+
+DAC provides complementary accelerator-side cases: Strix spans NPU
+microarchitecture, ISA, and programming for fault mitigation; the BFP reliability
+record separates mantissa and exponent protection; and EM/IR and thermal records
+bring physical constraints into the same design loop. ICCAD’s 2025 fallback Tasa
+case connects memory bandwidth, 3D integration, thermal behavior, and LLM
+inference, while its 2026 scope explicitly includes reliability and advanced
+integration.
+
+The responsible conclusion is a capability statement: memory and accelerator
+systems increasingly require coordinated reasoning across physical effects,
+protection mechanisms, runtime scheduling, and workload behavior. The evidence
+does not establish which ECC, PIM, or packaging strategy will dominate, nor does
+it establish venue-wide prevalence.
+
 ## What remains unproven
 
 This report does not rank conferences, count research prevalence across unequal

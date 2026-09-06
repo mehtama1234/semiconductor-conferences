@@ -195,6 +195,7 @@ def test_cross_conference_matrix_preserves_evidence_asymmetry() -> None:
     assert len(matrix["rows"]) >= 5
     assert "industrial adoption" in matrix["prohibited_inference"]
     assert "ICCAD has official 2026 CFP scope" in (ROOT / "reports/cross-conference-direction-v0.md").read_text()
+    assert any(row["direction"] == "Memory protection and near-data reliability are becoming cross-layer design problems" for row in matrix["rows"])
 
 
 def test_each_conference_has_a_deep_page() -> None:
