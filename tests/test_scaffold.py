@@ -289,6 +289,13 @@ def test_root_synthesis_evidence_references_resolve_to_adjudicated_ledgers() -> 
             assert reference["paper_id"] in {row["paper_id"] for row in rows}
 
 
+def test_cross_conference_matrix_carries_cxl_productionization_boundary() -> None:
+    matrix = json.loads((ROOT / "data/cross-conference-matrix-v0.json").read_text())
+    row = next(item for item in matrix["rows"] if item["direction"] == "Data movement and memory locality")
+    assert "Panmnesia" in row["isca"] and "Meta Vistara" in row["isca"]
+    assert "independent deployment verification" in row["limits"]
+
+
 def test_detailed_taxonomy_and_adversarial_protocol_exist() -> None:
     taxonomy = (ROOT / "reports/taxonomy-coding-guide-v1.md").read_text()
     protocol = (ROOT / "reports/adversarial-judge-protocol-v1.md").read_text()

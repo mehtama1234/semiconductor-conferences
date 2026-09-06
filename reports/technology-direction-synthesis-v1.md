@@ -78,7 +78,9 @@ map](../iccad/pages/topical-capability-map-2025-fallback.md).
 ### Evidence distribution
 
 ISCA provides primary cases for MoE movement, disaggregated training, COSM, and
-LLM memory/quantization. DAC provides CANNON, CtxMem, RAF, REFLEX, MBA, and KEEP
+LLM memory/quantization, plus company-source evidence from Panmnesia’s
+silicon-proven CXL controller/switch and Meta’s Vistara deployment path. DAC
+provides CANNON, CtxMem, RAF, REFLEX, MBA, and KEEP
 as official-description cases spanning CXL, near-memory processing, and KV-cache
 management. ICCAD’s Tasa connects bandwidth and memory placement to 3D-stacked
 thermal constraints in the 2025 fallback.
@@ -86,9 +88,14 @@ thermal constraints in the 2025 fallback.
 ### Interpretation and limit
 
 Movement is being treated as part of the computation contract: placement,
-migration, locality, topology, and contention affect the algorithm’s outcome.
+migration, locality, topology, and contention affect the algorithm’s outcome. The
+company-source records add a productionization subskill: CXL must be carried from
+controller and switch silicon through firmware, OS tiering, fleet operations, and
+workload-specific capacity planning.
 The samples use different workloads, topologies, memory technologies, and metrics;
 they do not justify ranking CXL, PIM, HBM, or a particular scheduling strategy.
+Company-reported deployment metrics remain claims requiring paper-level and
+independent deployment verification.
 
 ## Direction 3 — Reliability and security move into the main design loop
 
