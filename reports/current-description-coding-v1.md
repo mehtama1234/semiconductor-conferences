@@ -6,8 +6,8 @@ The first four previously uncoded records, selected by paper-ID order, have
 research1138 (ARTEMIS). Exact official source URLs and row locators accompany
 each record. All are pending independent review and retain description-level
 evidence status. They are not added to the 49-record selected adjudication sample.
-With twenty-two batches, 127 additional drafts are available;
-367 of the 543 current DAC descriptions still need initial technical coding.
+With twenty-three batches, 133 additional drafts are available;
+361 of the 543 current DAC descriptions still need initial technical coding.
 Draft coverage does not mean complete technical evidence. Research1691's extraction
 has been repaired, but its energy/power boundary remains unresolved.
 
@@ -267,6 +267,17 @@ percentage loss or remaining-throughput claim without a definition.
 | 1718 RISC-Q | Parameterized quantum-controller generator | Introductory timing requirements are not measured results; release availability unverified |
 | 1732 Masked reduction | First-order masked ML-DSA arithmetic | 12.1× reduction versus 1.32× signing gain; TVLA non-detection is not leakage-proof security |
 
-All 127 records have source-separated review packets. Next: resolve the ATB
+## Twenty-third batch
+
+| Paper | Mechanism | Evidence boundary |
+|---|---|---|
+| 1741 EPIC | Edge latent encoding and physics-coupled decoding | Fidelity improves on eight of ten datasets; energy claim is communication-only |
+| 1742 StepPRM-RTL | Stepwise reward and trajectory-guided fine-tuning | Combined correctness/fidelity threshold lacks per-metric breakdown and budgets |
+| 1764 CipherShield | Ciphertext-pattern decorrelation | Lower classification concerns leakage, not legitimate utility; encryption comparator scope unresolved |
+| 1765 L2L | Logic/transistor/layout library co-optimization | Separate PPA maxima and averages; maxima need not co-occur |
+| 177 ARES | Specification-derived IoT behavior oracles | Bug/CVE counts are author-reported; no independent disclosure verification |
+| 1784 Self-evolved ABC | Correctness/QoR-guided source evolution | No quantitative gain or validation scope; repository-wide autonomy unverified |
+
+All 133 records have source-separated review packets. Next: resolve the ATB
 numeric comparison from primary evidence and continue uncoded descriptions in
 stable order, preserving gaps and possible counterexamples.

@@ -4,6 +4,12 @@ The governing scope and acceptance criteria are in [GOAL.md](../GOAL.md).
 This log distinguishes finished work from queued work; a plan is not a completed
 research result.
 
+Latest batch: DAC 2026 IDs 1741, 1742, 1764, 1765, 177 and 1784 bring
+current drafts to 133, leaving 361 descriptions uncoded. Dataset exceptions,
+attacker versus legitimate accuracy, separate PPA means/maxima and unverified
+disclosure/autonomy claims remain explicit. All 160 draft papers have
+source-separated packets; independent acceptance remains pending.
+
 Latest batch: DAC 2026 IDs 1692, 1709, 1712, 1715, 1718 and 1732 bring
 current drafts to 127, leaving 367 descriptions uncoded. Perplexity units,
 simulated quantum break-even conditions, address-space capacity and component

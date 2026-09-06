@@ -10,7 +10,7 @@ def test_current_drafts_preserve_identity_and_numeric_disagreement():
     rows = read_jsonl(ROOT / "data/current-description-coding-v1.jsonl")
     sources = {r["paper_id"]: r for r in read_jsonl(ROOT / "dac/data/paper-evidence-2026.jsonl")}
     branches = {r["theme_id"]: r["subthemes"] for r in json.loads((ROOT / "data/taxonomy-v1-evidence.json").read_text())["themes"]}
-    assert len(rows) == len({r["paper_id"] for r in rows}) == 127
+    assert len(rows) == len({r["paper_id"] for r in rows}) == 133
     for row in rows:
         for key in ["title", "evidence_url", "analysis_edition", "evidence_collection_date"]:
             assert row[key] == sources[row["paper_id"]][key]
@@ -86,3 +86,8 @@ def test_current_drafts_preserve_identity_and_numeric_disagreement():
     assert "0.0005" in quantum["metrics"][1]["condition"]
     masked = next(r for r in rows if r["paper_id"] == "dac-2026-research1732")
     assert masked["metrics"][4]["value"] == 1.32
+    epic = next(r for r in rows if r["paper_id"] == "dac-2026-research1741")
+    assert epic["metrics"][2]["unit"] == "datasets out of 10"
+    l2l = next(r for r in rows if r["paper_id"] == "dac-2026-research1765")
+    assert l2l["metrics"][0]["qualifier"] == "up to"
+    assert l2l["metrics"][3]["qualifier"] == "average"
