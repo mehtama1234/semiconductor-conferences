@@ -4,6 +4,12 @@ The governing scope and acceptance criteria are in [GOAL.md](../GOAL.md).
 This log distinguishes finished work from queued work; a plan is not a completed
 research result.
 
+Latest batch: DAC 2026 IDs 2540, 2545, 2550, 256, 2560 and 2566 bring
+current drafts to 283, leaving 211 descriptions uncoded. Atom-image versus control
+latency, qualitative HDL/simulator/reward evidence, preprocessing cost boundaries
+and timing-reuse comparison/proof scope remain explicit. All 310 draft papers
+have source-separated packets; independent acceptance remains pending.
+
 Latest batch: DAC 2026 IDs 2512, 2525, 2531, 2533, 2536 and 2537 bring
 current drafts to 277, leaving 217 descriptions uncoded. IC3 solve-count scope,
 qualitative ILT/forecasting/timing evidence, CPU-specific coverage and adversarial

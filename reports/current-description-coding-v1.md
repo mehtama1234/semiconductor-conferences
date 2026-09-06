@@ -6,8 +6,8 @@ The first four previously uncoded records, selected by paper-ID order, have
 research1138 (ARTEMIS). Exact official source URLs and row locators accompany
 each record. All are pending independent review and retain description-level
 evidence status. They are not added to the 49-record selected adjudication sample.
-With forty-seven batches, 277 additional drafts are available;
-217 of the 543 current DAC descriptions still need initial technical coding.
+With forty-eight batches, 283 additional drafts are available;
+211 of the 543 current DAC descriptions still need initial technical coding.
 Draft coverage does not mean complete technical evidence. Research1691's extraction
 has been repaired, but its energy/power boundary remains unresolved.
 
@@ -542,6 +542,17 @@ percentage loss or remaining-throughput claim without a definition.
 | 2536 NetDeTox | RL/LLM netlist robustness evaluation | Area overhead reductions are not evasion success rates |
 | 2537 Crosstalk prompts | Node/subgraph timing adaptation | Qualitative accuracy; signoff and transfer evidence absent |
 
-All 277 records have source-separated review packets. Next: resolve the ATB
+## Forty-eighth batch
+
+| Paper | Mechanism | Evidence boundary |
+|---|---|---|
+| 2540 Atom detection | Parallel FPGA fluorescence analysis | Image-analysis time is not total quantum-control latency |
+| 2545 Two-tier HDL | Generation plus bottom-up evaluation | Comparisons mentioned without results; no superiority inferred |
+| 2550 MemFlow | Full-path memory-contention simulation | Model detail does not establish calibrated fidelity |
+| 256 PREBA | FPGA preprocessing and MIG batching | Throughput, energy and cost ratios need matching budgets/boundaries |
+| 2560 Expert placement | Trajectory-derived reward learning | Qualitative single-design learning/generalization only |
+| 2566 PBA reuse | Slew-sensitive segment caching | CPU average and GPU range separate; safety proof domain absent |
+
+All 283 records have source-separated review packets. Next: resolve the ATB
 numeric comparison from primary evidence and continue uncoded descriptions in
 stable order, preserving gaps and possible counterexamples.
