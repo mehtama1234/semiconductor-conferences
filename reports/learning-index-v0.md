@@ -20,6 +20,7 @@ organized around technical questions, not just conference names.
 ## DAC 2026
 
 - [Evidence coverage and triage](../dac/reports/2026-evidence-coverage.md)
+- [DAC 2025 historical evidence coverage](../dac/reports/2025-evidence-coverage.md)
 - [AI-for-design and accelerator evidence batch](../dac/pages/ai-eda-and-accelerator-evidence-batch.md)
 - [Data movement, memory, packaging, and physical constraints](../dac/pages/data-movement-memory-and-integration.md)
 - [Reliability, security, and verification](../dac/pages/reliability-security-and-verification.md)

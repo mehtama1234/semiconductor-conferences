@@ -17,6 +17,11 @@ The ISCA inventories are in `isca/data/papers-2025-program.jsonl` and
 `dac/data/papers-2025-program.jsonl` and `dac/data/papers-2026-program.jsonl`.
 All four are linked to official program pages in their conference source ledgers.
 
+DAC’s historical detail-page attempt is separately tracked in
+`dac/data/paper-evidence-2025.jsonl`: 24 of 419 records have substantive
+official descriptions, while 395 remain unavailable or challenge/empty
+responses. Those 395 records are excluded from technical temporal analysis.
+
 ## Interpretation boundary
 
 The counts are not directly comparable measures of research prevalence. Program

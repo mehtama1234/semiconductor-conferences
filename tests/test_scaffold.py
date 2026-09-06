@@ -61,6 +61,15 @@ def test_dac_historical_inventory_is_separate_and_metadata_only() -> None:
     assert all(row["problem"] is None and row["metrics"] == [] for row in rows)
 
 
+def test_dac_historical_evidence_coverage_is_honest() -> None:
+    rows = [json.loads(line) for line in (ROOT / "dac/data/paper-evidence-2025.jsonl").read_text().splitlines() if line.strip()]
+    assert len(rows) == 419
+    assert sum(row["evidence_status"] == "substantive_description" for row in rows) == 24
+    assert sum(row["capture_status"] == "captured_challenge_or_empty" for row in rows) > 0
+    assert sum(row["capture_status"] == "not_captured_rate_limited" for row in rows) > 0
+    assert all(row["problem"] is None and row["theme_id"] is None for row in rows)
+
+
 def test_isca_crossref_metadata_keeps_technical_claims_unclassified() -> None:
     rows = [json.loads(line) for line in (ROOT / "isca/data/crossref-metadata-2026.jsonl").read_text().splitlines() if line.strip()]
     assert len(rows) >= 150
