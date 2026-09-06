@@ -6,8 +6,8 @@ The first four previously uncoded records, selected by paper-ID order, have
 research1138 (ARTEMIS). Exact official source URLs and row locators accompany
 each record. All are pending independent review and retain description-level
 evidence status. They are not added to the 49-record selected adjudication sample.
-With sixty-nine batches, 409 additional drafts are available;
-85 of the 543 current DAC descriptions still need initial technical coding.
+With seventy batches, 415 additional drafts are available;
+79 of the 543 current DAC descriptions still need initial technical coding.
 Draft coverage does not mean complete technical evidence. Research1691's extraction
 has been repaired, but its energy/power boundary remains unresolved.
 
@@ -784,6 +784,17 @@ percentage loss or remaining-throughput claim without a definition.
 | 544 DRCA | Dual-rail DRAM bitwise computation | Failure ratio lacks absolute rates and fault conditions |
 | 550 EPiCell | Electro-physical graph surrogate | SPICE errors and median ranking correlations are separate, not silicon validation |
 
-All 409 records have source-separated review packets. Next: resolve the ATB
+## Seventieth batch
+
+| Paper | Mechanism | Evidence boundary |
+|---|---|---|
+| 552 UCME | Decoupled asynchronous CPU matrix extension | RTL integration and area/throughput figures do not establish fabrication |
+| 553 PNO-Therm | PDE-pretrained thermal transfer | Data-efficiency, training and FEM inference comparisons differ |
+| 561 cuPilot | Strategy-guided CUDA evolution | Kernel average is not model speed; artifacts unverified |
+| 574 Multi-GPU FHE | Tensor fusion and adaptive memory | Scaling and prior-work ratios have distinct baselines |
+| 577 Hyb-HANAS | Calibration-aware hybrid NAS | Method description has no numerical optimization results |
+| 588 Florella | Sliding reduction and log-based operator reuse | Approximation needs accuracy checks; density is not energy |
+
+All 415 records have source-separated review packets. Next: resolve the ATB
 numeric comparison from primary evidence and continue uncoded descriptions in
 stable order, preserving gaps and possible counterexamples.

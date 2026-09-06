@@ -4,6 +4,12 @@ The governing scope and acceptance criteria are in [GOAL.md](../GOAL.md).
 This log distinguishes finished work from queued work; a plan is not a completed
 research result.
 
+Latest batch: DAC 2026 IDs 552, 553, 561, 574, 577 and 588 bring
+current drafts to 415, leaving 79 descriptions uncoded. Matrix integration scope,
+thermal comparison populations, kernel-only speed, FHE baseline separation,
+unquantified quantum NAS and GNN approximation limits remain explicit.
+All 442 draft papers have source-separated packets; independent acceptance remains pending.
+
 Latest batch: DAC 2026 IDs 520, 523, 529, 538, 544 and 550 bring
 current drafts to 409, leaving 85 descriptions uncoded. Superconductor component
 scope, learned-lemma soundness, PIM transaction gaps, TP migration costs,
