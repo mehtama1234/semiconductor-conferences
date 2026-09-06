@@ -6,8 +6,8 @@ The first four previously uncoded records, selected by paper-ID order, have
 research1138 (ARTEMIS). Exact official source URLs and row locators accompany
 each record. All are pending independent review and retain description-level
 evidence status. They are not added to the 49-record selected adjudication sample.
-With thirty-four batches, 199 additional drafts are available;
-295 of the 543 current DAC descriptions still need initial technical coding.
+With thirty-five batches, 205 additional drafts are available;
+289 of the 543 current DAC descriptions still need initial technical coding.
 Draft coverage does not mean complete technical evidence. Research1691's extraction
 has been repaired, but its energy/power boundary remains unresolved.
 
@@ -399,6 +399,17 @@ percentage loss or remaining-throughput claim without a definition.
 | 213 Per-core EM | Multicore physical leakage monitoring | No numeric attribution/secret-extraction rate or remote-compromise claim |
 | 2131 EastPCG | Spectral sparsification and neural tuning | Qualitative solver advantage; tolerances, setup cost and robustness unknown |
 
-All 199 records have source-separated review packets. Next: resolve the ATB
+## Thirty-fifth batch
+
+| Paper | Mechanism | Evidence boundary |
+|---|---|---|
+| 2132 HyperWafer | Hypergraph mapping and congestion-sensitive routing | Four average ratios have different platform baselines; resource parity unknown |
+| 2133 True-3D GP | Joint mixed-size placement with cross-die STA | At-least average slack improvements are not signoff closure |
+| 2139 Flip-FET | ILP pin assignment and dual-side routing | Congestion and DRV reductions are not DRC-clean signoff |
+| 214 Miter-aware LUT | Correspondence-preserving XOR/SAT modeling | The quantity reduced by 92.1% is unnamed in the description |
+| 2145 drcAgent | Knowledge-graph RAG and adversarial correction learning | Qualitative industrial examples; evaluated node and success rate unknown |
+| 2157 RFIPSA | Reconfigurable FIP and zero-skipping encoding | Sparse-over-GEMM ratios; area baseline and silicon modality unspecified |
+
+All 205 records have source-separated review packets. Next: resolve the ATB
 numeric comparison from primary evidence and continue uncoded descriptions in
 stable order, preserving gaps and possible counterexamples.
