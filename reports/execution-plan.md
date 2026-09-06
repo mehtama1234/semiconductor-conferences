@@ -11,7 +11,7 @@ research result.
 | 3. Technical evidence | Partial: 72 coded records | Source passages and experimental conditions for synthesis anchors |
 | 4. Taxonomy and explanations | Provisional taxonomy and pages exist | Reviewed mechanism categories and claim-to-paper explanations |
 | 5. Independent review | 72 packets prepared; 69 include source text; zero independent reviews | Capture three remaining sources and full-paper conditions, then obtain verdicts |
-| 6. Temporal comparisons | Metadata inventories and title screen only | Comparable technical evidence with denominators and exclusions |
+| 6. Temporal comparisons | Six description-coded pilot records across three DAC pairs | Expand historical coding and establish comparable populations/review |
 | 7. Final package | Provisional synthesis exists | Dated, traceable synthesis passing evidence/review gates |
 
 ## Work completed in the recovery and planning batch
@@ -61,6 +61,14 @@ The recovered evidence increment and planning changes were committed as `216135d
    attribution for supplemental metrics and leave cost inputs unresolved.
 
 ## Open dependencies and limits
+
+Temporal pilot: added six comparative coding drafts (three DAC 2025 records and
+three DAC 2026 counterparts) for vector search, speculative decoding, and MoE
+offloading. They preserve source-tier equivalence, mechanisms, baselines, metrics,
+unknown hardware/conditions, and interpretation limits. These drafts do not
+change the 72-record adjudication count or constitute independent review. See
+[temporal comparison](temporal-mechanism-comparison-v1.md). Next historical step:
+code the other 21 accessible descriptions and pursue the 395 missing sources.
 
 Synthesis mapping batch: corrected three semantically misplaced references
 (quantum synthesis under AI design, RSizing under the telemetry-attack example,

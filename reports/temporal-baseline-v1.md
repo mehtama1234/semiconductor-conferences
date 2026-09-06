@@ -32,6 +32,11 @@ declining, or more important is permitted from this baseline alone.
 
 ## Required next step
 
+A [six-record mechanism pilot](temporal-mechanism-comparison-v1.md) now compares
+three DAC 2025/2026 pairs at the official-description tier. It records mechanisms
+and missing experimental conditions; it is not independent adjudication or a
+prevalence comparison. The historical evidence gap remains 395 descriptions.
+
 Use the collected ISCA and DAC historical inventories to sample or collect
 equivalent abstracts/full text
 across editions, apply the v1 taxonomy with the same coding rules, and run the
