@@ -4,6 +4,12 @@ The governing scope and acceptance criteria are in [GOAL.md](../GOAL.md).
 This log distinguishes finished work from queued work; a plan is not a completed
 research result.
 
+Latest batch: DAC 2026 IDs 1468, 1473, 1474, 1480, 149 and 1494 bring
+current drafts to 85, leaving 409 descriptions uncoded. Epoch versus convergence
+time, ground-plane geometry versus signal integrity, baseline slowdowns versus
+proposed gains and kernel versus application scope remain explicit. All 112 draft
+papers have source-separated packets; independent acceptance remains pending.
+
 Latest batch: DAC 2026 IDs 1444, 1447, 1449, 146, 1464 and 1466 bring
 current drafts to 79, leaving 415 descriptions uncoded. Security coverage limits,
 SpMM/SpTTM comparison differences, FreeBit motivation versus results and MT-3000

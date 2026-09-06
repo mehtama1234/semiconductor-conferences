@@ -6,8 +6,8 @@ The first four previously uncoded records, selected by paper-ID order, have
 research1138 (ARTEMIS). Exact official source URLs and row locators accompany
 each record. All are pending independent review and retain description-level
 evidence status. They are not added to the 49-record selected adjudication sample.
-With fourteen batches, 79 additional drafts are available;
-415 of the 543 current DAC descriptions still need initial technical coding.
+With fifteen batches, 85 additional drafts are available;
+409 of the 543 current DAC descriptions still need initial technical coding.
 
 ## Evidence requiring care
 
@@ -177,6 +177,17 @@ percentage loss or remaining-throughput claim without a definition.
 | 1464 Thrend | Counter sampling and counting-thread co-scheduling | Zero evaluated false negatives is not universal detection; sampling is 100 Hz |
 | 1466 InferWeave | Bandwidth-planned unified-memory inference | Throughput is not request latency; MT-3000 must not be confused with MTIA 300 |
 
-All 79 records have source-separated review packets. Next: resolve the ATB
+## Fifteenth batch
+
+| Paper | Mechanism | Evidence boundary |
+|---|---|---|
+| 1468 AdaHuff-GNN | Loss-triggered adaptive entropy coding | Epoch time is not time-to-convergence; codec and codebook accounting is unspecified |
+| 1473 GRACE | Graph/ILP-guided PCB rerouting and copper unification | Geometric continuity is not measured signal integrity; optimality is formulation-dependent |
+| 1474 Compilation Tells Energy | Compiler-IR multi-task power prediction | No numeric prediction error or energy savings supplied |
+| 1480 ADAPT | Token pruning and hierarchical-sparse spiking execution | Prosperity/GPU comparisons remain distinct; pruning does not remove model training |
+| 149 TRIDENT | Fused triple sparse multiplication | Accelerator average and CPU/GPU maxima differ; kernel gains are not application gains |
+| 1494 AvaTEE | Attested commitments and trusted CPU arbitration | 19.7× slowdown describes the vulnerable baseline, not an AvaTEE gain; evaluation is FPGA-based |
+
+All 85 records have source-separated review packets. Next: resolve the ATB
 numeric comparison from primary evidence and continue uncoded descriptions in
 stable order, preserving gaps and possible counterexamples.
