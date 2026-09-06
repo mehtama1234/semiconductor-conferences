@@ -46,3 +46,11 @@ def test_dac_program_records_preserve_program_only_status() -> None:
     assert len(papers) == sum(row["event_type"] == "Research Manuscript" for row in rows)
     assert all(row["classification_confidence"] == "not_classified" for row in papers)
     assert all(row["theme_id"] is None and row["problem"] is None for row in papers)
+
+
+def test_iccad_fallback_keeps_target_and_analysis_editions_distinct() -> None:
+    rows = [json.loads(line) for line in (ROOT / "iccad/data/papers-2025-program.jsonl").read_text().splitlines() if line.strip()]
+    assert len(rows) >= 250
+    assert len({row["doi_or_identifier"] for row in rows}) == len(rows)
+    assert all(row["target_edition"] == 2026 and row["analysis_edition"] == 2025 for row in rows)
+    assert all(row["classification_confidence"] == "not_classified" for row in rows)

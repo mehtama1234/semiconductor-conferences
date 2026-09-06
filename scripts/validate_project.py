@@ -41,6 +41,7 @@ def validate(root: Path = ROOT) -> dict:
         "isca_program_signals_provenanced": all(row.get("source_id") in source_ids(root, "isca") and row.get("record_status") == "program_metadata_only" for row in read_jsonl(root / "isca/data/program-papers.jsonl")),
         "dac_program_signals_provenanced": all(row.get("source_id") in source_ids(root, "dac") and row.get("evidence_status") == "program_signal_only" for row in read_jsonl(root / "dac/data/program-signals.jsonl")),
         "iccad_scope_signals_provenanced": all(row.get("source_id") in source_ids(root, "iccad") and row.get("evidence_status") == "scope_signal_only" for row in read_jsonl(root / "iccad/data/program-signals.jsonl")),
+        "iccad_fallback_paper_metadata_present": normalized_metadata_rows(read_jsonl(root / "iccad/data/papers-2025-program.jsonl")) and all(row.get("target_edition") == 2026 and row.get("analysis_edition") == 2025 and row.get("access_status") == "official_fallback_program_pdf_metadata_only" for row in read_jsonl(root / "iccad/data/papers-2025-program.jsonl")),
         "isca_normalized_metadata_present": normalized_metadata_rows(read_jsonl(root / "isca/data/papers.jsonl")),
         "dac_program_capture_present": program_rows_valid(read_jsonl(root / "dac/data/program-presentations.jsonl")) and all(row.get("record_status") == "program_metadata_only" and row.get("program_url") for row in read_jsonl(root / "dac/data/program-presentations.jsonl")) and normalized_metadata_rows(read_jsonl(root / "dac/data/papers-2026-program.jsonl")),
     }
