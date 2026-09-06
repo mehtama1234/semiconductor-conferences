@@ -78,6 +78,14 @@ def test_dac_historical_track_baseline_is_program_only() -> None:
     assert "not paper abstracts" in baseline["limits"]
 
 
+def test_dac_current_track_baseline_does_not_invent_label_equivalence() -> None:
+    baseline = json.loads((ROOT / "dac/data/track-baseline-2026.json").read_text())
+    assert baseline["record_count"] == 543
+    assert baseline["records_with_track_assignment"] == 543
+    assert baseline["unresolved_track_ids"]
+    assert "no 2025 label equivalence is asserted" in baseline["limits"]
+
+
 def test_isca_crossref_metadata_keeps_technical_claims_unclassified() -> None:
     rows = [json.loads(line) for line in (ROOT / "isca/data/crossref-metadata-2026.jsonl").read_text().splitlines() if line.strip()]
     assert len(rows) >= 150

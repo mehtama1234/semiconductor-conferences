@@ -19,3 +19,8 @@ The official program also assigns all 419 research records to one or more
 provider-defined tracks. Those assignments are preserved in
 `dac/data/track-baseline-2025.json` as a program taxonomy baseline. They may
 route later review, but they are not treated as paper-level classifications.
+
+The 2026 capture also preserves track IDs for all 543 records in
+`dac/data/track-baseline-2026.json`. The 2026 snippet captures did not include
+the track-label register, so those IDs are intentionally unresolved and are
+not compared directly with 2025 labels.
