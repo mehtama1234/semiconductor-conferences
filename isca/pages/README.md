@@ -1,3 +1,3 @@
 # ISCA deep pages
 
-Pages will explain architecture research themes from paper-level evidence after collection and adjudication.
+- `llm-memory-and-wafer-scale-v0.md` — provisional reading of five indexed 2026 excerpts; primary verification pending.

@@ -90,3 +90,10 @@ def test_cross_conference_matrix_preserves_evidence_asymmetry() -> None:
     assert len(matrix["rows"]) >= 5
     assert "industrial adoption" in matrix["prohibited_inference"]
     assert "ICCAD has official 2026 CFP scope" in (ROOT / "reports/cross-conference-direction-v0.md").read_text()
+
+
+def test_each_conference_has_a_deep_page() -> None:
+    for conference in ("isca", "dac", "iccad"):
+        pages = list((ROOT / conference / "pages").glob("*.md"))
+        assert pages
+        assert any(len(page.read_text()) > 500 for page in pages)
