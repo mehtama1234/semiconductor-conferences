@@ -6,8 +6,8 @@ The first four previously uncoded records, selected by paper-ID order, have
 research1138 (ARTEMIS). Exact official source URLs and row locators accompany
 each record. All are pending independent review and retain description-level
 evidence status. They are not added to the 49-record selected adjudication sample.
-With seventeen batches, 97 additional drafts are available;
-397 of the 543 current DAC descriptions still need initial technical coding.
+With eighteen batches, 103 additional drafts are available;
+391 of the 543 current DAC descriptions still need initial technical coding.
 
 ## Evidence requiring care
 
@@ -210,6 +210,17 @@ percentage loss or remaining-throughput claim without a definition.
 | 1562 PG-GNN | Physics-guided residual/active timing characterization | Mean errors do not bound worst corners or independently establish signoff readiness |
 | 1569 FILCO | Reconfigurable accelerator composition and DSE | Joint throughput/efficiency range cannot be split into two established per-metric ranges |
 
-All 97 records have source-separated review packets. Next: resolve the ATB
+## Eighteenth batch
+
+| Paper | Mechanism | Evidence boundary |
+|---|---|---|
+| 1570 NVLLM | NAND-centric FFN execution and ECC-aware pipelines | External DRAM remains; CMOS overhead is not total-system area overhead |
+| 158 FP-DDM | Overlap-consistent neural domain decomposition | Ten-billion-cell scale lacks runtime/resources; solver-level accuracy is unquantified |
+| 1582 SliceMoE | Bit-sliced expert caching and prefill warmup | Model-specific decode gains omit warmup cost and exact high-bit accuracy differences |
+| 1585 DFA-DRIVE | Thermal-delay-fault analysis and systolic remapping | Automotive temperature targets are not certification; cycle reduction is not vehicle safety proof |
+| 1587 CelestialEye | CPU decoding and FPGA stream-item processing | Qualitative BitMatcher comparison; no numeric speed/accuracy result |
+| 1596 PIMGRAG | Near-memory retrieval and PIM/GPU scheduling | Qualitative efficiency claims; no demonstrated factuality or whole-generation gain |
+
+All 103 records have source-separated review packets. Next: resolve the ATB
 numeric comparison from primary evidence and continue uncoded descriptions in
 stable order, preserving gaps and possible counterexamples.
