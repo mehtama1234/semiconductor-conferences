@@ -6,8 +6,8 @@ The first four previously uncoded records, selected by paper-ID order, have
 research1138 (ARTEMIS). Exact official source URLs and row locators accompany
 each record. All are pending independent review and retain description-level
 evidence status. They are not added to the 49-record selected adjudication sample.
-With thirty-seven batches, 217 additional drafts are available;
-277 of the 543 current DAC descriptions still need initial technical coding.
+With thirty-eight batches, 223 additional drafts are available;
+271 of the 543 current DAC descriptions still need initial technical coding.
 Draft coverage does not mean complete technical evidence. Research1691's extraction
 has been repaired, but its energy/power boundary remains unresolved.
 
@@ -432,6 +432,17 @@ percentage loss or remaining-throughput claim without a definition.
 | 2235 CoX-MoE | Coalesced AMX CPU/GPU expert execution | Separate throughput maxima; hardware and quality parity unknown |
 | 2243 MIRAGE | Hierarchical sparse multivector retrieval | Computation reduction is not measured runtime speedup |
 
-All 217 records have source-separated review packets. Next: resolve the ATB
+## Thirty-eighth batch
+
+| Paper | Mechanism | Evidence boundary |
+|---|---|---|
+| 2245 TRAM | Joint approximate multiplier/model training | Power boundaries and accuracy loss need full text |
+| 2254 Voltage-waveform disassembly | Sequence-to-sequence physical leakage analysis | Sequence accuracy is not instruction accuracy or complete recovery |
+| 2256 ALOHA | Hammersley stochastic arithmetic | Qualitative comparisons only; CBSC and FSM baselines kept distinct |
+| 2265 SparseE | Homomorphic permutation and ciphertext expansion | Security/parameter parity and energy boundaries unknown |
+| 2268 TierANNS / COGA | Queue-hinted CXL tiering | Title/description naming discrepancy; no numerical evaluation |
+| 2271 PeFoo-L | Layer-local forward-only preconditioning | No numeric convergence, quality or device-memory result |
+
+All 223 records have source-separated review packets. Next: resolve the ATB
 numeric comparison from primary evidence and continue uncoded descriptions in
 stable order, preserving gaps and possible counterexamples.
