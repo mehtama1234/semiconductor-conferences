@@ -13,7 +13,7 @@ def rows(path: Path) -> list[dict]:
 
 def build(root: Path) -> dict:
     taxonomy = json.loads((root / "data/taxonomy-v0.json").read_text(encoding="utf-8"))
-    adjudicated = rows(root / "dac/data/adjudicated-2026-batch.jsonl") + rows(root / "iccad/data/adjudicated-2025-batch.jsonl") + rows(root / "isca/data/adjudicated-2026-batch.jsonl")
+    adjudicated = rows(root / "dac/data/adjudicated-2026-batch.jsonl") + rows(root / "dac/data/adjudicated-2026-batch-2.jsonl") + rows(root / "iccad/data/adjudicated-2025-batch.jsonl") + rows(root / "isca/data/adjudicated-2026-batch.jsonl")
     by_theme = {theme["theme_id"]: theme for theme in taxonomy["themes"]}
     for record in adjudicated:
         theme = by_theme[record["theme_id"]]
@@ -31,7 +31,7 @@ def build(root: Path) -> dict:
         "taxonomy_version": "v1-evidence-derived",
         "status": "provisional_until_full_corpus_adjudication",
         "base_taxonomy": "data/taxonomy-v0.json",
-        "derived_from": ["dac/data/adjudicated-2026-batch.jsonl", "iccad/data/adjudicated-2025-batch.jsonl", "isca/data/adjudicated-2026-batch.jsonl"],
+        "derived_from": ["dac/data/adjudicated-2026-batch.jsonl", "dac/data/adjudicated-2026-batch-2.jsonl", "iccad/data/adjudicated-2025-batch.jsonl", "isca/data/adjudicated-2026-batch.jsonl"],
         "themes": sorted(taxonomy["themes"], key=lambda theme: theme["theme_id"]),
     }
     (root / "data/taxonomy-v1-evidence.json").write_text(json.dumps(output, indent=2, sort_keys=True) + "\n", encoding="utf-8")

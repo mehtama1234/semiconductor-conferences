@@ -2,6 +2,7 @@
   "base_taxonomy": "data/taxonomy-v0.json",
   "derived_from": [
     "dac/data/adjudicated-2026-batch.jsonl",
+    "dac/data/adjudicated-2026-batch-2.jsonl",
     "iccad/data/adjudicated-2025-batch.jsonl",
     "isca/data/adjudicated-2026-batch.jsonl"
   ],
@@ -12,7 +13,9 @@
       "label": "AI-assisted EDA",
       "subsubthemes": {
         "llm-assisted-design-flows": [
+          "llm-evolution-of-technology-mapping",
           "llm-generated-hls-architecture-optimization",
+          "llm-global-reasoning-for-hls-dse",
           "preference-optimized-pcb-placement",
           "reinforcement-learning-verilog-generation"
         ]
@@ -42,6 +45,8 @@
       "label": "Architecture and accelerators",
       "subsubthemes": {
         "ai-accelerator-microarchitecture": [
+          "asynchronous-pim-speculative-decoding",
+          "gigabyte-embedded-dram-kv-cache-buffering",
           "outlier-aware-lut-quantized-gemm"
         ],
         "architecture-software-co-design": [
@@ -70,6 +75,7 @@
       "subsubthemes": {
         "3d-stacking-and-thermal-management": [
           "analytical-3d-ic-thermal-simulation",
+          "modular-reduced-order-chiplet-thermal-modeling",
           "thermal-aware-3d-stacked-llm-inference"
         ],
         "package-system-co-design": [
@@ -114,7 +120,8 @@
           "near-memory-communication-lower-bounds"
         ],
         "memory-hierarchy-and-persistence": [
-          "os-hardware-cxl-tiered-memory"
+          "os-hardware-cxl-tiered-memory",
+          "row-aligned-sparse-attention-pim"
         ]
       },
       "subthemes": [
@@ -128,6 +135,7 @@
       "label": "Physical design and manufacturing",
       "subsubthemes": {
         "placement-routing-and-timing": [
+          "differentiable-clock-tree-synthesis",
           "fpga-accelerated-design-rule-checking"
         ],
         "process-aware-design": [
@@ -154,6 +162,7 @@
           "full-stack-npu-fault-mitigation"
         ],
         "energy-and-thermal-efficiency": [
+          "ml-early-thermal-placement-optimization",
           "thermal-imbalance-concurrent-gpu-execution"
         ],
         "power-integrity-and-reliability": [
@@ -162,7 +171,8 @@
         "side-channel-and-hardware-security": [
           "adversarial-attacks-on-moe-offloading",
           "diffusion-model-watermarking-acceleration",
-          "gpu-power-thermal-transformer-side-channel-leakage"
+          "gpu-power-thermal-transformer-side-channel-leakage",
+          "remote-power-leakage-in-post-quantum-kem"
         ]
       },
       "subthemes": [
@@ -192,7 +202,8 @@
       "label": "Verification and validation",
       "subsubthemes": {
         "formal-and-functional-verification": [
-          "hierarchical-learning-for-sequential-formal-analysis"
+          "hierarchical-learning-for-sequential-formal-analysis",
+          "structure-guided-llm-sva-generation"
         ],
         "simulation-emulation-and-testing": [
           "llm-assisted-hls-logic-debugging"
