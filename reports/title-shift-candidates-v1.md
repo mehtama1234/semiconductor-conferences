@@ -6,32 +6,36 @@ rising or declining.
 
 ## isca_2025_to_2026
 
-Inventory: 135 → 173 records.
+Captured inventory: 135 → 173 records.
+Eligible title denominators: 135 → 172.
+Excluded earlier IDs: none; later IDs: isca-2026-program-158.
 
 | Term | Earlier share | Later share | Candidate direction |
 |---|---:|---:|---|
-| memory | 7.41% | 13.87% | up |
-| inference | 6.67% | 12.72% | up |
-| quantum | 11.11% | 5.20% | down |
-| processing | 8.89% | 3.47% | down |
-| llm | 6.67% | 11.56% | up |
-| performance | 8.89% | 4.05% | down |
+| memory | 7.41% | 13.95% | up |
+| inference | 6.67% | 12.79% | up |
+| quantum | 11.11% | 5.23% | down |
+| processing | 8.89% | 3.49% | down |
+| llm | 6.67% | 11.63% | up |
+| performance | 8.89% | 4.07% | down |
 | retrieval | 4.44% | 0.00% | down |
-| hybrid | 6.67% | 2.31% | down |
-| exploiting | 1.48% | 5.78% | up |
+| hybrid | 6.67% | 2.33% | down |
+| exploiting | 1.48% | 5.81% | up |
 | learning | 5.19% | 1.16% | down |
 | bandwidth | 3.70% | 0.00% | down |
 | computers | 3.70% | 0.00% | down |
-| moe | 0.00% | 3.47% | up |
-| dram | 1.48% | 4.62% | up |
-| cache | 5.93% | 2.89% | down |
+| moe | 0.00% | 3.49% | up |
+| dram | 1.48% | 4.65% | up |
+| cache | 5.93% | 2.91% | down |
 
 These rows route review. They do not establish that the underlying technical
 topic, method, or importance changed.
 
 ## dac_2025_to_2026
 
-Inventory: 419 → 543 records.
+Captured inventory: 419 → 543 records.
+Eligible title denominators: 419 → 543.
+Excluded earlier IDs: none; later IDs: none.
 
 | Term | Earlier share | Later share | Candidate direction |
 |---|---:|---:|---|

@@ -8,6 +8,8 @@ import re
 from collections import Counter
 from pathlib import Path
 
+from scripts.inventory_scope import partition_titles
+
 
 STOP = {
     "a", "an", "and", "based", "for", "from", "in", "of", "on", "or", "the", "to", "with",
@@ -28,6 +30,19 @@ def counts(records: list[dict]) -> Counter:
 
 
 def compare(old: list[dict], new: list[dict]) -> dict:
+    old_inventory_count, new_inventory_count = len(old), len(new)
+    old, old_excluded = partition_titles(old)
+    new, new_excluded = partition_titles(new)
+    exclusions = {
+        "old_inventory_count": old_inventory_count,
+        "new_inventory_count": new_inventory_count,
+        "old_excluded_ids": [r["paper_id"] for r in old_excluded],
+        "new_excluded_ids": [r["paper_id"] for r in new_excluded],
+        "denominator_policy": "nonempty_titles_excluding_unresolved_slots",
+    }
+    if not old or not new:
+        return {**exclusions, "old_record_count": len(old), "new_record_count": len(new),
+                "comparison_status": "insufficient_titles", "candidate_terms": []}
     old_counts, new_counts = counts(old), counts(new)
     terms = sorted(set(old_counts) | set(new_counts))
     candidates = []
@@ -38,7 +53,8 @@ def compare(old: list[dict], new: list[dict]) -> dict:
         old_share, new_share = old_n / len(old), new_n / len(new)
         candidates.append({"term": term, "old_count": old_n, "new_count": new_n, "old_share": round(old_share, 6), "new_share": round(new_share, 6), "share_delta": round(new_share - old_share, 6), "candidate_direction": "up" if new_share > old_share else "down" if new_share < old_share else "flat"})
     candidates.sort(key=lambda row: (-abs(row["share_delta"]), row["term"]))
-    return {"old_record_count": len(old), "new_record_count": len(new), "candidate_terms": candidates}
+    return {**exclusions, "old_record_count": len(old), "new_record_count": len(new),
+            "comparison_status": "exploratory_metadata_only", "candidate_terms": candidates}
 
 
 def build(root: Path) -> dict:
@@ -50,7 +66,10 @@ def build(root: Path) -> dict:
     (root / "reports/title-shift-candidates-v1.json").write_text(json.dumps(payload, indent=2, sort_keys=True) + "\n", encoding="utf-8")
     lines = ["# Title-shift candidates v1", "", "This report is an exploratory screen over official program titles. It is not a", "technical trend report, prevalence estimate, or claim that a capability is", "rising or declining.", ""]
     for name, comparison in comparisons.items():
-        lines += [f"## {name}", "", f"Inventory: {comparison['old_record_count']} → {comparison['new_record_count']} records.", "", "| Term | Earlier share | Later share | Candidate direction |", "|---|---:|---:|---|"]
+        lines += [f"## {name}", "", f"Captured inventory: {comparison['old_inventory_count']} → {comparison['new_inventory_count']} records.",
+                  f"Eligible title denominators: {comparison['old_record_count']} → {comparison['new_record_count']}.",
+                  f"Excluded earlier IDs: {', '.join(comparison['old_excluded_ids']) or 'none'}; later IDs: {', '.join(comparison['new_excluded_ids']) or 'none'}.",
+                  "", "| Term | Earlier share | Later share | Candidate direction |", "|---|---:|---:|---|"]
         for row in comparison["candidate_terms"][:15]:
             lines.append(f"| {row['term']} | {row['old_share']:.2%} | {row['new_share']:.2%} | {row['candidate_direction']} |")
         lines += ["", "These rows route review. They do not establish that the underlying technical", "topic, method, or importance changed.", ""]

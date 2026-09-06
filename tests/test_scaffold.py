@@ -351,7 +351,7 @@ def test_adversarial_preflight_is_explicit_about_its_limits() -> None:
 
 def test_temporal_baseline_refuses_unsupported_directional_claims() -> None:
     report = (ROOT / "reports/temporal-baseline-v1.md").read_text()
-    assert "135 papers" in report and "173 papers" in report
+    assert "135 papers" in report and "172 nonempty titles" in report
     assert "No claim that a topic is rising" in report
 
 

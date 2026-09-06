@@ -42,6 +42,7 @@ def collect(root: Path) -> dict:
             "target_edition": 2026,
             "analysis_edition": 2026,
             "title": title,
+            "inventory_inclusion": "included_titled_record" if title else "excluded_unresolved_slot",
             "doi_or_identifier": f"ISCA2026-PROGRAM-{index:03d}",
             "authors": authors,
             "authors_display": authors_display,

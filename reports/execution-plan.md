@@ -52,14 +52,27 @@ The recovered evidence increment and planning changes were committed as `216135d
 1. Queue and report corrections committed as `bcc3347`; continue source extraction.
 2. The [identity check](../isca/reports/program-identity-check-2026-09-06.md)
    confirms the blank official slot: 173 captured rows include 172 titles.
-   Add explicit denominator/inclusion handling, preserving stable IDs, and
-   inspect primary sources for the five unresolved secondary papers.
+   Explicit inclusion handling now preserves all IDs while excluding the blank
+   slot from title denominators (135 → 172 for ISCA). Empty editions return
+   insufficient evidence. Inspect primary sources for the five unresolved papers.
 3. Refine priorities for underrepresented taxonomy categories and counterexamples.
 4. MTIA selected full-text extraction is recorded; prepare the complete independent
    review input from its revised record and taxonomy branch. Preserve company
    attribution for supplemental metrics and leave cost inputs unresolved.
 
 ## Open dependencies and limits
+
+The denominator/recovery batch excludes slot 158 from title shares while keeping
+all 1,546 captured rows and their IDs. Shared inclusion rules cover the queue and
+title comparison; collector output marks future blank slots explicitly. Tests
+cover blank-slot dilution and empty editions. The regenerated ISCA title screen
+uses 135 → 172 titles. All 47 tests passed before the final queue assertions.
+
+Three [source recovery attempts](../isca/data/source-recovery-attempts.jsonl)
+resolve HBM-CASO, ConServe, and BusyBarn to IEEE document URLs, but returned no
+substantive primary text through the available extraction route. These records
+remain secondary-only. Next routes are exact author/institutional copies; failure
+of one route is not a finding of permanent inaccessibility.
 
 - Independent review is not completed. The existing review-status document
   records a prior model-access limitation; reassess available review options

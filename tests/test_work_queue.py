@@ -19,6 +19,9 @@ def test_queue_preserves_inventory_and_evidence_boundaries():
     assert codo["paper_id"] not in summary["secondary_pending_ids"]
     assert len(summary["secondary_pending_ids"]) == 5
     assert by_id["isca-2026-program-158"]["identity_status"] == "missing_title_requires_inventory_review"
+    assert not by_id["isca-2026-program-158"]["title_denominator_included"]
+    assert summary["eligible_title_counts"]["isca-2026"] == 172
+    assert summary["excluded_slot_ids"] == ["isca-2026-program-158"]
     historical = [r for r in rows if r["conference_id"] == "dac" and r["analysis_edition"] == 2025]
     assert sum(r["collection_status"] == "substantive_description" for r in historical) == 24
     assert all(r["coding_status"] == "not_coded" for r in historical)

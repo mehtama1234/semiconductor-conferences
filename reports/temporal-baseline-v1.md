@@ -8,7 +8,7 @@ project. It is deliberately a metadata baseline, not a technical trend study.
 | Conference | Edition | Inventory | Evidence tier | What it supports |
 |---|---:|---:|---|---|
 | ISCA | 2025 | 135 papers | Official program metadata | Title/session inventory and coverage comparison |
-| ISCA | 2026 | 173 papers | Official program metadata | Title/session inventory and coverage comparison |
+| ISCA | 2026 | 173 captured slots; 172 nonempty titles | Official program metadata | Title/session inventory; blank slot excluded from title denominator |
 | DAC | 2025 | 419 research manuscripts | Official conference program | Research-program inventory and coverage comparison |
 | DAC | 2026 | 543 research manuscripts | Official conference program | Research-program inventory and coverage comparison |
 

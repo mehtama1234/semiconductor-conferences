@@ -2,7 +2,8 @@
 
 Capture date: 2026-09-06
 
-The official ISCA 2026 program contains 173 paper-title records. A bounded
+The captured ISCA 2026 program contains 173 slots, including 172 nonempty titles
+and one unresolved blank slot excluded from title denominators. A bounded
 Crossref query for 2026 IEEE proceedings articles was reconciled against those
 titles. The reconciliation produced 171 unique DOI matches, each with a DOI,
 publisher URL, author metadata, and publication-date or page metadata in

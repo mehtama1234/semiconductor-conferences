@@ -9,8 +9,8 @@ and identity of a paper in that slot remain unresolved.
 Preserve the stable slot ID and original capture. The 173-row inventory contains
 172 nonempty titles and this one unresolved slot. Do not call 173 the verified
 paper denominator in a technical prevalence analysis. The current queue flags
-the missing title; a future inventory normalization should track slot inclusion
-separately and rebuild temporal denominators without renumbering other IDs.
+the missing title. Inventory inclusion is now explicit, and the title-shift
+builder excludes the blank slot from its denominator without renumbering IDs.
 
 `isca-2026-program-128` has a title and authors on the official program but no
 saved DOI match. Its source recovery remains a separate task. Neither case
