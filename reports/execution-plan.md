@@ -4,6 +4,12 @@ The governing scope and acceptance criteria are in [GOAL.md](../GOAL.md).
 This log distinguishes finished work from queued work; a plan is not a completed
 research result.
 
+Latest batch: DAC 2026 IDs 2159, 2169, 2177, 2179, 2184 and 2199 bring
+current drafts to 211, leaving 283 descriptions uncoded. Optimization quality,
+diffusion decoding parity, separate PEX/simulation stages, F1/accuracy conventions,
+power versus energy and GPU versus system memory remain explicit. All 238 draft
+papers have source-separated packets; independent acceptance remains pending.
+
 Latest batch: DAC 2026 IDs 2132, 2133, 2139, 214, 2145 and 2157 bring
 current drafts to 205, leaving 289 descriptions uncoded. Cross-platform resource
 parity, slack normalization, signoff limits, an unnamed reduction metric and

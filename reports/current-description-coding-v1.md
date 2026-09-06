@@ -6,8 +6,8 @@ The first four previously uncoded records, selected by paper-ID order, have
 research1138 (ARTEMIS). Exact official source URLs and row locators accompany
 each record. All are pending independent review and retain description-level
 evidence status. They are not added to the 49-record selected adjudication sample.
-With thirty-five batches, 205 additional drafts are available;
-289 of the 543 current DAC descriptions still need initial technical coding.
+With thirty-six batches, 211 additional drafts are available;
+283 of the 543 current DAC descriptions still need initial technical coding.
 Draft coverage does not mean complete technical evidence. Research1691's extraction
 has been repaired, but its energy/power boundary remains unresolved.
 
@@ -410,6 +410,17 @@ percentage loss or remaining-throughput claim without a definition.
 | 2145 drcAgent | Knowledge-graph RAG and adversarial correction learning | Qualitative industrial examples; evaluated node and success rate unknown |
 | 2157 RFIPSA | Reconfigurable FIP and zero-skipping encoding | Sparse-over-GEMM ratios; area baseline and silicon modality unspecified |
 
-All 205 records have source-separated review packets. Next: resolve the ATB
+## Thirty-sixth batch
+
+| Paper | Mechanism | Evidence boundary |
+|---|---|---|
+| 2159 PMTPA | Elastic replica Ising pipeline | Undefined accuracy reference and unmatched CPU stopping/quality conditions |
+| 2169 ODB-dLLM | Adaptive length and jump-share decoding | Two baseline-specific ranges; mitigating degradation is not quality parity |
+| 2177 GTX | Graph-transformer parasitic prediction | Inference and simulation speedups are separate stages, not multiplicative |
+| 2179 DeTrojan | Functionality features and community refinement | Relative F1 distinguished from ambiguous accuracy percentages and module transfers |
+| 2184 Adana | Adaptive asymmetric quantization co-design | Power is not energy; numeric precision and accuracy conditions missing |
+| 2199 ExpertFlow | Predictive expert cache and token scheduling | GPU memory is not total system memory; throughput is not latency |
+
+All 211 records have source-separated review packets. Next: resolve the ATB
 numeric comparison from primary evidence and continue uncoded descriptions in
 stable order, preserving gaps and possible counterexamples.
