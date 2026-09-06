@@ -205,6 +205,13 @@ def test_each_conference_has_a_deep_page() -> None:
         assert any(len(page.read_text()) > 500 for page in pages)
 
 
+def test_iccad_topical_map_preserves_fallback_boundary() -> None:
+    text = (ROOT / "iccad/pages/topical-capability-map-2025-fallback.md").read_text()
+    assert "2025 fallback" in text
+    assert "does not support ICCAD-wide prevalence" in text
+    assert "GPU power/thermal telemetry" in text
+
+
 def test_isca_memory_ecc_pim_topical_page_preserves_evidence_boundaries() -> None:
     text = (ROOT / "isca/pages/memory-ecc-pim-reliability.md").read_text()
     assert "HBM-CASO" in text

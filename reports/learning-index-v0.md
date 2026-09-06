@@ -54,6 +54,7 @@ verification.
 - [AI-assisted verification and hardware security batch](../iccad/pages/ai-and-security-evidence-batch.md)
 - [Additional primary evidence batch](../iccad/pages/primary-evidence-batch-2025.md)
 - [Additional ICCAD primary evidence batch](../iccad/pages/primary-evidence-batch-2025-2.md)
+- [ICCAD topical capability map](../iccad/pages/topical-capability-map-2025-fallback.md)
 
 ICCAD has 2026 scope signals, a 276-paper 2025 metadata inventory, and eight
 primary/preprint/author-PDF-supported 2025 adjudications.
