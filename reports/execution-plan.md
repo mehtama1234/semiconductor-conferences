@@ -4,6 +4,12 @@ The governing scope and acceptance criteria are in [GOAL.md](../GOAL.md).
 This log distinguishes finished work from queued work; a plan is not a completed
 research result.
 
+Latest batch: DAC 2026 IDs 1444, 1447, 1449, 146, 1464 and 1466 bring
+current drafts to 79, leaving 415 descriptions uncoded. Security coverage limits,
+SpMM/SpTTM comparison differences, FreeBit motivation versus results and MT-3000
+versus MTIA 300 identity remain explicit. All 106 draft papers have source-separated
+packets and no independent acceptance verdicts.
+
 Latest batch: DAC 2026 IDs 1431, 1434, 1438, 144, 1440 and 1441 bring
 current drafts to 73, leaving 421 descriptions uncoded. Power prediction versus
 power reduction, distinct software/hardware baselines, CNOT-depth assumptions and

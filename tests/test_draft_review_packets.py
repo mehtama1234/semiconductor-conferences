@@ -13,7 +13,7 @@ ROOT = Path(__file__).resolve().parents[1]
 def test_draft_packets_are_source_separated_and_reproducible():
     packets = build(ROOT)
     assert packets == read_jsonl(ROOT / "data/draft-review-packets-v1.jsonl")
-    assert len(packets) == len({p["paper_id"] for p in packets}) == 100
+    assert len(packets) == len({p["paper_id"] for p in packets}) == 106
     assert sum(p["record_under_review"]["analysis_edition"] == 2025 for p in packets) == 24
     for packet in packets:
         assert packet["independent_verdicts"] == []

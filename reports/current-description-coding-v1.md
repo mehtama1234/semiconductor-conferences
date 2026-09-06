@@ -6,8 +6,8 @@ The first four previously uncoded records, selected by paper-ID order, have
 research1138 (ARTEMIS). Exact official source URLs and row locators accompany
 each record. All are pending independent review and retain description-level
 evidence status. They are not added to the 49-record selected adjudication sample.
-With thirteen batches, 73 additional drafts are available;
-421 of the 543 current DAC descriptions still need initial technical coding.
+With fourteen batches, 79 additional drafts are available;
+415 of the 543 current DAC descriptions still need initial technical coding.
 
 ## Evidence requiring care
 
@@ -166,6 +166,17 @@ percentage loss or remaining-throughput claim without a definition.
 | 1440 TACo | Hypervolume-guided zero-cost ViT search | GPU-days to GPU-hours lacks exact budgets; no numeric speedup inferred |
 | 1441 Adaptive KV prefetch | Token-fluctuation prediction and decoupled transfers | 256 tokens need not be all retained state; decoding speedup is not whole-request latency |
 
-All 73 records have source-separated review packets. Next: resolve the ATB
+## Fourteenth batch
+
+| Paper | Mechanism | Evidence boundary |
+|---|---|---|
+| 1444 Janus | PA/BTI compiler defense with modifier fusion | Overhead figures do not verify threat coverage or strong security guarantees |
+| 1447 STCG | Adaptive WMMA/FMA sparse-tensor code generation | SpMM geometric mean and SpTTM reported gain have distinct comparator/aggregation conditions |
+| 1449 Maple | Transfer-aware xPU/NDP mapping search | Performance and energy maxima need not co-occur; measurement scope is unspecified |
+| 146 FreeBit | Low-bit LUT/PIM and decoupled scheduling | Introductory 6.7× compute reduction is not FreeBit speedup; no numeric result inferred |
+| 1464 Thrend | Counter sampling and counting-thread co-scheduling | Zero evaluated false negatives is not universal detection; sampling is 100 Hz |
+| 1466 InferWeave | Bandwidth-planned unified-memory inference | Throughput is not request latency; MT-3000 must not be confused with MTIA 300 |
+
+All 79 records have source-separated review packets. Next: resolve the ATB
 numeric comparison from primary evidence and continue uncoded descriptions in
 stable order, preserving gaps and possible counterexamples.
