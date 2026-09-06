@@ -4,6 +4,12 @@ The governing scope and acceptance criteria are in [GOAL.md](../GOAL.md).
 This log distinguishes finished work from queued work; a plan is not a completed
 research result.
 
+Latest batch: DAC 2026 IDs 461, 462, 484, 513, 514 and 518 bring
+current drafts to 403, leaving 91 descriptions uncoded. MoE metric scope,
+IDS improvement units, swapping capacity semantics, checkpoint recovery gaps,
+unnamed PCIe metrics and clock-tree guarantee assumptions remain explicit.
+All 430 draft papers have source-separated packets; independent acceptance remains pending.
+
 Latest batch: DAC 2026 IDs 407, 440, 441, 442, 444 and 445 bring
 current drafts to 397, leaving 97 descriptions uncoded. Simulated/measured jitter,
 simulation comparator scope, cache guarantee assumptions, storage consistency,
