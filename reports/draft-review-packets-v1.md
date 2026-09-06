@@ -1,8 +1,8 @@
 # Draft review preparation — 2026-09-06
 
-The [packet ledger](../data/draft-review-packets-v1.jsonl) contains 268
+The [packet ledger](../data/draft-review-packets-v1.jsonl) contains 274
 source-separated inputs: 24 DAC 2025 drafts, three DAC 2026 comparison drafts,
-and 241 additional DAC 2026 technical drafts. The three comparison drafts
+and 247 additional DAC 2026 technical drafts. The three comparison drafts
 already belong to the separate 72-record selected sample; do
 not add packet counts to infer unique paper coverage. No independent verdict has
 been obtained for these drafts.
