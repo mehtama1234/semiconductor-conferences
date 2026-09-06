@@ -5,7 +5,7 @@ is deliberately provisional because the evidence is asymmetric:
 
 - DAC has 543 official descriptions and 49 evidence-cited adjudications.
 - ISCA has 173 official 2026 program records, DOI reconciliation for 171, ten
-  author-preprint-backed adjudications, and five secondary-index excerpts still
+  author-preprint-backed adjudications, and six secondary-index excerpts still
   pending primary verification.
 - ICCAD has official 2026 CFP scope, a 276-paper 2025 fallback inventory, and
   eight primary/preprint/author-PDF-backed fallback adjudications.
