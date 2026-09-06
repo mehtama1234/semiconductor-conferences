@@ -39,7 +39,8 @@ concrete differences worth investigating. It does not establish that any topic
 is rising or declining. A historical absence cannot be inferred from the 395
 uncaptured descriptions. No independent review has been performed on this pilot.
 
-Next, code the remaining 21 accessible historical descriptions, recover missing
+After the [historical coding batch](historical-description-coding-v1.md),
+15 accessible historical descriptions remain uncoded. Next, code those, recover missing
 historical sources, and select comparison populations using documented rules.
 For each intended temporal claim, align taxonomy, evidence tier, paper types,
 workloads and evaluation conditions where relevant; report exclusion counts and

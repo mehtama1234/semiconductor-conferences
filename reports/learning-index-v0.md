@@ -23,6 +23,7 @@ organized around technical questions, not just conference names.
 - [Adversarial consistency preflight](adversarial-preflight-v0.json)
 - [Temporal baseline and trend-claim boundary](temporal-baseline-v1.md)
 - [Selected temporal mechanism comparison](temporal-mechanism-comparison-v1.md)
+- [Historical description coding and limits](historical-description-coding-v1.md)
 - [Exploratory title-shift candidates](title-shift-candidates-v1.md)
 
 ## DAC 2026
