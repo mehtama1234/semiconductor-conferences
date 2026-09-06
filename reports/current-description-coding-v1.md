@@ -6,8 +6,8 @@ The first four previously uncoded records, selected by paper-ID order, have
 research1138 (ARTEMIS). Exact official source URLs and row locators accompany
 each record. All are pending independent review and retain description-level
 evidence status. They are not added to the 49-record selected adjudication sample.
-With seventy-nine batches, 469 additional drafts are available;
-25 of the 543 current DAC descriptions still need initial technical coding.
+With eighty batches, 475 additional drafts are available;
+19 of the 543 current DAC descriptions still need initial technical coding.
 Draft coverage does not mean complete technical evidence. Research1691's extraction
 has been repaired, but its energy/power boundary remains unresolved.
 
@@ -894,6 +894,17 @@ percentage loss or remaining-throughput claim without a definition.
 | 868 FSGen | Fused/sparse generator and estimates | Distinct unnamed performance/efficiency factors retained |
 | 874 RTL-BenchMT | Agent-assisted benchmark maintenance | Method-only description; revisions require independent oracles |
 
-All 469 records have source-separated review packets. Next: resolve the ATB
+## Eightieth batch
+
+| Paper | Mechanism | Evidence boundary |
+|---|---|---|
+| 875 JSPlace | Folded column RSFQ placement | Qualitative geometry gains do not establish clock integrity |
+| 876 TDSnap | Attested trusted-domain snapshots | Cold-start speed does not validate snapshot isolation/freshness |
+| 883 RTL-Sequencer | Linearized logic-cone timing models | Prediction improvements remain unquantified |
+| 885 Chimera | TFHE-aware dual-transform FHE hardware | TFHE numerical gain is distinct from qualitative CKKS parity |
+| 896 Parallel reachability | Decentralized task pulling | Qualitative scaling requires soundness and budget checks |
+| 897 MACH | Memory-aware encrypted-network configuration | Security level is author-reported; capacity differs from footprint |
+
+All 475 records have source-separated review packets. Next: resolve the ATB
 numeric comparison from primary evidence and continue uncoded descriptions in
 stable order, preserving gaps and possible counterexamples.

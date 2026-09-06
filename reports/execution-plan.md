@@ -4,6 +4,12 @@ The governing scope and acceptance criteria are in [GOAL.md](../GOAL.md).
 This log distinguishes finished work from queued work; a plan is not a completed
 research result.
 
+Latest batch: DAC 2026 IDs 875, 876, 883, 885, 896 and 897 bring
+current drafts to 475, leaving 19 descriptions uncoded. RSFQ placement scope,
+snapshot security gaps, qualitative timing/reachability, FHE scheme-specific
+results and cryptographic security claims remain explicit.
+All 502 draft papers have source-separated packets; independent acceptance remains pending.
+
 Latest batch: DAC 2026 IDs 843, 848, 859, 863, 868 and 874 bring
 current drafts to 469, leaving 25 descriptions uncoded. Percentage-point sizing,
 selective-encryption scope, unnamed DSE metrics, memory comparison limits,
