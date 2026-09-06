@@ -4,6 +4,12 @@ The governing scope and acceptance criteria are in [GOAL.md](../GOAL.md).
 This log distinguishes finished work from queued work; a plan is not a completed
 research result.
 
+Latest batch: DAC 2026 IDs 800, 816, 821, 827, 837 and 838 bring
+current drafts to 463, leaving 31 descriptions uncoded. ECC lifetime conditions,
+alternative DVFS modes, encrypted recovery semantics, OPC metric definitions,
+synthetic backpressure and qualitative wafer segmentation remain explicit.
+All 490 draft papers have source-separated packets; independent acceptance remains pending.
+
 Latest batch: DAC 2026 IDs 791, 793, 795, 796, 797 and 799 bring
 current drafts to 457, leaving 37 descriptions uncoded. Satellite coding scope,
 slack conventions, sampled-graph training, ANNS recall, agent fault feasibility

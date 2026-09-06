@@ -10,7 +10,7 @@ def test_current_drafts_preserve_identity_and_numeric_disagreement():
     rows = read_jsonl(ROOT / "data/current-description-coding-v1.jsonl")
     sources = {r["paper_id"]: r for r in read_jsonl(ROOT / "dac/data/paper-evidence-2026.jsonl")}
     branches = {r["theme_id"]: r["subthemes"] for r in json.loads((ROOT / "data/taxonomy-v1-evidence.json").read_text())["themes"]}
-    assert len(rows) == len({r["paper_id"] for r in rows}) == 457
+    assert len(rows) == len({r["paper_id"] for r in rows}) == 463
     for row in rows:
         for key in ["title", "evidence_url", "analysis_edition", "evidence_collection_date"]:
             assert row[key] == sources[row["paper_id"]][key]
@@ -338,3 +338,7 @@ def test_current_drafts_preserve_identity_and_numeric_disagreement():
     assert "does not make image reconstruction lossless" in semcom["limits"][0]
     gsr = next(r for r in rows if r["paper_id"] == "dac-2026-research795")
     assert "Sampled circuit graphs" in gsr["metrics"][0]["condition"]
+    drift = next(r for r in rows if r["paper_id"] == "dac-2026-research816")
+    assert "alternative to energy-saving mode" in drift["metrics"][1]["condition"]
+    credix = next(r for r in rows if r["paper_id"] == "dac-2026-research837")
+    assert "Synthetic Hotspot" in credix["metrics"][0]["condition"]

@@ -6,8 +6,8 @@ The first four previously uncoded records, selected by paper-ID order, have
 research1138 (ARTEMIS). Exact official source URLs and row locators accompany
 each record. All are pending independent review and retain description-level
 evidence status. They are not added to the 49-record selected adjudication sample.
-With seventy-seven batches, 457 additional drafts are available;
-37 of the 543 current DAC descriptions still need initial technical coding.
+With seventy-eight batches, 463 additional drafts are available;
+31 of the 543 current DAC descriptions still need initial technical coding.
 Draft coverage does not mean complete technical evidence. Research1691's extraction
 has been repaired, but its energy/power boundary remains unresolved.
 
@@ -872,6 +872,17 @@ percentage loss or remaining-throughput claim without a definition.
 | 797 Flip-Agent | Agent parameter-fault risk analysis | Qualitative attack claims; physical fault feasibility unestablished |
 | 799 Glass RDL routing | Double-sided pixel routing | Observed routability is not universal feasibility or yield |
 
-All 457 records have source-separated review packets. Next: resolve the ATB
+## Seventy-eighth batch
+
+| Paper | Mechanism | Evidence boundary |
+|---|---|---|
+| 800 E3-CODE | MILP embedded/hybrid parity | Lifetime ratios use different overhead configurations |
+| 816 DRIFT | Fault-aware DVFS and rollback | Energy and speed gains are alternative modes |
+| 821 Runtime-ADAR | Ciphertext noise diagnosis and repair | Recovery percentage and attack denominator need clarification |
+| 827 DR. OPC | Differentiable mask rasterization | Error metrics do not establish manufactured yield |
+| 837 CrediX | Regional credit buffer pooling | 65.6% is synthetic-traffic backpressure, not throughput |
+| 838 SePArate | Weakly supervised defect segmentation | Qualitative segmentation is not root-cause evidence |
+
+All 463 records have source-separated review packets. Next: resolve the ATB
 numeric comparison from primary evidence and continue uncoded descriptions in
 stable order, preserving gaps and possible counterexamples.
