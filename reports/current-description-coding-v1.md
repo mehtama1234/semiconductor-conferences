@@ -6,8 +6,8 @@ The first four previously uncoded records, selected by paper-ID order, have
 research1138 (ARTEMIS). Exact official source URLs and row locators accompany
 each record. All are pending independent review and retain description-level
 evidence status. They are not added to the 49-record selected adjudication sample.
-With twenty-six batches, 151 additional drafts are available;
-343 of the 543 current DAC descriptions still need initial technical coding.
+With twenty-seven batches, 157 additional drafts are available;
+337 of the 543 current DAC descriptions still need initial technical coding.
 Draft coverage does not mean complete technical evidence. Research1691's extraction
 has been repaired, but its energy/power boundary remains unresolved.
 
@@ -311,6 +311,17 @@ percentage loss or remaining-throughput claim without a definition.
 | 1899 ACE-NAS | Joint topology/encoding proxy search | Training-free proxy is not zero compute; final model training remains separate |
 | 1900 KERV | Kinematic Kalman correction of speculation | Acceleration convention and success-rate tolerance unknown; no control-safety guarantee |
 
-All 151 records have source-separated review packets. Next: resolve the ATB
+## Twenty-seventh batch
+
+| Paper | Mechanism | Evidence boundary |
+|---|---|---|
+| 1907 Thermal diffusion | Multimodal physics-constrained reconstruction | Over-94% is consistent with endpoints; subsecond inference is not demonstrated control suitability |
+| 1909 PIMony | Preemptible PIM and dual-path subarray access | Qualitative concurrency result; DRAM correctness/timing conditions absent |
+| 1920 Vehicle traceback | IDS-alert temporal graph with plausibility filters | Edge F1 is not chain accuracy; certification statements are unverified source claims |
+| 1922 Pegasus | Personalized edge-MoE placement and gating | Latency lacks quality parity and tuning costs; throughput gain unquantified |
+| 1936 RTFL | Battery-aware client/quantization scheduling | No numeric convergence, energy or deadline result |
+| 1938 Phantom Walk | Proactive translation dissemination | Overall performance metric unspecified; migration is not eliminated |
+
+All 157 records have source-separated review packets. Next: resolve the ATB
 numeric comparison from primary evidence and continue uncoded descriptions in
 stable order, preserving gaps and possible counterexamples.
