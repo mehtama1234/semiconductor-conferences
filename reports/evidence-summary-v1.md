@@ -1,6 +1,6 @@
 # Adjudicated evidence coverage — v1
 
-This report audits the current 69-record adjudication sample. It is not a
+This report audits the current adjudication sample. It is not a
 conference prevalence estimate, market forecast, or ranking.
 
 ## Coverage
@@ -9,11 +9,11 @@ conference prevalence estimate, market forecast, or ranking.
 |---|---:|
 | dac | 49 |
 | iccad | 8 |
-| isca | 14 |
+| isca | 15 |
 
 | Evidence tier | Records |
 |---|---:|
-| company_author_source | 2 |
+| company_author_source | 3 |
 | institutional_abstract | 1 |
 | official_description | 49 |
 | primary_or_author_copy | 19 |
@@ -22,7 +22,7 @@ conference prevalence estimate, market forecast, or ranking.
 
 | Theme | Selected records |
 |---|---:|
-| architecture-and-accelerators | 14 |
+| architecture-and-accelerators | 15 |
 | memory-interconnect-and-storage | 12 |
 | power-reliability-and-security | 11 |
 | ai-assisted-eda | 8 |
@@ -35,7 +35,7 @@ conference prevalence estimate, market forecast, or ranking.
 
 ## Field completeness
 
-71 of 71 records have all required technical fields populated.
+72 of 72 records have all required technical fields populated.
 Missing-field counts are recorded in the machine-readable JSON; an empty field means the evidence did not support a claim, not that the paper lacks the property.
 
 ## Limits

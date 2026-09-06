@@ -32,7 +32,7 @@ declining, or more important is permitted from this baseline alone.
 
 ## Required next step
 
-Collect an equivalent official historical inventory for DAC and, where useful,
-additional ISCA editions. Then sample or collect equivalent abstracts/full text
+Use the collected ISCA and DAC historical inventories to sample or collect
+equivalent abstracts/full text
 across editions, apply the v1 taxonomy with the same coding rules, and run the
 adversarial review protocol before publishing directional claims.

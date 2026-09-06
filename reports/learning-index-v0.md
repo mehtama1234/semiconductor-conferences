@@ -6,6 +6,7 @@ organized around technical questions, not just conference names.
 ## Start with the evidence contract
 
 - [End-to-end goal](../GOAL.md)
+- [Execution plan and current tasks](execution-plan.md)
 - [Collection status](collection-status.md)
 - [Initial 2026 direction signals](initial-2026-direction-signals.md)
 - [Cross-conference direction synthesis](cross-conference-direction-v0.md)
@@ -46,10 +47,11 @@ are captured, 543 records are routed for review, and 49 are adjudicated.
 - [Primary evidence batch 5: ECC-aware reliable PIM](../isca/pages/primary-evidence-batch-2026-5.md)
 - [Primary evidence batch 6: agentic memory walls and lossless compression](../isca/pages/primary-evidence-batch-2026-6.md)
 - [Company-source batch 7: CXL silicon and hyperscale deployment](../isca/pages/primary-evidence-batch-2026-7.md)
+- [Company-source batch 8: MTIA 300 integrated NICs and collective offload](../isca/pages/primary-evidence-batch-2026-8.md)
 - [Indexed evidence queue](../isca/pages/indexed-evidence-queue.md)
 - [Memory, ECC, and PIM reliability topical analysis](../isca/pages/memory-ecc-pim-reliability.md)
 
-ISCA currently combines official program metadata, fourteen primary/institutional/company-backed
+ISCA currently combines official program metadata, fifteen primary/institutional/company-backed
 records, and six low-confidence secondary-index excerpts pending primary
 verification.
 

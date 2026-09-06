@@ -22,6 +22,7 @@ PATHS = (
     "isca/data/adjudicated-2026-batch-5.jsonl",
     "isca/data/adjudicated-2026-batch-6.jsonl",
     "isca/data/adjudicated-2026-batch-7.jsonl",
+    "isca/data/adjudicated-2026-batch-8.jsonl",
 )
 REQUIRED_TECHNICAL_FIELDS = (
     "problem",
@@ -95,7 +96,7 @@ def build(root: Path) -> tuple[dict, str]:
     lines = [
         "# Adjudicated evidence coverage — v1",
         "",
-        "This report audits the current 69-record adjudication sample. It is not a",
+        "This report audits the current adjudication sample. It is not a",
         "conference prevalence estimate, market forecast, or ranking.",
         "",
         "## Coverage",

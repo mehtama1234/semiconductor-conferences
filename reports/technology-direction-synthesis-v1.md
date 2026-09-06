@@ -10,12 +10,12 @@ The machine-readable evidence map is [`data/technology-direction-evidence-v1.jso
 The evidence is intentionally asymmetric:
 
 - DAC: 543 official 2026 research descriptions; 49 adjudicated records.
-- ISCA: 173 official 2026 program records; 10 primary or institutional-abstract-
-  backed adjudications; 6 secondary-index records pending primary verification.
+- ISCA: 173 official 2026 program records; 15 primary, institutional-abstract,
+  or company-source-backed adjudications; 6 secondary-index records pending primary verification.
 - ICCAD: 2026 scope evidence and a 276-record 2025 fallback inventory; 8 primary
   or author-PDF-backed fallback adjudications.
 
-The 71-record adjudication sample is selected for recoverable evidence and
+The 72-record adjudication sample is selected for recoverable evidence and
 technical diversity. It is not a prevalence estimate, market forecast, conference
 ranking, or proof that a direction is rising.
 
@@ -204,7 +204,7 @@ precision, and baseline hardware.
 | Conference | Strongest current contribution | Evidence boundary |
 |---|---|---|
 | DAC 2026 | Breadth of design-flow, accelerator, physical-design, memory, and reliability descriptions | Mostly official descriptions; selected 49 are not full-corpus prevalence |
-| ISCA 2026 | Deep primary and industry-source cases for system architecture, LLM execution, memory, PIM, ECC, CXL, and thermal behavior | 14 primary/institutional/company records plus 6 secondary queue items; full program remains mostly metadata |
+| ISCA 2026 | Deep primary and industry-source cases for system architecture, LLM execution, memory, PIM, ECC, CXL, integrated networking, and thermal behavior | 15 primary/institutional/company records plus 6 secondary queue items; full program remains mostly metadata |
 | ICCAD 2025 fallback | Design automation, verification, chiplet, analog, security, and emerging-device depth | 2026 paper corpus unavailable; 2025 evidence cannot establish 2026 change |
 
 The conferences should therefore be read as complementary instruments: DAC gives

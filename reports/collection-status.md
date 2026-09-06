@@ -1,22 +1,23 @@
-# Initial collection status
+# Collection status — 2026-09-06
 
-Status: **repository scaffold and authoritative source register**.
+Status: **corpus collection, selected technical coding, and provisional synthesis**.
 
 The project now has separate conference workspaces for ISCA, DAC, and ICCAD, a shared provisional taxonomy, and dated source ledgers. The collection policy is 2026-first. For any conference whose 2026 paper corpus is not publicly available, the latest complete accessible edition is used as a labeled fallback; ICCAD currently uses 2025 paper data while retaining 2026 scope metadata. The initial DAC seed papers and program inventories are collection inputs—not trend evidence.
 
 Current inventory checkpoint:
 
 - ISCA 2026: 173 official program records normalized with titles, authors, sessions, times, identifiers, and metadata-only status; Crossref reconciliation adds DOI/publisher metadata for 171 records, two remain unresolved, and five records also have secondary indexed excerpts pending primary verification.
-- ISCA evidence: fourteen papers now have primary, institutional-abstract, or company-source-backed adjudications, with CODO additionally linked to a public artifact; six additional papers have substantive secondary-index excerpts with DOI metadata and remain low-confidence pending primary-source verification.
+- ISCA evidence: fifteen papers now have primary, institutional-abstract, or company-source-backed adjudications, with CODO additionally linked to a public artifact; six additional papers have substantive secondary-index excerpts with DOI metadata and remain low-confidence pending primary-source verification.
 - DAC 2026: 543 distinct official research-manuscript records normalized in `dac/data/papers-2026-program.jsonl`, plus 75 other program items; all technical fields remain unclassified.
 - DAC evidence: all 543 research pages returned substantive official descriptions; forty-nine records have evidence-cited adjudications across EDA, accelerators, memory, packaging, verification, security, quantum, reliability, and thermal design.
 - DAC triage: all 543 descriptions now have keyword-backed routing candidates, explicitly marked non-adjudicated; the routing is for review queue construction only.
-- Taxonomy/audit: `data/taxonomy-v1-evidence.json` reconciles adjudicated subtheme and sub-subtheme IDs across all three conferences; `reports/adversarial-preflight-v0.json` passes 64/64 deterministic consistency checks. This is a preflight, not a substitute for adversarial LLM or human review.
+- Taxonomy/audit: `data/taxonomy-v1-evidence.json` reconciles adjudicated subtheme and sub-subtheme IDs across all three conferences; `reports/adversarial-preflight-v0.json` passes 72/72 deterministic record checks. This is a preflight, not a substitute for adversarial LLM or human review.
 - ICCAD: 276 distinct 2025 program-paper records normalized as the explicitly labeled fallback for the 2026 target; eight records now have primary/preprint/author-PDF evidence-cited adjudications, while the remaining fallback rows remain metadata-only.
 
 DAC’s seven day-by-day program fragments are collected by `scripts/collect_dac_program.py`. The generated raw captures are locally reproducible evidence inputs and remain ignored by the repository’s raw-data policy; the normalized metadata ledgers are tracked.
 
-Next collection batch:
+The end-to-end milestones are in [GOAL.md](../GOAL.md), with current tasks in
+[the execution plan](execution-plan.md). Subsequent collection batches follow:
 
 1. extract paper titles, authors, identifiers, abstracts, tracks, and sessions from authoritative programs/proceedings;
 2. resolve duplicate publisher, DOI, ACM, and IEEE records;
