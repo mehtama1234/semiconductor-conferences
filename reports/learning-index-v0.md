@@ -18,24 +18,29 @@ organized around technical questions, not just conference names.
 - [AI-for-design and accelerator evidence batch](../dac/pages/ai-eda-and-accelerator-evidence-batch.md)
 - [Data movement, memory, packaging, and physical constraints](../dac/pages/data-movement-memory-and-integration.md)
 - [Reliability, security, and verification](../dac/pages/reliability-security-and-verification.md)
+- [Additional evidence batch](../dac/pages/evidence-batch-2.md)
 
 DAC currently has the deepest paper-level evidence: all 543 research descriptions
-are captured, 543 records are routed for review, and 20 are adjudicated.
+are captured, 543 records are routed for review, and 39 are adjudicated.
 
 ## ISCA 2026
 
 - [LLM, memory, and wafer-scale execution](../isca/pages/llm-memory-and-wafer-scale-v0.md)
+- [CODO dataflow compiler](../isca/pages/codo-dataflow-compiler.md)
+- [Primary evidence on LLM systems](../isca/pages/primary-evidence-llm-systems.md)
 
-ISCA currently combines official program metadata with five low-confidence
-secondary-index excerpts pending primary verification.
+ISCA currently combines official program metadata, five primary-preprint-backed
+records, and five low-confidence secondary-index excerpts pending primary
+verification.
 
 ## ICCAD 2026 / 2025 fallback
 
 - [2026 scope and 2025 fallback](../iccad/pages/2026-scope-and-2025-fallback.md)
 - [AI-assisted verification and hardware security batch](../iccad/pages/ai-and-security-evidence-batch.md)
+- [Additional primary evidence batch](../iccad/pages/primary-evidence-batch-2025.md)
 
-ICCAD has 2026 scope signals, a 276-paper 2025 metadata inventory, and two
-primary/preprint-supported 2025 adjudications.
+ICCAD has 2026 scope signals, a 276-paper 2025 metadata inventory, and five
+primary/preprint/author-PDF-supported 2025 adjudications.
 
 ## How to read the analysis
 
