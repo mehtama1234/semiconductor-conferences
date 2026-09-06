@@ -38,6 +38,7 @@ def validate(root: Path = ROOT) -> dict:
         "each_conference_has_source_ledger": all((root / item["folder"] / "data/sources.jsonl").exists() for item in conferences),
         "paper_seed_records_valid": all(row.get("paper_id") and row.get("conference_id") and row.get("title") and row.get("publisher_url") for row in read_jsonl(root / "dac/data/papers.jsonl")),
         "iccad_target_and_fallback_explicit": register["conferences"][2].get("target_edition") == "2026" and register["conferences"][2].get("paper_analysis_edition") == "2025",
+        "iccad_2026_availability_check_present": (root / "iccad/reports/2026-availability-check-2026-09-06.md").exists() and "paper corpus was not available" in (root / "iccad/reports/2026-availability-check-2026-09-06.md").read_text(encoding="utf-8"),
         "isca_program_signals_provenanced": all(row.get("source_id") in source_ids(root, "isca") and row.get("record_status") == "program_metadata_only" for row in read_jsonl(root / "isca/data/program-papers.jsonl")),
         "isca_indexed_evidence_is_labeled": all(row.get("source_id") in source_ids(root, "isca") and row.get("evidence_quality") == "secondary_indexed_excerpt" and row.get("adjudication_status") == "pending_primary_verification" for row in read_jsonl(root / "isca/data/indexed-evidence.jsonl")),
         "cross_conference_matrix_is_provisional": (root / "data/cross-conference-matrix-v0.json").exists() and json.loads((root / "data/cross-conference-matrix-v0.json").read_text(encoding="utf-8")).get("status") == "provisional_synthesis",
