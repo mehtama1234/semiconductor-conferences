@@ -6,8 +6,8 @@ The first four previously uncoded records, selected by paper-ID order, have
 research1138 (ARTEMIS). Exact official source URLs and row locators accompany
 each record. All are pending independent review and retain description-level
 evidence status. They are not added to the 49-record selected adjudication sample.
-With seven batches, 37 additional drafts are available;
-457 of the 543 current DAC descriptions still need initial technical coding.
+With eight batches, 43 additional drafts are available;
+451 of the 543 current DAC descriptions still need initial technical coding.
 
 ## Evidence requiring care
 
@@ -100,6 +100,17 @@ percentage loss or remaining-throughput claim without a definition.
 | 1308 SDM | FeFET sigmoid computation for soft decisions | 93.2% MNIST accuracy under 40 mV variation is not universal variation tolerance or demonstrated silicon robustness |
 | 1312 QAgent | Per-qubit multi-agent RL placement | Up-to-53.9% cost reduction lacks cost definition and training budget; not demonstrated fault-tolerant hardware |
 
-All 37 records have source-separated review packets. Next: resolve the ATB
+## Eighth batch
+
+| Paper | Mechanism | Evidence boundary |
+|---|---|---|
+| 1316 Zoned neutral-atom compiler | Iterative Diving Search and relaxed routing | Thousand-qubit compilation is not physical execution; 28.1% rearrangement gain is not total circuit-runtime gain |
+| 1317 HyPAS | Discrete repair and differentiable placement/sizing | PPA, runtime and timing-closure claims lack numerical benchmark conditions |
+| 1320 Falcon fault study | Physical implementation-fault analysis | One-bit fault and 250,000 faulty signatures are distinct requirements; 800× is signature-count reduction, not attack-time reduction |
+| 1322 Keeping PIM Busy | Channel-local generation, DMA and multi-batch co-design | Emulation results and component factors have unclear denominators; do not compose them arithmetically |
+| 1331 Marlin | Head-sensitive prefix KV retrieval and overlap | TTFT/accuracy benefits are qualitative; this is not the similarly named quantization kernel |
+| 1334 PEL | Palette enhancement with tri-core FPGA processing | 18.13% BD-rate benefit is content/configuration-specific; eight-line latency is not complete codec latency |
+
+All 43 records have source-separated review packets. Next: resolve the ATB
 numeric comparison from primary evidence and continue uncoded descriptions in
 stable order, preserving gaps and possible counterexamples.

@@ -4,6 +4,13 @@ The governing scope and acceptance criteria are in [GOAL.md](../GOAL.md).
 This log distinguishes finished work from queued work; a plan is not a completed
 research result.
 
+Latest batch: DAC 2026 IDs 1316, 1317, 1320, 1322, 1331 and 1334 bring
+current drafts to 43, leaving 451 descriptions uncoded. PIM component-factor
+denominators, fault-count versus signature-count requirements, and video-stage
+latency limits are explicit. All 70 draft papers have source-separated packets;
+independent acceptance remains pending. Continue accessible coding and full-paper
+conditions, without interpreting software validation as technical review.
+
 Latest batch: DAC 2026 IDs 130, 1300, 1302, 1307, 1308 and 1312 bring
 current drafts to 37, leaving 457 descriptions uncoded. C2C simulator capacity,
 prototype validation and workload optimization are kept distinct; the undefined
