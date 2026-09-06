@@ -4,6 +4,14 @@ The governing scope and acceptance criteria are in [GOAL.md](../GOAL.md).
 This log distinguishes finished work from queued work; a plan is not a completed
 research result.
 
+Latest batch: DAC 2026 records 1196, 1200, 1206, 121, 1222 and 1233 have
+technical drafts and source-separated packets. The expansion now covers sixteen
+records, leaving 478 current descriptions uncoded. Post-synthesis versus silicon,
+fine-tuned versus zero-shot transfer, and differing metric baselines are explicit.
+The packet ledger has 43 papers; three overlap the unchanged selected sample.
+Continue accessible coding and independent/source-depth gates without promoting
+these description drafts to accepted findings.
+
 Latest accessible batch: six more DAC 2026 descriptions (1152, 1180, 1183,
 1185, 1187, 1194) have technical drafts, bringing this expansion to ten and
 leaving 484 current descriptions uncoded. NoiseXplore's three-class accuracy

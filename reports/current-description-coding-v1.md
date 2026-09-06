@@ -6,8 +6,8 @@ The first four previously uncoded records, selected by paper-ID order, have
 research1138 (ARTEMIS). Exact official source URLs and row locators accompany
 each record. All are pending independent review and retain description-level
 evidence status. They are not added to the 49-record selected adjudication sample.
-With the second six-paper batch below, ten additional drafts are available;
-484 of the 543 current DAC descriptions still need initial technical coding.
+With three batches, sixteen additional drafts are available;
+478 of the 543 current DAC descriptions still need initial technical coding.
 
 ## Evidence requiring care
 
@@ -45,6 +45,17 @@ sub-subtheme IDs.
 | 1187 FBS | Prune encrypted CNNs to reduce bootstrapping | ImageNet is motivation, not a confirmed evaluated dataset; negligible accuracy loss is unquantified |
 | 1194 DIA-CIM | Co-design asynchronous graph aggregation and sparse BF16 CIM | Description claims fabricated 28-nm CMOS; 60.01 TFLOPS/W lacks operation-counting and measurement boundaries |
 
-All ten records have source-separated review packets. Next: resolve the ATB
+## Third batch
+
+| Paper | Mechanism | Evidence boundary |
+|---|---|---|
+| 1196 GPU LU | Balance dependency levels and adapt resource allocation/indexing | 2.1× versus GLU3.0 and 5.2× versus 16-thread PARDISO are factorization results, not quantified whole-SPICE gains |
+| 1200 NIAQ | Kalman drift tracking plus MLP qubit discrimination | 88% versus 61% readout accuracy uses day-equivalent data; 148 mW/5 ns are post-synthesis, not measured silicon |
+| 1206 DSPE | Pruning, approximate multiplication and adaptive posit execution | 91.7 TFLOPS/W lacks operation counting, accuracy and power boundaries |
+| 121 ExQuant | Globally rank experts and allocate/schedule mixed precision | Reported 2.87–5.93% accuracy gain does not specify relative percent versus percentage points |
+| 1222 AttentionCap | Symmetric attention and process embeddings for capacitance learning | Unseen-node transfer uses 5000 samples/4000 fine-tuning steps; 192× inference gain is not whole-chip extraction speed |
+| 1233 RM-CIMA | Co-design RL/MPC control and analog CIM | Recovery, latency and energy comparisons have different baselines; hardware-only attribution and physical-flight validation remain unknown |
+
+All sixteen records have source-separated review packets. Next: resolve the ATB
 numeric comparison from primary evidence and continue uncoded descriptions in
 stable order, preserving gaps and possible counterexamples.
