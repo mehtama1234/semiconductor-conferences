@@ -4,6 +4,12 @@ The governing scope and acceptance criteria are in [GOAL.md](../GOAL.md).
 This log distinguishes finished work from queued work; a plan is not a completed
 research result.
 
+Latest batch: DAC 2026 IDs 681, 684, 690, 692, 693 and 698 bring
+current drafts to 439, leaving 55 descriptions uncoded. Candidate-space versus
+entropy semantics, codec/system scope, idealized bounds, unnamed optimization
+metrics, board-measured comparison groups and write-staging limits remain explicit.
+All 466 draft papers have source-separated packets; independent acceptance remains pending.
+
 Latest batch: DAC 2026 IDs 660, 663, 670, 675, 676 and 680 bring
 current drafts to 433, leaving 61 descriptions uncoded. FPGA quality tradeoffs,
 emulation-detection scope, qualitative video results, expert-stage assumptions,

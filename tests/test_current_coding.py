@@ -10,7 +10,7 @@ def test_current_drafts_preserve_identity_and_numeric_disagreement():
     rows = read_jsonl(ROOT / "data/current-description-coding-v1.jsonl")
     sources = {r["paper_id"]: r for r in read_jsonl(ROOT / "dac/data/paper-evidence-2026.jsonl")}
     branches = {r["theme_id"]: r["subthemes"] for r in json.loads((ROOT / "data/taxonomy-v1-evidence.json").read_text())["themes"]}
-    assert len(rows) == len({r["paper_id"] for r in rows}) == 433
+    assert len(rows) == len({r["paper_id"] for r in rows}) == 439
     for row in rows:
         for key in ["title", "evidence_url", "analysis_edition", "evidence_collection_date"]:
             assert row[key] == sources[row["paper_id"]][key]
@@ -321,3 +321,8 @@ def test_current_drafts_preserve_identity_and_numeric_disagreement():
     assert "storage or savings" in clue["metrics"][0]["qualifier"]
     spade = next(r for r in rows if r["paper_id"] == "dac-2026-research680")
     assert spade["metrics"][1]["metric"] == "end-to-end speedup"
+    mistle = next(r for r in rows if r["paper_id"] == "dac-2026-research681")
+    assert mistle["metrics"][1]["value"] == 100 * 2 ** 7 / 2 ** 15
+    assert "not fraction of Shannon entropy bits" in mistle["limits"][0]
+    ideal = next(r for r in rows if r["paper_id"] == "dac-2026-research690")
+    assert "not achieved hardware speedups" in ideal["limits"][0]
