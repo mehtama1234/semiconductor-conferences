@@ -11,9 +11,13 @@ accessible historical descriptions are drafted; 395 inventory records remain unc
 remain without substantive descriptions. The work queue now tracks draft paths
 and draft-only counts separately from the unchanged 72-record selected sample.
 All independent acceptance remains pending. See
-[historical coding](historical-description-coding-v1.md). Next: source-label
-reconciliation, draft review packets, full-paper condition recovery and comparable
-population design. Description-pass completeness is not independent acceptance.
+[historical coding](historical-description-coding-v1.md). Capture labels now match
+the 567 substantive DAC descriptions, preserving inherited inventory labels and
+leaving failed captures unchanged. All 27 historical/comparative drafts have
+[source-separated packets](draft-review-packets-v1.md); three overlap the selected
+sample and must not be double-counted. Next: full-paper condition recovery,
+taxonomy adjudication, independent review and comparable population design.
+Description-pass completeness is not independent acceptance.
 
 | Subgoal | State | Next deliverable |
 |---|---|---|

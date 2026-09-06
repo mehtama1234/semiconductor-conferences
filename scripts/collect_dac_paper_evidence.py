@@ -12,6 +12,8 @@ from datetime import date
 from pathlib import Path
 from urllib.request import Request, urlopen
 
+from scripts.normalize_dac_capture_labels import normalize
+
 
 TAG_RE = re.compile(r"<[^>]+>")
 SPACE_RE = re.compile(r"\s+")
@@ -41,7 +43,7 @@ def fetch_one(row: dict, raw_dir: Path) -> dict:
         evidence = []
         if description:
             evidence.append({"field": "description", "text": description})
-        return {
+        return normalize({
             **row,
             "title": title,
             "authors": authors or row.get("authors", []),
@@ -54,7 +56,7 @@ def fetch_one(row: dict, raw_dir: Path) -> dict:
             "evidence_url": url,
             "evidence_collection_date": date.today().isoformat(),
             "fetch_status": "ok",
-        }
+        })
     except Exception as exc:  # Preserve failures as explicit rows for retry/audit.
         return {**row, "fetch_status": "error", "fetch_error": type(exc).__name__, "evidence_collection_date": date.today().isoformat(), "evidence_status": "unavailable"}
 

@@ -67,10 +67,9 @@ optimization; they should not be counted as equivalent hardware capabilities.
 
 ## Next work
 
-Recover full-paper conditions and missing historical sources. Resolve inherited
-metadata-only labels on the source-capture records separately from their actual
-description evidence status. Prepare source-separated draft review packets and
-adjudicate provisional taxonomy branches. Develop comparable
+Capture labels have been reconciled and [source-separated draft review packets](draft-review-packets-v1.md)
+are prepared. Recover full-paper conditions and missing historical sources,
+obtain independent review, and adjudicate provisional taxonomy branches. Develop comparable
 2026 populations after historical coding; do not force every case into a pair.
 These drafts do not increase the separate 72-record selected adjudication ledger
 or grant acceptance to synthesis claims.

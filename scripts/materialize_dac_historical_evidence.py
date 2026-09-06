@@ -9,6 +9,8 @@ import re
 from datetime import date
 from pathlib import Path
 
+from scripts.normalize_dac_capture_labels import normalize
+
 
 TAG_RE = re.compile(r"<[^>]+>")
 SPACE_RE = re.compile(r"\s+")
@@ -47,7 +49,7 @@ def main(root: Path) -> dict:
                 })
             else:
                 result.update({"capture_status": "captured_challenge_or_empty", "evidence_status": "unavailable"})
-        results.append(result)
+        results.append(normalize(result))
     output = root / "dac/data/paper-evidence-2025.jsonl"
     with output.open("w", encoding="utf-8") as handle:
         for row in results:
