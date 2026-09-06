@@ -6,8 +6,8 @@ The first four previously uncoded records, selected by paper-ID order, have
 research1138 (ARTEMIS). Exact official source URLs and row locators accompany
 each record. All are pending independent review and retain description-level
 evidence status. They are not added to the 49-record selected adjudication sample.
-With seventy-two batches, 427 additional drafts are available;
-67 of the 543 current DAC descriptions still need initial technical coding.
+With seventy-three batches, 433 additional drafts are available;
+61 of the 543 current DAC descriptions still need initial technical coding.
 Draft coverage does not mean complete technical evidence. Research1691's extraction
 has been repaired, but its energy/power boundary remains unresolved.
 
@@ -817,6 +817,17 @@ percentage loss or remaining-throughput claim without a definition.
 | 651 Laelaps | NUMA cache/thread/eviction coordination | Geometric mean and overhead require workload/accounting context |
 | 656 ASG-MOENN | Power-adaptive sparse-expert predistortion | Operating dB span differs from linearization or energy improvement |
 
-All 427 records have source-separated review packets. Next: resolve the ATB
+## Seventy-third batch
+
+| Paper | Mechanism | Evidence boundary |
+|---|---|---|
+| 660 TRINE | Unified FPGA primitives and token pruning | Accuracy loss and per-board/baseline mapping remain explicit |
+| 663 EmuDRop | Reserved-opcode environment distinguishability | No quantitative detection rates; no evasion code executed |
+| 670 LiveVLM | Streaming KV retention and retrieval | Accuracy and real-time results are qualitative |
+| 675 SAEM | Stage-aware expert management | Stage detection cost and quality parity need review |
+| 676 CLUE-ECC | Pooled system/on-die parity | 33.3% storage-versus-saving wording remains unresolved |
+| 680 SPADE | Adaptive block-sparse video attention | Attention and full-inference factors are separate |
+
+All 433 records have source-separated review packets. Next: resolve the ATB
 numeric comparison from primary evidence and continue uncoded descriptions in
 stable order, preserving gaps and possible counterexamples.
