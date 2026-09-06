@@ -4,3 +4,4 @@
 - `codo-dataflow-compiler.md` — primary-preprint and artifact-backed analysis of CODO’s FPGA dataflow compiler.
 - `primary-evidence-llm-systems.md` — four primary-preprint-backed papers on MoE movement, quantization datapaths, disaggregated training, and thermal coordination.
 - `indexed-evidence-queue.md` — HBM-CASO discovery evidence retained pending primary-source verification.
+- `memory-ecc-pim-reliability.md` — topical synthesis of PIM scheduling, ECC coordination, physical interference, and HBM protection.

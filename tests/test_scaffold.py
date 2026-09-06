@@ -204,6 +204,13 @@ def test_each_conference_has_a_deep_page() -> None:
         assert any(len(page.read_text()) > 500 for page in pages)
 
 
+def test_isca_memory_ecc_pim_topical_page_preserves_evidence_boundaries() -> None:
+    text = (ROOT / "isca/pages/memory-ecc-pim-reliability.md").read_text()
+    assert "HBM-CASO" in text
+    assert "secondary indexed discovery" in text
+    assert "does not establish program-wide prevalence" in text
+
+
 def test_iccad_batch_keeps_2025_fallback_label() -> None:
     rows = []
     for path in (ROOT / "iccad/data/adjudicated-2025-batch.jsonl", ROOT / "iccad/data/adjudicated-2025-batch-2.jsonl"):
