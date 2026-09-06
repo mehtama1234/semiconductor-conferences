@@ -254,6 +254,23 @@ def test_root_synthesis_preserves_evidence_asymmetry_and_next_requirements() -> 
     assert "not a prevalence estimate" in text
     assert "independent adversarial LLM or human review" in text
     assert "Conference complementarity" in text
+    evidence = json.loads((ROOT / "data/technology-direction-evidence-v1.json").read_text())
+    assert evidence["schema"] == "technology-direction-evidence.v1"
+    assert len(evidence["directions"]) == 6
+    assert all(direction["evidence"] and direction["limits"] for direction in evidence["directions"])
+
+
+def test_root_synthesis_evidence_references_resolve_to_adjudicated_ledgers() -> None:
+    evidence = json.loads((ROOT / "data/technology-direction-evidence-v1.json").read_text())
+    paths = {
+        "dac": [ROOT / "dac/data/adjudicated-2026-batch.jsonl", ROOT / "dac/data/adjudicated-2026-batch-2.jsonl", ROOT / "dac/data/adjudicated-2026-batch-3.jsonl", ROOT / "dac/data/adjudicated-2026-batch-4.jsonl"],
+        "iccad": [ROOT / "iccad/data/adjudicated-2025-batch.jsonl", ROOT / "iccad/data/adjudicated-2025-batch-2.jsonl"],
+        "isca": [ROOT / "isca/data/adjudicated-2026-batch.jsonl", ROOT / "isca/data/adjudicated-2026-batch-2.jsonl", ROOT / "isca/data/adjudicated-2026-batch-3.jsonl", ROOT / "isca/data/adjudicated-2026-batch-4.jsonl", ROOT / "isca/data/adjudicated-2026-batch-5.jsonl"],
+    }
+    for direction in evidence["directions"]:
+        for reference in direction["evidence"]:
+            rows = [json.loads(line) for path in paths[reference["conference_id"]] for line in path.read_text().splitlines() if line.strip()]
+            assert reference["paper_id"] in {row["paper_id"] for row in rows}
 
 
 def test_detailed_taxonomy_and_adversarial_protocol_exist() -> None:

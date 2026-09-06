@@ -5,6 +5,8 @@ It asks what detailed capabilities are appearing across the selected evidence,
 how the conferences complement one another, and what is required before calling
 any direction a measured trend.
 
+The machine-readable evidence map is [`data/technology-direction-evidence-v1.json`](../data/technology-direction-evidence-v1.json).
+
 The evidence is intentionally asymmetric:
 
 - DAC: 543 official 2026 research descriptions; 49 adjudicated records.
