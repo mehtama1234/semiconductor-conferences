@@ -1,0 +1,9 @@
+{
+  "contract": "semiconductor-paper-collection.v1",
+  "primary_target_year": 2026,
+  "fallback_rule": "If the target edition's paper metadata or abstracts are not publicly accessible, use the latest complete accessible edition and label it analysis_edition while preserving target_edition metadata.",
+  "conferences": ["isca", "dac", "iccad"],
+  "required_paper_fields": ["paper_id", "conference_id", "analysis_edition", "title", "authors", "doi_or_identifier", "publisher_url", "publication_date", "collection_date", "access_status", "problem", "method_or_artifact", "workload_or_benchmark", "baselines", "metrics", "theme_id", "subtheme_id", "subsubtheme_id", "classification_confidence", "limits"],
+  "prohibited_claims_before_adjudication": ["conference-wide trend ranking", "industrial adoption", "commercial success", "market share", "rising or declining direction"],
+  "source_priority": ["official_conference_site", "ACM_or_IEEE_proceedings", "DOI_metadata", "author_repository_copy", "institutional_repository", "secondary_index_for_discovery_only"]
+}

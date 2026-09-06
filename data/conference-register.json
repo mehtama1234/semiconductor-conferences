@@ -1,0 +1,9 @@
+{
+  "contract": "semiconductor-conference-source-register.v1",
+  "capture_date": "2026-09-05",
+  "conferences": [
+    {"conference_id":"isca","name":"International Symposium on Computer Architecture","edition":"2026","folder":"isca","official_home":"https://www.iscaconf.org/isca2026/index.php","status":"source_register_complete_paper_collection_pending"},
+    {"conference_id":"dac","name":"Design Automation Conference","edition":"2026","folder":"dac","official_home":"https://dac.com/","status":"source_register_complete_paper_collection_pending"},
+    {"conference_id":"iccad","name":"International Conference on Computer-Aided Design","target_edition":"2026","paper_analysis_edition":"2025","folder":"iccad","official_home":"https://iccad.com/2026","fallback_reason":"2026 paper corpus is not yet publicly available as of capture date; use the complete 2025 program/proceedings for paper-level analysis until 2026 papers are released.","status":"2026_scope_captured_2025_paper_fallback_pending_collection"}
+  ]
+}
