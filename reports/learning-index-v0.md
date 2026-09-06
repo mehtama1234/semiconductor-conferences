@@ -12,6 +12,7 @@ organized around technical questions, not just conference names.
 - [Evidence-derived taxonomy](../data/taxonomy-v1-evidence.json)
 - [Detailed taxonomy and coding guide](taxonomy-coding-guide-v1.md)
 - [Adversarial judge protocol](adversarial-judge-protocol-v1.md)
+- [Adjudicated evidence coverage](evidence-summary-v1.md)
 - [Adversarial consistency preflight](adversarial-preflight-v0.json)
 
 ## DAC 2026

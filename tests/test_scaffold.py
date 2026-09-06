@@ -147,6 +147,13 @@ def test_detailed_taxonomy_and_adversarial_protocol_exist() -> None:
     assert '"decision": "accept|revise|reject"' in protocol
 
 
+def test_evidence_summary_is_explicitly_non_prevalence() -> None:
+    summary = json.loads((ROOT / "reports/evidence-summary-v1.json").read_text())
+    assert summary["record_count"] == 49
+    assert "not a conference prevalence estimate" in summary["selection_warning"]
+    assert summary["unreviewed_adversarial_judge_count"] == 49
+
+
 def test_evidence_taxonomy_contains_adjudicated_specificity() -> None:
     taxonomy = json.loads((ROOT / "data/taxonomy-v1-evidence.json").read_text())
     all_subsub = [value for theme in taxonomy["themes"] for values in theme.get("subsubthemes", {}).values() for value in values]

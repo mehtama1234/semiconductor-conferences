@@ -45,6 +45,7 @@ def validate(root: Path = ROOT) -> dict:
         "learning_index_present": (root / "reports/learning-index-v0.md").exists(),
         "taxonomy_coding_guide_present": (root / "reports/taxonomy-coding-guide-v1.md").exists() and "Adjudication boundary tests" in (root / "reports/taxonomy-coding-guide-v1.md").read_text(encoding="utf-8"),
         "adversarial_judge_protocol_present": (root / "reports/adversarial-judge-protocol-v1.md").exists() and "Hostile judge prompt" in (root / "reports/adversarial-judge-protocol-v1.md").read_text(encoding="utf-8"),
+        "evidence_summary_present": (root / "reports/evidence-summary-v1.json").exists() and json.loads((root / "reports/evidence-summary-v1.json").read_text(encoding="utf-8")).get("record_count") == 49,
         "evidence_taxonomy_present": json.loads((root / "data/taxonomy-v1-evidence.json").read_text(encoding="utf-8")).get("taxonomy_version") == "v1-evidence-derived",
         "adversarial_preflight_present": json.loads((root / "reports/adversarial-preflight-v0.json").read_text(encoding="utf-8")).get("judge_mode") == "deterministic_preflight_not_llm",
         "dac_program_signals_provenanced": all(row.get("source_id") in source_ids(root, "dac") and row.get("evidence_status") == "program_signal_only" for row in read_jsonl(root / "dac/data/program-signals.jsonl")),
