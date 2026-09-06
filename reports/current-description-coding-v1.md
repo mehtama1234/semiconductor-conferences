@@ -6,8 +6,8 @@ The first four previously uncoded records, selected by paper-ID order, have
 research1138 (ARTEMIS). Exact official source URLs and row locators accompany
 each record. All are pending independent review and retain description-level
 evidence status. They are not added to the 49-record selected adjudication sample.
-With thirty-one batches, 181 additional drafts are available;
-313 of the 543 current DAC descriptions still need initial technical coding.
+With thirty-two batches, 187 additional drafts are available;
+307 of the 543 current DAC descriptions still need initial technical coding.
 Draft coverage does not mean complete technical evidence. Research1691's extraction
 has been repaired, but its energy/power boundary remains unresolved.
 
@@ -366,6 +366,17 @@ percentage loss or remaining-throughput claim without a definition.
 | 2056 GPU-FUZZ | Constraint-guided operator boundary testing | Thirteen bugs are author-reported; no confirmed exploitability or equal-budget comparison |
 | 2057 AccShield | Operator-sensitive faulty-array scheduling | Qualitative reliability/performance evidence; criticality and fault coverage unknown |
 
-All 181 records have source-separated review packets. Next: resolve the ATB
+## Thirty-second batch
+
+| Paper | Mechanism | Evidence boundary |
+|---|---|---|
+| 2058 SharedKD | Shared-network teacher/student pruning | NDS convention unknown; pruning fraction is not hardware speedup |
+| 2071 SpRDA | Difference-aware caching and sparse/NMO execution | Sparsity definition and robot success tolerance missing |
+| 2074 Z-ParaSwap | Correlation-aware ZNS page striping | Swap latency is not full GNN runtime; tail percentile unspecified |
+| 2079 Heterogeneous CVM migration | Trusted firmware-compatibility agent | Qualitative security/overhead; trust boundary and versions unresolved |
+| 208 S2CIM | Affine-split FeFET storage/computation | 50% attack success does not prove chance or zero leakage; universal threat claim unsupported |
+| 2083 CHiRM-DSE | Rule-mined CodeLLM pragma exploration | Same time budget but no numeric QoR or surrogate error supplied |
+
+All 187 records have source-separated review packets. Next: resolve the ATB
 numeric comparison from primary evidence and continue uncoded descriptions in
 stable order, preserving gaps and possible counterexamples.

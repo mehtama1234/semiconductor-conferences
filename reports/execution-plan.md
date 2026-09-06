@@ -4,6 +4,12 @@ The governing scope and acceptance criteria are in [GOAL.md](../GOAL.md).
 This log distinguishes finished work from queued work; a plan is not a completed
 research result.
 
+Latest batch: DAC 2026 IDs 2058, 2071, 2074, 2079, 208 and 2083 bring
+current drafts to 187, leaving 307 descriptions uncoded. Pruning versus speed,
+swap-tail scope, migration trust assumptions, security success-rate denominators
+and qualitative DSE evidence remain explicit. All 214 draft papers have
+source-separated packets; independent acceptance remains pending.
+
 Latest batch: DAC 2026 IDs 2030, 2036, 2037, 2048, 2056 and 2057 bring
 current drafts to 181, leaving 313 descriptions uncoded. Task switching,
 pipeline overlap, routing estimation, predictor latency and unverified fault/bug
