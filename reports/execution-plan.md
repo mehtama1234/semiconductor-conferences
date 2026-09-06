@@ -4,6 +4,12 @@ The governing scope and acceptance criteria are in [GOAL.md](../GOAL.md).
 This log distinguishes finished work from queued work; a plan is not a completed
 research result.
 
+Latest batch: DAC 2026 IDs 2997, 3019, 3027, 3029, 3042 and 3050 bring
+current drafts to 355, leaving 139 descriptions uncoded. Debug-link accounting,
+SRAM recovery scope, geometric versus physical floorplan outcomes, MAC latency,
+ECC recovery generalization and graph-training baselines remain explicit. All 382
+draft papers have source-separated packets; independent acceptance remains pending.
+
 Latest batch: DAC 2026 IDs 2959, 297, 2970, 2975, 2976 and 2996 bring
 current drafts to 349, leaving 145 descriptions uncoded. Control-test boundaries,
 storage authentication, simulated cloud scale, fabricated/calibrated p-bit scope,

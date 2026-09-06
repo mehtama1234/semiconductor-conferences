@@ -6,8 +6,8 @@ The first four previously uncoded records, selected by paper-ID order, have
 research1138 (ARTEMIS). Exact official source URLs and row locators accompany
 each record. All are pending independent review and retain description-level
 evidence status. They are not added to the 49-record selected adjudication sample.
-With fifty-nine batches, 349 additional drafts are available;
-145 of the 543 current DAC descriptions still need initial technical coding.
+With sixty batches, 355 additional drafts are available;
+139 of the 543 current DAC descriptions still need initial technical coding.
 Draft coverage does not mean complete technical evidence. Research1691's extraction
 has been repaired, but its energy/power boundary remains unresolved.
 
@@ -674,6 +674,17 @@ percentage loss or remaining-throughput claim without a definition.
 | 2976 REPAIR | Differential NVM reconfiguration | Lifetime ratio lacks physical/model and wear endpoints |
 | 2996 HoloCode | Optical/electronic private encoding | Component energy claim differs from system energy; privacy unquantified |
 
-All 349 records have source-separated review packets. Next: resolve the ATB
+## Sixtieth batch
+
+| Paper | Mechanism | Evidence boundary |
+|---|---|---|
+| 2997 WINNER | Intermittent trace capture and emission uplink | Link-energy comparison lacks range/rate and receiver accounting |
+| 3019 SRAM aging | Reconstructed initial power-up states | Near-complete recovery unquantified; copies are not established as chips |
+| 3027 POLT | Pressure-driven rectilinear tessellation | HPWL and area error do not establish routing or chip-area gains |
+| 3029 CO-MAC | Center-out stochastic accumulation | MAC latency differs from whole-model inference latency |
+| 3042 BREW-RC | Timing-derived ECC parity reconstruction | Tested products do not establish universal code recovery |
+| 3050 Graph training | Graph/hardware-adaptive parallelism | Sparse-attention and training ratios have different scopes |
+
+All 355 records have source-separated review packets. Next: resolve the ATB
 numeric comparison from primary evidence and continue uncoded descriptions in
 stable order, preserving gaps and possible counterexamples.
