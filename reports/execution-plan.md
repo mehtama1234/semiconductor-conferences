@@ -4,6 +4,12 @@ The governing scope and acceptance criteria are in [GOAL.md](../GOAL.md).
 This log distinguishes finished work from queued work; a plan is not a completed
 research result.
 
+Latest batch: DAC 2026 IDs 1373, 1374, 1378, 138, 1382 and 1388 bring
+current drafts to 55, leaving 439 descriptions uncoded. CEC means/maxima and
+parallel-resource differences, SpMSpV versus broader workload coverage and
+formal-proof/specification claims remain scoped. All 82 draft papers have
+source-separated packets and no independent acceptance verdicts.
+
 Latest batch: DAC 2026 IDs 1338, 1348, 1351, 1355, 1357 and 1365 bring
 current drafts to 49, leaving 445 descriptions uncoded. Bug-count versus accuracy,
 frontend versus system speedup and AiMX baseline/work-scope limitations remain

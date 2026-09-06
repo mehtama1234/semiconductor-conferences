@@ -6,8 +6,8 @@ The first four previously uncoded records, selected by paper-ID order, have
 research1138 (ARTEMIS). Exact official source URLs and row locators accompany
 each record. All are pending independent review and retain description-level
 evidence status. They are not added to the 49-record selected adjudication sample.
-With nine batches, 49 additional drafts are available;
-445 of the 543 current DAC descriptions still need initial technical coding.
+With ten batches, 55 additional drafts are available;
+439 of the 543 current DAC descriptions still need initial technical coding.
 
 ## Evidence requiring care
 
@@ -122,6 +122,17 @@ percentage loss or remaining-throughput claim without a definition.
 | 1357 3D-DuRA | Dual-ring sparse attention on hybrid 3D memory compute | Infinity2B/VAR-d36 gains are model-specific; quality, area and technology parity remain unknown |
 | 1365 AiMX graph compiler | DMA layout conversion and graph/operator fusion | Reported 2.00–2.73× prefill and 18.50–38.29× decode gains require baseline/work-scope reconciliation; removing only profiled overhead cannot explain them |
 
-All 49 records have source-separated review packets. Next: resolve the ATB
+## Tenth batch
+
+| Paper | Mechanism | Evidence boundary |
+|---|---|---|
+| 1373 SLCross | Cross-component M2 shared-cache confidentiality analysis | No leakage-rate/accuracy figures or access assumptions supplied; no attack executed here |
+| 1374 SpArC | Sparse-metaoperation FPGA compilation | Numerical comparisons are SuiteSparse SpMSpV, not every supported sparse operation |
+| 1378 RISC-V invariant verification | Modular proofs with counter/handshake invariants | Reported 174% speedup has ambiguous convention; proof scope and specification-update claim need source verification |
+| 138 PFGEMM | Prefix-index compression and out-of-order sparse execution | Traffic and speed gains omit named baselines, precision and resources |
+| 1382 AI+SAR | Pseudo-transposition and FFT-aware graph splitting | 3.45× applies to SAR imaging, not the complete AI+SAR application |
+| 1388 Parallel CEC | Sharing-aware factored-form partitioning | 40-core versus single-thread gains are not resource-matched; geometric means and maxima remain separate |
+
+All 55 records have source-separated review packets. Next: resolve the ATB
 numeric comparison from primary evidence and continue uncoded descriptions in
 stable order, preserving gaps and possible counterexamples.
