@@ -10,7 +10,7 @@ def test_current_drafts_preserve_identity_and_numeric_disagreement():
     rows = read_jsonl(ROOT / "data/current-description-coding-v1.jsonl")
     sources = {r["paper_id"]: r for r in read_jsonl(ROOT / "dac/data/paper-evidence-2026.jsonl")}
     branches = {r["theme_id"]: r["subthemes"] for r in json.loads((ROOT / "data/taxonomy-v1-evidence.json").read_text())["themes"]}
-    assert len(rows) == len({r["paper_id"] for r in rows}) == 313
+    assert len(rows) == len({r["paper_id"] for r in rows}) == 319
     for row in rows:
         for key in ["title", "evidence_url", "analysis_edition", "evidence_collection_date"]:
             assert row[key] == sources[row["paper_id"]][key]
@@ -233,3 +233,8 @@ def test_current_drafts_preserve_identity_and_numeric_disagreement():
     lin = next(r for r in rows if r["paper_id"] == "dac-2026-research2756")
     assert lin["metrics"][3]["metric"] == "CNOT count reduction"
     assert lin["metrics"][3]["qualifier"] == "average"
+    crystals = next(r for r in rows if r["paper_id"] == "dac-2026-research2780")
+    assert "not correction coverage" in crystals["metrics"][1]["condition"]
+    instructions = next(r for r in rows if r["paper_id"] == "dac-2026-research2804")
+    assert instructions["metrics"][2]["value"] == 99.8357
+    assert "not security-detection recall" in instructions["limits"][0]

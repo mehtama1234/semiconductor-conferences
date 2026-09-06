@@ -6,8 +6,8 @@ The first four previously uncoded records, selected by paper-ID order, have
 research1138 (ARTEMIS). Exact official source URLs and row locators accompany
 each record. All are pending independent review and retain description-level
 evidence status. They are not added to the 49-record selected adjudication sample.
-With fifty-three batches, 313 additional drafts are available;
-181 of the 543 current DAC descriptions still need initial technical coding.
+With fifty-four batches, 319 additional drafts are available;
+175 of the 543 current DAC descriptions still need initial technical coding.
 Draft coverage does not mean complete technical evidence. Research1691's extraction
 has been repaired, but its energy/power boundary remains unresolved.
 
@@ -608,6 +608,17 @@ percentage loss or remaining-throughput claim without a definition.
 | 2773 FlashHD | Hierarchical in-flash HDC filtering | Full recall and gains unquantified; exactness conditions absent |
 | 2778 ExCave | Shared inversion and background caching | Qualitative image/runtime claims only |
 
-All 313 records have source-separated review packets. Next: resolve the ATB
+## Fifty-fourth batch
+
+| Paper | Mechanism | Evidence boundary |
+|---|---|---|
+| 278 CellE | Equality-saturated cell mining | Mean/max comparators and exhaustive-search domain unspecified |
+| 2780 CRYSTALS protection | Small-modulus detection/correction | Detection percentages are not correction coverage |
+| 279 SiTA | Sparse readout-mitigation tensor processing | Mitigation speed is not whole quantum-program speed |
+| 2793 CircuitDiff | RTL/netlist diffusion representations | Qualitative prediction; announced release not checked |
+| 2794 SwitchMT | Adaptive spiking task scheduling | Qualitative learning gains, no measured hardware efficiency |
+| 2804 Undocumented instructions | Discovery/classification/security workflow | Classifier accuracy differs from security recall; sets may overlap |
+
+All 319 records have source-separated review packets. Next: resolve the ATB
 numeric comparison from primary evidence and continue uncoded descriptions in
 stable order, preserving gaps and possible counterexamples.
