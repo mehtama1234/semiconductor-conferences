@@ -37,8 +37,9 @@ are captured, 543 records are routed for review, and 49 are adjudicated.
 - [LLM, memory, and wafer-scale execution](../isca/pages/llm-memory-and-wafer-scale-v0.md)
 - [CODO dataflow compiler](../isca/pages/codo-dataflow-compiler.md)
 - [Primary evidence on LLM systems](../isca/pages/primary-evidence-llm-systems.md)
+- [Primary evidence batch 2: PIM scheduling and cross-layer ECC](../isca/pages/primary-evidence-batch-2026-2.md)
 
-ISCA currently combines official program metadata, five primary-preprint-backed
+ISCA currently combines official program metadata, seven primary-preprint-backed
 records, and five low-confidence secondary-index excerpts pending primary
 verification.
 
@@ -49,7 +50,7 @@ verification.
 - [Additional primary evidence batch](../iccad/pages/primary-evidence-batch-2025.md)
 - [Additional ICCAD primary evidence batch](../iccad/pages/primary-evidence-batch-2025-2.md)
 
-ICCAD has 2026 scope signals, a 276-paper 2025 metadata inventory, and five
+ICCAD has 2026 scope signals, a 276-paper 2025 metadata inventory, and eight
 primary/preprint/author-PDF-supported 2025 adjudications.
 
 ## How to read the analysis

@@ -103,6 +103,17 @@ def test_isca_adjudicated_batch_has_primary_preprint_evidence() -> None:
     assert all(row["classification_confidence"] == "high_primary_preprint" for row in rows)
 
 
+def test_isca_adjudicated_batch_two_has_primary_preprint_evidence() -> None:
+    rows = [json.loads(line) for line in (ROOT / "isca/data/adjudicated-2026-batch-2.jsonl").read_text().splitlines() if line.strip()]
+    assert len(rows) == 2
+    assert {row["title"] for row in rows} == {
+        "COSM: A Cooperative Scheduling Framework for Concurrent PIM and CPU Execution on Mobile Devices",
+        "Cerberus: Cross-Layer ECC Co-Design for Robust and Efficient Memory Protection",
+    }
+    assert all(row["evidence_url"].startswith("https://arxiv.org/") for row in rows)
+    assert all(row["problem"] and row["method_or_artifact"] and row["metrics"] for row in rows)
+
+
 def test_dac_program_records_preserve_program_only_status() -> None:
     rows = [json.loads(line) for line in (ROOT / "dac/data/program-presentations.jsonl").read_text().splitlines() if line.strip()]
     assert len(rows) >= 500
@@ -200,9 +211,9 @@ def test_detailed_taxonomy_and_adversarial_protocol_exist() -> None:
 
 def test_evidence_summary_is_explicitly_non_prevalence() -> None:
     summary = json.loads((ROOT / "reports/evidence-summary-v1.json").read_text())
-    assert summary["record_count"] == 62
+    assert summary["record_count"] == 64
     assert "not a conference prevalence estimate" in summary["selection_warning"]
-    assert summary["unreviewed_adversarial_judge_count"] == 62
+    assert summary["unreviewed_adversarial_judge_count"] == 64
 
 
 def test_adversarial_pre_review_is_labeled_as_non_independent() -> None:
@@ -223,7 +234,7 @@ def test_evidence_taxonomy_contains_adjudicated_specificity() -> None:
 def test_adversarial_preflight_is_explicit_about_its_limits() -> None:
     audit = json.loads((ROOT / "reports/adversarial-preflight-v0.json").read_text())
     assert audit["judge_mode"] == "deterministic_preflight_not_llm"
-    assert audit["record_count"] == 62
+    assert audit["record_count"] == 64
     assert audit["limits"]
 
 

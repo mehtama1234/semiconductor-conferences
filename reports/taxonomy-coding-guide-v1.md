@@ -1,7 +1,7 @@
 # Evidence-derived taxonomy and coding guide v1
 
 This guide turns the taxonomy IDs in `data/taxonomy-v1-evidence.json` into
-operational coding rules. It is derived from the 62 adjudicated records across
+operational coding rules. It is derived from the 64 adjudicated records across
 DAC 2026, ICCAD 2025 fallback, and ISCA 2026. It is provisional until the
 remaining corpora are adjudicated.
 

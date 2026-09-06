@@ -8,8 +8,8 @@ generalization conditions needed for final acceptance.
 
 This is not an independent adversarial LLM judgment. The workspace has no
 authorized model endpoint or capable local model available, so the review is
-explicitly labeled same-model and preliminary. The 62-record evidence summary
-counts all 62 records as awaiting independent LLM or human
+explicitly labeled same-model and preliminary. The 64-record evidence summary
+counts all 64 records as awaiting independent LLM or human
 awaiting independent LLM or human review. The next review pass should use the protocol in
 `adversarial-judge-protocol-v1.md`, ideally with two independent judges and a
 human resolution of disagreements.

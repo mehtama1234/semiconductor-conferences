@@ -7,7 +7,8 @@
     "dac/data/adjudicated-2026-batch-4.jsonl",
     "iccad/data/adjudicated-2025-batch.jsonl",
     "iccad/data/adjudicated-2025-batch-2.jsonl",
-    "isca/data/adjudicated-2026-batch.jsonl"
+    "isca/data/adjudicated-2026-batch.jsonl",
+    "isca/data/adjudicated-2026-batch-2.jsonl"
   ],
   "status": "provisional_until_full_corpus_adjudication",
   "taxonomy_version": "v1-evidence-derived",
@@ -133,11 +134,13 @@
       "label": "Memory, interconnect, and storage",
       "subsubthemes": {
         "data-movement-and-locality": [
+          "concurrent-pim-cpu-mobile-scheduling",
           "cxl-near-memory-ann-search",
           "disaggregated-compute-network-storage-training",
           "near-memory-communication-lower-bounds"
         ],
         "memory-hierarchy-and-persistence": [
+          "cross-layer-ecc-encode-once-decode-many",
           "kv-cache-centric-embodied-planning-memory-management",
           "open-fpga-scale-up-interconnect-platform",
           "os-hardware-cxl-tiered-memory",
