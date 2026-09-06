@@ -1,0 +1,38 @@
+{
+  "schema": "supplementary-primary-assessment.v1",
+  "paper_id": "dac-2026-research1000",
+  "title": "Can Asymmetric Tile Buffering Be Beneficial?",
+  "source_id": "dac-2026-atb-arxiv-v1",
+  "source_url": "https://arxiv.org/html/2511.16041v1",
+  "capture_date": "2026-09-06",
+  "source_version": "2511.16041v1",
+  "source_tier": "author_preprint_provisional_identity",
+  "identity": {
+    "status": "exact_title_ten_author_names_match_two_unresolved",
+    "unresolved_name_pairs": [{"program": "Qiran Pang", "preprint": "Wesley Pang"}, {"program": "HyeGang Jun", "preprint": "Gregory Jun"}],
+    "limit": "Do not assume aliases; proceedings-version reconciliation required."
+  },
+  "raw_capture_path": "dac/data/raw/atb-2511.16041v1.html",
+  "raw_sha256": "ed8d997011bc82b2f7c0f464a8452588ceab902ec23722c43e182851e367eaa2",
+  "extraction_scope": "HTML evaluation sections and tables; PDF text corroborates abstract; no visual PDF table inspection",
+  "platform": {"name": "AMD Ryzen AI 9 HX 370", "toolchain": "IRON and MLIR-AIE", "locator": "S6.SS1"},
+  "config_1_table_rows": [
+    {"source": "MLIR-AIE", "matrix_m_k_n": [8192, 4224, 4096], "tflops": 4.8, "locator": "S6.T2"},
+    {"source": "Ours symmetric", "matrix_m_k_n": [2048, 4096, 2048], "tflops": 17.3, "locator": "S6.T2"},
+    {"source": "Ours ATB", "matrix_m_k_n": [4096, 4096, 2048], "tflops": 24.3, "printed_speedup": 4.54, "locator": "S6.T2"}
+  ],
+  "size_sweep_peak": {"matrix_m_k_n": [4096, 8192, 2048], "tflops": 24.6, "locator": "S6.T3"},
+  "arithmetic_checks": [
+    {"numerator": 24.3, "denominator": 4.8, "computed_ratio": 5.0625, "printed_ratio": 4.54, "status": "inconsistent_not_corrected"},
+    {"numerator": 24.6, "denominator": 4.8, "computed_ratio": 5.125, "printed_ratio": 4.54, "status": "inconsistent_not_corrected"}
+  ],
+  "interpretation_limits": [
+    "Different matrix dimensions prevent a matched-workload speedup claim from these rows.",
+    "Do not substitute arithmetic ratios as corrected experimental speedups.",
+    "Overall implementation gains include kernel optimization, not ATB alone.",
+    "The approximately 40 percent symmetric-to-ATB throughput comparison also changes matrix dimensions.",
+    "Exact baseline commits, accuracy parity, repetition and final-version identity remain unresolved."
+  ],
+  "headline_metric_status": "withheld_pending_source_reconciliation",
+  "independent_review_status": "pending"
+}

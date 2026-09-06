@@ -4,6 +4,13 @@ The governing scope and acceptance criteria are in [GOAL.md](../GOAL.md).
 This log distinguishes finished work from queued work; a plan is not a completed
 research result.
 
+ATB follow-up: a provisional exact-title arXiv v1 match retains two author-name
+differences. The source table reproduces the arithmetic mismatch and uses
+different problem sizes across baseline and proposed rows. The
+[assessment](../dac/reports/atb-primary-assessment-v1.md) withholds headline metrics
+pending reconciliation; it does not invent a corrected speedup. Continue remaining
+accessible coding while retaining this explicit quantitative evidence gap.
+
 Current DAC expansion: four previously uncoded 2026 records (1000, 1011, 1095,
 1138) have technical drafts and source-separated packets; 490 descriptions remain
 uncoded. The ATB description's stated 4.54× gain does not equal its TFLOPS endpoint

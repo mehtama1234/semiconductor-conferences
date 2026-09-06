@@ -16,6 +16,11 @@ configuration is not established. Preserve both claims; obtain the source table
 before attributing the discrepancy to rounding, different workloads or a typo.
 No claimed performance record is accepted from this description.
 
+The [primary-source assessment](../dac/reports/atb-primary-assessment-v1.md)
+found the mismatch also in arXiv v1, distinct matrix sizes in the compared rows,
+and two unresolved author-name differences. Headline metrics remain withheld;
+arithmetic checks are not substituted as corrected experimental results.
+
 SatSFL describes interpolation and compression for intermittent satellite links,
 but names no platform, dataset or numerical result. STEM-CAM supplies a FeFET CAM
 encoding mechanism without measured device, energy, throughput or precision data.
