@@ -72,6 +72,17 @@
   "supplementary_researcher_assessments": [
     {
       "assessment": {
+        "additional_verification_run": {
+          "command": "python3 py/alltoall_4x6_bw256_failpatterm0_16KB_xy.py",
+          "configuration": "4x6 core mesh, bandwidth 256, no failed nodes or links, 16KB AllToAll, XY path",
+          "interpretation": "A second synthetic communication primitive completed from the captured archive. It is artifact reproducibility evidence, not a paper headline metric or independent validation.",
+          "observed_stdout": "time_cost: 208 with 69.33333333333333",
+          "result_pickle_sha256": "20807dc14f261969b059fe26df4d5f2cddbb493c7e3c2c4f4ec01e06d2f8f99d1d2",
+          "result_text_sha256": "8df66f64b57424391d363fd6b811fed3c430c77597da265025728bd637bad804",
+          "run_date": "2026-09-07",
+          "status": "bounded_single_case_reproduced",
+          "temporary_environment": "Same temporary Python 3.10.12 archive environment as verification_run"
+        },
         "archive_capture": {
           "bytes": 2486678,
           "capture_status": "downloaded_and_archive_listing_verified",
@@ -177,7 +188,7 @@
       "headline_metric_status": "withheld_pending_primary_paper",
       "independent_review_status": "pending",
       "path": "isca/data/busybarn-artifact-primary-recovery-v1.json",
-      "sha256": "c9bfb978af495752332fc617511c7573141c314ad404f05a59f48a7bd75687e7",
+      "sha256": "d84ace636c375e3dd02bcb4c5ea9ddd0f718c95aeb90ed0bf2177f7af607dc40",
       "source_url": "https://zenodo.org/records/19430308"
     }
   ],
