@@ -1925,3 +1925,9 @@ The condition-aware deep theme profile is now materialized at
 summarizes subthemes, mechanisms, and workload/hardware/baseline/metric
 missingness across the 494 coded description records; it remains selected-sample
 synthesis and does not establish prevalence or temporal direction.
+
+The dated P2-routing reconciliation at
+`reports/p2-routing-reconciliation-2026-09-07.md` corrects the interpretation of
+the historical running counter: the P2 batch files contain 345 DAC IDs and 158
+ISCA IDs, not 528 DAC IDs. Future routing progress is conference-specific; the
+historical mixed counter is retained only as workflow history.

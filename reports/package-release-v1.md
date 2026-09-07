@@ -214,6 +214,9 @@ gates still open**.
 - A condition-aware deep theme profile over the 494 coded description records,
   with subtheme/mechanism routing and explicit workload, hardware, baseline, and
   metric missingness. It is selected-sample synthesis only.
+- A dated P2-routing reconciliation separating the historical mixed DAC/ISCA
+  running counter from file-level conference-specific coverage; it reports 345
+  DAC and 158 ISCA IDs in the P2 batch files and prevents denominator inflation.
 
 ## What users may conclude
 
