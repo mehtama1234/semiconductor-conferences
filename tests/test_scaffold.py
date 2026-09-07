@@ -378,3 +378,12 @@ def test_title_shift_candidates_are_exploratory_only() -> None:
     assert summary["comparisons"]["isca_2025_to_2026"]["old_record_count"] == 135
     assert summary["comparisons"]["dac_2025_to_2026"]["new_record_count"] == 543
     assert "technical evidence" in summary["limits"][0]
+
+
+def test_full_inventory_theme_routing_is_not_thematic_evidence() -> None:
+    summary = json.loads((ROOT / "reports/inventory-theme-routing-v1.json").read_text())
+    assert summary["status"] == "metadata_only_review_routing"
+    assert summary["inventory_count"] == 1589
+    assert summary["routed_count"] + summary["unrouted_count"] == 1589
+    assert "abstract/full-text" in " ".join(summary["limits"])
+    assert "not technical thematic analysis" in (ROOT / "reports/inventory-theme-routing-v1.md").read_text()
