@@ -34,6 +34,7 @@ def audit(root: Path) -> dict:
     evidence = captured_sources(root)
     records = read(root / "dac/data/adjudicated-2026-batch.jsonl") + read(root / "dac/data/adjudicated-2026-batch-2.jsonl") + read(root / "dac/data/adjudicated-2026-batch-3.jsonl") + read(root / "dac/data/adjudicated-2026-batch-4.jsonl") + read(root / "iccad/data/adjudicated-2025-batch.jsonl") + read(root / "iccad/data/adjudicated-2025-batch-2.jsonl") + read(root / "isca/data/adjudicated-2026-batch.jsonl") + read(root / "isca/data/adjudicated-2026-batch-2.jsonl") + read(root / "isca/data/adjudicated-2026-batch-3.jsonl") + read(root / "isca/data/adjudicated-2026-batch-4.jsonl") + read(root / "isca/data/adjudicated-2026-batch-5.jsonl") + read(root / "isca/data/adjudicated-2026-batch-6.jsonl") + read(root / "isca/data/adjudicated-2026-batch-7.jsonl") + read(root / "isca/data/adjudicated-2026-batch-8.jsonl")
     records += read(root / "isca/data/adjudicated-2026-batch-9.jsonl")
+    records += read(root / "iccad/data/adjudicated-2025-batch-3.jsonl")
     checks = []
     for record in records:
         source = evidence.get(record["paper_id"])

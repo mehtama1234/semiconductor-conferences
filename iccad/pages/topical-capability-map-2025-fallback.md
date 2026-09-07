@@ -1,6 +1,6 @@
 # ICCAD 2025 fallback topical capability map
 
-This page synthesizes the eight adjudicated ICCAD fallback records at the
+This page covers nine coded ICCAD fallback records (independent review pending) at the
 mechanism level. ICCAD 2026 remains the target edition, but its paper corpus was
 not publicly available in the collection window; therefore every observation on
 this page is explicitly about the 2025 fallback sample and is not a 2026 trend
@@ -17,6 +17,7 @@ claim.
 | Robust analog optimization | process-variation modeling, uncertainty-aware Bayesian search, Monte Carlo refinement | RSizing |
 | Hardware telemetry security | power/thermal observation, architecture inference, substitute-model construction, transfer attacks | Energon |
 | Device-algorithm co-design | stochastic computation, spin neurons, ferroelectric nonvolatile weights, PDE mapping | NeuroPDE |
+| Cross-layer optimization | system/technology feedback, cell criticality, search-budget controls | Orthrus (primary-coding addition below) |
 
 The useful unit is the chain of decisions, not the label “AI for EDA.” For
 example, MAHL is about decomposing a hierarchical chiplet workflow and validating
@@ -100,3 +101,14 @@ thermal integration, and attack analysis rather than one technology.
 It does not support ICCAD-wide prevalence, a 2025-to-2026 directional claim,
 commercial adoption, or a ranking of methods. Those require the 2026 paper corpus,
 full-paper extraction for all records, and independent adversarial review.
+## Orthrus primary-coding addition
+
+[Orthrus assessment](../data/orthrus-primary-recovery-v1.json) and
+[review packet](../../data/review-packets/iccad-2025-437.json) extend the fallback
+sample to nine coded papers. The primary branch is design methodology →
+optimization and search → dual-loop system-technology co-optimization.
+This is a researcher classification: learned search and physical design are
+secondary relationships, not additional papers. The distinguishing question is
+how design levels exchange optimization guidance. Its captured abstract is
+separate from the coding summary; figure review and independent acceptance
+remain pending, and numerical headlines are withheld.

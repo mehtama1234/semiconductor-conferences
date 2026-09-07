@@ -15,7 +15,7 @@ independent markets, and not a partition for counting papers.
 
 The evidence base is asymmetric. All 543 DAC 2026 descriptions have initial
 coding, but most lack full-paper conditions. The original cross-conference sample
-began with 72 records; current coding contains 73 (49 DAC, 16 ISCA, 8 ICCAD),
+began with 72 records; current coding contains 74 (49 DAC, 16 ISCA, 9 ICCAD),
 none independently accepted here.
 ICCAD technical evidence uses the explicit 2025 fallback. The
 [source-linked direction map](../data/technology-direction-evidence-v1.json)
@@ -174,7 +174,8 @@ Pareto improvements under equal budgets.
 
 The [Orthrus primary follow-up](../iccad/data/orthrus-primary-recovery-v1.json)
 provides another case for examining how optimization levels communicate. Its
-assessment remains outside the coded anchor set pending integration. The key
+assessment now has a coded record and prepared review packet, but is not an
+independently accepted synthesis anchor. The key
 comparison to investigate is the value of cross-layer guidance under a matched
 total evaluation budget—not merely whether expanding the allowed design space
 can produce a better frontier.
@@ -201,7 +202,7 @@ An [ICCAD fallback follow-up](../iccad/data/adder-dcim-primary-recovery-v1.json)
 adds Adder-DCIM as an institutional-evidence test case, not a new accepted anchor.
 The methodological question is whether representation changes remain beneficial
 after conversion costs and system overhead are counted. Its available evidence
-does not yet resolve that question. It remains outside the 73-record coded sample.
+does not yet resolve that question. It remains outside the 74-record coded sample.
 
 **Boundary.** Reordering and metadata can consume the saved work. Equal integer
 codes across different quantization groups need not denote equal weights;

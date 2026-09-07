@@ -22,3 +22,8 @@ def test_versioned_html_abstract_uses_document_heading_and_strips_label():
     assert result["identity_status"] == "exact_normalized_title"
     assert result["description"] == "Original paragraph."
     assert extract_arxiv(html, "Another Paper")["identity_status"] == "title_mismatch_requires_review"
+def test_html_title_excludes_structured_funding_note():
+    from scripts.capture_review_sources import extract_arxiv
+    result = extract_arxiv('<h1 class="ltx_title_document">Exact Title<span class="ltx_pubnotes">Thanks: funding</span></h1><div class="ltx_abstract">Technical abstract.</div>', 'Exact Title')
+    assert result["identity_status"] == "exact_normalized_title"
+    assert result["observed_title"] == "Exact Title"

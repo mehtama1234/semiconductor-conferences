@@ -25,6 +25,9 @@ def extract_arxiv(html: str, expected_title: str) -> dict:
     title = title_meta.get("content", "").strip() if title_meta else ""
     if not title:
         heading = soup.find("h1", class_="ltx_title_document")
+        if heading:
+            for note in heading.select(".ltx_pubnotes, .ltx_note"):
+                note.decompose()
         title = heading.get_text(" ", strip=True) if heading else ""
     block = soup.find("blockquote", class_="abstract") or soup.find("div", class_="ltx_abstract")
     if block:

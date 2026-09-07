@@ -4,6 +4,14 @@ The governing scope and acceptance criteria are in [GOAL.md](../GOAL.md).
 This log distinguishes finished work from queued work; a plan is not a completed
 research result.
 
+Orthrus integrated as ICCAD batch 3 with primary-source locators, a provisional
+dual-loop STCO taxonomy branch, and no accepted numerical headline. Current
+coding totals 74 (49 DAC, 16 ISCA, 9 ICCAD). Original abstract capture required
+excluding structured arXiv funding notes from the title heading; exact normalized
+title matching remains mandatory. Regenerated taxonomy, summaries, queue and
+review packets; independent acceptance remains pending. Next: visually reconcile
+Orthrus figures, examine equal-budget comparisons, and expand accessible coding.
+
 Five 2026 author leads now have explicit manuscript-search outcomes and revisit
 triggers; no exact manuscript recovered, and no absence claim generalized.
 Recovered Orthrus (ICCAD 2025-437) versioned primary full text with nine-author
