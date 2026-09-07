@@ -135,6 +135,11 @@ The twenty-fourth P2 tranche is recorded in
 timing analysis, PCB placement, characterization, heterogeneous GNNs,
 hyper-dimensional computing, Gaussian splatting, RTL simulation, package power,
 graph learning, and dataflow generation.
+The twenty-sixth P2 tranche is recorded in
+`reports/p2-recovery-batch-26-2026-09-07.md`, continuing the DAC frontier across
+scale-up networks, safety-critical accelerators, DRC, embodied-planning memory,
+watermarking, CAMs, Gaussian splatting, SSD testing, BFP NPUs, and analog
+in-pixel modeling.
 The twenty-fifth P2 tranche is recorded in
 `reports/p2-recovery-batch-25-2026-09-07.md`, continuing the DAC priority
 frontier across MoE scheduling, buffering, satellite federated learning,

@@ -93,6 +93,9 @@ gates still open**.
   ten timing, placement, graph, simulation, package, and compiler records.
 - A twenty-fifth P2 routing tranche continuing the DAC frontier across MoE,
   buffering, satellite FL, analog/CIM, quantum, PMU, logic, and CPU-DSE records.
+- A twenty-sixth P2 routing tranche continuing the DAC frontier across networks,
+  safety, DRC, embodied memory, watermarking, CAM, graphics, SSD, NPU, and
+  analog-modeling records.
 - A third ISCA primary-recovery batch covering SPEC CPU, KernelEvolve, and
   Rowhammer with source-tier-specific limits.
 - A fourth ISCA primary-recovery batch covering GRAINS, Triage, and Coset
