@@ -22,11 +22,11 @@ The evidence is intentionally asymmetric:
   coded fallback papers. The inventory includes 43 invited papers and ten student
   presentations, not 319 regular papers; see the [scope audit](../iccad/reports/program-scope-audit-v1.md).
 
-The 461-record technical coding sample is selected for recoverable evidence and
+The 476-record technical coding sample is selected for recoverable evidence and
 technical diversity. It is not a prevalence estimate, market forecast, conference
 ranking, or proof that a direction is rising.
 For a mechanism-level follow-up, see [scheduling versus physical surrogates](../iccad/reports/scheduling-versus-surrogates-v1.md): two analysis accelerators with different correctness and generalization requirements.
-All 461 remain independently unaccepted. The original synthesis-anchor set is
+All 476 remain independently unaccepted. The original synthesis-anchor set is
 distinct from the expanded coded sample and is not enlarged by metadata recovery.
 
 ## Executive interpretation
@@ -218,7 +218,7 @@ author-linked package exposes hierarchical mapping and BALD fault-tolerant routi
 one normalized 16KB AllGather case completed at 80 artifact simulation time units
 under a 4x6, 256-bandwidth configuration. That result is a reproducibility check,
 not a paper metric: no complete figure, matched baseline, end-to-end workload, or
-independent reproduction was obtained. It remains outside the 461-record selected
+independent reproduction was obtained. It remains outside the 476-record selected
 coding sample and cannot support a comparative performance claim.
 
 CANNON's [recovery assessment](../dac/reports/cannon-primary-recovery-v1.md)
@@ -622,3 +622,11 @@ sub-mW visual wakeup, mixed-precision GEMM, quantum break-even compilation, and
 reachability-aware CGRA mapping. The recurring mechanism is adaptation to changing
 structure—sparsity, non-idealities, topology, or operating constraints—inside the
 hardware/software loop. These remain selected-paper capability signals.
+
+This batch extends the map into encrypted sparse multiplication, heterogeneous
+mobile RAG, resilient and sub-bit LLM inference, BEOL compact modeling, hot-switched
+CPU serving, photonic inverse design, voltage-underscaled MACs, multi-secret
+tracking, on-chip learning, microscaling, hyperthread scheduling, temporal graph
+mining, and LLM-assisted PCB design. The recurring direction is adaptation across
+security, memory, device physics, and runtime state rather than a fixed accelerator
+configuration. These remain selected capability signals.

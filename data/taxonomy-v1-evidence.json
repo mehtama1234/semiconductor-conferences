@@ -58,6 +58,7 @@
     "dac/data/adjudicated-2026-batch-44.jsonl",
     "dac/data/adjudicated-2026-batch-45.jsonl",
     "dac/data/adjudicated-2026-batch-46.jsonl",
+    "dac/data/adjudicated-2026-batch-47.jsonl",
     "iccad/data/adjudicated-2025-batch-3.jsonl",
     "iccad/data/adjudicated-2025-batch-4.jsonl",
     "iccad/data/adjudicated-2025-batch-5.jsonl",
@@ -84,7 +85,8 @@
           "process-reward-rtl-generation"
         ],
         "generative-design-automation": [
-          "selfcorrecting-pcb-3d-generation"
+          "selfcorrecting-pcb-3d-generation",
+          "selfevolving-pcb-schematic-agent"
         ],
         "graph-learning-for-eda": [
           "graph-prompt-crosstalk-timing",
@@ -194,6 +196,7 @@
           "time-aware-quantum-calibration-scheduling"
         ],
         "photonic-and-optical-compute": [
+          "photonic-mvm-inverse-design",
           "robust-microring-neural-network-mapping"
         ],
         "quantum-hardware-and-control": [
@@ -237,7 +240,9 @@
           "complex-valued-uncertainty-codesign",
           "distribution-aware-transformer-activation",
           "pegranular-compressed-gemm",
-          "priority-shared-scale-microscaling"
+          "posit-inspired-vlm-microscaling",
+          "priority-shared-scale-microscaling",
+          "subbit-sketch-llm-compression"
         ],
         "architecture-software-co-design": [
           "asymmetric-gemm-tile-buffering",
@@ -253,6 +258,9 @@
           "rl-pimm-noc-mapping",
           "silicon-calibrated-hierarchical-cim-exploration",
           "training-free-self-speculative-edge-llm-decoding"
+        ],
+        "edge-ai-and-deployment": [
+          "fpga-tsetlin-onchip-training"
         ],
         "emerging-and-nonvon-neumann-compute": [
           "ising-parallel-momentum-tempering"
@@ -275,6 +283,7 @@
           "adaptive-sparse-gcn-caching",
           "bitserial-transformer-sparsity",
           "cuda-core-spmv",
+          "locality-aware-temporal-motif-mining",
           "out-of-order-sparse-gemm",
           "streaming-ternary-spgemm"
         ],
@@ -323,6 +332,7 @@
         "ai-accelerator-microarchitecture",
         "approximate-and-precision-aware-compute",
         "architecture-software-co-design",
+        "edge-ai-and-deployment",
         "emerging-and-nonvon-neumann-compute",
         "general-purpose-and-domain-specific-architecture",
         "neuromorphic-and-emerging-architectures",
@@ -562,6 +572,12 @@
     {
       "label": "Physical design and manufacturing",
       "subsubthemes": {
+        "cell-and-circuit-design": [
+          "exhaustive-flipflop-design-search"
+        ],
+        "device-and-process-modeling": [
+          "physics-prior-symbolic-beol-modeling"
+        ],
         "fpga-and-reconfigurable-design": [
           "dynamic-cost-fracturable-lut-mapping"
         ],
@@ -620,6 +636,8 @@
         ]
       },
       "subthemes": [
+        "cell-and-circuit-design",
+        "device-and-process-modeling",
         "floorplanning-and-power-delivery",
         "fpga-and-reconfigurable-design",
         "manufacturing-and-lithography",
@@ -659,10 +677,14 @@
         "hardware-and-system-security": [
           "microfluidic-protocol-obfuscation",
           "pagetable-bigdata-sidechannel",
-          "percore-em-sidechannel"
+          "percore-em-sidechannel",
+          "reveal-conceal-multisecret-tracking"
         ],
         "power-integrity-and-reliability": [
           "physics-informed-joint-em-ir-modeling"
+        ],
+        "privacy-preserving-compute": [
+          "encrypted-sparse-matmul-codesign"
         ],
         "privacy-preserving-computing": [
           "hybrid-optical-private-edge-encoding",
@@ -673,8 +695,14 @@
           "ecc-aware-reliable-bank-pim",
           "processing-using-dram-interference-reliability"
         ],
+        "reliable-and-efficient-compute": [
+          "adaptive-underscaled-dnn-mac"
+        ],
         "reliable-and-secure-ai-systems": [
           "dynamic-dnn-bitflip-defense"
+        ],
+        "reliable-and-secure-ml": [
+          "spatiotemporal-llm-activation-resilience"
         ],
         "secure-and-robust-ml": [
           "tee-ciphertext-sidechannel-defense",
@@ -725,9 +753,12 @@
         "fault-tolerance-and-reliability",
         "hardware-and-system-security",
         "power-integrity-and-reliability",
+        "privacy-preserving-compute",
         "privacy-preserving-computing",
         "reliability-and-fault-tolerance",
+        "reliable-and-efficient-compute",
         "reliable-and-secure-ai-systems",
+        "reliable-and-secure-ml",
         "secure-and-robust-ml",
         "side-channel-and-hardware-security",
         "thermal-and-reliability-modeling"
@@ -752,7 +783,8 @@
         ],
         "distributed-and-disaggregated-systems": [
           "adaptive-gnn-communication-compression",
-          "hardware-physics-guided-distributed-ml"
+          "hardware-physics-guided-distributed-ml",
+          "hyperthread-interference-scheduling"
         ],
         "edge-ai-and-deployment": [
           "adaptive-hyperdimensional-lidar",
@@ -782,6 +814,8 @@
         "llm-systems-and-runtime": [
           "diffusion-language-model-stage-orchestration",
           "expert-aware-moe-checkpointing",
+          "heterogeneous-mobile-rag-orchestration",
+          "hot-switching-cpu-llm-serving",
           "single-gpu-finetuning-codesign"
         ],
         "multimedia-and-edge-systems": [

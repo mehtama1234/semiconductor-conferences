@@ -76,10 +76,14 @@
       "hardware-and-system-security": [
         "microfluidic-protocol-obfuscation",
         "pagetable-bigdata-sidechannel",
-        "percore-em-sidechannel"
+        "percore-em-sidechannel",
+        "reveal-conceal-multisecret-tracking"
       ],
       "power-integrity-and-reliability": [
         "physics-informed-joint-em-ir-modeling"
+      ],
+      "privacy-preserving-compute": [
+        "encrypted-sparse-matmul-codesign"
       ],
       "privacy-preserving-computing": [
         "hybrid-optical-private-edge-encoding",
@@ -90,8 +94,14 @@
         "ecc-aware-reliable-bank-pim",
         "processing-using-dram-interference-reliability"
       ],
+      "reliable-and-efficient-compute": [
+        "adaptive-underscaled-dnn-mac"
+      ],
       "reliable-and-secure-ai-systems": [
         "dynamic-dnn-bitflip-defense"
+      ],
+      "reliable-and-secure-ml": [
+        "spatiotemporal-llm-activation-resilience"
       ],
       "secure-and-robust-ml": [
         "tee-ciphertext-sidechannel-defense",
@@ -142,9 +152,12 @@
       "fault-tolerance-and-reliability",
       "hardware-and-system-security",
       "power-integrity-and-reliability",
+      "privacy-preserving-compute",
       "privacy-preserving-computing",
       "reliability-and-fault-tolerance",
+      "reliable-and-efficient-compute",
       "reliable-and-secure-ai-systems",
+      "reliable-and-secure-ml",
       "secure-and-robust-ml",
       "side-channel-and-hardware-security",
       "thermal-and-reliability-modeling"

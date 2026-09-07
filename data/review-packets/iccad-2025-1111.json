@@ -155,6 +155,12 @@
   "taxonomy_branch": {
     "label": "Physical design and manufacturing",
     "subsubthemes": {
+      "cell-and-circuit-design": [
+        "exhaustive-flipflop-design-search"
+      ],
+      "device-and-process-modeling": [
+        "physics-prior-symbolic-beol-modeling"
+      ],
       "fpga-and-reconfigurable-design": [
         "dynamic-cost-fracturable-lut-mapping"
       ],
@@ -213,6 +219,8 @@
       ]
     },
     "subthemes": [
+      "cell-and-circuit-design",
+      "device-and-process-modeling",
       "floorplanning-and-power-delivery",
       "fpga-and-reconfigurable-design",
       "manufacturing-and-lithography",
