@@ -1,5 +1,12 @@
 # Execution plan — 2026-09-06
 
+Secondary-source recovery follow-up: author and institutional publication pages
+were checked for MLX, HBM-CASO, and ConServe. They confirm exact identities for
+MLX and ConServe, while HBM-CASO remains bibliographic-only; no abstract or
+manuscript was promoted. The attempts and revisit actions are recorded in the
+ISCA recovery ledger. BusyBarn remains the only paper in this batch with an
+artifact-level assessment, and all four remain secondary-pending or uncoded.
+
 BusyBarn artifact recovery: registered the exact-title/DOI-linked Zenodo artifact
 for ISCA paper 060. Its description supports only the mechanism and reproduction
 scope (hierarchical simulated-annealing mapping, BALD fault-tolerant routing, and
@@ -23,7 +30,7 @@ assessments reach 30. Next: continue ordered recovery and full-text condition ch
 while preserving independent review and temporal comparison as separate gates.
 Regenerated taxonomy, summary, queue and both packet sets; project validation and
 138 tests pass. The full suite exposed one stale recovery-attempt count from the
-previous batch, now corrected to 20. Packets contain 31 original abstracts, 49
+previous batch, now corrected to 21. Packets contain 31 original abstracts, 49
 official descriptions and three source gaps; 25 include supplementary assessments.
 Preflight is 69 pass / 15 review, not independent scientific acceptance.
 

@@ -61,7 +61,7 @@ The current 84-record selected sample spans ten taxonomy themes: DAC 49, ISCA 16
 and ICCAD 19. ISCA has 171 DOI matches. Historical inventories contain 135 ISCA
 2025 and 419 DAC 2025 records; only 24 DAC 2025 records have substantive
 descriptions. All coded records await independent review. The paper-level queue
-covers all 1,589 inventory records, with 31 supplementary assessments and 20
+covers all 1,589 inventory records, with 31 supplementary assessments and 21
 dated recovery attempts. Validation and 138 tests pass; these establish
 consistency, not correctness of the scientific interpretations.
 The initial 72-record/276-ICCAD snapshot is retained in git history, not treated as
