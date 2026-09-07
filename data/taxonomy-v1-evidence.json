@@ -38,6 +38,7 @@
     "dac/data/adjudicated-2026-batch-24.jsonl",
     "dac/data/adjudicated-2026-batch-25.jsonl",
     "dac/data/adjudicated-2026-batch-26.jsonl",
+    "dac/data/adjudicated-2026-batch-27.jsonl",
     "iccad/data/adjudicated-2025-batch-3.jsonl",
     "iccad/data/adjudicated-2025-batch-4.jsonl",
     "iccad/data/adjudicated-2025-batch-5.jsonl",
@@ -63,7 +64,8 @@
           "diffusion-tcad-multi-field-surrogate",
           "hardware-aware-bev-detection-nas",
           "hierarchical-multi-agent-chiplet-design",
-          "multi-fidelity-bayesian-microarchitecture-exploration"
+          "multi-fidelity-bayesian-microarchitecture-exploration",
+          "self-supervised-atpg-free-test-point-insertion"
         ],
         "llm-assisted-design-flows": [
           "llm-evolution-of-technology-mapping",
@@ -90,6 +92,9 @@
         "analog-and-mixed-signal-synthesis": [
           "device-aware-noise-in-pixel-co-optimization"
         ],
+        "analog-calibration-and-modeling": [
+          "blind-ml-adc-calibration"
+        ],
         "emerging-memory-and-devices": [
           "bit-flexible-digital-cim-compression",
           "memristor-analog-cam-genome-acceleration"
@@ -107,6 +112,7 @@
       },
       "subthemes": [
         "analog-and-mixed-signal-synthesis",
+        "analog-calibration-and-modeling",
         "emerging-memory-and-devices",
         "neuromorphic-quantum-and-non-von-neumann"
       ],
@@ -142,6 +148,7 @@
         "specialized-accelerators-and-dataflow": [
           "correlation-aware-gkp-decoder-acceleration",
           "lpn-post-quantum-crypto-acceleration",
+          "modular-riscv-pqc-extension",
           "noise-robust-cim-on-device-personalization",
           "reram-cam-point-cloud-knn-acceleration"
         ],
@@ -431,6 +438,8 @@
           "dependency-aware-two-dimensional-rtl-fault-simulation",
           "living-rtl-benchmark-and-equivalence-evaluation",
           "llm-assisted-hls-logic-debugging",
+          "llm-automated-uvm-testbench-generation",
+          "llm-hierarchical-reference-model-generation",
           "python-hardware-generation-verilator-debugging",
           "reinforcement-learning-ssd-test-generation",
           "simultaneous-dnn-fault-injection-assessment",
