@@ -49,20 +49,21 @@ synthesis. Coverage gaps and unresolved claims are part of the deliverable.
 - Preserve permitted evidence without bypassing access restrictions. Software
   consistency checks do not establish technical truth or independent acceptance.
 
-## Starting checkpoint — 2026-09-06
+## Recovered checkpoint — 2026-09-06 (supersedes the initial recovery snapshot)
 
 | Corpus | Inventory | Technically coded sample | Main limitation |
 |---|---:|---:|---|
-| ISCA 2026 | 173 | 15 | Mixed primary, institutional, and company sources; five secondary-only papers remain outside this sample; a sixth secondary record overlaps CODO |
+| ISCA 2026 | 173 | 16 | Mixed primary, institutional, and company sources; five secondary-only papers remain outside this sample; a sixth secondary record overlaps CODO |
 | DAC 2026 | 543 | 49 | Official descriptions captured across the inventory; most records still need coding and full-paper conditions |
-| ICCAD 2025 fallback | 276 | 8 | Most fallback records remain metadata-only |
+| ICCAD 2025 fallback | 319 | 19 | Most fallback records remain metadata-only; ICCAD 2026 paper corpus is not publicly available |
 
-The 72-record sample spans ten taxonomy themes. ISCA has 171 DOI matches.
-Historical inventories contain 135 ISCA 2025 and 419 DAC 2025 records; only 24 DAC
-2025 records currently have substantive descriptions. All 72 coded records await
-independent review. The recovered MTIA 300 increment is uncommitted. Validation
-and 43 tests passed during recovery; these establish consistency, not correctness
-of the scientific interpretations.
+The current 84-record selected sample spans ten taxonomy themes: DAC 49, ISCA 16,
+and ICCAD 19. ISCA has 171 DOI matches. Historical inventories contain 135 ISCA
+2025 and 419 DAC 2025 records; only 24 DAC 2025 records have substantive
+descriptions. All coded records await independent review. Validation and 136 tests
+pass; these establish consistency, not correctness of the scientific interpretations.
+The initial 72-record/276-ICCAD snapshot is retained in git history, not treated as
+the current state.
 
 ## Subgoal 1 — Establish a trustworthy recovered checkpoint
 
@@ -70,10 +71,10 @@ Reconcile report counts, evidence labels, and progress descriptions with the
 ledgers. Verify MTIA 300 identity and source references, regenerate derived
 reports, and preserve a coherent checkpoint.
 
-Done when reports agree with the 72-record ledger, known stale instructions are
-corrected, validation and existing tests pass, and a dated execution record names
-remaining work. Review the diff before committing the scoped increment; exclude
-unrelated work.
+Done when reports agree with the current ledger, known stale instructions are
+corrected, validation and tests pass, and a dated execution record names remaining
+work. Review the diff before committing each scoped increment; exclude unrelated
+work.
 
 ## Subgoal 2 — Make coverage and priorities explicit
 
