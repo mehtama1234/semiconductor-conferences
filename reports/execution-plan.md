@@ -4,6 +4,15 @@ The governing scope and acceptance criteria are in [GOAL.md](../GOAL.md).
 This log distinguishes finished work from queued work; a plan is not a completed
 research result.
 
+Stable-order ICCAD coverage batch: checked the next three untouched uncoded IDs
+1016 (ProtoCellLayout), 1019 (asynchronous checkpointing), and 1022 (SOT-MRAM
+MIMO). Recorded exact queries, identity/title issues, route-specific failures and
+next actions. ETRI confirms checkpointing title and two authors but supplies only
+metadata through the inspected page. No primary technical text recovered in this
+batch; related papers and patents were not substituted. Queue now exposes eight
+paper-level recovery histories across ISCA/ICCAD. Next: continue stable-order
+untouched records while revisiting these only through specific new source leads.
+
 Orthrus PDF check: visually reconciled page 8, Figures 9-11 and Table III,
 recording the PDF hash. Table arithmetic matches; Figure 10 B trades lower power
 for higher delay, and Figure 11 includes negative alignment cases. Full-budget
