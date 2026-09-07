@@ -12,6 +12,7 @@ organized around technical questions, not just conference names.
 - [Initial 2026 direction signals](initial-2026-direction-signals.md)
 - [Cross-conference direction synthesis](cross-conference-direction-v0.md)
 - [Technology direction synthesis v1](technology-direction-synthesis-v1.md)
+- [Where the field may be heading: mechanisms, hypotheses and tests](field-directions-and-hypotheses-v1.md)
 - [Technology direction evidence map](../data/technology-direction-evidence-v1.json)
 - [Synthesis reference reconciliation](synthesis-mapping-review-2026-09-06.md)
 - [Evidence-derived taxonomy](../data/taxonomy-v1-evidence.json)
@@ -40,8 +41,9 @@ organized around technical questions, not just conference names.
 - [Models, artifacts, and search evidence batch](../dac/pages/evidence-batch-4.md)
 - [DAC topical capability map](../dac/pages/topical-capability-map-2026.md)
 
-DAC currently has the deepest paper-level evidence: all 543 research descriptions
-are captured, 543 records are routed for review, and 49 are adjudicated.
+DAC has the broadest description coverage: all 543 descriptions have initial
+coding (49 original records and 494 additional drafts). Full-paper depth varies;
+initial coding does not mean independent acceptance.
 
 ## ISCA 2026
 

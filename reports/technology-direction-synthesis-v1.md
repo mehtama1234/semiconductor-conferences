@@ -7,9 +7,14 @@ any direction a measured trend.
 
 The machine-readable evidence map is [`data/technology-direction-evidence-v1.json`](../data/technology-direction-evidence-v1.json).
 
+For deeper mechanisms, counterpressures and explicit forward-looking hypotheses,
+read [Where the field may be heading](field-directions-and-hypotheses-v1.md).
+It separates suggested research directions from measured temporal trends.
+
 The evidence is intentionally asymmetric:
 
-- DAC: 543 official 2026 research descriptions; 49 adjudicated records.
+- DAC: 543 official 2026 research descriptions with initial coding: 49 original
+  records and 494 additional drafts; independent acceptance pending.
 - ISCA: 173 official 2026 program records; 15 primary, institutional-abstract,
   or company-source-backed adjudications; 5 secondary-only papers pending primary verification.
 - ICCAD: 2026 scope evidence and a 276-record 2025 fallback inventory; 8 primary

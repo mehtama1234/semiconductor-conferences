@@ -4,6 +4,14 @@ The governing scope and acceptance criteria are in [GOAL.md](../GOAL.md).
 This log distinguishes finished work from queued work; a plan is not a completed
 research result.
 
+Directional synthesis milestone: added field-directions-and-hypotheses-v1.md,
+connecting all six directions to mechanisms, subthemes, limits and falsifiable
+next tests. All six temporal growth/decline claims remain insufficient-evidence;
+forward-looking interpretations are explicitly hypotheses. Updated reading index
+to distinguish completed DAC description coding from full-paper depth. Next:
+challenge these hypotheses against additional coded cases and finish the pending
+XSearch source assessment before continuing remaining synthesis anchors.
+
 FuseDot (research1182): author identity confirmed, with no manuscript/artifact
 recovered from checked pages and five public repository metadata entries.
 Supplement records quantization-group legality, finite-precision, reordering and
