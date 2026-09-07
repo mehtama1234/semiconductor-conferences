@@ -1,11 +1,11 @@
 {
   "as_of": "2026-09-06",
   "conference_counts": {
-    "dac": 78,
+    "dac": 83,
     "iccad": 21,
     "isca": 16
   },
-  "distinct_subsubtheme_count": 114,
+  "distinct_subsubtheme_count": 116,
   "limits": [
     "Official descriptions and abstracts compress experimental conditions; numerical comparisons still require paper/table review.",
     "The adjudication sample is selected for recoverable evidence and diversity, so theme counts cannot be read as venue-wide frequencies.",
@@ -13,8 +13,8 @@
   ],
   "metric_token_leaders": {
     "1.5x": 2,
+    "18x": 2,
     "3.98x": 2,
-    "90%": 2,
     "approximately": 4,
     "correctness": 2,
     "deployment": 2,
@@ -22,33 +22,33 @@
     "less": 2,
     "minimal": 2,
     "minimum": 5,
-    "more": 3,
+    "more": 4,
     "over": 3,
     "real-time": 2,
     "reduced": 4,
-    "up": 35
+    "up": 36
   },
   "missing_field_counts": {
     "baselines": 2,
     "metrics": 13
   },
-  "record_count": 115,
-  "records_with_all_required_technical_fields": 102,
+  "record_count": 120,
+  "records_with_all_required_technical_fields": 107,
   "selection_warning": "This is a selected adjudication sample, not a conference prevalence estimate or market forecast.",
   "source_tier_counts": {
     "author_artifact_source": 1,
     "company_author_source": 2,
     "institutional_abstract": 5,
     "institutional_technical_report": 1,
-    "official_description": 75,
+    "official_description": 80,
     "primary_or_author_copy": 31
   },
   "subtheme_counts": {
-    "ai-assisted-eda/learned-design-space-exploration": 2,
+    "ai-assisted-eda/learned-design-space-exploration": 3,
     "ai-assisted-eda/llm-assisted-design-flows": 6,
     "analog-mixed-signal-and-emerging-devices/analog-and-mixed-signal-synthesis": 1,
     "analog-mixed-signal-and-emerging-devices/emerging-memory-and-devices": 1,
-    "analog-mixed-signal-and-emerging-devices/neuromorphic-quantum-and-non-von-neumann": 5,
+    "analog-mixed-signal-and-emerging-devices/neuromorphic-quantum-and-non-von-neumann": 6,
     "architecture-and-accelerators/ai-accelerator-microarchitecture": 3,
     "architecture-and-accelerators/architecture-software-co-design": 10,
     "architecture-and-accelerators/specialized-ai-accelerators": 8,
@@ -60,8 +60,8 @@
     "design-methodology-and-tooling/reproducibility-artifacts-and-benchmarks": 1,
     "design-methodology-and-tooling/synthesis-and-compilation": 1,
     "memory-interconnect-and-storage/chiplet-and-on-chip-interconnect": 2,
-    "memory-interconnect-and-storage/data-movement-and-locality": 8,
-    "memory-interconnect-and-storage/memory-hierarchy-and-persistence": 8,
+    "memory-interconnect-and-storage/data-movement-and-locality": 9,
+    "memory-interconnect-and-storage/memory-hierarchy-and-persistence": 9,
     "memory-interconnect-and-storage/storage-and-data-movement": 1,
     "physical-design-and-manufacturing/parasitic-extraction-and-modeling": 1,
     "physical-design-and-manufacturing/placement-routing-and-timing": 4,
@@ -72,7 +72,7 @@
     "power-reliability-and-security/fault-tolerance-and-reliability": 1,
     "power-reliability-and-security/power-integrity-and-reliability": 1,
     "power-reliability-and-security/reliability-and-fault-tolerance": 2,
-    "power-reliability-and-security/side-channel-and-hardware-security": 8,
+    "power-reliability-and-security/side-channel-and-hardware-security": 9,
     "systems-applications-and-workloads/datacenter-and-cloud-systems": 1,
     "systems-applications-and-workloads/edge-embedded-and-mobile-systems": 4,
     "verification-and-validation/formal-and-functional-verification": 4,
@@ -81,16 +81,16 @@
   },
   "summary_version": "v1-adjudicated-evidence-coverage",
   "theme_counts": {
-    "ai-assisted-eda": 8,
-    "analog-mixed-signal-and-emerging-devices": 7,
+    "ai-assisted-eda": 9,
+    "analog-mixed-signal-and-emerging-devices": 8,
     "architecture-and-accelerators": 21,
     "chiplets-3d-and-packaging": 6,
     "design-methodology-and-tooling": 10,
-    "memory-interconnect-and-storage": 19,
+    "memory-interconnect-and-storage": 21,
     "physical-design-and-manufacturing": 11,
-    "power-reliability-and-security": 17,
+    "power-reliability-and-security": 18,
     "systems-applications-and-workloads": 5,
     "verification-and-validation": 11
   },
-  "unreviewed_adversarial_judge_count": 115
+  "unreviewed_adversarial_judge_count": 120
 }
