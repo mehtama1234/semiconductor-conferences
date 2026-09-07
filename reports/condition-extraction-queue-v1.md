@@ -40,6 +40,10 @@ reliability, edge-system, quantum-control, and LLM-serving records.
 The fourth P2 tranche is recorded in
 `reports/p2-recovery-batch-4-2026-09-07.md`, adding ten thermal, LLM-memory,
 accelerator, security, memory-safety, RF, cloud, and ANN records.
+The fifth P2 tranche is recorded in
+`reports/p2-recovery-batch-5-2026-09-07.md`, adding ten simulation, packaging,
+analog/CIM, security, quantum, safety, distributed-compute, and power-modeling
+records.
 
 The categories overlap by design: P0 is a remediation priority, while P1/P2
 describe evidence depth. The former P0 records are retained in
