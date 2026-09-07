@@ -6,11 +6,11 @@
   "source_url": "https://ferrispnugraha.github.io/",
   "capture_date": "2026-09-06",
   "source_tier": "author_posted_abstract",
-  "extraction_scope": "2025 selected publication 2, abstract only; CV publication list establishes four-author identity.",
+  "extraction_scope": "Author's 2025 selected publication 2 abstract; CV four-author identity; HKUST institutional citation metadata and abstract inspected for title/DOI reconciliation.",
   "independent_review_status": "pending",
   "headline_metric_status": "no_numeric_metric_in_author_abstract",
   "identity": {
-    "status": "author_posted_title_variant_with_matching_four_authors_and_venue",
+    "status": "bibliographic_identity_reconciled_via_institutional_exact_title_authors_and_shared_doi",
     "observed_title": "Simulation Framework and Optimization of Superconducting Transmon-Tunable Coupler-Transmon Architecture for Qudit Gates",
     "title_difference": "Author site/CV uses Architecture where the program uses System; not silently normalized as exact title.",
     "authors": [
@@ -21,7 +21,19 @@
     ],
     "cv_url": "https://ferrispnugraha.github.io/assets/pdf/Curriculum_Vitae__detail.pdf",
     "author_linked_doi": "10.1109/ICCAD66269.2025.11240859",
-    "publisher_access": "verification page; technical content not retrieved"
+    "publisher_access": "verification page; technical content not retrieved",
+    "institutional_reconciliation": {
+      "source_id": "iccad-2025-qudit-hkust",
+      "url": "https://researchportal.hkust.edu.hk/en/publications/simulation-framework-and-optimization-of-superconducting-transmon/",
+      "raw_html_sha256": "97769c9b92dd683ef69942f9e7af741d60940f297746dad946cb35a95251c961",
+      "abstract_sha256": "fd3ddd6d82a092dbadc98c1ed4960b00d964f924cb15ce3a3f9c8cd278d8879e",
+      "abstract_extraction": "BeautifulSoup .textblock get_text with space separator and strip=True; 1619 characters",
+      "matched_fields": ["citation_title equals program title", "four citation_author entries equal program authors", "citation_doi equals author-linked DOI"],
+      "doi": "10.1109/ICCAD66269.2025.11240859",
+      "publication_date_as_reported": "2025-11-20",
+      "full_text_recovered": false,
+      "interpretation": "Shared DOI, four authors and conference bridge the preserved Architecture/System title variant; this is bibliographic resolution, not manuscript verification."
+    }
   },
   "mechanism": "Integrated simulation of cross-Kerr interactions and noise-aware two-qutrit CPhase fidelity, with control-device co-optimization.",
   "evidence_conditions": {
@@ -36,8 +48,8 @@
   },
   "limits": [
     "Abstract-level simulation evidence does not establish fabricated-device gate performance or fault tolerance.",
-    "Title-variant mapping requires manuscript-level confirmation before exact-title source capture.",
+    "Institutional exact-title abstract now supports source capture without weakening matching rules; full-text numerical conditions remain unresolved.",
     "CV tools/skills are not evidence of tools used by this paper."
   ],
-  "next_action": "Recover DOI-matched manuscript to resolve title variant, noise model, fidelity definition and validation conditions before coding."
+  "next_action": "Integrate conservative abstract-level coding using the exact-title HKUST source and source-separated capture; pursue DOI-matched manuscript for noise model, fidelity definition and validation conditions."
 }

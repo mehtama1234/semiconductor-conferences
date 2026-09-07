@@ -4,6 +4,17 @@ The governing scope and acceptance criteria are in [GOAL.md](../GOAL.md).
 This log distinguishes finished work from queued work; a plan is not a completed
 research result.
 
+Qudit identity follow-up: HKUST's institutional publication page supplies the
+exact program title, all four authors and the same DOI linked from the author's
+Architecture-title page. Recorded citation-field matches and HTML/abstract hashes.
+The bibliographic identity is now reconciled without relaxing exact-title matching
+or claiming manuscript recovery. The institutional abstract permits conservative
+coding/source capture next; noise model, fidelity definition, validation errors
+and optimization budgets still require full text. Coverage remains 76 coded and
+22 supplementary assessments, with no independent acceptance.
+Queue regeneration, validation and 109 tests passed; the new test preserves the
+title variant and abstract/full-text boundary while checking registered identity.
+
 Ordered ICCAD recovery 1091/1094/1095: UNIST's exact hybrid-bonding listing
 links to an IEEE verification page; the HDC paper has only an indexed KIT
 publication-list lead, with PDF retrieval failing (web error/direct HTTP 503).
