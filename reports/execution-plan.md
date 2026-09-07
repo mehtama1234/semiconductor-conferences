@@ -15,7 +15,10 @@ independent execution remain withheld. The 2.4 MB archive was downloaded,
 SHA-256 recorded, and its 340-file listing verified. A raw execution failed on
 CRLF scripts, missing `python`, and non-executable wrappers; a temporary
 normalized copy generated 24 AllGather result files before interruption. No
-complete figure or independent result was obtained. Supplementary assessments now reach 31,
+complete figure or independent result was obtained; one 16KB AllGather XY case
+did complete (80 artifact simulation time units under a 4x6, 256-bandwidth
+configuration), but is retained only as a single-case artifact check.
+Supplementary assessments now reach 31,
 while the paper remains secondary-pending and uncoded. Next: recover the
 manuscript or run the permitted artifact with pinned environment metadata.
 

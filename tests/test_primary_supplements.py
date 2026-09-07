@@ -114,6 +114,8 @@ def test_supplements_reach_queue_and_both_packet_types_without_promotion():
     assert busybarn["archive_capture"]["file_count"] == 340
     assert busybarn["archive_capture"]["execution_attempts"][0]["scientific_output"] is False
     assert busybarn["archive_capture"]["execution_attempts"][1]["observed_progress"].startswith("configuration generation")
+    assert busybarn["archive_capture"]["completed_case"]["reported_time_cost"] == 80
+    assert len(busybarn["archive_capture"]["completed_case"]["result_file_sha256"]) == 64
     assert set(supplements) == {"dac-2026-research031", "dac-2026-research043", "dac-2026-research046", "dac-2026-research1000", "dac-2026-research1028", "dac-2026-research1054", "dac-2026-research1065", "dac-2026-research108", "dac-2026-research1101", "dac-2026-research1110", "dac-2026-research1113", "dac-2026-research1182", "dac-2026-research1186", "dac-2026-research535", "dac-2026-research865", "dac-2026-research2760", "dac-2025-research1019"}
     rows, summary, _ = build_queue(ROOT)
     assert summary["supplementary_assessment_paper_count"] == 31

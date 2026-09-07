@@ -41,7 +41,18 @@
         "scientific_output": false,
         "limit": "No complete figure, end-to-end result, or independent reproduction was obtained."
       }
-    ]
+    ],
+    "completed_case": {
+      "status": "artifact_single_case_completed",
+      "command": "python py/allgather_4x6_bw256_failpatterm0_16KB_xy.py",
+      "configuration": "4x6 core mesh, 256 bandwidth, no failed nodes or links, 16KB AllGather, XY multicast path",
+      "script_seed": 123,
+      "scheduling_iterations": 10,
+      "reported_time_cost": 80,
+      "reported_time_unit": "artifact simulation time units",
+      "result_file_sha256": "48449a14a4ff7d79bb7a1b6f3d488eba397c36ef25634c111b49baf362511afc",
+      "interpretation": "This is one synthetic artifact case under one configuration; it is not a paper headline metric, speedup, end-to-end result, or independent reproduction."
+    }
   },
   "conditions": "The artifact description names AllGather and AllToAll, six LLM architectures, fault and power sensitivity, and mapping/routing ablations; exact platforms, baselines, seeds, numerical results, and metric units remain unextracted.",
   "limits": [
