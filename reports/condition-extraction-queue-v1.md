@@ -279,6 +279,12 @@ layer-aware IMC error correction, tensor-centric verification, hot-switched CPU
 LLM serving, photonic inverse design, real-time DAG scheduling, RTL assertion
 generation, voltage-underscaled MACs, secret tracking, FPGA weightless learning,
 and posit-like microscaling.
+The fiftieth P2 tranche is recorded in
+`reports/p2-recovery-batch-50-2026-09-07.md`, continuing the DAC frontier across
+wide-bit digital CIM, universal circuit modeling, stochastic edge detection,
+flip-flop exploration, cloud microservice interference, temporal motif mining,
+LLM PCB generation, mixed-precision GEMM, complementary-FET layout, and
+hybrid-bonded speculative decoding.
 
 The categories overlap by design: P0 is a remediation priority, while P1/P2
 describe evidence depth. The former P0 records are retained in
