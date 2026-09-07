@@ -1858,3 +1858,8 @@ The theme evidence matrix is now materialized at
 It carries six provisional mechanism directions, their subskills, evidence-tier
 counts, conference distribution, and explicit limits. It is a synthesis/routing
 layer and does not convert selected references into prevalence or trend evidence.
+
+The forty-third P2 tranche adds ten DAC routes across knowledge distillation,
+robotics diffusion, ZNS graph memory, confidential-VM migration, secure CIM,
+CodeLLM FPGA DSE, FPGA debugging, inverse lithography, adaptive activations, and
+memristor-memory NoCs; P2 routing now covers 428 of 541 lower-priority records.

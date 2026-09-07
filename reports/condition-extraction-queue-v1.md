@@ -229,6 +229,11 @@ The forty-second P2 tranche is recorded in
 RTL simulation, approximate DCiM, floorplanning, 4D/3D Gaussian splatting, edge
 sparsity, routability/track assignment, multi-die FPGA HLS, GPU fuzzing, and
 fault-tolerant AI scheduling.
+The forty-third P2 tranche is recorded in
+`reports/p2-recovery-batch-43-2026-09-07.md`, continuing the DAC frontier across
+knowledge distillation, robotics diffusion, ZNS graph memory, confidential-VM
+migration, secure CIM, CodeLLM FPGA DSE, FPGA debugging, inverse lithography,
+adaptive activations, and memristor-memory NoCs.
 
 The categories overlap by design: P0 is a remediation priority, while P1/P2
 describe evidence depth. The former P0 records are retained in

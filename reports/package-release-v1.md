@@ -162,6 +162,10 @@ gates still open**.
   LOONG's author/secondary routes, with quantitative claims withheld.
 - A bounded CAPA TPUv4 artifact run with command, archive hash, output hash, and
   explicit non-validation interpretation.
+- A forty-third P2 routing tranche continuing the DAC frontier across
+  distillation, robotics diffusion, ZNS graph memory, confidential VMs, secure
+  CIM, FPGA DSE/debugging, inverse lithography, adaptive activations, and
+  memristor NoCs.
 
 ## What users may conclude
 
