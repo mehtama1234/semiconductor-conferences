@@ -4,6 +4,14 @@ The governing scope and acceptance criteria are in [GOAL.md](../GOAL.md).
 This log distinguishes finished work from queued work; a plan is not a completed
 research result.
 
+GEMIR recovery: official description rechecked; no exact full paper or artifact
+recovered through the recorded searches. A complete two-page public GAMMA repo
+metadata listing found no GEMIR name/description match; author-site fetch timed
+out. This is bounded non-recovery, not an unavailable-paper designation. The
+attempt/conditions assessment is included in queue and review packet, and numerical
+synthesis is withheld pending full-paper conditions. Continue to the next anchor
+while revisiting GEMIR on a verified source link or restored author-site access.
+
 Strix follow-up: the printed detection-latency table is visually verified and
 transcribed, with BF16-I explicitly excluded because no row is provided. The
 assessment now includes a bounded artifact-discovery attempt and revisit trigger;

@@ -127,6 +127,9 @@ See the [ISCA memory/ECC/PIM analysis](../isca/pages/memory-ecc-pim-reliability.
 The [Strix primary assessment](../dac/reports/strix-primary-assessment-v1.md)
 adds configuration-specific evidence limits; its timing and reliability claims
 must not be broadened into safety certification or universal fault coverage.
+For GEMIR, [primary recovery remains incomplete](../dac/reports/gemir-primary-recovery-v1.md).
+Its description-level error-reduction figures lack resolved comparison conditions
+and are excluded from accepted quantitative synthesis.
 
 ## Direction 4 — Physical integration becomes an optimization variable
 

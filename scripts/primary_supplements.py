@@ -9,7 +9,8 @@ from pathlib import Path
 from scripts.build_evidence_summary import read_jsonl
 from scripts.collect_isca_crossref_metadata import title_key
 
-SCHEMAS = {"supplementary-primary-assessment.v1", "supplementary-primary-conditions.v1"}
+SCHEMAS = {"supplementary-primary-assessment.v1", "supplementary-primary-conditions.v1",
+           "primary-source-recovery-assessment.v1"}
 
 
 def validate(assessment: dict, paper: dict, source: dict) -> None:

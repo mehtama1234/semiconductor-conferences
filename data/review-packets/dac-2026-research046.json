@@ -42,13 +42,100 @@
   },
   "required_review_actions": [
     "Add source section/table locators for technical fields and numerical conditions",
-    "Verify numerical conditions, neighboring taxonomy category, and limitations"
+    "Verify numerical conditions, neighboring taxonomy category, and limitations",
+    "Inspect supplementary assessments and their original sources; resolve discrepancies without using researcher interpretation to verify itself"
   ],
   "researcher_summary_not_original_source": "GEMIR jointly predicts node-level static IR drop and edge-level electromigration stress using cross-layer attention, physics-informed constraints for KCL and the Korhonen PDE, and conflict-gated multitask optimization; it reports 40.79% lower IR-drop MAE and 19.35% lower EM-stress RMSE.",
   "review_status": "not_reviewed",
   "schema": "paper-review-packet.v1",
   "source_text_status": "captured_official_description",
   "source_tier": "official_description",
+  "supplementary_researcher_assessments": [
+    {
+      "assessment": {
+        "attempts": [
+          {
+            "method": "web_search",
+            "outcome": "Official description and reposts found; no exact full-paper match recovered.",
+            "queries": [
+              "\"GEMIR\" \"Graph-Based\"",
+              "\"GEMIR\" \"Feng Guo\"",
+              "\"GEMIR\" site:arxiv.org",
+              "\"GEMIR\" site:github.com",
+              "\"Graph-Based Joint Modeling\" pdf"
+            ]
+          },
+          {
+            "limit": "Did not search repository contents or other owners; absence from these fields is not proof of no artifact.",
+            "match_rule": "case-insensitive GEMIR in repository name or description",
+            "matches": 0,
+            "method": "public_repository_metadata_listing",
+            "page_counts": [
+              100,
+              34
+            ],
+            "urls": [
+              "https://api.github.com/orgs/BUPT-GAMMA/repos?per_page=100&page=1",
+              "https://api.github.com/orgs/BUPT-GAMMA/repos?per_page=100&page=2"
+            ]
+          },
+          {
+            "method": "author_site_open",
+            "outcome": "Web fetch timeout; contents not inspected.",
+            "url": "https://shichuan.org"
+          }
+        ],
+        "capture_date": "2026-09-06",
+        "description_claims": [
+          {
+            "baseline": null,
+            "locator": "Description",
+            "metric": "IR-drop MAE reduction",
+            "unit": "percent",
+            "value": 40.79
+          },
+          {
+            "baseline": null,
+            "locator": "Description",
+            "metric": "EM-induced stress RMSE reduction",
+            "unit": "percent",
+            "value": 19.35
+          }
+        ],
+        "extraction_scope": "Official description recheck and bounded primary-source discovery; no full paper recovered",
+        "headline_metric_status": "withheld_pending_fullpaper_conditions",
+        "independent_review_status": "pending",
+        "interpretation_limits": [
+          "Description supports a provisional joint-modeling mechanism, not a signoff-quality guarantee.",
+          "Reposted material and related patent discovery were not admitted as paper-level technical evidence.",
+          "Search non-recovery is not inaccessibility or proof that no full paper exists."
+        ],
+        "paper_id": "dac-2026-research046",
+        "recovery_status": "full_paper_not_recovered_in_checked_sources",
+        "revisit_condition": "Follow a verified author, publisher or project link; retry author website when reachable. Reconcile exact identity and experimental conditions before numerical synthesis.",
+        "schema": "primary-source-recovery-assessment.v1",
+        "source_id": "dac-2026-gemir-description-recheck",
+        "source_tier": "official_description",
+        "source_url": "https://63dac.conference-program.com/presentation/?id=RESEARCH046&sess=sess112",
+        "title": "GEMIR: Graph-Based Joint Modeling of Electromigration and IR Drop for Power Grid",
+        "unresolved_conditions": [
+          "Named comparison baseline for each percentage",
+          "Absolute errors and units",
+          "Design/process populations",
+          "Train/test separation and leakage controls",
+          "Training/inference runtime and hardware",
+          "Physical boundary conditions and validation tolerances",
+          "Variance and repeat counts"
+        ]
+      },
+      "content_role": "researcher_assessment_not_original_source",
+      "headline_metric_status": "withheld_pending_fullpaper_conditions",
+      "independent_review_status": "pending",
+      "path": "dac/data/gemir-primary-recovery-v1.json",
+      "sha256": "cd3a3a5560b31da3654ffefbc6415c538037f8f56d2d3450c617394a78907df6",
+      "source_url": "https://63dac.conference-program.com/presentation/?id=RESEARCH046&sess=sess112"
+    }
+  ],
   "taxonomy_branch": {
     "label": "Power, reliability, and security",
     "subsubthemes": {

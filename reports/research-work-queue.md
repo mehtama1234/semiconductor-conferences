@@ -21,6 +21,7 @@ These researcher assessments supplement, but do not replace, original evidence o
 - dac-2025-research1019: [not_adjudicated](../dac/data/hybrimoe-primary-conditions-v1.json)
 - dac-2026-research031: [withheld_pending_source_reconciliation](../dac/data/exact-t-primary-assessment-v1.json)
 - dac-2026-research043: [conditioned_author_claims_not_independently_accepted](../dac/data/strix-primary-assessment-v1.json)
+- dac-2026-research046: [withheld_pending_fullpaper_conditions](../dac/data/gemir-primary-recovery-v1.json)
 - dac-2026-research1000: [withheld_pending_source_reconciliation](../dac/data/atb-primary-assessment-v1.json)
 
 ## Identity and primary-source recovery
