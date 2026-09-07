@@ -238,6 +238,8 @@ gates still open**.
   leaving 106 description-denominator records outside P2 batch files.
 - A DAC-specific tranche advancing reconciled coverage from 435/541 to 445/541,
   leaving 96 description-denominator records outside P2 batch files.
+- A DAC-specific tranche advancing reconciled coverage from 445/541 to 455/541,
+  leaving 86 description-denominator records outside P2 batch files.
 
 ## What users may conclude
 

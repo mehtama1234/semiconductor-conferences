@@ -359,6 +359,11 @@ detection, LLM-training swap optimization, IGZO eDRAM buffers, asymmetric
 checkpointing, PCIe trace safety, 3D bonded clock trees, superconducting
 retiming, lemma generation, prototype PIM transactions, and runtime tensor
 parallelism.
+The sixty-fifth P2 tranche is recorded in
+`reports/p2-recovery-batch-65-2026-09-07.md`, covering dual-rail DRAM logic,
+electro-physical PPA modeling, configurable CPU matrix extensions, PDE thermal
+models, CUDA kernel evolution, private multi-GPU inference, quantum NAS, graph
+reduction, flash-SSD code adaptation, and LLM SSD management.
 
 The categories overlap by design: P0 is a remediation priority, while P1/P2
 describe evidence depth. The former P0 records are retained in
