@@ -60,6 +60,7 @@
         "adaptive-asymmetric-llm-quantization",
         "adaptive-precision-dnn-quantization",
         "binary-coded-fpint-gemm",
+        "centerout-stochastic-mac",
         "complex-valued-uncertainty-codesign",
         "convertibility-aware-asymmetric-gemm",
         "distribution-aware-transformer-activation",
@@ -68,7 +69,8 @@
         "posit-inspired-vlm-microscaling",
         "priority-shared-scale-microscaling",
         "selfreflective-reasoning-llm-pruning",
-        "subbit-sketch-llm-compression"
+        "subbit-sketch-llm-compression",
+        "topology-aware-gnn-quantization"
       ],
       "architecture-software-co-design": [
         "asymmetric-gemm-tile-buffering",
@@ -91,6 +93,10 @@
       "emerging-and-nonvon-neumann-compute": [
         "heterogeneous-probabilistic-optimization",
         "ising-parallel-momentum-tempering"
+      ],
+      "memory-and-data-movement": [
+        "cooperative-gpu-register-distribution",
+        "error-tolerant-transformer-activation-compression"
       ],
       "neuromorphic-and-emerging-architectures": [
         "spike-address-redundancy-elimination"
@@ -165,6 +171,7 @@
       "edge-ai-and-deployment",
       "emerging-and-nonvon-neumann-compute",
       "general-purpose-and-domain-specific-architecture",
+      "memory-and-data-movement",
       "neuromorphic-and-emerging-architectures",
       "quantum-architectures-and-control",
       "sparse-and-irregular-compute",

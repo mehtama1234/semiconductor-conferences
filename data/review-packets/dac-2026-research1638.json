@@ -60,6 +60,9 @@
   "taxonomy_branch": {
     "label": "Verification and validation",
     "subsubthemes": {
+      "emulation-and-prototyping": [
+        "boolean-processor-emulation"
+      ],
       "formal-analysis-and-verification": [
         "branch-divergence-gpu-wcet-analysis",
         "entropy-aware-rtl-llm-alignment",
@@ -119,6 +122,7 @@
       ]
     },
     "subthemes": [
+      "emulation-and-prototyping",
       "formal-analysis-and-verification",
       "formal-and-equivalence-verification",
       "formal-and-functional-verification",

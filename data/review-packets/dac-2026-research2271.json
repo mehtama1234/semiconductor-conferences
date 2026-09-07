@@ -60,6 +60,9 @@
   "taxonomy_branch": {
     "label": "Systems, applications, and workloads",
     "subsubthemes": {
+      "biochips-and-specialized-systems": [
+        "physics-aware-microfluidic-light-compensation"
+      ],
       "bioinformatics-and-scientific-computing": [
         "memory-efficient-pangenome-acceleration"
       ],
@@ -75,6 +78,7 @@
       ],
       "distributed-and-disaggregated-systems": [
         "adaptive-gnn-communication-compression",
+        "distributed-training-preemption",
         "dynamic-gpu-cluster-forecasting",
         "hardware-physics-guided-distributed-ml",
         "hyperthread-interference-scheduling"
@@ -102,7 +106,8 @@
         "schedulability-aware-heterogeneous-accelerator-design"
       ],
       "embedded-and-edge-systems": [
-        "cpu-fpga-stream-frequency-measurement"
+        "cpu-fpga-stream-frequency-measurement",
+        "wireless-intermittent-runtime-analysis"
       ],
       "llm-systems-and-runtime": [
         "diffusion-language-model-stage-orchestration",
@@ -145,6 +150,7 @@
       ]
     },
     "subthemes": [
+      "biochips-and-specialized-systems",
       "bioinformatics-and-scientific-computing",
       "confidential-and-trusted-computing",
       "datacenter-and-cloud-systems",

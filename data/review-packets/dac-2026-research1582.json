@@ -101,6 +101,9 @@
         "speculative-in-storage-ann",
         "stratified-moe-expert-scheduling"
       ],
+      "memory-and-data-movement": [
+        "fpga-hbm-pcie-profiling"
+      ],
       "memory-compute-and-reliability": [
         "adc-in-memory-activation-quantization",
         "arithmetic-reduced-pim-ann-search",
@@ -155,6 +158,7 @@
     "subthemes": [
       "chiplet-and-on-chip-interconnect",
       "data-movement-and-locality",
+      "memory-and-data-movement",
       "memory-compute-and-reliability",
       "memory-hierarchy-and-persistence",
       "processing-in-memory-and-memory-centric-compute",
