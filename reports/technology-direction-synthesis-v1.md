@@ -13,8 +13,8 @@ It separates suggested research directions from measured temporal trends.
 
 The evidence is intentionally asymmetric:
 
-- DAC: 543 official 2026 research descriptions with initial coding: 49 original
-  records and 494 additional drafts; independent acceptance pending.
+- DAC: 543 official 2026 research descriptions with initial coding: 50 original
+  records and 493 additional drafts; independent acceptance pending.
 - ISCA: 173 official 2026 program slots (172 titled); 16 technically coded
   records; 4 secondary-only papers pending primary verification.
 - ICCAD: 2026 scope evidence and a 319-entry 2025 fallback inventory; 19 technically
@@ -25,7 +25,7 @@ The 85-record technical coding sample is selected for recoverable evidence and
 technical diversity. It is not a prevalence estimate, market forecast, conference
 ranking, or proof that a direction is rising.
 For a mechanism-level follow-up, see [scheduling versus physical surrogates](../iccad/reports/scheduling-versus-surrogates-v1.md): two analysis accelerators with different correctness and generalization requirements.
-All 84 remain independently unaccepted. The original synthesis-anchor set is
+All 85 remain independently unaccepted. The original synthesis-anchor set is
 distinct from the expanded coded sample and is not enlarged by metadata recovery.
 
 ## Executive interpretation
@@ -117,6 +117,12 @@ CANNON's [recovery assessment](../dac/reports/cannon-primary-recovery-v1.md)
 records differing official and institutional performance headlines. Numerical
 synthesis is withheld pending reconciliation with recall-matched baselines and
 memory-capacity conditions; reported hardware implementation alone is insufficient.
+
+The newly coded ATB case adds a related but distinct mechanism: asymmetric GEMM
+tile buffering trades higher arithmetic intensity against kernel-switching cost
+on XDNA2. Its preprint preserves a printed 4.54x claim alongside endpoint ratios
+of 5.06x/5.13x under different matrix dimensions, so it supports the mechanism
+and the need for matched-workload accounting—not a corrected speedup estimate.
 
 ### Interpretation and limit
 
