@@ -389,6 +389,11 @@ The seventieth P2 tranche is recorded in
 recovery, differentiable OPC, distributed switch buffers, weak wafer supervision,
 gate sizing, selective encryption, sample-efficient DSE, graph recomputation,
 sparse accelerator generation, and RTL benchmark maintenance.
+The seventy-first P2 tranche is recorded in
+`reports/p2-recovery-batch-71-2026-09-07.md`, covering SFQ placement, trusted
+snapshots, RTL timing prediction, TFHE acceleration, approximate reachability,
+encrypted-NN configuration, hybrid-bonded 3D placement, toggle propagation,
+cross-PDK DRC generation, and application-specific FHE.
 
 The categories overlap by design: P0 is a remediation priority, while P1/P2
 describe evidence depth. The former P0 records are retained in
