@@ -4,6 +4,14 @@ The governing scope and acceptance criteria are in [GOAL.md](../GOAL.md).
 This log distinguishes finished work from queued work; a plan is not a completed
 research result.
 
+MappingEvolve history countercheck: three pinned outer logs each record 30
+acceptances and zero reversions, with an accepted zero-reward first step. Added
+hashes/locators and explicit counterevidence to any observed-fallback-failure
+claim. No experimental reproduction or Table 2 traceability claim follows.
+Next: ParetoPilot artifact assessment, then broaden directional challenges;
+MappingEvolve evaluator handling and per-netlist reconciliation remain targeted
+follow-ups, not prerequisites to progress on other evidence gaps.
+
 MappingEvolve PDF follow-up: visually crosschecked all six stored average ratios
 against versioned PDF page 6, Table 2, and recorded the PDF hash. Corrected stale
 pending-PDF and unpinned-review wording in the assessment. This closes a

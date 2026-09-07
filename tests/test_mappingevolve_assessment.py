@@ -31,3 +31,19 @@ def test_mappingevolve_pdf_crosscheck_does_not_imply_reproduction():
     assert "not independently verified" in verification["limits"]
     assert assessment["headline_metric_status"].startswith("withheld_")
     assert assessment["independent_review_status"] == "pending"
+
+
+def test_mappingevolve_history_counterevidence_keeps_review_pending():
+    root = Path(__file__).resolve().parents[1]
+    assessment = json.loads((root / "dac/data/mappingevolve-primary-assessment-v1.json").read_text())
+    history = assessment["run_history_inspection"]
+    assert history["commit"] == assessment["artifact_inspection"]["commit"]
+    assert len(history["runs"]) == 3
+    assert sum(run["acceptances"] for run in history["runs"]) == 90
+    for run in history["runs"]:
+        assert run["outer_iterations"] == run["acceptances"] == 30
+        assert run["reversions"] == 0 and run["first_reward"] == 0
+        assert len(run["sha256"]) == 64
+        assert 0 < run["first_acceptance_line"] <= run["line_count"]
+    assert "not reproduced" in history["limits"]
+    assert assessment["independent_review_status"] == "pending"

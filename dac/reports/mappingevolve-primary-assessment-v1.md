@@ -34,4 +34,17 @@ This source-level path qualifies the claim that failed modifications are always
 discarded. It does not establish that a published run encountered the path or
 that a reported circuit was invalid. A small local control-flow model checks the
 reasoning without executing downloaded code, invoking an LLM or running synthesis.
-Next, inspect recorded iteration histories and failure handling before reproduction.
+## Released-history countercheck
+
+Three pinned outer-loop logs (DeepSeek, GPT and Qwen) each contain 30 iteration
+starts, 30 acceptances and no reversions. Each first accepted reward is zero.
+The assessment records their paths, hashes, line counts and first-acceptance
+locators. Counts filter the `__main__` logger so nested candidate evaluations
+are not confused with outer acceptance decisions.
+
+These logs do not demonstrate the first-failure fallback path. This is meaningful
+counterevidence to an observed-failure claim, not proof that the code path is
+unreachable. The logs are author-released evidence, not authenticated executions
+or independent reproduction; per-netlist equivalence and Table 2 traceability
+remain open. Continue to ParetoPilot; revisit MappingEvolve for those specific
+checks rather than rereading unchanged logs.

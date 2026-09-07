@@ -145,7 +145,46 @@
           "sha256": "de373651cf6782c1b7653d21af98287fe7341d9a4f4792eefe606530e0ab8a9e",
           "url": "https://arxiv.org/pdf/2604.26591v1"
         },
-        "revisit_condition": "Inspect recorded run histories and evaluator failure handling; reconcile results to pinned implementation before quantitative acceptance.",
+        "revisit_condition": "Reconcile result-producing code and per-netlist evidence with Table 2; investigate evaluator failure handling before reproduction. Revisit the inspected histories on changed evidence, not repeated unchanged-log searches.",
+        "run_history_inspection": {
+          "capture_date": "2026-09-06",
+          "commit": "308f5cc41c1d7243c39fd2ddd02253c1343eb889",
+          "finding": "No outer-loop reversion is logged in these three runs; each first outer candidate has zero reward and is accepted. These histories do not demonstrate the modeled first-failure fallback path.",
+          "limits": "Author-released logs, not reproduced or independently authenticated executions. Nested candidate failures are not outer rejection events. No per-netlist equivalence or Table 2 source-to-result reconciliation was performed.",
+          "method": "Read complete selected outer log.txt files at immutable raw GitHub URLs; count Starting evolution iteration, Accepted via, and Reverting only in __main__ logger lines, excluding nested OpenEvolve events.",
+          "runs": [
+            {
+              "acceptances": 30,
+              "first_acceptance_line": 94,
+              "first_reward": 0.0,
+              "line_count": 2619,
+              "outer_iterations": 30,
+              "path": "output/proactive_evolve_openevolve_deepseek-v3-241226_20251116_014457/log.txt",
+              "reversions": 0,
+              "sha256": "c523246de31e50dd8197546867cfaa23b2c2ab4e7af69789bae54af071469c76"
+            },
+            {
+              "acceptances": 30,
+              "first_acceptance_line": 97,
+              "first_reward": 0.0,
+              "line_count": 2601,
+              "outer_iterations": 30,
+              "path": "output/proactive_evolve_openevolve_gpt-5-2025-08-07_20251116_134740/log.txt",
+              "reversions": 0,
+              "sha256": "be61426d9e98aa28a95a736fac1e114548c9787aa712c5699cff39a23a7c6579"
+            },
+            {
+              "acceptances": 30,
+              "first_acceptance_line": 103,
+              "first_reward": 0.0,
+              "line_count": 2634,
+              "outer_iterations": 30,
+              "path": "output/proactive_evolve_openevolve_qwen3-max_20251116_093335/log.txt",
+              "reversions": 0,
+              "sha256": "2526648ed7c5848a5f8ff1d6087a235c5c793cba6166a8a58a8e2620d3708877"
+            }
+          ]
+        },
         "schema": "supplementary-primary-assessment.v1",
         "source_id": "dac-2026-mappingevolve-arxiv-v1",
         "source_tier": "author_preprint",
@@ -163,7 +202,7 @@
       "headline_metric_status": "withheld_pending_artifact_result_reconciliation_and_review",
       "independent_review_status": "pending",
       "path": "dac/data/mappingevolve-primary-assessment-v1.json",
-      "sha256": "e25d77c8ccbff6a73dfe0aa69ffe859c20ba2b700d7a43077eca31751a9384a9",
+      "sha256": "58796b95c46e64ec5a1e6d86ba62e5cf4661dc3952e0106dee46a12f3b01b25f",
       "source_url": "https://arxiv.org/html/2604.26591v1"
     }
   ],

@@ -48,6 +48,10 @@ The pinned MappingEvolve driver also has a source-level fallback path that can
 retain a rejected first candidate. This is not a demonstrated published-result
 failure, but sharpens the hypothesis: correctness checks must govern state
 transitions and fallback selection, not merely produce a score or diagnostic.
+Countercheck: the three inspected released outer-loop histories log 90 accepted
+steps and no reversions; they do not demonstrate that source-level fallback risk
+occurring in those runs. Artifact concerns must not become unsupported claims
+that published experimental results failed.
 
 **Test next.** Compare systems on held-out designs with the same correctness
 oracle, synthesis budget, model-call cost and retry limit. Count failed attempts

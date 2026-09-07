@@ -73,6 +73,18 @@
     "impact_limit": "This is a source-level control-flow counterexample, not evidence that published runs followed this failure path or that any published circuit was invalid.",
     "next_verification": "Check recorded histories for this path and inspect evaluator/error handling; preserve validated state separately in any reproduction harness. Do not mutate upstream code without separate authorization."
   },
+  "run_history_inspection": {
+    "commit": "308f5cc41c1d7243c39fd2ddd02253c1343eb889",
+    "capture_date": "2026-09-06",
+    "method": "Read complete selected outer log.txt files at immutable raw GitHub URLs; count Starting evolution iteration, Accepted via, and Reverting only in __main__ logger lines, excluding nested OpenEvolve events.",
+    "runs": [
+      {"path": "output/proactive_evolve_openevolve_deepseek-v3-241226_20251116_014457/log.txt", "sha256": "c523246de31e50dd8197546867cfaa23b2c2ab4e7af69789bae54af071469c76", "line_count": 2619, "outer_iterations": 30, "acceptances": 30, "reversions": 0, "first_acceptance_line": 94, "first_reward": 0.0},
+      {"path": "output/proactive_evolve_openevolve_gpt-5-2025-08-07_20251116_134740/log.txt", "sha256": "be61426d9e98aa28a95a736fac1e114548c9787aa712c5699cff39a23a7c6579", "line_count": 2601, "outer_iterations": 30, "acceptances": 30, "reversions": 0, "first_acceptance_line": 97, "first_reward": 0.0},
+      {"path": "output/proactive_evolve_openevolve_qwen3-max_20251116_093335/log.txt", "sha256": "2526648ed7c5848a5f8ff1d6087a235c5c793cba6166a8a58a8e2620d3708877", "line_count": 2634, "outer_iterations": 30, "acceptances": 30, "reversions": 0, "first_acceptance_line": 103, "first_reward": 0.0}
+    ],
+    "finding": "No outer-loop reversion is logged in these three runs; each first outer candidate has zero reward and is accepted. These histories do not demonstrate the modeled first-failure fallback path.",
+    "limits": "Author-released logs, not reproduced or independently authenticated executions. Nested candidate failures are not outer rejection events. No per-netlist equivalence or Table 2 source-to-result reconciliation was performed."
+  },
   "interpretation_limits": [
     "Composite QoR improvement is not execution speedup; area, circuit delay and mapper runtime are different metrics.",
     "Table averages show tradeoffs, not dominance in all objectives.",
@@ -89,5 +101,5 @@
   ],
   "headline_metric_status": "withheld_pending_artifact_result_reconciliation_and_review",
   "independent_review_status": "pending",
-  "revisit_condition": "Inspect recorded run histories and evaluator failure handling; reconcile results to pinned implementation before quantitative acceptance."
+  "revisit_condition": "Reconcile result-producing code and per-netlist evidence with Table 2; investigate evaluator failure handling before reproduction. Revisit the inspected histories on changed evidence, not repeated unchanged-log searches."
 }
