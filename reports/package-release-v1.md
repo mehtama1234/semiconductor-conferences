@@ -41,6 +41,8 @@ gates still open**.
   with explicit conditions still required before quantitative use.
 - A first P2 routing tranche prioritizing ten DAC description-only records for
   manuscript/abstract/artifact recovery.
+- A second P2 routing tranche prioritizing ten additional DAC mechanisms across
+  compiler, verification, security, memory, quantization, and serving.
 
 ## What users may conclude
 
