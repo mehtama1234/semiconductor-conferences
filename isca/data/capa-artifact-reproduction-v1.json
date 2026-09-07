@@ -1,0 +1,26 @@
+{
+  "schema": "artifact-reproduction-note.v1",
+  "paper_id": "isca-2026-program-014",
+  "title": "CAPA: Manufacturing Carbon Estimation for Advanced-Packaged Architectures",
+  "source_id": "isca-2026-capa-zenodo-artifact-20260907",
+  "source_url": "https://zenodo.org/records/19744640",
+  "capture_date": "2026-09-07",
+  "artifact_sha256": "c5520dd2d238b48064aa036cd1eecb4b15a8c0d0b9d1140da675eed3f6a29fbe",
+  "artifact_path": "CAPA-AE_424.zip",
+  "artifact_scope": "CAPA artifact-evaluation bundle with Python scripts, architecture descriptions, parameters, and reference figures.",
+  "run": {
+    "command": "python3 arch_parser.py arch_description/TPUv4",
+    "environment": "Python 3 with numpy, scipy, and matplotlib available",
+    "case": "TPUv4 architecture description",
+    "reported_total_carbon_kg": 90.2547913586063,
+    "reported_components_kg": {
+      "ASIC": 23.369645116462078,
+      "hbm2": 36.32189099783,
+      "interposer": 13.8997565870999,
+      "ubump_bonding_yield": 16.663498657214324
+    },
+    "output_sha256": "234ba04bf01250f4ed8779f061e494b7d5b5cfaf2a10cd5b6cb88e4ba5127b1a"
+  },
+  "interpretation": "The documented TPUv4 artifact case reproduced and generated the expected CSV output. This verifies bounded artifact execution only; it does not validate the paper's model assumptions, manufacturing data, comparative conclusions, or independent scientific correctness.",
+  "next_action": "Capture the manuscript's exact model scope and compare additional architecture cases under a pinned environment before any headline carbon claim is accepted."
+}

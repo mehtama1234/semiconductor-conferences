@@ -66,6 +66,8 @@ gates still open**.
   Lifecycle for AI with explicit modeled conditions and provisional status.
 - A second ISCA recovery batch for CAPA's artifact-evaluation record and
   LOONG's author/secondary routes, with quantitative claims withheld.
+- A bounded CAPA TPUv4 artifact run with command, archive hash, output hash, and
+  explicit non-validation interpretation.
 
 ## What users may conclude
 
