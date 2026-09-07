@@ -17,7 +17,7 @@ Regenerated taxonomy, summary, queue and both packet sets; project validation an
 135 tests pass. The full suite exposed one stale recovery-attempt count from the
 previous batch, now corrected to 20. Packets contain 31 original abstracts, 49
 official descriptions and three source gaps; 25 include supplementary assessments.
-Preflight is 69 pass / 14 review, not independent scientific acceptance.
+Preflight is 69 pass / 15 review, not independent scientific acceptance.
 
 Ordered recovery 1144/1148/1149: GAIA institutional abstract adds glass-storage
 placement and scheduling mechanisms, explicitly distinct from glass packaging.
