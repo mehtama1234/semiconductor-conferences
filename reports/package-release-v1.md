@@ -32,6 +32,8 @@ commercial adoption, or rising/declining trend claims.
 
 ## Remaining gates
 
+The live requirement-by-requirement register is [evidence-gap-register-v1.md](evidence-gap-register-v1.md).
+
 1. Obtain independent human or model judgments for the prepared packets.
 2. Recover more primary manuscripts, artifacts, and full-paper conditions.
 3. Build matched edition populations with equivalent evidence tiers and missingness
