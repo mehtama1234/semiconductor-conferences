@@ -17,4 +17,5 @@ source-grounded 582-record adjudication sample.
 These records improve priority coverage, not technical certainty. Indexed
 summaries are not equivalent to full text, and none has an independent review
 verdict. The existing primary/artifact packets remain authoritative for accepted
-synthesis claims.
+synthesis claims. Three remain secondary-only outside the selected sample; three
+overlap records that already have primary or artifact evidence.
