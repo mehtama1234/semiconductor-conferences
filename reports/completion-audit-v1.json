@@ -8,53 +8,100 @@
       "id": "subgoal-1-checkpoint",
       "label": "Recovered checkpoint reconciliation",
       "status": "complete",
-      "evidence": ["GOAL.md", "reports/execution-plan.md", "scripts/validate_project.py"],
+      "evidence": [
+        "GOAL.md",
+        "reports/execution-plan.md",
+        "scripts/validate_project.py"
+      ],
       "remaining": "None for the dated checkpoint; later evidence increments remain in git history."
     },
     {
       "id": "subgoal-2-coverage",
       "label": "Paper-level coverage and priorities",
       "status": "complete_for_inventory_routing",
-      "evidence": ["data/research-work-queue.jsonl", "reports/research-work-queue-summary.json"],
-      "current_counts": {"inventory_records": 1589, "queue_records": 1589, "coded_records": 110},
+      "evidence": [
+        "data/research-work-queue.jsonl",
+        "reports/research-work-queue-summary.json"
+      ],
+      "current_counts": {
+        "inventory_records": 1589,
+        "queue_records": 1589,
+        "coded_records": 115
+      },
       "remaining": "Technical coding and source recovery remain incomplete for most routed records."
     },
     {
       "id": "subgoal-3-technical-evidence",
       "label": "Paper-level technical evidence",
       "status": "partial",
-      "evidence": ["reports/evidence-summary-v1.json", "reports/collection-status.md", "reports/research-work-queue-summary.json"],
-      "current_counts": {"coded_records": 110, "supplementary_assessment_papers": 31, "recovery_attempt_papers": 23},
+      "evidence": [
+        "reports/evidence-summary-v1.json",
+        "reports/collection-status.md",
+        "reports/research-work-queue-summary.json"
+      ],
+      "current_counts": {
+        "coded_records": 115,
+        "supplementary_assessment_papers": 31,
+        "recovery_attempt_papers": 23
+      },
       "remaining": "Full-paper conditions, artifacts, and primary sources are still missing for many records; selected metrics remain withheld where conditions are unresolved."
     },
     {
       "id": "subgoal-4-taxonomy-synthesis",
       "label": "Taxonomy and deep explanations",
       "status": "provisional_complete_for_selected_sample",
-      "evidence": ["data/taxonomy-v1-evidence.json", "reports/taxonomy-coding-guide-v1.md", "reports/technology-direction-synthesis-v1.md", "reports/field-directions-and-hypotheses-v1.md"],
+      "evidence": [
+        "data/taxonomy-v1-evidence.json",
+        "reports/taxonomy-coding-guide-v1.md",
+        "reports/technology-direction-synthesis-v1.md",
+        "reports/field-directions-and-hypotheses-v1.md"
+      ],
       "remaining": "Provisional branches and selected-sample bias require broader coding and independent adjudication."
     },
     {
       "id": "subgoal-5-independent-review",
       "label": "Independent challenge and acceptance",
       "status": "prepared_pending",
-      "evidence": ["reports/adversarial-judge-protocol-v1.md", "reports/adversarial-review-status-v1.md", "reports/independent-review-handoff-v1.md", "reports/independent-review-assignments-v1.json", "reports/review-packet-coverage.json"],
-      "current_counts": {"packets": 110, "independent_review_count": 0, "deterministic_preflight_pass": 94, "deterministic_preflight_review": 16},
+      "evidence": [
+        "reports/adversarial-judge-protocol-v1.md",
+        "reports/adversarial-review-status-v1.md",
+        "reports/independent-review-handoff-v1.md",
+        "reports/independent-review-assignments-v1.json",
+        "reports/review-packet-coverage.json"
+      ],
+      "current_counts": {
+        "packets": 115,
+        "independent_review_count": 0,
+        "deterministic_preflight_pass": 99,
+        "deterministic_preflight_review": 16
+      },
       "remaining": "No independent human or model judgments have been obtained; no record is accepted."
     },
     {
       "id": "subgoal-6-temporal",
       "label": "Comparable temporal evidence",
       "status": "insufficient_evidence_explicit",
-      "evidence": ["reports/temporal-insufficiency-v1.json", "reports/temporal-baseline-v1.md", "reports/temporal-mechanism-comparison-v1.md"],
+      "evidence": [
+        "reports/temporal-insufficiency-v1.json",
+        "reports/temporal-baseline-v1.md",
+        "reports/temporal-mechanism-comparison-v1.md"
+      ],
       "remaining": "Directional claims require equivalent edition coding, matched evidence tiers, missingness analysis, and independent review; current six pilot pairs do not satisfy those gates."
     },
     {
       "id": "subgoal-7-publication",
       "label": "Dated reproducible intelligence package",
       "status": "bounded_package_complete",
-      "evidence": ["reports/reproducibility-manifest-v1.json", "reports/package-release-v1.md", "scripts/validate_project.py", "tests/"],
-      "current_counts": {"manifest_artifacts": 66, "tests": 141},
+      "evidence": [
+        "reports/reproducibility-manifest-v1.json",
+        "reports/package-release-v1.md",
+        "scripts/validate_project.py",
+        "tests/"
+      ],
+      "current_counts": {
+        "manifest_artifacts": 66,
+        "tests": 141
+      },
       "remaining": "Package is publishable as a bounded evidence assessment, not as a full-corpus trend report or independently accepted scientific review."
     }
   ],

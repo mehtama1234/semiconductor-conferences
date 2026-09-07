@@ -5,8 +5,8 @@ official program description. The record captures intermittent asymmetric
 satellite links, interpolated gradient feedback, adaptive uplink compression,
 and LEO-system evaluation, while leaving all numerical metrics and deployment
 conditions unknown. A provisional edge/satellite sub-subtheme was added to the
-taxonomy. The selected coded sample is now 110 records (DAC 73, ISCA 16,
-ICCAD 21); preflight is 94 pass / 16 review and independent verdicts remain zero.
+taxonomy. The selected coded sample is now 115 records (DAC 78, ISCA 16,
+ICCAD 21); preflight is 99 pass / 16 review and independent verdicts remain zero.
 
 DAC security/reliability batch: five official-description records were added for
 the Falcon Rowhammer fault attack, Apple M2 cross-component cache leakage,
@@ -35,18 +35,26 @@ in-pixel noise/DTCO), CPA-BNN (PUF-protected secure CIM), and DAP (multi-chip
 sparse-matrix communication co-design). Their metrics and operating conditions
 remain source-description claims pending full-paper and independent review.
 
+DAC systems/workload batch: five official-description records were added for
+C2C-Explorer (workload-driven chip-to-chip Bayesian exploration), Marlin (I/O-
+efficient prefix-KV retrieval), eLLM (elastic unified GPU/CPU tensor memory),
+PIMGRAG (heterogeneous PIM/GPU graph-RAG retrieval), and Pegasus (personalized
+edge MoE expert placement). Together they deepen the data-movement, locality,
+scheduling, and workload-co-design branches; headline gains remain provisional
+until full-paper conditions and independent review are available.
+
 HLPS-DSE remediation: `iccad-2025-109` now uses source-grounded abstract
 wording in its evidence span and explicitly permits the author-hosted PDF domain
 in the deterministic provenance check. Its conditioned Fmax values remain
 withheld as an accepted headline, but the packet now passes deterministic
-entailment/provenance preflight. Current preflight is 94 pass / 16 review.
+entailment/provenance preflight. Current preflight is 99 pass / 16 review.
 
 ISCA Vistara source-capture batch: an exact-title camera-ready PDF from the
 authors’ AI System Co-Design site was captured and hash-bound. The page-one
 abstract now supplies primary evidence for the end-to-end CXL deployment claim;
 hardware, OS, workload, and production conditions still require full-paper
 review. Captured abstracts now total 35, source-capture gaps are three, and
-deterministic preflight is 94 pass / 16 review.
+deterministic preflight is 99 pass / 16 review.
 
 ISCA CXL-controller recovery follow-up: Panmnesia’s official announcement and
 the CAME-Lab publication listing were checked for `isca-2026-program-044`.

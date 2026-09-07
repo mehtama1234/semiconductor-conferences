@@ -10,7 +10,7 @@
   "original_source_url": "https://arxiv.org/abs/2606.30553",
   "paper_id": "isca-2026-program-003",
   "protocol_path": "reports/adversarial-judge-protocol-v1.md",
-  "protocol_sha256": "d5a3049ff11ff2678671195816cbcded25bbb9e6234895ce56a06f8bf7a60cc5",
+  "protocol_sha256": "4b6664f8d2ddb194bc75a935c69e3e767bfe77aff87de90dcd88f47042655e8c",
   "record_sha256": "3dfd1cbe4c6256d83c7e44a167807674016406151de02c79880019b77f0b8523",
   "record_under_review": {
     "analysis_edition": 2026,
@@ -54,6 +54,7 @@
     "label": "Memory, interconnect, and storage",
     "subsubthemes": {
       "chiplet-and-on-chip-interconnect": [
+        "llm-workload-driven-c2c-bayesian-exploration",
         "silicon-proven-cxl-port-based-routing-fabric"
       ],
       "data-movement-and-locality": [
@@ -61,6 +62,8 @@
         "cxl-near-memory-ann-search",
         "disaggregated-compute-network-storage-training",
         "fhe-pim-database-acceleration",
+        "heterogeneous-pim-graph-rag-retrieval",
+        "io-efficient-prefix-kv-retrieval",
         "multi-chip-sparse-matrix-communication-co-design",
         "near-memory-communication-lower-bounds"
       ],

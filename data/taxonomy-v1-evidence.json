@@ -21,6 +21,7 @@
     "dac/data/adjudicated-2026-batch-7.jsonl",
     "dac/data/adjudicated-2026-batch-8.jsonl",
     "dac/data/adjudicated-2026-batch-9.jsonl",
+    "dac/data/adjudicated-2026-batch-10.jsonl",
     "iccad/data/adjudicated-2025-batch-3.jsonl",
     "iccad/data/adjudicated-2025-batch-4.jsonl",
     "iccad/data/adjudicated-2025-batch-5.jsonl",
@@ -176,6 +177,7 @@
       "label": "Memory, interconnect, and storage",
       "subsubthemes": {
         "chiplet-and-on-chip-interconnect": [
+          "llm-workload-driven-c2c-bayesian-exploration",
           "silicon-proven-cxl-port-based-routing-fabric"
         ],
         "data-movement-and-locality": [
@@ -183,6 +185,8 @@
           "cxl-near-memory-ann-search",
           "disaggregated-compute-network-storage-training",
           "fhe-pim-database-acceleration",
+          "heterogeneous-pim-graph-rag-retrieval",
+          "io-efficient-prefix-kv-retrieval",
           "multi-chip-sparse-matrix-communication-co-design",
           "near-memory-communication-lower-bounds"
         ],
@@ -286,9 +290,13 @@
     {
       "label": "Systems, applications, and workloads",
       "subsubthemes": {
+        "datacenter-and-cloud-systems": [
+          "elastic-unified-llm-memory-management"
+        ],
         "edge-embedded-and-mobile-systems": [
           "disconnection-tolerant-satellite-split-learning",
           "heterogeneous-edge-soc-dnn-deployment",
+          "personalized-edge-moe-expert-placement",
           "schedulability-aware-heterogeneous-accelerator-design"
         ]
       },
