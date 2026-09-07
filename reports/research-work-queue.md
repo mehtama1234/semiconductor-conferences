@@ -33,6 +33,7 @@ These researcher assessments supplement, but do not replace, original evidence o
 - dac-2026-research1182: [withheld_pending_fullpaper_conditions](../dac/data/fusedot-primary-recovery-v1.json)
 - dac-2026-research1186: [no_quantitative_result_in_source](../dac/data/xsearch-primary-recovery-v1.json)
 - dac-2026-research535: [withheld_pending_artifact_result_reconciliation_and_review](../dac/data/mappingevolve-primary-assessment-v1.json)
+- dac-2026-research865: [withheld_pending_identity_and_experiment_reconciliation](../dac/data/paretopilot-primary-assessment-v1.json)
 
 ## Identity and primary-source recovery
 

@@ -1,0 +1,38 @@
+{
+  "schema": "supplementary-primary-assessment.v1",
+  "paper_id": "dac-2026-research865",
+  "title": "Paretopilot: Global Optimization Reasoning on HLS Design Space Exploration with LLMs",
+  "source_id": "dac-2026-paretopilot-repository",
+  "source_url": "https://github.com/GEAR-SEU/ParetoPilot-DAC-26/tree/d08173f66903ed466537c9327b63addac223ee95",
+  "capture_date": "2026-09-06",
+  "source_tier": "public_research_artifact",
+  "extraction_scope": "Read-only README, entry point, HLS utility, selected sampling lines, configuration and AES Tcl; no execution or headline reproduction",
+  "identity": {
+    "status": "repository_self_identifies_exact_title_and_DAC_2026; independent_author_link_not_established_in_this_assessment",
+    "excluded_collision": "The differently titled ParetoPilot diffusion optimization paper is not this HLS paper."
+  },
+  "artifact": {
+    "commit": "d08173f66903ed466537c9327b63addac223ee95",
+    "tree": "360b307f3415e425490652d3076670832dedc249",
+    "recursive_tree_truncated": false,
+    "entry_point": "src/DSE_LLM.py:DSEWorkflow.perform_dse",
+    "search": "One llm_sampling_with_metadata call precedes the synthesis loop; at most init_samples configurations are evaluated. Measured results are not fed back into another sampling call in this function.",
+    "default_run": {"projects": ["aes"], "init_samples": 3, "hls_timeout_seconds": 1200},
+    "metric_locator": "src/tool/hls_tools.py:HLSRunner.parse_xml_file",
+    "metrics": "Average-caseLatency and BRAM/DSP/FF/LUT usage fractions from csynth XML; synthesis estimates, not measured board performance or physical chip area.",
+    "example_platform": {"scope": "benchmark/aes/dataset_hls.tcl only", "part": "xczu7ev-ffvc1156-2-e", "clock_period_ns": 10, "action": "csynth_design; no simulation command in this inspected script"},
+    "failure_handling": "Missing latency/utilization becomes 1e8 for both in the entry point. The HLS utility deletes the trial project and Vitis log after parsing.",
+    "execution_cautions": "Sampling can load Hugging Face code with trust_remote_code=True or invoke a configured API. Timeout cleanup kills processes by executable name. No dependencies, models, synthesis jobs or external code were run."
+  },
+  "unresolved_conditions": [
+    "Author-to-repository linkage beyond the release self-identification",
+    "Full-paper metric definitions and exact heuristic comparator for the description-level headline gains",
+    "Training/test split, benchmark leakage, model revision, seeds and dispersion",
+    "Equal search budgets including model inference and training costs",
+    "Reproducible Pareto-quality aggregation, feasible resource constraints and per-trial reports",
+    "Functional equivalence, post-route timing and board validation"
+  ],
+  "headline_metric_status": "withheld_pending_identity_and_experiment_reconciliation",
+  "independent_review_status": "pending",
+  "revisit_condition": "Recover a verified author/manuscript link and trace the claimed experiment to benchmark, model and evaluator artifacts; retain raw trial reports in any separately authorized reproduction."
+}

@@ -153,6 +153,12 @@ another. HYPER-CIM's predicted configurations are not fabricated designs.
 Cross-simulator calibration is not silicon validation. XSearch's low-/high-fidelity
 only comparators in the original coding are inferred ideas, not reported experiments.
 
+[ParetoPilot's inspected entry point](../dac/reports/paretopilot-primary-assessment-v1.md)
+samples a batch before synthesis rather than feeding measured results into further
+sampling. Learned proposal quality and online adaptive search are distinct
+mechanisms; neither a reasoning label nor synthesis estimates establish verified
+Pareto improvements under equal budgets.
+
 **Test next.** Compare final independently evaluated feasible solutions at equal
 wall-clock and simulator budgets, including calibration data costs. Report
 misranked candidates and out-of-distribution errors. Small average prediction

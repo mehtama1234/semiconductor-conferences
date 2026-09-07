@@ -4,6 +4,13 @@ The governing scope and acceptance criteria are in [GOAL.md](../GOAL.md).
 This log distinguishes finished work from queued work; a plan is not a completed
 research result.
 
+ParetoPilot pinned release assessed: selected entry point is batch proposal then
+synthesis, with XML-estimated metrics and default AES/three samples. Author
+linkage and headline experiment reconciliation remain unresolved. Added a
+supplement and refined direction 5 to distinguish learned proposals from online
+adaptive search. No artifact execution. Next: broaden directional challenges
+beyond original anchors and recover verified ParetoPilot manuscript/model links.
+
 MappingEvolve history countercheck: three pinned outer logs each record 30
 acceptances and zero reversions, with an accepted zero-reward first step. Added
 hashes/locators and explicit counterevidence to any observed-fallback-failure

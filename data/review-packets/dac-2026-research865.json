@@ -42,13 +42,73 @@
   },
   "required_review_actions": [
     "Add source section/table locators for technical fields and numerical conditions",
-    "Verify numerical conditions, neighboring taxonomy category, and limitations"
+    "Verify numerical conditions, neighboring taxonomy category, and limitations",
+    "Inspect supplementary assessments and their original sources; resolve discrepancies without using researcher interpretation to verify itself"
   ],
   "researcher_summary_not_original_source": "ParetoPilot uses a dedicated LLM to navigate combinatorial HLS directive spaces with global-optimization reasoning, directive scheduling, and quality awareness. It reports 49.5% better DSE performance and 1.8x efficiency over a state-of-the-art heuristic method, and 81.4% improvement over DeepSeek-R1.",
   "review_status": "not_reviewed",
   "schema": "paper-review-packet.v1",
   "source_text_status": "captured_official_description",
   "source_tier": "official_description",
+  "supplementary_researcher_assessments": [
+    {
+      "assessment": {
+        "artifact": {
+          "commit": "d08173f66903ed466537c9327b63addac223ee95",
+          "default_run": {
+            "hls_timeout_seconds": 1200,
+            "init_samples": 3,
+            "projects": [
+              "aes"
+            ]
+          },
+          "entry_point": "src/DSE_LLM.py:DSEWorkflow.perform_dse",
+          "example_platform": {
+            "action": "csynth_design; no simulation command in this inspected script",
+            "clock_period_ns": 10,
+            "part": "xczu7ev-ffvc1156-2-e",
+            "scope": "benchmark/aes/dataset_hls.tcl only"
+          },
+          "execution_cautions": "Sampling can load Hugging Face code with trust_remote_code=True or invoke a configured API. Timeout cleanup kills processes by executable name. No dependencies, models, synthesis jobs or external code were run.",
+          "failure_handling": "Missing latency/utilization becomes 1e8 for both in the entry point. The HLS utility deletes the trial project and Vitis log after parsing.",
+          "metric_locator": "src/tool/hls_tools.py:HLSRunner.parse_xml_file",
+          "metrics": "Average-caseLatency and BRAM/DSP/FF/LUT usage fractions from csynth XML; synthesis estimates, not measured board performance or physical chip area.",
+          "recursive_tree_truncated": false,
+          "search": "One llm_sampling_with_metadata call precedes the synthesis loop; at most init_samples configurations are evaluated. Measured results are not fed back into another sampling call in this function.",
+          "tree": "360b307f3415e425490652d3076670832dedc249"
+        },
+        "capture_date": "2026-09-06",
+        "extraction_scope": "Read-only README, entry point, HLS utility, selected sampling lines, configuration and AES Tcl; no execution or headline reproduction",
+        "headline_metric_status": "withheld_pending_identity_and_experiment_reconciliation",
+        "identity": {
+          "excluded_collision": "The differently titled ParetoPilot diffusion optimization paper is not this HLS paper.",
+          "status": "repository_self_identifies_exact_title_and_DAC_2026; independent_author_link_not_established_in_this_assessment"
+        },
+        "independent_review_status": "pending",
+        "paper_id": "dac-2026-research865",
+        "revisit_condition": "Recover a verified author/manuscript link and trace the claimed experiment to benchmark, model and evaluator artifacts; retain raw trial reports in any separately authorized reproduction.",
+        "schema": "supplementary-primary-assessment.v1",
+        "source_id": "dac-2026-paretopilot-repository",
+        "source_tier": "public_research_artifact",
+        "source_url": "https://github.com/GEAR-SEU/ParetoPilot-DAC-26/tree/d08173f66903ed466537c9327b63addac223ee95",
+        "title": "Paretopilot: Global Optimization Reasoning on HLS Design Space Exploration with LLMs",
+        "unresolved_conditions": [
+          "Author-to-repository linkage beyond the release self-identification",
+          "Full-paper metric definitions and exact heuristic comparator for the description-level headline gains",
+          "Training/test split, benchmark leakage, model revision, seeds and dispersion",
+          "Equal search budgets including model inference and training costs",
+          "Reproducible Pareto-quality aggregation, feasible resource constraints and per-trial reports",
+          "Functional equivalence, post-route timing and board validation"
+        ]
+      },
+      "content_role": "researcher_assessment_not_original_source",
+      "headline_metric_status": "withheld_pending_identity_and_experiment_reconciliation",
+      "independent_review_status": "pending",
+      "path": "dac/data/paretopilot-primary-assessment-v1.json",
+      "sha256": "652480de3358ffa4852db9579c44531c0e94398906079e44353244129336258b",
+      "source_url": "https://github.com/GEAR-SEU/ParetoPilot-DAC-26/tree/d08173f66903ed466537c9327b63addac223ee95"
+    }
+  ],
   "taxonomy_branch": {
     "label": "AI-assisted EDA",
     "subsubthemes": {
