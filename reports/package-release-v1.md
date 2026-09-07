@@ -29,6 +29,8 @@ gates still open**.
 - A remediation record showing all 582 packets pass deterministic source/provenance preflight; independent review remains pending.
 - A five-record P1 condition-extraction batch with source locators, evaluation
   conditions, and unresolved boundaries for high-risk quantitative claims.
+- A second five-record P1 extraction batch covering ADC testing, edge LLMs,
+  multi-die FPGA DSE, technology co-optimization, and asymmetric tile buffering.
 
 ## What users may conclude
 

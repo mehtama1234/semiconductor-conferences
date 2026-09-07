@@ -12,10 +12,12 @@ full-paper condition verification.
 | P1 primary-source strengthening | 31 | Author preprint, author copy, institutional abstract/report, company source, or artifact | Extract section/table/figure locators, platform/process, workload, baseline, metric definition, budget, and limitations. |
 | P2 official-description expansion | 541 | Official conference descriptions | Recover manuscript/abstract/artifact evidence; retain unknowns and do not promote description-level numbers as accepted results. |
 
-The first five-record P1 extraction batch is recorded in
+The first two five-record P1 extraction batches are recorded in
 `reports/condition-extraction-batch-2026-09-07.md`. It covers Strix,
 MappingEvolve, SERA-Float, RIROS, and Capacitance ML with source locators,
 evaluation conditions, and explicit unresolved boundaries.
+Batch 2 is recorded in `reports/condition-extraction-batch-2-2026-09-07.md` and
+covers UGLMS, Squat, HLPS-DSE, Orthrus, and ATB under the same boundary.
 
 The categories overlap by design: P0 is a remediation priority, while P1/P2
 describe evidence depth. The former P0 records are retained in
