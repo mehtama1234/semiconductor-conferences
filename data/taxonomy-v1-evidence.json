@@ -39,6 +39,7 @@
     "dac/data/adjudicated-2026-batch-25.jsonl",
     "dac/data/adjudicated-2026-batch-26.jsonl",
     "dac/data/adjudicated-2026-batch-27.jsonl",
+    "dac/data/adjudicated-2026-batch-28.jsonl",
     "iccad/data/adjudicated-2025-batch-3.jsonl",
     "iccad/data/adjudicated-2025-batch-4.jsonl",
     "iccad/data/adjudicated-2025-batch-5.jsonl",
@@ -56,14 +57,17 @@
       "label": "AI-assisted EDA",
       "subsubthemes": {
         "generative-design-and-synthesis": [
-          "alphazero-generative-aig-synthesis"
+          "alphazero-generative-aig-synthesis",
+          "multi-agent-eda-code-evolution"
         ],
         "learned-design-space-exploration": [
           "autoregressive-circuit-design-modeling",
           "coderllm-guided-hls-design-space-exploration",
           "diffusion-tcad-multi-field-surrogate",
+          "graph-transformer-analog-parasitic-extraction",
           "hardware-aware-bev-detection-nas",
           "hierarchical-multi-agent-chiplet-design",
+          "hypervolume-zero-cost-vit-search",
           "multi-fidelity-bayesian-microarchitecture-exploration",
           "self-supervised-atpg-free-test-point-insertion"
         ],
@@ -150,7 +154,8 @@
           "lpn-post-quantum-crypto-acceleration",
           "modular-riscv-pqc-extension",
           "noise-robust-cim-on-device-personalization",
-          "reram-cam-point-cloud-knn-acceleration"
+          "reram-cam-point-cloud-knn-acceleration",
+          "unified-riscv-ecpm-isa"
         ],
         "specialized-ai-accelerators": [
           "adaptive-sparsity-hyper-dimensional-graph-learning",
@@ -239,6 +244,7 @@
           "silicon-proven-cxl-port-based-routing-fabric"
         ],
         "data-movement-and-locality": [
+          "bit-sliced-moe-expert-caching",
           "compiler-driven-pim-data-movement",
           "concurrent-pim-cpu-mobile-scheduling",
           "cpu-storage-hybrid-ann-search",
@@ -250,6 +256,7 @@
           "io-efficient-prefix-kv-retrieval",
           "multi-chip-sparse-matrix-communication-co-design",
           "near-memory-communication-lower-bounds",
+          "proactive-multigpu-translation-dissemination",
           "speculative-in-storage-ann"
         ],
         "memory-hierarchy-and-persistence": [
@@ -332,6 +339,7 @@
       "subsubthemes": {
         "accelerator-reliability": [
           "cross-layer-ml-reliability-mixed-criticality",
+          "electromagnetic-layout-quantum-reliability",
           "fault-tolerant-block-floating-point-npu",
           "full-stack-npu-fault-mitigation",
           "layer-adaptive-analog-cim-ecc",
@@ -356,6 +364,7 @@
         "side-channel-and-hardware-security": [
           "adversarial-attacks-on-moe-offloading",
           "compiler-transient-execution-defense",
+          "counting-thread-timing-defense",
           "cross-component-slc-cache-covert-channel",
           "cross-domain-in-vehicle-attack-traceback",
           "deterministic-semi-virtual-memory-safety",
@@ -371,7 +380,8 @@
           "rowhammer-falcon-fault-cryptographic",
           "secure-nv-cim-encrypted-inference",
           "transparent-rowhammer-monitoring",
-          "verifiable-tee-cpu-availability"
+          "verifiable-tee-cpu-availability",
+          "voltage-waveform-instruction-disassembly"
         ]
       },
       "subthemes": [
@@ -387,6 +397,9 @@
     {
       "label": "Systems, applications, and workloads",
       "subsubthemes": {
+        "confidential-and-trusted-computing": [
+          "heterogeneous-confidential-vm-live-migration"
+        ],
         "datacenter-and-cloud-systems": [
           "elastic-unified-llm-memory-management",
           "gnn-rl-energy-cloud-placement",
@@ -404,6 +417,7 @@
         ]
       },
       "subthemes": [
+        "confidential-and-trusted-computing",
         "datacenter-and-cloud-systems",
         "edge-embedded-and-mobile-systems",
         "scientific-robotics-and-domain-workloads"
