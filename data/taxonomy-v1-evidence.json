@@ -33,6 +33,7 @@
     "dac/data/adjudicated-2026-batch-19.jsonl",
     "dac/data/adjudicated-2026-batch-20.jsonl",
     "dac/data/adjudicated-2026-batch-21.jsonl",
+    "dac/data/adjudicated-2026-batch-22.jsonl",
     "iccad/data/adjudicated-2025-batch-3.jsonl",
     "iccad/data/adjudicated-2025-batch-4.jsonl",
     "iccad/data/adjudicated-2025-batch-5.jsonl",
@@ -50,6 +51,7 @@
       "label": "AI-assisted EDA",
       "subsubthemes": {
         "learned-design-space-exploration": [
+          "autoregressive-circuit-design-modeling",
           "diffusion-tcad-multi-field-surrogate",
           "hierarchical-multi-agent-chiplet-design",
           "multi-fidelity-bayesian-microarchitecture-exploration"
@@ -124,6 +126,9 @@
           "silicon-calibrated-hierarchical-cim-exploration",
           "training-free-self-speculative-edge-llm-decoding"
         ],
+        "specialized-accelerators-and-dataflow": [
+          "lpn-post-quantum-crypto-acceleration"
+        ],
         "specialized-ai-accelerators": [
           "adaptive-sparsity-hyper-dimensional-graph-learning",
           "arbitrary-order-cam-distance-acceleration",
@@ -140,6 +145,7 @@
         "ai-accelerator-microarchitecture",
         "architecture-software-co-design",
         "general-purpose-and-domain-specific-architecture",
+        "specialized-accelerators-and-dataflow",
         "specialized-ai-accelerators"
       ],
       "theme_id": "architecture-and-accelerators"
@@ -239,7 +245,8 @@
         ],
         "storage-and-data-movement": [
           "media-aware-archival-storage-scheduling",
-          "noise-robust-fenand-hdc-sql"
+          "noise-robust-fenand-hdc-sql",
+          "workload-aware-numa-storage-coordination"
         ]
       },
       "subthemes": [
@@ -319,6 +326,7 @@
           "deterministic-semi-virtual-memory-safety",
           "diffusion-model-watermarking-acceleration",
           "gpu-power-thermal-transformer-side-channel-leakage",
+          "hardware-interrupt-security-risks",
           "ml-dsa-edge-hw-sw-co-design",
           "puf-protected-cim-bnn",
           "remote-power-leakage-in-post-quantum-kem",
@@ -387,6 +395,7 @@
           "llm-assisted-hls-logic-debugging",
           "python-hardware-generation-verilator-debugging",
           "reinforcement-learning-ssd-test-generation",
+          "simultaneous-dnn-fault-injection-assessment",
           "tensor-centric-dsa-verification",
           "uncertainty-guided-adaptive-sar-adc-linearity-measurement"
         ]
