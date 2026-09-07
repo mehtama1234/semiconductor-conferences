@@ -6,7 +6,7 @@
   "source_url": "https://arxiv.org/html/2512.20823v1",
   "capture_date": "2026-09-06",
   "source_tier": "author_preprint",
-  "extraction_scope": "Selected sections 2.4, 3, 4.2; no table transcription or artifact execution",
+  "extraction_scope": "Selected preprint sections and read-only pinned evaluator/task inspection; no table transcription or artifact execution",
   "identity": "Exact normalized title; seven corresponding authors, with expanded Razine Moundir Ghorab and Cristian Gutierrez-Gomez names versus abbreviated program names. Preprint DOI is a placeholder, not a publication identifier.",
   "conditions": {
     "task": "Contextual module completion, not unconstrained specification-to-chip design",
@@ -20,7 +20,24 @@
     "A comparative memorization signal is not proof of training-set exclusion.",
     "A changing benchmark requires version-matched comparisons; live scores cannot by themselves establish model progress."
   ],
+  "artifact_inspection": {
+    "repository": "https://github.com/HPAI-BSC/TuRTLe",
+    "commit": "6a32467e79d7a6cfbf3a6c579c24f20662475101",
+    "tree": "fb6088de9874ff99cdd70eae57197d81133eeee3",
+    "recursive_tree_truncated": false,
+    "identity_link": "turtle/tasks/NotSoTiny.py cites arXiv 2512.20823 and loads HPAI-BSC/NotSoTiny-25-12",
+    "evaluator_url": "https://github.com/HPAI-BSC/TuRTLe/blob/6a32467e79d7a6cfbf3a6c579c24f20662475101/turtle/metrics/eval_notsotiny.py",
+    "timeout_locator": "run_equivalence_check, lines 383-389 and 451-457",
+    "timeout_seconds": 900,
+    "timeout_result": {"equiv_passed": true, "equiv_method": "timeout", "cells_coverage": 100.0},
+    "aggregation_locator": "turtle/tasks/NotSoTiny.py line 370 sums equiv_passed flags",
+    "finding": "Timeout is counted as equivalence success despite absence of a completed proof. Retaining the timeout label does not prevent this aggregation.",
+    "proof_commands": ["equiv_simple -undef", "equiv_induct -undef -seq 30", "equiv_status"],
+    "dataset_revision_boundary": "Task loads the 25-12 dataset without a revision argument; repository pin alone does not pin dataset contents.",
+    "limits": "Source-level behavior, not a measured inflation of published scores. The paper's run revision and per-task timeout incidence remain unverified. No downloaded code, models or solver jobs executed.",
+    "next_verification": "Recover evaluation logs/revision; separate proven, timeout, unproven and tool-error outcomes and recompute scores only from matched run data."
+  },
   "headline_metric_status": "withheld_pending_verifier_and_evaluation_reconciliation",
   "independent_review_status": "pending",
-  "revisit_condition": "Pin verifier and dataset release; inspect proof commands, exclusions, timeouts and inference budgets before accepting quantitative synthesis."
+  "revisit_condition": "Match pinned verifier to paper runs and recover per-task outcomes; pin dataset revision and reconcile timeout treatment before quantitative acceptance."
 }

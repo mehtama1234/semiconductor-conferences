@@ -28,6 +28,9 @@ The [NotSoTiny follow-up](../dac/reports/notsotiny-primary-assessment-v1.md) now
 adds selected preprint conditions without promoting the original description:
 task selection, checker semantics and benchmark version must accompany any
 capability comparison. Its quantitative conclusions remain pending review.
+Pinned evaluator inspection also found a timeout-as-success scoring path.
+This is a concrete implementation caveat, not demonstrated inflation of the
+paper's scores; matched run provenance and timeout incidence are still missing.
 
 ## 1. AI-assisted design → tool-grounded generation → verified iteration
 

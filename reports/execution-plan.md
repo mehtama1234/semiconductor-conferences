@@ -4,6 +4,12 @@ The governing scope and acceptance criteria are in [GOAL.md](../GOAL.md).
 This log distinguishes finished work from queued work; a plan is not a completed
 research result.
 
+NotSoTiny verifier pinned: timeout branch sets equivalence success/100% coverage,
+and task aggregation counts that flag. Recorded exact locators and dataset-pin
+gap without asserting published-score inflation. No code or solver execution.
+Next: recover matched run outcomes where available; move to undercovered
+ISCA/ICCAD primary evidence rather than waiting on this unresolved run provenance.
+
 TierANNS identity follow-up: official description still names COGA; institutional
 publication entry confirms all eight authors and the TierANNS title but does not
 explain the alias. Recorded dated searches and a narrow revisit trigger in the
