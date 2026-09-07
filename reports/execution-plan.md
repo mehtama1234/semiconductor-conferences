@@ -4,6 +4,21 @@ The governing scope and acceptance criteria are in [GOAL.md](../GOAL.md).
 This log distinguishes finished work from queued work; a plan is not a completed
 research result.
 
+COPA coding and original capture: exact institutional title/DOI and all seven
+authors match the program after punctuation normalization. Added congestion-driven
+feedthrough-pin assignment to the physical-design taxonomy, with empty headline
+metrics and explicit routing-stage/testcase gaps. The new NYCU extractor requires
+unique title/DOI metadata, matching page heading, ordered authors and one abstract
+block; it will not silently pass GAIA's spelling conflict. Original COPA abstract
+captured successfully. Coding reaches 83 (49 DAC, 16 ISCA, 18 ICCAD); supplementary
+assessments reach 29. Next: continue ordered recovery and full-text condition checks,
+while preserving independent review and temporal comparison as separate gates.
+Regenerated taxonomy, summary, queue and both packet sets; project validation and
+135 tests pass. The full suite exposed one stale recovery-attempt count from the
+previous batch, now corrected to 20. Packets contain 31 original abstracts, 49
+official descriptions and three source gaps; 24 include supplementary assessments.
+Preflight is 69 pass / 14 review, not independent scientific acceptance.
+
 Ordered recovery 1144/1148/1149: GAIA institutional abstract adds glass-storage
 placement and scheduling mechanisms, explicitly distinct from glass packaging.
 Its first/third author spellings differ from program and author-lab listings;

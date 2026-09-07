@@ -1,0 +1,32 @@
+{
+  "schema": "primary-source-recovery-assessment.v1",
+  "paper_id": "iccad-2025-1155",
+  "title": "COPA: A Congestion-Oriented Pin Assignment Framework for Intra-Block Physical Design Optimization",
+  "source_id": "iccad-2025-copa-nycu",
+  "source_url": "https://scholar.nycu.edu.tw/en/publications/copa-a-congestion-oriented-pin-assignment-framework-for-intra-blo/",
+  "capture_date": "2026-09-06",
+  "source_tier": "institutional_abstract",
+  "extraction_scope": "Institutional abstract, title, seven authors and DOI; author-lab listing confirms conference identity. No full manuscript located on lab page.",
+  "independent_review_status": "pending",
+  "headline_metric_status": "withheld_pending_testcase_and_routing_conditions",
+  "identity": {
+    "authors": [
+      "Shu-Yi Tsai",
+      "Yu-Guang Chen",
+      "Kun-Min Chen",
+      "Sheng-Bing Ke",
+      "Chung-Hui Hsieh",
+      "Chih-Wei Lin",
+      "Mango Chia-Tso Chao"
+    ],
+    "doi": "10.1109/ICCAD66269.2025.11240661",
+    "status": "exact_title_and_seven_authors_match_after_punctuation_normalization",
+    "lab_url": "https://tiger.iee.nycu.edu.tw/publications.php"
+  },
+  "mechanism": "Gradient-based adjustment of feedthrough-pin positions using a routing-demand congestion objective.",
+  "limits": [
+    "Overflow reduction is not proof of timing closure or final detailed-routing success. Headline percentages withheld pending testcase, capacity and baseline conditions; no full-text or independent acceptance.",
+    "Wirelength preservation is an abstract-level claim, not a verified constraint across named testcases."
+  ],
+  "next_action": "Original abstract and conservative coding integrated; recover full paper to inspect objective, legality constraints, routing stage and equal-budget comparisons."
+}

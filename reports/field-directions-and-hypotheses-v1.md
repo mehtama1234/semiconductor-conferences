@@ -15,7 +15,7 @@ independent markets, and not a partition for counting papers.
 
 The evidence base is asymmetric. All 543 DAC 2026 descriptions have initial
 coding, but most lack full-paper conditions. The original cross-conference sample
-began with 72 records; current coding contains 82 (49 DAC, 16 ISCA, 17 ICCAD),
+began with 72 records; current coding contains 83 (49 DAC, 16 ISCA, 18 ICCAD),
 none independently accepted here.
 ICCAD technical evidence uses the explicit 2025 fallback. The
 [source-linked direction map](../data/technology-direction-evidence-v1.json)
@@ -155,6 +155,16 @@ rejected candidates using a held-out higher-fidelity solver or measurements.
 Count ranking errors and constraint violations. The decisive result is improved
 feasible designs within a fixed search budget, not solver speed alone.
 
+An additional coded physical-design example is
+[COPA](../iccad/data/copa-primary-recovery-v1.json), an ICCAD 2025 fallback paper
+supported here by its institutional abstract. It adjusts feedthrough-pin positions
+using a routing-demand objective rather than treating wirelength as a sufficient
+proxy. Our interpretation: choices made at block interfaces can affect internal
+routing feasibility, so local geometric improvements need downstream validation.
+The abstract does not establish final timing closure, detailed-route success, or
+equal-budget comparison. This follow-up is not an independently accepted anchor
+or evidence of increasing prevalence.
+
 ## 5. Design-space exploration → fidelity management → decision reliability
 
 **Observed mechanisms.** HYPER-CIM connects a surrogate to design exploration and
@@ -231,7 +241,7 @@ An [ICCAD fallback follow-up](../iccad/data/adder-dcim-primary-recovery-v1.json)
 adds Adder-DCIM as an institutional-evidence test case, not a new accepted anchor.
 The methodological question is whether representation changes remain beneficial
 after conversion costs and system overhead are counted. Its available evidence
-does not yet resolve that question. It remains outside the 82-record coded sample.
+does not yet resolve that question. It remains outside the 83-record coded sample.
 
 The [Squat recovery assessment](../iccad/data/squat-primary-recovery-v1.json)
 adds a coded deployment-focused follow-up, with independent review pending. It sharpens the

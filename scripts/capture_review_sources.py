@@ -98,6 +98,26 @@ def extract_ntu(html: str, expected_title: str, expected_doi: str) -> dict:
             "text_locator": "NTU unique ScholarlyArticle JSON-LD abstract; citation and article title/DOI checked"}
 
 
+def extract_nycu(html: str, expected_title: str, expected_doi: str, expected_authors: list[str]) -> dict:
+    soup = BeautifulSoup(html, "html.parser")
+    def values(name):
+        return [tag.get("content", "").strip() for tag in soup.find_all("meta", attrs={"name": name})]
+    titles, dois, authors = values("citation_title"), values("citation_doi"), values("citation_author")
+    blocks = soup.select(".rendering_abstractportal .textblock")
+    headings = soup.find_all("h1")
+    valid = (len(titles) == len(dois) == len(headings) == len(blocks) == 1
+             and bool(expected_doi) and bool(expected_authors)
+             and title_key(titles[0]) == title_key(expected_title)
+             and title_key(headings[0].get_text(" ", strip=True)) == title_key(expected_title)
+             and dois[0].lower() == expected_doi.lower()
+             and [title_key(a) for a in authors] == [title_key(a) for a in expected_authors])
+    return {"observed_title": titles[0] if len(titles) == 1 else None,
+            "observed_doi": dois[0] if len(dois) == 1 else None, "observed_authors": authors,
+            "identity_status": "exact_normalized_title" if valid else "title_doi_authors_or_block_mismatch_requires_review",
+            "description": blocks[0].get_text(" ", strip=True) if valid else "",
+            "text_locator": "NYCU unique institutional abstract block; heading, title, DOI and ordered author metadata checked"}
+
+
 def capture(record: dict, root: Path) -> dict:
     result = {"paper_id": record["paper_id"], "title": record["title"],
               "evidence_url": record["evidence_url"],
@@ -107,7 +127,8 @@ def capture(record: dict, root: Path) -> dict:
     is_pdf = record["evidence_url"].lower().endswith(".pdf") or bool(hal_match)
     is_hkust = record["evidence_url"].startswith("https://researchportal.hkust.edu.hk/en/publications/")
     is_ntu = record["evidence_url"].startswith("https://scholars.lib.ntu.edu.tw/entities/publication/")
-    if not record["evidence_url"].startswith(("https://arxiv.org/abs/", "https://arxiv.org/html/")) and not is_pdf and not is_hkust and not is_ntu:
+    is_nycu = record["evidence_url"].startswith("https://scholar.nycu.edu.tw/en/publications/")
+    if not record["evidence_url"].startswith(("https://arxiv.org/abs/", "https://arxiv.org/html/")) and not is_pdf and not is_hkust and not is_ntu and not is_nycu:
         result["capture_status"] = "requires_source_specific_extractor"
         return result
     try:
@@ -137,6 +158,8 @@ def capture(record: dict, root: Path) -> dict:
             result.update(extract_hkust(body.decode("utf-8", errors="replace"), record["title"], record.get("doi", "")))
         elif is_ntu:
             result.update(extract_ntu(body.decode("utf-8", errors="replace"), record["title"], record.get("doi", "")))
+        elif is_nycu:
+            result.update(extract_nycu(body.decode("utf-8", errors="replace"), record["title"], record.get("doi", ""), record.get("authors", [])))
         else:
             result.update(extract_arxiv(body.decode("utf-8", errors="replace"), record["title"]))
         result["raw_sha256"] = hashlib.sha256(body).hexdigest()

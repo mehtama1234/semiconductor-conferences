@@ -22,7 +22,8 @@
     "iccad/data/adjudicated-2025-batch-6.jsonl",
     "iccad/data/adjudicated-2025-batch-7.jsonl",
     "iccad/data/adjudicated-2025-batch-8.jsonl",
-    "iccad/data/adjudicated-2025-batch-9.jsonl"
+    "iccad/data/adjudicated-2025-batch-9.jsonl",
+    "iccad/data/adjudicated-2025-batch-10.jsonl"
   ],
   "status": "provisional_until_full_corpus_adjudication",
   "taxonomy_version": "v1-evidence-derived",
@@ -188,6 +189,7 @@
           "geometry-conditioned-layer-specific-capacitance-surrogates"
         ],
         "placement-routing-and-timing": [
+          "congestion-oriented-feedthrough-pin-assignment",
           "differentiable-clock-tree-synthesis",
           "fpga-accelerated-design-rule-checking",
           "timing-critical-parallel-non-integer-cell-height-remapping"

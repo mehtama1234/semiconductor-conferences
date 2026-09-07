@@ -17,15 +17,15 @@ The evidence is intentionally asymmetric:
   records and 494 additional drafts; independent acceptance pending.
 - ISCA: 173 official 2026 program slots (172 titled); 16 technically coded
   records; 4 secondary-only papers pending primary verification.
-- ICCAD: 2026 scope evidence and a 319-entry 2025 fallback inventory; 17 technically
+- ICCAD: 2026 scope evidence and a 319-entry 2025 fallback inventory; 18 technically
   coded fallback papers. The inventory includes 43 invited papers and ten student
   presentations, not 319 regular papers; see the [scope audit](../iccad/reports/program-scope-audit-v1.md).
 
-The 82-record technical coding sample is selected for recoverable evidence and
+The 83-record technical coding sample is selected for recoverable evidence and
 technical diversity. It is not a prevalence estimate, market forecast, conference
 ranking, or proof that a direction is rising.
 For a mechanism-level follow-up, see [scheduling versus physical surrogates](../iccad/reports/scheduling-versus-surrogates-v1.md): two analysis accelerators with different correctness and generalization requirements.
-All 82 remain independently unaccepted. The original synthesis-anchor set is
+All 83 remain independently unaccepted. The original synthesis-anchor set is
 distinct from the expanded coded sample and is not enlarged by metadata recovery.
 
 ## Executive interpretation
