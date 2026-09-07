@@ -369,6 +369,11 @@ The sixty-sixth P2 tranche is recorded in
 nonlinear edge operators, MoA serving, bit-level LLM acceleration, cache-oriented
 reasoning, delay-aware fill, wafer-defect analysis, NUMA I/O, sparsely gated RF
 networks, and adaptive multimodal FPGA inference.
+The sixty-seventh P2 tranche is recorded in
+`reports/p2-recovery-batch-67-2026-09-07.md`, covering emulation detection,
+streaming VLM retrieval, stage-aware MoE management, sparse video attention,
+Apple TLB side channels, processor upper-bound modeling, design-evolution graphs,
+Versal GEMM, zoned-storage reordering, and near-memory RAG.
 
 The categories overlap by design: P0 is a remediation priority, while P1/P2
 describe evidence depth. The former P0 records are retained in
