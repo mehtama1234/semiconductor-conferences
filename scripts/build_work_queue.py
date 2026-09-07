@@ -131,6 +131,10 @@ def build(root: Path) -> tuple[list[dict], dict, str]:
             "priority": priority, "priority_reasons": reasons, "next_actions": actions,
         })
     for row in queue:
+        paper = inventory[row["paper_id"]]
+        if paper.get("program_entry_type"):
+            row["program_entry_type"] = paper["program_entry_type"]
+            row["regular_paper_comparison_eligible"] = paper["regular_paper_comparison_eligible"]
         if row["paper_id"] in recovery_attempts:
             row["source_recovery_attempts"] = recovery_attempts[row["paper_id"]]
             row["next_actions"].insert(0, recovery_attempts[row["paper_id"]][-1]["next_action"])
@@ -145,6 +149,7 @@ def build(root: Path) -> tuple[list[dict], dict, str]:
     summary = {
         "schema": "research-work-queue.v1", "record_count": len(queue),
         "recovery_attempt_paper_count": len(recovery_attempts),
+        "explicit_nonregular_entry_count": sum(r.get("regular_paper_comparison_eligible") is False for r in queue),
         "inventory_paths": [str(p.relative_to(root)) for p in inventory_paths],
         "corpus_counts": dict(sorted(counts.items())), "coded_count": len(coded),
         "draft_paper_count": sum(bool(r["draft_coding_paths"]) for r in queue),
@@ -157,6 +162,7 @@ def build(root: Path) -> tuple[list[dict], dict, str]:
         "unresolved_isca_doi_ids": [r["paper_id"] for r in queue if "unresolved_isca_doi" in r["priority_reasons"]],
         "collection_counts": dict(sorted(Counter(r["collection_status"] for r in queue).items())),
         "limits": ["Priority is review routing, not importance or prevalence.",
+                   "Inventory title counts include student entries; explicit nonregular flags must be respected in regular-paper comparisons, and untyped entries remain unaudited.",
                    "Source tier does not establish full-text extraction or independent acceptance.",
                    "Historical challenge/rate-limit outcomes are preserved; metadata-only does not mean inaccessible.",
                    "Independent review remains pending; same-model preliminary review is separate.",

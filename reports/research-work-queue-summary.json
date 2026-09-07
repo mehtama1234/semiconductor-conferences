@@ -25,6 +25,7 @@
   "excluded_slot_ids": [
     "isca-2026-program-158"
   ],
+  "explicit_nonregular_entry_count": 10,
   "inventory_paths": [
     "dac/data/papers-2025-program.jsonl",
     "dac/data/papers-2026-program.jsonl",
@@ -34,6 +35,7 @@
   ],
   "limits": [
     "Priority is review routing, not importance or prevalence.",
+    "Inventory title counts include student entries; explicit nonregular flags must be respected in regular-paper comparisons, and untyped entries remain unaudited.",
     "Source tier does not establish full-text extraction or independent acceptance.",
     "Historical challenge/rate-limit outcomes are preserved; metadata-only does not mean inaccessible.",
     "Independent review remains pending; same-model preliminary review is separate.",

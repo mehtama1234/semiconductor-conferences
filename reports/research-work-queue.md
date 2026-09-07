@@ -60,6 +60,7 @@ Order: synthesis anchors, secondary-source recovery, unresolved ISCA identifiers
 ## Limits
 
 - Priority is review routing, not importance or prevalence.
+- Inventory title counts include student entries; explicit nonregular flags must be respected in regular-paper comparisons, and untyped entries remain unaudited.
 - Source tier does not establish full-text extraction or independent acceptance.
 - Historical challenge/rate-limit outcomes are preserved; metadata-only does not mean inaccessible.
 - Independent review remains pending; same-model preliminary review is separate.

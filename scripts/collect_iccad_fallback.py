@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import argparse
+import hashlib
 import json
 import re
 from datetime import date
@@ -32,7 +33,23 @@ def extract_papers(pdf: bytes) -> list[dict]:
     reader = PdfReader(BytesIO(pdf))
     # The official table of contents places the technical program on PDF pages 38–129.
     lines = "\n".join((page.extract_text() or "") for page in reader.pages[37:128]).splitlines()
-    return extract_program_lines(lines)
+    records = extract_program_lines(lines)
+    corrections = json.loads((Path(__file__).resolve().parents[1] / "iccad/data/src-entry-reconciliation-v1.json").read_text())
+    if hashlib.sha256(pdf).hexdigest() == corrections["source_sha256"]:
+        apply_src_corrections(records, corrections)
+    return records
+
+
+def apply_src_corrections(records: list[dict], corrections: dict) -> None:
+    by_id = {row["paper_id"]: row for row in records}
+    for correction in corrections["changes"]:
+        row = by_id[correction["paper_id"]]
+        before, after = correction["before"], correction["after"]
+        if row["title"] not in (before["title"], after["title"]):
+            raise ValueError("SRC title differs from reviewed source")
+        if row["authors"] not in (before["authors"], after["authors"]):
+            raise ValueError("SRC authors differ from reviewed source")
+        row.update(after)
 
 
 def extract_program_lines(lines: list[str]) -> list[dict]:

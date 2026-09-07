@@ -4,6 +4,18 @@ The governing scope and acceptance criteria are in [GOAL.md](../GOAL.md).
 This log distinguishes finished work from queued work; a plan is not a completed
 research result.
 
+SRC metadata repair: visually verified retained official PDF pages 75–76 and
+repaired eight title/author boundaries; labeled all ten student-research oral
+entries as ineligible for regular-paper comparisons. IDs and the 276-entry
+inventory are preserved. The other 266 entry types remain unaudited, not assumed
+regular papers. A hash-bound correction ledger makes collector rebuilds preserve
+the repairs; queue records expose the type/eligibility flags. No new technical
+coding or independent acceptance. Next: audit remaining program entry types and
+pursue the SERA-Float manuscript lead.
+Validated the full retained-PDF rebuild: all 276 titles/authors match the updated
+inventory and ten SRC labels are reproduced. Project validation and 113 tests
+passed, including correction idempotence, mismatch rejection and queue scope.
+
 Ordered ICCAD recovery 1098/11/1109: the matching-title standard-cell GDS
 repository cites a 2026 journal submission with a changed author list, so it is
 not promoted as the 2025 artifact. Gau++ is a student-research oral entry on
