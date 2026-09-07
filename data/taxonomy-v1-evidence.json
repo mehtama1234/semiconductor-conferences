@@ -47,6 +47,7 @@
     "dac/data/adjudicated-2026-batch-33.jsonl",
     "dac/data/adjudicated-2026-batch-34.jsonl",
     "dac/data/adjudicated-2026-batch-35.jsonl",
+    "dac/data/adjudicated-2026-batch-36.jsonl",
     "iccad/data/adjudicated-2025-batch-3.jsonl",
     "iccad/data/adjudicated-2025-batch-4.jsonl",
     "iccad/data/adjudicated-2025-batch-5.jsonl",
@@ -68,6 +69,9 @@
           "flow-matching-chip-placement",
           "multi-agent-eda-code-evolution",
           "process-reward-rtl-generation"
+        ],
+        "graph-learning-for-eda": [
+          "learned-computation-on-circuit-graphs"
         ],
         "learned-design-space-exploration": [
           "autoregressive-circuit-design-modeling",
@@ -101,6 +105,7 @@
       "subthemes": [
         "generative-circuit-and-layout-synthesis",
         "generative-design-and-synthesis",
+        "graph-learning-for-eda",
         "learned-design-space-exploration",
         "llm-assisted-design-flows"
       ],
@@ -128,6 +133,7 @@
           "monte-carlo-analog-placement"
         ],
         "device-modeling-and-simulation": [
+          "graph-aware-neural-circuit-simulation",
           "weak-form-pinn-device-simulation"
         ],
         "emerging-memory-and-devices": [
@@ -203,6 +209,7 @@
           "lpn-post-quantum-crypto-acceleration",
           "modular-riscv-pqc-extension",
           "noise-robust-cim-on-device-personalization",
+          "pivot-centric-heterogeneous-gnn-acceleration",
           "reram-cam-point-cloud-knn-acceleration",
           "sparse-tensor-accelerator-compilation",
           "unified-riscv-ecpm-isa"
@@ -351,7 +358,8 @@
         ],
         "memory-compute-and-reliability": [
           "dual-rail-reliable-dram-compute",
-          "sram-compatible-block-fp-compute-near-memory"
+          "sram-compatible-block-fp-compute-near-memory",
+          "systematic-sram-cim-dataflow-exploration"
         ],
         "memory-hierarchy-and-persistence": [
           "3d-stacked-dram-llm-inference",
@@ -374,7 +382,8 @@
           "dynamic-parity-ssd-lifetime-extension",
           "media-aware-archival-storage-scheduling",
           "noise-robust-fenand-hdc-sql",
-          "workload-aware-numa-storage-coordination"
+          "workload-aware-numa-storage-coordination",
+          "zns-swap-heterogeneous-gnn"
         ]
       },
       "subthemes": [
@@ -390,7 +399,8 @@
       "label": "Physical design and manufacturing",
       "subsubthemes": {
         "manufacturing-and-yield": [
-          "gpu-layout-pattern-matching"
+          "gpu-layout-pattern-matching",
+          "policy-learned-full-chip-ilt-scheduling"
         ],
         "manufacturing-monitoring-and-yield": [
           "wafer-level-tool-chain-attestation"
@@ -454,6 +464,7 @@
           "layer-adaptive-analog-cim-ecc",
           "lifetime-aware-nvm-fpga-reconfiguration",
           "operator-aware-fault-tolerant-scheduling",
+          "probabilistic-memory-trustworthy-edge-ai",
           "thermal-delay-fault-aware-driving-perception"
         ],
         "energy-and-thermal-efficiency": [
@@ -480,6 +491,7 @@
           "counting-thread-timing-defense",
           "cross-component-slc-cache-covert-channel",
           "cross-domain-in-vehicle-attack-traceback",
+          "crossbar-column-signing-cim",
           "deterministic-semi-virtual-memory-safety",
           "diffusion-model-watermarking-acceleration",
           "encrypted-routing-secure-inference",
@@ -500,6 +512,7 @@
           "voltage-waveform-instruction-disassembly"
         ],
         "thermal-and-reliability-modeling": [
+          "asynchronous-gnn-fit-prediction",
           "neural-chip-thermal-stress-decomposition",
           "thermal-aware-edge-tpu-sram-allocation"
         ]
@@ -541,12 +554,18 @@
           "personalized-edge-moe-expert-placement",
           "schedulability-aware-heterogeneous-accelerator-design"
         ],
+        "real-time-and-networked-systems": [
+          "per-flow-asynchronous-tsn-shaping"
+        ],
         "robotics-and-edge-ai": [
           "dynamic-static-vla-layer-skipping",
           "ensemble-neural-fields-robot-control",
           "periodic-robot-mapping-navigation",
           "pipelined-edge-vlm-action-acceleration",
           "sparse-robotics-diffusion-acceleration"
+        ],
+        "signal-processing-and-sensing": [
+          "graph-optimized-ai-sar-processing"
         ]
       },
       "subthemes": [
@@ -554,8 +573,10 @@
         "datacenter-and-cloud-systems",
         "edge-ai-and-deployment",
         "edge-embedded-and-mobile-systems",
+        "real-time-and-networked-systems",
         "robotics-and-edge-ai",
-        "scientific-robotics-and-domain-workloads"
+        "scientific-robotics-and-domain-workloads",
+        "signal-processing-and-sensing"
       ],
       "theme_id": "systems-applications-and-workloads"
     },
@@ -566,7 +587,10 @@
           "branch-divergence-gpu-wcet-analysis",
           "entropy-aware-rtl-llm-alignment",
           "factored-form-parallel-equivalence-checking",
+          "instruction-sliced-llm-processor-debugging",
           "llm-threat-to-assertion-soc-verification",
+          "parallel-sweeping-equivalence-checking",
+          "rtl-grounded-assertion-generation",
           "sat-hierarchical-boundary-recovery",
           "testbench-rewarded-verilog-generation"
         ],
@@ -600,6 +624,7 @@
           "rl-guided-hdl-compiler-testing",
           "simultaneous-dnn-fault-injection-assessment",
           "tensor-centric-dsa-verification",
+          "topological-balanced-emulation-scheduling",
           "uncertainty-guided-adaptive-sar-adc-linearity-measurement"
         ]
       },

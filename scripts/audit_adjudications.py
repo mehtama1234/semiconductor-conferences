@@ -64,6 +64,7 @@ def audit(root: Path) -> dict:
     records += read(root / "dac/data/adjudicated-2026-batch-33.jsonl")
     records += read(root / "dac/data/adjudicated-2026-batch-34.jsonl")
     records += read(root / "dac/data/adjudicated-2026-batch-35.jsonl")
+    records += read(root / "dac/data/adjudicated-2026-batch-36.jsonl")
     records += read(root / "isca/data/adjudicated-2026-batch-9.jsonl")
     records += read(root / "iccad/data/adjudicated-2025-batch-3.jsonl")
     records += read(root / "iccad/data/adjudicated-2025-batch-4.jsonl")
