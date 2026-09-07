@@ -84,6 +84,8 @@ gates still open**.
   RDMA, verification, formal-memory, and prefetching records.
 - A twenty-first P2 routing tranche prioritizing ten ISCA neural-prefetching,
   quantum, Ising, power/thermal, and distributed-LLM records.
+- A twenty-second P2 routing tranche prioritizing ten ISCA disaggregation,
+  serving, scheduling, precision, neuromorphic, PIM, and cache records.
 - A third ISCA primary-recovery batch covering SPEC CPU, KernelEvolve, and
   Rowhammer with source-tier-specific limits.
 - A fourth ISCA primary-recovery batch covering GRAINS, Triage, and Coset

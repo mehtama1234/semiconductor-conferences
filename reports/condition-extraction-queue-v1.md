@@ -120,6 +120,11 @@ The twenty-first P2 tranche is recorded in
 neural prefetching, quantum compilation/simulation/photonic architectures,
 Ising/SAT compilation, cluster power and thermal management, and distributed
 LLM synthesis.
+The twenty-second P2 tranche is recorded in
+`reports/p2-recovery-batch-22-2026-09-07.md`, adding ten ISCA routes covering
+disaggregated training, MoE/MLLM serving, accelerator scheduling, flexible
+precision, LLM/SNN/FPGA compute, computational-memory offload, PIM compilation,
+and near-cache locality.
 
 The categories overlap by design: P0 is a remediation priority, while P1/P2
 describe evidence depth. The former P0 records are retained in
