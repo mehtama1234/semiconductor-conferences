@@ -283,3 +283,6 @@ denominator; two of the 543 inventory rows lack that description evidence.
 Condition extraction batch 7 adds explicit evidence-depth and missing-condition
 records for the final eight DAC anchor routes; it does not count description-only
 claims as full-paper or independently verified evidence.
+The supplementary assessment index now provides machine-readable traceability for
+32 assessment files across 31 papers; every assessment remains pending independent
+review.

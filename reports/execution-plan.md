@@ -1976,3 +1976,14 @@ condition-aware evidence or explicit insufficiency; full-paper and independent
 review gates remain open.
 The next DAC-specific tranche adds ten routes; DAC route files now cover 425 of
 the 541 description-denominator records, with 116 outside the P2 batch-file set.
+
+The 2026-09-07 continuation closed DAC routing at 543/543 titled records (all
+541 official-description rows plus two metadata-only rows) and added condition
+extraction batch 7 for the final eight DAC anchor routes. Supplementary evidence
+is now indexed in `data/supplementary-assessment-index-v1.json`: 32 assessment
+files across 31 papers, all still pending independent review.
+
+The three remaining original-text blockers were rechecked: Panmnesia received a
+new company-source update, Adder-DCIM received an author-page recheck, and ComoPy
+received a PyPI artifact recheck. None exposed a permitted manuscript or original
+abstract, so all three remain explicitly insufficient for full-paper claims.
