@@ -126,7 +126,7 @@ selected fabricated macros. XSearch proposes multi-fidelity Bayesian exploration
 for XiangShan; its description contains no quantitative evaluation. Exact-T is
 a contrasting exact, resource-specific mapping case—not evidence of learned search.
 See [HYPER-CIM](../dac/reports/hyper-cim-primary-recovery-v1.md),
-[XSearch's captured description](../dac/data/paper-evidence-2026.jsonl), and
+[XSearch's source assessment](../dac/reports/xsearch-primary-recovery-v1.md), and
 [Exact-T](../dac/reports/exact-t-primary-assessment-v1.md).
 
 **Directional hypothesis.** Choosing when to spend expensive evaluation may matter

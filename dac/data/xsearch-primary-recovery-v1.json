@@ -1,0 +1,72 @@
+{
+  "schema": "primary-source-recovery-assessment.v1",
+  "paper_id": "dac-2026-research1186",
+  "title": "Xsearch: Exploring Microarchitecture Design Space Through Bayesian Optimization and Cross Evaluation on Multi-Fidelity Simulators",
+  "source_id": "dac-2026-xsearch-description-recheck",
+  "source_url": "https://63dac.conference-program.com/presentation/?id=RESEARCH1186&sess=sess167",
+  "capture_date": "2026-09-06",
+  "source_tier": "official_description",
+  "extraction_scope": "Official description and bounded source search; no full paper, numerical evaluation or artifact recovered",
+  "recovery_status": "full_paper_not_recovered_in_checked_sources",
+  "identity": {
+    "status": "exact_title_and_four_program_authors",
+    "authors": [
+      "Honghua Zhu",
+      "Chunjie Luo",
+      "Xinke Zhao",
+      "Jianfeng Zhan"
+    ]
+  },
+  "attempts": [
+    {
+      "method": "web_search",
+      "queries": [
+        "\"Xsearch\" \"Multi-Fidelity\"",
+        "\"Honghua Zhu\" \"Xsearch\"",
+        "\"XSearch\" \"XiangShan\" github arxiv",
+        "\"Honghua Zhu\" microarchitecture",
+        "\"XSearch\" \"Chunjie Luo\" -site:63dac.conference-program.com"
+      ],
+      "outcome": "Official presentation and poster descriptions recovered. No exact full paper or artifact. BigPower appeared as a different-title work with overlapping authors; not admitted as XSearch evidence."
+    }
+  ],
+  "description_conditions": {
+    "locator": "Description",
+    "method": "Multi-fidelity Bayesian optimization cross-evaluating designs and calibrating with higher-fidelity simulation data",
+    "application": "XiangShan processor core design space",
+    "simulator_identities": null,
+    "numerical_results": [],
+    "evaluated_baselines": [],
+    "limit": "The source names the method and application but not quantitative superiority."
+  },
+  "coding_clarification": {
+    "original_record": "dac/data/adjudicated-2026-batch-4.jsonl",
+    "field": "baselines",
+    "original_labels": [
+      "low-fidelity-only exploration",
+      "high-fidelity-only exploration (implied comparison)"
+    ],
+    "classification": "researcher_inferred_comparator_ideas_not_reported_experiments",
+    "decision": "Preserve original coding for provenance, but do not cite these labels as evaluated baselines."
+  },
+  "unresolved_conditions": [
+    "Simulator identities, versions, calibration target and measured error",
+    "XiangShan revision, legal parameter ranges and design-space size",
+    "Workload suite, warmup and simulation sampling protocol",
+    "Search objectives and feasibility constraints",
+    "Acquisition function, fidelity selection and cross-evaluation rule",
+    "Initial sample cost, training cost and total wall-clock budget",
+    "Held-out validation, repeated seeds and convergence",
+    "Matched-budget baseline results and final high-fidelity evaluation"
+  ],
+  "interpretation_limits": [
+    "High-fidelity simulator output is not necessarily silicon ground truth.",
+    "More design points explored is not sufficient evidence of better feasible designs.",
+    "Application to an open-source core does not establish release of the search implementation.",
+    "No numerical result reported is not a zero improvement.",
+    "Related-author papers cannot supply missing XSearch experimental conditions."
+  ],
+  "headline_metric_status": "no_quantitative_result_in_source",
+  "independent_review_status": "pending",
+  "revisit_condition": "Verified exact manuscript or implementation exposing simulator settings, budgets and held-out final-design results."
+}

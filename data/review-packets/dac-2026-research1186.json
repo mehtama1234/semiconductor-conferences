@@ -40,13 +40,96 @@
   },
   "required_review_actions": [
     "Add source section/table locators for technical fields and numerical conditions",
-    "Verify numerical conditions, neighboring taxonomy category, and limitations"
+    "Verify numerical conditions, neighboring taxonomy category, and limitations",
+    "Inspect supplementary assessments and their original sources; resolve discrepancies without using researcher interpretation to verify itself"
   ],
   "researcher_summary_not_original_source": "XSearch addresses the efficiency–accuracy trade-off in microarchitecture design-space exploration by using multi-fidelity Bayesian optimization. It explores more points with low-fidelity simulation and calibrates or cross-evaluates candidates with high-fidelity simulation; the method is applied to the open-source XiangShan high-performance processor core.",
   "review_status": "not_reviewed",
   "schema": "paper-review-packet.v1",
   "source_text_status": "captured_official_description",
   "source_tier": "official_description",
+  "supplementary_researcher_assessments": [
+    {
+      "assessment": {
+        "attempts": [
+          {
+            "method": "web_search",
+            "outcome": "Official presentation and poster descriptions recovered. No exact full paper or artifact. BigPower appeared as a different-title work with overlapping authors; not admitted as XSearch evidence.",
+            "queries": [
+              "\"Xsearch\" \"Multi-Fidelity\"",
+              "\"Honghua Zhu\" \"Xsearch\"",
+              "\"XSearch\" \"XiangShan\" github arxiv",
+              "\"Honghua Zhu\" microarchitecture",
+              "\"XSearch\" \"Chunjie Luo\" -site:63dac.conference-program.com"
+            ]
+          }
+        ],
+        "capture_date": "2026-09-06",
+        "coding_clarification": {
+          "classification": "researcher_inferred_comparator_ideas_not_reported_experiments",
+          "decision": "Preserve original coding for provenance, but do not cite these labels as evaluated baselines.",
+          "field": "baselines",
+          "original_labels": [
+            "low-fidelity-only exploration",
+            "high-fidelity-only exploration (implied comparison)"
+          ],
+          "original_record": "dac/data/adjudicated-2026-batch-4.jsonl"
+        },
+        "description_conditions": {
+          "application": "XiangShan processor core design space",
+          "evaluated_baselines": [],
+          "limit": "The source names the method and application but not quantitative superiority.",
+          "locator": "Description",
+          "method": "Multi-fidelity Bayesian optimization cross-evaluating designs and calibrating with higher-fidelity simulation data",
+          "numerical_results": [],
+          "simulator_identities": null
+        },
+        "extraction_scope": "Official description and bounded source search; no full paper, numerical evaluation or artifact recovered",
+        "headline_metric_status": "no_quantitative_result_in_source",
+        "identity": {
+          "authors": [
+            "Honghua Zhu",
+            "Chunjie Luo",
+            "Xinke Zhao",
+            "Jianfeng Zhan"
+          ],
+          "status": "exact_title_and_four_program_authors"
+        },
+        "independent_review_status": "pending",
+        "interpretation_limits": [
+          "High-fidelity simulator output is not necessarily silicon ground truth.",
+          "More design points explored is not sufficient evidence of better feasible designs.",
+          "Application to an open-source core does not establish release of the search implementation.",
+          "No numerical result reported is not a zero improvement.",
+          "Related-author papers cannot supply missing XSearch experimental conditions."
+        ],
+        "paper_id": "dac-2026-research1186",
+        "recovery_status": "full_paper_not_recovered_in_checked_sources",
+        "revisit_condition": "Verified exact manuscript or implementation exposing simulator settings, budgets and held-out final-design results.",
+        "schema": "primary-source-recovery-assessment.v1",
+        "source_id": "dac-2026-xsearch-description-recheck",
+        "source_tier": "official_description",
+        "source_url": "https://63dac.conference-program.com/presentation/?id=RESEARCH1186&sess=sess167",
+        "title": "Xsearch: Exploring Microarchitecture Design Space Through Bayesian Optimization and Cross Evaluation on Multi-Fidelity Simulators",
+        "unresolved_conditions": [
+          "Simulator identities, versions, calibration target and measured error",
+          "XiangShan revision, legal parameter ranges and design-space size",
+          "Workload suite, warmup and simulation sampling protocol",
+          "Search objectives and feasibility constraints",
+          "Acquisition function, fidelity selection and cross-evaluation rule",
+          "Initial sample cost, training cost and total wall-clock budget",
+          "Held-out validation, repeated seeds and convergence",
+          "Matched-budget baseline results and final high-fidelity evaluation"
+        ]
+      },
+      "content_role": "researcher_assessment_not_original_source",
+      "headline_metric_status": "no_quantitative_result_in_source",
+      "independent_review_status": "pending",
+      "path": "dac/data/xsearch-primary-recovery-v1.json",
+      "sha256": "600cc6ae8cf4608a2c7ff285ab1441bc13cc59ba125c76ac4cb306082f75f23c",
+      "source_url": "https://63dac.conference-program.com/presentation/?id=RESEARCH1186&sess=sess167"
+    }
+  ],
   "taxonomy_branch": {
     "label": "AI-assisted EDA",
     "subsubthemes": {

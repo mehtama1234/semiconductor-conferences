@@ -4,6 +4,13 @@ The governing scope and acceptance criteria are in [GOAL.md](../GOAL.md).
 This log distinguishes finished work from queued work; a plan is not a completed
 research result.
 
+XSearch assessment completed: source provides method/application but no numerical
+results or evaluated baselines. Original single-fidelity labels are explicitly
+classified as inferred comparison ideas in the supplement and review packet.
+Connected this boundary to the directional hypothesis page. Next: research535
+and research865, then challenge the six hypotheses with additional coded cases
+beyond the original synthesis anchors.
+
 Directional synthesis milestone: added field-directions-and-hypotheses-v1.md,
 connecting all six directions to mechanisms, subthemes, limits and falsifiable
 next tests. All six temporal growth/decline claims remain insufficient-evidence;
