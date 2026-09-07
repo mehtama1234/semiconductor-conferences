@@ -13,7 +13,7 @@ acceptance beyond the stated evidence tier.
 | Shared taxonomy and deep explanations | taxonomy evidence, coding guide, direction pages | Provisional ready | Broaden coding and independent adjudication. |
 | Independent review | 582 packets, assignments, judge protocol | Prepared only | Obtain two independent verdicts per accepted record where a reviewer/model is available. Current verdict count is zero. |
 | Temporal comparison | temporal baseline and insufficiency reports | Ready as insufficiency finding | Matched populations/evidence tiers are required before directional claims. |
-| Reproducible dated package | manifest, release report, validator, 141 tests | Ready as bounded release | Do not label as a final field forecast or accepted-paper review. |
+| Reproducible dated package | manifest, release report, validator, 142 tests | Ready as bounded release | Do not label as a final field forecast or accepted-paper review. |
 
 ## Current release boundary
 
