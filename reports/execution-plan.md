@@ -12,6 +12,11 @@ storage, ANNS, photonics, tensor acceleration, and LLM serving. P2 routing now
 covers 80 of 541 lower-priority records; these routes remain metadata-only until
 primary technical evidence and independent review are obtained.
 
+The official ISCA program page was checked for all ten eighth-tranche records;
+the dated result is `reports/isca-p2-source-availability-check-2026-09-07.md`.
+It confirms title/session/author identity but exposes no abstracts or technical
+conditions, so no evidence-tier upgrade was made.
+
 Latest bounded remediation (2026-09-07): repaired strict title matching for
 truncated DAC program subtitles, accepted identity-matched captured abstracts as
 valid provenance, and rewrote two evidence spans to include source-grounded
