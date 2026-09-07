@@ -104,6 +104,52 @@
       "path": "iccad/data/nimch-primary-recovery-v1.json",
       "sha256": "edc04b9c2f766077f32d8b1fb45130045f4337921e89fcc5caea8f63c1b2dfe1",
       "source_url": "https://scholars.lib.ntu.edu.tw/entities/publication/f36a23c3-8e05-474a-b3a9-b7ff2802d0ae"
+    },
+    {
+      "assessment": {
+        "capture_date": "2026-09-06",
+        "conditions": "The thesis abstract names timing-aware remapping, non-integer multiple-cell-height standard cells, and placement-quality preservation, but does not specify benchmark circuits, machine, thread count, baseline identity, or quality tolerance.",
+        "discrepancy": {
+          "conference_linked_abstract_claim": "5.58x average remapping runtime speedup",
+          "related_thesis_abstract_claim": "8.92x average runtime speedup",
+          "resolution": "unresolved; do not combine, average, or promote either number to the conference paper"
+        },
+        "extraction_scope": "NTU thesis repository metadata and English abstract; no thesis PDF extraction and no conference-paper full text.",
+        "headline_metric_status": "withheld_pending_conference_manuscript_reconciliation",
+        "identity": {
+          "authors": [
+            "Zong-Han Wu",
+            "Bo-Ying Huang",
+            "Yu-Chen Chen",
+            "Yao-Wen Chang"
+          ],
+          "conference_doi": "10.1109/ICCAD66269.2025.11240758",
+          "limit": "The repository identifies a thesis with the same English title and author team, but it does not establish that every thesis experiment or number appears in the ICCAD paper.",
+          "status": "exact_title_and_author_overlap_related_thesis_not_assumed_identical_to_conference_paper",
+          "thesis_identifier": "10.6342/NTU202503877"
+        },
+        "independent_review_status": "pending",
+        "limits": [
+          "Related thesis abstract is not the ICCAD manuscript and supplies no tables or reproducible setup.",
+          "Placement-quality preservation is qualitative without tolerance or metric definition.",
+          "No full-paper extraction or independent review/replication."
+        ],
+        "mechanism": "Parallel longest-path-first and iterative minimum-slack-first remapping prioritize timing-critical nodes and reduce exhaustive mapping overhead for non-integer multiple-cell-height standard-cell designs.",
+        "next_action": "Recover the ICCAD manuscript or a source-bound table and reconcile the 5.58x versus 8.92x claims before coding any headline metric.",
+        "paper_id": "iccad-2025-1111",
+        "reported_claim": "The thesis abstract reports an average 8.92x runtime speedup versus a state-of-the-art approach while preserving placement quality; the existing conference-linked institutional abstract assessment records a separate 5.58x claim.",
+        "schema": "primary-source-recovery-assessment.v1",
+        "source_id": "iccad-2025-nimch-ntu-thesis",
+        "source_tier": "related_author_thesis_abstract",
+        "source_url": "https://tdr.lib.ntu.edu.tw/handle/123456789/99251?mode=full",
+        "title": "Parallel Non-Integer Multiple-Cell-Height Node Remapping"
+      },
+      "content_role": "researcher_assessment_not_original_source",
+      "headline_metric_status": "withheld_pending_conference_manuscript_reconciliation",
+      "independent_review_status": "pending",
+      "path": "iccad/data/nimch-thesis-primary-recovery-v1.json",
+      "sha256": "3741e4d43cf8fda5e4230398dbca5b450badcae7f3f1648dd4703677850c844f",
+      "source_url": "https://tdr.lib.ntu.edu.tw/handle/123456789/99251?mode=full"
     }
   ],
   "taxonomy_branch": {

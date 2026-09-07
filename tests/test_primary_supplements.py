@@ -64,7 +64,9 @@ def test_supplements_reach_queue_and_both_packet_types_without_promotion():
     hlps = supplements.pop("iccad-2025-109")[0]["assessment"]
     qudit = supplements.pop("iccad-2025-1094")[0]["assessment"]
     sera = supplements.pop("iccad-2025-1109")[0]["assessment"]
-    nimch = supplements.pop("iccad-2025-1111")[0]["assessment"]
+    nimch_items = supplements.pop("iccad-2025-1111")
+    nimch = nimch_items[0]["assessment"]
+    nimch_thesis = nimch_items[1]["assessment"]
     uglms = supplements.pop("iccad-2025-1117")[0]["assessment"]
     riros = supplements.pop("iccad-2025-114")[0]["assessment"]
     gaia = supplements.pop("iccad-2025-1144")[0]["assessment"]
@@ -87,6 +89,8 @@ def test_supplements_reach_queue_and_both_packet_types_without_promotion():
     assert comparison["project_model_count"] == 12
     assert capacitance["headline_metric_status"] == "withheld_pending_holdout_and_amortization_review"
     assert nimch["source_tier"] == "institutional_abstract"
+    assert nimch_thesis["source_tier"] == "related_author_thesis_abstract"
+    assert nimch_thesis["discrepancy"]["resolution"].startswith("unresolved")
     assert uglms["source_tier"] == "author_preprint_selected_full_text"
     assert sera["source_tier"] == "author_manuscript_selected_full_text"
     assert len(sera["identity"]["authors"]) == 5

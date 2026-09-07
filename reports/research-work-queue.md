@@ -45,6 +45,7 @@ These researcher assessments supplement, but do not replace, original evidence o
 - iccad-2025-1094: [no_numeric_metric_in_author_abstract](../iccad/data/qudit-primary-recovery-v1.json)
 - iccad-2025-1109: [withheld_pending_accounting_and_independent_review](../iccad/data/sera-float-primary-recovery-v1.json)
 - iccad-2025-1111: [withheld_pending_baseline_platform_and_quality_conditions](../iccad/data/nimch-primary-recovery-v1.json)
+- iccad-2025-1111: [withheld_pending_conference_manuscript_reconciliation](../iccad/data/nimch-thesis-primary-recovery-v1.json)
 - iccad-2025-1117: [withheld_pending_compute_platform_and_independent_review](../iccad/data/uglms-primary-recovery-v1.json)
 - iccad-2025-1137: [withheld_pending_primary_paper](../iccad/data/comopy-artifact-primary-recovery-v1.json)
 - iccad-2025-114: [withheld_pending_runtime_ratio_reconciliation](../iccad/data/riros-primary-recovery-v1.json)

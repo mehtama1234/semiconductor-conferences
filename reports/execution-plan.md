@@ -1,5 +1,13 @@
 # Execution plan — 2026-09-06
 
+NIMCH source-depth follow-up: the NTU thesis repository exposes an English
+abstract for ICCAD paper 1111's related thesis, including the parallel
+longest-path-first and iterative minimum-slack-first mechanisms, an 8.92x thesis
+speedup claim, and qualitative placement-quality preservation. The conference-
+linked abstract assessment retains a separate 5.58x claim. Added a second
+source-bound assessment and preserved both numbers as unresolved; neither is
+promoted to the conference paper without manuscript reconciliation.
+
 Secondary-source recovery follow-up: author and institutional publication pages
 were checked for MLX, HBM-CASO, and ConServe. They confirm exact identities for
 MLX and ConServe, while HBM-CASO remains bibliographic-only; no abstract or

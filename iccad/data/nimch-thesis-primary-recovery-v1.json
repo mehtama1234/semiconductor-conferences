@@ -1,0 +1,33 @@
+{
+  "schema": "primary-source-recovery-assessment.v1",
+  "paper_id": "iccad-2025-1111",
+  "title": "Parallel Non-Integer Multiple-Cell-Height Node Remapping",
+  "source_id": "iccad-2025-nimch-ntu-thesis",
+  "source_url": "https://tdr.lib.ntu.edu.tw/handle/123456789/99251?mode=full",
+  "capture_date": "2026-09-06",
+  "source_tier": "related_author_thesis_abstract",
+  "extraction_scope": "NTU thesis repository metadata and English abstract; no thesis PDF extraction and no conference-paper full text.",
+  "independent_review_status": "pending",
+  "headline_metric_status": "withheld_pending_conference_manuscript_reconciliation",
+  "identity": {
+    "conference_doi": "10.1109/ICCAD66269.2025.11240758",
+    "thesis_identifier": "10.6342/NTU202503877",
+    "authors": ["Zong-Han Wu", "Bo-Ying Huang", "Yu-Chen Chen", "Yao-Wen Chang"],
+    "status": "exact_title_and_author_overlap_related_thesis_not_assumed_identical_to_conference_paper",
+    "limit": "The repository identifies a thesis with the same English title and author team, but it does not establish that every thesis experiment or number appears in the ICCAD paper."
+  },
+  "mechanism": "Parallel longest-path-first and iterative minimum-slack-first remapping prioritize timing-critical nodes and reduce exhaustive mapping overhead for non-integer multiple-cell-height standard-cell designs.",
+  "reported_claim": "The thesis abstract reports an average 8.92x runtime speedup versus a state-of-the-art approach while preserving placement quality; the existing conference-linked institutional abstract assessment records a separate 5.58x claim.",
+  "conditions": "The thesis abstract names timing-aware remapping, non-integer multiple-cell-height standard cells, and placement-quality preservation, but does not specify benchmark circuits, machine, thread count, baseline identity, or quality tolerance.",
+  "discrepancy": {
+    "conference_linked_abstract_claim": "5.58x average remapping runtime speedup",
+    "related_thesis_abstract_claim": "8.92x average runtime speedup",
+    "resolution": "unresolved; do not combine, average, or promote either number to the conference paper"
+  },
+  "limits": [
+    "Related thesis abstract is not the ICCAD manuscript and supplies no tables or reproducible setup.",
+    "Placement-quality preservation is qualitative without tolerance or metric definition.",
+    "No full-paper extraction or independent review/replication."
+  ],
+  "next_action": "Recover the ICCAD manuscript or a source-bound table and reconcile the 5.58x versus 8.92x claims before coding any headline metric."
+}

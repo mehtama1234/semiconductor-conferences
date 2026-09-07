@@ -40,6 +40,7 @@ ARTIFACTS = [
     "tests/test_work_queue.py",
     "tests/test_review_packets.py",
     "isca/data/busybarn-artifact-primary-recovery-v1.json",
+    "iccad/data/nimch-thesis-primary-recovery-v1.json",
 ]
 
 
