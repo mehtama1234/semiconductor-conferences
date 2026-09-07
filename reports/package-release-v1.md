@@ -64,6 +64,8 @@ gates still open**.
   heterogeneous-memory, and LLM-serving records.
 - An eleventh P2 routing tranche prioritizing ten ISCA benchmark, security,
   compiler, graph/genome, robotics, and quantum-decoding records.
+- A twelfth P2 routing tranche prioritizing ten ISCA quantum-control, serving,
+  memory, compression, edge/cloud, and memory-tagging records.
 - A third ISCA primary-recovery batch covering SPEC CPU, KernelEvolve, and
   Rowhammer with source-tier-specific limits.
 - A fourth ISCA primary-recovery batch covering GRAINS, Triage, and Coset

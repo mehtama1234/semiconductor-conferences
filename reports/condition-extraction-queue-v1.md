@@ -76,6 +76,10 @@ The eleventh P2 tranche is recorded in
 `reports/p2-recovery-batch-11-2026-09-07.md`, adding ten ISCA routes covering
 benchmark methodology, deployed security, agentic compilation, graph and
 genome accelerators, robotics, and quantum decoding.
+The twelfth P2 tranche is recorded in
+`reports/p2-recovery-batch-12-2026-09-07.md`, adding ten adjacent ISCA routes
+covering quantum control, MoE/network serving, memory management, edge/cloud
+orchestration, low-bit compression, and memory tagging.
 
 The categories overlap by design: P0 is a remediation priority, while P1/P2
 describe evidence depth. The former P0 records are retained in
