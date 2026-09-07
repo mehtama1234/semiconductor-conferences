@@ -18,7 +18,7 @@
   "original_source_url": "https://zenodo.org/records/19430308",
   "paper_id": "isca-2026-program-060",
   "protocol_path": "reports/adversarial-judge-protocol-v1.md",
-  "protocol_sha256": "5782d86712d1346db25e00d7f3335daf9e771a6b4355becbb76b35bd42ba1940",
+  "protocol_sha256": "07dca6ce1df1676a730be632b2852663dc3de77f822436d1e079a29b1f5d5e21",
   "record_sha256": "283b287a81286d2ddf11f6697286c2e77080bd8dcbdb4f97180a925007abf985",
   "record_under_review": {
     "analysis_edition": 2026,
@@ -68,7 +68,7 @@
   "review_status": "not_reviewed",
   "schema": "paper-review-packet.v1",
   "source_text_status": "original_text_capture_required",
-  "source_tier": "other",
+  "source_tier": "author_artifact_source",
   "supplementary_researcher_assessments": [
     {
       "assessment": {
@@ -120,6 +120,16 @@
           ],
           "sha256": "b732b865aa4ae1f832af726d620a4b760cbbc383870e528b116f0bcad6d05a47"
         },
+        "artifact_conditions": {
+          "full_run_scope": "All figures; README estimates under 12,000 core-hours and supports local or SLURM execution",
+          "host_requirements": "32 GB minimum RAM, multi-core CPU recommended, approximately 5 GB generated-artifact disk",
+          "python_environment": "Python 3.9; requirements.txt is the declared dependency entry point",
+          "quick_validation_estimate": "less than three hours on an Intel Core i9-13900K with 16 concurrent workers",
+          "quick_validation_scope": "Figures 8a, 10c, 11, and GPT-only Figure 12",
+          "randomness": "Simulated annealing uses seed 123 by default; cross-platform floating-point ordering may change absolute values slightly",
+          "repository_readme_url": "https://github.com/redbird-arch/isca2026-busybarn-artifact",
+          "result_boundary": "README execution instructions establish reproducibility conditions, not validated paper results; quantitative promotion remains withheld"
+        },
         "artifact_scope": "The description states that scripts reproduce twelve experimental figures covering collective-communication bandwidth, mapping sensitivity to die/core shape and faults, workload heatmaps, end-to-end latency for six LLM architectures, convergence, ablations, and runtime breakdown.",
         "capture_date": "2026-09-06",
         "conditions": "The artifact description names AllGather and AllToAll, six LLM architectures, fault and power sensitivity, and mapping/routing ablations; exact platforms, baselines, seeds, numerical results, and metric units remain unextracted.",
@@ -150,13 +160,24 @@
         "source_id": "isca-2026-busybarn-zenodo",
         "source_tier": "author_artifact_description",
         "source_url": "https://zenodo.org/records/19430308",
-        "title": "Mapping and Communication Optimizations with Fault Tolerance for Wafer-Scale LLM Inference"
+        "title": "Mapping and Communication Optimizations with Fault Tolerance for Wafer-Scale LLM Inference",
+        "verification_run": {
+          "command": "python3 py/allgather_4x6_bw256_failpatterm0_16KB_xy.py",
+          "configuration": "4x6 core mesh, bandwidth 256, no failed nodes or links, 16KB AllGather, XY multicast path",
+          "interpretation": "The exact synthetic case is reproducible in the captured archive. This does not validate paper-level speedups, end-to-end results, fault-model claims, or independent reproduction.",
+          "observed_stdout": "time_cost: 80 with 26.666666666666668",
+          "result_pickle_sha256": "80ce4fc87e1123dacf48bf3788e7ee24563a59b42b66c889f5fb55217cd5d37c5a",
+          "result_text_sha256": "48449a14a4ff7d79bb7a1b6f3d488eba397c36ef25634c111b49baf362511afc",
+          "run_date": "2026-09-07",
+          "status": "bounded_single_case_reproduced",
+          "temporary_environment": "Python 3.10.12; archive extracted to a temporary directory; generated scripts created from the archived template"
+        }
       },
       "content_role": "researcher_assessment_not_original_source",
       "headline_metric_status": "withheld_pending_primary_paper",
       "independent_review_status": "pending",
       "path": "isca/data/busybarn-artifact-primary-recovery-v1.json",
-      "sha256": "ab7252a9928021aab729b0f118c0619b04111b414a11475b5629e4c2e8f9957f",
+      "sha256": "c9bfb978af495752332fc617511c7573141c314ad404f05a59f48a7bd75687e7",
       "source_url": "https://zenodo.org/records/19430308"
     }
   ],

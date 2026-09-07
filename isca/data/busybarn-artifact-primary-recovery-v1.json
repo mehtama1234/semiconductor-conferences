@@ -64,6 +64,17 @@
       "interpretation": "This is one synthetic artifact case under one configuration; it is not a paper headline metric, speedup, end-to-end result, or independent reproduction."
     }
   },
+  "verification_run": {
+    "status": "bounded_single_case_reproduced",
+    "run_date": "2026-09-07",
+    "temporary_environment": "Python 3.10.12; archive extracted to a temporary directory; generated scripts created from the archived template",
+    "command": "python3 py/allgather_4x6_bw256_failpatterm0_16KB_xy.py",
+    "configuration": "4x6 core mesh, bandwidth 256, no failed nodes or links, 16KB AllGather, XY multicast path",
+    "observed_stdout": "time_cost: 80 with 26.666666666666668",
+    "result_text_sha256": "48449a14a4ff7d79bb7a1b6f3d488eba397c36ef25634c111b49baf362511afc",
+    "result_pickle_sha256": "80ce4fc87e1123dacf48bf3788e7ee24563a59b42b66c889f5fb55217cd5d37c5a",
+    "interpretation": "The exact synthetic case is reproducible in the captured archive. This does not validate paper-level speedups, end-to-end results, fault-model claims, or independent reproduction."
+  },
   "conditions": "The artifact description names AllGather and AllToAll, six LLM architectures, fault and power sensitivity, and mapping/routing ablations; exact platforms, baselines, seeds, numerical results, and metric units remain unextracted.",
   "limits": [
     "Artifact description is not equivalent to the paper's abstract or full text.",
