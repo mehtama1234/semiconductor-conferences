@@ -102,6 +102,10 @@ The seventeenth P2 tranche is recorded in
 wafer-scale binning, neuromorphic and dynamical-system architectures, neural
 rendering simulation, tracing, GPU modeling, CPU predictors, datacenter
 networks, simulation, and sparse GEMM.
+The eighteenth P2 tranche is recorded in
+`reports/p2-recovery-batch-18-2026-09-07.md`, adding ten ISCA routes covering
+sparse embeddings, spatial audio, event-driven sensing, video super-resolution,
+programmable introspection, private inference, and FHE accelerators.
 
 The categories overlap by design: P0 is a remediation priority, while P1/P2
 describe evidence depth. The former P0 records are retained in

@@ -76,6 +76,8 @@ gates still open**.
   chiplet simulation, packaging, and heterogeneous-execution records.
 - A seventeenth P2 routing tranche prioritizing ten ISCA wafer-scale,
   neuromorphic, simulation, modeling, network, and sparse-compute records.
+- An eighteenth P2 routing tranche prioritizing ten ISCA sparse, sensing,
+  multimedia, introspection, private-inference, and FHE records.
 - A third ISCA primary-recovery batch covering SPEC CPU, KernelEvolve, and
   Rowhammer with source-tier-specific limits.
 - A fourth ISCA primary-recovery batch covering GRAINS, Triage, and Coset
