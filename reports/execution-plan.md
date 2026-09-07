@@ -4,31 +4,32 @@ The governing scope and acceptance criteria are in [GOAL.md](../GOAL.md).
 This log distinguishes finished work from queued work; a plan is not a completed
 research result.
 
-COPA coding and original capture: exact institutional title/DOI and all seven
+GAIA/COPA coding and original capture: exact titles/DOIs and all eleven
 authors match the program after punctuation normalization. Added congestion-driven
 feedthrough-pin assignment to the physical-design taxonomy, with empty headline
 metrics and explicit routing-stage/testcase gaps. The new NYCU extractor requires
 unique title/DOI metadata, matching page heading, ordered authors and one abstract
 block; it will not silently pass GAIA's spelling conflict. Original COPA abstract
-captured successfully. Coding reaches 83 (49 DAC, 16 ISCA, 18 ICCAD); supplementary
+captured successfully. Coding reaches 84 (49 DAC, 16 ISCA, 19 ICCAD); supplementary
 assessments reach 29. Next: continue ordered recovery and full-text condition checks,
 while preserving independent review and temporal comparison as separate gates.
 Regenerated taxonomy, summary, queue and both packet sets; project validation and
 135 tests pass. The full suite exposed one stale recovery-attempt count from the
 previous batch, now corrected to 20. Packets contain 31 original abstracts, 49
-official descriptions and three source gaps; 24 include supplementary assessments.
+official descriptions and three source gaps; 25 include supplementary assessments.
 Preflight is 69 pass / 14 review, not independent scientific acceptance.
 
 Ordered recovery 1144/1148/1149: GAIA institutional abstract adds glass-storage
 placement and scheduling mechanisms, explicitly distinct from glass packaging.
 Its first/third author spellings differ from program and author-lab listings;
-retain identity uncertainty and withhold coding/metrics. MIRAGE has an indexed
+the variants remain attached to the exact DOI/title while technical metrics stay
+withheld. MIRAGE has an indexed
 publisher abstract but direct browser opening supplied no usable text. The exact
 analog-agent publication appears on Peng Li's author page, but its linked publisher
 route did not return technical text. Logged all three outcomes with specific next
-actions; no secondary manuscript is substituted. Supplements reach 28; coded
-sample remains 82. Next: resolve GAIA identity, retrieve original MIRAGE text and
-the exact analog-agent manuscript, then continue with COPA in the ordered queue.
+actions; no secondary manuscript is substituted. Supplements reach 29; coded
+sample is now 84. Next: retrieve original MIRAGE text and the exact analog-agent
+manuscript, then continue with the next ordered queue record.
 
 Revision/artifact follow-through for RIROS and capacitance ML: retrieved RIROS v2
 and confirmed that its Table II retains the JPEG discrepancy. Located the exact

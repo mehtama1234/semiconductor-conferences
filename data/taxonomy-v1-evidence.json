@@ -23,7 +23,8 @@
     "iccad/data/adjudicated-2025-batch-7.jsonl",
     "iccad/data/adjudicated-2025-batch-8.jsonl",
     "iccad/data/adjudicated-2025-batch-9.jsonl",
-    "iccad/data/adjudicated-2025-batch-10.jsonl"
+    "iccad/data/adjudicated-2025-batch-10.jsonl",
+    "iccad/data/adjudicated-2025-batch-11.jsonl"
   ],
   "status": "provisional_until_full_corpus_adjudication",
   "taxonomy_version": "v1-evidence-derived",
@@ -173,12 +174,16 @@
           "open-fpga-scale-up-interconnect-platform",
           "os-hardware-cxl-tiered-memory",
           "row-aligned-sparse-attention-pim"
+        ],
+        "storage-and-data-movement": [
+          "media-aware-archival-storage-scheduling"
         ]
       },
       "subthemes": [
         "chiplet-and-on-chip-interconnect",
         "data-movement-and-locality",
-        "memory-hierarchy-and-persistence"
+        "memory-hierarchy-and-persistence",
+        "storage-and-data-movement"
       ],
       "theme_id": "memory-interconnect-and-storage"
     },

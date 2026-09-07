@@ -69,6 +69,7 @@ def test_supplements_reach_queue_and_both_packet_types_without_promotion():
     riros = supplements.pop("iccad-2025-114")[0]["assessment"]
     gaia = supplements.pop("iccad-2025-1144")[0]["assessment"]
     copa = supplements.pop("iccad-2025-1155")[0]["assessment"]
+    assert gaia["identity"]["status"] == "exact_title_and_author_variants_retained"
     assert len(copa["identity"]["authors"]) == 7
     assert copa["source_tier"] == "institutional_abstract"
     assert gaia["identity"]["program_and_lab_authors"] != gaia["identity"]["institutional_authors"]
@@ -108,7 +109,7 @@ def test_supplements_reach_queue_and_both_packet_types_without_promotion():
     queue = {r["paper_id"]: r for r in rows}
     packets, coverage = build_packets(ROOT)
     drafts = build_drafts(ROOT)
-    assert coverage["supplementary_assessment_packet_count"] == 24
+    assert coverage["supplementary_assessment_packet_count"] == 25
     orthrus_packet = next(p for p in packets if p["paper_id"] == "iccad-2025-437")
     assert orthrus_packet["supplementary_researcher_assessments"] == orthrus_items
     assert orthrus_packet["review_status"] == "not_reviewed"

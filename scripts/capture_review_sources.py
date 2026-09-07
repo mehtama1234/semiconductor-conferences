@@ -159,7 +159,7 @@ def capture(record: dict, root: Path) -> dict:
         elif is_ntu:
             result.update(extract_ntu(body.decode("utf-8", errors="replace"), record["title"], record.get("doi", "")))
         elif is_nycu:
-            result.update(extract_nycu(body.decode("utf-8", errors="replace"), record["title"], record.get("doi", ""), record.get("authors", [])))
+            result.update(extract_nycu(body.decode("utf-8", errors="replace"), record["title"], record.get("doi", ""), record.get("source_author_variants", record.get("authors", []))))
         else:
             result.update(extract_arxiv(body.decode("utf-8", errors="replace"), record["title"]))
         result["raw_sha256"] = hashlib.sha256(body).hexdigest()
