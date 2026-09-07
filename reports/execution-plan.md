@@ -4,6 +4,15 @@ The governing scope and acceptance criteria are in [GOAL.md](../GOAL.md).
 This log distinguishes finished work from queued work; a plan is not a completed
 research result.
 
+Primary-depth increment: synthesis anchor DAC research031 now has an exact
+title/four-author preprint match and a supplementary assessment. Its description
+and preprint disagree on the maximum EPFL reduction; the original record is
+preserved and the synthesis explicitly withholds that numerical headline.
+Selected conditions distinguish library-only from customized mapping and local
+exactness from global optimality. Figure inspection, artifact/version checks and
+independent review remain queued. Counts are unchanged; this is deeper evidence
+for an existing anchor, not a newly accepted paper.
+
 Primary-depth increment: ATB's downloaded v1 PDF was rendered and visually
 checked at page 6 (Tables 2–3 and Section 6.3). The numerical mismatch is printed
 in the source, not introduced by HTML extraction. Its assessment now records PDF

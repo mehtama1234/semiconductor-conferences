@@ -1,0 +1,40 @@
+{
+  "schema": "supplementary-primary-assessment.v1",
+  "paper_id": "dac-2026-research031",
+  "title": "Quantum Circuit Synthesis Using an Exact T Library",
+  "source_id": "dac-2026-exact-t-arxiv-v1",
+  "source_url": "https://arxiv.org/html/2605.15476v1",
+  "source_version": "2605.15476v1",
+  "capture_date": "2026-09-06",
+  "source_tier": "author_preprint",
+  "identity": {
+    "status": "exact_title_and_all_four_author_names_match",
+    "authors": ["Hanyu Wang", "Mingfei Yu", "Xinrui Wu", "Jason Cong"],
+    "program_record_path": "dac/data/papers-2026-program.jsonl"
+  },
+  "extraction_scope": "Selected HTML sections 4.2–4.3 and 6; figure values not visually verified",
+  "platform": {"name": "Apple M4 Max", "ram_gb": 36, "locator": "S6.SS1"},
+  "metric_discrepancy": {
+    "metric": "maximum EPFL T-count reduction percent",
+    "official_description": 16,
+    "author_preprint": 14.3,
+    "description_path": "dac/data/paper-evidence-2026.jsonl",
+    "preprint_locator": "Abstract; S6.SS2",
+    "status": "source_difference_unresolved_not_averaged"
+  },
+  "conditions": [
+    {"locator": "S6.SS2; Table 2", "finding": "Six EPFL arithmetic circuits; comparison against exact-MC mapping; customized mapper reports 5.3 percent geomean T-count reduction."},
+    {"locator": "S6.SS2", "finding": "Library-only substitution reports about 0.5 percent geomean reduction and regressions on some circuits."},
+    {"locator": "S4.SS3", "finding": "Exact solver bound is N <= 7 total qubits, not seven arbitrary logical inputs; larger instances use suboptimal solutions."},
+    {"locator": "S4.SS2", "finding": "Correctness assumes clean output ancilla initialized to zero; not unrestricted unitary equivalence."},
+    {"locator": "S6.SS4", "finding": "Mapping stages account for at most 11.7 percent of total synthesis runtime in the reported QLUT evaluation."}
+  ],
+  "interpretation_limits": [
+    "T-count savings are not measured hardware speedup or universal space-time savings.",
+    "Do not promote small-library exactness into whole-circuit global optimality.",
+    "Resolve source-version discrepancy and inspect figure-level denominators before retaining a headline.",
+    "Tool revisions, artifact execution, proof validation and independent reproduction have not been checked in this assessment."
+  ],
+  "headline_metric_status": "withheld_pending_source_reconciliation",
+  "independent_review_status": "pending"
+}

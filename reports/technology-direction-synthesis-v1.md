@@ -175,6 +175,11 @@ legality, uncertainty, physical structure, and evaluation budget through the loo
 Reported surrogate accuracy or figure-of-merit gains require baseline budgets,
 constraint-violation analysis, and independent reproduction.
 
+For the exact-T example, consult the [primary assessment](../dac/reports/exact-t-primary-assessment-v1.md):
+the description and preprint disagree on the maximum reduction. Keep that
+numerical headline withheld; the resource-specific mapping mechanism remains a
+provisional example, not evidence of learned search or global circuit optimality.
+
 ## Direction 6 — Specialized accelerators encode workload structure
 
 ### Specific subskills
