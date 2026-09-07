@@ -224,6 +224,11 @@ The forty-first P2 tranche is recorded in
 quantum power-system solvers, Hamiltonian pretraining, ATPG-free testing,
 diffusion acceleration, row-aligned PIM attention, PCB 3D generation, adaptive
 quantization, ternary LLM inference, transistor placement/routing, and synthesis.
+The forty-second P2 tranche is recorded in
+`reports/p2-recovery-batch-42-2026-09-07.md`, continuing the DAC frontier across
+RTL simulation, approximate DCiM, floorplanning, 4D/3D Gaussian splatting, edge
+sparsity, routability/track assignment, multi-die FPGA HLS, GPU fuzzing, and
+fault-tolerant AI scheduling.
 
 The categories overlap by design: P0 is a remediation priority, while P1/P2
 describe evidence depth. The former P0 records are retained in
