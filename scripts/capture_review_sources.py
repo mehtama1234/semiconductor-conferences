@@ -18,6 +18,26 @@ from pypdf import PdfReader
 from scripts.build_evidence_summary import PATHS, read_jsonl
 from scripts.collect_isca_crossref_metadata import title_key
 
+HAL_DOCUMENT = re.compile(r"https://(?:inria\.)?hal\.science/(hal-\d+(?:v\d+)?)/document\Z")
+
+
+def extract_hal_pages(pages: list[str], expected_title: str, hal_id: str) -> dict:
+    """Only skip a verified HAL cover; never scan arbitrary pages for a match."""
+    cover = pages[0] if pages else ""
+    page = pages[1] if len(pages) > 1 else ""
+    base_id = re.sub(r"v\d+$", "", hal_id)
+    id_match = re.search(r"HAL Id:\s*(hal-\d+(?:v\d+)?)\b", cover)
+    valid_cover = bool(id_match and re.sub(r"v\d+$", "", id_match[1]) == base_id
+                       and "Submitted on" in cover
+                       and title_key(expected_title) in title_key(cover))
+    title_present = title_key(expected_title) in title_key(page[:2000])
+    match = re.search(r"Abstract\s*[—–:-](.*?)(?:Index Terms|Keywords|I\.\s*I\s*NTRODUCTION|1\s+INTRODUCTION)", page, re.S | re.I)
+    valid = valid_cover and title_present
+    return {"observed_title": expected_title if title_present else None,
+            "identity_status": "exact_normalized_title" if valid else "hal_cover_or_title_mismatch_requires_review",
+            "description": " ".join(match[1].split()) if valid and match else "",
+            "text_locator": "PDF page 2 abstract after HAL ID/title-checked cover; automatic extraction requires semantic review"}
+
 
 def extract_arxiv(html: str, expected_title: str) -> dict:
     soup = BeautifulSoup(html, "html.parser")
@@ -58,7 +78,8 @@ def capture(record: dict, root: Path) -> dict:
               "evidence_url": record["evidence_url"],
               "evidence_collection_date": datetime.now(timezone.utc).isoformat(),
               "capture_status": "not_attempted", "evidence_status": "not_captured"}
-    is_pdf = record["evidence_url"].lower().endswith(".pdf")
+    hal_match = HAL_DOCUMENT.fullmatch(record["evidence_url"])
+    is_pdf = record["evidence_url"].lower().endswith(".pdf") or bool(hal_match)
     is_hkust = record["evidence_url"].startswith("https://researchportal.hkust.edu.hk/en/publications/")
     if not record["evidence_url"].startswith(("https://arxiv.org/abs/", "https://arxiv.org/html/")) and not is_pdf and not is_hkust:
         result["capture_status"] = "requires_source_specific_extractor"
@@ -66,15 +87,19 @@ def capture(record: dict, root: Path) -> dict:
     try:
         req = Request(record["evidence_url"], headers={"User-Agent": "semiconductor-conference-research/0.1"})
         with urlopen(req, timeout=25) as response:
-            body = response.read(5_000_001)
-            if len(body) > 5_000_000:
+            limit = 6_000_000 if hal_match else 5_000_000
+            body = response.read(limit + 1)
+            if len(body) > limit:
                 raise ValueError("Response exceeds capture limit")
             result["http_status"] = response.status
             result["resolved_url"] = response.url
         raw = root / record["conference_id"] / "data/raw" / f"review-{record['paper_id']}.{'pdf' if is_pdf else 'html'}"
         raw.parent.mkdir(parents=True, exist_ok=True)
         raw.write_bytes(body)
-        if is_pdf:
+        if hal_match:
+            reader = PdfReader(BytesIO(body))
+            result.update(extract_hal_pages([p.extract_text() or "" for p in reader.pages[:2]], record["title"], hal_match[1]))
+        elif is_pdf:
             first_page = PdfReader(BytesIO(body)).pages[0].extract_text()
             match = re.search(r"Abstract\s*[—–:-](.*?)(?:Index Terms|Keywords|I\.\s*I\s*NTRODUCTION|1\s+INTRODUCTION)", first_page, re.S | re.I)
             title_present = title_key(record["title"]) in title_key(first_page[:2000])

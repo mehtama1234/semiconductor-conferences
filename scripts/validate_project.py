@@ -46,7 +46,7 @@ def validate(root: Path = ROOT) -> dict:
         "learning_index_present": (root / "reports/learning-index-v0.md").exists(),
         "taxonomy_coding_guide_present": (root / "reports/taxonomy-coding-guide-v1.md").exists() and "Adjudication boundary tests" in (root / "reports/taxonomy-coding-guide-v1.md").read_text(encoding="utf-8"),
         "adversarial_judge_protocol_present": (root / "reports/adversarial-judge-protocol-v1.md").exists() and "Hostile judge prompt" in (root / "reports/adversarial-judge-protocol-v1.md").read_text(encoding="utf-8"),
-        "evidence_summary_present": (root / "reports/evidence-summary-v1.json").exists() and json.loads((root / "reports/evidence-summary-v1.json").read_text(encoding="utf-8")).get("record_count") == 77,
+        "evidence_summary_present": (root / "reports/evidence-summary-v1.json").exists() and json.loads((root / "reports/evidence-summary-v1.json").read_text(encoding="utf-8")).get("record_count") == 78,
         "dysharp_primary_coding_registered": all(row.get("evidence_source_id") in source_ids(root, "isca") and row.get("evidence_url") and row.get("problem") and row.get("method_or_artifact") and row.get("evidence_locators") and row.get("limits") and row.get("independent_review_status") == "pending" for row in read_jsonl(root / "isca/data/adjudicated-2026-batch-9.jsonl")),
         "adversarial_review_status_is_honest": (root / "reports/adversarial-review-status-v1.md").exists() and "not an independent adversarial LLM judgment" in (root / "reports/adversarial-review-status-v1.md").read_text(encoding="utf-8"),
         "evidence_taxonomy_present": json.loads((root / "data/taxonomy-v1-evidence.json").read_text(encoding="utf-8")).get("taxonomy_version") == "v1-evidence-derived",

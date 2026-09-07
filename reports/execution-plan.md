@@ -4,6 +4,23 @@ The governing scope and acceptance criteria are in [GOAL.md](../GOAL.md).
 This log distinguishes finished work from queued work; a plan is not a completed
 research result.
 
+SERA-Float coding and review capture: added ICCAD batch 7 with a mechanism-level
+precision-reallocation/selective-protection taxonomy branch and empty headline
+metrics. Coding reaches 78 papers (49 DAC, 16 ISCA, 13 ICCAD), still with zero
+independent acceptance. Added a source-specific HAL document route that verifies
+cover HAL ID/title and manuscript title before extracting page 2's abstract;
+arbitrary-page scanning is not enabled. HAL-only capture limit is bounded at
+6 MB to accommodate the 5,004,246-byte paper. Public retrieval succeeded and
+the original abstract is now available separately from researcher interpretation.
+Next: verify injection and per-module synthesis accounting when artifacts become
+available, continue ordered ICCAD primary recovery, and audit remaining inventory
+paper types before treating the fallback as a regular-paper population.
+Regenerated taxonomy, summaries, queue, both packet sets and preflight. Review
+packets now include 26 original abstracts, 49 official descriptions and three
+explicit source-text gaps. Validation and 118 tests pass, including wrong-cover,
+wrong-title, missing-page and bounded-response failures. Preflight is 69 pass /
+9 review, not independent acceptance.
+
 SERA-Float manuscript recovery: public HAL PDF now recovered with exact title and
 five-author identity, version/hash and selected full-text conditions. Visually
 checked Tables VIII/IX. Recorded split-code two-bit correction restriction,
