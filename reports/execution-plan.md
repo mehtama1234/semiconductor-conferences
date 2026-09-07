@@ -4,6 +4,13 @@ The governing scope and acceptance criteria are in [GOAL.md](../GOAL.md).
 This log distinguishes finished work from queued work; a plan is not a completed
 research result.
 
+NotSoTiny preprint recovered: recorded compatibility-selection and contamination
+protocol conditions, separating full equivalence from partial credit. Flagged
+proof-command semantics for artifact inspection instead of adopting bounded-depth
+wording as a verified guarantee. Supplement added to draft review routing; no
+score promoted. Next: pin verifier/dataset, resolve TierANNS/COGA identity, then
+broaden ISCA/ICCAD primary evidence.
+
 Broader hypothesis challenge batch: six non-anchor DAC descriptions now qualify
 all six directions, with source hashes and targeted evidence checks. Preserved
 TierANNS/COGA title/body discrepancy, reference-model versus silicon distinction,

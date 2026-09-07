@@ -24,6 +24,10 @@ A [six-case challenge batch](direction-challenges-v1.md) now extends the reading
 beyond the original anchors. It adds evaluation counterpressure, alternative
 mechanisms and explicit validation boundaries; all six cases remain
 description-level and independently unreviewed, not measured falsifications.
+The [NotSoTiny follow-up](../dac/reports/notsotiny-primary-assessment-v1.md) now
+adds selected preprint conditions without promoting the original description:
+task selection, checker semantics and benchmark version must accompany any
+capability comparison. Its quantitative conclusions remain pending review.
 
 ## 1. AI-assisted design → tool-grounded generation → verified iteration
 

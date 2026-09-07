@@ -1,0 +1,26 @@
+{
+  "schema": "supplementary-primary-assessment.v1",
+  "paper_id": "dac-2026-research2760",
+  "title": "Notsotiny: A Large, Living Benchmark for RTL Code Generation",
+  "source_id": "dac-2026-notsotiny-arxiv-v1",
+  "source_url": "https://arxiv.org/html/2512.20823v1",
+  "capture_date": "2026-09-06",
+  "source_tier": "author_preprint",
+  "extraction_scope": "Selected sections 2.4, 3, 4.2; no table transcription or artifact execution",
+  "identity": "Exact normalized title; seven corresponding authors, with expanded Razine Moundir Ghorab and Cristian Gutierrez-Gomez names versus abbreviated program names. Preprint DOI is a placeholder, not a publication identifier.",
+  "conditions": {
+    "task": "Contextual module completion, not unconstrained specification-to-chip design",
+    "selection": "Section 2.4: self-equivalence compatibility filtering reduces 3062 deduplicated tasks to 1114.",
+    "verification": "Section 4.2: Yosys equiv_simple and equiv_induct; reported k=30. Partition coverage is partial credit, distinct from full equivalence.",
+    "contamination": "Section 3: comparative Min-K across 11 models; reference-only inputs, modules over 2000 tokens excluded, no binary contamination threshold."
+  },
+  "researcher_qualifications": [
+    "Compatibility filtering can select for verifier tractability; report excluded-task characteristics before generalizing.",
+    "Do not equate the paper's bounded-depth wording with the actual semantics of a successful inductive proof; inspect the exact script and reset assumptions.",
+    "A comparative memorization signal is not proof of training-set exclusion.",
+    "A changing benchmark requires version-matched comparisons; live scores cannot by themselves establish model progress."
+  ],
+  "headline_metric_status": "withheld_pending_verifier_and_evaluation_reconciliation",
+  "independent_review_status": "pending",
+  "revisit_condition": "Pin verifier and dataset release; inspect proof commands, exclusions, timeouts and inference budgets before accepting quantitative synthesis."
+}
