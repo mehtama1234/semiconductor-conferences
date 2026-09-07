@@ -14,3 +14,11 @@ def test_wrong_paper_is_not_accepted_and_challenge_has_no_abstract():
     challenge = extract_arxiv('<html>Checking your browser</html>', "Expected paper")
     assert not challenge["description"]
     assert challenge["identity_status"] != "exact_normalized_title"
+
+
+def test_versioned_html_abstract_uses_document_heading_and_strips_label():
+    html = '<h1 class="ltx_title ltx_title_document">A Paper</h1><div class="ltx_abstract"><h6 class="ltx_title ltx_title_abstract">Abstract</h6><p>Original paragraph.</p></div>'
+    result = extract_arxiv(html, "A Paper")
+    assert result["identity_status"] == "exact_normalized_title"
+    assert result["description"] == "Original paragraph."
+    assert extract_arxiv(html, "Another Paper")["identity_status"] == "title_mismatch_requires_review"

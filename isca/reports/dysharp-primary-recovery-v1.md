@@ -10,7 +10,7 @@ therefore test their relationship rather than equating fewer bytes with a faster
 application. No numerical result is accepted in this checkpoint.
 
 Update: selected conditions are now coded in batch 9 and routed to a review
-packet. The main experiments concern training; the packet explicitly awaits
-original-source text capture and independent review. The regenerated queue no
+packet. The main experiments concern training; the packet now contains a captured
+exact-title abstract, but still awaits independent review. The regenerated queue no
 longer classifies this paper as secondary-only. Numerical extraction remains
 withheld pending figure reconciliation.

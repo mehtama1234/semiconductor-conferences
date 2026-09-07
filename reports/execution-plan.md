@@ -4,6 +4,12 @@ The governing scope and acceptance criteria are in [GOAL.md](../GOAL.md).
 This log distinguishes finished work from queued work; a plan is not a completed
 research result.
 
+DySHARP original abstract captured from its versioned arXiv HTML and attached to
+the review packet. Added HTML extraction and single-paper capture while preserving
+unrelated records. Abstract capture is not validation of full-text conditions;
+independent review and figure reconciliation remain pending. Next: undercovered
+ICCAD/ISCA primary recovery; avoid treating preparation as scientific acceptance.
+
 DySHARP integrated into primary technical coding (ISCA batch 9): main evaluation
 is simulated training, with layer/full-model and exploratory top-k distinctions.
 No numerical headline accepted. Current coded total becomes 73 (ISCA 16), with
