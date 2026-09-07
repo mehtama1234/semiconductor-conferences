@@ -1,0 +1,21 @@
+{
+  "schema": "primary-recovery-checkpoint.v1",
+  "paper_id": "isca-2026-program-058",
+  "title": "Accelerating MoE with Dynamic In-Switch Computing on Multi-GPUs",
+  "capture_date": "2026-09-06",
+  "source_url": "https://arxiv.org/html/2605.05607v1",
+  "identity_status": "exact_title_and_all_13_program_authors_match",
+  "authors": ["Qijun Zhang", "Chen Zhang", "Zhuoshan Zhou", "Haibo Wang", "Zhe Zhou", "Zhipeng Tu", "Guangyu Sun", "Zhiyao Xie", "Yijia Diao", "Zhigang Ji", "Jingwen Leng", "Guanghui He", "Minyi Guo"],
+  "source_tier": "author_preprint",
+  "extraction_scope": "Abstract and introduction; experimental section locations identified but not condition-complete",
+  "method": "DySHARP combines dynamic multimem addressing with token-centric dispatch/computation/combine fusion.",
+  "mechanism_boundary": "Traffic reduction is asymmetric between directions; scheduling is needed to translate it into speedup.",
+  "evaluation_modality": "Simulated GH200 NVL32-like system, not a deployed DySHARP chip",
+  "locators": ["Abstract", "I Introduction", "V Experimental Methodology", "VI-A End-to-End and MoE-Layer Performance"],
+  "metrics": [],
+  "headline_metric_status": "withheld_pending_experimental_conditions",
+  "independent_review_status": "pending",
+  "integration_status": "recovered_primary_checkpoint_not_yet_in_coded_or_review_packet_ledgers",
+  "next_actions": ["Extract sections V and VI conditions, separating layer and full-inference results", "Add technical coding and source-separated review packet, then regenerate coverage counts", "Retain prior secondary source and failed-recovery history"],
+  "limits": ["Discovery plus selected extraction is not complete technical adjudication.", "Existing queue secondary-only classification is a legacy ledger state awaiting explicit primary-record integration."]
+}

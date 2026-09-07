@@ -4,6 +4,14 @@ The governing scope and acceptance criteria are in [GOAL.md](../GOAL.md).
 This log distinguishes finished work from queued work; a plan is not a completed
 research result.
 
+ISCA primary recovery: DySHARP (program-058) now has an exact preprint/all-13-author
+match and selected mechanism extraction in isca/data/dysharp-recovery-v1.json.
+The primary source explicitly describes simulated hardware. Next immediate batch:
+extract V/VI conditions, integrate coding/review packet and regenerate coverage;
+the existing secondary-only queue label remains a legacy integration gap, not a
+fresh availability judgment. Other search targets yielded no primary recovery in
+this batch; continue named-author recovery after DySHARP integration.
+
 NotSoTiny verifier pinned: timeout branch sets equivalence success/100% coverage,
 and task aggregation counts that flag. Recorded exact locators and dataset-pin
 gap without asserting published-score inflation. No code or solver execution.
