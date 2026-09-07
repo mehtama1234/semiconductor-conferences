@@ -273,6 +273,12 @@ resilient LLM inference, memory-constrained MoE scheduling, sub-bit compression,
 LLM reference-model verification, generative circuit design, ReRAM CIM, graph
 timing prediction, physics-prior compact modeling, KV-cache offload, and device
 simulation.
+The forty-ninth P2 tranche is recorded in
+`reports/p2-recovery-batch-49-2026-09-07.md`, continuing the DAC frontier across
+layer-aware IMC error correction, tensor-centric verification, hot-switched CPU
+LLM serving, photonic inverse design, real-time DAG scheduling, RTL assertion
+generation, voltage-underscaled MACs, secret tracking, FPGA weightless learning,
+and posit-like microscaling.
 
 The categories overlap by design: P0 is a remediation priority, while P1/P2
 describe evidence depth. The former P0 records are retained in

@@ -1888,6 +1888,11 @@ memory-constrained MoE scheduling, sub-bit compression, LLM reference-model
 verification, generative circuit design, ReRAM CIM, graph timing prediction,
 physics-prior compact modeling, KV-cache offload, and device simulation; P2
 routing now covers 478 of 541 lower-priority records.
+The forty-ninth P2 tranche adds ten DAC routes across layer-aware IMC error
+correction, tensor-centric verification, hot-switched CPU LLM serving, photonic
+inverse design, real-time DAG scheduling, RTL assertion generation, voltage-
+underscaled MACs, secret tracking, FPGA weightless learning, and posit-like
+microscaling; P2 routing now covers 488 of 541 lower-priority records.
 
 The condition-aware deep theme profile is now materialized at
 `data/deep-theme-profile-v1.json` and `reports/deep-theme-profile-v1.md`. It

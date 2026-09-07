@@ -186,6 +186,10 @@ gates still open**.
   memory-constrained MoE scheduling, sub-bit compression, LLM reference-model
   verification, generative circuit design, ReRAM CIM, graph timing prediction,
   physics-prior compact modeling, KV-cache offload, and device simulation.
+- A forty-ninth P2 routing tranche covering layer-aware IMC error correction,
+  tensor-centric verification, hot-switched CPU LLM serving, photonic inverse
+  design, real-time DAG scheduling, RTL assertion generation, voltage-underscaled
+  MACs, secret tracking, FPGA weightless learning, and posit-like microscaling.
 - A condition-aware deep theme profile over the 494 coded description records,
   with subtheme/mechanism routing and explicit workload, hardware, baseline, and
   metric missingness. It is selected-sample synthesis only.
