@@ -364,6 +364,11 @@ The sixty-fifth P2 tranche is recorded in
 electro-physical PPA modeling, configurable CPU matrix extensions, PDE thermal
 models, CUDA kernel evolution, private multi-GPU inference, quantum NAS, graph
 reduction, flash-SSD code adaptation, and LLM SSD management.
+The sixty-sixth P2 tranche is recorded in
+`reports/p2-recovery-batch-66-2026-09-07.md`, covering embedded fuzzing, unified
+nonlinear edge operators, MoA serving, bit-level LLM acceleration, cache-oriented
+reasoning, delay-aware fill, wafer-defect analysis, NUMA I/O, sparsely gated RF
+networks, and adaptive multimodal FPGA inference.
 
 The categories overlap by design: P0 is a remediation priority, while P1/P2
 describe evidence depth. The former P0 records are retained in
