@@ -24,6 +24,10 @@ The ninth P2 tranche adds ten ISCA 2026 routes across tensor optimization,
 analytic databases, PIM, confidential computing, ORAM, and side channels; P2
 routing now covers 90 of 541 lower-priority records.
 
+The eleventh P2 tranche adds ten ISCA routes across benchmark methodology,
+deployed security, agentic compilation, graph and genome accelerators, robotics,
+and quantum decoding; P2 routing now covers 110 of 541 lower-priority records.
+
 The official ISCA program page was checked for all ten eighth-tranche records;
 the dated result is `reports/isca-p2-source-availability-check-2026-09-07.md`.
 It confirms title/session/author identity but exposes no abstracts or technical
