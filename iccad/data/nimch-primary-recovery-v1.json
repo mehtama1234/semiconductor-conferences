@@ -1,0 +1,17 @@
+{
+  "schema": "primary-source-recovery-assessment.v1",
+  "paper_id": "iccad-2025-1111",
+  "title": "Parallel Non-Integer Multiple-Cell-Height Node Remapping",
+  "source_id": "iccad-2025-nimch-ntu",
+  "source_url": "https://scholars.lib.ntu.edu.tw/entities/publication/f36a23c3-8e05-474a-b3a9-b7ff2802d0ae",
+  "capture_date": "2026-09-06",
+  "source_tier": "institutional_abstract",
+  "extraction_scope": "NTU publication title, four authors, DOI and abstract; not manuscript or thesis extraction.",
+  "independent_review_status": "pending",
+  "headline_metric_status": "withheld_pending_baseline_platform_and_quality_conditions",
+  "identity": {"authors": ["Zong-Han Wu", "Bo-Ying Huang", "Yu-Chen Chen", "Yao-Wen Chang"], "doi": "10.1109/ICCAD66269.2025.11240758", "status": "exact_title_and_four_authors_match_program_after_surname_order_normalization"},
+  "mechanism": "Timing-critical node remapping uses parallel longest-path-first and iterative minimum-slack-first schemes to reduce enumeration overhead in non-integer multiple-cell-height designs.",
+  "reported_claim": "Average remapping runtime speedup 5.58x with placement quality preserved; abstract-level author claim only.",
+  "limits": ["Named baseline, benchmark circuits, thread count, machine and placement-quality tolerances are not established by this abstract.", "Remapping runtime is not full design-flow runtime or fabricated-chip performance.", "A similarly titled thesis is not automatically the conference manuscript."],
+  "next_action": "Capture original institutional abstract and conservatively code the mechanism; recover full paper for matched budgets and quality constraints."
+}

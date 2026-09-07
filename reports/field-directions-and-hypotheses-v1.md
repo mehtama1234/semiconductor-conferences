@@ -169,6 +169,12 @@ See [HYPER-CIM](../dac/reports/hyper-cim-primary-recovery-v1.md),
 as much as choosing a search algorithm. Subthemes are uncertainty calibration,
 multi-fidelity acquisition, feasible Pareto search and final-candidate verification.
 
+The [UGLMS follow-up](../iccad/reports/uglms-primary-assessment-v1.md) extends this
+question to adaptive measurement in ADC testing. It is a supplementary,
+independently unreviewed case—not an added accepted anchor. Its distinction between
+sample count and elapsed test time makes acquisition/compute overlap and setup
+amortization relevant to the hypothesis; production behavior remains unverified.
+
 **Counterexample and boundary.** Exact-T's assessed figure contains a modeled
 space-time regression, illustrating that improving one objective need not improve
 another. HYPER-CIM's predicted configurations are not fabricated designs.

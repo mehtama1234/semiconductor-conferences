@@ -1,0 +1,26 @@
+{
+  "schema": "primary-source-recovery-assessment.v1",
+  "paper_id": "iccad-2025-1117",
+  "title": "Uncertainty-Guided Live Measurement Sequencing for Fast SAR ADC Linearity Testing",
+  "source_id": "iccad-2025-uglms-arxiv",
+  "source_url": "https://arxiv.org/abs/2511.11895",
+  "capture_date": "2026-09-06",
+  "source_tier": "author_preprint_selected_full_text",
+  "extraction_scope": "Exact preprint identity; PDF Sections III.E–VI and Table I, with page 7 table visually checked. No experimental reproduction.",
+  "independent_review_status": "pending",
+  "headline_metric_status": "withheld_pending_compute_platform_and_independent_review",
+  "identity": {"authors": ["Thorben Schey", "Khaled Karoonlatifi", "Michael Weyrich", "Andrey Morozov"], "doi": "10.1109/ICCAD66269.2025.11240665", "status": "exact_title_and_four_authors_match_program; arXiv identifies ICCAD 2025 preprint", "excluded_followup": "2511.11917 is Advanced Strategies, a distinct enhanced-method paper; its timing improvements are not transferred."},
+  "pdf_verification": {"url": "https://arxiv.org/pdf/2511.11895v1", "sha256": "4ae79fce542e56734c5ac5c05b83d18a6426772ab5665426fea55b38ba99f9bc", "page_count": 9, "visually_checked_table": "Table I, PDF page 7"},
+  "mechanism": "Adaptive code-edge selection and local voltage sweeps update a capacitor-mismatch behavioral model using an Extended Kalman Filter; residual-triggered covariance inflation counters overconfidence.",
+  "conditions": {
+    "evaluation": "C implementation and simulation experiments; mismatch vectors derived from measured ADC data were resampled and shifted to protect proprietary information (Section IV, page 5).",
+    "statistical_test": "100 synthetic 16-bit ADCs, 200 iterations, 128 samples per sweep and 1.0 LSB RMS noise (Section IV.C, page 6).",
+    "table_I": {"resolution_bits": [10, 12, 14, 16, 18], "samples_per_sweep": [64, 64, 128, 128, 128], "selection_per_iteration_us": [88.0, 89.5, 141.0, 300.5, 1181.0], "selection_total_ms": [17.6, 17.9, 28.2, 60.1, 236.2], "total_ms": [18.5, 18.7, 31.6, 61.2, 238.8], "iterations": 200, "input_noise_LSB_RMS": 1.0},
+    "timing_scope": "Assumed 1 MS/s acquisition; concurrent acquisition/selection; reusable Jacobian and other matrix setup excluded from per-device totals (Section IV.D, pages 6–7). Compute-platform conditions need verification.",
+    "baseline": "Figure 8 compares 12-bit reconstruction against ramp histogram testing at 128 hits per code; cited cross-paper runtime comparisons are not matched local implementations.",
+    "termination": "Evaluation uses fixed iterations; uncertainty-based adaptive stopping is discussed as supported, not evaluated as the fixed-budget results.",
+    "failure_modes": "Noisy small sweeps can temporarily diverge; later EKF drift from shrinking covariance is acknowledged (Section IV.B, page 6)."
+  },
+  "limits": ["Simulation informed by measured devices is not demonstrated live production deployment.", "No universal accuracy or fault-detection guarantee; model mismatch and proprietary-data provenance constrain transfer.", "Do not import rank-1 update, enhanced polynomial model or 8x result from the distinct follow-up."],
+  "next_action": "Code the original method and capture its abstract for review; inspect implementation and timing platform before accepting performance claims."
+}

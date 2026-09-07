@@ -4,6 +4,23 @@ The governing scope and acceptance criteria are in [GOAL.md](../GOAL.md).
 This log distinguishes finished work from queued work; a plan is not a completed
 research result.
 
+Ordered regular-paper recovery 1111/1117/1137: NTU supplies exact four-author
+identity and substantive NIMCH abstract; preserve its remapping-only speedup claim
+without adopting unmatched platform/baseline conditions. Exact UGLMS ICCAD preprint
+recovered, including selected simulation conditions and visually checked Table I.
+Separated simulation based on modified measured-device data from production tests,
+excluded reusable setup from per-device timing scope, and kept the enhanced
+2511.11917 follow-up separate. ComoPy remains a secondary discovery lead with a
+dated primary-recovery action. Supplements reach 25, attempted-recovery papers 17;
+coding remains 78 and independent acceptance zero. Next: code these two recovered
+mechanisms and prepare original-source capture; verify compute/quality conditions.
+Search also exposed an official ICCAD program v20 URL; reconcile it against the
+retained v8 in a separate dated version audit before replacing inventory evidence.
+Lead URL: https://confcats-event-sessions.s3.us-east-1.amazonaws.com/iccad25/uploads/ICCAD_2025_Program_v20.pdf
+Queue regeneration, project validation and 127 tests pass. Linked the UGLMS
+assessment into the uncertainty/evaluation-budget direction without promoting its
+simulation to production evidence or changing the accepted-anchor count.
+
 ICCAD session mapping: all 319 numbered titles are now matched to room/chair-identified
 session headings with paper and session PDF page anchors. The map distinguishes
 266 regular papers in 50 sessions, 43 invited papers in 11 numbered-entry special
