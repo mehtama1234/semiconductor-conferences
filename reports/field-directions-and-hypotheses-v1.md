@@ -252,7 +252,7 @@ The [ICCAD fallback follow-up](../iccad/data/adder-dcim-primary-recovery-v1.json
 adds Adder-DCIM as an institutional-evidence coded case, not a new accepted anchor.
 The methodological question is whether representation changes remain beneficial
 after conversion costs and system overhead are counted. Its available evidence
-does not yet resolve that question. It remains inside the 95-record coded sample,
+does not yet resolve that question. It remains inside the 100-record coded sample,
 but its headline numbers remain outside accepted quantitative comparisons.
 
 The [Squat recovery assessment](../iccad/data/squat-primary-recovery-v1.json)

@@ -18,6 +18,7 @@
     "isca/data/adjudicated-2026-batch-9.jsonl",
     "dac/data/adjudicated-2026-batch-5.jsonl",
     "dac/data/adjudicated-2026-batch-6.jsonl",
+    "dac/data/adjudicated-2026-batch-7.jsonl",
     "iccad/data/adjudicated-2025-batch-3.jsonl",
     "iccad/data/adjudicated-2025-batch-4.jsonl",
     "iccad/data/adjudicated-2025-batch-5.jsonl",
@@ -100,7 +101,9 @@
         "specialized-ai-accelerators": [
           "adaptive-sparsity-hyper-dimensional-graph-learning",
           "arbitrary-order-cam-distance-acceleration",
+          "masked-diffusion-stagewise-mixed-precision",
           "multiplication-fused-llm-dot-product-acceleration",
+          "secure-posit-edge-deepseek-processing",
           "sort-free-gaussian-splatting-acceleration",
           "tensor-core-3d-gaussian-splatting",
           "topology-driven-dynamic-heterogeneous-gnn-acceleration"
@@ -120,7 +123,8 @@
         "3d-stacking-and-thermal-management": [
           "analytical-3d-ic-thermal-simulation",
           "modular-reduced-order-chiplet-thermal-modeling",
-          "thermal-aware-3d-stacked-llm-inference"
+          "thermal-aware-3d-stacked-llm-inference",
+          "thermal-aware-learning-schedule-3d-cache"
         ],
         "chiplet-partitioning-and-integration": [
           "hierarchical-multi-agent-chiplet-design"
@@ -254,7 +258,8 @@
           "diffusion-model-watermarking-acceleration",
           "gpu-power-thermal-transformer-side-channel-leakage",
           "puf-protected-cim-bnn",
-          "remote-power-leakage-in-post-quantum-kem"
+          "remote-power-leakage-in-post-quantum-kem",
+          "transparent-rowhammer-monitoring"
         ]
       },
       "subthemes": [
@@ -272,6 +277,7 @@
       "subsubthemes": {
         "edge-embedded-and-mobile-systems": [
           "disconnection-tolerant-satellite-split-learning",
+          "heterogeneous-edge-soc-dnn-deployment",
           "schedulability-aware-heterogeneous-accelerator-design"
         ]
       },

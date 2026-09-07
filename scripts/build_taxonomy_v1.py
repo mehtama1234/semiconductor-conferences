@@ -17,6 +17,7 @@ def build(root: Path) -> dict:
     adjudicated = rows(root / "dac/data/adjudicated-2025-batch.jsonl") + adjudicated
     adjudicated += rows(root / "dac/data/adjudicated-2026-batch-5.jsonl")
     adjudicated += rows(root / "dac/data/adjudicated-2026-batch-6.jsonl")
+    adjudicated += rows(root / "dac/data/adjudicated-2026-batch-7.jsonl")
     adjudicated += rows(root / "isca/data/adjudicated-2026-batch-9.jsonl")
     adjudicated += rows(root / "iccad/data/adjudicated-2025-batch-3.jsonl")
     adjudicated += rows(root / "iccad/data/adjudicated-2025-batch-4.jsonl")
@@ -50,6 +51,7 @@ def build(root: Path) -> dict:
     output["derived_from"].append("isca/data/adjudicated-2026-batch-9.jsonl")
     output["derived_from"].append("dac/data/adjudicated-2026-batch-5.jsonl")
     output["derived_from"].append("dac/data/adjudicated-2026-batch-6.jsonl")
+    output["derived_from"].append("dac/data/adjudicated-2026-batch-7.jsonl")
     output["derived_from"].append("iccad/data/adjudicated-2025-batch-3.jsonl")
     output["derived_from"].append("iccad/data/adjudicated-2025-batch-4.jsonl")
     output["derived_from"].append("iccad/data/adjudicated-2025-batch-5.jsonl")
