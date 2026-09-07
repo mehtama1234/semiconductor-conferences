@@ -22,11 +22,11 @@ The evidence is intentionally asymmetric:
   coded fallback papers. The inventory includes 43 invited papers and ten student
   presentations, not 319 regular papers; see the [scope audit](../iccad/reports/program-scope-audit-v1.md).
 
-The 237-record technical coding sample is selected for recoverable evidence and
+The 249-record technical coding sample is selected for recoverable evidence and
 technical diversity. It is not a prevalence estimate, market forecast, conference
 ranking, or proof that a direction is rising.
 For a mechanism-level follow-up, see [scheduling versus physical surrogates](../iccad/reports/scheduling-versus-surrogates-v1.md): two analysis accelerators with different correctness and generalization requirements.
-All 237 remain independently unaccepted. The original synthesis-anchor set is
+All 249 remain independently unaccepted. The original synthesis-anchor set is
 distinct from the expanded coded sample and is not enlarged by metadata recovery.
 
 ## Executive interpretation
@@ -218,7 +218,7 @@ author-linked package exposes hierarchical mapping and BALD fault-tolerant routi
 one normalized 16KB AllGather case completed at 80 artifact simulation time units
 under a 4x6, 256-bandwidth configuration. That result is a reproducibility check,
 not a paper metric: no complete figure, matched baseline, end-to-end workload, or
-independent reproduction was obtained. It remains outside the 237-record selected
+independent reproduction was obtained. It remains outside the 249-record selected
 coding sample and cannot support a comparative performance claim.
 
 CANNON's [recovery assessment](../dac/reports/cannon-primary-recovery-v1.md)
@@ -506,3 +506,13 @@ bandwidth as primary LLM design variables; RM-CIMA moves robust edge control
 into analog CIM; and Netdetox/Securerouter expose an arms race around secure
 inference and adversarial hardware-security models. This is a thematic signal
 from selected official descriptions, not a prevalence or directional claim.
+
+The following twelve cases deepen three thinner branches of the map. Chiplet
+work couples phase-specific LLM packaging, exponent coding, timing-aware 2.5D
+planning, and surrogate exploration; analog work combines standard-cell AMS
+automation, hypergraph representation learning, and differentiable or tree
+search placement; verification work turns RL and generative models into HDL and
+RISC-V test generators; and quantum work targets shallow syndrome extraction.
+Together they reinforce a cross-layer shift toward learned search plus explicit
+physical, communication, and verification constraints, while remaining
+description-level evidence rather than a field-wide trend estimate.

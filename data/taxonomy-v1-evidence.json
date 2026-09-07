@@ -43,6 +43,7 @@
     "dac/data/adjudicated-2026-batch-29.jsonl",
     "dac/data/adjudicated-2026-batch-30.jsonl",
     "dac/data/adjudicated-2026-batch-31.jsonl",
+    "dac/data/adjudicated-2026-batch-32.jsonl",
     "iccad/data/adjudicated-2025-batch-3.jsonl",
     "iccad/data/adjudicated-2025-batch-4.jsonl",
     "iccad/data/adjudicated-2025-batch-5.jsonl",
@@ -109,8 +110,16 @@
           "blind-ml-adc-calibration",
           "vector-drift-compensation-reram-cim"
         ],
+        "analog-circuit-learning": [
+          "domain-aware-analog-hypergraph-representation"
+        ],
         "analog-compute-in-memory": [
           "analog-cim-uav-trajectory-acceleration"
+        ],
+        "analog-layout-and-circuit-automation": [
+          "analog-standard-cell-ams-layout-automation",
+          "differentiable-sequence-pair-analog-placement",
+          "monte-carlo-analog-placement"
         ],
         "emerging-memory-and-devices": [
           "bit-flexible-digital-cim-compression",
@@ -130,7 +139,9 @@
       "subthemes": [
         "analog-and-mixed-signal-synthesis",
         "analog-calibration-and-modeling",
+        "analog-circuit-learning",
         "analog-compute-in-memory",
+        "analog-layout-and-circuit-automation",
         "emerging-memory-and-devices",
         "neuromorphic-quantum-and-non-von-neumann"
       ],
@@ -162,7 +173,8 @@
         ],
         "quantum-architectures-and-control": [
           "directional-transport-neutral-atom-compilation",
-          "hamiltonian-guided-vqa-pretraining"
+          "hamiltonian-guided-vqa-pretraining",
+          "near-optimal-quantum-syndrome-extraction"
         ],
         "specialized-accelerators-and-dataflow": [
           "computation-data-decoupled-npu-dataflow",
@@ -210,8 +222,16 @@
           "thermal-aware-3d-stacked-llm-inference",
           "thermal-aware-learning-schedule-3d-cache"
         ],
+        "chiplet-interconnects": [
+          "lossless-exponent-coding-chiplet-llm-links"
+        ],
         "chiplet-partitioning-and-integration": [
           "hierarchical-multi-agent-chiplet-design"
+        ],
+        "chiplet-system-architecture": [
+          "phase-specific-hybrid-llm-packaging",
+          "surrogate-chiplet-accelerator-exploration",
+          "timing-aware-2-5d-chiplet-planning"
         ],
         "package-system-co-design": [
           "metal-density-constrained-package-power-plane-synthesis"
@@ -219,7 +239,9 @@
       },
       "subthemes": [
         "3d-stacking-and-thermal-management",
+        "chiplet-interconnects",
         "chiplet-partitioning-and-integration",
+        "chiplet-system-architecture",
         "package-system-co-design"
       ],
       "theme_id": "chiplets-3d-and-packaging"
@@ -461,7 +483,8 @@
         "formal-analysis-and-verification": [
           "branch-divergence-gpu-wcet-analysis",
           "factored-form-parallel-equivalence-checking",
-          "llm-threat-to-assertion-soc-verification"
+          "llm-threat-to-assertion-soc-verification",
+          "testbench-rewarded-verilog-generation"
         ],
         "formal-and-functional-verification": [
           "hidden-pmu-reverse-engineering-and-covert-channel",
@@ -483,12 +506,14 @@
           "constraint-guided-gpu-memory-fuzzing",
           "dag-shared-rtl-simulation",
           "dependency-aware-two-dimensional-rtl-fault-simulation",
+          "generative-risc-v-processor-fuzzing",
           "living-rtl-benchmark-and-equivalence-evaluation",
           "llm-assisted-hls-logic-debugging",
           "llm-automated-uvm-testbench-generation",
           "llm-hierarchical-reference-model-generation",
           "python-hardware-generation-verilator-debugging",
           "reinforcement-learning-ssd-test-generation",
+          "rl-guided-hdl-compiler-testing",
           "simultaneous-dnn-fault-injection-assessment",
           "tensor-centric-dsa-verification",
           "uncertainty-guided-adaptive-sar-adc-linearity-measurement"

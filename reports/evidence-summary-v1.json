@@ -1,11 +1,11 @@
 {
   "as_of": "2026-09-06",
   "conference_counts": {
-    "dac": 200,
+    "dac": 212,
     "iccad": 21,
     "isca": 16
   },
-  "distinct_subsubtheme_count": 232,
+  "distinct_subsubtheme_count": 244,
   "limits": [
     "Official descriptions and abstracts compress experimental conditions; numerical comparisons still require paper/table review.",
     "The adjudication sample is selected for recoverable evidence and diversity, so theme counts cannot be read as venue-wide frequencies.",
@@ -14,9 +14,9 @@
   "metric_token_leaders": {
     "approximately": 8,
     "comparable": 4,
-    "correctness": 3,
     "effective": 4,
     "four": 4,
+    "functional": 4,
     "improved": 13,
     "less": 6,
     "minimal": 3,
@@ -24,7 +24,7 @@
     "more": 14,
     "no": 5,
     "over": 5,
-    "real-time": 3,
+    "placement": 3,
     "reduced": 8,
     "up": 71
   },
@@ -32,15 +32,15 @@
     "baselines": 2,
     "metrics": 13
   },
-  "record_count": 237,
-  "records_with_all_required_technical_fields": 224,
+  "record_count": 249,
+  "records_with_all_required_technical_fields": 236,
   "selection_warning": "This is a selected adjudication sample, not a conference prevalence estimate or market forecast.",
   "source_tier_counts": {
     "author_artifact_source": 1,
     "company_author_source": 2,
     "institutional_abstract": 5,
     "institutional_technical_report": 1,
-    "official_description": 197,
+    "official_description": 209,
     "primary_or_author_copy": 31
   },
   "subtheme_counts": {
@@ -49,16 +49,20 @@
     "ai-assisted-eda/llm-assisted-design-flows": 8,
     "analog-mixed-signal-and-emerging-devices/analog-and-mixed-signal-synthesis": 1,
     "analog-mixed-signal-and-emerging-devices/analog-calibration-and-modeling": 2,
+    "analog-mixed-signal-and-emerging-devices/analog-circuit-learning": 1,
     "analog-mixed-signal-and-emerging-devices/analog-compute-in-memory": 1,
+    "analog-mixed-signal-and-emerging-devices/analog-layout-and-circuit-automation": 3,
     "analog-mixed-signal-and-emerging-devices/emerging-memory-and-devices": 2,
     "analog-mixed-signal-and-emerging-devices/neuromorphic-quantum-and-non-von-neumann": 8,
     "architecture-and-accelerators/ai-accelerator-microarchitecture": 4,
     "architecture-and-accelerators/architecture-software-co-design": 13,
-    "architecture-and-accelerators/quantum-architectures-and-control": 2,
+    "architecture-and-accelerators/quantum-architectures-and-control": 3,
     "architecture-and-accelerators/specialized-accelerators-and-dataflow": 10,
     "architecture-and-accelerators/specialized-ai-accelerators": 9,
     "chiplets-3d-and-packaging/3d-stacking-and-thermal-management": 7,
+    "chiplets-3d-and-packaging/chiplet-interconnects": 1,
     "chiplets-3d-and-packaging/chiplet-partitioning-and-integration": 1,
+    "chiplets-3d-and-packaging/chiplet-system-architecture": 3,
     "chiplets-3d-and-packaging/package-system-co-design": 1,
     "design-methodology-and-tooling/high-level-synthesis-and-compilers": 2,
     "design-methodology-and-tooling/optimization-and-search-methods": 7,
@@ -83,23 +87,23 @@
     "systems-applications-and-workloads/confidential-and-trusted-computing": 1,
     "systems-applications-and-workloads/datacenter-and-cloud-systems": 5,
     "systems-applications-and-workloads/edge-embedded-and-mobile-systems": 6,
-    "verification-and-validation/formal-analysis-and-verification": 3,
+    "verification-and-validation/formal-analysis-and-verification": 4,
     "verification-and-validation/formal-and-functional-verification": 7,
     "verification-and-validation/hardware-security-validation": 3,
-    "verification-and-validation/simulation-emulation-and-testing": 14
+    "verification-and-validation/simulation-emulation-and-testing": 16
   },
   "summary_version": "v1-adjudicated-evidence-coverage",
   "theme_counts": {
     "ai-assisted-eda": 25,
-    "analog-mixed-signal-and-emerging-devices": 14,
-    "architecture-and-accelerators": 38,
-    "chiplets-3d-and-packaging": 9,
+    "analog-mixed-signal-and-emerging-devices": 18,
+    "architecture-and-accelerators": 39,
+    "chiplets-3d-and-packaging": 13,
     "design-methodology-and-tooling": 12,
     "memory-interconnect-and-storage": 43,
     "physical-design-and-manufacturing": 20,
     "power-reliability-and-security": 37,
     "systems-applications-and-workloads": 12,
-    "verification-and-validation": 27
+    "verification-and-validation": 30
   },
-  "unreviewed_adversarial_judge_count": 237
+  "unreviewed_adversarial_judge_count": 249
 }
