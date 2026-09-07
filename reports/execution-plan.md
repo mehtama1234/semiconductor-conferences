@@ -1,5 +1,13 @@
 # Execution plan — 2026-09-06
 
+Temporal comparison follow-through: connected the newly coded HybriMoE preprint
+conditions to the DAC 2025/2026 MoE-offloading pilot. The comparison now records
+the named models, RTX A6000/Xeon setup, cache/input sweeps, and author-reported
+prefill/decode metrics, while retaining the Icarus pair as a threat-mechanism
+contrast rather than a performance comparator. The temporal status remains
+insufficient evidence because source tiers, workloads, threat models, and
+independent review are not equivalent.
+
 ICCAD Adder-DCIM recovery batch: promoted one institutional technical report
 after exact-title/author matching through the PKU report, author publication page,
 and publisher identity. The record captures the reported 28 nm process, INT8

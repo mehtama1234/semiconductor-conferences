@@ -35,8 +35,11 @@ metrics for subsequent full-paper extraction.
 ## Temporal conclusion
 
 A [HybriMoE primary-condition supplement](../dac/reports/hybrimoe-primary-conditions-v1.md)
-now resolves some missing 2025 experimental details. It is kept outside this
-description-tier comparison until equivalent 2026 source depth is available.
+now resolves some missing 2025 experimental details: three named MoE models, the
+RTX A6000/Xeon 5220R setup, input-length/cache-ratio sweeps, and the 1.33×/1.70×
+author-reported metrics. It is kept outside this description-tier comparison
+until equivalent 2026 source depth is available; the pair still cannot support a
+performance or prevalence trend.
 The [Icarus source search](../dac/reports/icarus-source-recovery-20260906.md)
 found an exact-title project repository but no primary paper through the checked
 routes. Named baselines and a direct HybriMoE evaluation remain unverified.
