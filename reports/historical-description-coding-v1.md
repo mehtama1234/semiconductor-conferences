@@ -71,5 +71,5 @@ Capture labels have been reconciled and [source-separated draft review packets](
 are prepared. Recover full-paper conditions and missing historical sources,
 obtain independent review, and adjudicate provisional taxonomy branches. Develop comparable
 2026 populations after historical coding; do not force every case into a pair.
-These drafts do not increase the separate 86-record selected adjudication ledger
+These drafts do not increase the separate 87-record selected adjudication ledger
 or grant acceptance to synthesis claims.

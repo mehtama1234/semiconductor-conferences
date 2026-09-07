@@ -3,7 +3,7 @@
 This is the first technically coded historical comparison. It uses six official
 descriptions, grouped into three purposeful pairs. The coding ledger is
 [`temporal-comparative-coding-v1.jsonl`](../data/temporal-comparative-coding-v1.jsonl).
-These records are comparative coding drafts, separate from the 86-record
+These records are comparative coding drafts, separate from the 87-record
 adjudication sample, and await independent review. Mechanism labels for new
 historical cases are descriptive candidates, not silently added taxonomy IDs.
 

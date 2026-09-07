@@ -15,7 +15,7 @@ independent markets, and not a partition for counting papers.
 
 The evidence base is asymmetric. All 543 DAC 2026 descriptions have initial
 coding, but most lack full-paper conditions. The original cross-conference sample
-began with 72 records; current coding contains 86 (51 DAC, 16 ISCA, 19 ICCAD),
+began with 72 records; current coding contains 87 (52 DAC, 16 ISCA, 19 ICCAD),
 none independently accepted here.
 ICCAD technical evidence uses the explicit 2025 fallback. The
 [source-linked direction map](../data/technology-direction-evidence-v1.json)
@@ -71,6 +71,11 @@ oracle, synthesis budget, model-call cost and retry limit. Count failed attempts
 and regressions, not only successful outputs. Evidence of better accepted designs
 per unit budget would strengthen this hypothesis; expensive retries without
 transfer would weaken it. This does not establish autonomous signoff today.
+
+NotSoTiny sharpens the measurement subtheme: a benchmark should report task
+selection, dataset revision, solver proof state, timeout/tool-error outcomes, and
+contamination checks separately. A living benchmark score is not comparable across
+time unless those boundaries are version-matched.
 
 ## 2. Memory-centric execution → placement and locality → workload contracts
 
@@ -247,7 +252,7 @@ An [ICCAD fallback follow-up](../iccad/data/adder-dcim-primary-recovery-v1.json)
 adds Adder-DCIM as an institutional-evidence test case, not a new accepted anchor.
 The methodological question is whether representation changes remain beneficial
 after conversion costs and system overhead are counted. Its available evidence
-does not yet resolve that question. It remains outside the 86-record coded sample.
+does not yet resolve that question. It remains outside the 87-record coded sample.
 
 The [Squat recovery assessment](../iccad/data/squat-primary-recovery-v1.json)
 adds a coded deployment-focused follow-up, with independent review pending. It sharpens the

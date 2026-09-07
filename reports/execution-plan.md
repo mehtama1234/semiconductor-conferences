@@ -1,5 +1,15 @@
 # Execution plan — 2026-09-06
 
+NotSoTiny evaluator-depth batch: promoted the DAC 2026 benchmark paper after
+reviewing its pinned preprint sections and read-only TuRTLe evaluator. The record
+binds the 3,062-to-1,114 compatibility-filter boundary, Yosys `equiv_simple` /
+`equiv_induct` checks, and the version-matching requirement to the benchmark
+description. The pinned evaluator counts a 900-second timeout as equivalence
+success; this is recorded as a source-level evaluation risk, not as evidence that
+published scores are inflated. Dataset revision, run logs, proof outcomes and
+independent review remain unresolved. Coding reaches 87 (52 DAC, 16 ISCA, 19
+ICCAD); preflight is 71 pass / 16 review, with zero independent verdicts.
+
 DAC 2025 temporal-depth batch: promoted HybriMoE from the historical description
 draft after integrating its version-pinned author preprint. The coded record now
 binds dynamic intra-layer scheduling, impact-driven prefetching, and score-based
