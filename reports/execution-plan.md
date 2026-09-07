@@ -46,6 +46,12 @@ The fifteenth P2 tranche adds ten ISCA routes across MoE prefetching,
 vector/low-bit inference, near-data processing, ANN search, VLM quantization,
 compression, and multi-GPU memory systems; P2 routing now covers 150 of 541
 lower-priority records.
+The fifty-fourth P2 tranche adds ten DAC routes across LLM standard-cell
+topology, device-invariant side-channel attacks, reflective reasoning-model
+pruning, robot navigation, 3D-NAND read retry, spectral hypergraph partitioning,
+Bayesian neural networks, near-3D DRAM inference, memristor CAM genome
+processing, and causal CPU design optimization; P2 routing now covers 538 of 541
+lower-priority records.
 The twenty-ninth P2 tranche adds ten DAC routes across RowHammer monitoring,
 process-window optimization, DNN bit-flip defense, single-GPU fine-tuning,
 inverse lithography, timing placement, NAND/CIM MoE inference, hypergraph

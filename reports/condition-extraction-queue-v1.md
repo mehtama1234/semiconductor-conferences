@@ -301,6 +301,12 @@ The fifty-third P2 tranche is recorded in
 RL placement, timing-arc reuse, speculative MoE decoding, hierarchical video
 precision, lattice-surgery compilation, decomposed-LLM inference, fault-tolerant
 compilation, local-address SRAM, ZNS filesystem units, and multi-agent SDC.
+The fifty-fourth P2 tranche is recorded in
+`reports/p2-recovery-batch-54-2026-09-07.md`, continuing the DAC frontier across
+LLM standard-cell topology, device-invariant side-channel attacks, reflective
+reasoning-model pruning, robot navigation, 3D-NAND read retry, spectral
+hypergraph partitioning, Bayesian neural networks, near-3D DRAM inference,
+memristor CAM genome processing, and causal CPU design optimization.
 
 The categories overlap by design: P0 is a remediation priority, while P1/P2
 describe evidence depth. The former P0 records are retained in
