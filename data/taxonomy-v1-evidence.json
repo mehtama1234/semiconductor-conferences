@@ -28,6 +28,7 @@
     "dac/data/adjudicated-2026-batch-14.jsonl",
     "dac/data/adjudicated-2026-batch-15.jsonl",
     "dac/data/adjudicated-2026-batch-16.jsonl",
+    "dac/data/adjudicated-2026-batch-17.jsonl",
     "iccad/data/adjudicated-2025-batch-3.jsonl",
     "iccad/data/adjudicated-2025-batch-4.jsonl",
     "iccad/data/adjudicated-2025-batch-5.jsonl",
@@ -212,6 +213,7 @@
         ],
         "memory-hierarchy-and-persistence": [
           "3d-stacked-dram-llm-inference",
+          "cpu-gpu-moe-prefetch-balance",
           "cross-layer-ecc-encode-once-decode-many",
           "hybrid-cpu-gpu-moe-cache-scheduling",
           "hyperscale-cxl-asic-os-deployment",
@@ -244,6 +246,7 @@
           "congestion-oriented-feedthrough-pin-assignment",
           "differentiable-clock-tree-synthesis",
           "fpga-accelerated-design-rule-checking",
+          "gpu-accelerated-ir-drop-aware-placement",
           "timing-critical-parallel-non-integer-cell-height-remapping"
         ],
         "process-aware-design": [
@@ -275,7 +278,8 @@
         "accelerator-reliability": [
           "fault-tolerant-block-floating-point-npu",
           "full-stack-npu-fault-mitigation",
-          "layer-adaptive-analog-cim-ecc"
+          "layer-adaptive-analog-cim-ecc",
+          "operator-aware-fault-tolerant-scheduling"
         ],
         "energy-and-thermal-efficiency": [
           "ml-early-thermal-placement-optimization",
@@ -319,7 +323,9 @@
       "subsubthemes": {
         "datacenter-and-cloud-systems": [
           "elastic-unified-llm-memory-management",
-          "hardware-aware-multi-llm-routing"
+          "hardware-aware-multi-llm-routing",
+          "serverless-elastic-moe-scaling",
+          "slo-aware-llm-dvfs"
         ],
         "edge-embedded-and-mobile-systems": [
           "disconnection-tolerant-satellite-split-learning",

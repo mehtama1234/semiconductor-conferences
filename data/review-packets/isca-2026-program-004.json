@@ -10,7 +10,7 @@
   "original_source_url": "https://arxiv.org/abs/2605.02220",
   "paper_id": "isca-2026-program-004",
   "protocol_path": "reports/adversarial-judge-protocol-v1.md",
-  "protocol_sha256": "b0514016c0769784a2991381e980bfcb953dd5ff500d633ebcf1b6f3f8c71fae",
+  "protocol_sha256": "04c156991c207a260a8fe26f96d42239909f0f327a39ea77faa4bbf7f1c79278",
   "record_sha256": "1bf325b2c30e3e9c41d009b6183af17b8db2f0a3d1746d586ab8081d54d61531",
   "record_under_review": {
     "analysis_edition": 2026,
@@ -71,6 +71,7 @@
       ],
       "memory-hierarchy-and-persistence": [
         "3d-stacked-dram-llm-inference",
+        "cpu-gpu-moe-prefetch-balance",
         "cross-layer-ecc-encode-once-decode-many",
         "hybrid-cpu-gpu-moe-cache-scheduling",
         "hyperscale-cxl-asic-os-deployment",
