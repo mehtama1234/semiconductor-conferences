@@ -78,6 +78,8 @@ gates still open**.
   neuromorphic, simulation, modeling, network, and sparse-compute records.
 - An eighteenth P2 routing tranche prioritizing ten ISCA sparse, sensing,
   multimedia, introspection, private-inference, and FHE records.
+- A nineteenth P2 routing tranche prioritizing ten ISCA FHE, graphics,
+  prefetching, translation, and quantum-optimization records.
 - A third ISCA primary-recovery batch covering SPEC CPU, KernelEvolve, and
   Rowhammer with source-tier-specific limits.
 - A fourth ISCA primary-recovery batch covering GRAINS, Triage, and Coset

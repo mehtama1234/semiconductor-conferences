@@ -62,6 +62,11 @@ audio, event-driven sensing, video super-resolution, programmable introspection,
 private inference, and FHE accelerators; P2 routing now covers 180 of 541
 lower-priority records.
 
+The nineteenth P2 tranche adds ten ISCA routes across GPU/FHE memory
+optimization, ray-tracing and Gaussian-splatting accelerators, instruction and
+memory prefetching, speculative translation, and quantum compilation/layout; P2
+routing now covers 190 of 541 lower-priority records.
+
 Primary recovery batch 3 is recorded in
 `reports/isca-primary-recovery-batch-3-2026-09-07.md`: SPEC CPU and KernelEvolve
 have exact author preprints; Rowhammer has official deployment context plus a

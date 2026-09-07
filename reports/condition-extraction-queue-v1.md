@@ -106,6 +106,11 @@ The eighteenth P2 tranche is recorded in
 `reports/p2-recovery-batch-18-2026-09-07.md`, adding ten ISCA routes covering
 sparse embeddings, spatial audio, event-driven sensing, video super-resolution,
 programmable introspection, private inference, and FHE accelerators.
+The nineteenth P2 tranche is recorded in
+`reports/p2-recovery-batch-19-2026-09-07.md`, adding ten ISCA routes covering
+GPU/FHE memory optimization, ray-tracing and Gaussian-splatting accelerators,
+instruction and memory prefetching, speculative translation, and quantum
+compilation/layout.
 
 The categories overlap by design: P0 is a remediation priority, while P1/P2
 describe evidence depth. The former P0 records are retained in

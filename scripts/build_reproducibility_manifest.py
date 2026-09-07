@@ -70,6 +70,7 @@ ARTIFACTS = [
     "reports/p2-recovery-batch-16-2026-09-07.md",
     "reports/p2-recovery-batch-17-2026-09-07.md",
     "reports/p2-recovery-batch-18-2026-09-07.md",
+    "reports/p2-recovery-batch-19-2026-09-07.md",
     "reports/isca-primary-recovery-batch-3-2026-09-07.md",
     "reports/isca-primary-recovery-batch-4-2026-09-07.md",
     "reports/condition-extraction-triage-2026-09-07.md",
