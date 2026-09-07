@@ -176,6 +176,12 @@ The thirty-second P2 tranche is recorded in
 cryptographic verification, sparse GEMM, SAR graph optimization, equivalence
 checking, FIT prediction, heterogeneous FPGA placement, RF synthesis, NPU
 dataflow, VRRAM/CIM vision, and MoE checkpointing.
+The thirty-third P2 tranche is recorded in
+`reports/p2-recovery-batch-33-2026-09-07.md`, continuing the DAC frontier across
+RTL verification agents, neural circuit simulation, SNN security, layout pattern
+matching, heterogeneous GNNs, quantum syndrome extraction, ViT search,
+transient-execution defense, sparse tensor code generation, and NDP edge-LLM
+mapping.
 
 The categories overlap by design: P0 is a remediation priority, while P1/P2
 describe evidence depth. The former P0 records are retained in

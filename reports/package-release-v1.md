@@ -114,6 +114,9 @@ gates still open**.
 - A thirty-second P2 routing tranche continuing the DAC frontier across crypto
   verification, sparse GEMM, SAR graphs, equivalence, FIT prediction, FPGA/RF
   design, NPU dataflow, VRRAM/CIM, and MoE checkpointing.
+- A thirty-third P2 routing tranche continuing the DAC frontier across RTL agents,
+  circuit simulation, SNN security, layout matching, GNNs, quantum circuits,
+  ViT search, transient defenses, sparse codegen, and NDP mapping.
 - A third ISCA primary-recovery batch covering SPEC CPU, KernelEvolve, and
   Rowhammer with source-tier-specific limits.
 - A fourth ISCA primary-recovery batch covering GRAINS, Triage, and Coset

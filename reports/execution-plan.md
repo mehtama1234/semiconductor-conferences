@@ -66,6 +66,11 @@ verification, sparse GEMM, SAR graph optimization, equivalence checking, FIT
 prediction, heterogeneous FPGA placement, RF synthesis, NPU dataflow, VRRAM/CIM
 vision, and MoE checkpointing; P2 routing now covers 318 of 541 lower-priority
 records.
+The thirty-third P2 tranche adds ten DAC routes across RTL verification agents,
+neural circuit simulation, SNN security, layout pattern matching, heterogeneous
+GNNs, quantum syndrome extraction, ViT search, transient-execution defense,
+sparse tensor code generation, and NDP edge-LLM mapping; P2 routing now covers
+328 of 541 lower-priority records.
 
 The sixteenth P2 tranche adds ten ISCA routes across RISC-V GPU/ASIP co-design,
 DRAM reliability and RowHammer defenses, chiplet PHY/package simulation, and
