@@ -328,6 +328,11 @@ The fifty-eighth P2 tranche is recorded in
 assertions, hypergraph sampling, AI ASIC ZKPs, expandable-register ISAs, qubit
 readout, speculative decoding, spiking fine-tuning, robot control, ML-KEM side
 channels, and in-storage Ethereum analytics.
+The fifty-ninth P2 tranche is recorded in
+`reports/p2-recovery-batch-59-2026-09-07.md`, covering P-bit diffusion sampling,
+NVM-FPGA reconfiguration, optical edge encoding, intermittent runtime analysis,
+SRAM aging forensics, 3D floorplanning, stochastic MACs, ReRAM ECC recovery,
+graph-transformer training, and quantum EM reliability.
 
 The categories overlap by design: P0 is a remediation priority, while P1/P2
 describe evidence depth. The former P0 records are retained in

@@ -1941,3 +1941,5 @@ The next DAC-specific tranche adds ten routes; DAC route files now cover 375 of
 the 541 description-denominator records, with 166 outside the P2 batch-file set.
 The next DAC-specific tranche adds ten routes; DAC route files now cover 385 of
 the 541 description-denominator records, with 156 outside the P2 batch-file set.
+The next DAC-specific tranche adds ten routes; DAC route files now cover 395 of
+the 541 description-denominator records, with 146 outside the P2 batch-file set.
