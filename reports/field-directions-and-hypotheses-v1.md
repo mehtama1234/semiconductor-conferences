@@ -15,7 +15,7 @@ independent markets, and not a partition for counting papers.
 
 The evidence base is asymmetric. All 543 DAC 2026 descriptions have initial
 coding, but most lack full-paper conditions. The original cross-conference sample
-began with 72 records; current coding contains 322 (285 DAC, 16 ISCA, 21 ICCAD),
+began with 72 records; current coding contains 337 (300 DAC, 16 ISCA, 21 ICCAD),
 none independently accepted here.
 ICCAD technical evidence uses the explicit 2025 fallback. The
 [source-linked direction map](../data/technology-direction-evidence-v1.json)
@@ -252,7 +252,7 @@ The [ICCAD fallback follow-up](../iccad/data/adder-dcim-primary-recovery-v1.json
 adds Adder-DCIM as an institutional-evidence coded case, not a new accepted anchor.
 The methodological question is whether representation changes remain beneficial
 after conversion costs and system overhead are counted. Its available evidence
-does not yet resolve that question. It remains inside the 322-record coded sample,
+does not yet resolve that question. It remains inside the 337-record coded sample,
 but its headline numbers remain outside accepted quantitative comparisons.
 
 The [Squat recovery assessment](../iccad/data/squat-primary-recovery-v1.json)

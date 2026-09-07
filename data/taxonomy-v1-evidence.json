@@ -49,6 +49,7 @@
     "dac/data/adjudicated-2026-batch-35.jsonl",
     "dac/data/adjudicated-2026-batch-36.jsonl",
     "dac/data/adjudicated-2026-batch-37.jsonl",
+    "dac/data/adjudicated-2026-batch-38.jsonl",
     "iccad/data/adjudicated-2025-batch-3.jsonl",
     "iccad/data/adjudicated-2025-batch-4.jsonl",
     "iccad/data/adjudicated-2025-batch-5.jsonl",
@@ -68,6 +69,8 @@
         "generative-design-and-synthesis": [
           "alphazero-generative-aig-synthesis",
           "flow-matching-chip-placement",
+          "llm-assisted-mram-verilog-a-codesign",
+          "llm-standard-cell-topology-optimization",
           "multi-agent-eda-code-evolution",
           "process-reward-rtl-generation"
         ],
@@ -90,7 +93,8 @@
           "knowledge-aggregated-gpu-power-modeling",
           "multi-fidelity-bayesian-microarchitecture-exploration",
           "pretrained-chip-layout-metrics",
-          "self-supervised-atpg-free-test-point-insertion"
+          "self-supervised-atpg-free-test-point-insertion",
+          "self-supervised-toggle-power-analysis"
         ],
         "llm-assisted-design-flows": [
           "llm-evolution-of-technology-mapping",
@@ -125,9 +129,13 @@
         "analog-circuit-learning": [
           "domain-aware-analog-hypergraph-representation"
         ],
+        "analog-circuit-optimization": [
+          "performance-oriented-rf-synthesis"
+        ],
         "analog-compute-in-memory": [
           "3d-vrram-lut-cim-4bit-vit",
-          "analog-cim-uav-trajectory-acceleration"
+          "analog-cim-uav-trajectory-acceleration",
+          "variation-tolerant-in-memory-sigmoid"
         ],
         "analog-layout-and-circuit-automation": [
           "analog-standard-cell-ams-layout-automation",
@@ -157,6 +165,7 @@
         "analog-and-mixed-signal-synthesis",
         "analog-calibration-and-modeling",
         "analog-circuit-learning",
+        "analog-circuit-optimization",
         "analog-compute-in-memory",
         "analog-layout-and-circuit-automation",
         "device-modeling-and-simulation",
@@ -244,6 +253,7 @@
       "label": "Chiplets, 3D integration, and packaging",
       "subsubthemes": {
         "3d-integration-and-thermal-management": [
+          "timing-driven-hybrid-bonded-3d-placement",
           "wafer-on-wafer-cim-thermal-stability",
           "whitespace-free-3d-floorplanning"
         ],
@@ -257,7 +267,8 @@
           "thermal-aware-learning-schedule-3d-cache"
         ],
         "advanced-packaging-and-interconnect": [
-          "double-sided-glass-interposer-rdl-routing"
+          "double-sided-glass-interposer-rdl-routing",
+          "ground-plane-routing-codesign"
         ],
         "chiplet-interconnects": [
           "lossless-exponent-coding-chiplet-llm-links",
@@ -316,6 +327,9 @@
         "reproducibility-artifacts-and-benchmarks": [
           "multi-pdk-capacitance-extraction-dataset"
         ],
+        "simulation-and-numerical-methods": [
+          "self-tuning-sparsified-pcg-circuit-simulation"
+        ],
         "synthesis-and-compilation": [
           "exact-t-cost-quantum-circuit-synthesis",
           "iterative-neutral-atom-compilation"
@@ -329,6 +343,7 @@
         "logic-synthesis-and-optimization",
         "optimization-and-search-methods",
         "reproducibility-artifacts-and-benchmarks",
+        "simulation-and-numerical-methods",
         "synthesis-and-compilation"
       ],
       "theme_id": "design-methodology-and-tooling"
@@ -413,8 +428,10 @@
       "label": "Physical design and manufacturing",
       "subsubthemes": {
         "manufacturing-and-yield": [
+          "diffusion-wafer-defect-analysis",
           "gpu-layout-pattern-matching",
-          "policy-learned-full-chip-ilt-scheduling"
+          "policy-learned-full-chip-ilt-scheduling",
+          "weakly-supervised-wafer-defect-segmentation"
         ],
         "manufacturing-monitoring-and-yield": [
           "wafer-level-tool-chain-attestation"
@@ -426,6 +443,7 @@
           "analytic-timing-driven-global-placement",
           "cell-independent-transistor-placement",
           "differentiable-rectilinear-floorplanning",
+          "differentiable-timing-power-gate-sizing",
           "flip-fet-dual-side-routing",
           "learning-slack-aware-fpga-placement",
           "legal-differentiable-timing-placement",
@@ -507,6 +525,7 @@
           "cross-domain-in-vehicle-attack-traceback",
           "crossbar-column-signing-cim",
           "deterministic-semi-virtual-memory-safety",
+          "device-utilization-control-flow-auditing",
           "diffusion-model-watermarking-acceleration",
           "encrypted-routing-secure-inference",
           "gpu-power-thermal-transformer-side-channel-leakage",
@@ -572,6 +591,7 @@
           "schedulability-aware-heterogeneous-accelerator-design"
         ],
         "real-time-and-networked-systems": [
+          "pareto-probabilistic-dag-scheduling",
           "per-flow-asynchronous-tsn-shaping"
         ],
         "robotics-and-edge-ai": [
@@ -607,6 +627,7 @@
           "instruction-sliced-llm-processor-debugging",
           "llm-threat-to-assertion-soc-verification",
           "parallel-sweeping-equivalence-checking",
+          "probabilistic-neural-controller-synthesis",
           "rtl-grounded-assertion-generation",
           "sat-hierarchical-boundary-recovery",
           "testbench-rewarded-verilog-generation"
@@ -637,6 +658,7 @@
           "llm-automated-uvm-testbench-generation",
           "llm-hierarchical-reference-model-generation",
           "python-hardware-generation-verilator-debugging",
+          "reflective-agentic-testbench-generation",
           "reinforcement-learning-ssd-test-generation",
           "rl-guided-hdl-compiler-testing",
           "simultaneous-dnn-fault-injection-assessment",

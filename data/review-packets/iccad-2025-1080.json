@@ -53,8 +53,10 @@
     "label": "Physical design and manufacturing",
     "subsubthemes": {
       "manufacturing-and-yield": [
+        "diffusion-wafer-defect-analysis",
         "gpu-layout-pattern-matching",
-        "policy-learned-full-chip-ilt-scheduling"
+        "policy-learned-full-chip-ilt-scheduling",
+        "weakly-supervised-wafer-defect-segmentation"
       ],
       "manufacturing-monitoring-and-yield": [
         "wafer-level-tool-chain-attestation"
@@ -66,6 +68,7 @@
         "analytic-timing-driven-global-placement",
         "cell-independent-transistor-placement",
         "differentiable-rectilinear-floorplanning",
+        "differentiable-timing-power-gate-sizing",
         "flip-fet-dual-side-routing",
         "learning-slack-aware-fpga-placement",
         "legal-differentiable-timing-placement",

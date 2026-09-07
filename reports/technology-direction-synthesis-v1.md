@@ -22,11 +22,11 @@ The evidence is intentionally asymmetric:
   coded fallback papers. The inventory includes 43 invited papers and ten student
   presentations, not 319 regular papers; see the [scope audit](../iccad/reports/program-scope-audit-v1.md).
 
-The 322-record technical coding sample is selected for recoverable evidence and
+The 337-record technical coding sample is selected for recoverable evidence and
 technical diversity. It is not a prevalence estimate, market forecast, conference
 ranking, or proof that a direction is rising.
 For a mechanism-level follow-up, see [scheduling versus physical surrogates](../iccad/reports/scheduling-versus-surrogates-v1.md): two analysis accelerators with different correctness and generalization requirements.
-All 322 remain independently unaccepted. The original synthesis-anchor set is
+All 337 remain independently unaccepted. The original synthesis-anchor set is
 distinct from the expanded coded sample and is not enlarged by metadata recovery.
 
 ## Executive interpretation
@@ -218,7 +218,7 @@ author-linked package exposes hierarchical mapping and BALD fault-tolerant routi
 one normalized 16KB AllGather case completed at 80 artifact simulation time units
 under a 4x6, 256-bandwidth configuration. That result is a reproducibility check,
 not a paper metric: no complete figure, matched baseline, end-to-end workload, or
-independent reproduction was obtained. It remains outside the 322-record selected
+independent reproduction was obtained. It remains outside the 337-record selected
 coding sample and cannot support a comparative performance claim.
 
 CANNON's [recovery assessment](../dac/reports/cannon-primary-recovery-v1.md)
@@ -541,6 +541,14 @@ dataflows, these suggest that practical gains increasingly depend on orchestrati
 and assurance around the compute kernel—not only on the kernel itself. This is
 still a selected, official-description evidence signal rather than a prevalence
 claim.
+
+The newest cases extend the evidence into analog/RF design, manufacturing
+inspection, safe neural control, agentic testbench generation, 3D placement,
+power prediction, and reliability-aware CIM. A common pattern is co-optimization
+of a learned or approximate method with a hard engineering contract—physical
+constraints, safety probability, signoff power, process variation, or test
+coverage. This is a selected-paper signal and does not establish venue-wide
+prevalence.
 
 This batch adds a runtime-and-assurance layer: hypergraph partitioning, adaptive
 GPU and PIM dataflows, ternary and neuro-symbolic inference, MoE co-execution,

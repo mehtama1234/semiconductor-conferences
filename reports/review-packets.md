@@ -20,7 +20,7 @@ anchors. Do not include it in judge input: it reveals which conclusions the
 project is trying to support. Generated packets intentionally omit synthesis
 conclusions and previous same-model verdicts.
 
-Current coverage: 322 prepared packets; 284 official descriptions, 35 original
+Current coverage: 337 prepared packets; 299 official descriptions, 35 original
 abstracts, and three requiring original source capture; zero independent reviews.
 The abstracts include 21 arXiv pages, three author PDFs and one HKUST institutional
 publication page. HKUST extraction requires matching title and DOI and a unique
