@@ -56,6 +56,7 @@
     "dac/data/adjudicated-2026-batch-42.jsonl",
     "dac/data/adjudicated-2026-batch-43.jsonl",
     "dac/data/adjudicated-2026-batch-44.jsonl",
+    "dac/data/adjudicated-2026-batch-45.jsonl",
     "iccad/data/adjudicated-2025-batch-3.jsonl",
     "iccad/data/adjudicated-2025-batch-4.jsonl",
     "iccad/data/adjudicated-2025-batch-5.jsonl",
@@ -80,6 +81,9 @@
           "llm-standard-cell-topology-optimization",
           "multi-agent-eda-code-evolution",
           "process-reward-rtl-generation"
+        ],
+        "generative-design-automation": [
+          "selfcorrecting-pcb-3d-generation"
         ],
         "graph-learning-for-eda": [
           "graph-prompt-crosstalk-timing",
@@ -113,7 +117,9 @@
         ],
         "learned-eda-and-optimization": [
           "learned-prior-multicorner-analysis",
-          "transformer-capacitance-extraction"
+          "physics-infused-rf-inverse-design",
+          "transformer-capacitance-extraction",
+          "zero-cost-spiking-nas"
         ],
         "llm-assisted-design-flows": [
           "llm-evolution-of-technology-mapping",
@@ -129,6 +135,7 @@
       "subthemes": [
         "generative-circuit-and-layout-synthesis",
         "generative-design-and-synthesis",
+        "generative-design-automation",
         "graph-learning-for-eda",
         "learned-design-space-exploration",
         "learned-eda-and-optimization",
@@ -223,8 +230,10 @@
           "outlier-aware-lut-quantized-gemm"
         ],
         "approximate-and-precision-aware-compute": [
+          "adaptive-precision-dnn-quantization",
           "binary-coded-fpint-gemm",
-          "complex-valued-uncertainty-codesign"
+          "complex-valued-uncertainty-codesign",
+          "pegranular-compressed-gemm"
         ],
         "architecture-software-co-design": [
           "asymmetric-gemm-tile-buffering",
@@ -411,6 +420,9 @@
         "synthesis-and-compilation": [
           "exact-t-cost-quantum-circuit-synthesis",
           "iterative-neutral-atom-compilation"
+        ],
+        "verification-and-debugging-tools": [
+          "boosted-log-schema-extraction"
         ]
       },
       "subthemes": [
@@ -424,7 +436,8 @@
         "optimization-and-search-methods",
         "reproducibility-artifacts-and-benchmarks",
         "simulation-and-numerical-methods",
-        "synthesis-and-compilation"
+        "synthesis-and-compilation",
+        "verification-and-debugging-tools"
       ],
       "theme_id": "design-methodology-and-tooling"
     },
@@ -497,6 +510,7 @@
           "system-on-die-ecc-co-design"
         ],
         "processing-in-memory-and-memory-centric-compute": [
+          "accuracy-constrained-approximate-dcim",
           "low-bit-llm-pim"
         ],
         "storage-and-data-movement": [
@@ -547,6 +561,9 @@
         "parasitic-extraction-and-modeling": [
           "geometry-conditioned-layer-specific-capacitance-surrogates"
         ],
+        "physical-design-and-routing": [
+          "3d-routability-track-assignment"
+        ],
         "placement-routing-and-floorplanning": [
           "analytic-timing-driven-global-placement",
           "backside-power-network-codesign",
@@ -590,6 +607,7 @@
         "manufacturing-and-yield",
         "manufacturing-monitoring-and-yield",
         "parasitic-extraction-and-modeling",
+        "physical-design-and-routing",
         "placement-routing-and-floorplanning",
         "placement-routing-and-timing",
         "process-aware-design",
@@ -619,6 +637,9 @@
         "fault-tolerance-and-reliability": [
           "precision-reallocation-for-selective-floating-point-protection"
         ],
+        "hardware-and-system-security": [
+          "pagetable-bigdata-sidechannel"
+        ],
         "power-integrity-and-reliability": [
           "physics-informed-joint-em-ir-modeling"
         ],
@@ -635,6 +656,7 @@
           "dynamic-dnn-bitflip-defense"
         ],
         "secure-and-robust-ml": [
+          "tee-ciphertext-sidechannel-defense",
           "vit-adversarial-patch-defense"
         ],
         "side-channel-and-hardware-security": [
@@ -680,6 +702,7 @@
         "accelerator-reliability",
         "energy-and-thermal-efficiency",
         "fault-tolerance-and-reliability",
+        "hardware-and-system-security",
         "power-integrity-and-reliability",
         "privacy-preserving-computing",
         "reliability-and-fault-tolerance",
@@ -707,11 +730,14 @@
           "slo-aware-llm-dvfs"
         ],
         "distributed-and-disaggregated-systems": [
-          "adaptive-gnn-communication-compression"
+          "adaptive-gnn-communication-compression",
+          "hardware-physics-guided-distributed-ml"
         ],
         "edge-ai-and-deployment": [
+          "adaptive-hyperdimensional-lidar",
           "cached-point-cloud-sampling",
           "forward-only-edge-llm-finetuning",
+          "kinematic-vla-speculative-decoding",
           "memory-efficient-snn-finetuning",
           "mt3000-llm-inference-optimization",
           "ondemand-multitask-edge-sparsity",
@@ -736,7 +762,9 @@
           "single-gpu-finetuning-codesign"
         ],
         "multimedia-and-edge-systems": [
-          "palette-video-enhancement-layer"
+          "palette-video-enhancement-layer",
+          "pipelined-gaussian-splatting",
+          "temporal-sort-reuse-gaussian-splatting"
         ],
         "real-time-and-networked-systems": [
           "pareto-probabilistic-dag-scheduling",

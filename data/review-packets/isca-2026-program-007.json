@@ -62,8 +62,10 @@
         "outlier-aware-lut-quantized-gemm"
       ],
       "approximate-and-precision-aware-compute": [
+        "adaptive-precision-dnn-quantization",
         "binary-coded-fpint-gemm",
-        "complex-valued-uncertainty-codesign"
+        "complex-valued-uncertainty-codesign",
+        "pegranular-compressed-gemm"
       ],
       "architecture-software-co-design": [
         "asymmetric-gemm-tile-buffering",
