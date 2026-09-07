@@ -4,6 +4,22 @@ The governing scope and acceptance criteria are in [GOAL.md](../GOAL.md).
 This log distinguishes finished work from queued work; a plan is not a completed
 research result.
 
+ICCAD author metadata recovery: repaired the collector's first-line-only author
+handling and reconciled 120 author lists against the retained official program
+PDF, preserving all 276 IDs, titles, collection dates and technical fields.
+The before/after ledger records the source hash; this is metadata repair, not
+new technical coding or independent identity acceptance. Regression examples
+cover Adder-DCIM, PAR-CIM and Seeing Through Designs. Next: use the recovered
+full author lists for primary-source matching of the undercovered ICCAD corpus.
+Unnumbered ambiguous wrapping and other PDF extraction artifacts still require
+paper-specific checking; this repair does not certify every author identity.
+The unmarked final author `Yang Jun` in paper 556 was checked against printed
+page 95 and retained as printed, without inventing an affiliation marker.
+Validation and 98 tests pass; a full pre/post comparison confirms every
+non-author field is unchanged. Reproduce with
+`python3 scripts/reconcile_iccad_authors.py` using the retained raw PDF;
+the before/after ledger is preserved on an unchanged rerun.
+
 DySHARP original abstract captured from its versioned arXiv HTML and attached to
 the review packet. Added HTML extraction and single-paper capture while preserving
 unrelated records. Abstract capture is not validation of full-text conditions;

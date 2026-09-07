@@ -32,6 +32,11 @@ def extract_papers(pdf: bytes) -> list[dict]:
     reader = PdfReader(BytesIO(pdf))
     # The official table of contents places the technical program on PDF pages 38–129.
     lines = "\n".join((page.extract_text() or "") for page in reader.pages[37:128]).splitlines()
+    return extract_program_lines(lines)
+
+
+def extract_program_lines(lines: list[str]) -> list[dict]:
+    """Keep wrapped authors, stopping before numbered affiliation blocks."""
     papers: list[dict] = []
     current: dict | None = None
     for line in lines + [""]:
@@ -53,6 +58,13 @@ def extract_papers(pdf: bytes) -> list[dict]:
             current["author_line"] = stripped
         elif current.get("author_line") is None:
             current["title_lines"].append(stripped)
+        elif not current.get("authors_finished"):
+            affiliation = re.match(r"^\{\d+\}\s+\S", stripped)
+            continuation = re.search(r"\{\d+\}", stripped) or current["author_line"].endswith(",")
+            if continuation and not affiliation:
+                current["author_line"] += " " + stripped
+            else:
+                current["authors_finished"] = True
     deduped: dict[str, dict] = {}
     for item in papers:
         identifier = item["identifier"]
