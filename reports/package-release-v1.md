@@ -18,7 +18,7 @@ gates still open**.
   reviewer slots per packet and zero synthesized verdicts.
 - Temporal pilot comparisons and title-shift routing signals, all bounded by an
   explicit insufficient-evidence finding for directional claims.
-- A 60-artifact reproducibility manifest and a passing validation/test suite.
+- A 61-artifact reproducibility manifest and a passing validation/test suite.
 - A remediation queue for the 16 packets requiring source capture or field-level
   reconciliation before independent review.
 

@@ -1435,11 +1435,11 @@ are limited route outcomes, not proof of permanent source unavailability.
 
 Original-source capture batch: 18 arXiv abstracts and two author-PDF abstracts
 now have matching normalized titles, raw/text hashes, capture dates, and source
-locators. All 20 are embedded separately from researcher summaries. The remaining
-three source gaps are ECC-enabled PIM's institutional page, Panmnesia's article,
-and Vistara's author post. Audit results are now 69 pass / 3 review. Full-paper
-conditions and independent judgments remain unfinished. Earlier counts below
-are dated batch history, not current coverage.
+locators. All 20 are embedded separately from researcher summaries. At that
+dated batch, the remaining three source gaps were ECC-enabled PIM's institutional
+page, Panmnesia's article, and Vistara's author post; audit results were 69 pass /
+3 review. Subsequent batches resolved the ECC-PIM and Vistara captures. This
+paragraph is retained as dated batch history, not current coverage.
 
 Review preparation now covers all 72 records (33 synthesis anchors). DAC's 49
 original descriptions are matched by exact paper/title/source identity while
