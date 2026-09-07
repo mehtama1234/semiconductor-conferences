@@ -1699,7 +1699,14 @@ of one route is not a finding of permanent inaccessibility.
   equivalent technical baseline. Record source attempts and exclusions.
 - Software validation cannot certify scientific support, source independence,
   representativeness, or the truth of a headline performance claim.
-The latest five-record batch adds masked ML-DSA root-of-trust optimization,
+The earlier five-record batch (masked ML-DSA root-of-trust optimization,
 community-aware hardware-Trojan detection, AlphaZero AIG synthesis, ReRAM ECC
-timing recovery, and wafer-level tool-chain attestation. The selected sample is
-now 195 records (DAC 158, ISCA 16, ICCAD 21); all remain pending independent review.
+timing recovery, and wafer-level tool-chain attestation) is historical. The
+current checkpoint is 582 selected records (DAC 544, ISCA 17, ICCAD 21), all
+pending independent review.
+
+The theme evidence matrix is now materialized at
+`data/theme-evidence-matrix-v1.json` and `reports/theme-evidence-matrix-v1.md`.
+It carries six provisional mechanism directions, their subskills, evidence-tier
+counts, conference distribution, and explicit limits. It is a synthesis/routing
+layer and does not convert selected references into prevalence or trend evidence.

@@ -1,0 +1,176 @@
+{
+  "as_of": "2026-09-06",
+  "interpretation_limits": [
+    "Counts are selected evidence references, not paper prevalence or temporal trend estimates.",
+    "Primary or artifact evidence is not independent validation.",
+    "Subskills are mechanism labels; they do not imply a shared benchmark or comparable magnitude."
+  ],
+  "rows": [
+    {
+      "conference_counts": {
+        "dac": 3,
+        "iccad": 4,
+        "isca": 1
+      },
+      "direction_id": "tool-grounded-ai-design-verification",
+      "evidence_count": 8,
+      "evidence_tiers": {
+        "official_description": 3,
+        "primary_preprint": 5
+      },
+      "independent_review_count": 0,
+      "label": "Tool-grounded AI for design and verification",
+      "limits": "The records support tool-grounded mechanisms, not average-case correctness, model/API cost, transfer across design suites, or production adoption.",
+      "primary_or_artifact_count": 5,
+      "status": "provisional_mechanism_evidence",
+      "subskills": [
+        "hierarchical multi-agent chiplet design",
+        "PPA-aware RTL generation",
+        "RL Verilog generation",
+        "HLS bug localization and correction",
+        "LLM-controlled HLS exploration",
+        "executable technology-map evolution"
+      ]
+    },
+    {
+      "conference_counts": {
+        "dac": 3,
+        "iccad": 1,
+        "isca": 8
+      },
+      "direction_id": "data-movement-as-contract",
+      "evidence_count": 12,
+      "evidence_tiers": {
+        "company_author_source": 2,
+        "official_description": 3,
+        "primary_author_paper": 1,
+        "primary_preprint": 6
+      },
+      "independent_review_count": 0,
+      "label": "Data movement as an algorithm/architecture contract",
+      "limits": "Workloads, topologies, memory technologies, and metrics differ; no CXL, PIM, HBM, or scheduler ranking is supported.",
+      "primary_or_artifact_count": 9,
+      "status": "provisional_mechanism_evidence",
+      "subskills": [
+        "MoE expert traffic placement",
+        "disaggregated compute/network/storage",
+        "CXL near-memory search",
+        "OS/hardware tiering",
+        "row-aligned sparse-attention PIM",
+        "KV-cache management",
+        "CPU/PIM contention scheduling"
+      ]
+    },
+    {
+      "conference_counts": {
+        "dac": 3,
+        "iccad": 1,
+        "isca": 3
+      },
+      "direction_id": "reliability-security-design-loop",
+      "evidence_count": 7,
+      "evidence_tiers": {
+        "author_pdf": 1,
+        "institutional_abstract": 1,
+        "official_description": 3,
+        "primary_preprint": 2
+      },
+      "independent_review_count": 0,
+      "label": "Reliability and security move into the main design loop",
+      "limits": "Threat, fault, thermal, and physical-integrity models are distinct and cannot be reduced to one robustness score.",
+      "primary_or_artifact_count": 2,
+      "status": "provisional_mechanism_evidence",
+      "subskills": [
+        "cross-layer ECC",
+        "ECC-aware bank-PIM",
+        "physical PuD interference",
+        "NPU fault mitigation",
+        "joint EM/IR modeling",
+        "telemetry side channels",
+        "adversarial MoE disruption"
+      ]
+    },
+    {
+      "conference_counts": {
+        "dac": 1,
+        "iccad": 2,
+        "isca": 1
+      },
+      "direction_id": "physical-integration-optimization-variable",
+      "evidence_count": 4,
+      "evidence_tiers": {
+        "official_description": 1,
+        "primary_preprint": 3
+      },
+      "independent_review_count": 0,
+      "label": "Physical integration becomes an optimization variable",
+      "limits": "The evidence does not establish manufacturing readiness, a winning packaging technology, or generalization beyond evaluated geometry, materials, devices, and workloads.",
+      "primary_or_artifact_count": 3,
+      "status": "provisional_mechanism_evidence",
+      "subskills": [
+        "chiplet thermal reduction",
+        "3D-IC thermal solving",
+        "3D-stacked LLM placement",
+        "package power-plane synthesis",
+        "layout-aware agentic design",
+        "thermal-straggler management"
+      ]
+    },
+    {
+      "conference_counts": {
+        "dac": 4,
+        "iccad": 2
+      },
+      "direction_id": "multifidelity-physics-aware-search",
+      "evidence_count": 6,
+      "evidence_tiers": {
+        "author_pdf": 1,
+        "official_description": 4,
+        "primary_preprint": 1
+      },
+      "independent_review_count": 0,
+      "label": "Search and modeling become multi-fidelity and physics-aware",
+      "limits": "Search quality requires baseline budgets, constraint-violation analysis, model error, and independent reproduction; headline surrogate or figure-of-merit gains are conditional.",
+      "primary_or_artifact_count": 1,
+      "status": "provisional_mechanism_evidence",
+      "subskills": [
+        "robust Bayesian analog sizing",
+        "multi-fidelity exploration",
+        "silicon-calibrated PPA surrogates",
+        "physics-informed EM/IR",
+        "exact quantum synthesis",
+        "device stochasticity as computation"
+      ]
+    },
+    {
+      "conference_counts": {
+        "dac": 1,
+        "iccad": 1,
+        "isca": 5
+      },
+      "direction_id": "workload-specialized-accelerators",
+      "evidence_count": 7,
+      "evidence_tiers": {
+        "official_description": 1,
+        "primary_preprint": 6
+      },
+      "independent_review_count": 0,
+      "label": "Specialized accelerators encode workload structure",
+      "limits": "Speedup claims remain conditional on model suite, sequence length, accuracy, area, energy, precision, and baseline hardware.",
+      "primary_or_artifact_count": 6,
+      "status": "provisional_mechanism_evidence",
+      "subskills": [
+        "outlier-aware LUT GEMM",
+        "low-bit multiplier sharing",
+        "structured-sparsity dataflow",
+        "MoE routing co-design",
+        "graph/rendering specialization",
+        "training-free speculative decoding"
+      ]
+    }
+  ],
+  "schema": "theme-evidence-matrix.v1",
+  "selection_warning": "Evidence references are selected adjudications and explicitly labeled scope or secondary records; they are not conference prevalence counts or market forecasts.",
+  "source": "data/technology-direction-evidence-v1.json",
+  "status": "provisional_mechanism_evidence_only"
+}
