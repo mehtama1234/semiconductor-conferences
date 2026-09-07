@@ -16,7 +16,13 @@ from scripts.primary_supplements import load as load_supplements, REVIEW_ACTION
 
 
 def source_matches(record: dict, source: dict) -> bool:
-    if record.get("paper_id") != source.get("paper_id") or title_key(record.get("title", "")) != title_key(source.get("title", "")):
+    if record.get("paper_id") != source.get("paper_id"):
+        return False
+    record_title, source_title = title_key(record.get("title", "")), title_key(source.get("title", ""))
+    # DAC program pages sometimes truncate final subtitle words while the
+    # adjudication keeps the complete title. Paper ID and URL checks below
+    # remain mandatory; accept only a strict prefix relationship.
+    if not (record_title == source_title or record_title.startswith(source_title) or source_title.startswith(record_title)):
         return False
     left, right = urlsplit(record.get("evidence_url", "")), urlsplit(source.get("evidence_url", ""))
     if left.scheme != "https" or right.scheme != "https" or left.netloc != right.netloc:
