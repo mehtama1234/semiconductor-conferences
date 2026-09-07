@@ -14,6 +14,7 @@ def rows(path: Path) -> list[dict]:
 def build(root: Path) -> dict:
     taxonomy = json.loads((root / "data/taxonomy-v0.json").read_text(encoding="utf-8"))
     adjudicated = rows(root / "dac/data/adjudicated-2026-batch.jsonl") + rows(root / "dac/data/adjudicated-2026-batch-2.jsonl") + rows(root / "dac/data/adjudicated-2026-batch-3.jsonl") + rows(root / "dac/data/adjudicated-2026-batch-4.jsonl") + rows(root / "iccad/data/adjudicated-2025-batch.jsonl") + rows(root / "iccad/data/adjudicated-2025-batch-2.jsonl") + rows(root / "isca/data/adjudicated-2026-batch.jsonl") + rows(root / "isca/data/adjudicated-2026-batch-2.jsonl") + rows(root / "isca/data/adjudicated-2026-batch-3.jsonl") + rows(root / "isca/data/adjudicated-2026-batch-4.jsonl") + rows(root / "isca/data/adjudicated-2026-batch-5.jsonl") + rows(root / "isca/data/adjudicated-2026-batch-6.jsonl") + rows(root / "isca/data/adjudicated-2026-batch-7.jsonl") + rows(root / "isca/data/adjudicated-2026-batch-8.jsonl")
+    adjudicated = rows(root / "dac/data/adjudicated-2025-batch.jsonl") + adjudicated
     adjudicated += rows(root / "isca/data/adjudicated-2026-batch-9.jsonl")
     adjudicated += rows(root / "iccad/data/adjudicated-2025-batch-3.jsonl")
     adjudicated += rows(root / "iccad/data/adjudicated-2025-batch-4.jsonl")

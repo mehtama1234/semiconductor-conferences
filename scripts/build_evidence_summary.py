@@ -9,6 +9,7 @@ from pathlib import Path
 
 
 PATHS = (
+    "dac/data/adjudicated-2025-batch.jsonl",
     "dac/data/adjudicated-2026-batch.jsonl",
     "dac/data/adjudicated-2026-batch-2.jsonl",
     "dac/data/adjudicated-2026-batch-3.jsonl",

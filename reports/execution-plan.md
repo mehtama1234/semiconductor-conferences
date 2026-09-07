@@ -1,5 +1,15 @@
 # Execution plan — 2026-09-06
 
+DAC 2025 temporal-depth batch: promoted HybriMoE from the historical description
+draft after integrating its version-pinned author preprint. The coded record now
+binds dynamic intra-layer scheduling, impact-driven prefetching, and score-based
+cache management to Mixtral, DeepSeek-V2-Lite, and Qwen2 evaluations on an RTX
+A6000/Xeon 5220R setup, with 1.33x TTFT and 1.70x decode claims retained as
+author-reported. Missing batch/variance/accuracy and final-version conditions
+remain explicit. Coding reaches 86 (51 DAC, 16 ISCA, 19 ICCAD); preflight is
+70 pass / 16 review and independent verdicts remain zero. This adds one
+cross-edition mechanism anchor but does not establish a temporal trend.
+
 ATB primary-source coding batch: promoted “Can Asymmetric Tile Buffering Be
 Beneficial?” into the selected adjudication ledger after inspecting the author
 preprint's evaluation tables. The record preserves the unresolved program/preprint

@@ -16,7 +16,7 @@
       "label": "Paper-level coverage and priorities",
       "status": "complete_for_inventory_routing",
       "evidence": ["data/research-work-queue.jsonl", "reports/research-work-queue-summary.json"],
-      "current_counts": {"inventory_records": 1589, "queue_records": 1589, "coded_records": 85},
+      "current_counts": {"inventory_records": 1589, "queue_records": 1589, "coded_records": 86},
       "remaining": "Technical coding and source recovery remain incomplete for most routed records."
     },
     {
@@ -24,7 +24,7 @@
       "label": "Paper-level technical evidence",
       "status": "partial",
       "evidence": ["reports/evidence-summary-v1.json", "reports/collection-status.md", "reports/research-work-queue-summary.json"],
-      "current_counts": {"coded_records": 85, "supplementary_assessment_papers": 31, "recovery_attempt_papers": 21},
+      "current_counts": {"coded_records": 86, "supplementary_assessment_papers": 31, "recovery_attempt_papers": 21},
       "remaining": "Full-paper conditions, artifacts, and primary sources are still missing for many records; selected metrics remain withheld where conditions are unresolved."
     },
     {
@@ -39,7 +39,7 @@
       "label": "Independent challenge and acceptance",
       "status": "prepared_pending",
       "evidence": ["reports/adversarial-judge-protocol-v1.md", "reports/adversarial-review-status-v1.md", "reports/review-packet-coverage.json"],
-      "current_counts": {"packets": 85, "independent_review_count": 0, "deterministic_preflight_pass": 70, "deterministic_preflight_review": 15},
+      "current_counts": {"packets": 86, "independent_review_count": 0, "deterministic_preflight_pass": 70, "deterministic_preflight_review": 16},
       "remaining": "No independent human or model judgments have been obtained; no record is accepted."
     },
     {
@@ -54,7 +54,7 @@
       "label": "Dated reproducible intelligence package",
       "status": "bounded_package_complete",
       "evidence": ["reports/reproducibility-manifest-v1.json", "scripts/validate_project.py", "tests/"],
-      "current_counts": {"manifest_artifacts": 56, "tests": 140},
+      "current_counts": {"manifest_artifacts": 57, "tests": 140},
       "remaining": "Package is publishable as a bounded evidence assessment, not as a full-corpus trend report or independently accepted scientific review."
     }
   ],

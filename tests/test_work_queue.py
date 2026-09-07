@@ -12,7 +12,7 @@ def test_queue_preserves_inventory_and_evidence_boundaries():
     rows, summary, _ = build(ROOT)
     by_id = unique_index(rows)
     assert len(rows) == sum(summary["corpus_counts"].values()) == 1589
-    assert summary["coded_count"] == 85
+    assert summary["coded_count"] == 86
     # Secondary CODO is an alias of a primary-backed paper, not a seventh paper.
     codo = by_id["isca-2026-program-002"]
     assert codo["secondary_alias_id"] == "isca-2026-codo"
@@ -24,8 +24,8 @@ def test_queue_preserves_inventory_and_evidence_boundaries():
     assert summary["eligible_title_counts"]["isca-2026"] == 172
     assert summary["excluded_slot_ids"] == ["isca-2026-program-158"]
     historical = [r for r in rows if r["conference_id"] == "dac" and r["analysis_edition"] == 2025]
-    assert sum(r["collection_status"] == "substantive_description" for r in historical) == 24
-    assert sum(r["coding_status"] == "technical_draft" for r in historical) == 24
+    assert sum(r["collection_status"] == "substantive_description" for r in historical) == 23
+    assert sum(r["coding_status"] == "technical_draft" for r in historical) == 23
     assert sum(r["coding_status"] == "not_coded" for r in historical) == 395
     assert summary["draft_paper_count"] == 521
     current_dac = [r for r in rows if r["paper_id"].startswith("dac-2026-")]

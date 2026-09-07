@@ -2,6 +2,15 @@
   "audit_version": "v0-deterministic-adversarial-preflight",
   "checks": [
     {
+      "evidence_overlap": null,
+      "fields_present": true,
+      "paper_id": "dac-2025-research1019",
+      "provenance_url_valid": false,
+      "source_comparison_status": "original_source_text_missing_or_unmatched",
+      "status": "review",
+      "taxonomy_valid": true
+    },
+    {
       "evidence_overlap": 0.75,
       "fields_present": true,
       "paper_id": "dac-2026-research004",
@@ -770,6 +779,6 @@
   "judge_mode": "deterministic_preflight_not_llm",
   "limits": "A passing preflight does not establish truth, novelty, importance, or full-corpus representativeness; adversarial LLM/human review remains required.",
   "pass_count": 70,
-  "record_count": 85,
-  "review_count": 15
+  "record_count": 86,
+  "review_count": 16
 }
