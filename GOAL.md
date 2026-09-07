@@ -49,7 +49,7 @@ synthesis. Coverage gaps and unresolved claims are part of the deliverable.
 - Preserve permitted evidence without bypassing access restrictions. Software
   consistency checks do not establish technical truth or independent acceptance.
 
-## Recovered checkpoint — 2026-09-06 (supersedes the initial recovery snapshot)
+## Recovered checkpoint — 2026-09-07 (supersedes the initial recovery snapshot)
 
 | Corpus | Inventory | Technically coded sample | Main limitation |
 |---|---:|---:|---|
@@ -60,7 +60,8 @@ synthesis. Coverage gaps and unresolved claims are part of the deliverable.
 The current 581-record selected sample spans ten taxonomy themes: DAC 544, ISCA 16,
 and ICCAD 21. ISCA has 171 DOI matches. Historical inventories contain 135 ISCA
 2025 and 419 DAC 2025 records; only 24 DAC 2025 records have substantive
-descriptions. All coded records await independent review. The paper-level queue
+descriptions. All coded records await independent review; deterministic preflight
+is 578 pass / 3 review and is not an acceptance judgment. The paper-level queue
 covers all 1,589 inventory records, with 31 supplementary assessments and 23
 dated recovery attempts. Validation and 141 tests pass; these establish
 consistency, not correctness of the scientific interpretations.
