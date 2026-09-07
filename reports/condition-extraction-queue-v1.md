@@ -219,6 +219,11 @@ The fortieth P2 tranche is recorded in
 DRAM-PIM interference, in-vehicle attack tracing, personalized edge MoE,
 federated-learning energy, multi-GPU translation, circuit graph learning, FPGA
 prefill/decode swapping, safety assertions, leakage estimation, and HDC LiDAR.
+The forty-first P2 tranche is recorded in
+`reports/p2-recovery-batch-41-2026-09-07.md`, continuing the DAC frontier across
+quantum power-system solvers, Hamiltonian pretraining, ATPG-free testing,
+diffusion acceleration, row-aligned PIM attention, PCB 3D generation, adaptive
+quantization, ternary LLM inference, transistor placement/routing, and synthesis.
 
 The categories overlap by design: P0 is a remediation priority, while P1/P2
 describe evidence depth. The former P0 records are retained in

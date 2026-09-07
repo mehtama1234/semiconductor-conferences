@@ -138,6 +138,9 @@ gates still open**.
 - A fortieth P2 routing tranche continuing the DAC frontier across DRAM-PIM,
   vehicle security, edge MoE, federated energy, GPU translation, graph learning,
   FPGA serving, safety assertions, leakage estimation, and LiDAR HDC.
+- A forty-first P2 routing tranche continuing the DAC frontier across quantum
+  solvers, testing, diffusion, PIM attention, PCB generation, quantization,
+  ternary LLMs, transistor placement, and synthesis.
 - A third ISCA primary-recovery batch covering SPEC CPU, KernelEvolve, and
   Rowhammer with source-tier-specific limits.
 - A fourth ISCA primary-recovery batch covering GRAINS, Triage, and Coset
