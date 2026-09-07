@@ -44,6 +44,8 @@ ARTIFACTS = [
     "reports/independent-review-handoff-v1.md",
     "reports/review-remediation-queue-v1.md",
     "reports/package-release-v1.md",
+    "reports/evidence-gap-register-v1.md",
+    "reports/condition-extraction-queue-v1.md",
     "reports/independent-review-assignments-v1.json",
     "scripts/validate_project.py",
     "tests/test_work_queue.py",
@@ -68,7 +70,7 @@ def build(root: Path) -> dict:
         artifacts.append({"path": relative, "sha256": digest(path), "bytes": path.stat().st_size})
     return {
         "schema": "reproducibility-manifest.v1",
-        "as_of": "2026-09-06",
+        "as_of": "2026-09-07",
         "status": "dated_package_checkpoint",
         "commands": COMMANDS,
         "artifact_hashes": artifacts,

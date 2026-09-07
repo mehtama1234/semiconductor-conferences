@@ -1,4 +1,10 @@
-# Execution plan — 2026-09-06
+# Execution plan — 2026-09-07
+
+Current checkpoint: 1,589 inventory records are routed; 581 selected records
+have provisional technical coding (DAC 544, ISCA 16, ICCAD 21). The current DAC
+description queue is complete. The next bounded work is the 19-record preflight
+remediation queue, followed by full-paper condition extraction and independent
+review. See `reports/condition-extraction-queue-v1.md`.
 
 Latest bounded coding increment: five DAC descriptions were added for masked
 ML-DSA root-of-trust optimization, community-aware hardware-Trojan detection,
