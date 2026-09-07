@@ -27,6 +27,10 @@ and records explicit missing-condition requirements for CANNON, CtxMem, FLASH3D,
 HYPER-CIM, and Fusedot.
 Batch 6 is recorded in `reports/condition-extraction-batch-6-2026-09-07.md`
 and covers HLSArchOpt, ParetoPilot, Icarus’s Wings, Qudit, NIMCH, and COPA.
+The first focused ISCA condition extraction is recorded in
+`reports/condition-extraction-triage-2026-09-07.md`. It records the simulator,
+noise/code assumptions, benchmark suite, baselines, resource regimes, and the
+boundary around Triage's reported 52.6% reduction.
 
 The first P2 routing tranche is recorded in
 `reports/p2-recovery-batch-1-2026-09-07.md`. It prioritizes ten DAC records by
