@@ -333,6 +333,11 @@ The fifty-ninth P2 tranche is recorded in
 NVM-FPGA reconfiguration, optical edge encoding, intermittent runtime analysis,
 SRAM aging forensics, 3D floorplanning, stochastic MACs, ReRAM ECC recovery,
 graph-transformer training, and quantum EM reliability.
+The sixtieth P2 tranche is recorded in
+`reports/p2-recovery-batch-60-2026-09-07.md`, covering gesture model selection,
+segmented ADC measurement, blind calibration, Boolean synthesis, encrypted
+inference routing, 3D FPGA placement, chiplet exponent coding, wafer-level
+attestation, touchscreen EM leakage, and Boolean hardware emulation.
 
 The categories overlap by design: P0 is a remediation priority, while P1/P2
 describe evidence depth. The former P0 records are retained in
