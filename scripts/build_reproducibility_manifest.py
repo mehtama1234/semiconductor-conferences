@@ -104,6 +104,7 @@ ARTIFACTS = [
     "reports/p2-recovery-batch-50-2026-09-07.md",
     "reports/p2-recovery-batch-51-2026-09-07.md",
     "reports/p2-recovery-batch-52-2026-09-07.md",
+    "reports/p2-recovery-batch-53-2026-09-07.md",
     "scripts/build_deep_theme_profile.py",
     "data/deep-theme-profile-v1.json",
     "reports/deep-theme-profile-v1.md",

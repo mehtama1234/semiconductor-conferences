@@ -202,6 +202,10 @@ gates still open**.
   full-chip ILT, GPU-cluster forecasting, coordinated CPU fuzzing, security-GNN
   evasion, crosstalk timing, neutral-atom detection, LLM Verilog generation,
   disaggregated-memory contention, and multi-instance GPU serving.
+- A fifty-third P2 routing tranche covering RL placement, timing-arc reuse,
+  speculative MoE decoding, hierarchical video precision, lattice-surgery
+  compilation, decomposed-LLM inference, fault-tolerant compilation, local-
+  address SRAM, ZNS filesystem units, and multi-agent SDC.
 - A condition-aware deep theme profile over the 494 coded description records,
   with subtheme/mechanism routing and explicit workload, hardware, baseline, and
   metric missingness. It is selected-sample synthesis only.
