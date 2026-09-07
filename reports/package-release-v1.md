@@ -27,6 +27,8 @@ gates still open**.
   explicit insufficient-evidence finding for directional claims.
 - A 118-artifact reproducibility manifest and a passing validation/test suite.
 - A remediation record showing all 582 packets pass deterministic source/provenance preflight; independent review remains pending.
+- A five-record P1 condition-extraction batch with source locators, evaluation
+  conditions, and unresolved boundaries for high-risk quantitative claims.
 
 ## What users may conclude
 

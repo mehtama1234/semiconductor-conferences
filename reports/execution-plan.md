@@ -2,8 +2,8 @@
 
 Current checkpoint: 1,589 inventory records are routed; 582 selected records
 have provisional technical coding (DAC 544, ISCA 17, ICCAD 21). The current DAC
-description queue is complete. The next bounded work is the 4-record preflight
-remediation queue, followed by full-paper condition extraction and independent
+description queue is complete. The deterministic remediation queue is closed;
+the next bounded work is P1 full-paper condition extraction and independent
 review. See `reports/condition-extraction-queue-v1.md`.
 
 Latest bounded remediation (2026-09-07): repaired strict title matching for
