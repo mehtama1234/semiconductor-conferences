@@ -13,14 +13,14 @@ not mean the scientific claim has independent acceptance.
 | ICCAD evidence | Partial with explicit fallback | 2025 fallback inventory of 319; 21 coded records; 2026 availability check | Keep 2025 as fallback until an official 2026 paper corpus is public; expand primary coding. |
 | Shared themes, subthemes, and synthesis | Provisional complete for selected sample | `data/taxonomy-v1-evidence.json`; direction synthesis and hypothesis reports | Broaden coverage and independently challenge branch assignments before venue-wide conclusions. |
 | Technical conditions and limitations | Partial | Evidence summaries preserve unknowns and source locators | Recover manuscripts/artifacts and fill workload, hardware, baseline, metric, and tradeoff conditions. |
-| Review packets and protocol | Complete as preparation | 581 packets, assignment manifest, judge protocol, remediation queue | Packets are not verdicts; source capture and field reconciliation are still required for 19 preflight-review rows. |
+| Review packets and protocol | Complete as preparation | 581 packets, assignment manifest, judge protocol, remediation queue | Packets are not verdicts; source capture and field reconciliation are still required for 3 preflight-review rows. |
 | Independent review | Not complete | `independent_review_count: 0`; no independent endpoint/reviewer invoked | Obtain two independent judgments where available and record identity, disagreements, and resolutions. |
 | Temporal direction claims | Explicitly insufficient | Temporal baseline/insufficiency reports and title-shift routing | Build matched edition populations with equivalent evidence tiers and missingness analysis; otherwise retain insufficiency. |
-| Reproducibility and release | Complete as bounded package | 111-artifact manifest; validator and 141 tests pass; dated release report | Release is a bounded evidence assessment, not an independently accepted field forecast. |
+| Reproducibility and release | Complete as bounded package | 117-artifact manifest; validator and 141 tests pass; dated release report | Release is a bounded evidence assessment, not an independently accepted field forecast. |
 
 ## Immediate execution order
 
-1. Resolve the 19 deterministic-review rows, starting with the three packets
+1. Resolve the 3 deterministic-review rows, starting with the three packets
    lacking comparable original text (`isca-2026-program-044`,
    `iccad-2025-1`, and `iccad-2025-1137`).
 2. Obtain independent human/model review for the resulting packets; never count

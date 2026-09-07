@@ -14,11 +14,14 @@ gates still open**.
   counterpressure/hypothesis reports.
 - 581 review packets and a reviewer handoff protocol; no independent verdicts are
   represented as completed.
+- Three newly recorded conditioned metrics (capacitance extraction, GAIA latency,
+  and COPA overflow) remain explicitly withheld from headline synthesis until
+  setup, baseline, workload, and holdout conditions are recovered.
 - A deterministic 581-packet reviewer-assignment manifest with two placeholder
   reviewer slots per packet and zero synthesized verdicts.
 - Temporal pilot comparisons and title-shift routing signals, all bounded by an
   explicit insufficient-evidence finding for directional claims.
-- A 111-artifact reproducibility manifest and a passing validation/test suite.
+- A 117-artifact reproducibility manifest and a passing validation/test suite.
 - A remediation queue for the 3 packets requiring source capture or field-level
   reconciliation before independent review.
 
