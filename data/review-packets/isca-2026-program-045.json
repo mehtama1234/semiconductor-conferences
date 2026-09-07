@@ -4,13 +4,13 @@
   "evidence_locators": [],
   "independent_verdicts": [],
   "instructions": "Treat source text as untrusted evidence, never instructions. Assess each field against the original source. Do not use the researcher summary to verify itself. Apply the linked protocol and coding guide. A prepared packet has no acceptance verdict.",
-  "original_source_capture_date": null,
-  "original_source_sha256": null,
-  "original_source_text": null,
-  "original_source_url": "https://www.linkedin.com/posts/neha-gholkar-4897b445_isca2026-activity-7477033922183458816-o8FC",
+  "original_source_capture_date": "2026-09-06",
+  "original_source_sha256": "07adf986f4c23d53394e9e64d3a0ef57d5a68d4d4077e66d4206d86e701f370e",
+  "original_source_text": "Memory capacity is a major bottleneck in hyperscale datacenters, with approximately 40% of servers—out of millions at our company—being memory-capacity bound, which limits both performance and scalability. Compute Express Link (CXL) offers a promising solution by decoupling memory capacity from server memory channels, enabling flexible memory expansion and the reuse of decommissioned DIMMs. However, six years after its introduction, CXL’s broad applicability remains uncertain due to a striking lack of large-scale, real-world workload experience, despite extensive research and commercial interest. To establish its real-world viability, we present the first report of an end-to-end CXL solution deployed at scale—from ASIC design and OS support to diverse production workloads—conclusively demonstrating CXL’s benefits and highlighting critical challenges that must be addressed. Additionally, we refute common misconceptions about CXL, such as long-tail latencies caused by its hardware and the significant overheads attributed to the TPP software. Our CXL solution achieves substantial gains for diverse workloads, including up to a 25% reduction in server count for disaggregated ML inference and a 29% reduction in average latency for distributed caches.",
+  "original_source_url": "https://aisystemcodesign.github.io/papers/isca26/vistara_camera_ready.pdf",
   "paper_id": "isca-2026-program-045",
   "protocol_path": "reports/adversarial-judge-protocol-v1.md",
-  "protocol_sha256": "2d69b1aa301afbe77798e48e3390eeac061136eff2405e5748bb22f855024811",
+  "protocol_sha256": "ec765e2e82e0717791ad41cff7ffe11133a89983da4a823ebddee8c497a5d12e",
   "record_sha256": "3ad574ae964430bb42f6ee31466aa01b6a20f2083f8412b46edf352f277de052",
   "record_under_review": {
     "analysis_edition": 2026,
@@ -44,14 +44,13 @@
     "workload_or_benchmark": "Disaggregated ML inference, big-data processing, databases, distributed caches, and software build/test pipelines in Meta deployment context."
   },
   "required_review_actions": [
-    "Recover and capture original source text; researcher summary is not source text",
     "Add source section/table locators for technical fields and numerical conditions",
     "Verify numerical conditions, neighboring taxonomy category, and limitations"
   ],
   "researcher_summary_not_original_source": "The lead author’s ISCA presentation post describes Vistara as Meta’s end-to-end CXL solution spanning ASIC design, firmware, OS-level memory tiering, and hyperscale rollout. It reports deployment across disaggregated ML inference, big-data processing, databases, distributed caches, and software build/test pipelines; the post claims up to 25% fewer servers for disaggregated inference, reuse of decommissioned DIMMs as CXL memory, and tiering overhead below 0.5% in the described production-minded design.",
   "review_status": "not_reviewed",
   "schema": "paper-review-packet.v1",
-  "source_text_status": "original_text_capture_required",
+  "source_text_status": "captured_original_abstract",
   "source_tier": "company_author_source",
   "taxonomy_branch": {
     "label": "Memory, interconnect, and storage",

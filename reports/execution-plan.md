@@ -1,5 +1,12 @@
 # Execution plan — 2026-09-06
 
+ISCA Vistara source-capture batch: an exact-title camera-ready PDF from the
+authors’ AI System Co-Design site was captured and hash-bound. The page-one
+abstract now supplies primary evidence for the end-to-end CXL deployment claim;
+hardware, OS, workload, and production conditions still require full-paper
+review. Captured abstracts now total 35, source-capture gaps are three, and
+deterministic preflight is 73 pass / 16 review.
+
 ISCA ECC/PIM source-capture batch: exact-title and author identity were matched
 to the Technion CRIS publication abstract for `isca-2026-program-009`. The
 review packet now carries the original abstract and provenance hash; reported

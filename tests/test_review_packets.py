@@ -53,7 +53,7 @@ def test_completion_audit_keeps_scientific_gates_open():
 
 def test_audit_never_compares_uncaptured_summary_with_itself():
     result = audit(ROOT)
-    uncaptured = next(p for p in result["checks"] if p["paper_id"] == "isca-2026-program-045")
+    uncaptured = next(p for p in result["checks"] if p["paper_id"] == "isca-2026-program-044")
     assert uncaptured["evidence_overlap"] is None
     assert uncaptured["status"] == "review"
     assert result["review_count"] > 0
