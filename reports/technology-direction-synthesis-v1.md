@@ -14,11 +14,11 @@ It separates suggested research directions from measured temporal trends.
 The evidence is intentionally asymmetric:
 
 - DAC: 543 official 2026 research descriptions plus one technically coded 2025
-  recovery record; the selected DAC sample is 52 records and independent acceptance
+  recovery record; the selected DAC sample is 53 records and independent acceptance
   remains pending.
 - ISCA: 173 official 2026 program slots (172 titled); 16 technically coded
   records; 4 secondary-only papers pending primary verification.
-- ICCAD: 2026 scope evidence and a 319-entry 2025 fallback inventory; 19 technically
+- ICCAD: 2026 scope evidence and a 319-entry 2025 fallback inventory; 21 technically
   coded fallback papers. The inventory includes 43 invited papers and ten student
   presentations, not 319 regular papers; see the [scope audit](../iccad/reports/program-scope-audit-v1.md).
 
@@ -26,7 +26,7 @@ The 90-record technical coding sample is selected for recoverable evidence and
 technical diversity. It is not a prevalence estimate, market forecast, conference
 ranking, or proof that a direction is rising.
 For a mechanism-level follow-up, see [scheduling versus physical surrogates](../iccad/reports/scheduling-versus-surrogates-v1.md): two analysis accelerators with different correctness and generalization requirements.
-All 89 remain independently unaccepted. The original synthesis-anchor set is
+All 90 remain independently unaccepted. The original synthesis-anchor set is
 distinct from the expanded coded sample and is not enlarged by metadata recovery.
 
 ## Executive interpretation
@@ -47,6 +47,12 @@ The most defensible conclusion is therefore a capability statement:
 include learned search, tool-grounded generation, data-movement-aware
 architecture, physical modeling, ECC coordination, fault mitigation, and
 security-aware evaluation.
+
+The expanded sample also includes SatSFL, which extends this cross-layer pattern
+to intermittent satellite links: gradient approximation and adaptive compression
+are coupled to the communication regime. Its official description provides no
+numeric convergence, accuracy, trace, or deployment conditions, so it is a
+capability example rather than a measured trend or accepted synthesis anchor.
 
 ## Direction 1 — Tool-grounded AI for design and verification
 
