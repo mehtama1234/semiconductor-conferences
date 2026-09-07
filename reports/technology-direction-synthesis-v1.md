@@ -22,11 +22,11 @@ The evidence is intentionally asymmetric:
   coded fallback papers. The inventory includes 43 invited papers and ten student
   presentations, not 319 regular papers; see the [scope audit](../iccad/reports/program-scope-audit-v1.md).
 
-The 219-record technical coding sample is selected for recoverable evidence and
+The 227-record technical coding sample is selected for recoverable evidence and
 technical diversity. It is not a prevalence estimate, market forecast, conference
 ranking, or proof that a direction is rising.
 For a mechanism-level follow-up, see [scheduling versus physical surrogates](../iccad/reports/scheduling-versus-surrogates-v1.md): two analysis accelerators with different correctness and generalization requirements.
-All 219 remain independently unaccepted. The original synthesis-anchor set is
+All 227 remain independently unaccepted. The original synthesis-anchor set is
 distinct from the expanded coded sample and is not enlarged by metadata recovery.
 
 ## Executive interpretation
@@ -218,7 +218,7 @@ author-linked package exposes hierarchical mapping and BALD fault-tolerant routi
 one normalized 16KB AllGather case completed at 80 artifact simulation time units
 under a 4x6, 256-bandwidth configuration. That result is a reproducibility check,
 not a paper metric: no complete figure, matched baseline, end-to-end workload, or
-independent reproduction was obtained. It remains outside the 219-record selected
+independent reproduction was obtained. It remains outside the 227-record selected
 coding sample and cannot support a comparative performance claim.
 
 CANNON's [recovery assessment](../dac/reports/cannon-primary-recovery-v1.md)
@@ -413,7 +413,7 @@ precision, and baseline hardware.
 
 | Conference | Strongest current contribution | Evidence boundary |
 |---|---|---|
-| DAC 2026 | Breadth of design-flow, accelerator, physical-design, memory, and reliability descriptions | Mostly official descriptions; selected 182 are not full-corpus prevalence |
+| DAC 2026 | Breadth of design-flow, accelerator, physical-design, memory, and reliability descriptions | Mostly official descriptions; selected 190 are not full-corpus prevalence |
 | ISCA 2026 | Deep primary and industry-source cases for system architecture, LLM execution, memory, PIM, ECC, CXL, integrated networking, and thermal behavior | 16 primary/institutional/company records plus 4 unresolved secondary queue items; full program remains mostly metadata |
 | ICCAD 2025 fallback | Design automation, verification, chiplet, analog, security, and emerging-device depth | 2026 paper corpus unavailable; 2025 evidence cannot establish 2026 change |
 
@@ -491,3 +491,9 @@ verification, memory behavior, physical constraints, and deployment security.
 
 Until then, this report is a defensible capability map and research-reading guide,
 not a forecast.
+The latest eight cases broaden the map with computation-data-decoupled NPU dataflow,
+knowledge-aggregated GPU power modeling, compiler-IR energy prediction, erasure-coded
+LLM prefix caches, factored floating-point systolic MACs, Hamiltonian-guided VQA
+initialization, GNN-assisted multi-die FPGA floorplanning, and stratified MoE expert
+scheduling. The recurring direction is explicit coordination of compiler, memory,
+power, and physical constraints across the stack.

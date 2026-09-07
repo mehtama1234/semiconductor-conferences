@@ -11,7 +11,7 @@ Latest bounded coding increment: five DAC descriptions were added for hardware
 interrupt security, AI-inspired FPGA acceleration of post-quantum LPN,
 graph-neural analog circuit simulation and inverse design, workload-aware NUMA
 storage coordination, and scalable simultaneous DNN fault injection. The sample
-is now 219 records (DAC 182, ISCA 16, ICCAD 21); deterministic preflight is 203
+is now 227 records (DAC 190, ISCA 16, ICCAD 21); deterministic preflight is 211
 pass / 16 review. These records deepen thematic coverage but remain provisional
 until source-condition extraction and independent review.
 
