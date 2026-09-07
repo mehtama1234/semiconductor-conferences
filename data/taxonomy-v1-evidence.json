@@ -59,6 +59,7 @@
     "dac/data/adjudicated-2026-batch-45.jsonl",
     "dac/data/adjudicated-2026-batch-46.jsonl",
     "dac/data/adjudicated-2026-batch-47.jsonl",
+    "dac/data/adjudicated-2026-batch-48.jsonl",
     "iccad/data/adjudicated-2025-batch-3.jsonl",
     "iccad/data/adjudicated-2025-batch-4.jsonl",
     "iccad/data/adjudicated-2025-batch-5.jsonl",
@@ -85,6 +86,8 @@
           "process-reward-rtl-generation"
         ],
         "generative-design-automation": [
+          "assertion-guided-llm-rtl-patching",
+          "multiagent-sdc-generation",
           "selfcorrecting-pcb-3d-generation",
           "selfevolving-pcb-schematic-agent"
         ],
@@ -201,6 +204,7 @@
         ],
         "quantum-hardware-and-control": [
           "adaptive-nonideality-aware-qubit-readout",
+          "movable-logical-qubit-compilation",
           "surface-code-break-even-compilation"
         ],
         "rf-and-mixed-signal-design": [
@@ -238,10 +242,13 @@
           "adaptive-precision-dnn-quantization",
           "binary-coded-fpint-gemm",
           "complex-valued-uncertainty-codesign",
+          "convertibility-aware-asymmetric-gemm",
           "distribution-aware-transformer-activation",
+          "hierarchical-video-generation-precision",
           "pegranular-compressed-gemm",
           "posit-inspired-vlm-microscaling",
           "priority-shared-scale-microscaling",
+          "selfreflective-reasoning-llm-pruning",
           "subbit-sketch-llm-compression"
         ],
         "architecture-software-co-design": [
@@ -285,7 +292,8 @@
           "cuda-core-spmv",
           "locality-aware-temporal-motif-mining",
           "out-of-order-sparse-gemm",
-          "streaming-ternary-spgemm"
+          "streaming-ternary-spgemm",
+          "tensorcore-unstructured-sparse-format"
         ],
         "specialized-accelerators-and-dataflow": [
           "158-bit-ternary-gpu-llm-inference",
@@ -379,6 +387,9 @@
           "surrogate-chiplet-accelerator-exploration",
           "timing-aware-2-5d-chiplet-planning"
         ],
+        "chiplets-and-heterogeneous-integration": [
+          "hybridbonded-speculative-decoding"
+        ],
         "package-system-co-design": [
           "metal-density-constrained-package-power-plane-synthesis"
         ],
@@ -394,6 +405,7 @@
         "chiplet-interconnects",
         "chiplet-partitioning-and-integration",
         "chiplet-system-architecture",
+        "chiplets-and-heterogeneous-integration",
         "package-system-co-design",
         "wafer-scale-and-heterogeneous-integration"
       ],
@@ -557,6 +569,9 @@
           "replication-offload-disaggregated-memory",
           "workload-aware-numa-storage-coordination",
           "zns-swap-heterogeneous-gnn"
+        ],
+        "storage-and-memory-systems": [
+          "range-granular-zns-filesystem"
         ]
       },
       "subthemes": [
@@ -565,7 +580,8 @@
         "memory-compute-and-reliability",
         "memory-hierarchy-and-persistence",
         "processing-in-memory-and-memory-centric-compute",
-        "storage-and-data-movement"
+        "storage-and-data-movement",
+        "storage-and-memory-systems"
       ],
       "theme_id": "memory-interconnect-and-storage"
     },
@@ -783,6 +799,7 @@
         ],
         "distributed-and-disaggregated-systems": [
           "adaptive-gnn-communication-compression",
+          "dynamic-gpu-cluster-forecasting",
           "hardware-physics-guided-distributed-ml",
           "hyperthread-interference-scheduling"
         ],
@@ -816,10 +833,13 @@
           "expert-aware-moe-checkpointing",
           "heterogeneous-mobile-rag-orchestration",
           "hot-switching-cpu-llm-serving",
+          "multiinstance-gpu-inference-serving",
+          "parallel-decomposed-llm-inference",
           "single-gpu-finetuning-codesign"
         ],
         "multimedia-and-edge-systems": [
           "hierarchical-multivector-retrieval-scheduling",
+          "output-guided-video-diffusion-pruning",
           "palette-video-enhancement-layer",
           "pipelined-gaussian-splatting",
           "temporal-sort-reuse-gaussian-splatting"
@@ -879,7 +899,8 @@
           "testbench-rewarded-verilog-generation"
         ],
         "formal-and-equivalence-verification": [
-          "miter-aware-lut-mapping"
+          "miter-aware-lut-mapping",
+          "multi-literal-ic3-dropping"
         ],
         "formal-and-functional-verification": [
           "hidden-pmu-reverse-engineering-and-covert-channel",
@@ -896,6 +917,7 @@
           "undocumented-instruction-security-verification"
         ],
         "processor-and-rtl-verification": [
+          "coordinated-cpu-fuzzing",
           "riscv-differential-instruction-fuzzing"
         ],
         "simulation-emulation-and-testing": [
