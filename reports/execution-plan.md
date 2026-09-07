@@ -72,6 +72,11 @@ collective communication, RDMA atomics, verification and fuzzing, memory
 consistency/formal methods, and CPU/GPU prefetching; P2 routing now covers 200
 of 541 lower-priority records.
 
+The twenty-first P2 tranche adds ten ISCA routes across neural prefetching,
+quantum compilation/simulation/photonic architectures, Ising/SAT compilation,
+cluster power and thermal management, and distributed LLM synthesis; P2 routing
+now covers 210 of 541 lower-priority records.
+
 Primary recovery batch 3 is recorded in
 `reports/isca-primary-recovery-batch-3-2026-09-07.md`: SPEC CPU and KernelEvolve
 have exact author preprints; Rowhammer has official deployment context plus a
