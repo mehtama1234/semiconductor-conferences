@@ -248,11 +248,12 @@ data layout and scheduling with arithmetic, rather than optimizing MAC count
 alone. Subthemes include repeated-value fusion, LUT computation, outlier handling,
 structured sparsity and routing-aware execution.
 
-An [ICCAD fallback follow-up](../iccad/data/adder-dcim-primary-recovery-v1.json)
-adds Adder-DCIM as an institutional-evidence test case, not a new accepted anchor.
+The [ICCAD fallback follow-up](../iccad/data/adder-dcim-primary-recovery-v1.json)
+adds Adder-DCIM as an institutional-evidence coded case, not a new accepted anchor.
 The methodological question is whether representation changes remain beneficial
 after conversion costs and system overhead are counted. Its available evidence
-does not yet resolve that question. It remains outside the 88-record coded sample.
+does not yet resolve that question. It remains inside the 88-record coded sample,
+but its headline numbers remain outside accepted quantitative comparisons.
 
 The [Squat recovery assessment](../iccad/data/squat-primary-recovery-v1.json)
 adds a coded deployment-focused follow-up, with independent review pending. It sharpens the

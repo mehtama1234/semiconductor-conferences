@@ -241,6 +241,12 @@ fabricated macros. It withholds numerical synthesis until FoM normalization,
 operating conditions and surrogate validation are available; the predicted space
 is not a silicon-tested population.
 
+Adder-DCIM adds a complementary representation-aware case from the ICCAD
+fallback: model compression, bit flexibility, and digital CIM circuitry are
+co-designed rather than evaluated as isolated kernels. Its institutional report
+does not expose voltage, frequency, power boundary, or accuracy convention, so it
+supports the mechanism taxonomy but not a cross-paper TOPS/W ranking.
+
 For the exact-T example, consult the [primary assessment](../dac/reports/exact-t-primary-assessment-v1.md):
 the description and preprint disagree on the maximum reduction. Keep that
 numerical headline withheld; the resource-specific mapping mechanism remains a
