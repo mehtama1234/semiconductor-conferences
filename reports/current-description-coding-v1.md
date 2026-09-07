@@ -6,8 +6,10 @@ The first four previously uncoded records, selected by paper-ID order, have
 research1138 (ARTEMIS). Exact official source URLs and row locators accompany
 each record. All are pending independent review and retain description-level
 evidence status. They are not added to the 49-record selected adjudication sample.
-With eighty-two batches, 487 additional drafts are available;
-7 of the 543 current DAC descriptions still need initial technical coding.
+With eighty-three batches, 494 additional drafts are available.
+Together with the separate 49-record sample, all 543 DAC 2026 descriptions now
+have initial technical coding. This is description coverage, not full-paper
+verification, independent acceptance, or proof of any conference-wide trend.
 Draft coverage does not mean complete technical evidence. Research1691's extraction
 has been repaired, but its energy/power boundary remains unresolved.
 
@@ -927,6 +929,19 @@ percentage loss or remaining-throughput claim without a definition.
 | 952 DeltaSight | Shared cross-stage redundancy decisions | Sensor and end-to-end efficiency are separate |
 | 954 Module estimation | Force-based soft-module deformation | Long-net subset recovery is not all-net accuracy |
 
-All 487 records have source-separated review packets. Next: resolve the ATB
-numeric comparison from primary evidence and continue uncoded descriptions in
-stable order, preserving gaps and possible counterexamples.
+## Eighty-third batch — initial description pass complete
+
+| Paper | Mechanism | Evidence boundary |
+|---|---|---|
+| 959 FPVA scheduling | Pressure-path-aware assay planning | Qualitative planning is not biochemical validation |
+| 962 EnergyHDC | Energy-adaptive checkpointing | Distinct checkpoint/inference baselines and quality budgets |
+| 976 GreenLLM | Phase-specific frequency control | Energy gain retains increased SLO violations |
+| 983 ATTINA | Interleaved additive transform acceleration | Kernel latency and power do not establish complete proof performance |
+| 986 Procyon | Fine-grained sparse multi-tenancy | Aggregate throughput does not prove tenant fairness |
+| 989 TAMI-MPC | TEE-assisted comparison primitives | Single-round primitives are not single-round inference |
+| 999 GalaxyDiT | Guidance-aligned computational reuse | Paired VBench losses and separate PSNR scope retained |
+
+All 494 records have source-separated review packets. Next: resolve primary-source
+depth for synthesis anchors, starting with the ATB numerical comparison; adjudicate
+taxonomy and metric ambiguities, and refresh the cross-conference coverage and
+reading paths. Description-level completion must not bypass independent review.

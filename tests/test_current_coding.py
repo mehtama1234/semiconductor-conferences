@@ -10,7 +10,7 @@ def test_current_drafts_preserve_identity_and_numeric_disagreement():
     rows = read_jsonl(ROOT / "data/current-description-coding-v1.jsonl")
     sources = {r["paper_id"]: r for r in read_jsonl(ROOT / "dac/data/paper-evidence-2026.jsonl")}
     branches = {r["theme_id"]: r["subthemes"] for r in json.loads((ROOT / "data/taxonomy-v1-evidence.json").read_text())["themes"]}
-    assert len(rows) == len({r["paper_id"] for r in rows}) == 487
+    assert len(rows) == len({r["paper_id"] for r in rows}) == 494
     for row in rows:
         for key in ["title", "evidence_url", "analysis_edition", "evidence_collection_date"]:
             assert row[key] == sources[row["paper_id"]][key]
@@ -358,3 +358,7 @@ def test_current_drafts_preserve_identity_and_numeric_disagreement():
     assert "top 10% longest nets" in module["metrics"][2]["condition"]
     cpn = next(r for r in rows if r["paper_id"] == "dac-2026-research951")
     assert "not necessarily wall-clock speedup" in cpn["limits"][0]
+    greenllm = next(r for r in rows if r["paper_id"] == "dac-2026-research976")
+    assert greenllm["metrics"][1]["metric"] == "SLO violation increase"
+    tami = next(r for r in rows if r["paper_id"] == "dac-2026-research989")
+    assert "not whole inference" in tami["metrics"][0]["condition"]

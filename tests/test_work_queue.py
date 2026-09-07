@@ -26,7 +26,10 @@ def test_queue_preserves_inventory_and_evidence_boundaries():
     assert sum(r["collection_status"] == "substantive_description" for r in historical) == 24
     assert sum(r["coding_status"] == "technical_draft" for r in historical) == 24
     assert sum(r["coding_status"] == "not_coded" for r in historical) == 395
-    assert summary["draft_paper_count"] == 514
+    assert summary["draft_paper_count"] == 521
+    current_dac = [r for r in rows if r["paper_id"].startswith("dac-2026-")]
+    assert len(current_dac) == 543
+    assert all(r["coding_status"] != "not_coded" for r in current_dac)
     assert "draft_requires_source_depth_and_review" in by_id["dac-2025-research002"]["priority_reasons"]
     reviewed = by_id["dac-2026-research1211"]
     assert reviewed["preliminary_review"] == "revise"

@@ -4,6 +4,19 @@ The governing scope and acceptance criteria are in [GOAL.md](../GOAL.md).
 This log distinguishes finished work from queued work; a plan is not a completed
 research result.
 
+Milestone: the final seven DAC 2026 descriptions (959, 962, 976, 983, 986,
+989, 999) bring current drafts to 494. Together with the original 49-record DAC
+sample, all 543 descriptions now have initial coding; none remains uncoded.
+All 521 draft papers have source-separated packets. Independent acceptance remains
+pending, and broad ISCA/ICCAD evidence gaps remain unchanged.
+
+Next phase: resume primary-source depth resolution for the 37 synthesis anchors
+and unresolved numerical claims (including ATB), review taxonomy consistency
+across the completed description corpus, and refresh conference/topic explanations
+with evidence-tier labels. Complete temporal insufficiency assessments and review
+gates before presenting accepted directional synthesis. The completed description
+pass is not full-corpus full-text analysis or completion of GOAL.md.
+
 Latest batch: DAC 2026 IDs 934, 935, 946, 951, 952 and 954 bring
 current drafts to 487, leaving 7 descriptions uncoded. Placement quality scope,
 GPU-specific sparse-LU comparisons, nonlinear operator limits, prior-model
