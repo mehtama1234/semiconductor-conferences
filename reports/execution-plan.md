@@ -6,6 +6,12 @@ description queue is complete. The deterministic remediation queue is closed;
 the next bounded work is P1 full-paper condition extraction and independent
 review. See `reports/condition-extraction-queue-v1.md`.
 
+Latest bounded routing increment (2026-09-07): the eighth P2 tranche adds ten
+ISCA 2026 records spanning accelerator interfaces, sustainable systems, memory,
+storage, ANNS, photonics, tensor acceleration, and LLM serving. P2 routing now
+covers 80 of 541 lower-priority records; these routes remain metadata-only until
+primary technical evidence and independent review are obtained.
+
 Latest bounded remediation (2026-09-07): repaired strict title matching for
 truncated DAC program subtitles, accepted identity-matched captured abstracts as
 valid provenance, and rewrote two evidence spans to include source-grounded

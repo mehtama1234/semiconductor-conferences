@@ -52,6 +52,10 @@ The seventh P2 tranche is recorded in
 `reports/p2-recovery-batch-7-2026-09-07.md`, adding ten secure-CIM,
 fine-tuning, power-modeling, security, lithography, edge-trust, probabilistic,
 and verification records.
+The eighth P2 tranche is recorded in
+`reports/p2-recovery-batch-8-2026-09-07.md`, adding ten ISCA routes covering
+accelerator interfaces, sustainability, memory, storage, ANNS, photonics,
+tensor acceleration, and LLM serving.
 
 The categories overlap by design: P0 is a remediation priority, while P1/P2
 describe evidence depth. The former P0 records are retained in

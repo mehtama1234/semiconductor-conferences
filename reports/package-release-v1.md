@@ -55,6 +55,9 @@ gates still open**.
 - A seventh P2 routing tranche prioritizing ten secure-CIM, fine-tuning,
   power-modeling, security, lithography, edge-trust, probabilistic, and
   verification mechanisms.
+- An eighth P2 routing tranche prioritizing ten ISCA accelerator-interface,
+  sustainability, memory, storage, ANNS, photonics, tensor, and LLM-serving
+  records.
 
 ## What users may conclude
 
