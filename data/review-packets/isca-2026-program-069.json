@@ -38,7 +38,7 @@
   "original_source_url": "https://aisystemcodesign.github.io/papers/MTIA300_ISCA2026.pdf",
   "paper_id": "isca-2026-program-069",
   "protocol_path": "reports/adversarial-judge-protocol-v1.md",
-  "protocol_sha256": "63a6f7614563d39a7e3a72e98076987a9b738ada0edde8105533d23f7ba37057",
+  "protocol_sha256": "b0514016c0769784a2991381e980bfcb953dd5ff500d633ebcf1b6f3f8c71fae",
   "record_sha256": "585b389721fa9fad1c35005fcf1d2d3ff06056576d3ada52eedd84bd2c263084",
   "record_under_review": {
     "analysis_edition": 2026,
@@ -121,6 +121,7 @@
     "subsubthemes": {
       "ai-accelerator-microarchitecture": [
         "asynchronous-pim-speculative-decoding",
+        "bit-level-multiprecision-llm-compression",
         "gigabyte-embedded-dram-kv-cache-buffering",
         "outlier-aware-lut-quantized-gemm"
       ],
@@ -133,7 +134,9 @@
         "integrated-nic-collective-offload-training-accelerator",
         "kl-guided-moe-pruning-and-restoration",
         "long-context-agentic-memory-wall-co-design",
+        "moderate-sparse-gpu-llm-spmm",
         "moe-data-movement-forecasting-and-placement",
+        "rl-pimm-noc-mapping",
         "silicon-calibrated-hierarchical-cim-exploration",
         "training-free-self-speculative-edge-llm-decoding"
       ],

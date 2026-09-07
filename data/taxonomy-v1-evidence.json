@@ -27,6 +27,7 @@
     "dac/data/adjudicated-2026-batch-13.jsonl",
     "dac/data/adjudicated-2026-batch-14.jsonl",
     "dac/data/adjudicated-2026-batch-15.jsonl",
+    "dac/data/adjudicated-2026-batch-16.jsonl",
     "iccad/data/adjudicated-2025-batch-3.jsonl",
     "iccad/data/adjudicated-2025-batch-4.jsonl",
     "iccad/data/adjudicated-2025-batch-5.jsonl",
@@ -99,6 +100,7 @@
       "subsubthemes": {
         "ai-accelerator-microarchitecture": [
           "asynchronous-pim-speculative-decoding",
+          "bit-level-multiprecision-llm-compression",
           "gigabyte-embedded-dram-kv-cache-buffering",
           "outlier-aware-lut-quantized-gemm"
         ],
@@ -111,7 +113,9 @@
           "integrated-nic-collective-offload-training-accelerator",
           "kl-guided-moe-pruning-and-restoration",
           "long-context-agentic-memory-wall-co-design",
+          "moderate-sparse-gpu-llm-spmm",
           "moe-data-movement-forecasting-and-placement",
+          "rl-pimm-noc-mapping",
           "silicon-calibrated-hierarchical-cim-exploration",
           "training-free-self-speculative-edge-llm-decoding"
         ],
@@ -215,7 +219,8 @@
           "near-shannon-lossless-llm-weight-compression",
           "open-fpga-scale-up-interconnect-platform",
           "os-hardware-cxl-tiered-memory",
-          "row-aligned-sparse-attention-pim"
+          "row-aligned-sparse-attention-pim",
+          "stage-aware-moe-expert-cache"
         ],
         "storage-and-data-movement": [
           "media-aware-archival-storage-scheduling"
@@ -343,6 +348,7 @@
         ],
         "hardware-security-validation": [
           "llm-assisted-fpga-toolchain-vulnerability",
+          "semantics-preserving-security-benchmark-obfuscation",
           "undocumented-instruction-security-verification"
         ],
         "simulation-emulation-and-testing": [

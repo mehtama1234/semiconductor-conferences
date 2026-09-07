@@ -32,7 +32,7 @@
   "original_source_url": "https://arxiv.org/html/2402.10787v2",
   "paper_id": "iccad-2025-105",
   "protocol_path": "reports/adversarial-judge-protocol-v1.md",
-  "protocol_sha256": "63a6f7614563d39a7e3a72e98076987a9b738ada0edde8105533d23f7ba37057",
+  "protocol_sha256": "b0514016c0769784a2991381e980bfcb953dd5ff500d633ebcf1b6f3f8c71fae",
   "record_sha256": "2742bdede10562ef896a547e6c442496d2521e2a97143ecb424d9c268f7d2585",
   "record_under_review": {
     "analysis_edition": 2025,
@@ -335,6 +335,7 @@
     "subsubthemes": {
       "ai-accelerator-microarchitecture": [
         "asynchronous-pim-speculative-decoding",
+        "bit-level-multiprecision-llm-compression",
         "gigabyte-embedded-dram-kv-cache-buffering",
         "outlier-aware-lut-quantized-gemm"
       ],
@@ -347,7 +348,9 @@
         "integrated-nic-collective-offload-training-accelerator",
         "kl-guided-moe-pruning-and-restoration",
         "long-context-agentic-memory-wall-co-design",
+        "moderate-sparse-gpu-llm-spmm",
         "moe-data-movement-forecasting-and-placement",
+        "rl-pimm-noc-mapping",
         "silicon-calibrated-hierarchical-cim-exploration",
         "training-free-self-speculative-edge-llm-decoding"
       ],
