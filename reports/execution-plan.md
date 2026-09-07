@@ -1,7 +1,8 @@
 # Execution plan — 2026-09-06
 
 ISCA secondary-recovery recheck: exact-title indexed summaries for MLX and
-ConServe were rechecked after the primary-source search. They expose useful
+ConServe were rechecked, and the HBM-CASO C-lab publication listing was checked,
+after the primary-source search. The pages expose useful
 mechanism/headline discovery text, but remain secondary evidence; no technical
 fields or metrics were promoted. Both ledgers now record the recheck, the
 unresolved primary-manuscript requirement, and the next author-source action.
