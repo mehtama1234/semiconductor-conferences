@@ -19,7 +19,7 @@ human resolution of disagreements.
 
 `data/review-packets/` now contains 581 packets. Each separates the proposed record
 and researcher summary from captured original source text, supplies the taxonomy
-branch, and identifies the protocol/coding-guide hashes. The 72 DAC descriptions
+branch, and identifies the protocol/coding-guide hashes. The 543 current DAC descriptions
 match by exact paper ID/title and source URL (ignoring only the session query
 parameter). Thirty-five ISCA/ICCAD packets now include exact-title original abstracts;
 three still need original text captured. Abstracts do not supply all full-paper
@@ -27,7 +27,7 @@ conditions, and source capture does not replace independent judgment.
 
 No packet is accepted merely because it exists. The separate coverage index lists
 37 synthesis anchors for scheduling and is excluded from judge inputs to avoid
-priming conclusions. The corrected preflight reports 370 pass / 16 review rather
+priming conclusions. The corrected preflight reports 578 pass / 3 review rather
 than manufacturing support by comparing uncaptured summaries with themselves.
 Three packets still require original-source capture; HybriMoE, ECC-enabled PIM,
 and Vistara now have identity-matched abstracts in their packets.
