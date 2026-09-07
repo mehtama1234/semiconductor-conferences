@@ -45,6 +45,8 @@ gates still open**.
   compiler, verification, security, memory, quantization, and serving.
 - A third P2 routing tranche prioritizing ten representation, reliability,
   edge-system, quantum-control, and LLM-serving mechanisms.
+- A fourth P2 routing tranche prioritizing ten thermal, LLM-memory, accelerator,
+  security, memory-safety, RF, cloud, and ANN mechanisms.
 
 ## What users may conclude
 
