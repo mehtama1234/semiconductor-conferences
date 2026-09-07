@@ -1,3 +1,4 @@
+import json
 from pathlib import Path
 
 import pytest
@@ -40,3 +41,15 @@ def test_queue_preserves_inventory_and_evidence_boundaries():
 def test_duplicate_identity_fails_instead_of_silently_overwriting():
     with pytest.raises(ValueError, match="Duplicate paper ID"):
         unique_index([{"paper_id": "same"}, {"paper_id": "same"}])
+
+
+def test_queue_covers_every_inventory_record_with_next_action():
+    rows, _, _ = build(ROOT)
+    inventory = {
+        row["paper_id"]
+        for path in sorted(ROOT.glob("*/data/papers-*-program.jsonl"))
+        for row in (json.loads(line) for line in path.read_text(encoding="utf-8").splitlines() if line.strip())
+    }
+    assert len(inventory) == len(rows) == 1589
+    assert inventory == {row["paper_id"] for row in rows}
+    assert all(row.get("next_actions") and row.get("priority_reasons") for row in rows)

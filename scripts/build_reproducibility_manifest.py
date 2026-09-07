@@ -36,6 +36,8 @@ ARTIFACTS = [
     "reports/technology-direction-synthesis-v1.md",
     "reports/adversarial-judge-protocol-v1.md",
     "reports/adversarial-review-status-v1.md",
+    "scripts/validate_project.py",
+    "tests/test_work_queue.py",
 ]
 
 
