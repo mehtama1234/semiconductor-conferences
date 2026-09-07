@@ -1990,3 +1990,7 @@ abstract, so all three remain explicitly insufficient for full-paper claims.
 The six-record ISCA secondary-evidence boundary is preserved in
 `reports/isca-secondary-evidence-boundary-2026-09-07.md`. Exact-title indexed
 excerpts remain priority-routing evidence only; quantitative claims are withheld.
+
+The route-closure invariant was added to `scripts/validate_project.py` and now
+requires all 543 DAC inventory IDs to appear in P2 route files. The synchronized
+checkpoint has 204 manifest artifacts and 142 passing tests.
