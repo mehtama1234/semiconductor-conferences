@@ -44,6 +44,10 @@ The fifth P2 tranche is recorded in
 `reports/p2-recovery-batch-5-2026-09-07.md`, adding ten simulation, packaging,
 analog/CIM, security, quantum, safety, distributed-compute, and power-modeling
 records.
+The sixth P2 tranche is recorded in
+`reports/p2-recovery-batch-6-2026-09-07.md`, adding ten graph-learning,
+reliability, edge-inference, analog-CIM, lithography, quantum, compiler, and
+point-cloud records.
 
 The categories overlap by design: P0 is a remediation priority, while P1/P2
 describe evidence depth. The former P0 records are retained in

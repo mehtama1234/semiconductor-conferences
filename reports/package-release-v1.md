@@ -49,6 +49,9 @@ gates still open**.
   security, memory-safety, RF, cloud, and ANN mechanisms.
 - A fifth P2 routing tranche prioritizing ten simulation, packaging, analog/CIM,
   quantum, safety, distributed-compute, and power-modeling mechanisms.
+- A sixth P2 routing tranche prioritizing ten graph-learning, reliability,
+  edge-inference, analog-CIM, lithography, quantum, compiler, and point-cloud
+  mechanisms.
 
 ## What users may conclude
 
