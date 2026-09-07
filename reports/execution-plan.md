@@ -56,6 +56,11 @@ thermal/kernel-aware inference, diffusion quantization, variation-tolerant analo
 inference, quantum placement/compilation, placement/sizing, chiplet thermal
 modeling, RowHammer attacks, and PIM scheduling; P2 routing now covers 298 of
 541 lower-priority records.
+The thirty-first P2 tranche adds ten DAC routes across prefix-KV retrieval, video
+enhancement, zero-knowledge tracing, emulation scheduling, elastic LLM memory,
+processor fault localization, LLM-generated assertions, 3D near-memory
+generation, graph PIM, and Apple-SoC side channels; P2 routing now covers 308 of
+541 lower-priority records.
 
 The sixteenth P2 tranche adds ten ISCA routes across RISC-V GPU/ASIP co-design,
 DRAM reliability and RowHammer defenses, chiplet PHY/package simulation, and

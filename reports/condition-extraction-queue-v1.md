@@ -166,6 +166,11 @@ hypergraph partitioning, thermal/kernel-aware inference, diffusion quantization,
 variation-tolerant analog inference, quantum placement/compilation,
 placement/sizing, chiplet thermal modeling, RowHammer attacks, and PIM
 scheduling.
+The thirty-first P2 tranche is recorded in
+`reports/p2-recovery-batch-31-2026-09-07.md`, continuing the DAC frontier across
+prefix-KV retrieval, video enhancement, zero-knowledge tracing, emulation
+scheduling, elastic LLM memory, processor fault localization, LLM-generated
+assertions, 3D near-memory generation, graph PIM, and Apple-SoC side channels.
 
 The categories overlap by design: P0 is a remediation priority, while P1/P2
 describe evidence depth. The former P0 records are retained in
