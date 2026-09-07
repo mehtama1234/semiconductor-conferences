@@ -26,6 +26,7 @@
     "dac/data/adjudicated-2026-batch-12.jsonl",
     "dac/data/adjudicated-2026-batch-13.jsonl",
     "dac/data/adjudicated-2026-batch-14.jsonl",
+    "dac/data/adjudicated-2026-batch-15.jsonl",
     "iccad/data/adjudicated-2025-batch-3.jsonl",
     "iccad/data/adjudicated-2025-batch-4.jsonl",
     "iccad/data/adjudicated-2025-batch-5.jsonl",
@@ -82,7 +83,8 @@
           "photonic-electronic-zkp-acceleration",
           "physical-loss-aware-photonic-logic-synthesis",
           "riscv-quantum-control-soc-generation",
-          "stochastic-spin-ferroelectric-neuropde"
+          "stochastic-spin-ferroelectric-neuropde",
+          "time-aware-quantum-calibration-scheduling"
         ]
       },
       "subthemes": [
@@ -104,6 +106,7 @@
           "asymmetric-gemm-tile-buffering",
           "attention-guided-token-quantization-and-simd-kernels",
           "dynamic-in-switch-moe-routing-and-token-fusion",
+          "edge-llm-nonlinear-operator-fusion",
           "generative-sequential-cpu-design-space-exploration",
           "integrated-nic-collective-offload-training-accelerator",
           "kl-guided-moe-pruning-and-restoration",
@@ -240,9 +243,11 @@
         ],
         "process-aware-design": [
           "differentiable-fab-mask-co-optimization",
+          "differentiable-fill-delay-optimization",
           "dtco-backside-noc-interconnect",
           "frequency-aware-lithography-contour-extraction",
           "generative-common-process-window-mask-optimization",
+          "generative-rl-inverse-lithography",
           "robust-bayesian-analog-sizing"
         ],
         "timing-analysis-and-optimization": [
@@ -308,7 +313,8 @@
       "label": "Systems, applications, and workloads",
       "subsubthemes": {
         "datacenter-and-cloud-systems": [
-          "elastic-unified-llm-memory-management"
+          "elastic-unified-llm-memory-management",
+          "hardware-aware-multi-llm-routing"
         ],
         "edge-embedded-and-mobile-systems": [
           "disconnection-tolerant-satellite-split-learning",

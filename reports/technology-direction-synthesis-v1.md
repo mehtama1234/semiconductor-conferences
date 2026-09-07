@@ -22,11 +22,11 @@ The evidence is intentionally asymmetric:
   coded fallback papers. The inventory includes 43 invited papers and ten student
   presentations, not 319 regular papers; see the [scope audit](../iccad/reports/program-scope-audit-v1.md).
 
-The 135-record technical coding sample is selected for recoverable evidence and
+The 140-record technical coding sample is selected for recoverable evidence and
 technical diversity. It is not a prevalence estimate, market forecast, conference
 ranking, or proof that a direction is rising.
 For a mechanism-level follow-up, see [scheduling versus physical surrogates](../iccad/reports/scheduling-versus-surrogates-v1.md): two analysis accelerators with different correctness and generalization requirements.
-All 135 remain independently unaccepted. The original synthesis-anchor set is
+All 140 remain independently unaccepted. The original synthesis-anchor set is
 distinct from the expanded coded sample and is not enlarged by metadata recovery.
 
 ## Executive interpretation
@@ -97,6 +97,14 @@ first-class memory costs; PNO-Therm transfers PDE structure across thermal desig
 and the NoC DTCO study exposes backside routing and PDN assumptions in link-level
 tradeoffs. These mechanisms are comparable thematically, not numerically.
 
+The optimization/serving batch shows the same movement toward explicit feedback:
+inverse lithography uses policy learning over mask distributions; quantum
+calibration schedules experiments against drift and information gain; HW-Router
+feeds live GPU and KV-cache signals into model routing; UniNL exposes nonlinear
+operator structure to edge hardware; and DiffFill optimizes delay rather than
+only density proxies. The shared theme is useful for taxonomy, but evidence
+quality and evaluation boundaries remain heterogeneous.
+
 ## Direction 1 — Tool-grounded AI for design and verification
 
 The [HLSArchOpt partial-artifact assessment](../dac/reports/hlsarchopt-primary-assessment-v1.md)
@@ -166,7 +174,7 @@ author-linked package exposes hierarchical mapping and BALD fault-tolerant routi
 one normalized 16KB AllGather case completed at 80 artifact simulation time units
 under a 4x6, 256-bandwidth configuration. That result is a reproducibility check,
 not a paper metric: no complete figure, matched baseline, end-to-end workload, or
-independent reproduction was obtained. It remains outside the 135-record selected
+independent reproduction was obtained. It remains outside the 140-record selected
 coding sample and cannot support a comparative performance claim.
 
 CANNON's [recovery assessment](../dac/reports/cannon-primary-recovery-v1.md)
@@ -361,7 +369,7 @@ precision, and baseline hardware.
 
 | Conference | Strongest current contribution | Evidence boundary |
 |---|---|---|
-| DAC 2026 | Breadth of design-flow, accelerator, physical-design, memory, and reliability descriptions | Mostly official descriptions; selected 98 are not full-corpus prevalence |
+| DAC 2026 | Breadth of design-flow, accelerator, physical-design, memory, and reliability descriptions | Mostly official descriptions; selected 103 are not full-corpus prevalence |
 | ISCA 2026 | Deep primary and industry-source cases for system architecture, LLM execution, memory, PIM, ECC, CXL, integrated networking, and thermal behavior | 16 primary/institutional/company records plus 4 unresolved secondary queue items; full program remains mostly metadata |
 | ICCAD 2025 fallback | Design automation, verification, chiplet, analog, security, and emerging-device depth | 2026 paper corpus unavailable; 2025 evidence cannot establish 2026 change |
 
