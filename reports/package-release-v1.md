@@ -170,6 +170,10 @@ gates still open**.
   sparse GPU linear algebra, secure biochips, graph PIM, neuro-symbolic and
   personalized CIM, side-channel monitoring, circuit simulation, wafer-scale
   communication, and 3D placement.
+- A forty-fifth P2 routing tranche covering advanced routing, equivalence
+  checking, LLM-assisted DRC repair, reconfigurable systolic arrays, Ising
+  optimization, diffusion-LM serving, parasitic extraction, Trojan detection,
+  asymmetric quantization, and MoE scheduling.
 
 ## What users may conclude
 

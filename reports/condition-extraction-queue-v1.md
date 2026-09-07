@@ -239,6 +239,12 @@ The forty-fourth P2 tranche is recorded in
 quantum-error-correction hardware, sparse GPU linear algebra, secure biochips,
 graph PIM, neuro-symbolic hardware, personalized CIM, side-channel monitoring,
 circuit simulation, wafer-scale communication, and 3D placement.
+The forty-fifth P2 tranche is recorded in
+`reports/p2-recovery-batch-45-2026-09-07.md`, continuing the DAC frontier across
+advanced routing, equivalence checking, LLM-assisted DRC repair, reconfigurable
+systolic arrays, Ising optimization, diffusion-language-model serving, parasitic
+extraction, hardware-Trojan detection, asymmetric quantization, and MoE
+scheduling.
 
 The categories overlap by design: P0 is a remediation priority, while P1/P2
 describe evidence depth. The former P0 records are retained in

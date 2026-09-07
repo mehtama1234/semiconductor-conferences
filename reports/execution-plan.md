@@ -1868,3 +1868,8 @@ hardware, sparse GPU linear algebra, secure biochips, graph PIM, neuro-symbolic
 and personalized CIM, side-channel monitoring, circuit simulation, wafer-scale
 communication, and 3D placement; P2 routing now covers 438 of 541 lower-priority
 records.
+The forty-fifth P2 tranche adds ten DAC routes across advanced routing,
+equivalence checking, LLM-assisted DRC repair, reconfigurable systolic arrays,
+Ising optimization, diffusion-language-model serving, parasitic extraction,
+hardware-Trojan detection, asymmetric quantization, and MoE scheduling; P2
+routing now covers 448 of 541 lower-priority records.
