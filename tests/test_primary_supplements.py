@@ -110,6 +110,7 @@ def test_supplements_reach_queue_and_both_packet_types_without_promotion():
     comopy = supplements.pop("iccad-2025-1137")[0]["assessment"]
     assert comopy["source_tier"] == "author_attributed_artifact_description"
     assert comopy["headline_metric_status"] == "withheld_pending_primary_paper"
+    assert "Verilator 5.040" in comopy["conditions"]
     busybarn = supplements.pop("isca-2026-program-060")[0]["assessment"]
     assert busybarn["source_tier"] == "author_artifact_description"
     assert busybarn["headline_metric_status"] == "withheld_pending_primary_paper"
@@ -139,7 +140,7 @@ def test_supplements_reach_queue_and_both_packet_types_without_promotion():
     queue = {r["paper_id"]: r for r in rows}
     packets, coverage = build_packets(ROOT)
     drafts = build_drafts(ROOT)
-    assert coverage["supplementary_assessment_packet_count"] == 29
+    assert coverage["supplementary_assessment_packet_count"] == 30
     orthrus_packet = next(p for p in packets if p["paper_id"] == "iccad-2025-437")
     assert orthrus_packet["supplementary_researcher_assessments"] == orthrus_items
     assert orthrus_packet["review_status"] == "not_reviewed"

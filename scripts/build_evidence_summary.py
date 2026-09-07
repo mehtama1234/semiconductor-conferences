@@ -59,6 +59,8 @@ def source_tier(record: dict) -> str:
         return "institutional_abstract"
     if confidence == "medium_institutional_technical_report":
         return "institutional_technical_report"
+    if confidence == "author_attributed_artifact_source":
+        return "author_artifact_source"
     if confidence == "medium_company_author_source":
         return "company_author_source"
     return "other"

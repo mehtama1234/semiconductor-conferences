@@ -1,5 +1,13 @@
 # Execution plan — 2026-09-06
 
+ComoPy artifact-depth batch: promoted the exact ICCAD 2025 framework to the
+selected ledger at artifact-description depth. PyPI evidence binds Python 3.10+,
+Verilator 5.040, and Icarus Verilog v13_0 integration to the reported
+generation/simulation/debugging mechanism, while identity remains partial and no
+paper benchmark or 6% performance claim is promoted. Manuscript and benchmark-log
+recovery remain open. Coding reaches 89 (52 DAC, 17 ISCA, 20 ICCAD); preflight is
+71 pass / 18 review, with zero independent verdicts.
+
 Temporal comparison follow-through: connected the newly coded HybriMoE preprint
 conditions to the DAC 2025/2026 MoE-offloading pilot. The comparison now records
 the named models, RTX A6000/Xeon setup, cache/input sweeps, and author-reported
