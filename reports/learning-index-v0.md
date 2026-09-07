@@ -24,6 +24,7 @@ organized around technical questions, not just conference names.
 - [Adjudicated evidence coverage](evidence-summary-v1.md)
 - [Adversarial consistency preflight](adversarial-preflight-v0.json)
 - [Temporal baseline and trend-claim boundary](temporal-baseline-v1.md)
+- [Machine-readable temporal insufficiency findings](temporal-insufficiency-v1.json)
 - [Selected temporal mechanism comparison](temporal-mechanism-comparison-v1.md)
 - [Historical description coding and limits](historical-description-coding-v1.md)
 - [Current DAC description coding expansion](current-description-coding-v1.md)
@@ -61,7 +62,7 @@ initial coding does not mean independent acceptance.
 - [Indexed evidence queue](../isca/pages/indexed-evidence-queue.md)
 - [Memory, ECC, and PIM reliability topical analysis](../isca/pages/memory-ecc-pim-reliability.md)
 
-ISCA currently combines official program metadata, fifteen primary/institutional/company-backed
+ISCA currently combines official program metadata, sixteen primary/institutional/company-backed
 records, and five low-confidence secondary-only papers pending primary
 verification.
 
@@ -73,8 +74,8 @@ verification.
 - [Additional ICCAD primary evidence batch](../iccad/pages/primary-evidence-batch-2025-2.md)
 - [ICCAD topical capability map](../iccad/pages/topical-capability-map-2025-fallback.md)
 
-ICCAD has 2026 scope signals, a 276-paper 2025 metadata inventory, and eight
-primary/preprint/author-PDF-supported 2025 adjudications.
+ICCAD has 2026 scope signals, a 319-paper 2025 fallback metadata inventory, and
+nineteen primary/preprint/institutional/company-source-supported 2025 adjudications.
 
 ## How to read the analysis
 
