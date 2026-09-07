@@ -10,7 +10,7 @@
   "original_source_url": "https://arxiv.org/abs/2606.15789",
   "paper_id": "isca-2026-program-008",
   "protocol_path": "reports/adversarial-judge-protocol-v1.md",
-  "protocol_sha256": "f0613c4aa7145106d6460f3919589a815a5635a5ce387a358b00483a744ff355",
+  "protocol_sha256": "592559a9f0a4a94c2473d24fdf62e186a8d80cd72b3e30bb75325edb904345ad",
   "record_sha256": "407067a49c11edd59900145b720013b26ccacfbc4cd4604f2812cd46a19cf384",
   "record_under_review": {
     "analysis_edition": 2026,
@@ -64,6 +64,7 @@
         "silicon-proven-cxl-port-based-routing-fabric"
       ],
       "data-movement-and-locality": [
+        "compiler-driven-pim-data-movement",
         "concurrent-pim-cpu-mobile-scheduling",
         "cpu-storage-hybrid-ann-search",
         "cxl-near-memory-ann-search",
@@ -92,7 +93,8 @@
         "system-on-die-ecc-co-design"
       ],
       "storage-and-data-movement": [
-        "media-aware-archival-storage-scheduling"
+        "media-aware-archival-storage-scheduling",
+        "noise-robust-fenand-hdc-sql"
       ]
     },
     "subthemes": [

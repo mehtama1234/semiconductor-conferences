@@ -30,6 +30,7 @@ PATHS = (
     "dac/data/adjudicated-2026-batch-18.jsonl",
     "dac/data/adjudicated-2026-batch-19.jsonl",
     "dac/data/adjudicated-2026-batch-20.jsonl",
+    "dac/data/adjudicated-2026-batch-21.jsonl",
     "iccad/data/adjudicated-2025-batch.jsonl",
     "iccad/data/adjudicated-2025-batch-2.jsonl",
     "iccad/data/adjudicated-2025-batch-3.jsonl",

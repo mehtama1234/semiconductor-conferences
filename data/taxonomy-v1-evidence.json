@@ -32,6 +32,7 @@
     "dac/data/adjudicated-2026-batch-18.jsonl",
     "dac/data/adjudicated-2026-batch-19.jsonl",
     "dac/data/adjudicated-2026-batch-20.jsonl",
+    "dac/data/adjudicated-2026-batch-21.jsonl",
     "iccad/data/adjudicated-2025-batch-3.jsonl",
     "iccad/data/adjudicated-2025-batch-4.jsonl",
     "iccad/data/adjudicated-2025-batch-5.jsonl",
@@ -179,6 +180,7 @@
           "differentiable-task-graph-partitioning",
           "dual-loop-system-technology-co-optimization",
           "hypergraph-quantum-circuit-template-matching",
+          "large-k-way-hypergraph-memetic-partitioning",
           "multi-agent-quantum-qubit-placement",
           "physical-feedback-guided-multi-die-fpga-exploration",
           "zero-shot-reinforcement-learning-for-logic-optimization"
@@ -207,6 +209,7 @@
           "silicon-proven-cxl-port-based-routing-fabric"
         ],
         "data-movement-and-locality": [
+          "compiler-driven-pim-data-movement",
           "concurrent-pim-cpu-mobile-scheduling",
           "cpu-storage-hybrid-ann-search",
           "cxl-near-memory-ann-search",
@@ -235,7 +238,8 @@
           "system-on-die-ecc-co-design"
         ],
         "storage-and-data-movement": [
-          "media-aware-archival-storage-scheduling"
+          "media-aware-archival-storage-scheduling",
+          "noise-robust-fenand-hdc-sql"
         ]
       },
       "subthemes": [
@@ -287,9 +291,11 @@
       "label": "Power, reliability, and security",
       "subsubthemes": {
         "accelerator-reliability": [
+          "cross-layer-ml-reliability-mixed-criticality",
           "fault-tolerant-block-floating-point-npu",
           "full-stack-npu-fault-mitigation",
           "layer-adaptive-analog-cim-ecc",
+          "lifetime-aware-nvm-fpga-reconfiguration",
           "operator-aware-fault-tolerant-scheduling"
         ],
         "energy-and-thermal-efficiency": [
