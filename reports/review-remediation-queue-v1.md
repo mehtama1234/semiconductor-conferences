@@ -24,6 +24,13 @@ resolve it. `iccad-2025-109` also has the lowest observed evidence overlap and
 an invalid preflight provenance URL, so it should be handled first within that
 group.
 
+`iccad-2025-105` (Squat) is a distinct metric-reconciliation case: the original
+preprint and PDF table are captured, but two displayed latency/speedup ratios are
+incompatible under the recorded rounding analysis. Keep the abstract's maximum
+speedup as a withheld author claim, reconcile the raw timings or final version,
+and do not convert it into an accepted metric merely to satisfy the required
+field checklist.
+
 ## Completion condition
 
 For each row, add source capture or corrected locators, preserve unresolved
