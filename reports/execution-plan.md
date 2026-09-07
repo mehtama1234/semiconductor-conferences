@@ -32,6 +32,11 @@ in the dated recovery note `isca/data/rearchitecting-primary-recovery-v1.json`
 and remain provisional pending published-paper reconciliation and independent
 review.
 
+Recovery batch 2 is recorded in `reports/isca-recovery-batch-2-2026-09-07.md`:
+CAPA now has an exact artifact-evaluation route, while LOONG has exact author
+identity plus a secondary mechanism summary. Neither is promoted to accepted
+technical evidence without the manuscript or captured artifact conditions.
+
 Latest bounded remediation (2026-09-07): repaired strict title matching for
 truncated DAC program subtitles, accepted identity-matched captured abstracts as
 valid provenance, and rewrote two evidence spans to include source-grounded

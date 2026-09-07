@@ -64,6 +64,8 @@ gates still open**.
   identity and marking secondary-only text as non-promotable.
 - A primary-preprint recovery assessment for Rearchitecting the Datacenter
   Lifecycle for AI with explicit modeled conditions and provisional status.
+- A second ISCA recovery batch for CAPA's artifact-evaluation record and
+  LOONG's author/secondary routes, with quantitative claims withheld.
 
 ## What users may conclude
 

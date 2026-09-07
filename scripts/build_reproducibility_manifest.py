@@ -54,6 +54,7 @@ ARTIFACTS = [
     "tests/test_review_packets.py",
     "isca/data/busybarn-artifact-primary-recovery-v1.json",
     "isca/data/rearchitecting-primary-recovery-v1.json",
+    "reports/isca-recovery-batch-2-2026-09-07.md",
     "isca/data/source-recovery-attempts.jsonl",
     "iccad/data/source-recovery-attempts.jsonl",
     "iccad/data/nimch-thesis-primary-recovery-v1.json",
