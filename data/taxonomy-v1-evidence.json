@@ -44,6 +44,7 @@
     "dac/data/adjudicated-2026-batch-30.jsonl",
     "dac/data/adjudicated-2026-batch-31.jsonl",
     "dac/data/adjudicated-2026-batch-32.jsonl",
+    "dac/data/adjudicated-2026-batch-33.jsonl",
     "iccad/data/adjudicated-2025-batch-3.jsonl",
     "iccad/data/adjudicated-2025-batch-4.jsonl",
     "iccad/data/adjudicated-2025-batch-5.jsonl",
@@ -75,6 +76,7 @@
           "gnn-multidie-fpga-floorplanning",
           "graph-transformer-analog-parasitic-extraction",
           "hardware-aware-bev-detection-nas",
+          "hardware-calibrated-quantum-nas",
           "hierarchical-multi-agent-chiplet-design",
           "hypervolume-zero-cost-vit-search",
           "knowledge-aggregated-gpu-power-modeling",
@@ -172,9 +174,14 @@
           "training-free-self-speculative-edge-llm-decoding"
         ],
         "quantum-architectures-and-control": [
+          "cryogenic-quantum-syndrome-compression",
           "directional-transport-neutral-atom-compilation",
+          "fault-tolerant-code-switching-optimization",
           "hamiltonian-guided-vqa-pretraining",
-          "near-optimal-quantum-syndrome-extraction"
+          "near-optimal-quantum-syndrome-extraction",
+          "parallel-neutral-atom-detection",
+          "quantum-power-system-transient-solving",
+          "sparse-quantum-readout-mitigation"
         ],
         "specialized-accelerators-and-dataflow": [
           "computation-data-decoupled-npu-dataflow",
@@ -213,6 +220,9 @@
     {
       "label": "Chiplets, 3D integration, and packaging",
       "subsubthemes": {
+        "3d-integration-and-thermal-management": [
+          "wafer-on-wafer-cim-thermal-stability"
+        ],
         "3d-stacking-and-thermal-management": [
           "analytical-3d-ic-thermal-simulation",
           "foundation-neural-operator-thermal-modeling",
@@ -238,6 +248,7 @@
         ]
       },
       "subthemes": [
+        "3d-integration-and-thermal-management",
         "3d-stacking-and-thermal-management",
         "chiplet-interconnects",
         "chiplet-partitioning-and-integration",
@@ -306,6 +317,9 @@
           "speculative-in-storage-ann",
           "stratified-moe-expert-scheduling"
         ],
+        "memory-compute-and-reliability": [
+          "dual-rail-reliable-dram-compute"
+        ],
         "memory-hierarchy-and-persistence": [
           "3d-stacked-dram-llm-inference",
           "adaptive-3d-nand-read-retry-reliability",
@@ -332,6 +346,7 @@
       "subthemes": [
         "chiplet-and-on-chip-interconnect",
         "data-movement-and-locality",
+        "memory-compute-and-reliability",
         "memory-hierarchy-and-persistence",
         "storage-and-data-movement"
       ],
@@ -435,6 +450,10 @@
           "transparent-rowhammer-monitoring",
           "verifiable-tee-cpu-availability",
           "voltage-waveform-instruction-disassembly"
+        ],
+        "thermal-and-reliability-modeling": [
+          "neural-chip-thermal-stress-decomposition",
+          "thermal-aware-edge-tpu-sram-allocation"
         ]
       },
       "subthemes": [
@@ -443,7 +462,8 @@
         "fault-tolerance-and-reliability",
         "power-integrity-and-reliability",
         "reliability-and-fault-tolerance",
-        "side-channel-and-hardware-security"
+        "side-channel-and-hardware-security",
+        "thermal-and-reliability-modeling"
       ],
       "theme_id": "power-reliability-and-security"
     },
@@ -467,12 +487,19 @@
           "heterogeneous-edge-soc-dnn-deployment",
           "personalized-edge-moe-expert-placement",
           "schedulability-aware-heterogeneous-accelerator-design"
+        ],
+        "robotics-and-edge-ai": [
+          "dynamic-static-vla-layer-skipping",
+          "ensemble-neural-fields-robot-control",
+          "periodic-robot-mapping-navigation",
+          "sparse-robotics-diffusion-acceleration"
         ]
       },
       "subthemes": [
         "confidential-and-trusted-computing",
         "datacenter-and-cloud-systems",
         "edge-embedded-and-mobile-systems",
+        "robotics-and-edge-ai",
         "scientific-robotics-and-domain-workloads"
       ],
       "theme_id": "systems-applications-and-workloads"
@@ -482,6 +509,7 @@
       "subsubthemes": {
         "formal-analysis-and-verification": [
           "branch-divergence-gpu-wcet-analysis",
+          "entropy-aware-rtl-llm-alignment",
           "factored-form-parallel-equivalence-checking",
           "llm-threat-to-assertion-soc-verification",
           "testbench-rewarded-verilog-generation"

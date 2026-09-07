@@ -22,11 +22,11 @@ The evidence is intentionally asymmetric:
   coded fallback papers. The inventory includes 43 invited papers and ten student
   presentations, not 319 regular papers; see the [scope audit](../iccad/reports/program-scope-audit-v1.md).
 
-The 249-record technical coding sample is selected for recoverable evidence and
+The 264-record technical coding sample is selected for recoverable evidence and
 technical diversity. It is not a prevalence estimate, market forecast, conference
 ranking, or proof that a direction is rising.
 For a mechanism-level follow-up, see [scheduling versus physical surrogates](../iccad/reports/scheduling-versus-surrogates-v1.md): two analysis accelerators with different correctness and generalization requirements.
-All 249 remain independently unaccepted. The original synthesis-anchor set is
+All 264 remain independently unaccepted. The original synthesis-anchor set is
 distinct from the expanded coded sample and is not enlarged by metadata recovery.
 
 ## Executive interpretation
@@ -218,7 +218,7 @@ author-linked package exposes hierarchical mapping and BALD fault-tolerant routi
 one normalized 16KB AllGather case completed at 80 artifact simulation time units
 under a 4x6, 256-bandwidth configuration. That result is a reproducibility check,
 not a paper metric: no complete figure, matched baseline, end-to-end workload, or
-independent reproduction was obtained. It remains outside the 249-record selected
+independent reproduction was obtained. It remains outside the 264-record selected
 coding sample and cannot support a comparative performance claim.
 
 CANNON's [recovery assessment](../dac/reports/cannon-primary-recovery-v1.md)
@@ -516,3 +516,11 @@ RISC-V test generators; and quantum work targets shallow syndrome extraction.
 Together they reinforce a cross-layer shift toward learned search plus explicit
 physical, communication, and verification constraints, while remaining
 description-level evidence rather than a field-wide trend estimate.
+
+The next batch extends the map into thermal and reliability-aware design,
+quantum control and error mitigation, sparse robotics inference, VLA control,
+and verification-oriented RTL generation. Across these cases, efficiency is
+increasingly defined as a closed-loop property: thermal headroom, syndrome
+bandwidth, control latency, readout noise, and testbench feedback are treated as
+part of the algorithm/architecture contract. These are selected-paper themes,
+not evidence that the whole field has shifted uniformly.
