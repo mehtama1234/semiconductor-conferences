@@ -73,6 +73,31 @@ def extract_hkust(html: str, expected_title: str, expected_doi: str) -> dict:
             "text_locator": "HKUST institutional publication abstract (.rendering_abstractportal .textblock); title and DOI metadata checked"}
 
 
+def extract_ntu(html: str, expected_title: str, expected_doi: str) -> dict:
+    soup = BeautifulSoup(html, "html.parser")
+    def meta(name):
+        tags = soup.find_all("meta", attrs={"name": name})
+        return tags[0].get("content", "").strip() if len(tags) == 1 else ""
+    title, doi = meta("citation_title"), meta("citation_doi")
+    articles = []
+    for script in soup.select('script.structured-data[type="application/ld+json"]'):
+        try:
+            data = json.loads(script.get_text())
+        except (ValueError, TypeError):
+            continue
+        if isinstance(data, dict):
+            articles.extend(node for node in data.get("@graph", []) if isinstance(node, dict) and node.get("@type") == "ScholarlyArticle")
+    valid = bool(title and expected_doi and title_key(title) == title_key(expected_title) and doi.lower() == expected_doi.lower())
+    article = articles[0] if len(articles) == 1 else {}
+    identifiers = article.get("identifier", [])
+    valid = valid and title_key(article.get("name", "")) == title_key(expected_title) and isinstance(identifiers, list) and expected_doi.lower() in [str(x).lower() for x in identifiers]
+    abstract = article.get("abstract", "")
+    return {"observed_title": title, "observed_doi": doi,
+            "identity_status": "exact_normalized_title" if valid else "title_or_doi_or_article_mismatch_requires_review",
+            "description": abstract if valid and isinstance(abstract, str) else "",
+            "text_locator": "NTU unique ScholarlyArticle JSON-LD abstract; citation and article title/DOI checked"}
+
+
 def capture(record: dict, root: Path) -> dict:
     result = {"paper_id": record["paper_id"], "title": record["title"],
               "evidence_url": record["evidence_url"],
@@ -81,7 +106,8 @@ def capture(record: dict, root: Path) -> dict:
     hal_match = HAL_DOCUMENT.fullmatch(record["evidence_url"])
     is_pdf = record["evidence_url"].lower().endswith(".pdf") or bool(hal_match)
     is_hkust = record["evidence_url"].startswith("https://researchportal.hkust.edu.hk/en/publications/")
-    if not record["evidence_url"].startswith(("https://arxiv.org/abs/", "https://arxiv.org/html/")) and not is_pdf and not is_hkust:
+    is_ntu = record["evidence_url"].startswith("https://scholars.lib.ntu.edu.tw/entities/publication/")
+    if not record["evidence_url"].startswith(("https://arxiv.org/abs/", "https://arxiv.org/html/")) and not is_pdf and not is_hkust and not is_ntu:
         result["capture_status"] = "requires_source_specific_extractor"
         return result
     try:
@@ -109,6 +135,8 @@ def capture(record: dict, root: Path) -> dict:
                            "text_locator": "PDF page 1 abstract; automatic extraction requires semantic review"})
         elif is_hkust:
             result.update(extract_hkust(body.decode("utf-8", errors="replace"), record["title"], record.get("doi", "")))
+        elif is_ntu:
+            result.update(extract_ntu(body.decode("utf-8", errors="replace"), record["title"], record.get("doi", "")))
         else:
             result.update(extract_arxiv(body.decode("utf-8", errors="replace"), record["title"]))
         result["raw_sha256"] = hashlib.sha256(body).hexdigest()

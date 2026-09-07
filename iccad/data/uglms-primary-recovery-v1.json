@@ -22,5 +22,5 @@
     "failure_modes": "Noisy small sweeps can temporarily diverge; later EKF drift from shrinking covariance is acknowledged (Section IV.B, page 6)."
   },
   "limits": ["Simulation informed by measured devices is not demonstrated live production deployment.", "No universal accuracy or fault-detection guarantee; model mismatch and proprietary-data provenance constrain transfer.", "Do not import rank-1 update, enhanced polynomial model or 8x result from the distinct follow-up."],
-  "next_action": "Code the original method and capture its abstract for review; inspect implementation and timing platform before accepting performance claims."
+  "next_action": "Original method coding and abstract capture are integrated; inspect implementation and timing platform before accepting performance claims or obtaining independent acceptance."
 }

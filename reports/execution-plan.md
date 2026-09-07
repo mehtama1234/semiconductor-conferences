@@ -4,6 +4,20 @@ The governing scope and acceptance criteria are in [GOAL.md](../GOAL.md).
 This log distinguishes finished work from queued work; a plan is not a completed
 research result.
 
+NIMCH/UGLMS coding: ICCAD batch 8 adds timing-critical parallel remapping and
+uncertainty-guided SAR ADC measurement branches, preserving institutional-abstract
+versus selected-full-text depth. Both have empty headline metrics and pending
+independent review. Original abstracts captured successfully; the NTU extractor
+checks citation title/DOI plus a unique matching ScholarlyArticle structured block,
+not the full page as evidence. Coding reaches 80 (49 DAC, 16 ISCA, 15 ICCAD).
+Next: inspect the newly discovered official v20 program against retained v8 before
+further metadata-dependent recovery; continue full-paper/platform verification and
+independent-review preparation without conflating those gates with coding.
+Regenerated taxonomy, summaries, queue, both packet sets and preflight; validation
+and 129 tests pass. Packets contain 28 original abstracts, 49 official descriptions
+and three original-source gaps; 21 carry supplementary assessments. Deterministic
+preflight is 69 pass / 11 review, with all 80 independently unaccepted.
+
 Ordered regular-paper recovery 1111/1117/1137: NTU supplies exact four-author
 identity and substantive NIMCH abstract; preserve its remapping-only speedup claim
 without adopting unmatched platform/baseline conditions. Exact UGLMS ICCAD preprint
