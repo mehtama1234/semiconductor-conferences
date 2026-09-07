@@ -52,6 +52,7 @@ These researcher assessments supplement, but do not replace, original evidence o
 - iccad-2025-1144: [withheld_pending_identity_and_simulation_conditions](../iccad/data/gaia-primary-recovery-v1.json)
 - iccad-2025-1155: [withheld_pending_testcase_and_routing_conditions](../iccad/data/copa-primary-recovery-v1.json)
 - iccad-2025-437: [withheld_pending_figure_and_budget_review](../iccad/data/orthrus-primary-recovery-v1.json)
+- isca-2026-program-060: [withheld_pending_primary_paper](../isca/data/busybarn-artifact-primary-recovery-v1.json)
 
 ## Identity and primary-source recovery
 

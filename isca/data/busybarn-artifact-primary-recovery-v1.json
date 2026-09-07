@@ -1,0 +1,28 @@
+{
+  "schema": "primary-source-recovery-assessment.v1",
+  "paper_id": "isca-2026-program-060",
+  "title": "Mapping and Communication Optimizations with Fault Tolerance for Wafer-Scale LLM Inference",
+  "source_id": "isca-2026-busybarn-zenodo",
+  "source_url": "https://zenodo.org/records/19430308",
+  "capture_date": "2026-09-06",
+  "source_tier": "author_artifact_description",
+  "extraction_scope": "Zenodo artifact description for BusyBarn and its reproduction scripts; no manuscript PDF or full abstract recovered.",
+  "independent_review_status": "pending",
+  "headline_metric_status": "withheld_pending_primary_paper",
+  "identity": {
+    "doi": "10.1109/ISCA66397.2026.00076",
+    "authors": ["Junwei Cui", "Le Qin", "Weilin Cai", "Jiayi Huang"],
+    "status": "exact_title_doi_and_authors_match_program_and_artifact",
+    "limit": "The artifact record establishes paper linkage and authorship, but does not provide the paper's complete evaluation tables or experimental conditions."
+  },
+  "mechanism": "BusyBarn is described as providing hierarchical mapping through simulated annealing and load-balanced, distance-aware, fault-tolerant routing (BALD) for wafer-scale LLM inference.",
+  "artifact_scope": "The description states that scripts reproduce twelve experimental figures covering collective-communication bandwidth, mapping sensitivity to die/core shape and faults, workload heatmaps, end-to-end latency for six LLM architectures, convergence, ablations, and runtime breakdown.",
+  "conditions": "The artifact description names AllGather and AllToAll, six LLM architectures, fault and power sensitivity, and mapping/routing ablations; exact platforms, baselines, seeds, numerical results, and metric units remain unextracted.",
+  "limits": [
+    "Artifact description is not equivalent to the paper's abstract or full text.",
+    "Do not promote performance, latency, bandwidth, or fault-tolerance numbers without the manuscript or reproducible artifact execution.",
+    "Artifact availability and stated figure coverage do not establish correctness or independent replication.",
+    "No technical coding promotion and no independent acceptance."
+  ],
+  "next_action": "Recover the exact author manuscript or run the permitted artifact with pinned environment metadata; reconcile reported figures, baselines, and fault models before coding."
+}

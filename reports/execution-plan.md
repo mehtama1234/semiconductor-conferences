@@ -1,5 +1,13 @@
 # Execution plan — 2026-09-06
 
+BusyBarn artifact recovery: registered the exact-title/DOI-linked Zenodo artifact
+for ISCA paper 060. Its description supports only the mechanism and reproduction
+scope (hierarchical simulated-annealing mapping, BALD fault-tolerant routing, and
+twelve figure-reproduction scripts); paper metrics, full conditions, and
+independent execution remain withheld. Supplementary assessments now reach 31,
+while the paper remains secondary-pending and uncoded. Next: recover the
+manuscript or run the permitted artifact with pinned environment metadata.
+
 The governing scope and acceptance criteria are in [GOAL.md](../GOAL.md).
 This log distinguishes finished work from queued work; a plan is not a completed
 research result.
