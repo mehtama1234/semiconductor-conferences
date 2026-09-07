@@ -10,6 +10,12 @@ author correspondence were required before technical text could be considered.
 | `iccad-2025-1` — Adder-DCIM | Exact identity is confirmed. The PKU institutional report remains the strongest accessible technical source; no author manuscript or original abstract was recovered. Indexed summaries remain discovery-only. |
 | `iccad-2025-1137` — ComoPy | Exact identity is confirmed and artifact evidence remains usable for mechanism/runtime scope. No manuscript or original abstract was recovered; indexed summary text remains discovery-only. |
 
+The 2026-09-07 web recheck found no permitted original manuscript or abstract
+for any of the three blockers. The official ISCA program confirms the Panmnesia
+title and Industry Track placement, while the ICCAD program and indexed records
+confirm Adder-DCIM and ComoPy identity; these remain metadata or discovery
+evidence, not original technical text.
+
 All three packets remain `original_text_capture_required`. This recheck updates
 the recovery boundary; it does not promote headline metrics or change review
 status. Revisit publisher/author channels after proceedings access changes.
