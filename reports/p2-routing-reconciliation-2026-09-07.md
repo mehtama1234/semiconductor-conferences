@@ -32,6 +32,9 @@ This tranche adds ten DAC IDs; the DAC-specific count becomes 535/541, with 6
 records remaining outside the route files.
 This tranche adds ten DAC IDs; the DAC-specific count becomes 525/541, with 16
 records remaining outside the route files.
+This tranche adds the final eight titled DAC IDs; route files now cover all
+541/541 records in the official-description denominator. Two of the 543 inventory
+rows remain outside that denominator because no official description was captured.
 This tranche adds ten DAC IDs; the DAC-specific count becomes 515/541, with 26
 records remaining outside the route files.
 This tranche adds ten DAC IDs; the DAC-specific count becomes 505/541, with 36
