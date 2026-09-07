@@ -38,6 +38,14 @@ The deterministic remediation record for the previously flagged packets is recor
 `reports/review-remediation-queue-v1.md`. That routing aid is not an independent
 verdict.
 
+## Availability check
+
+On 2026-09-07 the execution environment was checked for a separate local or
+connected reviewer endpoint. No independent model-inference endpoint or assigned
+human reviewer was available in this run. The package therefore leaves all
+reviewer slots pending and requires an external reviewer response before any
+acceptance count can increase.
+
 ## Acceptance boundary
 
 Until reviewer verdicts are actually recorded, the package must report zero
