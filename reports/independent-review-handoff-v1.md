@@ -29,6 +29,11 @@ The deterministic assignment manifest is
 placeholder reviewer slots and zero verdicts; placeholder slots do not imply that
 an external reviewer has accepted an assignment.
 
+Reviewers should return one copy of
+`reports/independent-review-response-template-v1.json` per packet, replacing the
+placeholders and preserving packet hash, independence declaration, field-level
+locators, objections, and overall verdict.
+
 The deterministic remediation order for the 3 packets flagged for missing or
 weak preflight support is recorded in
 `reports/review-remediation-queue-v1.md`. That routing aid is not an independent

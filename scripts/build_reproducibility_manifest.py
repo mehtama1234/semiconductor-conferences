@@ -47,6 +47,7 @@ ARTIFACTS = [
     "reports/evidence-gap-register-v1.md",
     "reports/condition-extraction-queue-v1.md",
     "reports/release-readiness-v1.md",
+    "reports/independent-review-response-template-v1.json",
     "reports/independent-review-assignments-v1.json",
     "scripts/validate_project.py",
     "tests/test_work_queue.py",

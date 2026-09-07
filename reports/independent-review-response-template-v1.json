@@ -1,0 +1,25 @@
+{
+  "schema": "independent-review-response.v1",
+  "instructions": "One response per packet. Do not use the synthesis summary or another reviewer's verdict to justify decisions.",
+  "packet_id": "REPLACE_WITH_PAPER_ID",
+  "packet_sha256": "REPLACE_WITH_PACKET_HASH",
+  "reviewer": {
+    "reviewer_id": "REPLACE_WITH_REVIEWER_ID",
+    "mode": "human_or_independent_model",
+    "independence_declaration": "I did not author, supervise, fund, or previously adjudicate this record, and I did not see another verdict before submitting.",
+    "review_date": "YYYY-MM-DD"
+  },
+  "field_verdicts": {
+    "problem": {"verdict": "supported_partially_supported_or_unsupported", "evidence_locator": "", "note": ""},
+    "method_or_artifact": {"verdict": "supported_partially_supported_or_unsupported", "evidence_locator": "", "note": ""},
+    "workload_or_benchmark": {"verdict": "supported_partially_supported_or_unsupported", "evidence_locator": "", "note": ""},
+    "hardware_or_process_assumptions": {"verdict": "supported_partially_supported_or_unsupported", "evidence_locator": "", "note": ""},
+    "baselines": {"verdict": "supported_partially_supported_or_unsupported", "evidence_locator": "", "note": ""},
+    "metrics": {"verdict": "supported_partially_supported_or_unsupported", "evidence_locator": "", "note": ""},
+    "taxonomy": {"verdict": "supported_partially_supported_or_unsupported", "evidence_locator": "", "note": ""},
+    "limits": {"verdict": "supported_partially_supported_or_unsupported", "evidence_locator": "", "note": ""}
+  },
+  "overall_verdict": "accept_revise_or_reject",
+  "objections": [],
+  "resolution_needed": false
+}
