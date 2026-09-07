@@ -53,15 +53,15 @@ synthesis. Coverage gaps and unresolved claims are part of the deliverable.
 
 | Corpus | Inventory | Technically coded sample | Main limitation |
 |---|---:|---:|---|
-| ISCA 2026 | 173 | 16 | Mixed primary, institutional, and company sources; four secondary-only papers remain outside this sample; full-paper conditions remain open |
+| ISCA 2026 | 173 | 17 | Mixed primary, institutional, company, and artifact sources; three secondary-only papers remain outside this sample; full-paper conditions remain open |
 | DAC 2026 | 543 | 544 | Official descriptions captured across the inventory; current DAC descriptions are now technically coded, with full-paper conditions still pending |
 | ICCAD 2025 fallback | 319 | 21 | Most fallback records remain metadata-only; ICCAD 2026 paper corpus is not publicly available |
 
-The current 581-record selected sample spans ten taxonomy themes: DAC 544, ISCA 16,
+The current 582-record selected sample spans ten taxonomy themes: DAC 544, ISCA 17,
 and ICCAD 21. ISCA has 171 DOI matches. Historical inventories contain 135 ISCA
 2025 and 419 DAC 2025 records; only 24 DAC 2025 records have substantive
 descriptions. All coded records await independent review; deterministic preflight
-is 578 pass / 3 review and is not an acceptance judgment. The paper-level queue
+is 578 pass / 4 review and is not an acceptance judgment. The paper-level queue
 covers all 1,589 inventory records, with 31 supplementary assessments and 23
 dated recovery attempts. Validation and 141 tests pass; these establish
 consistency, not correctness of the scientific interpretations.

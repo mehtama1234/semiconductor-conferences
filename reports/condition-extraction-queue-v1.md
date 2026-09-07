@@ -2,11 +2,11 @@
 
 This is the next execution queue after description-level adjudication. It does
 not treat a populated field as proof that the underlying experiment has been
-verified. The current selected sample is 581 records.
+verified. The current selected sample is 582 records.
 
 | Queue | Records | Evidence state | Required extraction |
 |---|---:|---|---|
-| P0 remediation | 3 | Deterministic preflight review | Capture/identity-match original text where missing; reconcile provenance and required fields before independent review. |
+| P0 remediation | 4 | Deterministic preflight review | Capture/identity-match original text where missing; reconcile provenance and required fields before independent review. |
 | P1 primary-source strengthening | 31 | Author preprint, author copy, institutional abstract/report, company source, or artifact | Extract section/table/figure locators, platform/process, workload, baseline, metric definition, budget, and limitations. |
 | P2 official-description expansion | 541 | Official conference descriptions | Recover manuscript/abstract/artifact evidence; retain unknowns and do not promote description-level numbers as accepted results. |
 
@@ -27,4 +27,4 @@ reproduction. If any condition is unavailable, keep the claim narrowed or
 withheld and record the missingness in the packet.
 
 The queue is complete as a routing artifact, not as completion of the extraction
-work. Independent review remains pending for all 581 packets.
+work. Independent review remains pending for all 582 packets.

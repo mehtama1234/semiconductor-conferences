@@ -22,7 +22,7 @@
   "original_source_url": "https://scholar.nycu.edu.tw/en/publications/gaia-glass-aware-io-middleware/",
   "paper_id": "iccad-2025-1144",
   "protocol_path": "reports/adversarial-judge-protocol-v1.md",
-  "protocol_sha256": "22767cec0aed90a6e87a03d16f60243f2bcb6897b51e82851bd7422e3d69ece7",
+  "protocol_sha256": "5782d86712d1346db25e00d7f3335daf9e771a6b4355becbb76b35bd42ba1940",
   "record_sha256": "671828d3ebeb3dc70e4dc013b827d38dbefda69d23208430cdd2634e29b27bd2",
   "record_under_review": {
     "analysis_edition": 2025,
@@ -118,6 +118,9 @@
         "mechanism": "Zigzag placement reduces mechanical reversals; depth-first placement favors optical traversal; scheduling chooses predicted movement time rather than distance.",
         "next_action": "Recover publisher or author manuscript, resolve author spellings, capture original abstract, and verify movement-cost model and baseline conditions before coding.",
         "paper_id": "iccad-2025-1144",
+        "reported_metrics": [
+          "Institutional abstract reports up to 82% read-latency reduction versus traditional baseline schedulers; trace, glass-size, and baseline conditions remain unresolved"
+        ],
         "schema": "primary-source-recovery-assessment.v1",
         "source_id": "iccad-2025-gaia-nycu",
         "source_tier": "institutional_abstract",
@@ -128,7 +131,7 @@
       "headline_metric_status": "withheld_pending_identity_and_simulation_conditions",
       "independent_review_status": "pending",
       "path": "iccad/data/gaia-primary-recovery-v1.json",
-      "sha256": "d96666a674d437996f7e0d9318236faeb3509e384d9aca24840b73a295758e62",
+      "sha256": "9b2fae2e6540311fed02294ff5519ecf573d4738e55b78a1da1604c9087a1526",
       "source_url": "https://scholar.nycu.edu.tw/en/publications/gaia-glass-aware-io-middleware/"
     }
   ],

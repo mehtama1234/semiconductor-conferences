@@ -2,10 +2,10 @@
 
 Status as of 2026-09-07: **prepared, not independently reviewed**.
 
-The package contains 581 review packets under
+The package contains 582 review packets under
 `data/review-packets/`. Each packet is a self-contained proposed coding record
 with source tier, provenance, taxonomy branch, evidence locators, limitations,
-and protocol/coding-guide hashes. All 581 packets currently have
+and protocol/coding-guide hashes. All 582 packets currently have
 `review_status: not_reviewed` and an empty `independent_verdicts` list.
 
 ## Handoff protocol
@@ -34,7 +34,7 @@ Reviewers should return one copy of
 placeholders and preserving packet hash, independence declaration, field-level
 locators, objections, and overall verdict.
 
-The deterministic remediation order for the 3 packets flagged for missing or
+The deterministic remediation order for the 4 packets flagged for missing or
 weak preflight support is recorded in
 `reports/review-remediation-queue-v1.md`. That routing aid is not an independent
 verdict.

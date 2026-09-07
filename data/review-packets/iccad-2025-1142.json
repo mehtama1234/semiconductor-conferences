@@ -27,7 +27,7 @@
   "original_source_url": "https://gtcad.gatech.edu/www/papers/Tsai-ICCAD25.pdf",
   "paper_id": "iccad-2025-1142",
   "protocol_path": "reports/adversarial-judge-protocol-v1.md",
-  "protocol_sha256": "22767cec0aed90a6e87a03d16f60243f2bcb6897b51e82851bd7422e3d69ece7",
+  "protocol_sha256": "5782d86712d1346db25e00d7f3335daf9e771a6b4355becbb76b35bd42ba1940",
   "record_sha256": "24f8422a797ee5cb00b4e69cefec006a8b409531eb0fc9fec8160d3480a41abb",
   "record_under_review": {
     "analysis_edition": 2025,
@@ -129,6 +129,11 @@
           "sha256": "fbc53a0fad4a05101bc9922fbf5a428895bd874da9ef74c948b51028ae6730dd",
           "url": "https://gtcad.gatech.edu/www/papers/Tsai-ICCAD25.pdf"
         },
+        "reported_metrics": [
+          "Abstract reports approximately 25 minutes to regenerate a parasitic netlist for a layer-thickness change with commercial extraction",
+          "Abstract reports standard-cell parasitic capacitance extraction within seconds",
+          "Abstract reports coupling-capacitance prediction for unseen layer thickness within milliseconds"
+        ],
         "reported_setup": {
           "additional_training_hours": 2.3,
           "database_hours": 1.8,
@@ -145,7 +150,7 @@
       "headline_metric_status": "withheld_pending_holdout_and_amortization_review",
       "independent_review_status": "pending",
       "path": "iccad/data/capacitance-ml-primary-recovery-v1.json",
-      "sha256": "5b4ffd6e671eb3cf583c10f56ba222b098b27800d5f4c1609f207299ae3c0d23",
+      "sha256": "42c8dc026831b841b552eb2efc39e9f5fbea9120209ca9de21e5243e855d39ae",
       "source_url": "https://gtcad.gatech.edu/www/papers/Tsai-ICCAD25.pdf"
     }
   ],

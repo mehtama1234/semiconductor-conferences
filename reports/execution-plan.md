@@ -1,7 +1,7 @@
 # Execution plan — 2026-09-07
 
-Current checkpoint: 1,589 inventory records are routed; 581 selected records
-have provisional technical coding (DAC 544, ISCA 16, ICCAD 21). The current DAC
+Current checkpoint: 1,589 inventory records are routed; 582 selected records
+have provisional technical coding (DAC 544, ISCA 17, ICCAD 21). The current DAC
 description queue is complete. The next bounded work is the 3-record preflight
 remediation queue, followed by full-paper condition extraction and independent
 review. See `reports/condition-extraction-queue-v1.md`.
