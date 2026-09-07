@@ -1,10 +1,17 @@
 # Execution plan — 2026-09-06
 
+Latest bounded coding increment: five DAC descriptions were added for masked
+ML-DSA root-of-trust optimization, community-aware hardware-Trojan detection,
+AlphaZero generative AIG synthesis, ReRAM ECC timing recovery, and wafer-level
+tool-chain attestation. The selected sample is now 195 records (DAC 158, ISCA 16,
+ICCAD 21); deterministic preflight is 179 pass / 16 review. These remain
+description-level evidence pending full-paper condition checks and independent review.
+
 Latest bounded coding increment: five DAC descriptions were added for hardware
 interrupt security, AI-inspired FPGA acceleration of post-quantum LPN,
 graph-neural analog circuit simulation and inverse design, workload-aware NUMA
 storage coordination, and scalable simultaneous DNN fault injection. The sample
-is now 190 records (DAC 153, ISCA 16, ICCAD 21); deterministic preflight is 174
+is now 195 records (DAC 158, ISCA 16, ICCAD 21); deterministic preflight is 179
 pass / 16 review. These records deepen thematic coverage but remain provisional
 until source-condition extraction and independent review.
 
@@ -1614,3 +1621,7 @@ of one route is not a finding of permanent inaccessibility.
   equivalent technical baseline. Record source attempts and exclusions.
 - Software validation cannot certify scientific support, source independence,
   representativeness, or the truth of a headline performance claim.
+The latest five-record batch adds masked ML-DSA root-of-trust optimization,
+community-aware hardware-Trojan detection, AlphaZero AIG synthesis, ReRAM ECC
+timing recovery, and wafer-level tool-chain attestation. The selected sample is
+now 195 records (DAC 158, ISCA 16, ICCAD 21); all remain pending independent review.
