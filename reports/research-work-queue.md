@@ -46,6 +46,7 @@ These researcher assessments supplement, but do not replace, original evidence o
 - iccad-2025-1109: [withheld_pending_accounting_and_independent_review](../iccad/data/sera-float-primary-recovery-v1.json)
 - iccad-2025-1111: [withheld_pending_baseline_platform_and_quality_conditions](../iccad/data/nimch-primary-recovery-v1.json)
 - iccad-2025-1117: [withheld_pending_compute_platform_and_independent_review](../iccad/data/uglms-primary-recovery-v1.json)
+- iccad-2025-1137: [withheld_pending_primary_paper](../iccad/data/comopy-artifact-primary-recovery-v1.json)
 - iccad-2025-114: [withheld_pending_runtime_ratio_reconciliation](../iccad/data/riros-primary-recovery-v1.json)
 - iccad-2025-1142: [withheld_pending_holdout_and_amortization_review](../iccad/data/capacitance-ml-primary-recovery-v1.json)
 - iccad-2025-1144: [withheld_pending_identity_and_simulation_conditions](../iccad/data/gaia-primary-recovery-v1.json)
