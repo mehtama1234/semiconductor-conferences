@@ -16,7 +16,7 @@ def test_source_matching_ignores_session_only_and_requires_identity():
 
 def test_packets_do_not_promote_summaries_or_leak_synthesis():
     packets, summary = build(ROOT)
-    assert summary["packet_count"] == 75
+    assert summary["packet_count"] == 76
     assert summary["synthesis_anchor_count"] == len(set(summary["synthesis_anchor_ids"]))
     assert summary["independent_review_count"] == 0
     mtia = next(p for p in packets if p["paper_id"] == "isca-2026-program-069")

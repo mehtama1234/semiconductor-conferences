@@ -4,6 +4,19 @@ The governing scope and acceptance criteria are in [GOAL.md](../GOAL.md).
 This log distinguishes finished work from queued work; a plan is not a completed
 research result.
 
+HLPS DSE coding integration: added ICCAD paper 109 under physical-feedback-guided
+multi-die FPGA exploration, with source locators, baseline settings and explicit
+denominator/runtime boundaries. Exact-title author-PDF abstract capture succeeded;
+the review packet preserves the separate Table V assessment. Metrics remain
+withheld pending review rather than promoting the headline ratio. Coverage is
+76 coded papers (49 DAC, 16 ISCA, 11 ICCAD); 76 packets contain 49 descriptions,
+24 abstracts and three source gaps. Independent acceptance is still zero.
+Next: continue ordered primary recovery, while keeping matched-budget and
+independent-review work open for this case.
+Regenerated taxonomy, coverage, both packet sets and audit; project validation
+and 108 tests passed. Deterministic preflight reports 69 pass and seven review
+flags, which are not independent scientific verdicts.
+
 HLPS DSE Table V verification: downloaded/hash-pinned the author PDF and
 visually checked page 8. Recorded seven design/device cases, best frequency,
 baseline results, time through the best action and total search time. AutoBridge
