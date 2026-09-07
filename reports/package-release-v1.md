@@ -39,6 +39,8 @@ gates still open**.
   for five DAC records whose full sources remain unavailable.
 - A sixth P1 recovery batch covering six repository- and abstract-backed records
   with explicit conditions still required before quantitative use.
+- A first P2 routing tranche prioritizing ten DAC description-only records for
+  manuscript/abstract/artifact recovery.
 
 ## What users may conclude
 

@@ -28,6 +28,10 @@ HYPER-CIM, and Fusedot.
 Batch 6 is recorded in `reports/condition-extraction-batch-6-2026-09-07.md`
 and covers HLSArchOpt, ParetoPilot, Icarus’s Wings, Qudit, NIMCH, and COPA.
 
+The first P2 routing tranche is recorded in
+`reports/p2-recovery-batch-1-2026-09-07.md`. It prioritizes ten DAC records by
+mechanism and claim-risk, while retaining description-only evidence boundaries.
+
 The categories overlap by design: P0 is a remediation priority, while P1/P2
 describe evidence depth. The former P0 records are retained in
 `reports/review-remediation-queue-v1.md` as a dated recovery trail. Their
