@@ -4,6 +4,17 @@ The governing scope and acceptance criteria are in [GOAL.md](../GOAL.md).
 This log distinguishes finished work from queued work; a plan is not a completed
 research result.
 
+ICCAD recovery batch: Seeing Through Designs now has ten-author correspondence
+on a coauthor's publication page, but no technical text recovered. Recorded its
+publisher/search outcomes and Fellowship of the Leak's institutional DOI route
+as paper-level attempts; the queue now exposes these and the three earlier ISCA
+attempts without changing evidence tiers. Found five author-reported ICCAD 2026
+acceptance leads and preserved them separately, with no corpus denominator or
+technical coding inferred. Updated the fallback report to distinguish partial
+public titles from an official complete inventory. Next: recover manuscripts for
+these 2026 leads and continue 2025 primary coding; avoid repeating unchanged
+publisher verification routes.
+
 Adder-DCIM recovery: all seven program authors match the first author's listing,
 which links IEEE document 11240916. Publisher extraction returned robot
 verification; no bypass attempted. Added institutional technical conditions and

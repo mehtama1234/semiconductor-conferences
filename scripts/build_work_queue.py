@@ -30,6 +30,12 @@ def build(root: Path) -> tuple[list[dict], dict, str]:
     supplements = load_supplements(root)
     inventory_paths = sorted(root.glob("*/data/papers-20??-program.jsonl"))
     inventory = unique_index([row for path in inventory_paths for row in read_jsonl(path)])
+    recovery_attempts = defaultdict(list)
+    for path in sorted(root.glob("*/data/source-recovery-attempts.jsonl")):
+        for attempt in read_jsonl(path):
+            if attempt["paper_id"] not in inventory:
+                raise ValueError("Recovery attempt outside inventory")
+            recovery_attempts[attempt["paper_id"]].append(attempt)
     coded = unique_index([row for path in PATHS for row in read_jsonl(root / path)])
     if set(coded) - set(inventory):
         raise ValueError("Coded records outside inventory")
@@ -125,6 +131,9 @@ def build(root: Path) -> tuple[list[dict], dict, str]:
             "priority": priority, "priority_reasons": reasons, "next_actions": actions,
         })
     for row in queue:
+        if row["paper_id"] in recovery_attempts:
+            row["source_recovery_attempts"] = recovery_attempts[row["paper_id"]]
+            row["next_actions"].insert(0, recovery_attempts[row["paper_id"]][-1]["next_action"])
         if row["paper_id"] in supplements:
             row["supplementary_assessments"] = [
                 {k: v for k, v in item.items() if k != "assessment"}
@@ -135,6 +144,7 @@ def build(root: Path) -> tuple[list[dict], dict, str]:
     counts = Counter(f"{r['conference_id']}-{r['analysis_edition']}" for r in queue)
     summary = {
         "schema": "research-work-queue.v1", "record_count": len(queue),
+        "recovery_attempt_paper_count": len(recovery_attempts),
         "inventory_paths": [str(p.relative_to(root)) for p in inventory_paths],
         "corpus_counts": dict(sorted(counts.items())), "coded_count": len(coded),
         "draft_paper_count": sum(bool(r["draft_coding_paths"]) for r in queue),

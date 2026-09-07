@@ -20,3 +20,15 @@ explicit fallback for the 2026 target. This check does not claim that ICCAD
 Next check: revisit the official Program menu and proceedings/publication
 channels after publication. If a 2026 inventory appears, collect it as a new
 edition and preserve this fallback rather than overwriting it.
+
+## Partial author-reported leads
+
+A later check on the same assessment date found five 2026 acceptance listings
+on [Keren Zhu's publication page](https://krz.engineer/publications/), C62–C66.
+They are preserved in [a separate discovery ledger](../data/2026-author-discovery-leads.json),
+outside the official inventory and all technical/temporal denominators.
+This narrows the availability statement: some author-reported titles are public,
+but they do not establish a complete regular-paper corpus. The FAQ was readable;
+the direct `/2026/program` retrieval returned an error, which by itself proves
+neither publication nor nonpublication. No fallback replacement is justified by
+these partial leads. Check the leads for manuscripts and official confirmation.
