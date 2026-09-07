@@ -21,7 +21,7 @@ and protocol/coding-guide hashes. All 89 packets currently have
 
 The deterministic preflight currently reports 71 pass and 18 review. It is a
 routing check only and must not be copied into the independent-verdict fields.
-Six packets still require original-source text capture before source-entailment
+Five packets still require original-source text capture before source-entailment
 review; the remaining packets still require full-paper condition checks.
 
 The deterministic assignment manifest is

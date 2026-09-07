@@ -29,3 +29,5 @@ No packet is accepted merely because it exists. The separate coverage index list
 37 synthesis anchors for scheduling and is excluded from judge inputs to avoid
 priming conclusions. The corrected preflight reports 71 pass / 18 review rather
 than manufacturing support by comparing uncaptured summaries with themselves.
+Five packets still require original-source capture; HybriMoE now has an
+identity-matched author abstract in its packet.

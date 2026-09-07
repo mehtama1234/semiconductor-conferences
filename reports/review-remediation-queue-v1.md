@@ -14,7 +14,7 @@ must not treat the preflight label as a substantive judgment.
 
 | Priority | Paper IDs | First remediation action |
 |---|---|---|
-| 1 | `dac-2025-research1019`, `isca-2026-program-009`, `isca-2026-program-044`, `isca-2026-program-045`, `iccad-2025-1`, `iccad-2025-1137` | Capture and identity-match original source text; do not review researcher summaries as substitutes. |
+| 1 | `isca-2026-program-009`, `isca-2026-program-044`, `isca-2026-program-045`, `iccad-2025-1`, `iccad-2025-1137` | Capture and identity-match original source text; do not review researcher summaries as substitutes. |
 | 2 | `isca-2026-program-058`, `iccad-2025-105`, `iccad-2025-109`, `iccad-2025-1094`, `iccad-2025-1109`, `iccad-2025-1111`, `iccad-2025-1117`, `iccad-2025-114`, `iccad-2025-1142`, `iccad-2025-1155`, `iccad-2025-1144` | Fill missing problem/method/metric/limitation fields from source passages and record section/table locators; reconcile provenance where needed. |
 
 The first group has no comparable captured original text in the preflight and

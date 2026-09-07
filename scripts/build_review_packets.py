@@ -20,7 +20,11 @@ def source_matches(record: dict, source: dict) -> bool:
         return False
     left, right = urlsplit(record.get("evidence_url", "")), urlsplit(source.get("evidence_url", ""))
     if left.scheme != "https" or right.scheme != "https" or left.netloc != right.netloc:
-        return False
+        # A captured author abstract may be the stronger original source even
+        # when the inventory record points at the conference program. Require
+        # an exact normalized title/paper ID and an explicitly typed abstract;
+        # never fuzzy-match a different paper or a secondary summary.
+        return source.get("evidence_status") == "substantive_abstract" and source.get("identity_status") == "exact_normalized_title"
     if left.netloc != "63dac.conference-program.com":
         return left == right
     a, b = parse_qs(left.query), parse_qs(right.query)
