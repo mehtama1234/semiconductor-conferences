@@ -17,6 +17,7 @@
     "isca/data/adjudicated-2026-batch-8.jsonl",
     "isca/data/adjudicated-2026-batch-9.jsonl",
     "dac/data/adjudicated-2026-batch-5.jsonl",
+    "dac/data/adjudicated-2026-batch-6.jsonl",
     "iccad/data/adjudicated-2025-batch-3.jsonl",
     "iccad/data/adjudicated-2025-batch-4.jsonl",
     "iccad/data/adjudicated-2025-batch-5.jsonl",
@@ -56,6 +57,9 @@
     {
       "label": "Analog, mixed-signal, and emerging devices",
       "subsubthemes": {
+        "analog-and-mixed-signal-synthesis": [
+          "device-aware-noise-in-pixel-co-optimization"
+        ],
         "emerging-memory-and-devices": [
           "bit-flexible-digital-cim-compression"
         ],
@@ -95,6 +99,7 @@
         ],
         "specialized-ai-accelerators": [
           "adaptive-sparsity-hyper-dimensional-graph-learning",
+          "arbitrary-order-cam-distance-acceleration",
           "multiplication-fused-llm-dot-product-acceleration",
           "sort-free-gaussian-splatting-acceleration",
           "tensor-core-3d-gaussian-splatting",
@@ -169,6 +174,7 @@
           "concurrent-pim-cpu-mobile-scheduling",
           "cxl-near-memory-ann-search",
           "disaggregated-compute-network-storage-training",
+          "multi-chip-sparse-matrix-communication-co-design",
           "near-memory-communication-lower-bounds"
         ],
         "memory-hierarchy-and-persistence": [
@@ -247,6 +253,7 @@
           "adversarial-attacks-on-moe-offloading",
           "diffusion-model-watermarking-acceleration",
           "gpu-power-thermal-transformer-side-channel-leakage",
+          "puf-protected-cim-bnn",
           "remote-power-leakage-in-post-quantum-kem"
         ]
       },
@@ -289,6 +296,7 @@
           "living-rtl-benchmark-and-equivalence-evaluation",
           "llm-assisted-hls-logic-debugging",
           "python-hardware-generation-verilator-debugging",
+          "reinforcement-learning-ssd-test-generation",
           "uncertainty-guided-adaptive-sar-adc-linearity-measurement"
         ]
       },

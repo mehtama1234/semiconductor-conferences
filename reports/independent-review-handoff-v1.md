@@ -2,10 +2,10 @@
 
 Status as of 2026-09-06: **prepared, not independently reviewed**.
 
-The package contains 90 source-grounded review packets under
+The package contains 95 source-grounded review packets under
 `data/review-packets/`. Each packet is a self-contained proposed coding record
 with source tier, provenance, taxonomy branch, evidence locators, limitations,
-and protocol/coding-guide hashes. All 90 packets currently have
+and protocol/coding-guide hashes. All 95 packets currently have
 `review_status: not_reviewed` and an empty `independent_verdicts` list.
 
 ## Handoff protocol
@@ -19,7 +19,7 @@ and protocol/coding-guide hashes. All 90 packets currently have
 4. Resolve disagreements with a human adjudicator or a documented third review.
 5. Preserve the packet hash and reviewer identity/mode with every verdict.
 
-The deterministic preflight currently reports 74 pass and 16 review. It is a
+The deterministic preflight currently reports 79 pass and 16 review. It is a
 routing check only and must not be copied into the independent-verdict fields.
 Three packets still require original-source text capture before source-entailment
 review; the remaining packets still require full-paper condition checks.

@@ -8,13 +8,13 @@ gates still open**.
 - Complete paper-level routing for 1,589 inventory records across DAC, ISCA, and
   ICCAD, including the explicit ICCAD 2025 fallback for the unavailable 2026
   paper corpus.
-- 90 technically coded records: DAC 53, ISCA 16, ICCAD 21.
+- 95 technically coded records: DAC 58, ISCA 16, ICCAD 21.
 - 31 supplementary source-bound assessments and 23 dated recovery-attempt papers.
 - An evidence-derived ten-theme taxonomy, mechanism-level synthesis, and explicit
   counterpressure/hypothesis reports.
-- 90 review packets and a reviewer handoff protocol; no independent verdicts are
+- 95 review packets and a reviewer handoff protocol; no independent verdicts are
   represented as completed.
-- A deterministic 90-packet reviewer-assignment manifest with two placeholder
+- A deterministic 95-packet reviewer-assignment manifest with two placeholder
   reviewer slots per packet and zero synthesized verdicts.
 - Temporal pilot comparisons and title-shift routing signals, all bounded by an
   explicit insufficient-evidence finding for directional claims.
