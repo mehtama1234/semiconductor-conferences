@@ -145,6 +145,17 @@
         "capture_date": "2026-09-06",
         "conditions": "The artifact description names AllGather and AllToAll, six LLM architectures, fault and power sensitivity, and mapping/routing ablations; exact platforms, baselines, seeds, numerical results, and metric units remain unextracted.",
         "extraction_scope": "Zenodo artifact description for BusyBarn and its reproduction scripts; no manuscript PDF or full abstract recovered.",
+        "fault_verification_run": {
+          "command": "python3 py/allgather_4x6_bw256_failpatterm1_16KB_xy.py",
+          "configuration": "4x6 core mesh, bandwidth 256, no failed links, one failed node at (0, 8), 16KB AllGather, XY path",
+          "interpretation": "The artifact's predefined single-node-failure case completed reproducibly. This does not validate paper-level fault-tolerance claims or independent reproduction.",
+          "observed_stdout": "time_cost: 76 with 25.333333333333332",
+          "result_pickle_sha256": "76142b81cd2ddea852d5e926cf1e04e638e3fe9cd39db5e06ab321da7b5efeff06",
+          "result_text_sha256": "f74efabef12ea619e30b79bddef89cffa9dda494761681ca862cff2871a85980",
+          "run_date": "2026-09-07",
+          "status": "bounded_fault_injection_case_reproduced",
+          "temporary_environment": "Same temporary Python 3.10.12 archive environment as verification_run"
+        },
         "headline_metric_status": "withheld_pending_primary_paper",
         "identity": {
           "authors": [
@@ -188,7 +199,7 @@
       "headline_metric_status": "withheld_pending_primary_paper",
       "independent_review_status": "pending",
       "path": "isca/data/busybarn-artifact-primary-recovery-v1.json",
-      "sha256": "d84ace636c375e3dd02bcb4c5ea9ddd0f718c95aeb90ed0bf2177f7af607dc40",
+      "sha256": "99841c511ff427d36910d0ae6bc535e276412e41d8a2b9cae4d0038cc2208cdc",
       "source_url": "https://zenodo.org/records/19430308"
     }
   ],

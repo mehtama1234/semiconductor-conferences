@@ -86,6 +86,17 @@
     "result_pickle_sha256": "20807dc14f261969b059fe26df4d5f2cddbb493c7e3c2c4f4ec01e06d2f8f99d1d2",
     "interpretation": "A second synthetic communication primitive completed from the captured archive. It is artifact reproducibility evidence, not a paper headline metric or independent validation."
   },
+  "fault_verification_run": {
+    "status": "bounded_fault_injection_case_reproduced",
+    "run_date": "2026-09-07",
+    "temporary_environment": "Same temporary Python 3.10.12 archive environment as verification_run",
+    "command": "python3 py/allgather_4x6_bw256_failpatterm1_16KB_xy.py",
+    "configuration": "4x6 core mesh, bandwidth 256, no failed links, one failed node at (0, 8), 16KB AllGather, XY path",
+    "observed_stdout": "time_cost: 76 with 25.333333333333332",
+    "result_text_sha256": "f74efabef12ea619e30b79bddef89cffa9dda494761681ca862cff2871a85980",
+    "result_pickle_sha256": "76142b81cd2ddea852d5e926cf1e04e638e3fe9cd39db5e06ab321da7b5efeff06",
+    "interpretation": "The artifact's predefined single-node-failure case completed reproducibly. This does not validate paper-level fault-tolerance claims or independent reproduction."
+  },
   "conditions": "The artifact description names AllGather and AllToAll, six LLM architectures, fault and power sensitivity, and mapping/routing ablations; exact platforms, baselines, seeds, numerical results, and metric units remain unextracted.",
   "limits": [
     "Artifact description is not equivalent to the paper's abstract or full text.",
