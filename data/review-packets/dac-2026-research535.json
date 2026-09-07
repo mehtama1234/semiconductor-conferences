@@ -55,6 +55,30 @@
   "supplementary_researcher_assessments": [
     {
       "assessment": {
+        "artifact_inspection": {
+          "commit": "308f5cc41c1d7243c39fd2ddd02253c1343eb889",
+          "counterexample": {
+            "accepted": false,
+            "candidate_failed_rate": 0.5,
+            "candidate_reward": -0.45,
+            "default_threshold": -0.1,
+            "fallback": "candidate becomes best before rejection and is copied back as state",
+            "initial_best_reward": -1.0
+          },
+          "driver_path": "evolve_single/proactive_single_point_evolve.py",
+          "finding": "best_state is updated on reward improvement before acceptance; rejected candidates revert to best_state rather than a separately validated state.",
+          "impact_limit": "This is a source-level control-flow counterexample, not evidence that published runs followed this failure path or that any published circuit was invalid.",
+          "locators": [
+            "107 default revert threshold",
+            "378-390 failure reward",
+            "705-737 best-state update and acceptance",
+            "759-764 rejection fallback"
+          ],
+          "next_verification": "Check recorded histories for this path and inspect evaluator/error handling; preserve validated state separately in any reproduction harness. Do not mutate upstream code without separate authorization.",
+          "scope": "Read-only selected driver and evaluator control flow; no repository code executed",
+          "tree": "42d291aa50636fc9536a5bb15036d381d386d4de",
+          "url": "https://github.com/Flians/MappingEvolve/tree/308f5cc41c1d7243c39fd2ddd02253c1343eb889"
+        },
         "capture_date": "2026-09-06",
         "conditions": {
           "artifact_url": "https://github.com/Flians/MappingEvolve",
@@ -91,8 +115,8 @@
           },
           "validation": "Compilation, ABC cec equivalence, then QoR"
         },
-        "extraction_scope": "Selected method and experimental sections; HTML table extraction not yet visually checked against PDF",
-        "headline_metric_status": "withheld_pending_table_and_artifact_verification",
+        "extraction_scope": "Selected method and experimental sections, PDF Table 2 average-ratio visual crosscheck, and selected pinned driver/evaluator control flow; no experimental reproduction",
+        "headline_metric_status": "withheld_pending_artifact_result_reconciliation_and_review",
         "identity": {
           "authors": [
             "Rongliang Fu",
@@ -109,17 +133,26 @@
           "Table averages show tradeoffs, not dominance in all objectives.",
           "Equivalence of evaluated netlists does not prove correctness of arbitrary outputs of the evolved algorithm.",
           "Iteration parity alone does not establish equal tokens, wall-clock cost or stochastic search opportunity.",
-          "Selected table fields need PDF inspection and artifact reconciliation before accepted quantitative synthesis."
+          "Selected average ratios are visually crosschecked against PDF Table 2; artifact/result reconciliation and independent review remain pending."
         ],
         "paper_id": "dac-2026-research535",
-        "revisit_condition": "Inspect PDF Table 2 and pinned implementation validation/acceptance logic before quantitative acceptance.",
+        "pdf_verification": {
+          "limits": "Transcription crosscheck only; averages were not recomputed from raw runs, and experimental claims are not independently verified.",
+          "locator": "Table 2, Ave. ratio row and grouped column headers",
+          "method": "Downloaded versioned PDF and visually inspected a local page rendering after web screenshot failed",
+          "page_one_based": 6,
+          "result": "All six stored MappingEvolve average ratios match the PDF, including baseline normalization and area/delay/t(s) column assignment.",
+          "sha256": "de373651cf6782c1b7653d21af98287fe7341d9a4f4792eefe606530e0ab8a9e",
+          "url": "https://arxiv.org/pdf/2604.26591v1"
+        },
+        "revisit_condition": "Inspect recorded run histories and evaluator failure handling; reconcile results to pinned implementation before quantitative acceptance.",
         "schema": "supplementary-primary-assessment.v1",
         "source_id": "dac-2026-mappingevolve-arxiv-v1",
         "source_tier": "author_preprint",
         "source_url": "https://arxiv.org/html/2604.26591v1",
         "title": "Mappingevolve: LLM-Driven Code Evolution for Technology Mapping",
         "unresolved_conditions": [
-          "Pinned implementation and source-to-results traceability",
+          "Source-to-results traceability beyond the selected pinned control-flow inspection",
           "Repeated seeds, dispersion and model-version details",
           "Benchmark selection/held-out protocol",
           "Timeout and equivalence-failure handling",
@@ -127,10 +160,10 @@
         ]
       },
       "content_role": "researcher_assessment_not_original_source",
-      "headline_metric_status": "withheld_pending_table_and_artifact_verification",
+      "headline_metric_status": "withheld_pending_artifact_result_reconciliation_and_review",
       "independent_review_status": "pending",
       "path": "dac/data/mappingevolve-primary-assessment-v1.json",
-      "sha256": "33a323f6a88f3da23185d34fdbff99d1d6f0771545f9bdd8dd1ecacf4e0e50b9",
+      "sha256": "e25d77c8ccbff6a73dfe0aa69ffe859c20ba2b700d7a43077eca31751a9384a9",
       "source_url": "https://arxiv.org/html/2604.26591v1"
     }
   ],

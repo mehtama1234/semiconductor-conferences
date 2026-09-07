@@ -4,6 +4,19 @@ The governing scope and acceptance criteria are in [GOAL.md](../GOAL.md).
 This log distinguishes finished work from queued work; a plan is not a completed
 research result.
 
+MappingEvolve PDF follow-up: visually crosschecked all six stored average ratios
+against versioned PDF page 6, Table 2, and recorded the PDF hash. Corrected stale
+pending-PDF and unpinned-review wording in the assessment. This closes a
+transcription check, not artifact/result reconciliation or independent review.
+Next: recorded run-history/failure-handling inspection, then ParetoPilot and
+broader challenges to the directional hypotheses.
+
+MappingEvolve artifact follow-up: pinned driver inspection found best-state
+promotion before acceptance and rejection fallback to that state. A modeled
+first-failure counterexample records the risk without executing external code
+or claiming invalid published results. Next: inspect run histories/failure handling
+and PDF Table 2, then complete ParetoPilot artifact assessment.
+
 MappingEvolve: exact preprint recovered and selected conditions extracted;
 composite-score versus area/delay/runtime tradeoffs now refine direction 1.
 HTML table values remain pending PDF and artifact verification. ParetoPilot

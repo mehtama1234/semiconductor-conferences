@@ -44,6 +44,11 @@ adds a concrete tradeoff: its extracted average area gains coexist with delay
 and mapper-runtime regressions. This supports evaluating constrained outcomes,
 not interpreting a composite optimization score as improvement in every metric.
 
+The pinned MappingEvolve driver also has a source-level fallback path that can
+retain a rejected first candidate. This is not a demonstrated published-result
+failure, but sharpens the hypothesis: correctness checks must govern state
+transitions and fallback selection, not merely produce a score or diagnostic.
+
 **Test next.** Compare systems on held-out designs with the same correctness
 oracle, synthesis budget, model-call cost and retry limit. Count failed attempts
 and regressions, not only successful outputs. Evidence of better accepted designs

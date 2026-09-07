@@ -6,7 +6,7 @@
   "source_url": "https://arxiv.org/html/2604.26591v1",
   "capture_date": "2026-09-06",
   "source_tier": "author_preprint",
-  "extraction_scope": "Selected method and experimental sections; HTML table extraction not yet visually checked against PDF",
+  "extraction_scope": "Selected method and experimental sections, PDF Table 2 average-ratio visual crosscheck, and selected pinned driver/evaluator control flow; no experimental reproduction",
   "identity": {
     "status": "case_normalized_title_and_four_authors_match",
     "authors": [
@@ -52,21 +52,42 @@
     },
     "artifact_url": "https://github.com/Flians/MappingEvolve"
   },
+  "pdf_verification": {
+    "url": "https://arxiv.org/pdf/2604.26591v1",
+    "sha256": "de373651cf6782c1b7653d21af98287fe7341d9a4f4792eefe606530e0ab8a9e",
+    "page_one_based": 6,
+    "locator": "Table 2, Ave. ratio row and grouped column headers",
+    "method": "Downloaded versioned PDF and visually inspected a local page rendering after web screenshot failed",
+    "result": "All six stored MappingEvolve average ratios match the PDF, including baseline normalization and area/delay/t(s) column assignment.",
+    "limits": "Transcription crosscheck only; averages were not recomputed from raw runs, and experimental claims are not independently verified."
+  },
+  "artifact_inspection": {
+    "commit": "308f5cc41c1d7243c39fd2ddd02253c1343eb889",
+    "tree": "42d291aa50636fc9536a5bb15036d381d386d4de",
+    "url": "https://github.com/Flians/MappingEvolve/tree/308f5cc41c1d7243c39fd2ddd02253c1343eb889",
+    "scope": "Read-only selected driver and evaluator control flow; no repository code executed",
+    "driver_path": "evolve_single/proactive_single_point_evolve.py",
+    "locators": ["107 default revert threshold", "378-390 failure reward", "705-737 best-state update and acceptance", "759-764 rejection fallback"],
+    "finding": "best_state is updated on reward improvement before acceptance; rejected candidates revert to best_state rather than a separately validated state.",
+    "counterexample": {"initial_best_reward": -1.0, "candidate_failed_rate": 0.5, "candidate_reward": -0.45, "default_threshold": -0.1, "accepted": false, "fallback": "candidate becomes best before rejection and is copied back as state"},
+    "impact_limit": "This is a source-level control-flow counterexample, not evidence that published runs followed this failure path or that any published circuit was invalid.",
+    "next_verification": "Check recorded histories for this path and inspect evaluator/error handling; preserve validated state separately in any reproduction harness. Do not mutate upstream code without separate authorization."
+  },
   "interpretation_limits": [
     "Composite QoR improvement is not execution speedup; area, circuit delay and mapper runtime are different metrics.",
     "Table averages show tradeoffs, not dominance in all objectives.",
     "Equivalence of evaluated netlists does not prove correctness of arbitrary outputs of the evolved algorithm.",
     "Iteration parity alone does not establish equal tokens, wall-clock cost or stochastic search opportunity.",
-    "Selected table fields need PDF inspection and artifact reconciliation before accepted quantitative synthesis."
+    "Selected average ratios are visually crosschecked against PDF Table 2; artifact/result reconciliation and independent review remain pending."
   ],
   "unresolved_conditions": [
-    "Pinned implementation and source-to-results traceability",
+    "Source-to-results traceability beyond the selected pinned control-flow inspection",
     "Repeated seeds, dispersion and model-version details",
     "Benchmark selection/held-out protocol",
     "Timeout and equivalence-failure handling",
     "Process/library transfer and post-route outcomes"
   ],
-  "headline_metric_status": "withheld_pending_table_and_artifact_verification",
+  "headline_metric_status": "withheld_pending_artifact_result_reconciliation_and_review",
   "independent_review_status": "pending",
-  "revisit_condition": "Inspect PDF Table 2 and pinned implementation validation/acceptance logic before quantitative acceptance."
+  "revisit_condition": "Inspect recorded run histories and evaluator failure handling; reconcile results to pinned implementation before quantitative acceptance."
 }
