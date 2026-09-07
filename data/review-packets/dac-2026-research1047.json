@@ -55,6 +55,10 @@
         "gigabyte-embedded-dram-kv-cache-buffering",
         "outlier-aware-lut-quantized-gemm"
       ],
+      "approximate-and-precision-aware-compute": [
+        "binary-coded-fpint-gemm",
+        "complex-valued-uncertainty-codesign"
+      ],
       "architecture-software-co-design": [
         "asymmetric-gemm-tile-buffering",
         "attention-guided-token-quantization-and-simd-kernels",
@@ -70,6 +74,9 @@
         "silicon-calibrated-hierarchical-cim-exploration",
         "training-free-self-speculative-edge-llm-decoding"
       ],
+      "neuromorphic-and-emerging-architectures": [
+        "spike-address-redundancy-elimination"
+      ],
       "quantum-architectures-and-control": [
         "cryogenic-quantum-syndrome-compression",
         "directional-transport-neutral-atom-compilation",
@@ -84,7 +91,8 @@
       "sparse-and-irregular-compute": [
         "adaptive-sparse-gcn-caching",
         "bitserial-transformer-sparsity",
-        "out-of-order-sparse-gemm"
+        "out-of-order-sparse-gemm",
+        "streaming-ternary-spgemm"
       ],
       "specialized-accelerators-and-dataflow": [
         "158-bit-ternary-gpu-llm-inference",
@@ -108,6 +116,7 @@
         "noise-robust-cim-on-device-personalization",
         "pivot-centric-heterogeneous-gnn-acceleration",
         "posttraining-bernoullized-bnn-inference",
+        "real-time-composable-dnn-acceleration",
         "reram-cam-point-cloud-knn-acceleration",
         "sparse-tensor-accelerator-compilation",
         "topology-aware-configurable-gnn-acceleration",
@@ -127,8 +136,10 @@
     },
     "subthemes": [
       "ai-accelerator-microarchitecture",
+      "approximate-and-precision-aware-compute",
       "architecture-software-co-design",
       "general-purpose-and-domain-specific-architecture",
+      "neuromorphic-and-emerging-architectures",
       "quantum-architectures-and-control",
       "sparse-and-irregular-compute",
       "specialized-accelerators-and-dataflow",

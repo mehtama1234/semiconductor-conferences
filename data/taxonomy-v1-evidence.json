@@ -55,6 +55,7 @@
     "dac/data/adjudicated-2026-batch-41.jsonl",
     "dac/data/adjudicated-2026-batch-42.jsonl",
     "dac/data/adjudicated-2026-batch-43.jsonl",
+    "dac/data/adjudicated-2026-batch-44.jsonl",
     "iccad/data/adjudicated-2025-batch-3.jsonl",
     "iccad/data/adjudicated-2025-batch-4.jsonl",
     "iccad/data/adjudicated-2025-batch-5.jsonl",
@@ -111,6 +112,7 @@
           "sequence-based-rtl-timing-prediction"
         ],
         "learned-eda-and-optimization": [
+          "learned-prior-multicorner-analysis",
           "transformer-capacitance-extraction"
         ],
         "llm-assisted-design-flows": [
@@ -183,8 +185,12 @@
           "stochastic-spin-ferroelectric-neuropde",
           "time-aware-quantum-calibration-scheduling"
         ],
+        "photonic-and-optical-compute": [
+          "robust-microring-neural-network-mapping"
+        ],
         "quantum-hardware-and-control": [
-          "adaptive-nonideality-aware-qubit-readout"
+          "adaptive-nonideality-aware-qubit-readout",
+          "surface-code-break-even-compilation"
         ],
         "rf-and-mixed-signal-design": [
           "sparse-moe-pa-predistortion"
@@ -201,6 +207,7 @@
         "emerging-device-design",
         "emerging-memory-and-devices",
         "neuromorphic-quantum-and-non-von-neumann",
+        "photonic-and-optical-compute",
         "quantum-hardware-and-control",
         "rf-and-mixed-signal-design"
       ],
@@ -214,6 +221,10 @@
           "bit-level-multiprecision-llm-compression",
           "gigabyte-embedded-dram-kv-cache-buffering",
           "outlier-aware-lut-quantized-gemm"
+        ],
+        "approximate-and-precision-aware-compute": [
+          "binary-coded-fpint-gemm",
+          "complex-valued-uncertainty-codesign"
         ],
         "architecture-software-co-design": [
           "asymmetric-gemm-tile-buffering",
@@ -230,6 +241,9 @@
           "silicon-calibrated-hierarchical-cim-exploration",
           "training-free-self-speculative-edge-llm-decoding"
         ],
+        "neuromorphic-and-emerging-architectures": [
+          "spike-address-redundancy-elimination"
+        ],
         "quantum-architectures-and-control": [
           "cryogenic-quantum-syndrome-compression",
           "directional-transport-neutral-atom-compilation",
@@ -244,7 +258,8 @@
         "sparse-and-irregular-compute": [
           "adaptive-sparse-gcn-caching",
           "bitserial-transformer-sparsity",
-          "out-of-order-sparse-gemm"
+          "out-of-order-sparse-gemm",
+          "streaming-ternary-spgemm"
         ],
         "specialized-accelerators-and-dataflow": [
           "158-bit-ternary-gpu-llm-inference",
@@ -268,6 +283,7 @@
           "noise-robust-cim-on-device-personalization",
           "pivot-centric-heterogeneous-gnn-acceleration",
           "posttraining-bernoullized-bnn-inference",
+          "real-time-composable-dnn-acceleration",
           "reram-cam-point-cloud-knn-acceleration",
           "sparse-tensor-accelerator-compilation",
           "topology-aware-configurable-gnn-acceleration",
@@ -287,8 +303,10 @@
       },
       "subthemes": [
         "ai-accelerator-microarchitecture",
+        "approximate-and-precision-aware-compute",
         "architecture-software-co-design",
         "general-purpose-and-domain-specific-architecture",
+        "neuromorphic-and-emerging-architectures",
         "quantum-architectures-and-control",
         "sparse-and-irregular-compute",
         "specialized-accelerators-and-dataflow",
@@ -350,6 +368,9 @@
     {
       "label": "Design methodology and tooling",
       "subsubthemes": {
+        "compilation-and-mapping": [
+          "reachability-aware-cgra-mapping"
+        ],
         "compiler-and-runtime-optimization": [
           "adaptive-dynamic-shape-neural-tuning",
           "segment-reuse-path-timing"
@@ -393,6 +414,7 @@
         ]
       },
       "subthemes": [
+        "compilation-and-mapping",
         "compiler-and-runtime-optimization",
         "cross-layer-design-automation",
         "graph-and-hypergraph-optimization",
@@ -425,6 +447,7 @@
           "cpu-storage-hybrid-ann-search",
           "cxl-near-memory-ann-search",
           "data-transfer-aware-ndp-edge-llm-mapping",
+          "density-aware-hnsw-quantization",
           "disaggregated-compute-network-storage-training",
           "disaggregated-memory-contention-modeling",
           "erasure-coded-prefix-kv-cache",
@@ -509,6 +532,9 @@
         "fpga-and-reconfigurable-design": [
           "dynamic-cost-fracturable-lut-mapping"
         ],
+        "manufacturing-and-lithography": [
+          "gpu-neural-3d-lithography"
+        ],
         "manufacturing-and-yield": [
           "diffusion-wafer-defect-analysis",
           "gpu-layout-pattern-matching",
@@ -560,6 +586,7 @@
       "subthemes": [
         "floorplanning-and-power-delivery",
         "fpga-and-reconfigurable-design",
+        "manufacturing-and-lithography",
         "manufacturing-and-yield",
         "manufacturing-monitoring-and-yield",
         "parasitic-extraction-and-modeling",
@@ -606,6 +633,9 @@
         ],
         "reliable-and-secure-ai-systems": [
           "dynamic-dnn-bitflip-defense"
+        ],
+        "secure-and-robust-ml": [
+          "vit-adversarial-patch-defense"
         ],
         "side-channel-and-hardware-security": [
           "adversarial-attacks-on-moe-offloading",
@@ -654,6 +684,7 @@
         "privacy-preserving-computing",
         "reliability-and-fault-tolerance",
         "reliable-and-secure-ai-systems",
+        "secure-and-robust-ml",
         "side-channel-and-hardware-security",
         "thermal-and-reliability-modeling"
       ],
@@ -686,6 +717,7 @@
           "ondemand-multitask-edge-sparsity",
           "runtime-selected-gesture-model-synthesis",
           "self-assisted-moe-speculative-decoding",
+          "submw-visual-wakeup",
           "universal-stochastic-edge-detection"
         ],
         "edge-embedded-and-mobile-systems": [
@@ -695,6 +727,9 @@
           "heterogeneous-edge-soc-dnn-deployment",
           "personalized-edge-moe-expert-placement",
           "schedulability-aware-heterogeneous-accelerator-design"
+        ],
+        "embedded-and-edge-systems": [
+          "cpu-fpga-stream-frequency-measurement"
         ],
         "llm-systems-and-runtime": [
           "expert-aware-moe-checkpointing",
@@ -731,6 +766,7 @@
         "distributed-and-disaggregated-systems",
         "edge-ai-and-deployment",
         "edge-embedded-and-mobile-systems",
+        "embedded-and-edge-systems",
         "llm-systems-and-runtime",
         "multimedia-and-edge-systems",
         "real-time-and-networked-systems",
@@ -770,6 +806,9 @@
           "semantics-preserving-security-benchmark-obfuscation",
           "undocumented-instruction-security-verification"
         ],
+        "processor-and-rtl-verification": [
+          "riscv-differential-instruction-fuzzing"
+        ],
         "simulation-emulation-and-testing": [
           "automated-iot-behavior-oracles",
           "community-aware-gnn-hardware-trojan-detection",
@@ -797,6 +836,7 @@
         "formal-analysis-and-verification",
         "formal-and-functional-verification",
         "hardware-security-validation",
+        "processor-and-rtl-verification",
         "simulation-emulation-and-testing"
       ],
       "theme_id": "verification-and-validation"

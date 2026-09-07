@@ -22,11 +22,11 @@ The evidence is intentionally asymmetric:
   coded fallback papers. The inventory includes 43 invited papers and ten student
   presentations, not 319 regular papers; see the [scope audit](../iccad/reports/program-scope-audit-v1.md).
 
-The 416-record technical coding sample is selected for recoverable evidence and
+The 431-record technical coding sample is selected for recoverable evidence and
 technical diversity. It is not a prevalence estimate, market forecast, conference
 ranking, or proof that a direction is rising.
 For a mechanism-level follow-up, see [scheduling versus physical surrogates](../iccad/reports/scheduling-versus-surrogates-v1.md): two analysis accelerators with different correctness and generalization requirements.
-All 416 remain independently unaccepted. The original synthesis-anchor set is
+All 431 remain independently unaccepted. The original synthesis-anchor set is
 distinct from the expanded coded sample and is not enlarged by metadata recovery.
 
 ## Executive interpretation
@@ -218,7 +218,7 @@ author-linked package exposes hierarchical mapping and BALD fault-tolerant routi
 one normalized 16KB AllGather case completed at 80 artifact simulation time units
 under a 4x6, 256-bandwidth configuration. That result is a reproducibility check,
 not a paper metric: no complete figure, matched baseline, end-to-end workload, or
-independent reproduction was obtained. It remains outside the 416-record selected
+independent reproduction was obtained. It remains outside the 431-record selected
 coding sample and cannot support a comparative performance claim.
 
 CANNON's [recovery assessment](../dac/reports/cannon-primary-recovery-v1.md)
@@ -595,3 +595,12 @@ protection. The recurring design question is no longer just how to compute a
 kernel, but how to schedule, cache, protect, and verify it under changing
 system conditions. This remains a selected-paper signal, not a venue-wide trend
 claim.
+
+This batch extends the evidence into streaming ternary sparse GEMM, RISC-V
+differential fuzzing, reconfigurable DNN fabrics, CPU-FPGA measurement, optical
+neural mapping, uncertainty estimation, adversarial ViT defense, 3D lithography,
+ANN indexing, neuromorphic address reduction, learned multi-corner analysis,
+sub-mW visual wakeup, mixed-precision GEMM, quantum break-even compilation, and
+reachability-aware CGRA mapping. The recurring mechanism is adaptation to changing
+structure—sparsity, non-idealities, topology, or operating constraints—inside the
+hardware/software loop. These remain selected-paper capability signals.

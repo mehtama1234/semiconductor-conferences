@@ -54,6 +54,9 @@
   "taxonomy_branch": {
     "label": "Design methodology and tooling",
     "subsubthemes": {
+      "compilation-and-mapping": [
+        "reachability-aware-cgra-mapping"
+      ],
       "compiler-and-runtime-optimization": [
         "adaptive-dynamic-shape-neural-tuning",
         "segment-reuse-path-timing"
@@ -97,6 +100,7 @@
       ]
     },
     "subthemes": [
+      "compilation-and-mapping",
       "compiler-and-runtime-optimization",
       "cross-layer-design-automation",
       "graph-and-hypergraph-optimization",
