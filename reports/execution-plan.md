@@ -81,6 +81,11 @@ dataflow, GPU WCET, graph vector search, timing characterization, reconfigurable
 DNN acceleration, 3D-NAND LLM inference, multiphysics thermal stress, robust
 driving perception, and CPU-FPGA measurement; P2 routing now covers 348 of 541
 lower-priority records.
+The thirty-sixth P2 tranche adds ten DAC routes across graph-RAG PIM,
+neutral-atom compilation, complex-valued uncertainty, RL-aligned RTL generation,
+ViT security, ferroelectric-NAND databases, TSN shaping, erasure-coded KV caches,
+SAT sweeping, and neuromorphic SNNs; P2 routing now covers 358 of 541
+lower-priority records.
 
 The sixteenth P2 tranche adds ten ISCA routes across RISC-V GPU/ASIP co-design,
 DRAM reliability and RowHammer defenses, chiplet PHY/package simulation, and

@@ -192,6 +192,11 @@ The thirty-fifth P2 tranche is recorded in
 maze routing, SRAM CIM dataflow, GPU WCET, graph vector search, timing
 characterization, reconfigurable DNN acceleration, 3D-NAND LLM inference,
 multiphysics thermal stress, robust driving perception, and CPU-FPGA measurement.
+The thirty-sixth P2 tranche is recorded in
+`reports/p2-recovery-batch-36-2026-09-07.md`, continuing the DAC frontier across
+graph-RAG PIM, neutral-atom compilation, complex-valued uncertainty, RL-aligned
+RTL generation, ViT security, ferroelectric-NAND databases, TSN shaping,
+erasure-coded KV caches, SAT sweeping, and neuromorphic SNNs.
 
 The categories overlap by design: P0 is a remediation priority, while P1/P2
 describe evidence depth. The former P0 records are retained in
