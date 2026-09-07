@@ -419,3 +419,9 @@ The seventy-second P2 tranche is recorded in
 QLC write invalidation, 3D orientation-aware placement, sparse LU on HBM FPGAs,
 reconfigurable nonlinear inference, analog function families, video redundancy,
 force-based placement, biochip scheduling, and intermittent HDC IoT.
+
+The seventy-third P2 tranche is recorded in
+`reports/p2-recovery-batch-73-2026-09-07.md`, covering quantum synthesis, NPU
+reliability, EM/IR modeling, CXL tiered memory, MoE security, 3D-IC thermal
+simulation, digital CIM, LLM-guided FPGA HLS, near-memory communication, and
+fused dot-product acceleration.
