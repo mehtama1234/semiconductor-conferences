@@ -63,7 +63,7 @@ and ICCAD 21. ISCA has 171 DOI matches. Historical inventories contain 135 ISCA
 descriptions. All coded records await independent review; deterministic preflight
 is 582 pass / 0 review and is not an acceptance judgment. The paper-level queue
 covers all 1,589 inventory records, with 31 supplementary assessments and 25
-dated recovery attempts. Validation and 141 tests pass; these establish
+dated recovery attempts. Validation and 142 tests pass; these establish
 consistency, not correctness of the scientific interpretations.
 The initial 72-record/276-ICCAD snapshot is retained in git history, not treated as
 the current state.

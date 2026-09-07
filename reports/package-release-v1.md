@@ -25,7 +25,7 @@ gates still open**.
   reviewer slots per packet and zero synthesized verdicts.
 - Temporal pilot comparisons and title-shift routing signals, all bounded by an
   explicit insufficient-evidence finding for directional claims.
-- A 203-artifact reproducibility manifest and a passing validation/test suite.
+- A 204-artifact reproducibility manifest and a passing validation/test suite.
 - A remediation record showing all 582 packets pass deterministic source/provenance preflight; independent review remains pending.
 - A five-record P1 condition-extraction batch with source locators, evaluation
   conditions, and unresolved boundaries for high-risk quantitative claims.

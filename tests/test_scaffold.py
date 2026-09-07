@@ -11,6 +11,23 @@ def test_scaffold_contract_passes() -> None:
     assert validate(ROOT)["status"] == "passed"
 
 
+def test_completion_audit_counters_match_current_artifacts() -> None:
+    audit = json.loads((ROOT / "reports/completion-audit-v1.json").read_text())
+    manifest = json.loads((ROOT / "reports/reproducibility-manifest-v1.json").read_text())
+    supplements = json.loads((ROOT / "data/supplementary-assessment-index-v1.json").read_text())
+    coverage = audit["subgoals"][1]["current_counts"]
+    evidence = audit["subgoals"][2]["current_counts"]
+    release = audit["subgoals"][6]["current_counts"]
+    assert coverage["inventory_records"] == coverage["queue_records"] == 1589
+    assert coverage["dac_route_records"] == 543
+    assert coverage["dac_description_denominator_records"] == 541
+    assert coverage["isca_indexed_excerpt_records"] == 6
+    assert coverage["isca_secondary_only_outside_sample"] == 3
+    assert evidence["supplementary_assessment_files"] == supplements["assessment_count"] == 32
+    assert evidence["supplementary_assessment_papers"] == supplements["paper_count"] == 31
+    assert release["manifest_artifacts"] == len(manifest["artifact_hashes"]) == 204
+
+
 def test_dac_seed_records_have_provenance() -> None:
     rows = [json.loads(line) for line in (ROOT / "dac/data/papers.jsonl").read_text().splitlines() if line.strip()]
     assert len(rows) == 3
