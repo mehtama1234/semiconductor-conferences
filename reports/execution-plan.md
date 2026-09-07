@@ -4,6 +4,15 @@ The governing scope and acceptance criteria are in [GOAL.md](../GOAL.md).
 This log distinguishes finished work from queued work; a plan is not a completed
 research result.
 
+Five 2026 author leads now have explicit manuscript-search outcomes and revisit
+triggers; no exact manuscript recovered, and no absence claim generalized.
+Recovered Orthrus (ICCAD 2025-437) versioned primary full text with nine-author
+identity and selected evaluation conditions. Added queue-linked assessment:
+ASAP7/MAC-array EDA results, constrained baseline, separate ablations and
+hypervolume accounting. Supplement coverage is 19; technical coding integration
+is the next step, not silently counted as done. Next: add Orthrus coding and
+original-source review packet, reconcile Figures 9-10 and full search budgets.
+
 ICCAD recovery batch: Seeing Through Designs now has ten-author correspondence
 on a coauthor's publication page, but no technical text recovered. Recorded its
 publisher/search outcomes and Fellowship of the Leak's institutional DOI route

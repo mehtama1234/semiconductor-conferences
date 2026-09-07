@@ -1,0 +1,29 @@
+{
+  "schema": "primary-source-recovery-assessment.v1",
+  "paper_id": "iccad-2025-437",
+  "title": "Orthrus: Dual -Loop Automated Framework for System -Technology Co - Optimization",
+  "source_id": "iccad-2025-orthrus-arxiv",
+  "source_url": "https://arxiv.org/html/2509.13029v1",
+  "capture_date": "2026-09-06",
+  "source_tier": "author_preprint_selected_full_text",
+  "extraction_scope": "Sections II-B, III overview, IV-A/B and HTML Table III; figures not visually reconciled.",
+  "independent_review_status": "pending",
+  "headline_metric_status": "withheld_pending_figure_and_budget_review",
+  "identity": {
+    "status": "normalized_title_and_all_nine_program_authors_match",
+    "authors": ["Yi Ren", "Baokang Peng", "Chenhao Xue", "Kairong Guo", "Yukun Wang", "Guoyao Cheng", "Yibo Lin", "Lining Zhang", "Guangyu Sun"]
+  },
+  "mechanism": "System-loop Bayesian exploration directs technology-loop cell fusion and recharacterization through cell criticality and Pareto-normal guidance; neural-assisted differential evolution selects technology parameters.",
+  "conditions": {
+    "scope": "8x8 systolic MAC array; customized ASAP7; EDA evaluation, not measured fabricated silicon",
+    "tools": ["Genus 19.12-s121_1", "Innovus 21.14-s109_1", "Liberate 19.2.1.215", "Spectre 18.1.0", "Calibre 2019.3_15.11", "OpenBox 0.8.4"],
+    "baseline": "System-only architecture/synthesis/physical optimization with default technology and basic cells",
+    "ablations": ["Without fusion", "Without recharacterization"],
+    "table_III_HV_times_1e_minus2": {"baseline": 8.055, "without_fusion": 8.582, "without_recharacterization": 8.679, "orthrus": 10.727},
+    "reference_point": [1, 1, 1],
+    "iso_metric_tolerance": 0.001,
+    "technology_search": {"population": 100, "generations": 20, "top_candidates": 5, "maximum_iterations": 2}
+  },
+  "limits": ["Hypervolume is not application speedup", "Iso-power and iso-delay comparisons are separate operating points", "Equal total search cost, normalization details and figure correspondence require further checking", "No deployment or cross-workload generalization established"],
+  "next_action": "Integrate primary technical coding and original-source review packet; visually reconcile Figures 9-10 and assess total evaluation budgets before accepting headline gains."
+}

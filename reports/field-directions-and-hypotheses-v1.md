@@ -172,6 +172,13 @@ sampling. Learned proposal quality and online adaptive search are distinct
 mechanisms; neither a reasoning label nor synthesis estimates establish verified
 Pareto improvements under equal budgets.
 
+The [Orthrus primary follow-up](../iccad/data/orthrus-primary-recovery-v1.json)
+provides another case for examining how optimization levels communicate. Its
+assessment remains outside the coded anchor set pending integration. The key
+comparison to investigate is the value of cross-layer guidance under a matched
+total evaluation budget—not merely whether expanding the allowed design space
+can produce a better frontier.
+
 **Test next.** Compare final independently evaluated feasible solutions at equal
 wall-clock and simulator budgets, including calibration data costs. Report
 misranked candidates and out-of-distribution errors. Small average prediction
