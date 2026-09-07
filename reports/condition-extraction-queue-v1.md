@@ -374,6 +374,11 @@ The sixty-seventh P2 tranche is recorded in
 streaming VLM retrieval, stage-aware MoE management, sparse video attention,
 Apple TLB side channels, processor upper-bound modeling, design-evolution graphs,
 Versal GEMM, zoned-storage reordering, and near-memory RAG.
+The sixty-eighth P2 tranche is recorded in
+`reports/p2-recovery-batch-68-2026-09-07.md`, covering thermal prediction,
+analog MCTS placement, safe neural control, GKP decoding, PCB rail/signal
+co-design, power integrity operators, serverless MoE scaling, transistor sizing,
+robust CiM retrieval, and SAT area optimization.
 
 The categories overlap by design: P0 is a remediation priority, while P1/P2
 describe evidence depth. The former P0 records are retained in
