@@ -28,7 +28,9 @@ direct document and REST routes return a WAF/empty response, so no metrics are
 promoted. The exact
 analog-agent publication appears on Peng Li's author page, but its linked publisher
 route did not return technical text. Logged all three outcomes with specific next
-actions; no secondary manuscript is substituted. Supplements reach 29; coded
+actions; Hyle's official table-of-contents index also exposes an abstract summary,
+but its DBLP unpaywalled route did not resolve to a manuscript and secondary
+summaries remain discovery-only. No secondary manuscript is substituted. Supplements reach 29; coded
 sample is now 84. Next: retrieve original MIRAGE text and the exact analog-agent
 manuscript, then continue with the next ordered queue record.
 
