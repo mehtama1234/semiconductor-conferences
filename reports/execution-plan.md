@@ -12,8 +12,10 @@ for ISCA paper 060. Its description supports only the mechanism and reproduction
 scope (hierarchical simulated-annealing mapping, BALD fault-tolerant routing, and
 twelve figure-reproduction scripts); paper metrics, full conditions, and
 independent execution remain withheld. The 2.4 MB archive was downloaded,
-SHA-256 recorded, and its 340-file listing verified; the documented quick test
-was not run because it is estimated at under three hours on a 13900K. Supplementary assessments now reach 31,
+SHA-256 recorded, and its 340-file listing verified. A raw execution failed on
+CRLF scripts, missing `python`, and non-executable wrappers; a temporary
+normalized copy generated 24 AllGather result files before interruption. No
+complete figure or independent result was obtained. Supplementary assessments now reach 31,
 while the paper remains secondary-pending and uncoded. Next: recover the
 manuscript or run the permitted artifact with pinned environment metadata.
 

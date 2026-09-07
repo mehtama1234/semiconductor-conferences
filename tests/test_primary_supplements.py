@@ -109,9 +109,11 @@ def test_supplements_reach_queue_and_both_packet_types_without_promotion():
     busybarn = supplements.pop("isca-2026-program-060")[0]["assessment"]
     assert busybarn["source_tier"] == "author_artifact_description"
     assert busybarn["headline_metric_status"] == "withheld_pending_primary_paper"
-    assert busybarn["archive_capture"]["execution_status"] == "not_run"
+    assert busybarn["archive_capture"]["execution_status"] == "partial_environment_validation_only"
     assert len(busybarn["archive_capture"]["sha256"]) == 64
     assert busybarn["archive_capture"]["file_count"] == 340
+    assert busybarn["archive_capture"]["execution_attempts"][0]["scientific_output"] is False
+    assert busybarn["archive_capture"]["execution_attempts"][1]["observed_progress"].startswith("configuration generation")
     assert set(supplements) == {"dac-2026-research031", "dac-2026-research043", "dac-2026-research046", "dac-2026-research1000", "dac-2026-research1028", "dac-2026-research1054", "dac-2026-research1065", "dac-2026-research108", "dac-2026-research1101", "dac-2026-research1110", "dac-2026-research1113", "dac-2026-research1182", "dac-2026-research1186", "dac-2026-research535", "dac-2026-research865", "dac-2026-research2760", "dac-2025-research1019"}
     rows, summary, _ = build_queue(ROOT)
     assert summary["supplementary_assessment_paper_count"] == 31

@@ -23,9 +23,25 @@
     "bytes": 2486678,
     "file_count": 340,
     "capture_status": "downloaded_and_archive_listing_verified",
-    "execution_status": "not_run",
+    "execution_status": "partial_environment_validation_only",
     "reproduction_entry_points": ["run_quick_test.sh", "run_all.sh"],
-    "documented_quick_test": "Figures 8a, 10c, 11, and GPT-only Figure 12; README estimates less than three hours on an Intel 13900K for the quick validation."
+    "documented_quick_test": "Figures 8a, 10c, 11, and GPT-only Figure 12; README estimates less than three hours on an Intel 13900K for the quick validation.",
+    "execution_attempts": [
+      {
+        "mode": "raw_archive",
+        "status": "failed_before_experiment",
+        "observed_failures": ["CRLF shell scripts produced literal carriage returns in paths and make targets", "wrapper scripts were not executable", "artifact expects a `python` executable not present in the environment"],
+        "scientific_output": false
+      },
+      {
+        "mode": "temporary_normalized_copy",
+        "status": "interrupted_after_partial_generation",
+        "normalizations": ["removed CRLF endings from shell and Makefile files", "added temporary python-to-python3 alias", "enabled shell wrapper execution"],
+        "observed_progress": "configuration generation succeeded and 24 AllGather result files were produced before interruption",
+        "scientific_output": false,
+        "limit": "No complete figure, end-to-end result, or independent reproduction was obtained."
+      }
+    ]
   },
   "conditions": "The artifact description names AllGather and AllToAll, six LLM architectures, fault and power sensitivity, and mapping/routing ablations; exact platforms, baselines, seeds, numerical results, and metric units remain unextracted.",
   "limits": [
