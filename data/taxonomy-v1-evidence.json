@@ -48,6 +48,7 @@
     "dac/data/adjudicated-2026-batch-34.jsonl",
     "dac/data/adjudicated-2026-batch-35.jsonl",
     "dac/data/adjudicated-2026-batch-36.jsonl",
+    "dac/data/adjudicated-2026-batch-37.jsonl",
     "iccad/data/adjudicated-2025-batch-3.jsonl",
     "iccad/data/adjudicated-2025-batch-4.jsonl",
     "iccad/data/adjudicated-2025-batch-5.jsonl",
@@ -125,6 +126,7 @@
           "domain-aware-analog-hypergraph-representation"
         ],
         "analog-compute-in-memory": [
+          "3d-vrram-lut-cim-4bit-vit",
           "analog-cim-uav-trajectory-acceleration"
         ],
         "analog-layout-and-circuit-automation": [
@@ -198,6 +200,7 @@
           "sparse-quantum-readout-mitigation"
         ],
         "specialized-accelerators-and-dataflow": [
+          "158-bit-ternary-gpu-llm-inference",
           "adaptive-sparse-tensor-gpu-codegen",
           "computation-data-decoupled-npu-dataflow",
           "correlation-aware-gkp-decoder-acceleration",
@@ -208,6 +211,7 @@
           "heterogeneous-zk-vm-trace-acceleration",
           "lpn-post-quantum-crypto-acceleration",
           "modular-riscv-pqc-extension",
+          "neurosymbolic-memory-bypass-architecture",
           "noise-robust-cim-on-device-personalization",
           "pivot-centric-heterogeneous-gnn-acceleration",
           "reram-cam-point-cloud-knn-acceleration",
@@ -291,6 +295,9 @@
         "cross-layer-design-automation": [
           "logic-to-layout-standard-cell-exploration"
         ],
+        "graph-and-hypergraph-optimization": [
+          "community-guided-hypergraph-partitioning"
+        ],
         "high-level-synthesis-and-compilers": [
           "mlir-two-level-dataflow-accelerator-generation"
         ],
@@ -317,6 +324,7 @@
       "subthemes": [
         "compiler-and-runtime-optimization",
         "cross-layer-design-automation",
+        "graph-and-hypergraph-optimization",
         "high-level-synthesis-and-compilers",
         "logic-synthesis-and-optimization",
         "optimization-and-search-methods",
@@ -338,6 +346,7 @@
           "compiler-driven-pim-data-movement",
           "concurrent-dram-pim-host-access",
           "concurrent-pim-cpu-mobile-scheduling",
+          "cpu-gpu-coalesced-moe-execution",
           "cpu-storage-hybrid-ann-search",
           "cxl-near-memory-ann-search",
           "data-transfer-aware-ndp-edge-llm-mapping",
@@ -346,10 +355,13 @@
           "erasure-coded-prefix-kv-cache",
           "fhe-pim-database-acceleration",
           "heterogeneous-pim-graph-rag-retrieval",
+          "hybrid-pim-llm-architecture-dataflow",
           "io-efficient-prefix-kv-retrieval",
           "layer-ahead-kv-cache-offloading",
           "multi-chip-sparse-matrix-communication-co-design",
+          "multilevel-diffusion-cache-acceleration",
           "near-memory-communication-lower-bounds",
+          "neighbor-aware-gpu-shared-memory",
           "pim-request-and-execution-overhead-elimination",
           "predictive-expert-cache-token-scheduling",
           "proactive-multigpu-translation-dissemination",
@@ -357,6 +369,7 @@
           "stratified-moe-expert-scheduling"
         ],
         "memory-compute-and-reliability": [
+          "adc-in-memory-activation-quantization",
           "dual-rail-reliable-dram-compute",
           "sram-compatible-block-fp-compute-near-memory",
           "systematic-sram-cim-dataflow-exploration"
@@ -382,6 +395,7 @@
           "dynamic-parity-ssd-lifetime-extension",
           "media-aware-archival-storage-scheduling",
           "noise-robust-fenand-hdc-sql",
+          "replication-offload-disaggregated-memory",
           "workload-aware-numa-storage-coordination",
           "zns-swap-heterogeneous-gnn"
         ]
@@ -497,6 +511,7 @@
           "encrypted-routing-secure-inference",
           "gpu-power-thermal-transformer-side-channel-leakage",
           "hardware-interrupt-security-risks",
+          "isomorphic-graph-hardware-ip-protection",
           "masked-mldsa-root-of-trust-optimization",
           "ml-dsa-edge-hw-sw-co-design",
           "pmu-event-timing-side-channels",
@@ -543,6 +558,8 @@
           "slo-aware-llm-dvfs"
         ],
         "edge-ai-and-deployment": [
+          "forward-only-edge-llm-finetuning",
+          "mt3000-llm-inference-optimization",
           "ondemand-multitask-edge-sparsity",
           "self-assisted-moe-speculative-decoding"
         ],
