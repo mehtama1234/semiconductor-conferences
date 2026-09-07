@@ -91,6 +91,11 @@ as official-description cases spanning CXL, near-memory processing, and KV-cache
 management. ICCAD’s Tasa connects bandwidth and memory placement to 3D-stacked
 thermal constraints in the 2025 fallback.
 
+RAF's [communication-bound assessment](../dac/reports/raf-primary-recovery-v1.md)
+preserves baseline pairing but leaves proof assumptions and evaluation conditions
+unresolved. Remote-access elimination is not zero local traffic, and claimed
+communication optimality does not establish universal latency/energy optimality.
+
 CANNON's [recovery assessment](../dac/reports/cannon-primary-recovery-v1.md)
 records differing official and institutional performance headlines. Numerical
 synthesis is withheld pending reconciliation with recall-matched baselines and

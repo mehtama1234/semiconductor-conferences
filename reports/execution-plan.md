@@ -4,6 +4,13 @@ The governing scope and acceptance criteria are in [GOAL.md](../GOAL.md).
 This log distinguishes finished work from queued work; a plan is not a completed
 research result.
 
+RAF (research1113): official description rechecked, with explicit baseline-to-metric
+pairing and separation of remote/local, intra/inter-operator traffic. Proof
+assumptions and evaluation modality remain unknown; no exact full paper recovered.
+Review supplement preserves the claimed bounds without treating them as verified
+universal optimality. Next: research1182; revisit RAF on a manuscript with proofs
+and matched experimental configurations.
+
 HLSArchOpt follow-up: stored text/XML synthesis estimates crosschecked and hashed.
 Latency, launch interval, clock and resource estimates now travel with the review
 packet, separated from post-route/board measurements and fresh reproduction.

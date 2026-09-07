@@ -41,13 +41,108 @@
   },
   "required_review_actions": [
     "Add source section/table locators for technical fields and numerical conditions",
-    "Verify numerical conditions, neighboring taxonomy category, and limitations"
+    "Verify numerical conditions, neighboring taxonomy category, and limitations",
+    "Inspect supplementary assessments and their original sources; resolve discrepancies without using researcher interpretation to verify itself"
   ],
   "researcher_summary_not_original_source": "RAF dataflow uses tensor rotation to eliminate intra-operator remote access in distributed NMP vaults, then applies partitioning and fusion to reduce inter-operator access; it reports 50.4%, 39.0%, and 37.8% energy reductions and 3.98X, 1.72X, and 1.57X speedups over IANUS, H2LLM, and OptiPIM.",
   "review_status": "not_reviewed",
   "schema": "paper-review-packet.v1",
   "source_text_status": "captured_official_description",
   "source_tier": "official_description",
+  "supplementary_researcher_assessments": [
+    {
+      "assessment": {
+        "attempts": [
+          {
+            "method": "web_search",
+            "outcome": "Official description recovered; no exact full paper or artifact. Unrelated acronym and coauthor papers not admitted.",
+            "queries": [
+              "\"Achieving Intra- and Inter-Operator Communication Lower Bounds\"",
+              "\"RAF\" \"Naifeng Jing\" near memory",
+              "\"Remote-Access-Free\" \"tensor\"",
+              "\"Achieving Intra-\" \"arxiv\"",
+              "\"Naifeng Jing\" publications 2026 RAF"
+            ]
+          }
+        ],
+        "capture_date": "2026-09-06",
+        "description_conditions": {
+          "baseline_mapping": [
+            {
+              "baseline": "IANUS",
+              "energy_reduction_percent": 50.4,
+              "speedup_factor": 3.98
+            },
+            {
+              "baseline": "H^2LLM",
+              "energy_reduction_percent": 39,
+              "speedup_factor": 1.72
+            },
+            {
+              "baseline": "OptiPIM",
+              "energy_reduction_percent": 37.8,
+              "speedup_factor": 1.57
+            }
+          ],
+          "evaluation_modality": "unspecified",
+          "locator": "Description paragraphs 1–3",
+          "mapping_basis": "Explicit respectively ordering in the official description; workload aggregation unspecified",
+          "mechanism_stages": [
+            "Tensor rotation abstracts distributed vault/channel organization and is claimed to eliminate intra-operator remote access",
+            "Analytical optimization minimizes intra-operator local access",
+            "Data partitioning removes inter-operator remote access",
+            "Operator fusion minimizes inter-operator local access"
+          ]
+        },
+        "extraction_scope": "Official description identity, mechanism and baseline mapping; no full-paper proof or artifact recovered",
+        "headline_metric_status": "withheld_pending_fullpaper_conditions",
+        "identity": {
+          "authors": [
+            "Lei Xu",
+            "Chen Yin",
+            "Zelong Yuan",
+            "Weiguang Sheng",
+            "Jianfei Jiang",
+            "Qin Wang",
+            "Naifeng Jing"
+          ],
+          "status": "exact_title_and_seven_program_authors"
+        },
+        "independent_review_status": "pending",
+        "interpretation_limits": [
+          "Remote-access-free is not zero local traffic or zero host traffic.",
+          "Communication optimality under a model is not universal latency or energy optimality.",
+          "The official description states bounds are reached but provides no proof to verify that claim.",
+          "Preserve baseline pairing but do not infer per-model performance or combine energy and speedup into an undocumented metric.",
+          "Bounded source non-recovery is not proof of inaccessibility."
+        ],
+        "paper_id": "dac-2026-research1113",
+        "recovery_status": "full_paper_not_recovered_in_checked_sources",
+        "revisit_condition": "Exact author/publisher manuscript or artifact exposing the communication model, proofs and matched baseline configurations.",
+        "schema": "primary-source-recovery-assessment.v1",
+        "source_id": "dac-2026-raf-description-recheck",
+        "source_tier": "official_description",
+        "source_url": "https://63dac.conference-program.com/presentation/?id=RESEARCH1113&sess=sess116",
+        "title": "Achieving Intra- and Inter-Operator Communication Lower Bounds in Near-Memory Processing",
+        "unresolved_conditions": [
+          "Theorem statements, legal operation set and proof assumptions",
+          "Vault/channel count, topology and local capacity constraints",
+          "Tensor shapes, partition divisibility, replication and preprocessing costs",
+          "Fusion legality, intermediate storage and boundary traffic accounting",
+          "Whether lower bounds minimize bytes, transactions or another cost",
+          "LLM identities, precision, batch size, sequence length and workload aggregation",
+          "Baseline capacities, bandwidths, compute budgets and tuning",
+          "Simulator or hardware identity and energy-accounting boundary"
+        ]
+      },
+      "content_role": "researcher_assessment_not_original_source",
+      "headline_metric_status": "withheld_pending_fullpaper_conditions",
+      "independent_review_status": "pending",
+      "path": "dac/data/raf-primary-recovery-v1.json",
+      "sha256": "c64f5da911847362439aab4dacafab5980447872b371baa663f0cbd1a3e9b919",
+      "source_url": "https://63dac.conference-program.com/presentation/?id=RESEARCH1113&sess=sess116"
+    }
+  ],
   "taxonomy_branch": {
     "label": "Memory, interconnect, and storage",
     "subsubthemes": {
