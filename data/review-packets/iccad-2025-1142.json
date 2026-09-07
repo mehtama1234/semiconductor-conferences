@@ -7,7 +7,7 @@
         "problem",
         "method_or_artifact"
       ],
-      "location": "Sections V–VI"
+      "location": "Abstract; Sections V–VI"
     },
     {
       "fields": [
@@ -28,7 +28,7 @@
   "paper_id": "iccad-2025-1142",
   "protocol_path": "reports/adversarial-judge-protocol-v1.md",
   "protocol_sha256": "22767cec0aed90a6e87a03d16f60243f2bcb6897b51e82851bd7422e3d69ece7",
-  "record_sha256": "a652ffab1a92282d9258c1fb7e53a85af41149051129888f098e6b2274911f3e",
+  "record_sha256": "24f8422a797ee5cb00b4e69cefec006a8b409531eb0fc9fec8160d3480a41abb",
   "record_under_review": {
     "analysis_edition": 2025,
     "baselines": [
@@ -44,7 +44,7 @@
           "problem",
           "method_or_artifact"
         ],
-        "location": "Sections V–VI"
+        "location": "Abstract; Sections V–VI"
       },
       {
         "fields": [
@@ -57,7 +57,7 @@
       }
     ],
     "evidence_source_id": "iccad-2025-capacitance-ml-gatech",
-    "evidence_span": "Sections V–VI describe geometry features, field-solver labels, layer-specific regressors and thickness exploration; Table IV records preparation/training costs.",
+    "evidence_span": "The abstract reports that commercial parasitic extraction takes 25 minutes for a layer-thickness change, while the machine-learning method extracts standard-cell parasitic capacitance within seconds and predicts coupling capacitance for unseen layer thickness within milliseconds; Sections V–VI describe geometry features, field-solver labels, layer-specific regressors and thickness exploration.",
     "evidence_url": "https://gtcad.gatech.edu/www/papers/Tsai-ICCAD25.pdf",
     "hardware_or_process_assumptions": "Dual Intel 6454S workstation with 89 training threads; predictive PDK, not measured silicon; inference timings exclude database construction and tuning.",
     "independent_review_status": "pending",
@@ -77,7 +77,7 @@
     "Verify numerical conditions, neighboring taxonomy category, and limitations",
     "Inspect supplementary assessments and their original sources; resolve discrepancies without using researcher interpretation to verify itself"
   ],
-  "researcher_summary_not_original_source": "Sections V–VI describe geometry features, field-solver labels, layer-specific regressors and thickness exploration; Table IV records preparation/training costs.",
+  "researcher_summary_not_original_source": "The abstract reports that commercial parasitic extraction takes 25 minutes for a layer-thickness change, while the machine-learning method extracts standard-cell parasitic capacitance within seconds and predicts coupling capacitance for unseen layer thickness within milliseconds; Sections V–VI describe geometry features, field-solver labels, layer-specific regressors and thickness exploration.",
   "review_status": "not_reviewed",
   "schema": "paper-review-packet.v1",
   "source_text_status": "captured_original_abstract",
