@@ -17,7 +17,8 @@ def test_hlps_coding_and_packet_preserve_review_boundary():
     assert inventory[row["paper_id"]]["title"] == row["title"]
     sources = {r["source_id"]: r for r in map(json.loads, (ROOT / "iccad/data/sources.jsonl").read_text().splitlines())}
     assert sources[row["evidence_source_id"]]["url"] == row["evidence_url"]
-    assert row["metrics"] == [] and row["independent_review_status"] == "pending"
+    assert row["metrics"] and "headline ratio remains withheld" in row["metrics"][0]
+    assert row["independent_review_status"] == "pending"
     assert "unequal-population" in row["limits"] and "cumulative" in row["limits"]
     packets, _ = build(ROOT)
     packet = next(p for p in packets if p["paper_id"] == row["paper_id"])

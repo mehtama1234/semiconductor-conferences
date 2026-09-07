@@ -713,12 +713,12 @@
       "taxonomy_valid": true
     },
     {
-      "evidence_overlap": 0.091,
-      "fields_present": false,
+      "evidence_overlap": 0.559,
+      "fields_present": true,
       "paper_id": "iccad-2025-109",
-      "provenance_url_valid": false,
+      "provenance_url_valid": true,
       "source_comparison_status": "captured_original_text_compared",
-      "status": "review",
+      "status": "pass",
       "taxonomy_valid": true
     },
     {
@@ -814,7 +814,7 @@
   ],
   "judge_mode": "deterministic_preflight_not_llm",
   "limits": "A passing preflight does not establish truth, novelty, importance, or full-corpus representativeness; adversarial LLM/human review remains required.",
-  "pass_count": 73,
+  "pass_count": 74,
   "record_count": 90,
-  "review_count": 17
+  "review_count": 16
 }

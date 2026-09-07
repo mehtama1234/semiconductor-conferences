@@ -2,7 +2,7 @@
 
 This protocol is the required next review layer for the 90 current adjudicated
 records. `scripts/audit_adjudications.py` is only a deterministic preflight; its
-73 pass / 17 review result must not be described as an adversarial LLM judgment.
+74 pass / 16 review result must not be described as an adversarial LLM judgment.
 Missing original source text now produces a review requirement rather than a
 perfect score from comparing a researcher summary with itself.
 

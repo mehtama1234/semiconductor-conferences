@@ -19,7 +19,7 @@ and protocol/coding-guide hashes. All 90 packets currently have
 4. Resolve disagreements with a human adjudicator or a documented third review.
 5. Preserve the packet hash and reviewer identity/mode with every verdict.
 
-The deterministic preflight currently reports 73 pass and 17 review. It is a
+The deterministic preflight currently reports 74 pass and 16 review. It is a
 routing check only and must not be copied into the independent-verdict fields.
 Three packets still require original-source text capture before source-entailment
 review; the remaining packets still require full-paper condition checks.

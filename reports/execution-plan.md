@@ -6,14 +6,20 @@ satellite links, interpolated gradient feedback, adaptive uplink compression,
 and LEO-system evaluation, while leaving all numerical metrics and deployment
 conditions unknown. A provisional edge/satellite sub-subtheme was added to the
 taxonomy. The selected coded sample is now 90 records (DAC 53, ISCA 16,
-ICCAD 21); preflight is 73 pass / 17 review and independent verdicts remain zero.
+ICCAD 21); preflight is 74 pass / 16 review and independent verdicts remain zero.
+
+HLPS-DSE remediation: `iccad-2025-109` now uses source-grounded abstract
+wording in its evidence span and explicitly permits the author-hosted PDF domain
+in the deterministic provenance check. Its conditioned Fmax values remain
+withheld as an accepted headline, but the packet now passes deterministic
+entailment/provenance preflight. Current preflight is 74 pass / 16 review.
 
 ISCA Vistara source-capture batch: an exact-title camera-ready PDF from the
 authors’ AI System Co-Design site was captured and hash-bound. The page-one
 abstract now supplies primary evidence for the end-to-end CXL deployment claim;
 hardware, OS, workload, and production conditions still require full-paper
 review. Captured abstracts now total 35, source-capture gaps are three, and
-deterministic preflight is 73 pass / 16 review.
+deterministic preflight is 74 pass / 16 review.
 
 ISCA CXL-controller recovery follow-up: Panmnesia’s official announcement and
 the CAME-Lab publication listing were checked for `isca-2026-program-044`.

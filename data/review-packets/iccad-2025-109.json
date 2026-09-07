@@ -32,8 +32,8 @@
   "original_source_url": "https://jasonlau.io/research-papers/10.1109-ICCAD66269.2025.11240757.pdf",
   "paper_id": "iccad-2025-109",
   "protocol_path": "reports/adversarial-judge-protocol-v1.md",
-  "protocol_sha256": "534013f939703f2ac9199d7237b3aecb8abd7620c2dfd0a317999b5e83dee3db",
-  "record_sha256": "fe72eea4a20704615a9de933aeb467edaf435ec1314186174da308a9d69490c9",
+  "protocol_sha256": "fb6364c0a6439fb8ac8d2b0c62d3c5e42acfe5a56d302a692988b47e2eb2e93a",
+  "record_sha256": "92a005b44f189357b77a18cd6625fd04b20e6553c5f8ad596491df0d6f603abf",
   "record_under_review": {
     "analysis_edition": 2025,
     "baselines": [
@@ -67,13 +67,15 @@
       }
     ],
     "evidence_source_id": "iccad-2025-hlps-dse-author-pdf",
-    "evidence_span": "IV framework; VI search actions; VII-A/C/D and Table V define workloads, baseline settings and cumulative search costs.",
+    "evidence_span": "The paper presents a robust physical-feedback-guided HLPS design-space exploration framework that automates iterative parameter tuning; author abstract reports mean Fmax 311.06 MHz versus 128.48 MHz Vitis/Vivado and 186.21 MHz academic solutions, with conditions and budget limits preserved in the assessment.",
     "evidence_url": "https://jasonlau.io/research-papers/10.1109-ICCAD66269.2025.11240757.pdf",
     "hardware_or_process_assumptions": "Alveo U55C/U280/U250 and Versal VHK158; EPYC 7742 host with 256GB DDR4-3200; up to four concurrent Vitis jobs.",
     "independent_review_status": "pending",
     "limits": "Fmax is not throughput or faster synthesis. AutoBridge fails one case; 1.67x matches unequal-population means, versus 1.65x on shared cases. Actions and time are cumulative, not independent ablations. No equal-budget superiority or independent acceptance.",
     "method_or_artifact": "Implementation-feedback-guided search over device abstraction, ILP floorplanning, routing capacity and pipeline choices.",
-    "metrics": [],
+    "metrics": [
+      "Reported mean Fmax: 311.06 MHz DSE versus 128.48 MHz Vitis/Vivado and 186.21 MHz AutoBridge; headline ratio remains withheld pending matched-budget and baseline-failure review"
+    ],
     "paper_id": "iccad-2025-109",
     "problem": "Multi-die FPGA timing closure depends on interacting physical-synthesis parameters.",
     "subsubtheme_id": "physical-feedback-guided-multi-die-fpga-exploration",
@@ -87,7 +89,7 @@
     "Verify numerical conditions, neighboring taxonomy category, and limitations",
     "Inspect supplementary assessments and their original sources; resolve discrepancies without using researcher interpretation to verify itself"
   ],
-  "researcher_summary_not_original_source": "IV framework; VI search actions; VII-A/C/D and Table V define workloads, baseline settings and cumulative search costs.",
+  "researcher_summary_not_original_source": "The paper presents a robust physical-feedback-guided HLPS design-space exploration framework that automates iterative parameter tuning; author abstract reports mean Fmax 311.06 MHz versus 128.48 MHz Vitis/Vivado and 186.21 MHz academic solutions, with conditions and budget limits preserved in the assessment.",
   "review_status": "not_reviewed",
   "schema": "paper-review-packet.v1",
   "source_text_status": "captured_original_abstract",
