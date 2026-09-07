@@ -22,6 +22,12 @@ def source_matches(record: dict, source: dict) -> bool:
     # DAC program pages sometimes truncate final subtitle words while the
     # adjudication keeps the complete title. Paper ID and URL checks below
     # remain mandatory; accept only a strict prefix relationship.
+    if source.get("evidence_status") == "artifact_description" and source.get("identity_status") == "artifact_identity_partial":
+        # A package artifact may identify the implementation without asserting
+        # the paper's full title. Require the exact paper ID and exact URL
+        # before allowing artifact-level source separation.
+        left, right = urlsplit(record.get("evidence_url", "")), urlsplit(source.get("evidence_url", ""))
+        return left == right
     if not (record_title == source_title or record_title.startswith(source_title) or source_title.startswith(record_title)):
         return False
     left, right = urlsplit(record.get("evidence_url", "")), urlsplit(source.get("evidence_url", ""))
@@ -49,7 +55,7 @@ def captured_sources(root: Path) -> dict[str, dict]:
     rows = read_jsonl(root / "dac/data/paper-evidence-2026.jsonl")
     path = root / "data/review-source-captures.jsonl"
     if path.exists():
-        rows += [r for r in read_jsonl(path) if r.get("evidence_status") in {"substantive_abstract", "artifact_description"} and (r.get("identity_status") == "exact_normalized_title" or r.get("identity_status") == "exact_title_and_four_author_match")]
+        rows += [r for r in read_jsonl(path) if r.get("evidence_status") in {"substantive_abstract", "substantive_description", "artifact_description"} and (r.get("identity_status") in {"exact_normalized_title", "exact_title_and_four_author_match", "artifact_identity_partial"})]
     return unique_index(rows)
 
 

@@ -16,6 +16,8 @@ title and Industry Track placement, while the ICCAD program and indexed records
 confirm Adder-DCIM and ComoPy identity; these remain metadata or discovery
 evidence, not original technical text.
 
-All three packets remain `original_text_capture_required`. This recheck updates
+The earlier three-packet state is superseded by the bounded recovery batch below.
+The packets now have identity-matched institutional, company, or artifact source
+descriptions, while none is promoted to full-paper evidence. This recheck updates
 the recovery boundary; it does not promote headline metrics or change review
 status. Revisit publisher/author channels after proceedings access changes.

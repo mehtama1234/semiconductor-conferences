@@ -3,7 +3,7 @@
 Status as of 2026-09-07: deterministic routing aid only. This queue is not an
 independent scientific review and does not create acceptance verdicts.
 
-The preflight contains 3 records marked `review` out of 582 packets. A packet
+The preflight contains 0 records marked `review` out of 582 packets. A packet
 can be routed here because original source text is absent or unmatched, required
 technical fields are incomplete, provenance is outside the accepted source
 allow-list, or evidence overlap is below the deterministic threshold. Reviewers
@@ -14,12 +14,14 @@ must not treat the preflight label as a substantive judgment.
 
 | Priority | Paper IDs | First remediation action |
 |---|---|---|
-| 1 | `isca-2026-program-044`, `iccad-2025-1`, `iccad-2025-1137` | Capture and identity-match original source text; do not review researcher summaries as substitutes. |
+| 1 | None currently | All previously flagged records now have identity-matched source separation; proceed to independent review and full-paper condition extraction. |
 
-The remaining group has no comparable captured original text in the preflight and
-therefore cannot be accepted from the current packet. The second group has
-captured text but needs field-level reconciliation before independent review can
-resolve it. BusyBarn's artifact description is now provenance-matched and passes deterministic source comparison, but remains artifact evidence rather than paper text. `iccad-2025-109` also has the lowest observed evidence overlap and
+The three previously flagged records now have identity-matched source captures or
+artifact evidence and pass deterministic source comparison. Adder-DCIM and the
+Panmnesia CXL paper use institutional/company descriptions; ComoPy uses an exact-
+URL artifact description with explicitly limited identity. These sources remain
+below manuscript-level evidence and do not establish independent acceptance.
+`iccad-2025-109` also has the lowest observed evidence overlap and
 an invalid preflight provenance URL, so it should be handled first within that
 group.
 

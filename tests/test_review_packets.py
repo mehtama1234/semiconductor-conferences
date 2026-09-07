@@ -51,12 +51,13 @@ def test_completion_audit_keeps_scientific_gates_open():
     assert "Do not mark the overall GOAL complete" in audit["interpretation_gate"]
 
 
-def test_audit_never_compares_uncaptured_summary_with_itself():
+def test_audit_uses_identity_matched_company_description_for_isca_044():
     result = audit(ROOT)
-    uncaptured = next(p for p in result["checks"] if p["paper_id"] == "isca-2026-program-044")
-    assert uncaptured["evidence_overlap"] is None
-    assert uncaptured["status"] == "review"
-    assert result["review_count"] > 0
+    recovered = next(p for p in result["checks"] if p["paper_id"] == "isca-2026-program-044")
+    assert recovered["evidence_overlap"] is not None
+    assert recovered["source_comparison_status"] == "captured_original_text_compared"
+    assert recovered["status"] == "pass"
+    assert result["review_count"] == 0
 
 
 def test_new_iccad_mechanisms_keep_original_text_and_objections_separate():

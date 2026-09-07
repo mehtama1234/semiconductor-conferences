@@ -9,7 +9,7 @@ review. See `reports/condition-extraction-queue-v1.md`.
 Latest bounded remediation (2026-09-07): repaired strict title matching for
 truncated DAC program subtitles, accepted identity-matched captured abstracts as
 valid provenance, and rewrote two evidence spans to include source-grounded
-abstract language. The deterministic preflight moved from 562/19 to 579/3
+abstract language. The deterministic preflight moved from 562/19 to 582/0
 (pass/review) without changing any independent-review verdicts. A fresh web
 recheck confirms the remaining three rows are genuine original-text gaps.
 
@@ -30,8 +30,8 @@ Latest bounded coding increment: five DAC descriptions were added for hardware
 interrupt security, AI-inspired FPGA acceleration of post-quantum LPN,
 graph-neural analog circuit simulation and inverse design, workload-aware NUMA
 storage coordination, and scalable simultaneous DNN fault injection. The sample
-is now 582 records (DAC 544, ISCA 17, ICCAD 21); deterministic preflight is 579
-pass / 3 review. These records deepen thematic coverage but remain provisional
+is now 582 records (DAC 544, ISCA 17, ICCAD 21); deterministic preflight is 582
+pass / 0 review. These records deepen thematic coverage but remain provisional
 until source-condition extraction and independent review.
 
 The subsequent five-record batch covers verifiable TEE CPU availability, automated

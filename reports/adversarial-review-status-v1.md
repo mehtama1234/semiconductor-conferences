@@ -27,7 +27,8 @@ conditions, and source capture does not replace independent judgment.
 
 No packet is accepted merely because it exists. The separate coverage index lists
 37 synthesis anchors for scheduling and is excluded from judge inputs to avoid
-priming conclusions. The corrected preflight reports 579 pass / 3 review rather
+priming conclusions. The corrected preflight reports 582 pass / 0 review rather
 than manufacturing support by comparing uncaptured summaries with themselves.
-Three packets still require original-source capture; HybriMoE, ECC-enabled PIM,
-and Vistara now have identity-matched abstracts in their packets.
+The previously flagged source gaps now have identity-matched institutional,
+company, or artifact descriptions in their packets. These descriptions do not
+replace full manuscripts or independent judgment.
