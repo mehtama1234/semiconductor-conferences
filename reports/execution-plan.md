@@ -11,7 +11,7 @@ Latest bounded coding increment: five DAC descriptions were added for hardware
 interrupt security, AI-inspired FPGA acceleration of post-quantum LPN,
 graph-neural analog circuit simulation and inverse design, workload-aware NUMA
 storage coordination, and scalable simultaneous DNN fault injection. The sample
-is now 227 records (DAC 190, ISCA 16, ICCAD 21); deterministic preflight is 211
+is now 237 records (DAC 200, ISCA 16, ICCAD 21); deterministic preflight is 221
 pass / 16 review. These records deepen thematic coverage but remain provisional
 until source-condition extraction and independent review.
 
@@ -24,7 +24,7 @@ review.
 
 The next batch adds KCD-CAM point-cloud acceleration, DFA-DRIVE thermal delay-fault
 analysis, graph-based in-vehicle attack traceback, CIM-MP on-device personalization,
-and ATLAS threat-to-assertion security verification. The selected sample is now 190
+and ATLAS threat-to-assertion security verification. The selected sample is now 200
 records (DAC 153, ISCA 16, ICCAD 21); these remain description-level evidence pending
 full-paper and independent review.
 

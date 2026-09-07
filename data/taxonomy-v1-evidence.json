@@ -42,6 +42,7 @@
     "dac/data/adjudicated-2026-batch-28.jsonl",
     "dac/data/adjudicated-2026-batch-29.jsonl",
     "dac/data/adjudicated-2026-batch-30.jsonl",
+    "dac/data/adjudicated-2026-batch-31.jsonl",
     "iccad/data/adjudicated-2025-batch-3.jsonl",
     "iccad/data/adjudicated-2025-batch-4.jsonl",
     "iccad/data/adjudicated-2025-batch-5.jsonl",
@@ -60,6 +61,7 @@
       "subsubthemes": {
         "generative-design-and-synthesis": [
           "alphazero-generative-aig-synthesis",
+          "flow-matching-chip-placement",
           "multi-agent-eda-code-evolution",
           "process-reward-rtl-generation"
         ],
@@ -107,6 +109,9 @@
           "blind-ml-adc-calibration",
           "vector-drift-compensation-reram-cim"
         ],
+        "analog-compute-in-memory": [
+          "analog-cim-uav-trajectory-acceleration"
+        ],
         "emerging-memory-and-devices": [
           "bit-flexible-digital-cim-compression",
           "memristor-analog-cam-genome-acceleration"
@@ -125,6 +130,7 @@
       "subthemes": [
         "analog-and-mixed-signal-synthesis",
         "analog-calibration-and-modeling",
+        "analog-compute-in-memory",
         "emerging-memory-and-devices",
         "neuromorphic-quantum-and-non-von-neumann"
       ],
@@ -161,11 +167,13 @@
         "specialized-accelerators-and-dataflow": [
           "computation-data-decoupled-npu-dataflow",
           "correlation-aware-gkp-decoder-acceleration",
+          "dynamic-prefill-decode-fpga-reconfiguration",
           "factored-floating-point-systolic-mac",
           "lpn-post-quantum-crypto-acceleration",
           "modular-riscv-pqc-extension",
           "noise-robust-cim-on-device-personalization",
           "reram-cam-point-cloud-knn-acceleration",
+          "sparse-tensor-accelerator-compilation",
           "unified-riscv-ecpm-isa"
         ],
         "specialized-ai-accelerators": [
@@ -255,12 +263,14 @@
           "silicon-proven-cxl-port-based-routing-fabric"
         ],
         "data-movement-and-locality": [
+          "bandwidth-aware-hb-dram-llm-acceleration",
           "bit-sliced-moe-expert-caching",
           "compiler-driven-pim-data-movement",
           "concurrent-dram-pim-host-access",
           "concurrent-pim-cpu-mobile-scheduling",
           "cpu-storage-hybrid-ann-search",
           "cxl-near-memory-ann-search",
+          "data-transfer-aware-ndp-edge-llm-mapping",
           "disaggregated-compute-network-storage-training",
           "disaggregated-memory-contention-modeling",
           "erasure-coded-prefix-kv-cache",
@@ -290,6 +300,7 @@
           "system-on-die-ecc-co-design"
         ],
         "storage-and-data-movement": [
+          "3d-nand-edge-llm-inference",
           "dynamic-parity-ssd-lifetime-extension",
           "media-aware-archival-storage-scheduling",
           "noise-robust-fenand-hdc-sql",
@@ -314,6 +325,7 @@
           "geometry-conditioned-layer-specific-capacitance-surrogates"
         ],
         "placement-routing-and-floorplanning": [
+          "analytic-timing-driven-global-placement",
           "cell-independent-transistor-placement",
           "timing-driven-true-3d-placement"
         ],
@@ -379,12 +391,14 @@
         ],
         "side-channel-and-hardware-security": [
           "adversarial-attacks-on-moe-offloading",
+          "adversarial-evasion-of-hardware-security-gnns",
           "compiler-transient-execution-defense",
           "counting-thread-timing-defense",
           "cross-component-slc-cache-covert-channel",
           "cross-domain-in-vehicle-attack-traceback",
           "deterministic-semi-virtual-memory-safety",
           "diffusion-model-watermarking-acceleration",
+          "encrypted-routing-secure-inference",
           "gpu-power-thermal-transformer-side-channel-leakage",
           "hardware-interrupt-security-risks",
           "masked-mldsa-root-of-trust-optimization",
