@@ -294,8 +294,8 @@ precision, and baseline hardware.
 
 | Conference | Strongest current contribution | Evidence boundary |
 |---|---|---|
-| DAC 2026 | Breadth of design-flow, accelerator, physical-design, memory, and reliability descriptions | Mostly official descriptions; selected 49 are not full-corpus prevalence |
-| ISCA 2026 | Deep primary and industry-source cases for system architecture, LLM execution, memory, PIM, ECC, CXL, integrated networking, and thermal behavior | 15 primary/institutional/company records plus 5 unresolved secondary queue items; full program remains mostly metadata |
+| DAC 2026 | Breadth of design-flow, accelerator, physical-design, memory, and reliability descriptions | Mostly official descriptions; selected 53 are not full-corpus prevalence |
+| ISCA 2026 | Deep primary and industry-source cases for system architecture, LLM execution, memory, PIM, ECC, CXL, integrated networking, and thermal behavior | 16 primary/institutional/company records plus 4 unresolved secondary queue items; full program remains mostly metadata |
 | ICCAD 2025 fallback | Design automation, verification, chiplet, analog, security, and emerging-device depth | 2026 paper corpus unavailable; 2025 evidence cannot establish 2026 change |
 
 The conferences should therefore be read as complementary instruments: DAC gives

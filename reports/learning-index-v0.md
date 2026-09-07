@@ -47,7 +47,7 @@ organized around technical questions, not just conference names.
 - [DAC topical capability map](../dac/pages/topical-capability-map-2026.md)
 
 DAC has the broadest description coverage: all 543 descriptions have initial
-coding, with 52 records now technically coded and the remainder routed as drafts
+coding, with 53 records now technically coded and the remainder routed as drafts
 or metadata. Full-paper depth varies; initial coding does not mean independent
 acceptance.
 
@@ -66,7 +66,7 @@ acceptance.
 - [Indexed evidence queue](../isca/pages/indexed-evidence-queue.md)
 - [Memory, ECC, and PIM reliability topical analysis](../isca/pages/memory-ecc-pim-reliability.md)
 
-ISCA currently combines official program metadata, seventeen primary/institutional/company-backed
+ISCA currently combines official program metadata, sixteen primary/institutional/company-backed
 records, and four low-confidence secondary-only papers pending primary
 verification.
 
@@ -79,7 +79,7 @@ verification.
 - [ICCAD topical capability map](../iccad/pages/topical-capability-map-2025-fallback.md)
 
 ICCAD has 2026 scope signals, a 319-paper 2025 fallback metadata inventory, and
-twenty primary/preprint/institutional/company-source-supported 2025 adjudications.
+twenty-one primary/preprint/institutional/company-source-supported 2025 adjudications.
 
 ## How to read the analysis
 
