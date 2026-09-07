@@ -26,3 +26,5 @@ After this bounded tranche, the DAC-specific route-file count is 355/541;
 184 DAC description-denominator records remain outside the P2 batch files.
 The next tranche adds ten more DAC IDs; the DAC-specific count becomes 365/541,
 with 176 records remaining outside the route files.
+This tranche adds ten DAC IDs; the DAC-specific count becomes 375/541, with 166
+records remaining outside the route files.

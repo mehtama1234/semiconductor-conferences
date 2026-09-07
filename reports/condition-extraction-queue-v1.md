@@ -318,6 +318,11 @@ multi-step image-edit consistency, equality-saturated cell-library extension,
 CRYSTALS correction, sparse quantum readout mitigation, graph-diffusion RTL,
 spiking agents, undocumented-instruction verification, quantum calibration, and
 learned graph storage.
+The fifty-seventh P2 tranche is recorded in
+`reports/p2-recovery-batch-57-2026-09-07.md`, covering HB-DRAM LLM acceleration,
+IoT ISA extensions, signal-temporal-logic transformation, graph-based IP
+protection, Floquet PPV computation, parallel SAT, adaptive Gaussian splatting,
+parallel equivalence checking, CGRA energy estimation, and LLM Rust repair.
 
 The categories overlap by design: P0 is a remediation priority, while P1/P2
 describe evidence depth. The former P0 records are retained in

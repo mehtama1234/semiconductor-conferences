@@ -1937,3 +1937,5 @@ outside the P2 batch-file set. This count is conference-specific and supersedes
 the mixed historical running counter for future progress reporting.
 The next DAC-specific tranche adds ten routes; DAC route files now cover 365 of
 the 541 description-denominator records, with 176 outside the P2 batch-file set.
+The next DAC-specific tranche adds ten routes; DAC route files now cover 375 of
+the 541 description-denominator records, with 166 outside the P2 batch-file set.
