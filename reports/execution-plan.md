@@ -7,6 +7,18 @@ hardware, OS, workload, and production conditions still require full-paper
 review. Captured abstracts now total 35, source-capture gaps are three, and
 deterministic preflight is 73 pass / 16 review.
 
+ISCA CXL-controller recovery follow-up: Panmnesia’s official announcement and
+the CAME-Lab publication listing were checked for `isca-2026-program-044`.
+They confirm the paper identity and expose company-level mechanism context, but
+no permitted manuscript or paper abstract was recovered; quantitative claims
+remain unpromoted and the source gap stays explicit.
+
+ICCAD Adder-DCIM recovery follow-up: the first-author publication page, IEEE
+record, and Crossref metadata were checked against the seven-author program
+record. The author page confirms identity and venue but exposes no manuscript;
+Crossref has no abstract and the IEEE route is robot-gated. Secondary summaries
+remain discovery-only, so the source gap and all headline metrics remain open.
+
 ISCA ECC/PIM source-capture batch: exact-title and author identity were matched
 to the Technion CRIS publication abstract for `isca-2026-program-009`. The
 review packet now carries the original abstract and provenance hash; reported

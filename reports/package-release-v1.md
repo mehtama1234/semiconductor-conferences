@@ -9,7 +9,7 @@ gates still open**.
   ICCAD, including the explicit ICCAD 2025 fallback for the unavailable 2026
   paper corpus.
 - 89 technically coded records: DAC 52, ISCA 17, ICCAD 20.
-- 31 supplementary source-bound assessments and 21 dated recovery-attempt papers.
+- 31 supplementary source-bound assessments and 23 dated recovery-attempt papers.
 - An evidence-derived ten-theme taxonomy, mechanism-level synthesis, and explicit
   counterpressure/hypothesis reports.
 - 89 review packets and a reviewer handoff protocol; no independent verdicts are
