@@ -37,6 +37,8 @@ gates still open**.
   coordination, speculative decoding, PuD interference, and agentic inference.
 - A fifth P1 recovery batch that records explicit missing-condition requirements
   for five DAC records whose full sources remain unavailable.
+- A sixth P1 recovery batch covering six repository- and abstract-backed records
+  with explicit conditions still required before quantitative use.
 
 ## What users may conclude
 
