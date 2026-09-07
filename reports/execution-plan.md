@@ -42,6 +42,11 @@ point-cloud acceleration, collective communication, prefetching, emerging-memory
 caches, reliable DNNs, long-context serving, edge MoE, and NPU compression; P2
 routing now covers 140 of 541 lower-priority records.
 
+The fifteenth P2 tranche adds ten ISCA routes across MoE prefetching,
+vector/low-bit inference, near-data processing, ANN search, VLM quantization,
+compression, and multi-GPU memory systems; P2 routing now covers 150 of 541
+lower-priority records.
+
 Primary recovery batch 3 is recorded in
 `reports/isca-primary-recovery-batch-3-2026-09-07.md`: SPEC CPU and KernelEvolve
 have exact author preprints; Rowhammer has official deployment context plus a

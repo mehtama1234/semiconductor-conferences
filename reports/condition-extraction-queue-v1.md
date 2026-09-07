@@ -89,6 +89,10 @@ The fourteenth P2 tranche is recorded in
 streaming side channels, point-cloud acceleration, collective communication,
 prefetching, emerging-memory caches, reliable DNNs, long-context serving, edge
 MoE, and NPU compression.
+The fifteenth P2 tranche is recorded in
+`reports/p2-recovery-batch-15-2026-09-07.md`, adding ten ISCA routes covering
+MoE prefetching, vector/low-bit inference, near-data processing, ANN search,
+VLM quantization, compression, and multi-GPU memory systems.
 
 The categories overlap by design: P0 is a remediation priority, while P1/P2
 describe evidence depth. The former P0 records are retained in

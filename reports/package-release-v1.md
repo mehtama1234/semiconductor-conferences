@@ -70,6 +70,8 @@ gates still open**.
   inference, training-chip, intermittent-computing, FHE, and security records.
 - A fourteenth P2 routing tranche prioritizing ten ISCA side-channel, point-cloud,
   communication, memory, reliability, serving, MoE, and compression records.
+- A fifteenth P2 routing tranche prioritizing ten ISCA MoE-prefetching,
+  quantization, near-data, ANN, compression, and multi-GPU memory records.
 - A third ISCA primary-recovery batch covering SPEC CPU, KernelEvolve, and
   Rowhammer with source-tier-specific limits.
 - A fourth ISCA primary-recovery batch covering GRAINS, Triage, and Coset
