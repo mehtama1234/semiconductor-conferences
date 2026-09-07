@@ -74,6 +74,8 @@ gates still open**.
   quantization, near-data, ANN, compression, and multi-GPU memory records.
 - A sixteenth P2 routing tranche prioritizing ten ISCA GPU/ASIP, DRAM security,
   chiplet simulation, packaging, and heterogeneous-execution records.
+- A seventeenth P2 routing tranche prioritizing ten ISCA wafer-scale,
+  neuromorphic, simulation, modeling, network, and sparse-compute records.
 - A third ISCA primary-recovery batch covering SPEC CPU, KernelEvolve, and
   Rowhammer with source-tier-specific limits.
 - A fourth ISCA primary-recovery batch covering GRAINS, Triage, and Coset

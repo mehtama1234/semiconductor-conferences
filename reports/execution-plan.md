@@ -52,6 +52,11 @@ DRAM reliability and RowHammer defenses, chiplet PHY/package simulation, and
 heterogeneous chiplet execution; P2 routing now covers 160 of 541 lower-priority
 records.
 
+The seventeenth P2 tranche adds ten ISCA routes across wafer-scale binning,
+neuromorphic and dynamical-system architectures, neural-rendering simulation,
+tracing, GPU modeling, CPU predictors, datacenter networks, simulation, and
+sparse GEMM; P2 routing now covers 170 of 541 lower-priority records.
+
 Primary recovery batch 3 is recorded in
 `reports/isca-primary-recovery-batch-3-2026-09-07.md`: SPEC CPU and KernelEvolve
 have exact author preprints; Rowhammer has official deployment context plus a
