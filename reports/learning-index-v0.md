@@ -8,6 +8,7 @@ organized around technical questions, not just conference names.
 - [End-to-end goal](../GOAL.md)
 - [Execution plan and current tasks](execution-plan.md)
 - [Dated reproducibility manifest](reproducibility-manifest-v1.json)
+- [Dated package release note](package-release-v1.md)
 - [Complete inventory and research work queue](research-work-queue.md)
 - [Collection status](collection-status.md)
 - [Initial 2026 direction signals](initial-2026-direction-signals.md)
@@ -22,6 +23,7 @@ organized around technical questions, not just conference names.
 - [Adversarial judge protocol](adversarial-judge-protocol-v1.md)
 - [Adversarial review status](adversarial-review-status-v1.md)
 - [Review packets and source-capture gaps](review-packets.md)
+- [Independent review handoff](independent-review-handoff-v1.md)
 - [Adjudicated evidence coverage](evidence-summary-v1.md)
 - [Adversarial consistency preflight](adversarial-preflight-v0.json)
 - [Temporal baseline and trend-claim boundary](temporal-baseline-v1.md)
@@ -45,8 +47,9 @@ organized around technical questions, not just conference names.
 - [DAC topical capability map](../dac/pages/topical-capability-map-2026.md)
 
 DAC has the broadest description coverage: all 543 descriptions have initial
-coding (49 original records and 494 additional drafts). Full-paper depth varies;
-initial coding does not mean independent acceptance.
+coding, with 52 records now technically coded and the remainder routed as drafts
+or metadata. Full-paper depth varies; initial coding does not mean independent
+acceptance.
 
 ## ISCA 2026
 
@@ -63,8 +66,8 @@ initial coding does not mean independent acceptance.
 - [Indexed evidence queue](../isca/pages/indexed-evidence-queue.md)
 - [Memory, ECC, and PIM reliability topical analysis](../isca/pages/memory-ecc-pim-reliability.md)
 
-ISCA currently combines official program metadata, sixteen primary/institutional/company-backed
-records, and five low-confidence secondary-only papers pending primary
+ISCA currently combines official program metadata, seventeen primary/institutional/company-backed
+records, and four low-confidence secondary-only papers pending primary
 verification.
 
 ## ICCAD 2026 / 2025 fallback
@@ -76,7 +79,7 @@ verification.
 - [ICCAD topical capability map](../iccad/pages/topical-capability-map-2025-fallback.md)
 
 ICCAD has 2026 scope signals, a 319-paper 2025 fallback metadata inventory, and
-nineteen primary/preprint/institutional/company-source-supported 2025 adjudications.
+twenty primary/preprint/institutional/company-source-supported 2025 adjudications.
 
 ## How to read the analysis
 
