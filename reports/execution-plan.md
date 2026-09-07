@@ -4,6 +4,20 @@ The governing scope and acceptance criteria are in [GOAL.md](../GOAL.md).
 This log distinguishes finished work from queued work; a plan is not a completed
 research result.
 
+ICCAD session mapping: all 319 numbered titles are now matched to room/chair-identified
+session headings with paper and session PDF page anchors. The map distinguishes
+266 regular papers in 50 sessions, 43 invited papers in 11 numbered-entry special
+sessions, and ten SRC presentations. The 11 special-session count is not the full
+conference special-session total. Exact title matching exposed GradMap (303),
+SO3-Cell (414) and K-PACT (1350) title/author boundary corruption; visually verified
+PDF pages 49, 61 and 100 and added guarded before/after repairs. Source-hash-bound
+collector rebuilds preserve repairs and session flags. The queue carries session
+provenance. Program eligibility is not technical comparability or independent
+acceptance. Validation and 126 tests pass; technical coding remains 78. Next:
+resume primary evidence collection, maintaining regular/invited/student strata.
+Full retained-PDF collector rebuild reproduces all 319 title/author identities,
+paper/session page anchors and comparison flags after the repairs.
+
 Invited-paper recovery: integrated all 43 previously omitted numbered invited
 entries, bringing ICCAD to 319 rows and cross-conference inventory to 1,589.
 All carry invited-paper type, PDF page, full title/authors and false regular-paper

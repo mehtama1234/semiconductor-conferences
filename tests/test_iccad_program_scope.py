@@ -25,7 +25,7 @@ def test_retained_program_audit_exposes_four_digit_collector_gap():
     result = json.loads((ROOT / "iccad/data/program-scope-audit-v1.json").read_text())
     assert result["numbered_heading_count"] == 319
     assert result["current_inventory_count"] == 319
-    assert result["type_counts"] == {"invited_paper": 43, "numbered_entry_type_unresolved": 266, "student_research_competition_oral": 10}
+    assert result["type_counts"] == {"invited_paper": 43, "regular_paper": 266, "student_research_competition_oral": 10}
     assert result["omitted_ids"] == []
     assert not result["inventory_ids_without_heading"]
     assert all(row["observed_entry_type"] == "invited_paper" for row in result["headings"] if not row["in_current_inventory"])

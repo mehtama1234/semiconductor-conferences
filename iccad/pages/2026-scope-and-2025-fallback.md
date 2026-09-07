@@ -6,8 +6,9 @@ fallback because the 2026 paper corpus is not yet represented in this repository
 The 319 fallback rows in `iccad/data/papers-2025-program.jsonl` are metadata-only;
 they are not technical adjudications.
 They include 43 invited papers and ten student presentations, explicitly excluded
-from regular-paper comparisons. The remaining 266 entries require individual
-session-type verification. See the [scope audit](../reports/program-scope-audit-v1.md).
+from regular-paper comparisons. The remaining 266 entries are mapped to 50 regular
+sessions. This establishes program type, not equivalent technical evidence for
+temporal claims. See the [scope audit](../reports/program-scope-audit-v1.md).
 
 ## What the 2026 CFP says the field can contain
 

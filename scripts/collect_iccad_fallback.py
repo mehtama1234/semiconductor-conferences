@@ -13,6 +13,7 @@ from urllib.request import Request, urlopen
 
 from pypdf import PdfReader
 from scripts.collect_iccad_invited import extract_invited
+from scripts.build_iccad_session_scope import apply_scope, apply_title_author_repairs
 
 
 PDF_URL = "https://confcats-event-sessions.s3.us-east-1.amazonaws.com/iccad25/uploads/ICCAD_2025_Program_v8.pdf"
@@ -41,7 +42,17 @@ def extract_papers(pdf: bytes) -> list[dict]:
     invited = extract_invited(reader)
     if {row["paper_id"] for row in records} & {row["paper_id"] for row in invited}:
         raise ValueError("Invited and legacy extraction IDs overlap")
-    return sorted(records + invited, key=lambda row: row["paper_id"])
+    records = sorted(records + invited, key=lambda row: row["paper_id"])
+    data = Path(__file__).resolve().parents[1] / "iccad/data"
+    repairs = json.loads((data / "title-author-repairs-v1.json").read_text())
+    if hashlib.sha256(pdf).hexdigest() == repairs["source_sha256"]:
+        apply_title_author_repairs(records, repairs)
+    scope_path = data / "session-scope-v1.json"
+    if scope_path.exists():
+        scope = json.loads(scope_path.read_text())
+        if hashlib.sha256(pdf).hexdigest() == scope["source_sha256"]:
+            apply_scope(records, scope)
+    return records
 
 
 def apply_src_corrections(records: list[dict], corrections: dict) -> None:

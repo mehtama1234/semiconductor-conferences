@@ -135,6 +135,10 @@ def build(root: Path) -> tuple[list[dict], dict, str]:
         if paper.get("program_entry_type"):
             row["program_entry_type"] = paper["program_entry_type"]
             row["regular_paper_comparison_eligible"] = paper["regular_paper_comparison_eligible"]
+            if paper.get("program_session_title"):
+                row["program_session_title"] = paper["program_session_title"]
+                row["program_session_pdf_page"] = paper["program_session_pdf_page"]
+                row["program_pdf_page"] = paper["program_pdf_page"]
         if row["paper_id"] in recovery_attempts:
             row["source_recovery_attempts"] = recovery_attempts[row["paper_id"]]
             row["next_actions"].insert(0, recovery_attempts[row["paper_id"]][-1]["next_action"])

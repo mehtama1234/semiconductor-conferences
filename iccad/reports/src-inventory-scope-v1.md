@@ -11,9 +11,11 @@ applies these scoped corrections only to the reviewed PDF hash; unexpected
 title/author values fail the correction check. Inventory IDs, collection dates
 and technical-evidence fields are preserved.
 
-All ten entries remain in the 276-entry program inventory, but are explicitly
-ineligible for regular-paper comparisons. The other 266 entries are **not thereby
-certified as regular papers**: their types require further audit. Inventory-title
+All ten entries remain in the program inventory, but are explicitly
+ineligible for regular-paper comparisons. At this repair checkpoint the inventory
+had 276 entries; subsequent invited recovery expanded it to 319, and the
+[session-scope audit](program-scope-audit-v1.md) mapped the 266 regular papers.
+The SRC correction alone did not certify those other entry types. Inventory-title
 counts are not regular-paper denominators, and this correction supplies no
 technical evidence for the student projects.
 

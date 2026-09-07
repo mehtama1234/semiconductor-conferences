@@ -34,7 +34,7 @@ def reconcile(page_texts: list[str], inventory: list[dict], start_page: int = 38
                              "heading_first_line_not_complete_title": prefix,
                              "observed_entry_type": entry_type,
                              "in_current_inventory": row is not None,
-                             "next_action": "Recover complete title/authors and register separately from regular-paper comparisons" if row is None else "Retain invited scope and pursue technical evidence" if entry_type == "invited_paper" else "Retain reviewed SRC scope" if entry_type == "student_research_competition_oral" else "Verify session-level regular-paper classification"})
+                             "next_action": "Recover complete title/authors and register separately from regular-paper comparisons" if row is None else "Retain invited scope and pursue technical evidence" if entry_type == "invited_paper" else "Retain reviewed SRC scope" if entry_type == "student_research_competition_oral" else "Recover comparable technical evidence within regular-paper scope" if entry_type == "regular_paper" else "Verify session-level regular-paper classification"})
     return {"numbered_heading_count": len(headings), "current_inventory_count": len(inventory),
             "type_counts": dict(sorted(Counter(row["observed_entry_type"] for row in headings).items())),
             "omitted_ids": [row["paper_id"] for row in headings if not row["in_current_inventory"]],

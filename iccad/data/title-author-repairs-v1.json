@@ -1,0 +1,18 @@
+{
+  "schema": "iccad-title-author-repairs.v1",
+  "source_id": "iccad-2025-program-pdf-fallback",
+  "source_sha256": "982ed4265e233552d328139a853209789ed265151302a707c7568a8aa009ffdf",
+  "assessment_date": "2026-09-06",
+  "reason": "Comma-containing wrapped title lines were misidentified as author lines by the legacy parser. Each replacement visually verified against the retained PDF.",
+  "changes": [
+    {"paper_id": "iccad-2025-303", "pdf_page": 49,
+     "before": {"title": "GradMap: A Gradient-Descent Approach to Simultaneous Technology Mapping,", "authors": ["Buffer Insertion", "and Gate Sizing"]},
+     "after": {"title": "GradMap: A Gradient-Descent Approach to Simultaneous Technology Mapping, Buffer Insertion, and Gate Sizing", "authors": ["HsinYing Tsai", "Chung-Kai Wu", "Chih-Cheng Hsu", "Jie-Hong Roland Jiang"]}},
+    {"paper_id": "iccad-2025-414", "pdf_page": 61,
+     "before": {"title": "SO3-Cell: Standard Cell Layout Synthesis Framework for Simultaneous Optimization", "authors": ["of Topology", "Placement", "and Routing Chung-Kuan Cheng {1}", "Andrew Kahng {1}", "Byeonggon Kang {2}", "Seokhyeong Kang {3}", "Jakang Lee {3}", "Bill Lin {1}"]},
+     "after": {"title": "SO3-Cell: Standard Cell Layout Synthesis Framework for Simultaneous Optimization of Topology, Placement, and Routing", "authors": ["Chung-Kuan Cheng {1}", "Andrew Kahng {1}", "Byeonggon Kang {2}", "Seokhyeong Kang {3}", "Jakang Lee {3}", "Bill Lin {1}"]}},
+    {"paper_id": "iccad-2025-1350", "pdf_page": 100,
+     "before": {"title": "K-PACT: Kernel Planning for Adaptive Context Switching — A Framework for", "authors": ["Clustering", "Placement", "and Prefetching in Spectrum Sensing Hasan Suluhan {1}", "Jiahao Lin {2}", "Serhan Gener {3}", "Chaitali Chakrabarti {4}", "Umit Ogras {5}", "Ali Akoglu {3}"]},
+     "after": {"title": "K-PACT: Kernel Planning for Adaptive Context Switching — A Framework for Clustering, Placement, and Prefetching in Spectrum Sensing", "authors": ["Hasan Suluhan {1}", "Jiahao Lin {2}", "Serhan Gener {3}", "Chaitali Chakrabarti {4}", "Umit Ogras {5}", "Ali Akoglu {3}"]}}
+  ]
+}
