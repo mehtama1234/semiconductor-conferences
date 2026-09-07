@@ -24,3 +24,20 @@ outside their evaluated conditions.
 Next: recover primary depth for these six cases, prioritizing NotSoTiny's evaluation
 challenge and TierANNS/COGA's identity discrepancy. Broaden conference coverage;
 do not treat another DAC sample as a substitute for ISCA and ICCAD evidence.
+
+## TierANNS identity follow-up
+
+On 2026-09-06, the [official presentation](https://63dac.conference-program.com/presentation/?id=RESEARCH2268&sess=sess169)
+still pairs the TierANNS title with COGA in its description.
+[Jiaxian Chen's institutional publication list, entry 10](https://ai.bitzh.edu.cn/cs/info/1211/1681.htm)
+matches the title, edition and all eight inventory authors but does not explain
+the alias. Paper identity is therefore corroborated; the system-name relationship
+remains unresolved. Keep one record and both source spellings, without treating
+COGA as a separately identified paper or assuming a rename history.
+
+No exact manuscript was recovered in the recorded searches. The description
+contains no numerical result; recall, capacity and speculation costs remain
+conditions to recover, not grounds for a comparison with CANNON. Revisit on a
+matching manuscript or explicit author linkage. NotSoTiny's separate
+[preprint follow-up](../dac/reports/notsotiny-primary-assessment-v1.md) is available;
+neither follow-up constitutes independent review.

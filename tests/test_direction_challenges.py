@@ -20,3 +20,13 @@ def test_challenges_link_original_sources_without_review_promotion():
         assert not packet["independent_verdicts"]
         assert case["qualification"] and case["next_evidence"]
     assert ledger["independent_review_status"] == "pending"
+
+
+def test_identity_followup_does_not_claim_alias_resolution():
+    ledger = json.loads((ROOT / "data/direction-challenges-v1.json").read_text())
+    followup = ledger["identity_followups"][0]
+    assert followup["paper_id"] in {case["paper_id"] for case in ledger["cases"]}
+    assert followup["status"] == "paper_identity_confirmed_system_alias_unresolved"
+    assert len(followup["primary_sources"]) == 2
+    assert followup["searches"] and followup["revisit_condition"]
+    assert followup["independent_review_status"] == "pending"

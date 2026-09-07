@@ -4,6 +4,13 @@ The governing scope and acceptance criteria are in [GOAL.md](../GOAL.md).
 This log distinguishes finished work from queued work; a plan is not a completed
 research result.
 
+TierANNS identity follow-up: official description still names COGA; institutional
+publication entry confirms all eight authors and the TierANNS title but does not
+explain the alias. Recorded dated searches and a narrow revisit trigger in the
+challenge ledger. No manuscript, numerical result or second paper inferred.
+Next: NotSoTiny verifier inspection and undercovered ISCA/ICCAD primary sources;
+do not repeat unchanged TierANNS searches without a new source lead.
+
 NotSoTiny preprint recovered: recorded compatibility-selection and contamination
 protocol conditions, separating full equivalence from partial credit. Flagged
 proof-command semantics for artifact inspection instead of adopting bounded-depth

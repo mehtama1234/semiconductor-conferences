@@ -13,5 +13,22 @@
     {"direction_number": 5, "paper_id": "dac-2026-research399", "source_sha256": "aa1ba93b17717a708aaa13c93ac323c0d4534236342468bfcf21bc74418c4847", "evidence_tier": "official_description", "relation": "validation_boundary", "mechanism": "ChiSER guides chiplet accelerator search with an intra-core cost surrogate and rechecks top designs with a finer reference model.", "qualification": "Reference-model rechecking supports a fidelity hierarchy, but is not independent silicon validation and can miss candidates excluded by surrogate misranking.", "next_evidence": "Recover acquisition budget, rejected-candidate checks, ranking error, objective weights and reference-model calibration."},
     {"direction_number": 6, "paper_id": "dac-2026-research2014", "source_sha256": "97546cec5e0faf9f211c06e436e70d448596e2b5645a50ba3b79a12cec8c15e5", "evidence_tier": "official_description", "relation": "accuracy_constraint", "mechanism": "OpenACMv2 couples accuracy-constrained approximate DCiM architecture search with variation/PVT-aware transistor sizing and Monte Carlo evaluation.", "qualification": "Representation and circuit approximation require an explicit error budget; nominal PPA alone is insufficient. Tool compatibility is not experimental reproduction.", "next_evidence": "Recover task-level accuracy limits, error propagation, PVT/yield distributions and matched exact-arithmetic baselines."}
   ],
+  "identity_followups": [
+    {
+      "paper_id": "dac-2026-research2268",
+      "capture_date": "2026-09-06",
+      "status": "paper_identity_confirmed_system_alias_unresolved",
+      "primary_sources": [
+        {"url": "https://63dac.conference-program.com/presentation/?id=RESEARCH2268&sess=sess169", "locator": "title, Description and Authors", "finding": "TierANNS title and eight authors; description still names COGA."},
+        {"url": "https://ai.bitzh.edu.cn/cs/info/1211/1681.htm", "locator": "Jiaxian Chen publication list, entry 10", "finding": "Matching TierANNS title, DAC 2026 and all eight authors in inventory order; no explanation of COGA."}
+      ],
+      "searches": ["TierANNS COGA", "TierANNS arxiv github pdf", "COGA Ying Zhang ANNS"],
+      "search_outcome": "No exact manuscript or verified implementation recovered in this batch; this is not proof of nonexistence.",
+      "disposition": "Keep one inventory record under the official title. Do not silently rename the system, create a second COGA paper, or import same-name performance claims without title/author matching.",
+      "technical_boundary": "Official description supports queue-hinted speculative access and tiered placement, but gives no numerical evaluation or matched recall/capacity conditions.",
+      "revisit_condition": "An exact-author manuscript, publisher record or author clarification explicitly linking the system names.",
+      "independent_review_status": "pending"
+    }
+  ],
   "limits": ["These are selected description-level interpretations, not independently accepted findings.", "No new quantitative headline or rising/declining claim is accepted.", "The cases qualify hypotheses; they do not establish historical growth, adoption or market outcomes."]
 }
