@@ -9,6 +9,7 @@ acceptance beyond the stated evidence tier.
 | Recovered checkpoint reconciled | `GOAL.md`, `reports/completion-audit-v1.json`, validator | Ready | None for this checkpoint. |
 | Complete inventory and priorities | `data/research-work-queue.jsonl`, queue summary | Ready for routing | Technical coding remains sample-limited outside the selected 582 records. |
 | Accessible technical evidence with provenance | adjudication JSONL, source ledgers, Rearchitecting preprint note, CAPA artifact run, evidence summary | Partial | Recover/capture more manuscripts and full-paper conditions. |
+| Supplementary assessment traceability | `data/supplementary-assessment-index-v1.json`, report, source ledgers | Ready as an evidence-depth ledger | Assessments remain researcher summaries pending independent review. |
 | Shared taxonomy and deep explanations | taxonomy evidence, coding guide, direction pages | Provisional ready | Broaden coding and independent adjudication. |
 | Independent review | 582 packets, assignments, judge protocol | Prepared only | Obtain two independent verdicts per accepted record where a reviewer/model is available. Current verdict count is zero. |
 | Temporal comparison | temporal baseline and insufficiency reports | Ready as insufficiency finding | Matched populations/evidence tiers are required before directional claims. |
