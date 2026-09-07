@@ -26,7 +26,7 @@ The 110-record technical coding sample is selected for recoverable evidence and
 technical diversity. It is not a prevalence estimate, market forecast, conference
 ranking, or proof that a direction is rising.
 For a mechanism-level follow-up, see [scheduling versus physical surrogates](../iccad/reports/scheduling-versus-surrogates-v1.md): two analysis accelerators with different correctness and generalization requirements.
-All 95 remain independently unaccepted. The original synthesis-anchor set is
+All 110 remain independently unaccepted. The original synthesis-anchor set is
 distinct from the expanded coded sample and is not enlarged by metadata recovery.
 
 ## Executive interpretation
@@ -178,6 +178,15 @@ The common capability is explicit modeling of failure, threat, or physical
 integrity conditions during design. Threat models, fault models, and correctness
 guarantees remain distinct; they cannot be combined into one “robustness” score.
 See the [ISCA memory/ECC/PIM analysis](../isca/pages/memory-ecc-pim-reliability.md).
+
+The expanded DAC sample sharpens this direction into distinct threat and
+recovery mechanisms: a one-bit Rowhammer path against Falcon, cross-component
+Apple M2 cache leakage, LLM-assisted FPGA toolchain vulnerability discovery,
+and layer-adaptive analog-CIM ECC. These are not one common security score:
+attack feasibility, disclosure, fault correction, and model reliability require
+different threat and fault models. Their official descriptions omit enough
+platform and experiment detail that no numeric security or reliability ranking
+is accepted.
 The [Strix primary assessment](../dac/reports/strix-primary-assessment-v1.md)
 adds configuration-specific evidence limits; its timing and reliability claims
 must not be broadened into safety certification or universal fault coverage.
@@ -214,6 +223,14 @@ The evidence supports earlier coupling of thermal, packaging, bandwidth, and
 workload decisions. It does not establish manufacturing readiness, a winning
 packaging technology, or generalization beyond the evaluated geometry, materials,
 devices, and workloads.
+
+The new process-focused records add a second physical-design pattern: CPW-SMO
+generates a common source and mask set, differentiable MDP-ILT couples wafer
+fidelity to mask writability, and FreqSEM uses frequency-aware segmentation for
+sub-nanometer contour extraction. They support a capability hypothesis that
+manufacturing objectives are being pulled earlier into differentiable or
+learned loops, but the descriptions do not establish calibrated fab transfer or
+metrology generalization.
 
 ## Direction 5 — Search and modeling become multi-fidelity and physics-aware
 
@@ -260,6 +277,13 @@ provisional example, not evidence of learned search or global circuit optimality
 Its figure-level counterexample also prevents a uniform space-time-benefit claim;
 available artifact checks do not yet establish coherent-oracle correctness.
 
+The new QAgent and PIMA-SecDB cases extend this direction beyond conventional
+EDA: multi-agent placement makes circuit execution cost part of the quantum
+compilation objective, while FHE database PIM makes cryptographic parameter
+selection part of the memory architecture. Both are workload- and parameter-
+conditioned capabilities, not evidence that one optimizer or PIM organization
+is generally superior.
+
 ## Direction 6 — Specialized accelerators encode workload structure
 
 FuseDot's [recovery assessment](../dac/reports/fusedot-primary-recovery-v1.md)
@@ -294,7 +318,7 @@ precision, and baseline hardware.
 
 | Conference | Strongest current contribution | Evidence boundary |
 |---|---|---|
-| DAC 2026 | Breadth of design-flow, accelerator, physical-design, memory, and reliability descriptions | Mostly official descriptions; selected 53 are not full-corpus prevalence |
+| DAC 2026 | Breadth of design-flow, accelerator, physical-design, memory, and reliability descriptions | Mostly official descriptions; selected 73 are not full-corpus prevalence |
 | ISCA 2026 | Deep primary and industry-source cases for system architecture, LLM execution, memory, PIM, ECC, CXL, integrated networking, and thermal behavior | 16 primary/institutional/company records plus 4 unresolved secondary queue items; full program remains mostly metadata |
 | ICCAD 2025 fallback | Design automation, verification, chiplet, analog, security, and emerging-device depth | 2026 paper corpus unavailable; 2025 evidence cannot establish 2026 change |
 
