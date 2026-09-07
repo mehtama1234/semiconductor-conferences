@@ -5,8 +5,8 @@ official program description. The record captures intermittent asymmetric
 satellite links, interpolated gradient feedback, adaptive uplink compression,
 and LEO-system evaluation, while leaving all numerical metrics and deployment
 conditions unknown. A provisional edge/satellite sub-subtheme was added to the
-taxonomy. The selected coded sample is now 120 records (DAC 123, ISCA 16,
-ICCAD 21); preflight is 144 pass / 16 review and independent verdicts remain zero.
+taxonomy. The selected coded sample is now 120 records (DAC 128, ISCA 16,
+ICCAD 21); preflight is 149 pass / 16 review and independent verdicts remain zero.
 
 DAC security/reliability batch: five official-description records were added for
 the Falcon Rowhammer fault attack, Apple M2 cross-component cache leakage,
@@ -103,18 +103,25 @@ Safe-IoT ML-DSA acceleration, vTen tensor-centric verification, and adaptive
 analysis, post-quantum edge security, verification productivity, and flash
 retention resilience.
 
+DAC compiler/thermal/memory batch: five official-description records were added
+for iterative zoned-neutral-atom compilation, Janus ARM transient-execution
+defense, multimodal physics-informed 3D thermal reconstruction, CLUE-ECC LPDDR6
+reliability, and LOHA CPU/storage graph search. These extend quantum compilation,
+compiler security, observability-aware thermal control, ECC co-design, and
+storage-locality coverage.
+
 HLPS-DSE remediation: `iccad-2025-109` now uses source-grounded abstract
 wording in its evidence span and explicitly permits the author-hosted PDF domain
 in the deterministic provenance check. Its conditioned Fmax values remain
 withheld as an accepted headline, but the packet now passes deterministic
-entailment/provenance preflight. Current preflight is 144 pass / 16 review.
+entailment/provenance preflight. Current preflight is 149 pass / 16 review.
 
 ISCA Vistara source-capture batch: an exact-title camera-ready PDF from the
 authors’ AI System Co-Design site was captured and hash-bound. The page-one
 abstract now supplies primary evidence for the end-to-end CXL deployment claim;
 hardware, OS, workload, and production conditions still require full-paper
 review. Captured abstracts now total 35, source-capture gaps are three, and
-deterministic preflight is 144 pass / 16 review.
+deterministic preflight is 149 pass / 16 review.
 
 ISCA CXL-controller recovery follow-up: Panmnesia’s official announcement and
 the CAME-Lab publication listing were checked for `isca-2026-program-044`.
@@ -1263,7 +1270,7 @@ have source-separated packets; independent acceptance remains pending.
 Latest batch: DAC 2026 IDs 1741, 1742, 1764, 1765, 177 and 1784 bring
 current drafts to 133, leaving 361 descriptions uncoded. Dataset exceptions,
 attacker versus legitimate accuracy, separate PPA means/maxima and unverified
-disclosure/autonomy claims remain explicit. All 160 draft papers have
+disclosure/autonomy claims remain explicit. All 165 draft papers have
 source-separated packets; independent acceptance remains pending.
 
 Latest batch: DAC 2026 IDs 1692, 1709, 1712, 1715, 1718 and 1732 bring
@@ -1301,7 +1308,7 @@ source-separated packets; independent acceptance remains pending.
 Latest batch: DAC 2026 IDs 1570, 158, 1582, 1585, 1587 and 1596 bring
 current drafts to 103, leaving 391 descriptions uncoded. DRAM/area accounting,
 domain scale versus accuracy, model-specific decode gains, qualification limits
-and qualitative-only claims remain explicit. All 160 draft papers have
+and qualitative-only claims remain explicit. All 165 draft papers have
 source-separated packets; independent acceptance remains pending.
 
 Latest batch: DAC 2026 IDs 1534, 155, 1552, 1560, 1562 and 1569 bring

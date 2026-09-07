@@ -31,6 +31,7 @@
     "dac/data/adjudicated-2026-batch-17.jsonl",
     "dac/data/adjudicated-2026-batch-18.jsonl",
     "dac/data/adjudicated-2026-batch-19.jsonl",
+    "dac/data/adjudicated-2026-batch-20.jsonl",
     "iccad/data/adjudicated-2025-batch-3.jsonl",
     "iccad/data/adjudicated-2025-batch-4.jsonl",
     "iccad/data/adjudicated-2025-batch-5.jsonl",
@@ -149,6 +150,7 @@
           "analytical-3d-ic-thermal-simulation",
           "foundation-neural-operator-thermal-modeling",
           "modular-reduced-order-chiplet-thermal-modeling",
+          "multimodal-physics-informed-thermal-reconstruction",
           "physics-informed-package-thermal-surrogate",
           "thermal-aware-3d-stacked-llm-inference",
           "thermal-aware-learning-schedule-3d-cache"
@@ -185,7 +187,8 @@
           "multi-pdk-capacitance-extraction-dataset"
         ],
         "synthesis-and-compilation": [
-          "exact-t-cost-quantum-circuit-synthesis"
+          "exact-t-cost-quantum-circuit-synthesis",
+          "iterative-neutral-atom-compilation"
         ]
       },
       "subthemes": [
@@ -205,6 +208,7 @@
         ],
         "data-movement-and-locality": [
           "concurrent-pim-cpu-mobile-scheduling",
+          "cpu-storage-hybrid-ann-search",
           "cxl-near-memory-ann-search",
           "disaggregated-compute-network-storage-training",
           "disaggregated-memory-contention-modeling",
@@ -227,7 +231,8 @@
           "open-fpga-scale-up-interconnect-platform",
           "os-hardware-cxl-tiered-memory",
           "row-aligned-sparse-attention-pim",
-          "stage-aware-moe-expert-cache"
+          "stage-aware-moe-expert-cache",
+          "system-on-die-ecc-co-design"
         ],
         "storage-and-data-movement": [
           "media-aware-archival-storage-scheduling"
@@ -303,6 +308,7 @@
         ],
         "side-channel-and-hardware-security": [
           "adversarial-attacks-on-moe-offloading",
+          "compiler-transient-execution-defense",
           "cross-component-slc-cache-covert-channel",
           "deterministic-semi-virtual-memory-safety",
           "diffusion-model-watermarking-acceleration",

@@ -10,7 +10,7 @@
   "original_source_url": "https://aisystemcodesign.github.io/papers/isca26/vistara_camera_ready.pdf",
   "paper_id": "isca-2026-program-045",
   "protocol_path": "reports/adversarial-judge-protocol-v1.md",
-  "protocol_sha256": "a9ef1f495d5f9bcbff03e6cc3a21e584efa3e914de1befe30a74cd7b1922c428",
+  "protocol_sha256": "f0613c4aa7145106d6460f3919589a815a5635a5ce387a358b00483a744ff355",
   "record_sha256": "3ad574ae964430bb42f6ee31466aa01b6a20f2083f8412b46edf352f277de052",
   "record_under_review": {
     "analysis_edition": 2026,
@@ -61,6 +61,7 @@
       ],
       "data-movement-and-locality": [
         "concurrent-pim-cpu-mobile-scheduling",
+        "cpu-storage-hybrid-ann-search",
         "cxl-near-memory-ann-search",
         "disaggregated-compute-network-storage-training",
         "disaggregated-memory-contention-modeling",
@@ -83,7 +84,8 @@
         "open-fpga-scale-up-interconnect-platform",
         "os-hardware-cxl-tiered-memory",
         "row-aligned-sparse-attention-pim",
-        "stage-aware-moe-expert-cache"
+        "stage-aware-moe-expert-cache",
+        "system-on-die-ecc-co-design"
       ],
       "storage-and-data-movement": [
         "media-aware-archival-storage-scheduling"
