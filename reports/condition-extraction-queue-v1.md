@@ -84,6 +84,11 @@ The thirteenth P2 tranche is recorded in
 `reports/p2-recovery-batch-13-2026-09-07.md`, adding ten ISCA routes covering
 storage networking, general-AI dataflow, cooling, inference scaling, deployed
 training hardware, intermittent systems, and security architectures.
+The fourteenth P2 tranche is recorded in
+`reports/p2-recovery-batch-14-2026-09-07.md`, adding ten ISCA routes covering
+streaming side channels, point-cloud acceleration, collective communication,
+prefetching, emerging-memory caches, reliable DNNs, long-context serving, edge
+MoE, and NPU compression.
 
 The categories overlap by design: P0 is a remediation priority, while P1/P2
 describe evidence depth. The former P0 records are retained in
