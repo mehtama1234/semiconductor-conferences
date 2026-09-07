@@ -85,6 +85,42 @@
             "vivado_hls": "2019.2"
           },
           "scope": "Fire module HLS and hardware project; README promises further modules, full-model integration and automation in future",
+          "stored_synthesis_report": {
+            "available_resources": {
+              "BRAM_18K": 1824,
+              "DSP48E": 2520,
+              "FF": 548160,
+              "LUT": 274080,
+              "URAM": 0
+            },
+            "clock_uncertainty_ns": 1.25,
+            "crosscheck": "Selected timing, latency, interval and total resource fields agree between text and XML reports.",
+            "estimated_clock_ns": 8.419,
+            "evidence_modality": "stored_hls_estimate_not_reproduction",
+            "interval_cycles": 229703,
+            "latency_cycles": 335494,
+            "limits": [
+              "Top-level latency is distinct from launch interval; neither is end-to-end model latency.",
+              "HLS estimated clock is not achieved post-route timing.",
+              "Resource totals exclude any unrepresented system integration costs.",
+              "Stored report timestamp predates the pinned release; source/report reproducibility has not been established.",
+              "No matched baseline or full-suite aggregation in these reports establishes 11.78x."
+            ],
+            "path": "fire/sys/prj/solution1/syn/report/pipeline_top_csynth.rpt",
+            "reported_generation_date": "2025-05-02 00:46:58",
+            "reported_latency_ms": 3.355,
+            "resources": {
+              "BRAM_18K": 1122,
+              "DSP48E": 1840,
+              "FF": 214730,
+              "LUT": 172278,
+              "URAM": 0
+            },
+            "sha256": "a1655dc51bf84e5b8ceaed4344fb5bfe7f0c0ba3cd56b5bf16aae1a34b721efa",
+            "target_clock_ns": 10,
+            "xml_path": "fire/sys/prj/solution1/syn/report/pipeline_top_csynth.xml",
+            "xml_sha256": "eca2c836d0aad95d1e057b8c3878233bbcf4d31d3c8ba35eb86836ff8f1dedf9"
+          },
           "tree": "2556cae508f7fdd50b95eefba61957fd31a199e0",
           "tree_entries": 3976,
           "tree_truncated": false
@@ -108,7 +144,7 @@
           }
         ],
         "capture_date": "2026-09-06",
-        "extraction_scope": "Read-only inspection of pinned repository tree, README, HLS script and top-level kernel; no execution or full-paper recovery",
+        "extraction_scope": "Read-only inspection of pinned repository tree, README, HLS script, top-level kernel and stored text/XML synthesis reports; no execution or full-paper recovery",
         "headline_metric_status": "withheld_pending_fullpaper_conditions",
         "identity": {
           "author_page": "https://csee.hnu.edu.cn/people/hexu",
@@ -123,7 +159,7 @@
           "Artifact discovery is not independent acceptance."
         ],
         "paper_id": "dac-2026-research1110",
-        "revisit_condition": "Full paper or framework release with benchmarks, prompts and equivalence tests; next artifact work can inspect stored synthesis reports separately from reproduction.",
+        "revisit_condition": "Full paper or framework release with benchmarks, prompts and equivalence tests, or a licensed synthesis environment and functional testbench enabling fresh verification.",
         "schema": "supplementary-primary-assessment.v1",
         "source_id": "dac-2026-hlsarchopt-pinned-artifact",
         "source_tier": "author_linked_partial_artifact",
@@ -143,7 +179,7 @@
       "headline_metric_status": "withheld_pending_fullpaper_conditions",
       "independent_review_status": "pending",
       "path": "dac/data/hlsarchopt-primary-assessment-v1.json",
-      "sha256": "36a7d54c0aca4965ea9179395121a8b52fdc9c38d9661ee90a40ce85267b5ab7",
+      "sha256": "5fdfefc888decffa16458077a453b4e5732ec362b740b40f4a68fd1b3a767f9b",
       "source_url": "https://github.com/Szzer1/HLSArchOpt/tree/999043ab132f984b5b88b26ab9e415221e1198f1"
     }
   ],

@@ -4,6 +4,13 @@ The governing scope and acceptance criteria are in [GOAL.md](../GOAL.md).
 This log distinguishes finished work from queued work; a plan is not a completed
 research result.
 
+HLSArchOpt follow-up: stored text/XML synthesis estimates crosschecked and hashed.
+Latency, launch interval, clock and resource estimates now travel with the review
+packet, separated from post-route/board measurements and fresh reproduction.
+Report/source consistency and full-suite speedup remain unverified. Continue to
+research1113; revisit this artifact on a full framework/testbench release or a
+suitable licensed verification environment rather than rereading unchanged reports.
+
 HLSArchOpt (research1110): author-linked partial Fire-module artifact pinned and
 read-only inspected. Source/script expose platform, pipeline and disabled
 simulation steps, but not full-framework or headline reproduction. Review packet

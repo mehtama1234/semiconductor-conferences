@@ -20,3 +20,16 @@ resource limits and measurement modality remain unresolved.
 The [structured assessment](../data/hlsarchopt-primary-assessment-v1.json)
 pins the tree and inspected paths. Review remains pending; numerical synthesis
 is withheld until comparable benchmark conditions are available.
+
+## Stored synthesis reports
+
+The pinned text and XML reports agree on selected fields: latency 335,494 cycles
+(reported as 3.355 ms at a 10 ns target), interval 229,703 cycles, and estimated
+clock period 8.419 ns. Resource estimates are 1,122 BRAM_18K, 1,840 DSP48E,
+214,730 FF and 172,278 LUT. File hashes and locators are in the assessment.
+
+These are stored HLS estimates, not post-route timing or fresh measurements.
+Latency and launch interval must remain distinct; neither includes a demonstrated
+full-model or host-transfer boundary. The report timestamp is May 2, 2025, before
+the pinned release; source-to-report reproducibility remains unverified. There
+is no matched baseline here from which to recover the paper's average speedup.
