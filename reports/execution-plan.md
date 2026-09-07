@@ -1873,6 +1873,11 @@ equivalence checking, LLM-assisted DRC repair, reconfigurable systolic arrays,
 Ising optimization, diffusion-language-model serving, parasitic extraction,
 hardware-Trojan detection, asymmetric quantization, and MoE scheduling; P2
 routing now covers 448 of 541 lower-priority records.
+The forty-sixth P2 tranche adds ten DAC routes across microscaling, post-quantum
+edge security, GPU hypergraph partitioning, wafer-scale cost modeling, CPU-GPU
+MoE execution, multi-vector retrieval, approximate arithmetic, voltage
+side-channel analysis, stochastic computing, and encrypted sparse multiplication;
+P2 routing now covers 458 of 541 lower-priority records.
 
 The condition-aware deep theme profile is now materialized at
 `data/deep-theme-profile-v1.json` and `reports/deep-theme-profile-v1.md`. It

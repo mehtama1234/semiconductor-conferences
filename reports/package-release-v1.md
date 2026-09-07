@@ -174,6 +174,10 @@ gates still open**.
   checking, LLM-assisted DRC repair, reconfigurable systolic arrays, Ising
   optimization, diffusion-LM serving, parasitic extraction, Trojan detection,
   asymmetric quantization, and MoE scheduling.
+- A forty-sixth P2 routing tranche covering microscaling, post-quantum edge
+  security, GPU hypergraph partitioning, wafer-scale cost modeling, CPU-GPU MoE
+  execution, multi-vector retrieval, approximate arithmetic, voltage side-channel
+  analysis, stochastic computing, and encrypted sparse multiplication.
 - A condition-aware deep theme profile over the 494 coded description records,
   with subtheme/mechanism routing and explicit workload, hardware, baseline, and
   metric missingness. It is selected-sample synthesis only.

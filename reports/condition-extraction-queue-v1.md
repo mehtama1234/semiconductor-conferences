@@ -166,6 +166,12 @@ hypergraph partitioning, thermal/kernel-aware inference, diffusion quantization,
 variation-tolerant analog inference, quantum placement/compilation,
 placement/sizing, chiplet thermal modeling, RowHammer attacks, and PIM
 scheduling.
+The forty-sixth P2 tranche is recorded in
+`reports/p2-recovery-batch-46-2026-09-07.md`, continuing the DAC frontier across
+microscaling, post-quantum edge security, GPU hypergraph partitioning, wafer-scale
+cost modeling, CPU-GPU MoE execution, multi-vector retrieval, learned approximate
+arithmetic, voltage side-channel analysis, stochastic computing, and encrypted
+sparse multiplication.
 The thirty-first P2 tranche is recorded in
 `reports/p2-recovery-batch-31-2026-09-07.md`, continuing the DAC frontier across
 prefix-KV retrieval, video enhancement, zero-knowledge tracing, emulation
