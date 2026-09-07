@@ -97,6 +97,10 @@ The twenty-sixth P2 tranche adds ten DAC routes across scale-up networks,
 safety-critical accelerators, DRC, embodied-planning memory, watermarking, CAMs,
 Gaussian splatting, SSD testing, BFP NPUs, and analog in-pixel modeling; P2
 routing now covers 258 of 541 lower-priority records.
+The twenty-seventh P2 tranche adds ten DAC routes across TCAD surrogates,
+low-power test, FPGA area recovery, secure CIM/PUF, encrypted inference, graph
+CIM, GPU circuit simulation, quantum readout, edge inference, and MoE
+quantization; P2 routing now covers 268 of 541 lower-priority records.
 
 Primary recovery batch 3 is recorded in
 `reports/isca-primary-recovery-batch-3-2026-09-07.md`: SPEC CPU and KernelEvolve

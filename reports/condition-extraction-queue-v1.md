@@ -145,6 +145,11 @@ The twenty-fifth P2 tranche is recorded in
 frontier across MoE scheduling, buffering, satellite federated learning,
 analog/CIM dynamics, quantum compilation, PMU security, logic optimization, CPU
 DSE, and graph-based circuit matching.
+The twenty-seventh P2 tranche is recorded in
+`reports/p2-recovery-batch-27-2026-09-07.md`, continuing the DAC frontier across
+TCAD surrogates, low-power test, FPGA area recovery, secure CIM/PUF, encrypted
+inference, graph CIM, GPU circuit simulation, robust quantum readout, edge
+inference, and MoE quantization.
 
 The categories overlap by design: P0 is a remediation priority, while P1/P2
 describe evidence depth. The former P0 records are retained in

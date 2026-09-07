@@ -96,6 +96,9 @@ gates still open**.
 - A twenty-sixth P2 routing tranche continuing the DAC frontier across networks,
   safety, DRC, embodied memory, watermarking, CAM, graphics, SSD, NPU, and
   analog-modeling records.
+- A twenty-seventh P2 routing tranche continuing the DAC frontier across TCAD,
+  test, FPGA, secure CIM, encrypted inference, graph/GPU simulation, quantum
+  readout, edge inference, and MoE records.
 - A third ISCA primary-recovery batch covering SPEC CPU, KernelEvolve, and
   Rowhammer with source-tier-specific limits.
 - A fourth ISCA primary-recovery batch covering GRAINS, Triage, and Coset
