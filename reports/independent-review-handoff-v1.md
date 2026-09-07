@@ -1,6 +1,6 @@
 # Independent review handoff — v1
 
-Status as of 2026-09-06: **prepared, not independently reviewed**.
+Status as of 2026-09-07: **prepared, not independently reviewed**.
 
 The package contains 581 review packets under
 `data/review-packets/`. Each packet is a self-contained proposed coding record

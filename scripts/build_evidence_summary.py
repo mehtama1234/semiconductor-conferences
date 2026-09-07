@@ -138,7 +138,7 @@ def build(root: Path) -> tuple[dict, str]:
     )
     summary = {
         "summary_version": "v1-adjudicated-evidence-coverage",
-        "as_of": "2026-09-06",
+        "as_of": "2026-09-07",
         "record_count": len(records),
         "selection_warning": "This is a selected adjudication sample, not a conference prevalence estimate or market forecast.",
         "conference_counts": {conference: len(rows) for conference, rows in sorted(by_conference.items())},

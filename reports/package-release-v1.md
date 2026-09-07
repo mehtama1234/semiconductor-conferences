@@ -1,6 +1,6 @@
 # Dated intelligence package release — v1
 
-Release date: 2026-09-06. Status: **bounded evidence assessment with scientific
+Release date: 2026-09-07. Status: **bounded evidence assessment with scientific
 gates still open**.
 
 ## What this release contains

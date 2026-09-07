@@ -1,4 +1,4 @@
-# Collection status — 2026-09-06
+# Collection status — 2026-09-07
 
 Status: **corpus collection, selected technical coding, and provisional synthesis**.
 
@@ -11,7 +11,7 @@ Current inventory checkpoint:
 - DAC 2026: 543 distinct official research-manuscript records normalized in `dac/data/papers-2026-program.jsonl`, plus 75 other program items; all 543 current descriptions now have provisional evidence-cited technical adjudications, while full-paper conditions remain open.
 - DAC evidence: all 543 research pages returned substantive official descriptions; all 543 current-edition records now have evidence-cited adjudications across EDA, accelerators, memory, packaging, verification, security, quantum, reliability, thermal, and workload/system design, plus one additional historical/recovery record.
 - DAC triage: all 543 descriptions now have keyword-backed routing candidates, explicitly marked non-adjudicated; the routing is for review queue construction only.
-- Taxonomy/audit: `data/taxonomy-v1-evidence.json` reconciles adjudicated subtheme and sub-subtheme IDs across all three conferences; `reports/adversarial-preflight-v0.json` reports 562 pass / 19 review across the 581 coded records. The review rows remain explicit evidence or provenance checks; this is a deterministic preflight, not independent LLM or human review.
+- Taxonomy/audit: `data/taxonomy-v1-evidence.json` reconciles adjudicated subtheme and sub-subtheme IDs across all three conferences; `reports/adversarial-preflight-v0.json` reports 578 pass / 3 review across the 581 coded records. The review rows remain explicit evidence or provenance checks; this is a deterministic preflight, not independent LLM or human review.
 - ICCAD: 319 distinct 2025 program-paper records normalized as the explicitly labeled fallback for the 2026 target; twenty-one records now have primary/preprint/institutional/company-source evidence-cited adjudications, while the remaining fallback rows remain metadata-only.
 
 DAC’s seven day-by-day program fragments are collected by `scripts/collect_dac_program.py`. The generated raw captures are locally reproducible evidence inputs and remain ignored by the repository’s raw-data policy; the normalized metadata ledgers are tracked.

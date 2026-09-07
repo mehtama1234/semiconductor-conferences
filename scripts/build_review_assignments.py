@@ -22,7 +22,7 @@ def build(root: Path) -> dict:
         })
     return {
         "schema": "independent-review-assignments.v1",
-        "as_of": "2026-09-06",
+        "as_of": "2026-09-07",
         "status": "prepared_awaiting_external_review",
         "assignment_policy": "Two independent reviewers per packet; keep source-entailment decisions blind until disagreement resolution.",
         "packet_count": len(assignments),
