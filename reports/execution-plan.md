@@ -26,6 +26,12 @@ An additional recovery attempt for ATX and RHODES is recorded in
 indexed summary and exact DOI, while ATX has DOI identity only; neither was
 promoted beyond metadata because original technical text was not recovered.
 
+The same recovery pass obtained an exact author preprint for Rearchitecting the
+Datacenter Lifecycle for AI. Its conditions and bounded TCO claim are recorded
+in the dated recovery note `isca/data/rearchitecting-primary-recovery-v1.json`
+and remain provisional pending published-paper reconciliation and independent
+review.
+
 Latest bounded remediation (2026-09-07): repaired strict title matching for
 truncated DAC program subtitles, accepted identity-matched captured abstracts as
 valid provenance, and rewrote two evidence spans to include source-grounded

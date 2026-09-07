@@ -62,6 +62,8 @@ gates still open**.
   expose identity/session metadata but no abstracts or experimental conditions.
 - A dated ATX/RHODES primary-source recovery attempt preserving exact DOI
   identity and marking secondary-only text as non-promotable.
+- A primary-preprint recovery assessment for Rearchitecting the Datacenter
+  Lifecycle for AI with explicit modeled conditions and provisional status.
 
 ## What users may conclude
 

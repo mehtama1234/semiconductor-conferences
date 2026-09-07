@@ -1,0 +1,37 @@
+{
+  "schema": "primary-source-recovery-note.v1",
+  "paper_id": "isca-2026-program-013",
+  "title": "Rearchitecting the Datacenter Lifecycle for AI",
+  "source_id": "isca-2026-rearchitecting-arxiv",
+  "source_url": "https://arxiv.org/abs/2509.26534",
+  "capture_date": "2026-09-07",
+  "source_tier": "author_preprint",
+  "extraction_scope": "Author preprint abstract and accessible sections; no independent reproduction or reviewer verdict.",
+  "independent_review_status": "pending",
+  "headline_metric_status": "provisional_primary_preprint_claim",
+  "identity": {
+    "doi": "10.1109/isca66397.2026.00029",
+    "authors": ["Jovan Stojkovic", "Chaojie Zhang", "Íñigo Goiri", "Ricardo Bianchini"],
+    "status": "exact_title_doi_authors_and_author_preprint_match",
+    "limit": "Preprint is primary technical evidence but is not independently reviewed here."
+  },
+  "mechanism": "A lifecycle framework jointly co-optimizes AI datacenter building, hardware refresh, and operation decisions under workload growth, hardware evolution, and system aging.",
+  "conditions": {
+    "baseline": "Traditional lifecycle policies and a baseline deployment timeline",
+    "simulation": "Monte Carlo simulations over workload growth, model scaling, hardware availability, and cost projections",
+    "representative_datacenter": "10 MW, approximately 500 H100 servers, 75% average utilization, roughly 70 GWh annual operating energy",
+    "workload_assumptions": "AI inference demand and model-size growth scenarios; linear, sub-linear, and accelerated growth cases",
+    "operational_scope": "Power, cooling, networking, hardware refresh, model migration, quantization, KV-cache management, disaggregation, routing, and scheduling"
+  },
+  "reported_results": [
+    "The abstract reports up to 40% TCO reduction versus traditional approaches.",
+    "The preprint reports stage-specific and cross-stage savings under modeled scenarios, including sensitivity to refresh and workload-growth policies."
+  ],
+  "limits": [
+    "Results are modeled projections, not measurements from a deployed datacenter.",
+    "TCO depends on assumed demand growth, hardware availability, prices, energy, and cooling parameters.",
+    "The reported percentage is not transferable to every datacenter or workload without matching assumptions.",
+    "Independent review and reproduction remain pending."
+  ],
+  "next_action": "Reconcile the preprint against the published paper, capture the exact figures/tables and sensitivity ranges, then prepare independent review."
+}
