@@ -4,6 +4,19 @@ The governing scope and acceptance criteria are in [GOAL.md](../GOAL.md).
 This log distinguishes finished work from queued work; a plan is not a completed
 research result.
 
+ICCAD v8/v20 numbered-metadata comparison: downloaded and retained v20 separately;
+same-parser extraction finds 319 IDs in each, no additions/removals or normalized
+title changes. Five author fields differ (three marker-only, one spelling/glyph,
+one expanded invited author list); HERCULES moves PDF page 113→114. Visually
+checked v20 pages 57/59 for name/list changes. Added hash-bound comparison,
+report and six per-ID queue flags; retained v8 canonical metadata pending a
+versioned provenance update. Next: compare affiliation definitions and apply
+explicit v20 overlays without discarding v8 history, then resume technical recovery.
+This does not establish stable paper contents, schedules or unnumbered programs.
+Version comparison and queue regeneration completed; project validation and 131
+tests pass. The checks distinguish author markers from names and route all six
+affected records without rewriting canonical v8 metadata.
+
 NIMCH/UGLMS coding: ICCAD batch 8 adds timing-critical parallel remapping and
 uncertainty-guided SAR ADC measurement branches, preserving institutional-abstract
 versus selected-full-text depth. Both have empty headline metrics and pending

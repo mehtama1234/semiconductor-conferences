@@ -16,6 +16,8 @@ Drafts are tracked separately from the selected coded sample; neither status mea
 
 ICCAD includes 43 invited papers, explicitly excluded from regular-paper comparisons; see the [scope audit](../iccad/reports/program-scope-audit-v1.md).
 
+6 ICCAD entries need [version-specific author/page reconciliation](../iccad/reports/program-v8-v20-comparison-v1.md); the inventory remains v8-backed.
+
 ## Supplementary primary assessments
 
 These researcher assessments supplement, but do not replace, original evidence or independent review.

@@ -5,6 +5,9 @@ registered as `iccad-2025-program-pdf-fallback`. The
 [machine-readable audit](../data/program-scope-audit-v1.json) binds the source hash
 to each numbered entry's PDF page and first heading line. The scan covers PDF
 pages 38–129; it is not a census of unnumbered talks or workshop contributions.
+The later-discovered [v20 comparison](program-v8-v20-comparison-v1.md) preserves
+the same numbered-title population but flags author-field and page-anchor changes.
+This scope ledger remains tied to its v8 hash.
 
 ## Reconciliation
 
