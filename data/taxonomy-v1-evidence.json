@@ -34,6 +34,7 @@
     "dac/data/adjudicated-2026-batch-20.jsonl",
     "dac/data/adjudicated-2026-batch-21.jsonl",
     "dac/data/adjudicated-2026-batch-22.jsonl",
+    "dac/data/adjudicated-2026-batch-23.jsonl",
     "iccad/data/adjudicated-2025-batch-3.jsonl",
     "iccad/data/adjudicated-2025-batch-4.jsonl",
     "iccad/data/adjudicated-2025-batch-5.jsonl",
@@ -127,6 +128,7 @@
           "training-free-self-speculative-edge-llm-decoding"
         ],
         "specialized-accelerators-and-dataflow": [
+          "correlation-aware-gkp-decoder-acceleration",
           "lpn-post-quantum-crypto-acceleration"
         ],
         "specialized-ai-accelerators": [
@@ -244,6 +246,7 @@
           "system-on-die-ecc-co-design"
         ],
         "storage-and-data-movement": [
+          "dynamic-parity-ssd-lifetime-extension",
           "media-aware-archival-storage-scheduling",
           "noise-robust-fenand-hdc-sql",
           "workload-aware-numa-storage-coordination"
@@ -262,6 +265,9 @@
       "subsubthemes": {
         "parasitic-extraction-and-modeling": [
           "geometry-conditioned-layer-specific-capacitance-surrogates"
+        ],
+        "placement-routing-and-floorplanning": [
+          "cell-independent-transistor-placement"
         ],
         "placement-routing-and-timing": [
           "congestion-oriented-feedthrough-pin-assignment",
@@ -288,6 +294,7 @@
       "subthemes": [
         "floorplanning-and-power-delivery",
         "parasitic-extraction-and-modeling",
+        "placement-routing-and-floorplanning",
         "placement-routing-and-timing",
         "process-aware-design",
         "timing-analysis-and-optimization"
@@ -332,7 +339,8 @@
           "remote-power-leakage-in-post-quantum-kem",
           "rowhammer-falcon-fault-cryptographic",
           "secure-nv-cim-encrypted-inference",
-          "transparent-rowhammer-monitoring"
+          "transparent-rowhammer-monitoring",
+          "verifiable-tee-cpu-availability"
         ]
       },
       "subthemes": [
@@ -389,6 +397,7 @@
           "undocumented-instruction-security-verification"
         ],
         "simulation-emulation-and-testing": [
+          "automated-iot-behavior-oracles",
           "constraint-guided-gpu-memory-fuzzing",
           "dependency-aware-two-dimensional-rtl-fault-simulation",
           "living-rtl-benchmark-and-equivalence-evaluation",
