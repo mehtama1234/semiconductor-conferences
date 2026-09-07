@@ -4,6 +4,13 @@ The governing scope and acceptance criteria are in [GOAL.md](../GOAL.md).
 This log distinguishes finished work from queued work; a plan is not a completed
 research result.
 
+Strix follow-up: the printed detection-latency table is visually verified and
+transcribed, with BF16-I explicitly excluded because no row is provided. The
+assessment now includes a bounded artifact-discovery attempt and revisit trigger;
+no Strix-specific release was recovered through the checked sources. Queue and
+review packet are refreshed, with no acceptance promotion. Continue to GEMIR;
+revisit Strix's artifact when a verified release link is available.
+
 Primary-depth increment: Strix (DAC research043) now has a matched preprint
 assessment separating FPGA/simulation evidence, baseline budgets, fault models,
 slowdown aggregation, detection timing and synthesis overheads. Original evidence

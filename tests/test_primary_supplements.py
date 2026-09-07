@@ -65,3 +65,8 @@ def test_strix_conditions_keep_simulation_and_latency_scope_explicit():
     assert c["baselines"]["budget"] == "area-matched"
     assert c["baselines"]["realm_rollback_limit"] == 1
     assert r["independent_review_status"] == "pending"
+    table = r["pdf_verification"]["latency_table"]
+    assert set(table["rows"]) == set(c["latency"]["configurations"])
+    assert table["missing_configuration"] not in table["rows"]
+    assert all(len(row) == len(table["columns"]) for row in table["rows"].values())
+    assert max(value for row in table["rows"].values() for value in row) == table["maximum_listed"] < 1

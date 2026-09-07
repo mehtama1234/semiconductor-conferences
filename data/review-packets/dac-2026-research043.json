@@ -51,6 +51,18 @@
   "supplementary_researcher_assessments": [
     {
       "assessment": {
+        "artifact_discovery": {
+          "check_date": "2026-09-06",
+          "checked_urls": [
+            "https://arxiv.org/pdf/2604.10484v1",
+            "https://zhejianguk.github.io/publications.html"
+          ],
+          "finding": "Author publication entry links to arXiv; paper GitHub references found point to Spike and Gemmini, not a recovered Strix release.",
+          "limit": "Bounded discovery attempt, not proof of unavailability; do not substitute upstream Gemmini for Strix implementation.",
+          "revisit_condition": "Author/project/proceedings artifact link or verified repository identity becomes available.",
+          "search_query": "\"Strix\" \"Jiapeng Guan\" github",
+          "status": "strix_specific_artifact_not_recovered_in_checked_sources"
+        },
         "capture_date": "2026-09-06",
         "conditions": {
           "baselines": {
@@ -99,8 +111,13 @@
             "bound_microseconds": 1,
             "bound_relation": "less_than",
             "clock_mhz": 500,
-            "limit": "Not a measured correction-latency bound.",
-            "locator": "S5.SS2 item 6",
+            "configurations": [
+              "INT8-D",
+              "INT8-I",
+              "FP32-D"
+            ],
+            "limit": "Not a measured correction-latency bound; BF16-I absent from table.",
+            "locator": "S5.SS2 item 6; PDF Table 1",
             "metric": "worst-case detection latency"
           },
           "platform": {
@@ -125,7 +142,7 @@
             "unit": "x"
           }
         },
-        "extraction_scope": "Selected HTML experimental prose, Section 5; tables and figures not visually transcribed",
+        "extraction_scope": "Selected HTML experimental prose, Section 5; PDF page 6 Table 1 visually transcribed; Table 2 and Figure 9 visually inspected without numerical extraction",
         "headline_metric_status": "conditioned_author_claims_not_independently_accepted",
         "identity_status": "case_normalized_title_and_all_eleven_authors_match_program",
         "independent_review_status": "pending",
@@ -133,9 +150,53 @@
           "Synthesis estimates are not fabricated-silicon measurements.",
           "Do not combine FPGA and simulated configurations into universal hardware validation.",
           "Fault-injection coverage does not establish safety certification or coverage of every fault model.",
-          "Figure-level configuration denominators, absolute latencies, code revisions and variance remain unchecked."
+          "Other figure-level denominators, Strix implementation revisions and variance remain unchecked."
         ],
         "paper_id": "dac-2026-research043",
+        "pdf_verification": {
+          "check_date": "2026-09-06",
+          "latency_table": {
+            "columns": [
+              "register",
+              "local_memory",
+              "systolic_array",
+              "softmax",
+              "layernorm"
+            ],
+            "locator": "Table 1",
+            "maximum_listed": 0.67,
+            "missing_configuration": "BF16-I",
+            "rows": {
+              "FP32-D": [
+                0.01,
+                0.36,
+                0.41,
+                0.02,
+                0.02
+              ],
+              "INT8-D": [
+                0.01,
+                0.16,
+                0.19,
+                0.01,
+                0.02
+              ],
+              "INT8-I": [
+                0.02,
+                0.53,
+                0.67,
+                0.02,
+                0.03
+              ]
+            },
+            "scope": "Detection only; no table evidence for BF16-I or correction/localisation timing.",
+            "unit": "microseconds"
+          },
+          "method": "Local PyMuPDF 2x rendering and same-agent visual inspection",
+          "page_number": 6,
+          "sha256": "2d5392c191817facae68a7e107e1e5135046ad5d95bdf709d6206cce55f4ea7d",
+          "url": "https://arxiv.org/pdf/2604.10484v1"
+        },
         "schema": "supplementary-primary-assessment.v1",
         "source_id": "dac-2026-strix-arxiv-v1",
         "source_tier": "author_preprint",
@@ -147,7 +208,7 @@
       "headline_metric_status": "conditioned_author_claims_not_independently_accepted",
       "independent_review_status": "pending",
       "path": "dac/data/strix-primary-assessment-v1.json",
-      "sha256": "e7fe775f8943301f88e74b03f95a2d07155cb7e654bff8bf2c3bb153e88ea0ad",
+      "sha256": "327cc3fdc73c96eceb29ed0597544f9167ba51c154882cbbb2ba2ca7538ffeef",
       "source_url": "https://arxiv.org/html/2604.10484v1"
     }
   ],

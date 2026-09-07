@@ -8,7 +8,32 @@
   "capture_date": "2026-09-06",
   "source_tier": "author_preprint",
   "identity_status": "case_normalized_title_and_all_eleven_authors_match_program",
-  "extraction_scope": "Selected HTML experimental prose, Section 5; tables and figures not visually transcribed",
+  "extraction_scope": "Selected HTML experimental prose, Section 5; PDF page 6 Table 1 visually transcribed; Table 2 and Figure 9 visually inspected without numerical extraction",
+  "pdf_verification": {
+    "url": "https://arxiv.org/pdf/2604.10484v1",
+    "check_date": "2026-09-06",
+    "sha256": "2d5392c191817facae68a7e107e1e5135046ad5d95bdf709d6206cce55f4ea7d",
+    "page_number": 6,
+    "method": "Local PyMuPDF 2x rendering and same-agent visual inspection",
+    "latency_table": {
+      "locator": "Table 1",
+      "unit": "microseconds",
+      "columns": ["register", "local_memory", "systolic_array", "softmax", "layernorm"],
+      "rows": {"INT8-D": [0.01, 0.16, 0.19, 0.01, 0.02], "INT8-I": [0.02, 0.53, 0.67, 0.02, 0.03], "FP32-D": [0.01, 0.36, 0.41, 0.02, 0.02]},
+      "maximum_listed": 0.67,
+      "missing_configuration": "BF16-I",
+      "scope": "Detection only; no table evidence for BF16-I or correction/localisation timing."
+    }
+  },
+  "artifact_discovery": {
+    "check_date": "2026-09-06",
+    "checked_urls": ["https://arxiv.org/pdf/2604.10484v1", "https://zhejianguk.github.io/publications.html"],
+    "search_query": "\"Strix\" \"Jiapeng Guan\" github",
+    "status": "strix_specific_artifact_not_recovered_in_checked_sources",
+    "finding": "Author publication entry links to arXiv; paper GitHub references found point to Spike and Gemmini, not a recovered Strix release.",
+    "limit": "Bounded discovery attempt, not proof of unavailability; do not substitute upstream Gemmini for Strix implementation.",
+    "revisit_condition": "Author/project/proceedings artifact link or verified repository identity becomes available."
+  },
   "conditions": {
     "platform": {"base": "Gemmini", "fpga": "AMD VU19P", "cluster_nodes": 20, "locator": "S5.SS1"},
     "simulation_exception": {"configuration": "BF16-I", "method": "PyTorch following Spike behavior", "use": "LLM performance analysis only", "locator": "S5.SS1"},
@@ -16,14 +41,14 @@
     "fault_model": {"types": ["transient bit flips", "permanent stuck-at"], "default_rate": 1e-7, "rate_denominator": "original-input bit count", "locator": "S5.SS1"},
     "baselines": {"names": ["partial TMR", "triple instruction redundancy", "ReaLM"], "budget": "area-matched", "realm_rollback_limit": 1, "locator": "S5.SS1"},
     "slowdown": {"geometric_mean": 1.04, "range": [1.02, 1.07], "unit": "x", "locator": "S5.SS2 item 1"},
-    "latency": {"metric": "worst-case detection latency", "bound_microseconds": 1, "bound_relation": "less_than", "clock_mhz": 500, "locator": "S5.SS2 item 6", "limit": "Not a measured correction-latency bound."},
+    "latency": {"metric": "worst-case detection latency", "bound_microseconds": 1, "bound_relation": "less_than", "clock_mhz": 500, "configurations": ["INT8-D", "INT8-I", "FP32-D"], "locator": "S5.SS2 item 6; PDF Table 1", "limit": "Not a measured correction-latency bound; BF16-I absent from table."},
     "hardware_overhead": {"method": "Design Compiler v2019.12; TSMC 28nm", "area_power_percent": {"INT8-D": [20.7, 23.2], "INT8-I": [8.7, 16.8], "FP32-D": [10.2, 21.3]}, "locator": "S5.SS2 item 8"}
   },
   "interpretation_limits": [
     "Synthesis estimates are not fabricated-silicon measurements.",
     "Do not combine FPGA and simulated configurations into universal hardware validation.",
     "Fault-injection coverage does not establish safety certification or coverage of every fault model.",
-    "Figure-level configuration denominators, absolute latencies, code revisions and variance remain unchecked."
+    "Other figure-level denominators, Strix implementation revisions and variance remain unchecked."
   ],
   "headline_metric_status": "conditioned_author_claims_not_independently_accepted",
   "independent_review_status": "pending"
