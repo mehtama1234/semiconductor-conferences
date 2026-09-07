@@ -1,5 +1,17 @@
 # Execution plan — 2026-09-06
 
+ATB primary-source coding batch: promoted “Can Asymmetric Tile Buffering Be
+Beneficial?” into the selected adjudication ledger after inspecting the author
+preprint's evaluation tables. The record preserves the unresolved program/preprint
+author-name variants and the printed 4.54x-versus-endpoint-ratio discrepancy;
+different matrix dimensions prevent treating the arithmetic ratio as a corrected
+speedup. Conditions, locators, and limitations are now source-bound, but the
+record remains pending independent review and proceedings-identity reconciliation.
+Coding reaches 85 (50 DAC, 16 ISCA, 19 ICCAD); deterministic preflight is 70 pass /
+15 review, with zero independent verdicts. Regenerated taxonomy, evidence summary,
+queue, packets, and manifest. This is a bounded evidence increment, not acceptance
+or a venue-wide trend claim.
+
 NIMCH source-depth follow-up: the NTU thesis repository exposes an English
 abstract for ICCAD paper 1111's related thesis, including the parallel
 longest-path-first and iterative minimum-slack-first mechanisms, an 8.92x thesis

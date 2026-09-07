@@ -199,7 +199,7 @@ def test_dac_adjudicated_batch_has_cited_technical_fields() -> None:
     rows = []
     for path in (ROOT / "dac/data/adjudicated-2026-batch.jsonl", ROOT / "dac/data/adjudicated-2026-batch-2.jsonl", ROOT / "dac/data/adjudicated-2026-batch-3.jsonl", ROOT / "dac/data/adjudicated-2026-batch-4.jsonl"):
         rows.extend(json.loads(line) for line in path.read_text().splitlines() if line.strip())
-    assert len(rows) == 49
+    assert len(rows) == 50
     assert all(row["evidence_url"] and row["evidence_span"] for row in rows)
     assert all(row["problem"] and row["method_or_artifact"] and row["metrics"] for row in rows)
 
@@ -295,7 +295,7 @@ def test_reproducibility_manifest_has_build_and_validation_commands() -> None:
 
 def test_root_synthesis_preserves_evidence_asymmetry_and_next_requirements() -> None:
     text = (ROOT / "reports/technology-direction-synthesis-v1.md").read_text()
-    assert "84-record technical coding sample" in text
+    assert "85-record technical coding sample" in text
     assert "not 319 regular papers" in text
     assert "not a prevalence estimate" in text
     assert "independent adversarial LLM or human review" in text
@@ -339,9 +339,9 @@ def test_detailed_taxonomy_and_adversarial_protocol_exist() -> None:
 
 def test_evidence_summary_is_explicitly_non_prevalence() -> None:
     summary = json.loads((ROOT / "reports/evidence-summary-v1.json").read_text())
-    assert summary["record_count"] == 84
+    assert summary["record_count"] == 85
     assert "not a conference prevalence estimate" in summary["selection_warning"]
-    assert summary["unreviewed_adversarial_judge_count"] == 84
+    assert summary["unreviewed_adversarial_judge_count"] == 85
 
 
 def test_adversarial_pre_review_is_labeled_as_non_independent() -> None:
@@ -362,7 +362,7 @@ def test_evidence_taxonomy_contains_adjudicated_specificity() -> None:
 def test_adversarial_preflight_is_explicit_about_its_limits() -> None:
     audit = json.loads((ROOT / "reports/adversarial-preflight-v0.json").read_text())
     assert audit["judge_mode"] == "deterministic_preflight_not_llm"
-    assert audit["record_count"] == 84
+    assert audit["record_count"] == 85
     assert audit["limits"]
 
 

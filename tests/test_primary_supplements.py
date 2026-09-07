@@ -120,13 +120,17 @@ def test_supplements_reach_queue_and_both_packet_types_without_promotion():
     assert busybarn["archive_capture"]["execution_attempts"][1]["observed_progress"].startswith("configuration generation")
     assert busybarn["archive_capture"]["completed_case"]["reported_time_cost"] == 80
     assert len(busybarn["archive_capture"]["completed_case"]["result_file_sha256"]) == 64
-    assert set(supplements) == {"dac-2026-research031", "dac-2026-research043", "dac-2026-research046", "dac-2026-research1000", "dac-2026-research1028", "dac-2026-research1054", "dac-2026-research1065", "dac-2026-research108", "dac-2026-research1101", "dac-2026-research1110", "dac-2026-research1113", "dac-2026-research1182", "dac-2026-research1186", "dac-2026-research535", "dac-2026-research865", "dac-2026-research2760", "dac-2025-research1019"}
+    atb = supplements.pop("dac-2026-research1000")[0]["assessment"]
+    assert atb["headline_metric_status"] == "withheld_pending_source_reconciliation"
+    assert atb["arithmetic_checks"][0]["status"] == "inconsistent_not_corrected"
+    assert any("Different matrix dimensions" in item for item in atb["interpretation_limits"])
+    assert set(supplements) == {"dac-2026-research031", "dac-2026-research043", "dac-2026-research046", "dac-2026-research1028", "dac-2026-research1054", "dac-2026-research1065", "dac-2026-research108", "dac-2026-research1101", "dac-2026-research1110", "dac-2026-research1113", "dac-2026-research1182", "dac-2026-research1186", "dac-2026-research535", "dac-2026-research865", "dac-2026-research2760", "dac-2025-research1019"}
     rows, summary, _ = build_queue(ROOT)
     assert summary["supplementary_assessment_paper_count"] == 31
     queue = {r["paper_id"]: r for r in rows}
     packets, coverage = build_packets(ROOT)
     drafts = build_drafts(ROOT)
-    assert coverage["supplementary_assessment_packet_count"] == 25
+    assert coverage["supplementary_assessment_packet_count"] == 26
     orthrus_packet = next(p for p in packets if p["paper_id"] == "iccad-2025-437")
     assert orthrus_packet["supplementary_researcher_assessments"] == orthrus_items
     assert orthrus_packet["review_status"] == "not_reviewed"
