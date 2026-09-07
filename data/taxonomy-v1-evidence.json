@@ -53,6 +53,7 @@
     "dac/data/adjudicated-2026-batch-39.jsonl",
     "dac/data/adjudicated-2026-batch-40.jsonl",
     "dac/data/adjudicated-2026-batch-41.jsonl",
+    "dac/data/adjudicated-2026-batch-42.jsonl",
     "iccad/data/adjudicated-2025-batch-3.jsonl",
     "iccad/data/adjudicated-2025-batch-4.jsonl",
     "iccad/data/adjudicated-2025-batch-5.jsonl",
@@ -81,6 +82,7 @@
         "graph-learning-for-eda": [
           "graph-prompt-crosstalk-timing",
           "learned-computation-on-circuit-graphs",
+          "memory-saving-circuit-graph-gnn-training",
           "path-aware-graph-timing-prediction",
           "physics-guided-cell-timing-characterization"
         ],
@@ -88,6 +90,7 @@
           "autoregressive-circuit-design-modeling",
           "coderllm-guided-hls-design-space-exploration",
           "compiler-ir-accelerator-power-modeling",
+          "diffusion-prior-transistor-sizing",
           "diffusion-tcad-multi-field-surrogate",
           "end-to-end-dnn-accelerator-generation",
           "expert-level-rl-placement",
@@ -103,7 +106,8 @@
           "practice-informed-rl-macro-placement",
           "pretrained-chip-layout-metrics",
           "self-supervised-atpg-free-test-point-insertion",
-          "self-supervised-toggle-power-analysis"
+          "self-supervised-toggle-power-analysis",
+          "sequence-based-rtl-timing-prediction"
         ],
         "llm-assisted-design-flows": [
           "llm-evolution-of-technology-mapping",
@@ -157,6 +161,7 @@
           "weak-form-pinn-device-simulation"
         ],
         "emerging-device-design": [
+          "shape-length-matched-sfq-placement",
           "superconductor-retiming-cell-interface"
         ],
         "emerging-memory-and-devices": [
@@ -172,6 +177,9 @@
           "riscv-quantum-control-soc-generation",
           "stochastic-spin-ferroelectric-neuropde",
           "time-aware-quantum-calibration-scheduling"
+        ],
+        "rf-and-mixed-signal-design": [
+          "sparse-moe-pa-predistortion"
         ]
       },
       "subthemes": [
@@ -184,7 +192,8 @@
         "device-modeling-and-simulation",
         "emerging-device-design",
         "emerging-memory-and-devices",
-        "neuromorphic-quantum-and-non-von-neumann"
+        "neuromorphic-quantum-and-non-von-neumann",
+        "rf-and-mixed-signal-design"
       ],
       "theme_id": "analog-mixed-signal-and-emerging-devices"
     },
@@ -227,6 +236,7 @@
           "158-bit-ternary-gpu-llm-inference",
           "adaptive-parallel-graph-transformer-training",
           "adaptive-sparse-tensor-gpu-codegen",
+          "ai-asic-zero-knowledge-proof-acceleration",
           "computation-data-decoupled-npu-dataflow",
           "correlation-aware-gkp-decoder-acceleration",
           "dynamic-prefill-decode-fpga-reconfiguration",
@@ -234,6 +244,7 @@
           "expandable-register-file-isa",
           "expert-ranked-mixed-precision-moe",
           "factored-floating-point-systolic-mac",
+          "flexible-zero-knowledge-proof-acceleration",
           "hammersley-stochastic-computing",
           "heterogeneous-zk-vm-trace-acceleration",
           "lpn-post-quantum-crypto-acceleration",
@@ -275,6 +286,7 @@
         "3d-integration-and-thermal-management": [
           "3d-fpga-placement-flow",
           "cppr-aware-3d-clock-synthesis",
+          "presynthesis-timing-3d-tier-partitioning",
           "timing-driven-hybrid-bonded-3d-placement",
           "wafer-on-wafer-cim-thermal-stability",
           "whitespace-free-3d-floorplanning"
@@ -334,6 +346,9 @@
           "community-guided-hypergraph-partitioning",
           "spectral-scalable-hypergraph-partitioning"
         ],
+        "hardware-generation-and-compilation": [
+          "fused-sparse-llm-accelerator-generation"
+        ],
         "high-level-synthesis-and-compilers": [
           "mlir-two-level-dataflow-accelerator-generation"
         ],
@@ -365,6 +380,7 @@
         "compiler-and-runtime-optimization",
         "cross-layer-design-automation",
         "graph-and-hypergraph-optimization",
+        "hardware-generation-and-compilation",
         "high-level-synthesis-and-compilers",
         "logic-synthesis-and-optimization",
         "optimization-and-search-methods",
@@ -405,6 +421,7 @@
           "multi-chip-sparse-matrix-communication-co-design",
           "multilevel-diffusion-cache-acceleration",
           "near-memory-communication-lower-bounds",
+          "near-memory-rag-elimination-tree",
           "neighbor-aware-gpu-shared-memory",
           "operator-aware-llm-training-swap",
           "pim-request-and-execution-overhead-elimination",
@@ -415,6 +432,7 @@
         ],
         "memory-compute-and-reliability": [
           "adc-in-memory-activation-quantization",
+          "arithmetic-reduced-pim-ann-search",
           "configurable-mram-binary-cim",
           "dual-rail-reliable-dram-compute",
           "dynamic-graph-pim-pattern-mining",
@@ -447,8 +465,10 @@
           "in-storage-ethereum-analytics",
           "in-storage-visible-version-search",
           "learned-in-memory-graph-storage",
+          "llm-hybrid-ssd-management",
           "media-aware-archival-storage-scheduling",
           "noise-robust-fenand-hdc-sql",
+          "ondevice-zoned-write-reordering",
           "replication-offload-disaggregated-memory",
           "workload-aware-numa-storage-coordination",
           "zns-swap-heterogeneous-gnn"
@@ -595,6 +615,7 @@
         "thermal-and-reliability-modeling": [
           "asynchronous-gnn-fit-prediction",
           "neural-chip-thermal-stress-decomposition",
+          "physics-informed-power-integrity-operator",
           "thermal-aware-edge-tpu-sram-allocation"
         ]
       },
@@ -632,7 +653,8 @@
           "mt3000-llm-inference-optimization",
           "ondemand-multitask-edge-sparsity",
           "runtime-selected-gesture-model-synthesis",
-          "self-assisted-moe-speculative-decoding"
+          "self-assisted-moe-speculative-decoding",
+          "universal-stochastic-edge-detection"
         ],
         "edge-embedded-and-mobile-systems": [
           "dependency-aware-gpu-real-time-scheduling",
