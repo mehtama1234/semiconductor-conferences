@@ -312,6 +312,12 @@ The fifty-fifth P2 tranche is recorded in
 after denominator reconciliation across post-quantum RISC-V, sparse 3D
 detection, ZKPs, robot VLA inference, verification-trained Verilog, MoE dataflow,
 CNOT synthesis, RTL benchmarking, pangenome acceleration, and PLONK security.
+The fifty-sixth P2 tranche is recorded in
+`reports/p2-recovery-batch-56-2026-09-07.md`, covering flash in-storage HDC,
+multi-step image-edit consistency, equality-saturated cell-library extension,
+CRYSTALS correction, sparse quantum readout mitigation, graph-diffusion RTL,
+spiking agents, undocumented-instruction verification, quantum calibration, and
+learned graph storage.
 
 The categories overlap by design: P0 is a remediation priority, while P1/P2
 describe evidence depth. The former P0 records are retained in

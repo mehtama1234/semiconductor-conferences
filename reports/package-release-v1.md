@@ -220,6 +220,8 @@ gates still open**.
 - A DAC-specific routing increment after reconciliation: ten additional routes,
   with 355 of the 541 description-denominator records represented in P2 batch
   files and 184 remaining outside those files.
+- A DAC-specific tranche advancing reconciled coverage from 355/541 to 365/541,
+  with 176 description-denominator records still outside P2 batch files.
 
 ## What users may conclude
 
