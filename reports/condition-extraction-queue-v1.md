@@ -348,6 +348,11 @@ The sixty-second P2 tranche is recorded in
 differentiable placement, tolerance-aware redundancy, answer-first KV management,
 cause-effect scheduling, physical chiplet planning, mobile speculative decoding,
 partitioned-GPU registers, FPGA HBM profiling, and printed-microfluidic optics.
+The sixty-third P2 tranche is recorded in
+`reports/p2-recovery-batch-63-2026-09-07.md`, covering chiplet surrogate
+exploration, processing-using-DRAM, point-cloud CAM search, analog layout
+automation, RTL simulation partitioning, cache partitioning, in-storage version
+search, disaggregated replication, analog graph learning, and CPU-GPU MoE balance.
 
 The categories overlap by design: P0 is a remediation priority, while P1/P2
 describe evidence depth. The former P0 records are retained in
