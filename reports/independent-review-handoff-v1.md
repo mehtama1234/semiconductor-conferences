@@ -24,6 +24,11 @@ routing check only and must not be copied into the independent-verdict fields.
 Six packets still require original-source text capture before source-entailment
 review; the remaining packets still require full-paper condition checks.
 
+The deterministic assignment manifest is
+`reports/independent-review-assignments-v1.json`. It covers every packet with two
+placeholder reviewer slots and zero verdicts; placeholder slots do not imply that
+an external reviewer has accepted an assignment.
+
 ## Acceptance boundary
 
 Until reviewer verdicts are actually recorded, the package must report zero

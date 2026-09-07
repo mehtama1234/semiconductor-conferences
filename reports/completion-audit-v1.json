@@ -38,7 +38,7 @@
       "id": "subgoal-5-independent-review",
       "label": "Independent challenge and acceptance",
       "status": "prepared_pending",
-      "evidence": ["reports/adversarial-judge-protocol-v1.md", "reports/adversarial-review-status-v1.md", "reports/independent-review-handoff-v1.md", "reports/review-packet-coverage.json"],
+      "evidence": ["reports/adversarial-judge-protocol-v1.md", "reports/adversarial-review-status-v1.md", "reports/independent-review-handoff-v1.md", "reports/independent-review-assignments-v1.json", "reports/review-packet-coverage.json"],
       "current_counts": {"packets": 89, "independent_review_count": 0, "deterministic_preflight_pass": 71, "deterministic_preflight_review": 18},
       "remaining": "No independent human or model judgments have been obtained; no record is accepted."
     },
@@ -54,7 +54,7 @@
       "label": "Dated reproducible intelligence package",
       "status": "bounded_package_complete",
       "evidence": ["reports/reproducibility-manifest-v1.json", "reports/package-release-v1.md", "scripts/validate_project.py", "tests/"],
-      "current_counts": {"manifest_artifacts": 59, "tests": 140},
+      "current_counts": {"manifest_artifacts": 60, "tests": 140},
       "remaining": "Package is publishable as a bounded evidence assessment, not as a full-corpus trend report or independently accepted scientific review."
     }
   ],

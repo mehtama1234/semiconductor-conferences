@@ -14,9 +14,11 @@ gates still open**.
   counterpressure/hypothesis reports.
 - 89 review packets and a reviewer handoff protocol; no independent verdicts are
   represented as completed.
+- A deterministic 89-packet reviewer-assignment manifest with two placeholder
+  reviewer slots per packet and zero synthesized verdicts.
 - Temporal pilot comparisons and title-shift routing signals, all bounded by an
   explicit insufficient-evidence finding for directional claims.
-- A 59-artifact reproducibility manifest and a passing validation/test suite.
+- A 60-artifact reproducibility manifest and a passing validation/test suite.
 
 ## What users may conclude
 
