@@ -17,6 +17,10 @@ gates still open**.
 - Three newly recorded conditioned metrics (capacitance extraction, GAIA latency,
   and COPA overflow) remain explicitly withheld from headline synthesis until
   setup, baseline, workload, and holdout conditions are recovered.
+- A bounded BusyBarn artifact reproduction matrix: normal AllGather (`80`), normal
+  AllToAll (`208`), single-node-fault AllGather (`76`), and single-node-fault
+  AllToAll (`252`) under one pinned synthetic configuration. These are artifact
+  simulation outputs, not paper-level performance claims or independent review.
 - A deterministic 582-packet reviewer-assignment manifest with two placeholder
   reviewer slots per packet and zero synthesized verdicts.
 - Temporal pilot comparisons and title-shift routing signals, all bounded by an
