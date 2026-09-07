@@ -44,8 +44,12 @@ def digest(path: Path) -> str:
 
 
 def build(root: Path) -> dict:
+    generated_paths = set(ARTIFACTS)
+    generated_paths.update(str(path.relative_to(root)) for path in root.glob("*/data/papers-*program.jsonl"))
+    generated_paths.update(str(path.relative_to(root)) for path in root.glob("*/data/sources.jsonl"))
+    generated_paths.update(str(path.relative_to(root)) for path in root.glob("*/data/adjudicated-*.jsonl"))
     artifacts = []
-    for relative in ARTIFACTS:
+    for relative in sorted(generated_paths):
         path = root / relative
         artifacts.append({"path": relative, "sha256": digest(path), "bytes": path.stat().st_size})
     return {
@@ -70,5 +74,6 @@ if __name__ == "__main__":
     parser.add_argument("--root", type=Path, default=Path(__file__).resolve().parents[1])
     args = parser.parse_args()
     output = args.root / "reports/reproducibility-manifest-v1.json"
-    output.write_text(json.dumps(build(args.root), indent=2, sort_keys=True) + "\n", encoding="utf-8")
-    print(json.dumps({"path": str(output), "artifact_count": len(ARTIFACTS)}, indent=2))
+    manifest = build(args.root)
+    output.write_text(json.dumps(manifest, indent=2, sort_keys=True) + "\n", encoding="utf-8")
+    print(json.dumps({"path": str(output), "artifact_count": len(manifest["artifact_hashes"])}, indent=2))

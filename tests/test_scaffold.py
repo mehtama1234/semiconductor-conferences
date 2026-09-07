@@ -290,7 +290,7 @@ def test_reproducibility_manifest_has_build_and_validation_commands() -> None:
     assert manifest["status"] == "dated_package_checkpoint"
     assert any("validate_project.py" in command for command in manifest["commands"])
     assert any("pytest -q" in command for command in manifest["commands"])
-    assert len(manifest["artifact_hashes"]) >= 10
+    assert len(manifest["artifact_hashes"]) >= 25
 
 
 def test_root_synthesis_preserves_evidence_asymmetry_and_next_requirements() -> None:
