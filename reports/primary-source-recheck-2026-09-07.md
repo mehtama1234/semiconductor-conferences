@@ -16,6 +16,11 @@ title and Industry Track placement, while the ICCAD program and indexed records
 confirm Adder-DCIM and ComoPy identity; these remain metadata or discovery
 evidence, not original technical text.
 
+An additional Panmnesia company update was captured during the recheck. It adds
+silicon-demonstration and productization context for the ISCA paper, but remains
+company-source evidence and does not close the original-text gap or independent
+validation gate.
+
 The earlier three-packet state is superseded by the bounded recovery batch below.
 The packets now have identity-matched institutional, company, or artifact source
 descriptions, while none is promoted to full-paper evidence. This recheck updates
