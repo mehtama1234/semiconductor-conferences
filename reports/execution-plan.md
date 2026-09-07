@@ -86,6 +86,9 @@ The twenty-third P2 tranche routes the eight remaining titled ISCA records in
 the current program suffix (166–173); IDs 174–175 are blank inventory slots.
 P2 routing now covers 228 of 541 lower-priority records, with blank-slot
 accounting preserved rather than silently treating absent titles as papers.
+The twenty-fourth P2 tranche returns to the DAC priority frontier and adds ten
+routes across timing, placement, graph learning, simulation, package power, and
+compiler generation; P2 routing now covers 238 of 541 lower-priority records.
 
 Primary recovery batch 3 is recorded in
 `reports/isca-primary-recovery-batch-3-2026-09-07.md`: SPEC CPU and KernelEvolve

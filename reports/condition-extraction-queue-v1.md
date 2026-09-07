@@ -130,6 +130,11 @@ The twenty-third P2 tranche is recorded in
 titled ISCA records (166–173), covering near-cache, hybrid PIM/3D-DRAM,
 reconfigurable SIMT, graph transformers, zero-knowledge proofs, sparse matrix
 engines, and embodied-AI planning; IDs 174–175 have no titled inventory rows.
+The twenty-fourth P2 tranche is recorded in
+`reports/p2-recovery-batch-24-2026-09-07.md`, adding ten DAC routes covering
+timing analysis, PCB placement, characterization, heterogeneous GNNs,
+hyper-dimensional computing, Gaussian splatting, RTL simulation, package power,
+graph learning, and dataflow generation.
 
 The categories overlap by design: P0 is a remediation priority, while P1/P2
 describe evidence depth. The former P0 records are retained in

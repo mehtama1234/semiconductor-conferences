@@ -89,6 +89,8 @@ gates still open**.
 - A twenty-third P2 routing tranche covering the eight remaining titled ISCA
   records in the program suffix, with explicit blank-slot accounting for IDs
   174–175.
+- A twenty-fourth P2 routing tranche returning to the DAC priority frontier with
+  ten timing, placement, graph, simulation, package, and compiler records.
 - A third ISCA primary-recovery batch covering SPEC CPU, KernelEvolve, and
   Rowhammer with source-tier-specific limits.
 - A fourth ISCA primary-recovery batch covering GRAINS, Triage, and Coset
