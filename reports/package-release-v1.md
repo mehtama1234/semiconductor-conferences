@@ -70,6 +70,8 @@ gates still open**.
   Ensemble Decoder author preprints with bounded quantum/graph evidence.
 - A focused Triage condition-extraction note with source-located simulation
   conditions and an explicit provisional boundary around its 52.6% claim.
+- A companion GRAINS/Coset condition-extraction note covering storage/SSD and
+  FPGA/QEC evaluation conditions and cross-paper thematic synthesis.
 - A dated ISCA program-page availability check confirming that those ten routes
   expose identity/session metadata but no abstracts or experimental conditions.
 - A dated ATX/RHODES primary-source recovery attempt preserving exact DOI

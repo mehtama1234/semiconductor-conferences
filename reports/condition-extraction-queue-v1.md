@@ -31,6 +31,10 @@ The first focused ISCA condition extraction is recorded in
 `reports/condition-extraction-triage-2026-09-07.md`. It records the simulator,
 noise/code assumptions, benchmark suite, baselines, resource regimes, and the
 boundary around Triage's reported 52.6% reduction.
+The companion GRAINS/Coset extraction is recorded in
+`reports/condition-extraction-isca-recovery-batch-4-2026-09-07.md`; it adds
+storage/SSD conditions and FPGA/QEC conditions while preserving all claims as
+provisional author-preprint evidence.
 
 The first P2 routing tranche is recorded in
 `reports/p2-recovery-batch-1-2026-09-07.md`. It prioritizes ten DAC records by

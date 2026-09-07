@@ -551,6 +551,15 @@ retrieval scheduling. The recurring pressure is to make structure, communication
 and operating constraints first-class scheduling variables. These are selected-paper
 capability signals, not prevalence claims.
 
+The recovered GRAINS and Coset Ensemble Decoder preprints make this pattern more
+concrete outside the dominant LLM examples. GRAINS couples graph representation,
+flash-die placement, SSD scheduling, and energy modeling for genome analysis;
+Coset couples QEC decoding accuracy, tail latency, memory organization, and FPGA
+resource growth. Their conditions are documented in the [ISCA recovery
+extraction](condition-extraction-isca-recovery-batch-4-2026-09-07.md). They
+support a capability-level theme—optimization of constrained pipelines—not a
+temporal prevalence claim.
+
 The final DAC coding batch adds cross-PDK DRC generation, application-specific FHE
 automation, adaptive spiking detection, QLC lifespan-aware writes, 3D placement,
 HBM FPGA sparse LU, reconfigurable nonlinear inference, analog family optimization,
