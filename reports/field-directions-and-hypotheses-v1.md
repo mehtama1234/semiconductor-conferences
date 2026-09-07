@@ -94,6 +94,12 @@ fit in memory. RAF's remote-access elimination does not eliminate local traffic.
 CANNON's numerical source discrepancy is unresolved; CtxMem's description reports
 simulation, not deployment. No evidence here establishes CXL replacing HBM or PIM.
 
+The BusyBarn artifact adds a fault-aware wafer-scale communication mechanism to
+the reading set, but only at artifact depth. Its one completed AllGather case is
+useful for checking that the released code can execute after environment
+normalization; it is not evidence that the proposed routing wins against a
+matched baseline or generalizes across workloads and fault patterns.
+
 **Test next.** Sweep resident and nonresident working sets, locality changes and
 contention under equal capacity/bandwidth budgets. For ANN, hold recall constant.
 Include migration and host overhead. Benefits that survive those controls support

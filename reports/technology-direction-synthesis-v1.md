@@ -105,6 +105,14 @@ preserves baseline pairing but leaves proof assumptions and evaluation condition
 unresolved. Remote-access elimination is not zero local traffic, and claimed
 communication optimality does not establish universal latency/energy optimality.
 
+BusyBarn provides an additional artifact-only follow-up for this direction. Its
+author-linked package exposes hierarchical mapping and BALD fault-tolerant routing;
+one normalized 16KB AllGather case completed at 80 artifact simulation time units
+under a 4x6, 256-bandwidth configuration. That result is a reproducibility check,
+not a paper metric: no complete figure, matched baseline, end-to-end workload, or
+independent reproduction was obtained. It remains outside the 84-record selected
+coding sample and cannot support a comparative performance claim.
+
 CANNON's [recovery assessment](../dac/reports/cannon-primary-recovery-v1.md)
 records differing official and institutional performance headlines. Numerical
 synthesis is withheld pending reconciliation with recall-matched baselines and
