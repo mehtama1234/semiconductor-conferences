@@ -1,0 +1,19 @@
+{
+  "schema": "primary-source-recovery-assessment.v1",
+  "paper_id": "iccad-2025-114",
+  "title": "RIROS: A Parallel RTL Fault SImulation FRamework with TwO-Dimensional Parallelism and Unified Schedule",
+  "source_id": "iccad-2025-riros-arxiv",
+  "source_url": "https://arxiv.org/abs/2508.16376",
+  "capture_date": "2026-09-06",
+  "source_tier": "author_preprint_selected_full_text",
+  "extraction_scope": "Sections IV–V; Table II visually verified on PDF page 7; no reproduction.",
+  "independent_review_status": "pending",
+  "headline_metric_status": "withheld_pending_runtime_ratio_reconciliation",
+  "identity": {"status": "title and all nine authors match program after whitespace/marker normalization", "authors": ["Jiaping Tang", "Jianan Mu", "Zizhen Liu", "Ge Yu", "Tenghui Hua", "Bin Sun", "Silin Liu", "Jing Ye", "Huawei Li"]},
+  "pdf_verification": {"url": "https://arxiv.org/pdf/2508.16376v1", "sha256": "d452f666d3a124c415e9f8cb19047558b5ed100d7e069aa6380070e6165b00be", "page_count": 9},
+  "mechanism": "Structural tasks use work stealing; overloaded nodes split by fault. Dependency-constrained local synchronization overlaps computation without exposing next-cycle values early.",
+  "conditions": "C++/Taskflow, gcc-11 -O2; reported i7, 16 cores, 3.80GHz; seven designs, stuck-at wire/register faults, no fault dropping. ERASER uses one core; VCS force/release comparison uses 16. Exact CPU SKU and VCS version unresolved.",
+  "jpeg_table_II": {"runtime_seconds": {"eraser_1_core": 7214.8, "vcs_16_cores": 1450.0, "riros_16_cores": 592.0}, "reported_speedups": [11.3, 2.3], "recomputed_speedups": [12.187, 2.449], "status": "ratios disagree beyond displayed rounding; cause unknown"},
+  "limits": ["Reported headline averages withheld; do not silently replace source values.", "Cross-tool speedup is not equal-core algorithmic scaling or functional-safety certification."],
+  "next_action": "Code mechanism conservatively; capture original abstract, resolve Table II against artifact or corrected manuscript, then independent review."
+}

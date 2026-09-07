@@ -4,6 +4,20 @@ The governing scope and acceptance criteria are in [GOAL.md](../GOAL.md).
 This log distinguishes finished work from queued work; a plan is not a completed
 research result.
 
+Regular-paper technical recovery 114/1142: exact author sources recovered for
+RIROS and capacitance ML; selected full-text assessments and PDF hashes recorded.
+Visual table checks confirm a RIROS JPEG runtime/ratio discrepancy; capacitance
+assessment separates model-selection exposure from an untouched test and includes
+setup-cost limits. These are review objections, not findings that either method
+is invalid. Supplementary assessments reach 27; coding remains 80 and independent
+acceptance zero. Next: code both mechanisms and capture original abstracts, then
+pursue artifact/corrected-manuscript reconciliation and independent review.
+Queue regeneration and project validation pass; 132 tests pass, including ratio
+recomputation and assessment integration without automatic coding promotion.
+Downloaded PDFs are retained locally under `iccad/data/raw/riros-2508.16376v1.pdf`
+and `iccad/data/raw/Tsai-ICCAD25.pdf` (ignored raw captures); their SHA-256 hashes
+are tracked in the assessments.
+
 Version reconciliation follow-through: compared affiliation blocks and visually
 checked v20 pages 40/61/112/114 in addition to the earlier 57/59 checks. All six
 differences now have source-bound v8/v20 observations in a reproducible overlay
