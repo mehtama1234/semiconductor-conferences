@@ -50,6 +50,7 @@
     "dac/data/adjudicated-2026-batch-36.jsonl",
     "dac/data/adjudicated-2026-batch-37.jsonl",
     "dac/data/adjudicated-2026-batch-38.jsonl",
+    "dac/data/adjudicated-2026-batch-39.jsonl",
     "iccad/data/adjudicated-2025-batch-3.jsonl",
     "iccad/data/adjudicated-2025-batch-4.jsonl",
     "iccad/data/adjudicated-2025-batch-5.jsonl",
@@ -69,13 +70,16 @@
         "generative-design-and-synthesis": [
           "alphazero-generative-aig-synthesis",
           "flow-matching-chip-placement",
+          "graph-diffusion-rtl-netlist-bridging",
           "llm-assisted-mram-verilog-a-codesign",
           "llm-standard-cell-topology-optimization",
           "multi-agent-eda-code-evolution",
           "process-reward-rtl-generation"
         ],
         "graph-learning-for-eda": [
-          "learned-computation-on-circuit-graphs"
+          "graph-prompt-crosstalk-timing",
+          "learned-computation-on-circuit-graphs",
+          "path-aware-graph-timing-prediction"
         ],
         "learned-design-space-exploration": [
           "autoregressive-circuit-design-modeling",
@@ -210,11 +214,13 @@
         ],
         "specialized-accelerators-and-dataflow": [
           "158-bit-ternary-gpu-llm-inference",
+          "adaptive-parallel-graph-transformer-training",
           "adaptive-sparse-tensor-gpu-codegen",
           "computation-data-decoupled-npu-dataflow",
           "correlation-aware-gkp-decoder-acceleration",
           "dynamic-prefill-decode-fpga-reconfiguration",
           "end-to-end-fpga-zkp-acceleration",
+          "expandable-register-file-isa",
           "expert-ranked-mixed-precision-moe",
           "factored-floating-point-systolic-mac",
           "heterogeneous-zk-vm-trace-acceleration",
@@ -223,8 +229,10 @@
           "neurosymbolic-memory-bypass-architecture",
           "noise-robust-cim-on-device-personalization",
           "pivot-centric-heterogeneous-gnn-acceleration",
+          "posttraining-bernoullized-bnn-inference",
           "reram-cam-point-cloud-knn-acceleration",
           "sparse-tensor-accelerator-compilation",
+          "topology-aware-configurable-gnn-acceleration",
           "unified-riscv-ecpm-isa"
         ],
         "specialized-ai-accelerators": [
@@ -307,7 +315,9 @@
           "logic-to-layout-standard-cell-exploration"
         ],
         "graph-and-hypergraph-optimization": [
-          "community-guided-hypergraph-partitioning"
+          "adaptive-hypergraph-effective-resistance",
+          "community-guided-hypergraph-partitioning",
+          "spectral-scalable-hypergraph-partitioning"
         ],
         "high-level-synthesis-and-compilers": [
           "mlir-two-level-dataflow-accelerator-generation"
@@ -356,6 +366,7 @@
           "silicon-proven-cxl-port-based-routing-fabric"
         ],
         "data-movement-and-locality": [
+          "answer-first-cot-kv-management",
           "bandwidth-aware-hb-dram-llm-acceleration",
           "bit-sliced-moe-expert-caching",
           "compiler-driven-pim-data-movement",
@@ -369,6 +380,7 @@
           "disaggregated-memory-contention-modeling",
           "erasure-coded-prefix-kv-cache",
           "fhe-pim-database-acceleration",
+          "gpu-cpu-dimm-ndp-moe-offloading",
           "heterogeneous-pim-graph-rag-retrieval",
           "hybrid-pim-llm-architecture-dataflow",
           "io-efficient-prefix-kv-retrieval",
@@ -386,6 +398,7 @@
         "memory-compute-and-reliability": [
           "adc-in-memory-activation-quantization",
           "dual-rail-reliable-dram-compute",
+          "dynamic-graph-pim-pattern-mining",
           "sram-compatible-block-fp-compute-near-memory",
           "systematic-sram-cim-dataflow-exploration"
         ],
@@ -408,6 +421,7 @@
           "3d-nand-cam-moe-cim",
           "3d-nand-edge-llm-inference",
           "dynamic-parity-ssd-lifetime-extension",
+          "in-storage-ethereum-analytics",
           "media-aware-archival-storage-scheduling",
           "noise-robust-fenand-hdc-sql",
           "replication-offload-disaggregated-memory",
@@ -510,6 +524,7 @@
           "physics-informed-joint-em-ir-modeling"
         ],
         "privacy-preserving-computing": [
+          "hybrid-optical-private-edge-encoding",
           "sparse-rns-ckks-cnn-inference"
         ],
         "reliability-and-fault-tolerance": [
@@ -592,9 +607,11 @@
         ],
         "real-time-and-networked-systems": [
           "pareto-probabilistic-dag-scheduling",
-          "per-flow-asynchronous-tsn-shaping"
+          "per-flow-asynchronous-tsn-shaping",
+          "timing-anomaly-aware-cause-effect-scheduling"
         ],
         "robotics-and-edge-ai": [
+          "adaptive-multitask-spiking-agents",
           "dynamic-static-vla-layer-skipping",
           "ensemble-neural-fields-robot-control",
           "periodic-robot-mapping-navigation",
