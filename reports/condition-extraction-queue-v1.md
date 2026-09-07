@@ -234,6 +234,11 @@ The forty-third P2 tranche is recorded in
 knowledge distillation, robotics diffusion, ZNS graph memory, confidential-VM
 migration, secure CIM, CodeLLM FPGA DSE, FPGA debugging, inverse lithography,
 adaptive activations, and memristor-memory NoCs.
+The forty-fourth P2 tranche is recorded in
+`reports/p2-recovery-batch-44-2026-09-07.md`, continuing the DAC frontier across
+quantum-error-correction hardware, sparse GPU linear algebra, secure biochips,
+graph PIM, neuro-symbolic hardware, personalized CIM, side-channel monitoring,
+circuit simulation, wafer-scale communication, and 3D placement.
 
 The categories overlap by design: P0 is a remediation priority, while P1/P2
 describe evidence depth. The former P0 records are retained in

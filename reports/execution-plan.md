@@ -1863,3 +1863,8 @@ The forty-third P2 tranche adds ten DAC routes across knowledge distillation,
 robotics diffusion, ZNS graph memory, confidential-VM migration, secure CIM,
 CodeLLM FPGA DSE, FPGA debugging, inverse lithography, adaptive activations, and
 memristor-memory NoCs; P2 routing now covers 428 of 541 lower-priority records.
+The forty-fourth P2 tranche adds ten DAC routes across quantum-error-correction
+hardware, sparse GPU linear algebra, secure biochips, graph PIM, neuro-symbolic
+and personalized CIM, side-channel monitoring, circuit simulation, wafer-scale
+communication, and 3D placement; P2 routing now covers 438 of 541 lower-priority
+records.

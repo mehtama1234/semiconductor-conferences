@@ -166,6 +166,10 @@ gates still open**.
   distillation, robotics diffusion, ZNS graph memory, confidential VMs, secure
   CIM, FPGA DSE/debugging, inverse lithography, adaptive activations, and
   memristor NoCs.
+- A forty-fourth P2 routing tranche covering quantum-error-correction hardware,
+  sparse GPU linear algebra, secure biochips, graph PIM, neuro-symbolic and
+  personalized CIM, side-channel monitoring, circuit simulation, wafer-scale
+  communication, and 3D placement.
 
 ## What users may conclude
 
