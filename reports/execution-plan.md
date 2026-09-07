@@ -32,6 +32,11 @@ The twelfth P2 tranche adds ten ISCA routes across quantum control, MoE/network
 serving, memory management, edge/cloud orchestration, low-bit compression, and
 memory tagging; P2 routing now covers 120 of 541 lower-priority records.
 
+The thirteenth P2 tranche adds ten ISCA routes across storage networking,
+datacenter cooling, inference scaling, deployed training hardware, intermittent
+systems, FHE generation, and security architectures; P2 routing now covers 130
+of 541 lower-priority records.
+
 Primary recovery batch 3 is recorded in
 `reports/isca-primary-recovery-batch-3-2026-09-07.md`: SPEC CPU and KernelEvolve
 have exact author preprints; Rowhammer has official deployment context plus a
