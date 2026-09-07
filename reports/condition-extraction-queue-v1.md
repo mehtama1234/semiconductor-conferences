@@ -34,6 +34,9 @@ mechanism and claim-risk, while retaining description-only evidence boundaries.
 The second P2 tranche is recorded in
 `reports/p2-recovery-batch-2-2026-09-07.md`, adding ten compiler, verification,
 security, memory, quantization, and serving records.
+The third P2 tranche is recorded in
+`reports/p2-recovery-batch-3-2026-09-07.md`, adding ten representation,
+reliability, edge-system, quantum-control, and LLM-serving records.
 
 The categories overlap by design: P0 is a remediation priority, while P1/P2
 describe evidence depth. The former P0 records are retained in

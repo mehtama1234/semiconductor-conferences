@@ -43,6 +43,8 @@ gates still open**.
   manuscript/abstract/artifact recovery.
 - A second P2 routing tranche prioritizing ten additional DAC mechanisms across
   compiler, verification, security, memory, quantization, and serving.
+- A third P2 routing tranche prioritizing ten representation, reliability,
+  edge-system, quantum-control, and LLM-serving mechanisms.
 
 ## What users may conclude
 
