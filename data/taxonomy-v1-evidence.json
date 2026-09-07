@@ -24,6 +24,7 @@
     "dac/data/adjudicated-2026-batch-10.jsonl",
     "dac/data/adjudicated-2026-batch-11.jsonl",
     "dac/data/adjudicated-2026-batch-12.jsonl",
+    "dac/data/adjudicated-2026-batch-13.jsonl",
     "iccad/data/adjudicated-2025-batch-3.jsonl",
     "iccad/data/adjudicated-2025-batch-4.jsonl",
     "iccad/data/adjudicated-2025-batch-5.jsonl",
@@ -51,6 +52,7 @@
           "llm-global-reasoning-for-hls-dse",
           "multi-role-ppa-aware-verilog-generation",
           "preference-optimized-pcb-placement",
+          "rag-grounded-drc-auto-fix",
           "reinforcement-learning-verilog-generation"
         ]
       },
@@ -68,7 +70,8 @@
           "device-aware-noise-in-pixel-co-optimization"
         ],
         "emerging-memory-and-devices": [
-          "bit-flexible-digital-cim-compression"
+          "bit-flexible-digital-cim-compression",
+          "memristor-analog-cam-genome-acceleration"
         ],
         "neuromorphic-quantum-and-non-von-neumann": [
           "analog-continuous-time-rram-cim-neural-ode",
@@ -190,6 +193,7 @@
           "concurrent-pim-cpu-mobile-scheduling",
           "cxl-near-memory-ann-search",
           "disaggregated-compute-network-storage-training",
+          "disaggregated-memory-contention-modeling",
           "fhe-pim-database-acceleration",
           "heterogeneous-pim-graph-rag-retrieval",
           "io-efficient-prefix-kv-retrieval",
@@ -303,6 +307,7 @@
         ],
         "edge-embedded-and-mobile-systems": [
           "disconnection-tolerant-satellite-split-learning",
+          "energy-aware-federated-aiot-scheduling",
           "heterogeneous-edge-soc-dnn-deployment",
           "personalized-edge-moe-expert-placement",
           "schedulability-aware-heterogeneous-accelerator-design"
@@ -329,6 +334,7 @@
           "llm-assisted-fpga-toolchain-vulnerability"
         ],
         "simulation-emulation-and-testing": [
+          "constraint-guided-gpu-memory-fuzzing",
           "dependency-aware-two-dimensional-rtl-fault-simulation",
           "living-rtl-benchmark-and-equivalence-evaluation",
           "llm-assisted-hls-logic-debugging",
