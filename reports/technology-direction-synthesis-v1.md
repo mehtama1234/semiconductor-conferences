@@ -22,11 +22,11 @@ The evidence is intentionally asymmetric:
   coded fallback papers. The inventory includes 43 invited papers and ten student
   presentations, not 319 regular papers; see the [scope audit](../iccad/reports/program-scope-audit-v1.md).
 
-The 446-record technical coding sample is selected for recoverable evidence and
+The 461-record technical coding sample is selected for recoverable evidence and
 technical diversity. It is not a prevalence estimate, market forecast, conference
 ranking, or proof that a direction is rising.
 For a mechanism-level follow-up, see [scheduling versus physical surrogates](../iccad/reports/scheduling-versus-surrogates-v1.md): two analysis accelerators with different correctness and generalization requirements.
-All 446 remain independently unaccepted. The original synthesis-anchor set is
+All 461 remain independently unaccepted. The original synthesis-anchor set is
 distinct from the expanded coded sample and is not enlarged by metadata recovery.
 
 ## Executive interpretation
@@ -218,7 +218,7 @@ author-linked package exposes hierarchical mapping and BALD fault-tolerant routi
 one normalized 16KB AllGather case completed at 80 artifact simulation time units
 under a 4x6, 256-bandwidth configuration. That result is a reproducibility check,
 not a paper metric: no complete figure, matched baseline, end-to-end workload, or
-independent reproduction was obtained. It remains outside the 446-record selected
+independent reproduction was obtained. It remains outside the 461-record selected
 coding sample and cannot support a comparative performance claim.
 
 CANNON's [recovery assessment](../dac/reports/cannon-primary-recovery-v1.md)
@@ -541,6 +541,15 @@ dataflows, these suggest that practical gains increasingly depend on orchestrati
 and assurance around the compute kernel—not only on the kernel itself. This is
 still a selected, official-description evidence signal rather than a prevalence
 claim.
+
+This batch adds dynamic 3D detection distillation, distribution-aware transformer
+activations, GPU sparse linear algebra, microfluidic and electromagnetic security,
+wafer-scale communication and cost modeling, solver-aware LUT mapping, reconfigurable
+arrays, Ising optimization, diffusion-language-model scheduling, asymmetric and
+microscaling quantization, incremental hypergraph partitioning, and multi-vector
+retrieval scheduling. The recurring pressure is to make structure, communication,
+and operating constraints first-class scheduling variables. These are selected-paper
+capability signals, not prevalence claims.
 
 This increment adds distributed scientific ML, encrypted-input side-channel
 defense, page-table attacks, physics-infused RF inverse design, log-schema

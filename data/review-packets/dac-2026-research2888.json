@@ -67,10 +67,13 @@
         "outlier-aware-lut-quantized-gemm"
       ],
       "approximate-and-precision-aware-compute": [
+        "adaptive-asymmetric-llm-quantization",
         "adaptive-precision-dnn-quantization",
         "binary-coded-fpint-gemm",
         "complex-valued-uncertainty-codesign",
-        "pegranular-compressed-gemm"
+        "distribution-aware-transformer-activation",
+        "pegranular-compressed-gemm",
+        "priority-shared-scale-microscaling"
       ],
       "architecture-software-co-design": [
         "asymmetric-gemm-tile-buffering",
@@ -86,6 +89,9 @@
         "rl-pimm-noc-mapping",
         "silicon-calibrated-hierarchical-cim-exploration",
         "training-free-self-speculative-edge-llm-decoding"
+      ],
+      "emerging-and-nonvon-neumann-compute": [
+        "ising-parallel-momentum-tempering"
       ],
       "neuromorphic-and-emerging-architectures": [
         "spike-address-redundancy-elimination"
@@ -104,6 +110,7 @@
       "sparse-and-irregular-compute": [
         "adaptive-sparse-gcn-caching",
         "bitserial-transformer-sparsity",
+        "cuda-core-spmv",
         "out-of-order-sparse-gemm",
         "streaming-ternary-spgemm"
       ],
@@ -130,6 +137,7 @@
         "pivot-centric-heterogeneous-gnn-acceleration",
         "posttraining-bernoullized-bnn-inference",
         "real-time-composable-dnn-acceleration",
+        "reconfigurable-fip-systolic-array",
         "reram-cam-point-cloud-knn-acceleration",
         "sparse-tensor-accelerator-compilation",
         "topology-aware-configurable-gnn-acceleration",
@@ -151,6 +159,7 @@
       "ai-accelerator-microarchitecture",
       "approximate-and-precision-aware-compute",
       "architecture-software-co-design",
+      "emerging-and-nonvon-neumann-compute",
       "general-purpose-and-domain-specific-architecture",
       "neuromorphic-and-emerging-architectures",
       "quantum-architectures-and-control",

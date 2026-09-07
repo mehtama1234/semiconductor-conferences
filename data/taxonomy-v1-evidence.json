@@ -57,6 +57,7 @@
     "dac/data/adjudicated-2026-batch-43.jsonl",
     "dac/data/adjudicated-2026-batch-44.jsonl",
     "dac/data/adjudicated-2026-batch-45.jsonl",
+    "dac/data/adjudicated-2026-batch-46.jsonl",
     "iccad/data/adjudicated-2025-batch-3.jsonl",
     "iccad/data/adjudicated-2025-batch-4.jsonl",
     "iccad/data/adjudicated-2025-batch-5.jsonl",
@@ -230,10 +231,13 @@
           "outlier-aware-lut-quantized-gemm"
         ],
         "approximate-and-precision-aware-compute": [
+          "adaptive-asymmetric-llm-quantization",
           "adaptive-precision-dnn-quantization",
           "binary-coded-fpint-gemm",
           "complex-valued-uncertainty-codesign",
-          "pegranular-compressed-gemm"
+          "distribution-aware-transformer-activation",
+          "pegranular-compressed-gemm",
+          "priority-shared-scale-microscaling"
         ],
         "architecture-software-co-design": [
           "asymmetric-gemm-tile-buffering",
@@ -249,6 +253,9 @@
           "rl-pimm-noc-mapping",
           "silicon-calibrated-hierarchical-cim-exploration",
           "training-free-self-speculative-edge-llm-decoding"
+        ],
+        "emerging-and-nonvon-neumann-compute": [
+          "ising-parallel-momentum-tempering"
         ],
         "neuromorphic-and-emerging-architectures": [
           "spike-address-redundancy-elimination"
@@ -267,6 +274,7 @@
         "sparse-and-irregular-compute": [
           "adaptive-sparse-gcn-caching",
           "bitserial-transformer-sparsity",
+          "cuda-core-spmv",
           "out-of-order-sparse-gemm",
           "streaming-ternary-spgemm"
         ],
@@ -293,6 +301,7 @@
           "pivot-centric-heterogeneous-gnn-acceleration",
           "posttraining-bernoullized-bnn-inference",
           "real-time-composable-dnn-acceleration",
+          "reconfigurable-fip-systolic-array",
           "reram-cam-point-cloud-knn-acceleration",
           "sparse-tensor-accelerator-compilation",
           "topology-aware-configurable-gnn-acceleration",
@@ -314,6 +323,7 @@
         "ai-accelerator-microarchitecture",
         "approximate-and-precision-aware-compute",
         "architecture-software-co-design",
+        "emerging-and-nonvon-neumann-compute",
         "general-purpose-and-domain-specific-architecture",
         "neuromorphic-and-emerging-architectures",
         "quantum-architectures-and-control",
@@ -361,6 +371,10 @@
         ],
         "package-system-co-design": [
           "metal-density-constrained-package-power-plane-synthesis"
+        ],
+        "wafer-scale-and-heterogeneous-integration": [
+          "communication-aware-wafer-sparse-matmul",
+          "wafer-scale-chip-cost-modeling"
         ]
       },
       "subthemes": [
@@ -370,7 +384,8 @@
         "chiplet-interconnects",
         "chiplet-partitioning-and-integration",
         "chiplet-system-architecture",
-        "package-system-co-design"
+        "package-system-co-design",
+        "wafer-scale-and-heterogeneous-integration"
       ],
       "theme_id": "chiplets-3d-and-packaging"
     },
@@ -411,6 +426,9 @@
           "physical-feedback-guided-multi-die-fpga-exploration",
           "zero-shot-reinforcement-learning-for-logic-optimization"
         ],
+        "partitioning-and-placement": [
+          "gpu-incremental-hypergraph-partitioning"
+        ],
         "reproducibility-artifacts-and-benchmarks": [
           "multi-pdk-capacitance-extraction-dataset"
         ],
@@ -434,6 +452,7 @@
         "high-level-synthesis-and-compilers",
         "logic-synthesis-and-optimization",
         "optimization-and-search-methods",
+        "partitioning-and-placement",
         "reproducibility-artifacts-and-benchmarks",
         "simulation-and-numerical-methods",
         "synthesis-and-compilation",
@@ -638,7 +657,9 @@
           "precision-reallocation-for-selective-floating-point-protection"
         ],
         "hardware-and-system-security": [
-          "pagetable-bigdata-sidechannel"
+          "microfluidic-protocol-obfuscation",
+          "pagetable-bigdata-sidechannel",
+          "percore-em-sidechannel"
         ],
         "power-integrity-and-reliability": [
           "physics-informed-joint-em-ir-modeling"
@@ -736,6 +757,7 @@
         "edge-ai-and-deployment": [
           "adaptive-hyperdimensional-lidar",
           "cached-point-cloud-sampling",
+          "dynamic-3d-detector-distillation",
           "forward-only-edge-llm-finetuning",
           "kinematic-vla-speculative-decoding",
           "memory-efficient-snn-finetuning",
@@ -758,10 +780,12 @@
           "cpu-fpga-stream-frequency-measurement"
         ],
         "llm-systems-and-runtime": [
+          "diffusion-language-model-stage-orchestration",
           "expert-aware-moe-checkpointing",
           "single-gpu-finetuning-codesign"
         ],
         "multimedia-and-edge-systems": [
+          "hierarchical-multivector-retrieval-scheduling",
           "palette-video-enhancement-layer",
           "pipelined-gaussian-splatting",
           "temporal-sort-reuse-gaussian-splatting"
@@ -820,6 +844,9 @@
           "sat-hierarchical-boundary-recovery",
           "testbench-rewarded-verilog-generation"
         ],
+        "formal-and-equivalence-verification": [
+          "miter-aware-lut-mapping"
+        ],
         "formal-and-functional-verification": [
           "hidden-pmu-reverse-engineering-and-covert-channel",
           "hierarchical-learning-for-sequential-formal-analysis",
@@ -862,6 +889,7 @@
       },
       "subthemes": [
         "formal-analysis-and-verification",
+        "formal-and-equivalence-verification",
         "formal-and-functional-verification",
         "hardware-security-validation",
         "processor-and-rtl-verification",
