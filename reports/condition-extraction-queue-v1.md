@@ -413,3 +413,9 @@ withheld and record the missingness in the packet.
 
 The queue is complete as a routing artifact, not as completion of the extraction
 work. Independent review remains pending for all 582 packets.
+
+The seventy-second P2 tranche is recorded in
+`reports/p2-recovery-batch-72-2026-09-07.md`, covering adaptive spiking detection,
+QLC write invalidation, 3D orientation-aware placement, sparse LU on HBM FPGAs,
+reconfigurable nonlinear inference, analog function families, video redundancy,
+force-based placement, biochip scheduling, and intermittent HDC IoT.

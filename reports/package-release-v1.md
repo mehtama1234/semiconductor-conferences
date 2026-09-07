@@ -274,3 +274,5 @@ The final gate view is [release-readiness-v1.md](release-readiness-v1.md).
 
 Until those gates close, this release should be cited as a dated, bounded
 evidence assessment rather than a final field forecast or accepted-paper review.
+The next DAC-specific tranche adds ten routes; DAC route files now cover 525 of
+the 541 description-denominator records, with 16 outside the P2 batch-file set.
