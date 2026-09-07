@@ -6,8 +6,8 @@ The first four previously uncoded records, selected by paper-ID order, have
 research1138 (ARTEMIS). Exact official source URLs and row locators accompany
 each record. All are pending independent review and retain description-level
 evidence status. They are not added to the 49-record selected adjudication sample.
-With eighty-one batches, 481 additional drafts are available;
-13 of the 543 current DAC descriptions still need initial technical coding.
+With eighty-two batches, 487 additional drafts are available;
+7 of the 543 current DAC descriptions still need initial technical coding.
 Draft coverage does not mean complete technical evidence. Research1691's extraction
 has been repaired, but its energy/power boundary remains unresolved.
 
@@ -916,6 +916,17 @@ percentage loss or remaining-throughput claim without a definition.
 | 920 RT-SNN | Frame/timestep scheduling and state reuse | Vehicle case study is not general safety certification |
 | 931 WILL | Lifespan-aware invalidation skipping | Programming benefit retains explicit read-performance cost |
 
-All 481 records have source-separated review packets. Next: resolve the ATB
+## Eighty-second batch
+
+| Paper | Mechanism | Evidence boundary |
+|---|---|---|
+| 934 ATOM-3D | Joint tier/orientation placement | Unnamed quality metric and runtime reference need clarification |
+| 935 SALUT | Asynchronous sparse-LU dependency scheduling | GPU-specific mean throughput/efficiency pairs retained |
+| 946 UNICON | Log-domain nonlinear primitives | Operator gains do not establish full-network benefits |
+| 951 CPN | Structured priors and discrete expected improvement | R2 and iterations differ from accuracy and runtime |
+| 952 DeltaSight | Shared cross-stage redundancy decisions | Sensor and end-to-end efficiency are separate |
+| 954 Module estimation | Force-based soft-module deformation | Long-net subset recovery is not all-net accuracy |
+
+All 487 records have source-separated review packets. Next: resolve the ATB
 numeric comparison from primary evidence and continue uncoded descriptions in
 stable order, preserving gaps and possible counterexamples.

@@ -4,6 +4,12 @@ The governing scope and acceptance criteria are in [GOAL.md](../GOAL.md).
 This log distinguishes finished work from queued work; a plan is not a completed
 research result.
 
+Latest batch: DAC 2026 IDs 934, 935, 946, 951, 952 and 954 bring
+current drafts to 487, leaving 7 descriptions uncoded. Placement quality scope,
+GPU-specific sparse-LU comparisons, nonlinear operator limits, prior-model
+statistics, energy boundaries and long-net subset denominators remain explicit.
+All 514 draft papers have source-separated packets; independent acceptance remains pending.
+
 Latest batch: DAC 2026 IDs 900, 906, 907, 912, 920 and 931 bring
 current drafts to 481, leaving 13 descriptions uncoded. Large timing ratios,
 PR-AUC semantics, diversity versus validation, FPGA/ASIC evidence levels,
