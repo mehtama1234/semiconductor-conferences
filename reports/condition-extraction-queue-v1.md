@@ -338,6 +338,11 @@ The sixtieth P2 tranche is recorded in
 segmented ADC measurement, blind calibration, Boolean synthesis, encrypted
 inference routing, 3D FPGA placement, chiplet exponent coding, wafer-level
 attestation, touchscreen EM leakage, and Boolean hardware emulation.
+The sixty-first P2 tranche is recorded in
+`reports/p2-recovery-batch-61-2026-09-07.md`, covering ML power prediction,
+spatial netlist partitioning, LLM assertion retrieval, training preemption,
+silicon-photonic robustness, backside-PDN optimization, GNN acceleration, RISC-V
+fuzzing, wafer-on-wafer networking, and RL macro placement.
 
 The categories overlap by design: P0 is a remediation priority, while P1/P2
 describe evidence depth. The former P0 records are retained in
