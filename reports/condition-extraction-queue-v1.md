@@ -203,6 +203,12 @@ learned multi-corner analysis, control-flow auditing, FP/INT GEMM, early
 fault-tolerant surface-code economics, CGRA mapping, ML-DSA side-channel
 reduction, physics-guided distributed ML, process-reward RTL tuning, TEE
 ciphertext side channels, and standard-cell exploration.
+The thirty-eighth P2 tranche is recorded in
+`reports/p2-recovery-batch-38-2026-09-07.md`, continuing the DAC frontier across
+IoT protocol fuzzing, self-evolved EDA, Verilog-A/MRAM co-optimization,
+page-table-walk attacks, FPGA compiler testing, post-quantum LPN acceleration,
+factored floating-point MACs, sparse LLM inference, log-schema extraction, and
+cooling-aware package thermal prediction.
 
 The categories overlap by design: P0 is a remediation priority, while P1/P2
 describe evidence depth. The former P0 records are retained in

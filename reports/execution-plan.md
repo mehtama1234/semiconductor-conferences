@@ -91,6 +91,11 @@ analysis, control-flow auditing, FP/INT GEMM, early fault-tolerant surface-code
 economics, CGRA mapping, ML-DSA side-channel reduction, physics-guided distributed
 ML, process-reward RTL tuning, TEE ciphertext side channels, and standard-cell
 exploration; P2 routing now covers 368 of 541 lower-priority records.
+The thirty-eighth P2 tranche adds ten DAC routes across IoT protocol fuzzing,
+self-evolved EDA, Verilog-A/MRAM co-optimization, page-table-walk attacks, FPGA
+compiler testing, post-quantum LPN acceleration, factored floating-point MACs,
+sparse LLM inference, log-schema extraction, and cooling-aware package thermal
+prediction; P2 routing now covers 378 of 541 lower-priority records.
 
 The sixteenth P2 tranche adds ten ISCA routes across RISC-V GPU/ASIP co-design,
 DRAM reliability and RowHammer defenses, chiplet PHY/package simulation, and
