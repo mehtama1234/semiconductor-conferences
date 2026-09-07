@@ -76,6 +76,11 @@ timing side channels, distributed-GNN compression, PCB ground-plane co-design,
 spiking transformers, TriSpGEMM, cloud-TEE availability, RISC-V fuzzing, chiplet
 DSE, and real-time GPU scheduling; P2 routing now covers 338 of 541
 lower-priority records.
+The thirty-fifth P2 tranche adds ten DAC routes across maze routing, SRAM CIM
+dataflow, GPU WCET, graph vector search, timing characterization, reconfigurable
+DNN acceleration, 3D-NAND LLM inference, multiphysics thermal stress, robust
+driving perception, and CPU-FPGA measurement; P2 routing now covers 348 of 541
+lower-priority records.
 
 The sixteenth P2 tranche adds ten ISCA routes across RISC-V GPU/ASIP co-design,
 DRAM reliability and RowHammer defenses, chiplet PHY/package simulation, and

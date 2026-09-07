@@ -120,6 +120,9 @@ gates still open**.
 - A thirty-fourth P2 routing tranche continuing the DAC frontier across low-bit
   PIM, timing security, distributed GNNs, PCB/PDN, spiking transformers, sparse
   GEMM, TEEs, RISC-V fuzzing, chiplet DSE, and GPU scheduling.
+- A thirty-fifth P2 routing tranche continuing the DAC frontier across routing,
+  SRAM CIM, GPU WCET, graph search, timing, reconfigurable DNNs, NAND LLMs,
+  multiphysics, driving perception, and measurement.
 - A third ISCA primary-recovery batch covering SPEC CPU, KernelEvolve, and
   Rowhammer with source-tier-specific limits.
 - A fourth ISCA primary-recovery batch covering GRAINS, Triage, and Coset

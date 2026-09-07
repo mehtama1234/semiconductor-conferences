@@ -187,6 +187,11 @@ The thirty-fourth P2 tranche is recorded in
 low-bit LLM PIM, CPU timing side channels, distributed-GNN compression, PCB
 ground-plane co-design, spiking transformers, TriSpGEMM, cloud-TEE availability,
 RISC-V fuzzing, chiplet DSE, and real-time GPU scheduling.
+The thirty-fifth P2 tranche is recorded in
+`reports/p2-recovery-batch-35-2026-09-07.md`, continuing the DAC frontier across
+maze routing, SRAM CIM dataflow, GPU WCET, graph vector search, timing
+characterization, reconfigurable DNN acceleration, 3D-NAND LLM inference,
+multiphysics thermal stress, robust driving perception, and CPU-FPGA measurement.
 
 The categories overlap by design: P0 is a remediation priority, while P1/P2
 describe evidence depth. The former P0 records are retained in
