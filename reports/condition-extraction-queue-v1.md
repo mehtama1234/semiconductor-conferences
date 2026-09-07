@@ -290,6 +290,12 @@ The fifty-first P2 tranche is recorded in
 cross-layer reliability, MRAM binary CIM, heterogeneous LLM PIM, LLM protocol
 patching, sparse tensor cores, flow-matching placement, thermal-aware SRAM,
 GPU shared memory, video-diffusion token reduction, and FPGA ZKPs.
+The fifty-second P2 tranche is recorded in
+`reports/p2-recovery-batch-52-2026-09-07.md`, continuing the DAC frontier across
+SAT model checking, policy-learned full-chip ILT, GPU-cluster forecasting,
+coordinated CPU fuzzing, hardware-security GNN evasion, crosstalk timing,
+neutral-atom detection, LLM Verilog generation, disaggregated-memory contention,
+and multi-instance GPU serving.
 
 The categories overlap by design: P0 is a remediation priority, while P1/P2
 describe evidence depth. The former P0 records are retained in

@@ -198,6 +198,10 @@ gates still open**.
   CIM, heterogeneous LLM PIM, LLM protocol patching, sparse tensor cores,
   flow-matching placement, thermal-aware SRAM, GPU shared memory, video-diffusion
   token reduction, and FPGA ZKPs.
+- A fifty-second P2 routing tranche covering SAT model checking, policy-learned
+  full-chip ILT, GPU-cluster forecasting, coordinated CPU fuzzing, security-GNN
+  evasion, crosstalk timing, neutral-atom detection, LLM Verilog generation,
+  disaggregated-memory contention, and multi-instance GPU serving.
 - A condition-aware deep theme profile over the 494 coded description records,
   with subtheme/mechanism routing and explicit workload, hardware, baseline, and
   metric missingness. It is selected-sample synthesis only.
