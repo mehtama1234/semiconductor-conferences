@@ -23,13 +23,25 @@ dynamic-programming author line. The latter lists Da-Wei Huang, Shao-Yun Fang
 and Wen-Hao Liu; v8 page 59 listed only Shao-Yun Fang. This does not establish
 why the list changed or that the manuscript changed.
 
-## Inventory policy and next step
+## Resolved version-specific observations
 
-The canonical inventory remains explicitly v8-backed for this checkpoint. Do not
-silently combine v20 author fields with v8 source/page assertions. The coverage
-queue flags the six affected IDs for a versioned provenance update. Before applying
-author-marker changes, inspect both versions' affiliation blocks. Keep the
-historical v8 capture and reproducible corrections after any update.
+The [reconciliation overlay](../data/program-version-reconciliation-v1.json)
+preserves both author lists, titles, page locators, source IDs, URLs and hashes for
+all six entries. It is included in each affected queue record for identity recovery.
+The canonical inventory remains a reproducible v8 extraction: the overlay does not
+silently attach v20 fields to a v8 source assertion.
+
+Comparing affiliation blocks resolves MIRAGE's duplicated `Inian`/`Indian`
+Kharagpur entries and Jin Lu's `Gerogia`/`Georgia` duplicate. These marker changes
+do not establish institutional moves. WROXIM changes Ing-Chao Lin's listed
+association from National Cheng Kung University to National Yang Ming Chiao Tung
+University; that is program metadata, not an established employment event.
+Rendered v20 pages 40, 61 and 112 confirm these revised blocks; page 114 confirms
+the HERCULES locator. The name/list observations above remain source-specific.
+
+All six metadata discrepancies are reconciled at researcher-review level, not
+independently accepted. Primary manuscript identity must still be checked against
+the actual manuscript; neither program author list alone settles it.
 
 Stable numbered titles do not imply identical program prose, rooms, schedules,
 unnumbered talks or paper contents. The filename version also is not a verified
@@ -37,3 +49,5 @@ publication timestamp. The result supports stability of this numbered title
 population, not a measured technical trend across editions.
 
 Reproduce: `PYTHONPATH=.:src python3 scripts/compare_iccad_program_versions.py`.
+Then run `PYTHONPATH=.:src python3 scripts/reconcile_iccad_program_versions.py`
+and `PYTHONPATH=.:src python3 scripts/build_work_queue.py`.

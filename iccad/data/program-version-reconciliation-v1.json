@@ -1,0 +1,282 @@
+{
+  "assessment_date": "2026-09-06",
+  "inventory_policy": "Keep canonical v8 extraction unchanged; provide v20 observations as an explicit source-bound overlay for identity recovery. Never attach a v20 page or author list to the v8 source assertion.",
+  "limits": [
+    "Researcher metadata reconciliation, not independent acceptance.",
+    "No claims about manuscript changes, employment events or technical trends."
+  ],
+  "records": [
+    {
+      "decision": "duplicate_affiliation_removed",
+      "explanation": "v8 marker 2 spells Inian Institute of Technology Kharagpur; v20 merges it into marker 1, Indian Institute of Technology Kharagpur. Aritra Hazra and Debdeep Mukhopadhyay markers renumber 3/4 to 2/3 with the same listed departments. No institutional move established.",
+      "identity_matching_policy": "Consult both source-bound author lists; do not assume program authors prove manuscript identity.",
+      "independent_review_status": "pending",
+      "observations": [
+        {
+          "authors_with_markers": [
+            "Soumi Chatterjee {1}",
+            "Debadrita Talapatra {2}",
+            "Nimish Mishra {1}",
+            "Aritra Hazra {3}",
+            "Debdeep Mukhopadhyay {4}"
+          ],
+          "page_count": 129,
+          "path": "iccad/data/raw/ICCAD_2025_Program_v8.pdf",
+          "pdf_page": 40,
+          "sha256": "982ed4265e233552d328139a853209789ed265151302a707c7568a8aa009ffdf",
+          "source_id": "iccad-2025-program-pdf-fallback",
+          "title": "MIRAGE: Microarchitectural Footprints for Detecting Adversarial Attacks in One- Shot Inference",
+          "url": "https://confcats-event-sessions.s3.us-east-1.amazonaws.com/iccad25/uploads/ICCAD_2025_Program_v8.pdf",
+          "version": "8"
+        },
+        {
+          "authors_with_markers": [
+            "Soumi Chatterjee {1}",
+            "Debadrita Talapatra {1}",
+            "Nimish Mishra {1}",
+            "Aritra Hazra {2}",
+            "Debdeep Mukhopadhyay {3}"
+          ],
+          "page_count": 129,
+          "path": "iccad/data/raw/ICCAD_2025_Program_v20.pdf",
+          "pdf_page": 40,
+          "sha256": "3950a2e9d1cccc841e49564a86054710161d6a385d811e3b85c7a209ccfd618a",
+          "source_id": "iccad-2025-program-pdf-v20",
+          "title": "MIRAGE: Microarchitectural Footprints for Detecting Adversarial Attacks in One- Shot Inference",
+          "url": "https://confcats-event-sessions.s3.us-east-1.amazonaws.com/iccad25/uploads/ICCAD_2025_Program_v20.pdf",
+          "version": "20"
+        }
+      ],
+      "paper_id": "iccad-2025-1148",
+      "status": "resolved_version_specific_metadata"
+    },
+    {
+      "decision": "author_list_expanded",
+      "explanation": "v8 lists Shao-Yun Fang; v20 lists Da-Wei Huang and Shao-Yun Fang with National Taiwan University of Science and Technology, Taiwan, plus Wen-Hao Liu with NVIDIA, Taiwan. Cause and manuscript history remain unknown.",
+      "identity_matching_policy": "Consult both source-bound author lists; do not assume program authors prove manuscript identity.",
+      "independent_review_status": "pending",
+      "observations": [
+        {
+          "authors_with_markers": [
+            "Shao-Yun Fang"
+          ],
+          "page_count": 129,
+          "path": "iccad/data/raw/ICCAD_2025_Program_v8.pdf",
+          "pdf_page": 59,
+          "sha256": "982ed4265e233552d328139a853209789ed265151302a707c7568a8aa009ffdf",
+          "source_id": "iccad-2025-program-pdf-fallback",
+          "title": "Generalized GPU -Accelerated Dynamic Programming with Application to Mixed-Cell-Height Detailed Placement",
+          "url": "https://confcats-event-sessions.s3.us-east-1.amazonaws.com/iccad25/uploads/ICCAD_2025_Program_v8.pdf",
+          "version": "8"
+        },
+        {
+          "authors_with_markers": [
+            "Da-Wei Huang{1}",
+            "Shao-Yun Fang{1}",
+            "and Wen-Hao Liu{2}"
+          ],
+          "page_count": 129,
+          "path": "iccad/data/raw/ICCAD_2025_Program_v20.pdf",
+          "pdf_page": 59,
+          "sha256": "3950a2e9d1cccc841e49564a86054710161d6a385d811e3b85c7a209ccfd618a",
+          "source_id": "iccad-2025-program-pdf-v20",
+          "title": "Generalized GPU -Accelerated Dynamic Programming with Application to Mixed-Cell-Height Detailed Placement",
+          "url": "https://confcats-event-sessions.s3.us-east-1.amazonaws.com/iccad25/uploads/ICCAD_2025_Program_v20.pdf",
+          "version": "20"
+        }
+      ],
+      "paper_id": "iccad-2025-20002",
+      "status": "resolved_version_specific_metadata"
+    },
+    {
+      "decision": "duplicate_affiliation_removed",
+      "explanation": "Jin Lu changes marker 6 (University of Gerogia, United States) to marker 1 (University of Georgia, United States). Other affiliations remain; this removes a duplicate misspelled entry, not evidence of an institutional move.",
+      "identity_matching_policy": "Consult both source-bound author lists; do not assume program authors prove manuscript identity.",
+      "independent_review_status": "pending",
+      "observations": [
+        {
+          "authors_with_markers": [
+            "Qitao Tan {1}",
+            "Sung-En Chang {2}",
+            "Rui Xia {3}",
+            "Huidong Ji {4}",
+            "Chence Yang {1}",
+            "Ci Zhang {1}",
+            "Jun Liu {2}",
+            "zheng zhan {2}",
+            "Zhenman Fang {5}",
+            "zhuo zou {4}",
+            "Yanzhi Wang {2}",
+            "Jin Lu {6}",
+            "Geng Yuan {1}"
+          ],
+          "page_count": 129,
+          "path": "iccad/data/raw/ICCAD_2025_Program_v8.pdf",
+          "pdf_page": 61,
+          "sha256": "982ed4265e233552d328139a853209789ed265151302a707c7568a8aa009ffdf",
+          "source_id": "iccad-2025-program-pdf-fallback",
+          "title": "Perturbation-efficient Zeroth-order Optimization for Hardware-friendly On-device Training",
+          "url": "https://confcats-event-sessions.s3.us-east-1.amazonaws.com/iccad25/uploads/ICCAD_2025_Program_v8.pdf",
+          "version": "8"
+        },
+        {
+          "authors_with_markers": [
+            "Qitao Tan {1}",
+            "Sung-En Chang {2}",
+            "Rui Xia {3}",
+            "Huidong Ji {4}",
+            "Chence Yang {1}",
+            "Ci Zhang {1}",
+            "Jun Liu {2}",
+            "zheng zhan {2}",
+            "Zhenman Fang {5}",
+            "zhuo zou {4}",
+            "Yanzhi Wang {2}",
+            "Jin Lu { 1}",
+            "Geng Yuan {1}"
+          ],
+          "page_count": 129,
+          "path": "iccad/data/raw/ICCAD_2025_Program_v20.pdf",
+          "pdf_page": 61,
+          "sha256": "3950a2e9d1cccc841e49564a86054710161d6a385d811e3b85c7a209ccfd618a",
+          "source_id": "iccad-2025-program-pdf-v20",
+          "title": "Perturbation-efficient Zeroth-order Optimization for Hardware-friendly On-device Training",
+          "url": "https://confcats-event-sessions.s3.us-east-1.amazonaws.com/iccad25/uploads/ICCAD_2025_Program_v20.pdf",
+          "version": "20"
+        }
+      ],
+      "paper_id": "iccad-2025-44",
+      "status": "resolved_version_specific_metadata"
+    },
+    {
+      "decision": "listed_affiliation_changed",
+      "explanation": "Ing-Chao Lin changes marker 1 (National Cheng Kung University, Taiwan) to marker 3 (National Yang Ming Chiao Tung University). This is a version-specific program association, not proof of an employment event.",
+      "identity_matching_policy": "Consult both source-bound author lists; do not assume program authors prove manuscript identity.",
+      "independent_review_status": "pending",
+      "observations": [
+        {
+          "authors_with_markers": [
+            "Jeng-De Chang {1}",
+            "Zhidan Zheng {2}",
+            "Liaoyuan Cheng {2}",
+            "Liu-Xuan-Wei Zhang {1}",
+            "Tsun- Ming Tseng {2}",
+            "Ing-Chao Lin {1}",
+            "Ulf Schlichtmann {2}"
+          ],
+          "page_count": 129,
+          "path": "iccad/data/raw/ICCAD_2025_Program_v8.pdf",
+          "pdf_page": 112,
+          "sha256": "982ed4265e233552d328139a853209789ed265151302a707c7568a8aa009ffdf",
+          "source_id": "iccad-2025-program-pdf-fallback",
+          "title": "WROXIM: A Network-Level Simulation Platform for Wavelength -Routed Optical Networks-on-Chip",
+          "url": "https://confcats-event-sessions.s3.us-east-1.amazonaws.com/iccad25/uploads/ICCAD_2025_Program_v8.pdf",
+          "version": "8"
+        },
+        {
+          "authors_with_markers": [
+            "Jeng-De Chang {1}",
+            "Zhidan Zheng {2}",
+            "Liaoyuan Cheng {2}",
+            "Liu-Xuan-Wei Zhang {1}",
+            "Tsun- Ming Tseng {2}",
+            "Ing-Chao Lin {3}",
+            "Ulf Schlichtmann {2}"
+          ],
+          "page_count": 129,
+          "path": "iccad/data/raw/ICCAD_2025_Program_v20.pdf",
+          "pdf_page": 112,
+          "sha256": "3950a2e9d1cccc841e49564a86054710161d6a385d811e3b85c7a209ccfd618a",
+          "source_id": "iccad-2025-program-pdf-v20",
+          "title": "WROXIM: A Network-Level Simulation Platform for Wavelength -Routed Optical Networks-on-Chip",
+          "url": "https://confcats-event-sessions.s3.us-east-1.amazonaws.com/iccad25/uploads/ICCAD_2025_Program_v20.pdf",
+          "version": "20"
+        }
+      ],
+      "paper_id": "iccad-2025-493",
+      "status": "resolved_version_specific_metadata"
+    },
+    {
+      "decision": "page_locator_changed",
+      "explanation": "HERCULES moves from PDF page 113 in v8 to 114 in v20; extracted title and authors remain unchanged. Preserve both page locators.",
+      "identity_matching_policy": "Consult both source-bound author lists; do not assume program authors prove manuscript identity.",
+      "independent_review_status": "pending",
+      "observations": [
+        {
+          "authors_with_markers": [
+            "Vairavan Palaniappan {1}",
+            "Adam Ross {1}",
+            "Amit Trivedi {2}",
+            "Debjit Pal {2}"
+          ],
+          "page_count": 129,
+          "path": "iccad/data/raw/ICCAD_2025_Program_v8.pdf",
+          "pdf_page": 113,
+          "sha256": "982ed4265e233552d328139a853209789ed265151302a707c7568a8aa009ffdf",
+          "source_id": "iccad-2025-program-pdf-fallback",
+          "title": "HERCULES: Hardware accElerator foR stoChastic schedULing for hEterogeneous Systems",
+          "url": "https://confcats-event-sessions.s3.us-east-1.amazonaws.com/iccad25/uploads/ICCAD_2025_Program_v8.pdf",
+          "version": "8"
+        },
+        {
+          "authors_with_markers": [
+            "Vairavan Palaniappan {1}",
+            "Adam Ross {1}",
+            "Amit Trivedi {2}",
+            "Debjit Pal {2}"
+          ],
+          "page_count": 129,
+          "path": "iccad/data/raw/ICCAD_2025_Program_v20.pdf",
+          "pdf_page": 114,
+          "sha256": "3950a2e9d1cccc841e49564a86054710161d6a385d811e3b85c7a209ccfd618a",
+          "source_id": "iccad-2025-program-pdf-v20",
+          "title": "HERCULES: Hardware accElerator foR stoChastic schedULing for hEterogeneous Systems",
+          "url": "https://confcats-event-sessions.s3.us-east-1.amazonaws.com/iccad25/uploads/ICCAD_2025_Program_v20.pdf",
+          "version": "20"
+        }
+      ],
+      "paper_id": "iccad-2025-803",
+      "status": "resolved_version_specific_metadata"
+    },
+    {
+      "decision": "name_spelling_corrected",
+      "explanation": "v8 extracts Micha? Gorywoda; v20 prints Michal Gorywoda. KAIST affiliation and Wanyeong Jung remain. Do not infer a different person.",
+      "identity_matching_policy": "Consult both source-bound author lists; do not assume program authors prove manuscript identity.",
+      "independent_review_status": "pending",
+      "observations": [
+        {
+          "authors_with_markers": [
+            "Micha? Gorywoda",
+            "Wanyeong Jung"
+          ],
+          "page_count": 129,
+          "path": "iccad/data/raw/ICCAD_2025_Program_v8.pdf",
+          "pdf_page": 57,
+          "sha256": "982ed4265e233552d328139a853209789ed265151302a707c7568a8aa009ffdf",
+          "source_id": "iccad-2025-program-pdf-fallback",
+          "title": "TickTockStack: In -Datapath Current Imbalance Elimination Using Clocked Differential Logic in a Voltage Stacked Vector Processor",
+          "url": "https://confcats-event-sessions.s3.us-east-1.amazonaws.com/iccad25/uploads/ICCAD_2025_Program_v8.pdf",
+          "version": "8"
+        },
+        {
+          "authors_with_markers": [
+            "Michal Gorywoda",
+            "Wanyeong Jung"
+          ],
+          "page_count": 129,
+          "path": "iccad/data/raw/ICCAD_2025_Program_v20.pdf",
+          "pdf_page": 57,
+          "sha256": "3950a2e9d1cccc841e49564a86054710161d6a385d811e3b85c7a209ccfd618a",
+          "source_id": "iccad-2025-program-pdf-v20",
+          "title": "TickTockStack: In -Datapath Current Imbalance Elimination Using Clocked Differential Logic in a Voltage Stacked Vector Processor",
+          "url": "https://confcats-event-sessions.s3.us-east-1.amazonaws.com/iccad25/uploads/ICCAD_2025_Program_v20.pdf",
+          "version": "20"
+        }
+      ],
+      "paper_id": "iccad-2025-821",
+      "status": "resolved_version_specific_metadata"
+    }
+  ],
+  "review_basis": "Compared both PDFs' extracted author/affiliation blocks and visually checked v20 PDF pages 40, 57, 59, 61, 112 and 114; v8 invited author line checked on page 59.",
+  "schema": "iccad-program-version-reconciliation.v1"
+}

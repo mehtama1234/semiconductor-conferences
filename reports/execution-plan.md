@@ -4,6 +4,21 @@ The governing scope and acceptance criteria are in [GOAL.md](../GOAL.md).
 This log distinguishes finished work from queued work; a plan is not a completed
 research result.
 
+Version reconciliation follow-through: compared affiliation blocks and visually
+checked v20 pages 40/61/112/114 in addition to the earlier 57/59 checks. All six
+differences now have source-bound v8/v20 observations in a reproducible overlay
+and the paper queue. Two duplicate misspelled affiliations were removed, one
+listed affiliation changed, one name spelling changed, one author list expanded,
+and one page moved. Preserve canonical v8 extraction rather than mixing source
+assertions; use both versioned observations during primary identity matching.
+This resolves the metadata routing task, not manuscript identity or scientific
+review. Next: resume regular-paper technical recovery, starting with the queue's
+unassessed RIROS/capacitance-extraction records; retain deeper conditions and
+mechanisms as the priority over further unmotivated metadata refinement.
+Queue regeneration and project validation pass; 132 tests pass. Tests verify
+source-bound observation propagation, preserved v8 inventory, deterministic
+reconciliation, and rejection of changed source hashes or reviewed ID scope.
+
 ICCAD v8/v20 numbered-metadata comparison: downloaded and retained v20 separately;
 same-parser extraction finds 319 IDs in each, no additions/removals or normalized
 title changes. Five author fields differ (three marker-only, one spelling/glyph,
