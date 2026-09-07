@@ -24,6 +24,9 @@
     "lab_url": "https://tiger.iee.nycu.edu.tw/publications.php"
   },
   "mechanism": "Gradient-based adjustment of feedthrough-pin positions using a routing-demand congestion objective.",
+  "reported_metrics": [
+    "Institutional abstract reports average 7.6% reduction in total overflow and maximum improvement up to 9% versus initial commercial-tool feedthrough-pin assignments; testcase and routing-capacity conditions remain unresolved"
+  ],
   "limits": [
     "Overflow reduction is not proof of timing closure or final detailed-routing success. Headline percentages withheld pending testcase, capacity and baseline conditions; no full-text or independent acceptance.",
     "Wirelength preservation is an abstract-level claim, not a verified constraint across named testcases."
