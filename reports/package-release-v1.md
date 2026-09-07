@@ -34,6 +34,7 @@ commercial adoption, or rising/declining trend claims.
 
 The live requirement-by-requirement register is [evidence-gap-register-v1.md](evidence-gap-register-v1.md).
 The operational extraction order is [condition-extraction-queue-v1.md](condition-extraction-queue-v1.md).
+The final gate view is [release-readiness-v1.md](release-readiness-v1.md).
 
 1. Obtain independent human or model judgments for the prepared packets.
 2. Recover more primary manuscripts, artifacts, and full-paper conditions.
