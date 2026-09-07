@@ -217,6 +217,9 @@ gates still open**.
 - A dated P2-routing reconciliation separating the historical mixed DAC/ISCA
   running counter from file-level conference-specific coverage; it reports 345
   DAC and 158 ISCA IDs in the P2 batch files and prevents denominator inflation.
+- A DAC-specific routing increment after reconciliation: ten additional routes,
+  with 355 of the 541 description-denominator records represented in P2 batch
+  files and 184 remaining outside those files.
 
 ## What users may conclude
 

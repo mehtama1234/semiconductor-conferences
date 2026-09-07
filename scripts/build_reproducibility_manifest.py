@@ -110,6 +110,7 @@ ARTIFACTS = [
     "data/deep-theme-profile-v1.json",
     "reports/deep-theme-profile-v1.md",
     "reports/p2-routing-reconciliation-2026-09-07.md",
+    "reports/p2-recovery-batch-55-2026-09-07.md",
     "reports/isca-primary-recovery-batch-3-2026-09-07.md",
     "reports/isca-primary-recovery-batch-4-2026-09-07.md",
     "reports/condition-extraction-triage-2026-09-07.md",

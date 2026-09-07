@@ -307,6 +307,11 @@ LLM standard-cell topology, device-invariant side-channel attacks, reflective
 reasoning-model pruning, robot navigation, 3D-NAND read retry, spectral
 hypergraph partitioning, Bayesian neural networks, near-3D DRAM inference,
 memristor CAM genome processing, and causal CPU design optimization.
+The fifty-fifth P2 tranche is recorded in
+`reports/p2-recovery-batch-55-2026-09-07.md`; it resumes DAC-specific routing
+after denominator reconciliation across post-quantum RISC-V, sparse 3D
+detection, ZKPs, robot VLA inference, verification-trained Verilog, MoE dataflow,
+CNOT synthesis, RTL benchmarking, pangenome acceleration, and PLONK security.
 
 The categories overlap by design: P0 is a remediation priority, while P1/P2
 describe evidence depth. The former P0 records are retained in

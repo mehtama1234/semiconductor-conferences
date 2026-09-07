@@ -1931,3 +1931,7 @@ The dated P2-routing reconciliation at
 the historical running counter: the P2 batch files contain 345 DAC IDs and 158
 ISCA IDs, not 528 DAC IDs. Future routing progress is conference-specific; the
 historical mixed counter is retained only as workflow history.
+The next DAC-specific tranche adds ten routes after reconciliation; DAC route
+files now cover 355 of the 541 description-denominator records, with 184 still
+outside the P2 batch-file set. This count is conference-specific and supersedes
+the mixed historical running counter for future progress reporting.
