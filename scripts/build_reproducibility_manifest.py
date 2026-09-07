@@ -59,6 +59,7 @@ ARTIFACTS = [
     "reports/p2-recovery-batch-9-2026-09-07.md",
     "reports/p2-recovery-batch-10-2026-09-07.md",
     "reports/p2-recovery-batch-11-2026-09-07.md",
+    "reports/isca-primary-recovery-batch-3-2026-09-07.md",
     "isca/data/source-recovery-attempts.jsonl",
     "iccad/data/source-recovery-attempts.jsonl",
     "iccad/data/nimch-thesis-primary-recovery-v1.json",

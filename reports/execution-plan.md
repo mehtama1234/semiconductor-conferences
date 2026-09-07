@@ -28,6 +28,12 @@ The eleventh P2 tranche adds ten ISCA routes across benchmark methodology,
 deployed security, agentic compilation, graph and genome accelerators, robotics,
 and quantum decoding; P2 routing now covers 110 of 541 lower-priority records.
 
+Primary recovery batch 3 is recorded in
+`reports/isca-primary-recovery-batch-3-2026-09-07.md`: SPEC CPU and KernelEvolve
+have exact author preprints; Rowhammer has official deployment context plus a
+secondary mechanism summary. Quantitative claims remain bounded by source tier
+and independent-review status.
+
 The official ISCA program page was checked for all ten eighth-tranche records;
 the dated result is `reports/isca-p2-source-availability-check-2026-09-07.md`.
 It confirms title/session/author identity but exposes no abstracts or technical
