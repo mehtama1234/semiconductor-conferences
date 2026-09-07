@@ -19,6 +19,12 @@ record. The author page confirms identity and venue but exposes no manuscript;
 Crossref has no abstract and the IEEE route is robot-gated. Secondary summaries
 remain discovery-only, so the source gap and all headline metrics remain open.
 
+ICCAD ComoPy recovery follow-up: exact DOI/author identity was rechecked through
+J-GLOBAL, DBLP, and the PyPI artifact route. The paper record remains closed or
+restricted; only artifact-level technical evidence is accessible. The artifact
+is retained with partial identity and no paper-level benchmark or 6% overhead
+claim is promoted.
+
 ISCA ECC/PIM source-capture batch: exact-title and author identity were matched
 to the Technion CRIS publication abstract for `isca-2026-program-009`. The
 review packet now carries the original abstract and provenance hash; reported
