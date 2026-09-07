@@ -280,3 +280,6 @@ The next DAC-specific tranche adds ten routes; DAC route files now cover 535 of
 the 541 description-denominator records, with 6 outside the P2 batch-file set.
 The closing DAC routing tranche covers all 541 records in the official-description
 denominator; two of the 543 inventory rows lack that description evidence.
+Condition extraction batch 7 adds explicit evidence-depth and missing-condition
+records for the final eight DAC anchor routes; it does not count description-only
+claims as full-paper or independently verified evidence.

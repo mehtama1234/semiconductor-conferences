@@ -430,3 +430,8 @@ The seventy-fourth P2 tranche is recorded in
 `reports/p2-recovery-batch-74-2026-09-07.md`, closing the titled DAC inventory
 with CXL ANN, multi-fidelity search, technology mapping, HLS exploration, zkSNARK
 acceleration, sparse-streaming tenancy, MPC inference, and video generation.
+
+Condition extraction batch 7 records the final DAC anchor tranche in
+`reports/condition-extraction-batch-7-2026-09-07.md`. Four records have
+author/artifact material and four remain description-only; quantitative headlines
+remain withheld where matched conditions are unavailable.
