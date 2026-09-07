@@ -353,6 +353,12 @@ The sixty-third P2 tranche is recorded in
 exploration, processing-using-DRAM, point-cloud CAM search, analog layout
 automation, RTL simulation partitioning, cache partitioning, in-storage version
 search, disaggregated replication, analog graph learning, and CPU-GPU MoE balance.
+The sixty-fourth P2 tranche is recorded in
+`reports/p2-recovery-batch-64-2026-09-07.md`, covering in-vehicle intrusion
+detection, LLM-training swap optimization, IGZO eDRAM buffers, asymmetric
+checkpointing, PCIe trace safety, 3D bonded clock trees, superconducting
+retiming, lemma generation, prototype PIM transactions, and runtime tensor
+parallelism.
 
 The categories overlap by design: P0 is a remediation priority, while P1/P2
 describe evidence depth. The former P0 records are retained in
