@@ -28,7 +28,7 @@
   "original_source_url": "https://hal.science/hal-05333255/document",
   "paper_id": "iccad-2025-1109",
   "protocol_path": "reports/adversarial-judge-protocol-v1.md",
-  "protocol_sha256": "771e1ae12b34f29b5b4522da818358bcc2d4759f11b7741efbeba4125df17905",
+  "protocol_sha256": "d5a3049ff11ff2678671195816cbcded25bbb9e6234895ce56a06f8bf7a60cc5",
   "record_sha256": "65979114aab49b0825df478eda8f46310649d78a4186612883445fa384c86e64",
   "record_under_review": {
     "analysis_edition": 2025,
@@ -232,7 +232,8 @@
     "subsubthemes": {
       "accelerator-reliability": [
         "fault-tolerant-block-floating-point-npu",
-        "full-stack-npu-fault-mitigation"
+        "full-stack-npu-fault-mitigation",
+        "layer-adaptive-analog-cim-ecc"
       ],
       "energy-and-thermal-efficiency": [
         "ml-early-thermal-placement-optimization",
@@ -250,10 +251,12 @@
       ],
       "side-channel-and-hardware-security": [
         "adversarial-attacks-on-moe-offloading",
+        "cross-component-slc-cache-covert-channel",
         "diffusion-model-watermarking-acceleration",
         "gpu-power-thermal-transformer-side-channel-leakage",
         "puf-protected-cim-bnn",
         "remote-power-leakage-in-post-quantum-kem",
+        "rowhammer-falcon-fault-cryptographic",
         "transparent-rowhammer-monitoring"
       ]
     },

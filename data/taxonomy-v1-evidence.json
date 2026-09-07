@@ -20,6 +20,7 @@
     "dac/data/adjudicated-2026-batch-6.jsonl",
     "dac/data/adjudicated-2026-batch-7.jsonl",
     "dac/data/adjudicated-2026-batch-8.jsonl",
+    "dac/data/adjudicated-2026-batch-9.jsonl",
     "iccad/data/adjudicated-2025-batch-3.jsonl",
     "iccad/data/adjudicated-2025-batch-4.jsonl",
     "iccad/data/adjudicated-2025-batch-5.jsonl",
@@ -181,6 +182,7 @@
           "concurrent-pim-cpu-mobile-scheduling",
           "cxl-near-memory-ann-search",
           "disaggregated-compute-network-storage-training",
+          "fhe-pim-database-acceleration",
           "multi-chip-sparse-matrix-communication-co-design",
           "near-memory-communication-lower-bounds"
         ],
@@ -243,7 +245,8 @@
       "subsubthemes": {
         "accelerator-reliability": [
           "fault-tolerant-block-floating-point-npu",
-          "full-stack-npu-fault-mitigation"
+          "full-stack-npu-fault-mitigation",
+          "layer-adaptive-analog-cim-ecc"
         ],
         "energy-and-thermal-efficiency": [
           "ml-early-thermal-placement-optimization",
@@ -261,10 +264,12 @@
         ],
         "side-channel-and-hardware-security": [
           "adversarial-attacks-on-moe-offloading",
+          "cross-component-slc-cache-covert-channel",
           "diffusion-model-watermarking-acceleration",
           "gpu-power-thermal-transformer-side-channel-leakage",
           "puf-protected-cim-bnn",
           "remote-power-leakage-in-post-quantum-kem",
+          "rowhammer-falcon-fault-cryptographic",
           "transparent-rowhammer-monitoring"
         ]
       },
@@ -302,6 +307,9 @@
           "hierarchical-learning-for-sequential-formal-analysis",
           "multi-agent-sva-generation",
           "structure-guided-llm-sva-generation"
+        ],
+        "hardware-security-validation": [
+          "llm-assisted-fpga-toolchain-vulnerability"
         ],
         "simulation-emulation-and-testing": [
           "dependency-aware-two-dimensional-rtl-fault-simulation",
