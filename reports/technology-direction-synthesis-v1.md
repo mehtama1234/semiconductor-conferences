@@ -22,11 +22,11 @@ The evidence is intentionally asymmetric:
   coded fallback papers. The inventory includes 43 invited papers and ten student
   presentations, not 319 regular papers; see the [scope audit](../iccad/reports/program-scope-audit-v1.md).
 
-The 353-record technical coding sample is selected for recoverable evidence and
+The 371-record technical coding sample is selected for recoverable evidence and
 technical diversity. It is not a prevalence estimate, market forecast, conference
 ranking, or proof that a direction is rising.
 For a mechanism-level follow-up, see [scheduling versus physical surrogates](../iccad/reports/scheduling-versus-surrogates-v1.md): two analysis accelerators with different correctness and generalization requirements.
-All 353 remain independently unaccepted. The original synthesis-anchor set is
+All 371 remain independently unaccepted. The original synthesis-anchor set is
 distinct from the expanded coded sample and is not enlarged by metadata recovery.
 
 ## Executive interpretation
@@ -218,7 +218,7 @@ author-linked package exposes hierarchical mapping and BALD fault-tolerant routi
 one normalized 16KB AllGather case completed at 80 artifact simulation time units
 under a 4x6, 256-bandwidth configuration. That result is a reproducibility check,
 not a paper metric: no complete figure, matched baseline, end-to-end workload, or
-independent reproduction was obtained. It remains outside the 353-record selected
+independent reproduction was obtained. It remains outside the 371-record selected
 coding sample and cannot support a comparative performance claim.
 
 CANNON's [recovery assessment](../dac/reports/cannon-primary-recovery-v1.md)
@@ -557,6 +557,13 @@ RTL and netlists, in-storage analytics, optical privacy encoding, and CPU/GPU/
 NDP co-execution. The repeated direction is adaptive movement of data and
 control across irregular structures, with assurance and calibration becoming
 part of the architecture rather than post hoc checks.
+
+This increment adds testability, leakage, approximate arithmetic, in-storage
+analytics, learned graph storage, runtime model selection, low-power test, and
+3D FPGA placement. The pattern is consistent with a field optimizing not only
+steady-state throughput, but also observability, attack surface, variation,
+update behavior, and deployment-time adaptation. It remains evidence from a
+selected coded subset, not a complete venue-wide forecast.
 
 This batch adds a runtime-and-assurance layer: hypergraph partitioning, adaptive
 GPU and PIM dataflows, ternary and neuro-symbolic inference, MoE co-execution,

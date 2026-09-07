@@ -55,7 +55,8 @@
     "label": "Design methodology and tooling",
     "subsubthemes": {
       "compiler-and-runtime-optimization": [
-        "adaptive-dynamic-shape-neural-tuning"
+        "adaptive-dynamic-shape-neural-tuning",
+        "segment-reuse-path-timing"
       ],
       "cross-layer-design-automation": [
         "logic-to-layout-standard-cell-exploration"
@@ -69,6 +70,7 @@
         "mlir-two-level-dataflow-accelerator-generation"
       ],
       "logic-synthesis-and-optimization": [
+        "multinode-boolean-synthesis-optimization",
         "sat-refined-transistor-network-synthesis"
       ],
       "optimization-and-search-methods": [

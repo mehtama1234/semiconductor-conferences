@@ -51,6 +51,7 @@
     "dac/data/adjudicated-2026-batch-37.jsonl",
     "dac/data/adjudicated-2026-batch-38.jsonl",
     "dac/data/adjudicated-2026-batch-39.jsonl",
+    "dac/data/adjudicated-2026-batch-40.jsonl",
     "iccad/data/adjudicated-2025-batch-3.jsonl",
     "iccad/data/adjudicated-2025-batch-4.jsonl",
     "iccad/data/adjudicated-2025-batch-5.jsonl",
@@ -79,7 +80,8 @@
         "graph-learning-for-eda": [
           "graph-prompt-crosstalk-timing",
           "learned-computation-on-circuit-graphs",
-          "path-aware-graph-timing-prediction"
+          "path-aware-graph-timing-prediction",
+          "physics-guided-cell-timing-characterization"
         ],
         "learned-design-space-exploration": [
           "autoregressive-circuit-design-modeling",
@@ -95,6 +97,7 @@
           "hierarchical-multi-agent-chiplet-design",
           "hypervolume-zero-cost-vit-search",
           "knowledge-aggregated-gpu-power-modeling",
+          "ml-guided-datapath-gating",
           "multi-fidelity-bayesian-microarchitecture-exploration",
           "pretrained-chip-layout-metrics",
           "self-supervised-atpg-free-test-point-insertion",
@@ -207,6 +210,7 @@
           "directional-transport-neutral-atom-compilation",
           "fault-tolerant-code-switching-optimization",
           "hamiltonian-guided-vqa-pretraining",
+          "iterative-deepening-exact-cnot-synthesis",
           "near-optimal-quantum-syndrome-extraction",
           "parallel-neutral-atom-detection",
           "quantum-power-system-transient-solving",
@@ -223,6 +227,7 @@
           "expandable-register-file-isa",
           "expert-ranked-mixed-precision-moe",
           "factored-floating-point-systolic-mac",
+          "hammersley-stochastic-computing",
           "heterogeneous-zk-vm-trace-acceleration",
           "lpn-post-quantum-crypto-acceleration",
           "modular-riscv-pqc-extension",
@@ -261,6 +266,7 @@
       "label": "Chiplets, 3D integration, and packaging",
       "subsubthemes": {
         "3d-integration-and-thermal-management": [
+          "3d-fpga-placement-flow",
           "timing-driven-hybrid-bonded-3d-placement",
           "wafer-on-wafer-cim-thermal-stability",
           "whitespace-free-3d-floorplanning"
@@ -309,7 +315,8 @@
       "label": "Design methodology and tooling",
       "subsubthemes": {
         "compiler-and-runtime-optimization": [
-          "adaptive-dynamic-shape-neural-tuning"
+          "adaptive-dynamic-shape-neural-tuning",
+          "segment-reuse-path-timing"
         ],
         "cross-layer-design-automation": [
           "logic-to-layout-standard-cell-exploration"
@@ -323,6 +330,7 @@
           "mlir-two-level-dataflow-accelerator-generation"
         ],
         "logic-synthesis-and-optimization": [
+          "multinode-boolean-synthesis-optimization",
           "sat-refined-transistor-network-synthesis"
         ],
         "optimization-and-search-methods": [
@@ -397,6 +405,7 @@
         ],
         "memory-compute-and-reliability": [
           "adc-in-memory-activation-quantization",
+          "configurable-mram-binary-cim",
           "dual-rail-reliable-dram-compute",
           "dynamic-graph-pim-pattern-mining",
           "sram-compatible-block-fp-compute-near-memory",
@@ -421,7 +430,9 @@
           "3d-nand-cam-moe-cim",
           "3d-nand-edge-llm-inference",
           "dynamic-parity-ssd-lifetime-extension",
+          "flash-in-storage-hyperdimensional-matching",
           "in-storage-ethereum-analytics",
+          "learned-in-memory-graph-storage",
           "media-aware-archival-storage-scheduling",
           "noise-robust-fenand-hdc-sql",
           "replication-offload-disaggregated-memory",
@@ -462,6 +473,7 @@
           "learning-slack-aware-fpga-placement",
           "legal-differentiable-timing-placement",
           "multi-row-complementary-fet-layout-synthesis",
+          "spatial-vlsi-netlist-routing-partitioning",
           "timing-driven-true-3d-placement",
           "versatile-detailed-maze-routing"
         ],
@@ -511,7 +523,8 @@
           "lifetime-aware-nvm-fpga-reconfiguration",
           "operator-aware-fault-tolerant-scheduling",
           "probabilistic-memory-trustworthy-edge-ai",
-          "thermal-delay-fault-aware-driving-perception"
+          "thermal-delay-fault-aware-driving-perception",
+          "trained-approximate-multiplier-structures"
         ],
         "energy-and-thermal-efficiency": [
           "ml-early-thermal-placement-optimization",
@@ -534,12 +547,15 @@
         "side-channel-and-hardware-security": [
           "adversarial-attacks-on-moe-offloading",
           "adversarial-evasion-of-hardware-security-gnns",
+          "analytical-presilicon-leakage-estimation",
+          "bio-plausible-snn-adversarial-attack",
           "compiler-transient-execution-defense",
           "counting-thread-timing-defense",
           "cross-component-slc-cache-covert-channel",
           "cross-domain-in-vehicle-attack-traceback",
           "crossbar-column-signing-cim",
           "deterministic-semi-virtual-memory-safety",
+          "device-invariant-side-channel-representation",
           "device-utilization-control-flow-auditing",
           "diffusion-model-watermarking-acceleration",
           "encrypted-routing-secure-inference",
@@ -595,6 +611,7 @@
           "forward-only-edge-llm-finetuning",
           "mt3000-llm-inference-optimization",
           "ondemand-multitask-edge-sparsity",
+          "runtime-selected-gesture-model-synthesis",
           "self-assisted-moe-speculative-decoding"
         ],
         "edge-embedded-and-mobile-systems": [
@@ -674,6 +691,8 @@
           "llm-assisted-hls-logic-debugging",
           "llm-automated-uvm-testbench-generation",
           "llm-hierarchical-reference-model-generation",
+          "priming-guided-fpga-state-reconstruction",
+          "programmable-low-power-lbist-activity",
           "python-hardware-generation-verilator-debugging",
           "reflective-agentic-testbench-generation",
           "reinforcement-learning-ssd-test-generation",

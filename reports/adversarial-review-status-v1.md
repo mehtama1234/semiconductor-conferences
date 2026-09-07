@@ -9,15 +9,15 @@ generalization conditions needed for final acceptance.
 This is not an independent adversarial LLM judgment. Earlier work reported no
 available independent model endpoint. Current tool discovery exposes no separate
 model-inference tool; no independent reviewer has been invoked in this batch.
-The existing review remains explicitly same-model and preliminary. The 353-record evidence summary
-counts all 353 records as awaiting independent LLM or human review.
+The existing review remains explicitly same-model and preliminary. The 371-record evidence summary
+counts all 371 records as awaiting independent LLM or human review.
 The next review pass should use the protocol in
 `adversarial-judge-protocol-v1.md`, ideally with two independent judges and a
 human resolution of disagreements.
 
 ## Prepared review inputs
 
-`data/review-packets/` now contains 353 packets. Each separates the proposed record
+`data/review-packets/` now contains 371 packets. Each separates the proposed record
 and researcher summary from captured original source text, supplies the taxonomy
 branch, and identifies the protocol/coding-guide hashes. The 72 DAC descriptions
 match by exact paper ID/title and source URL (ignoring only the session query
@@ -27,7 +27,7 @@ conditions, and source capture does not replace independent judgment.
 
 No packet is accepted merely because it exists. The separate coverage index lists
 37 synthesis anchors for scheduling and is excluded from judge inputs to avoid
-priming conclusions. The corrected preflight reports 337 pass / 16 review rather
+priming conclusions. The corrected preflight reports 355 pass / 16 review rather
 than manufacturing support by comparing uncaptured summaries with themselves.
 Three packets still require original-source capture; HybriMoE, ECC-enabled PIM,
 and Vistara now have identity-matched abstracts in their packets.
