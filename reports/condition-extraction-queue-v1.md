@@ -323,6 +323,11 @@ The fifty-seventh P2 tranche is recorded in
 IoT ISA extensions, signal-temporal-logic transformation, graph-based IP
 protection, Floquet PPV computation, parallel SAT, adaptive Gaussian splatting,
 parallel equivalence checking, CGRA energy estimation, and LLM Rust repair.
+The fifty-eighth P2 tranche is recorded in
+`reports/p2-recovery-batch-58-2026-09-07.md`, covering AI-assisted security
+assertions, hypergraph sampling, AI ASIC ZKPs, expandable-register ISAs, qubit
+readout, speculative decoding, spiking fine-tuning, robot control, ML-KEM side
+channels, and in-storage Ethereum analytics.
 
 The categories overlap by design: P0 is a remediation priority, while P1/P2
 describe evidence depth. The former P0 records are retained in

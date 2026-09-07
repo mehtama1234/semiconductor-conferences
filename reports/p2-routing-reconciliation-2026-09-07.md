@@ -28,3 +28,5 @@ The next tranche adds ten more DAC IDs; the DAC-specific count becomes 365/541,
 with 176 records remaining outside the route files.
 This tranche adds ten DAC IDs; the DAC-specific count becomes 375/541, with 166
 records remaining outside the route files.
+This tranche adds ten more DAC IDs; the DAC-specific count becomes 385/541, with
+156 records remaining outside the route files.
