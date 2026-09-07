@@ -60,6 +60,10 @@ The ninth P2 tranche is recorded in
 `reports/p2-recovery-batch-9-2026-09-07.md`, adding ten ISCA routes covering
 tensor optimization, analytic databases, PIM, confidential computing, ORAM,
 and microarchitectural side channels.
+The tenth P2 tranche is recorded in
+`reports/p2-recovery-batch-10-2026-09-07.md`, adding ten ISCA routes covering
+coherence, issue-queue scaling, branch/value prediction, heterogeneous memory,
+and LLM serving.
 
 The categories overlap by design: P0 is a remediation priority, while P1/P2
 describe evidence depth. The former P0 records are retained in

@@ -60,6 +60,8 @@ gates still open**.
   records.
 - A ninth P2 routing tranche prioritizing ten ISCA tensor-optimization,
   database, PIM, confidential-computing, ORAM, and side-channel records.
+- A tenth P2 routing tranche prioritizing ten ISCA coherence, prediction,
+  heterogeneous-memory, and LLM-serving records.
 - A dated ISCA program-page availability check confirming that those ten routes
   expose identity/session metadata but no abstracts or experimental conditions.
 - A dated ATX/RHODES primary-source recovery attempt preserving exact DOI

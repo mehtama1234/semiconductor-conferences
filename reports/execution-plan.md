@@ -16,6 +16,10 @@ storage, ANNS, photonics, tensor acceleration, and LLM serving. P2 routing now
 covers 80 of 541 lower-priority records; these routes remain metadata-only until
 primary technical evidence and independent review are obtained.
 
+The tenth P2 tranche adds ten ISCA 2026 routes across coherence, issue-queue
+scaling, prediction, heterogeneous memory, and LLM serving; P2 routing now
+covers 100 of 541 lower-priority records.
+
 The ninth P2 tranche adds ten ISCA 2026 routes across tensor optimization,
 analytic databases, PIM, confidential computing, ORAM, and side channels; P2
 routing now covers 90 of 541 lower-priority records.
