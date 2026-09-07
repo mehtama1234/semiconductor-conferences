@@ -4,6 +4,14 @@ The governing scope and acceptance criteria are in [GOAL.md](../GOAL.md).
 This log distinguishes finished work from queued work; a plan is not a completed
 research result.
 
+Exact T follow-up: PDF figure inspection now separates mapper variants and
+preserves a modeled space-time counterexample. The pinned implementation built
+successfully and its small README example emitted QASM. This is a smoke test,
+not correctness validation or benchmark reproduction. The supplied checker uses
+Slurm and tests basis-state probabilities without relative-phase checks. Next
+artifact work needs explicit functional/phase validation; headline reconciliation
+and independent review remain open. Counts are unchanged.
+
 Primary-depth increment: synthesis anchor DAC research031 now has an exact
 title/four-author preprint match and a supplementary assessment. Its description
 and preprint disagree on the maximum EPFL reduction; the original record is

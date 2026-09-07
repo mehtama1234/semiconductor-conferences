@@ -179,6 +179,8 @@ For the exact-T example, consult the [primary assessment](../dac/reports/exact-t
 the description and preprint disagree on the maximum reduction. Keep that
 numerical headline withheld; the resource-specific mapping mechanism remains a
 provisional example, not evidence of learned search or global circuit optimality.
+Its figure-level counterexample also prevents a uniform space-time-benefit claim;
+available artifact checks do not yet establish coherent-oracle correctness.
 
 ## Direction 6 — Specialized accelerators encode workload structure
 
