@@ -4,6 +4,13 @@ The governing scope and acceptance criteria are in [GOAL.md](../GOAL.md).
 This log distinguishes finished work from queued work; a plan is not a completed
 research result.
 
+Broader hypothesis challenge batch: six non-anchor DAC descriptions now qualify
+all six directions, with source hashes and targeted evidence checks. Preserved
+TierANNS/COGA title/body discrepancy, reference-model versus silicon distinction,
+and benchmark contamination/accuracy/availability constraints. No numeric or
+temporal claim promoted. Next: NotSoTiny primary evaluation and TierANNS identity,
+then expand ISCA/ICCAD depth rather than treating DAC breadth as full coverage.
+
 ParetoPilot pinned release assessed: selected entry point is batch proposal then
 synthesis, with XML-estimated metrics and default AES/three samples. Author
 linkage and headline experiment reconciliation remain unresolved. Added a

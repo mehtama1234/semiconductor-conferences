@@ -20,6 +20,11 @@ ICCAD technical evidence uses the explicit 2025 fallback. The
 [source-linked direction map](../data/technology-direction-evidence-v1.json)
 and [coverage queue](research-work-queue.md) identify the supporting records.
 
+A [six-case challenge batch](direction-challenges-v1.md) now extends the reading
+beyond the original anchors. It adds evaluation counterpressure, alternative
+mechanisms and explicit validation boundaries; all six cases remain
+description-level and independently unreviewed, not measured falsifications.
+
 ## 1. AI-assisted design → tool-grounded generation → verified iteration
 
 **Observed mechanisms.** HLSArchOpt supplies an author-linked partial hardware
