@@ -50,8 +50,14 @@
   "taxonomy_branch": {
     "label": "Design methodology and tooling",
     "subsubthemes": {
+      "cross-layer-design-automation": [
+        "logic-to-layout-standard-cell-exploration"
+      ],
       "high-level-synthesis-and-compilers": [
         "mlir-two-level-dataflow-accelerator-generation"
+      ],
+      "logic-synthesis-and-optimization": [
+        "sat-refined-transistor-network-synthesis"
       ],
       "optimization-and-search-methods": [
         "differentiable-task-graph-partitioning",
@@ -71,7 +77,9 @@
       ]
     },
     "subthemes": [
+      "cross-layer-design-automation",
       "high-level-synthesis-and-compilers",
+      "logic-synthesis-and-optimization",
       "optimization-and-search-methods",
       "reproducibility-artifacts-and-benchmarks",
       "synthesis-and-compilation"

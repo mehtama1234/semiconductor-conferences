@@ -56,7 +56,8 @@
     "label": "Chiplets, 3D integration, and packaging",
     "subsubthemes": {
       "3d-integration-and-thermal-management": [
-        "wafer-on-wafer-cim-thermal-stability"
+        "wafer-on-wafer-cim-thermal-stability",
+        "whitespace-free-3d-floorplanning"
       ],
       "3d-stacking-and-thermal-management": [
         "analytical-3d-ic-thermal-simulation",
@@ -66,6 +67,9 @@
         "physics-informed-package-thermal-surrogate",
         "thermal-aware-3d-stacked-llm-inference",
         "thermal-aware-learning-schedule-3d-cache"
+      ],
+      "advanced-packaging-and-interconnect": [
+        "double-sided-glass-interposer-rdl-routing"
       ],
       "chiplet-interconnects": [
         "lossless-exponent-coding-chiplet-llm-links"
@@ -85,6 +89,7 @@
     "subthemes": [
       "3d-integration-and-thermal-management",
       "3d-stacking-and-thermal-management",
+      "advanced-packaging-and-interconnect",
       "chiplet-interconnects",
       "chiplet-partitioning-and-integration",
       "chiplet-system-architecture",

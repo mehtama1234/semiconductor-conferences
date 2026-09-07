@@ -152,6 +152,9 @@
   "taxonomy_branch": {
     "label": "Physical design and manufacturing",
     "subsubthemes": {
+      "manufacturing-and-yield": [
+        "gpu-layout-pattern-matching"
+      ],
       "manufacturing-monitoring-and-yield": [
         "wafer-level-tool-chain-attestation"
       ],
@@ -161,7 +164,13 @@
       "placement-routing-and-floorplanning": [
         "analytic-timing-driven-global-placement",
         "cell-independent-transistor-placement",
-        "timing-driven-true-3d-placement"
+        "differentiable-rectilinear-floorplanning",
+        "flip-fet-dual-side-routing",
+        "learning-slack-aware-fpga-placement",
+        "legal-differentiable-timing-placement",
+        "multi-row-complementary-fet-layout-synthesis",
+        "timing-driven-true-3d-placement",
+        "versatile-detailed-maze-routing"
       ],
       "placement-routing-and-timing": [
         "congestion-oriented-feedthrough-pin-assignment",
@@ -187,6 +196,7 @@
     },
     "subthemes": [
       "floorplanning-and-power-delivery",
+      "manufacturing-and-yield",
       "manufacturing-monitoring-and-yield",
       "parasitic-extraction-and-modeling",
       "placement-routing-and-floorplanning",

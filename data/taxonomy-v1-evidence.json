@@ -45,6 +45,7 @@
     "dac/data/adjudicated-2026-batch-31.jsonl",
     "dac/data/adjudicated-2026-batch-32.jsonl",
     "dac/data/adjudicated-2026-batch-33.jsonl",
+    "dac/data/adjudicated-2026-batch-34.jsonl",
     "iccad/data/adjudicated-2025-batch-3.jsonl",
     "iccad/data/adjudicated-2025-batch-4.jsonl",
     "iccad/data/adjudicated-2025-batch-5.jsonl",
@@ -73,6 +74,7 @@
           "compiler-ir-accelerator-power-modeling",
           "diffusion-tcad-multi-field-surrogate",
           "end-to-end-dnn-accelerator-generation",
+          "expert-level-rl-placement",
           "gnn-multidie-fpga-floorplanning",
           "graph-transformer-analog-parasitic-extraction",
           "hardware-aware-bev-detection-nas",
@@ -81,6 +83,7 @@
           "hypervolume-zero-cost-vit-search",
           "knowledge-aggregated-gpu-power-modeling",
           "multi-fidelity-bayesian-microarchitecture-exploration",
+          "pretrained-chip-layout-metrics",
           "self-supervised-atpg-free-test-point-insertion"
         ],
         "llm-assisted-design-flows": [
@@ -123,6 +126,9 @@
           "differentiable-sequence-pair-analog-placement",
           "monte-carlo-analog-placement"
         ],
+        "device-modeling-and-simulation": [
+          "weak-form-pinn-device-simulation"
+        ],
         "emerging-memory-and-devices": [
           "bit-flexible-digital-cim-compression",
           "memristor-analog-cam-genome-acceleration"
@@ -144,6 +150,7 @@
         "analog-circuit-learning",
         "analog-compute-in-memory",
         "analog-layout-and-circuit-automation",
+        "device-modeling-and-simulation",
         "emerging-memory-and-devices",
         "neuromorphic-quantum-and-non-von-neumann"
       ],
@@ -221,7 +228,8 @@
       "label": "Chiplets, 3D integration, and packaging",
       "subsubthemes": {
         "3d-integration-and-thermal-management": [
-          "wafer-on-wafer-cim-thermal-stability"
+          "wafer-on-wafer-cim-thermal-stability",
+          "whitespace-free-3d-floorplanning"
         ],
         "3d-stacking-and-thermal-management": [
           "analytical-3d-ic-thermal-simulation",
@@ -231,6 +239,9 @@
           "physics-informed-package-thermal-surrogate",
           "thermal-aware-3d-stacked-llm-inference",
           "thermal-aware-learning-schedule-3d-cache"
+        ],
+        "advanced-packaging-and-interconnect": [
+          "double-sided-glass-interposer-rdl-routing"
         ],
         "chiplet-interconnects": [
           "lossless-exponent-coding-chiplet-llm-links"
@@ -250,6 +261,7 @@
       "subthemes": [
         "3d-integration-and-thermal-management",
         "3d-stacking-and-thermal-management",
+        "advanced-packaging-and-interconnect",
         "chiplet-interconnects",
         "chiplet-partitioning-and-integration",
         "chiplet-system-architecture",
@@ -260,8 +272,14 @@
     {
       "label": "Design methodology and tooling",
       "subsubthemes": {
+        "cross-layer-design-automation": [
+          "logic-to-layout-standard-cell-exploration"
+        ],
         "high-level-synthesis-and-compilers": [
           "mlir-two-level-dataflow-accelerator-generation"
+        ],
+        "logic-synthesis-and-optimization": [
+          "sat-refined-transistor-network-synthesis"
         ],
         "optimization-and-search-methods": [
           "differentiable-task-graph-partitioning",
@@ -281,7 +299,9 @@
         ]
       },
       "subthemes": [
+        "cross-layer-design-automation",
         "high-level-synthesis-and-compilers",
+        "logic-synthesis-and-optimization",
         "optimization-and-search-methods",
         "reproducibility-artifacts-and-benchmarks",
         "synthesis-and-compilation"
@@ -355,6 +375,9 @@
     {
       "label": "Physical design and manufacturing",
       "subsubthemes": {
+        "manufacturing-and-yield": [
+          "gpu-layout-pattern-matching"
+        ],
         "manufacturing-monitoring-and-yield": [
           "wafer-level-tool-chain-attestation"
         ],
@@ -364,7 +387,13 @@
         "placement-routing-and-floorplanning": [
           "analytic-timing-driven-global-placement",
           "cell-independent-transistor-placement",
-          "timing-driven-true-3d-placement"
+          "differentiable-rectilinear-floorplanning",
+          "flip-fet-dual-side-routing",
+          "learning-slack-aware-fpga-placement",
+          "legal-differentiable-timing-placement",
+          "multi-row-complementary-fet-layout-synthesis",
+          "timing-driven-true-3d-placement",
+          "versatile-detailed-maze-routing"
         ],
         "placement-routing-and-timing": [
           "congestion-oriented-feedthrough-pin-assignment",
@@ -390,6 +419,7 @@
       },
       "subthemes": [
         "floorplanning-and-power-delivery",
+        "manufacturing-and-yield",
         "manufacturing-monitoring-and-yield",
         "parasitic-extraction-and-modeling",
         "placement-routing-and-floorplanning",
@@ -512,6 +542,7 @@
           "entropy-aware-rtl-llm-alignment",
           "factored-form-parallel-equivalence-checking",
           "llm-threat-to-assertion-soc-verification",
+          "sat-hierarchical-boundary-recovery",
           "testbench-rewarded-verilog-generation"
         ],
         "formal-and-functional-verification": [
