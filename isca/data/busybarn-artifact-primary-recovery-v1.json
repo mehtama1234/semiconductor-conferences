@@ -17,6 +17,16 @@
   },
   "mechanism": "BusyBarn is described as providing hierarchical mapping through simulated annealing and load-balanced, distance-aware, fault-tolerant routing (BALD) for wafer-scale LLM inference.",
   "artifact_scope": "The description states that scripts reproduce twelve experimental figures covering collective-communication bandwidth, mapping sensitivity to die/core shape and faults, workload heatmaps, end-to-end latency for six LLM architectures, convergence, ablations, and runtime breakdown.",
+  "artifact_conditions": {
+    "repository_readme_url": "https://github.com/redbird-arch/isca2026-busybarn-artifact",
+    "python_environment": "Python 3.9; requirements.txt is the declared dependency entry point",
+    "quick_validation_scope": "Figures 8a, 10c, 11, and GPT-only Figure 12",
+    "quick_validation_estimate": "less than three hours on an Intel Core i9-13900K with 16 concurrent workers",
+    "full_run_scope": "All figures; README estimates under 12,000 core-hours and supports local or SLURM execution",
+    "host_requirements": "32 GB minimum RAM, multi-core CPU recommended, approximately 5 GB generated-artifact disk",
+    "randomness": "Simulated annealing uses seed 123 by default; cross-platform floating-point ordering may change absolute values slightly",
+    "result_boundary": "README execution instructions establish reproducibility conditions, not validated paper results; quantitative promotion remains withheld"
+  },
   "archive_capture": {
     "path": "isca/data/raw/isca2026_busybarn_artifact.zip",
     "sha256": "b732b865aa4ae1f832af726d620a4b760cbbc383870e528b116f0bcad6d05a47",
