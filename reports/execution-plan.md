@@ -1,5 +1,12 @@
 # Execution plan — 2026-09-06
 
+ISCA ECC/PIM source-capture batch: exact-title and author identity were matched
+to the Technion CRIS publication abstract for `isca-2026-program-009`. The
+review packet now carries the original abstract and provenance hash; reported
+SDC/performance values remain abstract-level claims pending full-paper and
+independent review. Captured abstracts now total 34, source-capture gaps are
+four, and deterministic preflight is 72 pass / 17 review.
+
 ISCA secondary-recovery recheck: exact-title indexed summaries for MLX and
 ConServe were rechecked, and the HBM-CASO C-lab publication listing was checked,
 after the primary-source search. The pages expose useful
