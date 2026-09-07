@@ -65,6 +65,7 @@
     "dac/data/adjudicated-2026-batch-51.jsonl",
     "dac/data/adjudicated-2026-batch-52.jsonl",
     "dac/data/adjudicated-2026-batch-53.jsonl",
+    "dac/data/adjudicated-2026-batch-54.jsonl",
     "iccad/data/adjudicated-2025-batch-3.jsonl",
     "iccad/data/adjudicated-2025-batch-4.jsonl",
     "iccad/data/adjudicated-2025-batch-5.jsonl",
@@ -81,6 +82,9 @@
     {
       "label": "AI-assisted EDA",
       "subsubthemes": {
+        "architecture-modeling-and-exploration": [
+          "application-specific-fhe-architecture-automation"
+        ],
         "generative-design-and-synthesis": [
           "alphazero-generative-aig-synthesis",
           "flow-matching-chip-placement",
@@ -133,6 +137,7 @@
           "data-driven-hardware-lemma-generation",
           "design-evolution-graph-postlayout",
           "electrophysical-cell-ppa-modeling",
+          "function-family-analog-optimization",
           "learned-dse-algorithm-selection",
           "learned-prior-multicorner-analysis",
           "physics-infused-rf-inverse-design",
@@ -154,6 +159,7 @@
         ]
       },
       "subthemes": [
+        "architecture-modeling-and-exploration",
         "generative-circuit-and-layout-synthesis",
         "generative-design-and-synthesis",
         "generative-design-automation",
@@ -325,6 +331,7 @@
         "sparse-and-irregular-compute": [
           "adaptive-sparse-gcn-caching",
           "adaptive-sparse-video-attention",
+          "async-hbm-fpga-sparse-lu",
           "bitserial-transformer-sparsity",
           "cuda-core-spmv",
           "locality-aware-temporal-motif-mining",
@@ -360,9 +367,11 @@
           "posttraining-bernoullized-bnn-inference",
           "real-time-composable-dnn-acceleration",
           "reconfigurable-fip-systolic-array",
+          "reconfigurable-neural-nonlinear-unit",
           "reram-cam-point-cloud-knn-acceleration",
           "runtime-adaptive-multimodal-fpga",
           "sparse-tensor-accelerator-compilation",
+          "spatial-additive-ntt-zksnark",
           "topology-aware-configurable-gnn-acceleration",
           "unified-configurable-cpu-matrix-extension",
           "unified-riscv-ecpm-isa",
@@ -641,6 +650,7 @@
         ],
         "storage-and-memory-systems": [
           "adaptive-flash-ecc-code-length",
+          "qlc-lifespan-invalidation-skipping",
           "range-granular-zns-filesystem"
         ]
       },
@@ -684,6 +694,10 @@
         ],
         "parasitic-extraction-and-modeling": [
           "geometry-conditioned-layer-specific-capacitance-surrogates"
+        ],
+        "partitioning-and-placement": [
+          "force-deformation-module-placement",
+          "orientation-aware-3d-placement"
         ],
         "physical-design-and-routing": [
           "3d-routability-track-assignment",
@@ -734,6 +748,7 @@
         "manufacturing-and-yield",
         "manufacturing-monitoring-and-yield",
         "parasitic-extraction-and-modeling",
+        "partitioning-and-placement",
         "physical-design-and-routing",
         "placement-routing-and-floorplanning",
         "placement-routing-and-timing",
@@ -782,7 +797,8 @@
         ],
         "privacy-preserving-compute": [
           "encrypted-sparse-matmul-codesign",
-          "memory-aware-he-nn-configuration"
+          "memory-aware-he-nn-configuration",
+          "trusted-minimalinteraction-mpc"
         ],
         "privacy-preserving-computing": [
           "hybrid-optical-private-edge-encoding",
@@ -876,7 +892,8 @@
       "label": "Systems, applications, and workloads",
       "subsubthemes": {
         "biochips-and-specialized-systems": [
-          "physics-aware-microfluidic-light-compensation"
+          "physics-aware-microfluidic-light-compensation",
+          "pressure-aware-biochip-placement"
         ],
         "bioinformatics-and-scientific-computing": [
           "memory-efficient-pangenome-acceleration"
@@ -896,12 +913,15 @@
           "asymmetric-llm-checkpointing",
           "distributed-training-preemption",
           "dynamic-gpu-cluster-forecasting",
+          "finegrained-sparse-accelerator-tenancy",
           "hardware-physics-guided-distributed-ml",
           "hyperthread-interference-scheduling"
         ],
         "edge-ai-and-deployment": [
           "adaptive-hyperdimensional-lidar",
+          "adaptive-spiking-object-detection",
           "cached-point-cloud-sampling",
+          "crossstage-video-redundancy",
           "dynamic-3d-detector-distillation",
           "forward-only-edge-llm-finetuning",
           "kinematic-vla-speculative-decoding",
@@ -923,6 +943,7 @@
         ],
         "embedded-and-edge-systems": [
           "cpu-fpga-stream-frequency-measurement",
+          "intermittent-hyperdimensional-iot",
           "semantic-satellite-image-compression",
           "wireless-intermittent-runtime-analysis"
         ],
@@ -939,6 +960,7 @@
           "single-gpu-finetuning-codesign"
         ],
         "multimedia-and-edge-systems": [
+          "adaptive-guidance-video-diffusion",
           "consistent-multistep-image-editing",
           "hierarchical-multivector-retrieval-scheduling",
           "output-guided-video-diffusion-pruning",
@@ -1026,6 +1048,9 @@
           "semantics-preserving-security-benchmark-obfuscation",
           "undocumented-instruction-security-verification"
         ],
+        "physical-verification": [
+          "cross-pdk-drc-case-generation"
+        ],
         "processor-and-rtl-verification": [
           "coordinated-cpu-fuzzing",
           "riscv-differential-instruction-fuzzing",
@@ -1065,6 +1090,7 @@
         "formal-and-equivalence-verification",
         "formal-and-functional-verification",
         "hardware-security-validation",
+        "physical-verification",
         "processor-and-rtl-verification",
         "simulation-and-emulation",
         "simulation-emulation-and-testing"

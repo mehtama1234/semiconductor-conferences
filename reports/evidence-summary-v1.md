@@ -7,7 +7,7 @@ conference prevalence estimate, market forecast, or ranking.
 
 | Conference | Records |
 |---|---:|
-| dac | 528 |
+| dac | 544 |
 | iccad | 21 |
 | isca | 16 |
 
@@ -17,27 +17,27 @@ conference prevalence estimate, market forecast, or ranking.
 | company_author_source | 2 |
 | institutional_abstract | 5 |
 | institutional_technical_report | 1 |
-| official_description | 525 |
+| official_description | 541 |
 | primary_or_author_copy | 31 |
 
 ## Theme distribution
 
 | Theme | Selected records |
 |---|---:|
-| architecture-and-accelerators | 99 |
-| memory-interconnect-and-storage | 84 |
-| power-reliability-and-security | 77 |
-| systems-applications-and-workloads | 65 |
-| ai-assisted-eda | 57 |
-| verification-and-validation | 51 |
-| physical-design-and-manufacturing | 40 |
+| architecture-and-accelerators | 102 |
+| memory-interconnect-and-storage | 85 |
+| power-reliability-and-security | 78 |
+| systems-applications-and-workloads | 71 |
+| ai-assisted-eda | 59 |
+| verification-and-validation | 52 |
+| physical-design-and-manufacturing | 42 |
 | analog-mixed-signal-and-emerging-devices | 38 |
 | design-methodology-and-tooling | 29 |
 | chiplets-3d-and-packaging | 25 |
 
 ## Field completeness
 
-552 of 565 records have all required technical fields populated.
+568 of 581 records have all required technical fields populated.
 Missing-field counts are recorded in the machine-readable JSON; an empty field means the evidence did not support a claim, not that the paper lacks the property.
 
 ## Limits

@@ -17,7 +17,7 @@ def test_source_matching_ignores_session_only_and_requires_identity():
 
 def test_packets_do_not_promote_summaries_or_leak_synthesis():
     packets, summary = build(ROOT)
-    assert summary["packet_count"] == 565
+    assert summary["packet_count"] == 581
     assert summary["synthesis_anchor_count"] == len(set(summary["synthesis_anchor_ids"]))
     assert summary["independent_review_count"] == 0
     mtia = next(p for p in packets if p["paper_id"] == "isca-2026-program-069")
@@ -37,7 +37,7 @@ def test_packet_handoff_covers_exact_coded_set_and_has_no_acceptance():
         for row in (json.loads(line) for line in path.read_text(encoding="utf-8").splitlines() if line.strip())
     }
     packets, _ = build(ROOT)
-    assert len(coded) == len(packets) == 565
+    assert len(coded) == len(packets) == 581
     assert coded == {packet["paper_id"] for packet in packets}
     assert all(packet["review_status"] == "not_reviewed" and not packet["independent_verdicts"] for packet in packets)
 
