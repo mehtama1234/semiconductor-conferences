@@ -42,6 +42,15 @@ def test_packet_handoff_covers_exact_coded_set_and_has_no_acceptance():
     assert all(packet["review_status"] == "not_reviewed" and not packet["independent_verdicts"] for packet in packets)
 
 
+def test_completion_audit_keeps_scientific_gates_open():
+    audit = json.loads((ROOT / "reports/completion-audit-v1.json").read_text(encoding="utf-8"))
+    assert audit["status"] == "bounded_package_complete_scientific_gates_open"
+    statuses = {item["id"]: item["status"] for item in audit["subgoals"]}
+    assert statuses["subgoal-5-independent-review"] == "prepared_pending"
+    assert statuses["subgoal-6-temporal"] == "insufficient_evidence_explicit"
+    assert "Do not mark the overall GOAL complete" in audit["interpretation_gate"]
+
+
 def test_audit_never_compares_uncaptured_summary_with_itself():
     result = audit(ROOT)
     uncaptured = next(p for p in result["checks"] if p["paper_id"] == "isca-2026-program-045")

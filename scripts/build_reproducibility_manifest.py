@@ -39,6 +39,7 @@ ARTIFACTS = [
     "reports/draft-review-packets-v1.md",
     "reports/historical-description-coding-v1.md",
     "reports/temporal-mechanism-comparison-v1.md",
+    "reports/completion-audit-v1.json",
     "scripts/validate_project.py",
     "tests/test_work_queue.py",
     "tests/test_review_packets.py",
