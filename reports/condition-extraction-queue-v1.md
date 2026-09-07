@@ -56,6 +56,10 @@ The eighth P2 tranche is recorded in
 `reports/p2-recovery-batch-8-2026-09-07.md`, adding ten ISCA routes covering
 accelerator interfaces, sustainability, memory, storage, ANNS, photonics,
 tensor acceleration, and LLM serving.
+The ninth P2 tranche is recorded in
+`reports/p2-recovery-batch-9-2026-09-07.md`, adding ten ISCA routes covering
+tensor optimization, analytic databases, PIM, confidential computing, ORAM,
+and microarchitectural side channels.
 
 The categories overlap by design: P0 is a remediation priority, while P1/P2
 describe evidence depth. The former P0 records are retained in

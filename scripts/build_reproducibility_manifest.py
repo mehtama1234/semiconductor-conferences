@@ -56,6 +56,7 @@ ARTIFACTS = [
     "isca/data/rearchitecting-primary-recovery-v1.json",
     "isca/data/capa-artifact-reproduction-v1.json",
     "reports/isca-recovery-batch-2-2026-09-07.md",
+    "reports/p2-recovery-batch-9-2026-09-07.md",
     "isca/data/source-recovery-attempts.jsonl",
     "iccad/data/source-recovery-attempts.jsonl",
     "iccad/data/nimch-thesis-primary-recovery-v1.json",
