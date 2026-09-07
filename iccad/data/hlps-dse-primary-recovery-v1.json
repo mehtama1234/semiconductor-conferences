@@ -1,0 +1,55 @@
+{
+  "schema": "primary-source-recovery-assessment.v1",
+  "paper_id": "iccad-2025-109",
+  "title": "Automated Design Space Exploration in High-Level Physical Synthesis",
+  "source_id": "iccad-2025-hlps-dse-author-pdf",
+  "source_url": "https://jasonlau.io/research-papers/10.1109-ICCAD66269.2025.11240757.pdf",
+  "capture_date": "2026-09-06",
+  "source_tier": "author_hosted_selected_full_text",
+  "extraction_scope": "PDF first-page identity; IV framework; VII-C/D overall timing and execution time; Table V text extraction (visual verification pending).",
+  "independent_review_status": "pending",
+  "headline_metric_status": "withheld_pending_table_and_budget_review",
+  "identity": {
+    "status": "exact_title_and_thirteen_authors_match_after_case_and_affiliation_marker_normalization",
+    "authors": [
+      "Linfeng Du",
+      "Jiawei Liang",
+      "Jason Lau",
+      "Yuze Chi",
+      "Yutong Xie",
+      "Chunyou Su",
+      "Afzal Ahmad",
+      "Zifan He",
+      "Jake Ke",
+      "Jinming Ge",
+      "Jason Cong",
+      "Wei Zhang",
+      "Licheng Guo"
+    ],
+    "doi_from_author_filename": "10.1109/ICCAD66269.2025.11240757",
+    "corroborating_lab_page": "https://vast.cs.ucla.edu/publications/automated-design-space-exploration-high-level-physical-synthesis"
+  },
+  "mechanism": "Physical implementation feedback guides device abstraction, constrained ILP floorplanning and pipeline/routing choices.",
+  "conditions": {
+    "scope": "Six accelerator designs across four multi-die FPGA architectures, not necessarily a complete Cartesian product.",
+    "devices": [
+      "Alveo U55C",
+      "Alveo U280",
+      "Alveo U250",
+      "Versal VHK158"
+    ],
+    "host": "AMD EPYC 7742; 256GB DDR4-3200",
+    "baselines": [
+      "AMD Vitis, -O3 Explore, target reduced from 300 MHz in 15 MHz steps until PnR succeeds",
+      "AutoBridge, global resource limits 70-90%"
+    ],
+    "parallelism": "Up to four concurrent Vitis jobs per batch; search dependencies limit actual parallelism."
+  },
+  "limits": [
+    "Fmax is not application throughput or faster synthesis.",
+    "Table V actions are cumulative, not independent ablations.",
+    "No matched-budget superiority established here; table values and failed implementations need visual reconciliation.",
+    "Primary recovery is not completed technical coding or independent acceptance."
+  ],
+  "next_action": "Visually verify Table V, extract search-time tradeoffs and integrate coding/source packet with Fmax and runtime kept separate."
+}

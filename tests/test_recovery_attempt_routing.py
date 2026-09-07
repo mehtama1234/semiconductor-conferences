@@ -20,8 +20,8 @@ def test_orthrus_coding_is_provenanced_and_review_pending():
 def test_recovery_attempts_are_routed_without_evidence_promotion():
     rows, summary, _ = build(ROOT)
     records = {r["paper_id"]: r for r in rows}
-    assert summary["recovery_attempt_paper_count"] == 10
-    for pid in ["iccad-2025-1006", "iccad-2025-1008", "iccad-2025-1016", "iccad-2025-1019", "iccad-2025-1022"]:
+    assert summary["recovery_attempt_paper_count"] == 12
+    for pid in ["iccad-2025-1006", "iccad-2025-1008", "iccad-2025-1016", "iccad-2025-1019", "iccad-2025-1022", "iccad-2025-1059", "iccad-2025-1085"]:
         row = records[pid]
         assert row["evidence_tier"] == "program_metadata"
         assert row["coding_status"] == "not_coded"

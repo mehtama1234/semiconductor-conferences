@@ -4,6 +4,18 @@ The governing scope and acceptance criteria are in [GOAL.md](../GOAL.md).
 This log distinguishes finished work from queued work; a plan is not a completed
 research result.
 
+Ordered ICCAD recovery 1059/1085/109: exact-title searches for the Rowhammer
+and SAGE papers yielded program/bibliographic leads but no primary technical
+text; both now have scoped attempt records and author-page next actions. Recovered
+paper 109 from a coauthor's PDF with all 13 program authors matched. Recorded
+physical-feedback mechanism, baseline settings and search-parallelism conditions.
+Fmax is not throughput, cumulative actions are not isolated ablations, and search
+runtime must accompany timing-quality comparisons. Table V visual reconciliation
+and coding integration are next. Supplement coverage rises to 21 papers; the
+coded total remains 75 and independent review remains pending.
+Queue regeneration, project validation and 106 tests passed. These verify
+registration and routing, not scientific acceptance of the recovered paper.
+
 Squat artifact follow-up: pinned the author-linked repository at
 c6b1d74a89a8f89a3c50ad165cc1af1cab577325 and inspected its 184-file tree,
 README, mixed-precision selector, quantized linear path and training recipe.

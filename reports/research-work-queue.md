@@ -37,6 +37,7 @@ These researcher assessments supplement, but do not replace, original evidence o
 - dac-2026-research865: [withheld_pending_identity_and_experiment_reconciliation](../dac/data/paretopilot-primary-assessment-v1.json)
 - iccad-2025-1: [institutional_claims_only_not_accepted](../iccad/data/adder-dcim-primary-recovery-v1.json)
 - iccad-2025-105: [withheld_pending_table_and_accuracy_reconciliation](../iccad/data/squat-primary-recovery-v1.json)
+- iccad-2025-109: [withheld_pending_table_and_budget_review](../iccad/data/hlps-dse-primary-recovery-v1.json)
 - iccad-2025-437: [withheld_pending_figure_and_budget_review](../iccad/data/orthrus-primary-recovery-v1.json)
 
 ## Identity and primary-source recovery
