@@ -6,6 +6,13 @@ description queue is complete. The next bounded work is the 3-record preflight
 remediation queue, followed by full-paper condition extraction and independent
 review. See `reports/condition-extraction-queue-v1.md`.
 
+Latest bounded remediation (2026-09-07): repaired strict title matching for
+truncated DAC program subtitles, accepted identity-matched captured abstracts as
+valid provenance, and rewrote two evidence spans to include source-grounded
+abstract language. The deterministic preflight moved from 562/19 to 578/3
+(pass/review) without changing any independent-review verdicts. A fresh web
+recheck confirms the remaining three rows are genuine original-text gaps.
+
 Latest bounded coding increment: five DAC descriptions were added for masked
 ML-DSA root-of-trust optimization, community-aware hardware-Trojan detection,
 AlphaZero generative AIG synthesis, ReRAM ECC timing recovery, and wafer-level
