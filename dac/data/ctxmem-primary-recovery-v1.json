@@ -1,0 +1,29 @@
+{
+  "schema": "primary-source-recovery-assessment.v1",
+  "paper_id": "dac-2026-research1028",
+  "title": "Ctxmem: OS-Hardware Co-Designed Tiered Memory with DRAM-SSD Hybrid CXL Devices",
+  "source_id": "dac-2026-ctxmem-description-recheck",
+  "source_url": "https://63dac.conference-program.com/presentation/?id=RESEARCH1028&sess=sess162",
+  "capture_date": "2026-09-06",
+  "source_tier": "official_description",
+  "extraction_scope": "Official description recheck and bounded source discovery; no full paper recovered",
+  "recovery_status": "full_paper_not_recovered_in_checked_sources",
+  "attempts": [
+    {"method": "web_search", "queries": ["\"Ctxmem\" \"CXL\"", "\"Longyi Zhou\" \"Ctxmem\"", "\"CtxMem\" -site:63dac.conference-program.com", "\"CtxMem\" site:github.com"], "outcome": "Official program entries recovered; no exact full-paper or artifact match."},
+    {"method": "author_page_inspection", "url": "https://zhongkan.github.io/", "outcome": "Page states last update 2019-02-18 and provides no CtxMem link; cannot establish current availability."},
+    {"method": "name_collision_rejection", "url": "https://pypi.org/project/ctxmem/", "outcome": "Search result describes AI coding-agent project memory by a different author; not evidence for this CXL paper."}
+  ],
+  "description_conditions": {
+    "evaluation_modality": "gem5 simulation",
+    "baseline_label": "conventional CXL-SSD",
+    "execution_time_claim_factor": 1.4,
+    "throughput_claim_factor": 2,
+    "locator": "Description",
+    "limit": "Aggregation and exact ratio definitions absent; do not infer a physical device measurement or combine the two factors."
+  },
+  "unresolved_conditions": ["Workload suite and memory footprints", "DRAM/flash capacities and cache sizing", "CXL version, bandwidth and latency", "Flash timing, endurance and write amplification", "Simulator revision and calibration", "Exact baseline implementation", "Run counts, variance, concurrency and tail latency"],
+  "interpretation_limits": ["Simulation claims are not hardware deployment evidence.", "Page-fault offload is a provisional mechanism, not proof of universal workload gains.", "No source recovered in this search does not mean the paper is inaccessible or unpublished."],
+  "revisit_condition": "Verified author, publisher or artifact link with matching paper identity and simulation configuration.",
+  "headline_metric_status": "withheld_pending_fullpaper_conditions",
+  "independent_review_status": "pending"
+}

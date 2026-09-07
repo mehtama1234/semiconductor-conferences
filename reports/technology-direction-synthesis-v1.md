@@ -97,6 +97,9 @@ The samples use different workloads, topologies, memory technologies, and metric
 they do not justify ranking CXL, PIM, HBM, or a particular scheduling strategy.
 Company-reported deployment metrics remain claims requiring paper-level and
 independent deployment verification.
+The [CtxMem recovery assessment](../dac/reports/ctxmem-primary-recovery-v1.md)
+keeps its description-level simulation results distinct from the company deployment
+cases; missing experimental conditions prevent accepted numerical comparisons.
 
 ## Direction 3 — Reliability and security move into the main design loop
 

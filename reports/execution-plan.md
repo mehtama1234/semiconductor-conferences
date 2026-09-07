@@ -4,6 +4,13 @@ The governing scope and acceptance criteria are in [GOAL.md](../GOAL.md).
 This log distinguishes finished work from queued work; a plan is not a completed
 research result.
 
+CtxMem recovery: exact description rechecked, with gem5 simulation explicitly
+separated from device/deployment evidence. No full paper or verified artifact was
+recovered; a same-name coding-memory package was rejected and the inspected author
+page is historical. Missing baseline/device/workload conditions and revisit trigger
+now travel with its queue entry and review packet. Continue to research1054
+(Icarus); preserve its prior repository check when deciding the next evidence step.
+
 GEMIR recovery: official description rechecked; no exact full paper or artifact
 recovered through the recorded searches. A complete two-page public GAMMA repo
 metadata listing found no GEMIR name/description match; author-site fetch timed
