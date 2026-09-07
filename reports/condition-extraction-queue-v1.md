@@ -197,6 +197,12 @@ The thirty-sixth P2 tranche is recorded in
 graph-RAG PIM, neutral-atom compilation, complex-valued uncertainty, RL-aligned
 RTL generation, ViT security, ferroelectric-NAND databases, TSN shaping,
 erasure-coded KV caches, SAT sweeping, and neuromorphic SNNs.
+The thirty-seventh P2 tranche is recorded in
+`reports/p2-recovery-batch-37-2026-09-07.md`, continuing the DAC frontier across
+learned multi-corner analysis, control-flow auditing, FP/INT GEMM, early
+fault-tolerant surface-code economics, CGRA mapping, ML-DSA side-channel
+reduction, physics-guided distributed ML, process-reward RTL tuning, TEE
+ciphertext side channels, and standard-cell exploration.
 
 The categories overlap by design: P0 is a remediation priority, while P1/P2
 describe evidence depth. The former P0 records are retained in

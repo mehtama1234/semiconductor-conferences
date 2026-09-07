@@ -126,6 +126,9 @@ gates still open**.
 - A thirty-sixth P2 routing tranche continuing the DAC frontier across graph-RAG
   PIM, neutral atoms, uncertainty, RTL alignment, ViT security, FeNAND SQL,
   TSN, KV caches, SAT sweeping, and neuromorphic SNNs.
+- A thirty-seventh P2 routing tranche continuing the DAC frontier across
+  multi-corner analysis, auditing, GEMM, QEC economics, CGRA mapping, ML-DSA,
+  scientific ML, RTL tuning, TEEs, and standard cells.
 - A third ISCA primary-recovery batch covering SPEC CPU, KernelEvolve, and
   Rowhammer with source-tier-specific limits.
 - A fourth ISCA primary-recovery batch covering GRAINS, Triage, and Coset

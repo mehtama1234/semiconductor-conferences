@@ -86,6 +86,11 @@ neutral-atom compilation, complex-valued uncertainty, RL-aligned RTL generation,
 ViT security, ferroelectric-NAND databases, TSN shaping, erasure-coded KV caches,
 SAT sweeping, and neuromorphic SNNs; P2 routing now covers 358 of 541
 lower-priority records.
+The thirty-seventh P2 tranche adds ten DAC routes across learned multi-corner
+analysis, control-flow auditing, FP/INT GEMM, early fault-tolerant surface-code
+economics, CGRA mapping, ML-DSA side-channel reduction, physics-guided distributed
+ML, process-reward RTL tuning, TEE ciphertext side channels, and standard-cell
+exploration; P2 routing now covers 368 of 541 lower-priority records.
 
 The sixteenth P2 tranche adds ten ISCA routes across RISC-V GPU/ASIP co-design,
 DRAM reliability and RowHammer defenses, chiplet PHY/package simulation, and
