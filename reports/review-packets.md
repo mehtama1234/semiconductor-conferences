@@ -20,9 +20,9 @@ anchors. Do not include it in judge input: it reveals which conclusions the
 project is trying to support. Generated packets intentionally omit synthesis
 conclusions and previous same-model verdicts.
 
-Current coverage: 74 prepared packets; 49 official descriptions, 22 original
+Current coverage: 75 prepared packets; 49 official descriptions, 23 original
 abstracts, and three requiring original source capture; zero independent reviews.
-The abstracts include 20 arXiv pages and two author PDFs. Abstract capture does
+The abstracts include 21 arXiv pages and two author PDFs. Abstract capture does
 not complete full-text numerical verification, even when the packet has locators.
 
 Run `PYTHONPATH=.:src python3 scripts/capture_review_sources.py` to capture missing

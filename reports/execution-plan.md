@@ -4,6 +4,22 @@ The governing scope and acceptance criteria are in [GOAL.md](../GOAL.md).
 This log distinguishes finished work from queued work; a plan is not a completed
 research result.
 
+Squat coding integration: added ICCAD 2025 paper 105 with section/table locators,
+deployment conditions, baselines and explicit accuracy/timing limitations.
+The architecture/software co-design branch now includes attention-guided token
+quantization and SIMD kernels. This is a mechanism classification, not proof of
+field-wide growth or accepted performance. Original abstract capture matched the
+exact title; its packet includes the separate PDF arithmetic assessment and no
+independent verdict. Coverage is now 75 coded papers (49 DAC, 16 ISCA, 10 ICCAD),
+with 75 review packets: 49 descriptions, 23 abstracts and three source gaps.
+Regenerated taxonomy, coverage queue, both packet sets and deterministic audit.
+Next: pin and inspect the linked Squat artifact for timing-boundary and precision
+implementation evidence, then resume ordered primary-source recovery. Full-text
+review and independent acceptance remain incomplete.
+Validation and 105 tests passed. The deterministic audit has 69 pass and six
+review flags; it does not supply independent verdicts. The new record deliberately
+keeps metrics empty while the numerical conditions remain under review.
+
 Squat PDF reconciliation: original versioned PDF page 9 visually confirms both
 Table IV ratio mismatches. Recorded the full four latency rows and 24 reported
 speedups with PDF hash. Strict displayed-value arithmetic finds three differences,

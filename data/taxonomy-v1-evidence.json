@@ -16,7 +16,8 @@
     "isca/data/adjudicated-2026-batch-7.jsonl",
     "isca/data/adjudicated-2026-batch-8.jsonl",
     "isca/data/adjudicated-2026-batch-9.jsonl",
-    "iccad/data/adjudicated-2025-batch-3.jsonl"
+    "iccad/data/adjudicated-2025-batch-3.jsonl",
+    "iccad/data/adjudicated-2025-batch-4.jsonl"
   ],
   "status": "provisional_until_full_corpus_adjudication",
   "taxonomy_version": "v1-evidence-derived",
@@ -69,6 +70,7 @@
           "outlier-aware-lut-quantized-gemm"
         ],
         "architecture-software-co-design": [
+          "attention-guided-token-quantization-and-simd-kernels",
           "dynamic-in-switch-moe-routing-and-token-fusion",
           "generative-sequential-cpu-design-space-exploration",
           "integrated-nic-collective-offload-training-accelerator",

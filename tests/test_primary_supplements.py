@@ -74,7 +74,7 @@ def test_supplements_reach_queue_and_both_packet_types_without_promotion():
     queue = {r["paper_id"]: r for r in rows}
     packets, coverage = build_packets(ROOT)
     drafts = build_drafts(ROOT)
-    assert coverage["supplementary_assessment_packet_count"] == 15
+    assert coverage["supplementary_assessment_packet_count"] == 16
     orthrus_packet = next(p for p in packets if p["paper_id"] == "iccad-2025-437")
     assert orthrus_packet["supplementary_researcher_assessments"] == orthrus_items
     assert orthrus_packet["review_status"] == "not_reviewed"
