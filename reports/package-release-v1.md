@@ -33,6 +33,8 @@ gates still open**.
   multi-die FPGA DSE, technology co-optimization, and asymmetric tile buffering.
 - A third five-record P1 batch covering MoE serving, quantum synthesis, RTL
   benchmarking, glass-storage scheduling, and wafer-scale artifact conditions.
+- A fourth five-record P1 batch covering concurrent PIM scheduling, ECC
+  coordination, speculative decoding, PuD interference, and agentic inference.
 
 ## What users may conclude
 
