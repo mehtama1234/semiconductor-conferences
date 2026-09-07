@@ -1987,3 +1987,6 @@ The three remaining original-text blockers were rechecked: Panmnesia received a
 new company-source update, Adder-DCIM received an author-page recheck, and ComoPy
 received a PyPI artifact recheck. None exposed a permitted manuscript or original
 abstract, so all three remain explicitly insufficient for full-paper claims.
+The six-record ISCA secondary-evidence boundary is preserved in
+`reports/isca-secondary-evidence-boundary-2026-09-07.md`. Exact-title indexed
+excerpts remain priority-routing evidence only; quantitative claims are withheld.

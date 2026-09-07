@@ -286,3 +286,5 @@ claims as full-paper or independently verified evidence.
 The supplementary assessment index now provides machine-readable traceability for
 32 assessment files across 31 papers; every assessment remains pending independent
 review.
+Six additional ISCA records have indexed secondary excerpts preserved as a
+separate boundary report; they are not counted as primary or accepted evidence.

@@ -134,6 +134,7 @@ ARTIFACTS = [
     "scripts/build_supplementary_assessment_index.py",
     "data/supplementary-assessment-index-v1.json",
     "reports/supplementary-assessment-index-v1.md",
+    "reports/isca-secondary-evidence-boundary-2026-09-07.md",
     "reports/isca-primary-recovery-batch-3-2026-09-07.md",
     "reports/isca-primary-recovery-batch-4-2026-09-07.md",
     "reports/condition-extraction-triage-2026-09-07.md",
