@@ -4,6 +4,22 @@ The governing scope and acceptance criteria are in [GOAL.md](../GOAL.md).
 This log distinguishes finished work from queued work; a plan is not a completed
 research result.
 
+Squat PDF reconciliation: original versioned PDF page 9 visually confirms both
+Table IV ratio mismatches. Recorded the full four latency rows and 24 reported
+speedups with PDF hash. Strict displayed-value arithmetic finds three differences,
+correcting the initial claim of only two. Interval checks assuming rounding to
+nearest 0.01 leave the two GPT2 mobile mixed-precision cells inconsistent; the
+LLaMA mobile W4A4 difference (calculated 2.25 versus reported 2.24) is compatible
+with rounding of the underlying latencies. The author's rounding policy and raw
+timings remain unverified; published values are preserved, not silently repaired.
+This confirms a source inconsistency, not which value is wrong or experimental
+failure. Next: integrate Squat coding/source packet and inspect pinned artifact;
+retain accuracy and timing-boundary limitations rather than adopting peak gains.
+Validation passed and 104 tests passed, including all 24 ratio interval checks.
+These checks establish record/arithmetic consistency, not independent scientific
+review. Coding coverage remains 74; this batch deepens evidence without adding a
+coded paper or asserting a temporal trend.
+
 Ordered ICCAD batch 1036/1043/105: Hyle and TREX-F retain explicit source gaps;
 Squat recovered as versioned primary preprint with all twelve authors matched.
 Recorded deployment conditions and an HTML Table IV ratio/latency mismatch,

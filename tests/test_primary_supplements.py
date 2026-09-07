@@ -12,6 +12,39 @@ from scripts.build_work_queue import build as build_queue
 ROOT = Path(__file__).resolve().parents[1]
 
 
+def test_squat_pdf_latency_arithmetic_distinguishes_rounding_uncertainty():
+    from decimal import Decimal
+
+    record = json.loads((ROOT / "iccad/data/squat-primary-recovery-v1.json").read_text())
+    pdf = record["pdf_verification"]
+    mismatches = []
+    incompatible = []
+    half_step = Decimal("0.005")
+    checked = 0
+    for name, latencies in pdf["latency_ms_per_token"].items():
+        assert len(latencies) == len(pdf["columns"])
+        ratios = pdf["reported_speedups_excluding_fp16"][name]
+        assert len(ratios) == len(latencies) - 1
+        for index, (latency, reported) in enumerate(zip(latencies[1:], ratios), 1):
+            baseline, latency, reported = (Decimal(str(value)) for value in (latencies[0], latency, reported))
+            checked += 1
+            if (baseline / latency).quantize(Decimal("0.01")) != reported:
+                mismatches.append((name, pdf["columns"][index]))
+            lower = (baseline - half_step) / (latency + half_step)
+            upper = (baseline + half_step) / (latency - half_step)
+            if lower > reported + half_step or upper < reported - half_step:
+                incompatible.append((name, pdf["columns"][index]))
+    assert mismatches == [("llama_mobile", "W4A4"), ("gpt2_mobile", "W4A4:8_1:3"), ("gpt2_mobile", "W4A4:8_1:1")]
+    assert incompatible == [("gpt2_mobile", "W4A4:8_1:3"), ("gpt2_mobile", "W4A4:8_1:1")]
+    analysis = pdf["rounding_analysis"]
+    assert checked == analysis["checked_speedup_count"] == 24
+    assert len(mismatches) == analysis["strict_displayed_value_mismatch_count"] == 3
+    assert analysis["rounding_incompatible_cells"] == [f"{name}/{column}" for name, column in incompatible]
+    assert analysis["rounding_compatible_mismatch"]["cell"] == "llama_mobile/W4A4"
+    assert pdf["status"] == "original_pdf_confirms_two_rounding_incompatible_ratio_mismatches"
+    assert record["independent_review_status"] == "pending"
+
+
 def test_orthrus_pdf_tradeoff_and_hypervolume_arithmetic():
     row = json.loads((ROOT / "iccad/data/orthrus-primary-recovery-v1.json").read_text())
     figure = row["pdf_verification"]["figure_10_B"]

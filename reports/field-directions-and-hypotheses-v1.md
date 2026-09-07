@@ -215,7 +215,12 @@ adds a deployment-focused follow-up, pending coding integration. It sharpens the
 evaluation question: does specialization improve latency at an acceptable
 accuracy loss, and do published ratios reconcile with the underlying timings?
 The recorded arithmetic discrepancy must be resolved before using those cells
-as quantitative support. It is not a demonstrated failure of the overall method.
+as quantitative support. The original PDF confirms the same two mismatches,
+which cannot be explained by rounding to the displayed precision under a
+nearest-rounding assumption. A third, smaller arithmetic difference is compatible
+with rounding and is not classified as an error. The two robust discrepancies
+are not just an HTML extraction artifact. This is not a demonstrated failure
+of the overall method.
 
 **Boundary.** Reordering and metadata can consume the saved work. Equal integer
 codes across different quantization groups need not denote equal weights;

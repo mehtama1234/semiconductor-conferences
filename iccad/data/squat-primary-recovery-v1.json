@@ -6,13 +6,41 @@
   "source_url": "https://arxiv.org/html/2402.10787v2",
   "capture_date": "2026-09-06",
   "source_tier": "author_preprint_selected_full_text",
-  "extraction_scope": "IV methodology; V-B deployment; Tables II-IV and VIII hardware efficiency. PDF verification pending.",
+  "extraction_scope": "IV methodology; V-B deployment; Tables II-IV and VIII hardware efficiency. PDF page 9 Table IV visually checked.",
   "independent_review_status": "pending",
   "headline_metric_status": "withheld_pending_table_and_accuracy_reconciliation",
   "identity": {"status": "exact_title_and_twelve_authors_match_case_normalized_program", "authors": ["Xuan Shen", "Peiyan Dong", "Zhenglun Kong", "Yifan Gong", "Changdi Yang", "Zhaoyang Han", "Yanyue Xie", "Lei Lu", "Cheng Lyu", "Chao Wu", "Yanzhi Wang", "Pu Zhao"], "version": "v2, 2025-07-01; initial preprint 2024 does not change conference edition"},
   "mechanism": "Attention distillation, token-adaptive precision and SIMD multi-kernel mixed-precision multiplication couple quantization to deployable arithmetic.",
   "conditions": {"models": ["LLaMA-58M", "GPT2-97M"], "devices": ["OnePlus 11 Snapdragon 8 Gen 2, all available cores", "Raspberry Pi 5 BCM2712, four cores"], "iterations_per_test": 1000, "input_sequence_length": 128, "latency_units": "ms/token", "accuracy_baselines": ["FP16", "NIPQ", "PACT", "LLM-QAT"]},
   "table_IV_discrepancy": {"scope": "GPT2-97M mobile; W4 weights, mixed 4/8 activation ratios 1:3 and 1:1", "fp16_latency": 6.22, "mixed_latencies": [3.06, 3.02], "reported_speedups": [2.06, 2.03], "calculated_rounded_speedups": [2.03, 2.06], "status": "HTML arithmetic discrepancy; do not silently swap published values"},
-  "limits": ["Peak W4A4 speedup is not an iso-accuracy claim", "Training feasibility rhetoric does not establish on-device training measurement", "PDF, warmup/thermal controls and prefill/decode timing boundary require verification"],
-  "next_action": "Verify original PDF Table IV; integrate technical coding and source capture; pin linked artifact before inspecting implementation. No independent verdict yet."
+  "limits": ["Peak W4A4 speedup is not an iso-accuracy claim", "Training feasibility rhetoric does not establish on-device training measurement", "PDF Table IV checked; warmup/thermal controls and prefill/decode timing boundary still require verification"],
+  "pdf_verification": {
+    "url": "https://arxiv.org/pdf/2402.10787v2",
+    "sha256": "c27ac84b77815953d9ae9be6e9b714316cef5301012056ddac59ba5b4cef703f",
+    "page_one_based": 9,
+    "status": "original_pdf_confirms_two_rounding_incompatible_ratio_mismatches",
+    "rounding_analysis": {
+      "assumption": "Latencies and speedups are independently rounded to nearest 0.01; this is an analytical assumption, not a verified author rounding policy.",
+      "method": "For displayed baseline a and latency b, bound the underlying ratio by (a-0.005)/(b+0.005) and (a+0.005)/(b-0.005). Compare with reported speedup plus/minus 0.005. Closed intervals conservatively include rounding ties.",
+      "checked_speedup_count": 24,
+      "strict_displayed_value_mismatch_count": 3,
+      "rounding_incompatible_cells": ["gpt2_mobile/W4A4:8_1:3", "gpt2_mobile/W4A4:8_1:1"],
+      "rounding_compatible_mismatch": {"cell": "llama_mobile/W4A4", "displayed_value_ratio_rounded": 2.25, "reported_speedup": 2.24, "possible_ratio_interval_approx": [2.239506, 2.255583], "interpretation": "Underlying unrounded latencies could reconcile this cell; do not classify it with the two robust inconsistencies."}
+    },
+    "columns": ["FP16", "W8A8", "W4A8", "W4A4:8_1:3", "W4A4:8_1:1", "W4A4:8_3:1", "W4A4"],
+    "latency_ms_per_token": {
+      "llama_mobile": [4.54, 3.22, 2.56, 2.39, 2.23, 2.10, 2.02],
+      "llama_pi": [15.63, 9.40, 7.50, 7.30, 7.08, 6.89, 6.78],
+      "gpt2_mobile": [6.22, 4.35, 3.42, 3.06, 3.02, 2.86, 2.75],
+      "gpt2_pi": [23.04, 13.75, 12.45, 11.24, 10.98, 10.01, 9.74]
+    },
+    "reported_speedups_excluding_fp16": {
+      "llama_mobile": [1.41, 1.77, 1.90, 2.04, 2.16, 2.24],
+      "llama_pi": [1.66, 2.08, 2.14, 2.21, 2.27, 2.31],
+      "gpt2_mobile": [1.43, 1.82, 2.06, 2.03, 2.17, 2.26],
+      "gpt2_pi": [1.68, 1.85, 2.05, 2.10, 2.30, 2.37]
+    },
+    "limit": "Arithmetic consistency is not experimental reproduction. Two ratios remain inconsistent under the stated rounding assumption and appear exchanged, but raw runs are needed to identify which source values are wrong. A third strict displayed-value difference is rounding-compatible, not a proven error."
+  },
+  "next_action": "Integrate technical coding and source capture with discrepancy preserved; pin linked artifact and seek raw timing data. No independent verdict yet."
 }
