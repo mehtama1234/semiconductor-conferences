@@ -1,9 +1,10 @@
-# ICCAD 2026 availability check — 2026-09-06
+# ICCAD 2026 availability check — initial check 2026-09-06; rechecked 2026-09-07
 
-The official ICCAD 2026 site was checked on 2026-09-06. The site identifies the
+The official ICCAD 2026 site was checked on 2026-09-06 and rechecked on
+2026-09-07. The site identifies the
 conference as November 8–12, 2026 and exposes the call for papers, author
 instructions, keynotes, workshops, special sessions, panels, and tutorials. It
-does not expose a regular-paper program, paper-title inventory, or proceedings
+still does not expose a regular-paper program, paper-title inventory, or proceedings
 corpus that can replace the 2025 fallback.
 
 The official FAQ states that the program will be updated as it is confirmed and
