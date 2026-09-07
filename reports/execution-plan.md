@@ -1,5 +1,13 @@
 # Execution plan — 2026-09-06
 
+DAC SatSFL description-coding batch: added `dac-2026-research1011` from the
+official program description. The record captures intermittent asymmetric
+satellite links, interpolated gradient feedback, adaptive uplink compression,
+and LEO-system evaluation, while leaving all numerical metrics and deployment
+conditions unknown. A provisional edge/satellite sub-subtheme was added to the
+taxonomy. The selected coded sample is now 90 records (DAC 53, ISCA 16,
+ICCAD 21); preflight is 73 pass / 17 review and independent verdicts remain zero.
+
 ISCA Vistara source-capture batch: an exact-title camera-ready PDF from the
 authors’ AI System Co-Design site was captured and hash-bound. The page-one
 abstract now supplies primary evidence for the end-to-end CXL deployment claim;
