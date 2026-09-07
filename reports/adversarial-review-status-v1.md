@@ -10,19 +10,19 @@ This is not an independent adversarial LLM judgment. Earlier work reported no
 available independent model endpoint. Current tool discovery exposes no separate
 model-inference tool; no independent reviewer has been invoked in this batch.
 The existing review remains explicitly same-model and preliminary. The 89-record evidence summary
-counts all 84 records as awaiting independent LLM or human review.
+counts all 89 records as awaiting independent LLM or human review.
 The next review pass should use the protocol in
 `adversarial-judge-protocol-v1.md`, ideally with two independent judges and a
 human resolution of disagreements.
 
 ## Prepared review inputs
 
-`data/review-packets/` now contains 84 packets. Each separates the proposed record
+`data/review-packets/` now contains 89 packets. Each separates the proposed record
 and researcher summary from captured original source text, supplies the taxonomy
-branch, and identifies the protocol/coding-guide hashes. The 49 DAC descriptions
+branch, and identifies the protocol/coding-guide hashes. The 51 DAC descriptions
 match by exact paper ID/title and source URL (ignoring only the session query
 parameter). Thirty-two ISCA/ICCAD packets now include exact-title original abstracts;
-three still need original text captured. Abstracts do not supply all full-paper
+six still need original text captured. Abstracts do not supply all full-paper
 conditions, and source capture does not replace independent judgment.
 
 No packet is accepted merely because it exists. The separate coverage index lists
