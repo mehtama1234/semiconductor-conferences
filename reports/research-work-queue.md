@@ -14,6 +14,14 @@ Drafts are tracked separately from the selected coded sample; neither status mea
 | isca-2025 | 135 | 135 | 0 | 0 |
 | isca-2026 | 173 | 172 | 15 | 0 |
 
+## Supplementary primary assessments
+
+These researcher assessments supplement, but do not replace, original evidence or independent review.
+
+- dac-2025-research1019: [not_adjudicated](../dac/data/hybrimoe-primary-conditions-v1.json)
+- dac-2026-research031: [withheld_pending_source_reconciliation](../dac/data/exact-t-primary-assessment-v1.json)
+- dac-2026-research1000: [withheld_pending_source_reconciliation](../dac/data/atb-primary-assessment-v1.json)
+
 ## Identity and primary-source recovery
 
 | Paper ID | Title | Reason |

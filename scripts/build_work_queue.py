@@ -10,6 +10,7 @@ from pathlib import Path
 from scripts.build_evidence_summary import PATHS, read_jsonl, source_tier
 from scripts.collect_isca_crossref_metadata import title_key
 from scripts.inventory_scope import title_eligible
+from scripts.primary_supplements import load as load_supplements, REVIEW_ACTION
 
 DRAFT_PATHS = ["data/temporal-comparative-coding-v1.jsonl",
                "data/historical-description-coding-v1.jsonl",
@@ -26,6 +27,7 @@ def unique_index(records: list[dict]) -> dict[str, dict]:
 
 
 def build(root: Path) -> tuple[list[dict], dict, str]:
+    supplements = load_supplements(root)
     inventory_paths = sorted(root.glob("*/data/papers-20??-program.jsonl"))
     inventory = unique_index([row for path in inventory_paths for row in read_jsonl(path)])
     coded = unique_index([row for path in PATHS for row in read_jsonl(root / path)])
@@ -122,6 +124,13 @@ def build(root: Path) -> tuple[list[dict], dict, str]:
             "synthesis_directions": sorted(set(directions[paper_id])),
             "priority": priority, "priority_reasons": reasons, "next_actions": actions,
         })
+    for row in queue:
+        if row["paper_id"] in supplements:
+            row["supplementary_assessments"] = [
+                {k: v for k, v in item.items() if k != "assessment"}
+                for item in supplements[row["paper_id"]]
+            ]
+            row["next_actions"].insert(0, REVIEW_ACTION)
     queue.sort(key=lambda row: (row["priority"], row["conference_id"], row["analysis_edition"], row["paper_id"]))
     counts = Counter(f"{r['conference_id']}-{r['analysis_edition']}" for r in queue)
     summary = {
@@ -133,6 +142,7 @@ def build(root: Path) -> tuple[list[dict], dict, str]:
         "eligible_title_counts": dict(sorted(Counter(f"{r['conference_id']}-{r['analysis_edition']}" for r in queue if r["title_denominator_included"]).items())),
         "excluded_slot_ids": [r["paper_id"] for r in queue if not r["title_denominator_included"]],
         "synthesis_anchor_count": sum(bool(r["synthesis_directions"]) for r in queue),
+        "supplementary_assessment_paper_count": len(supplements),
         "secondary_pending_ids": [r["paper_id"] for r in queue if "secondary_requires_primary" in r["priority_reasons"]],
         "unresolved_isca_doi_ids": [r["paper_id"] for r in queue if "unresolved_isca_doi" in r["priority_reasons"]],
         "collection_counts": dict(sorted(Counter(r["collection_status"] for r in queue).items())),
@@ -150,6 +160,11 @@ def build(root: Path) -> tuple[list[dict], dict, str]:
         selected = sum(f"{r['conference_id']}-{r['analysis_edition']}" == corpus and r["coding_status"] == "coded_selected_sample" for r in queue)
         draft_only = sum(f"{r['conference_id']}-{r['analysis_edition']}" == corpus and r["coding_status"] == "technical_draft" for r in queue)
         lines.append(f"| {corpus} | {count} | {summary['eligible_title_counts'].get(corpus, 0)} | {selected} | {draft_only} |")
+    lines += ["", "## Supplementary primary assessments", "",
+              "These researcher assessments supplement, but do not replace, original evidence or independent review.", ""]
+    for paper_id, items in sorted(supplements.items()):
+        for item in items:
+            lines.append(f"- {paper_id}: [{item['headline_metric_status']}](../{item['path']})")
     lines += ["", "## Identity and primary-source recovery", "", "| Paper ID | Title | Reason |", "|---|---|---|"]
     for row in queue:
         if row["paper_id"] in summary["secondary_pending_ids"] + summary["unresolved_isca_doi_ids"]:

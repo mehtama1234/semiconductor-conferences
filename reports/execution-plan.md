@@ -4,6 +4,16 @@ The governing scope and acceptance criteria are in [GOAL.md](../GOAL.md).
 This log distinguishes finished work from queued work; a plan is not a completed
 research result.
 
+Review integration: all three supplementary primary assessments (Exact T, ATB,
+HybriMoE) now reach the paper-level queue and the appropriate original-sample or
+draft review packets. Each carries a content hash, original-source URL, explicit
+researcher-assessment label and pending-review state. Identity/source joins reject
+mismatches; original description text and its evidence tier remain unchanged.
+Reviewers are directed to reconcile discrepancies against original sources, not
+accept the assessment as its own evidence. Counts remain 72 original packets and
+521 draft packets, with zero independent acceptances. Next: continue source-depth
+work for the remaining anchors and functional/phase checking where warranted.
+
 Exact T follow-up: PDF figure inspection now separates mapper variants and
 preserves a modeled space-time counterexample. The pinned implementation built
 successfully and its small README example emitted QASM. This is a smoke test,

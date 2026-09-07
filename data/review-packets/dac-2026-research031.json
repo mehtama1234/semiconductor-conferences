@@ -40,13 +40,161 @@
   },
   "required_review_actions": [
     "Add source section/table locators for technical fields and numerical conditions",
-    "Verify numerical conditions, neighboring taxonomy category, and limitations"
+    "Verify numerical conditions, neighboring taxonomy category, and limitations",
+    "Inspect supplementary assessments and their original sources; resolve discrepancies without using researcher interpretation to verify itself"
   ],
   "researcher_summary_not_original_source": "The work formulates exact T synthesis, canonicalizes Boolean functions under Clifford equivalence, precomputes T-optimal implementations up to seven variables, and reports up to 16% T-count reduction on EPFL benchmarks plus improvements for cryptographic modules.",
   "review_status": "not_reviewed",
   "schema": "paper-review-packet.v1",
   "source_text_status": "captured_official_description",
   "source_tier": "official_description",
+  "supplementary_researcher_assessments": [
+    {
+      "assessment": {
+        "artifact_inspection": {
+          "check_date": "2026-09-06",
+          "commit": "60297d3dd25a0c1f3eec31a28b4df7535f44aa41",
+          "findings": [
+            "C++ implementation, EPFL inputs and correctness fixtures are present; not a README-only artifact.",
+            "Verification harness invokes srun with batch partition and low qos; README's local command needs that environment or a documented adaptation.",
+            "Simulator checks basis-state outputs and probability above 0.99; it does not check relative phases across superpositions."
+          ],
+          "independence": "same_agent_inspection_not_independent_review",
+          "inspected_paths": [
+            "README.md",
+            "CMakeLists.txt",
+            "src/main.cpp",
+            "scripts/verify-correctness.py",
+            "scripts/lib/qasm_simulate.py",
+            "benchmarks/correctness/maj3.v"
+          ],
+          "smoke_test": {
+            "build_exit_code": 0,
+            "commands_from_repository_root": [
+              "cmake -S . -B build",
+              "cmake --build build -j2",
+              "timeout 45 ./build/exact-t-synth -n 5 --cut-size 4 -o /tmp/exact-t-review-7xl84D/maj3.qasm benchmarks/correctness/maj3.v"
+            ],
+            "environment": "Linux x86_64; GNU C++ 11.4.0; CMake 3.22.1",
+            "limits": "No simulation or equivalence check executed; no benchmark metric reproduced. Temporary output location must be replaced when rerunning.",
+            "mapper_exit_code": 0,
+            "output_header": {
+              "format": "OPENQASM 2.0",
+              "input_qubits": [
+                0,
+                1,
+                2
+              ],
+              "output_qubits": [
+                3
+              ],
+              "qubit_count": 8
+            },
+            "output_sha256": "0c14d87176aaa99dc67ed76f79f97c17d228e245acb8e104fd8d90a937a8c9aa",
+            "status": "build_and_qasm_emission_only"
+          },
+          "tree_listing_complete": true,
+          "url": "https://github.com/Nozidoali/exact-t-map/tree/60297d3dd25a0c1f3eec31a28b4df7535f44aa41"
+        },
+        "capture_date": "2026-09-06",
+        "conditions": [
+          {
+            "finding": "Six EPFL arithmetic circuits; comparison against exact-MC mapping; customized mapper reports 5.3 percent geomean T-count reduction.",
+            "locator": "S6.SS2; Table 2"
+          },
+          {
+            "finding": "Library-only substitution reports about 0.5 percent geomean reduction and regressions on some circuits.",
+            "locator": "S6.SS2"
+          },
+          {
+            "finding": "Exact solver bound is N <= 7 total qubits, not seven arbitrary logical inputs; larger instances use suboptimal solutions.",
+            "locator": "S4.SS3"
+          },
+          {
+            "finding": "Correctness assumes clean output ancilla initialized to zero; not unrestricted unitary equivalence.",
+            "locator": "S4.SS2"
+          },
+          {
+            "finding": "Mapping stages account for at most 11.7 percent of total synthesis runtime in the reported QLUT evaluation.",
+            "locator": "S6.SS4"
+          }
+        ],
+        "extraction_scope": "Selected HTML sections 4.2–4.3 and 6; PDF page 6 Figures 8–11 visually inspected",
+        "headline_metric_status": "withheld_pending_source_reconciliation",
+        "identity": {
+          "authors": [
+            "Hanyu Wang",
+            "Mingfei Yu",
+            "Xinrui Wu",
+            "Jason Cong"
+          ],
+          "program_record_path": "dac/data/papers-2026-program.jsonl",
+          "status": "exact_title_and_all_four_author_names_match"
+        },
+        "independent_review_status": "pending",
+        "interpretation_limits": [
+          "T-count savings are not measured hardware speedup or universal space-time savings.",
+          "Do not promote small-library exactness into whole-circuit global optimality.",
+          "Resolve source-version discrepancy before retaining a headline; chart labels are source claims, not reproduced measurements.",
+          "Pinned code availability does not establish benchmark reproduction, phase-correctness, proof validity or independent acceptance."
+        ],
+        "metric_discrepancy": {
+          "author_preprint": 14.3,
+          "description_path": "dac/data/paper-evidence-2026.jsonl",
+          "metric": "maximum EPFL T-count reduction percent",
+          "official_description": 16,
+          "preprint_locator": "Abstract; S6.SS2",
+          "status": "source_difference_unresolved_not_averaged"
+        },
+        "paper_id": "dac-2026-research031",
+        "pdf_verification": {
+          "check_date": "2026-09-06",
+          "figure_8": {
+            "baseline": "MC",
+            "geomean_t_count_change_percent": {
+              "bilinear_mapper": -5.3,
+              "k_lut_mapper": -0.5
+            },
+            "limit": "Section 6.2 ambiguously associates 14.3 percent with library-only mapping; chart assigns it to the bilinear mapper. Preserve chart attribution and flag prose discrepancy.",
+            "multiplier_t_count_change_percent": {
+              "bilinear_mapper": -14.3,
+              "k_lut_mapper": -6.9
+            }
+          },
+          "figure_9_counterexample": {
+            "interpretation": "Regression, not a uniform space-time improvement; values transcribed from labels, not inferred bar heights.",
+            "metric": "average modeled space-time volume",
+            "ours": 95.54,
+            "qrom": 90.84,
+            "select_swap": 90.84,
+            "unit": "qubit*s",
+            "workload": "PrepareTHC"
+          },
+          "method": "Local PyMuPDF 2x rendering and same-agent visual inspection",
+          "page_number": 6,
+          "sha256": "702060d3d30812fa30b58c7f1551e242528f9c007bb27d6c76e3158ed4d55837",
+          "url": "https://arxiv.org/pdf/2605.15476v1"
+        },
+        "platform": {
+          "locator": "S6.SS1",
+          "name": "Apple M4 Max",
+          "ram_gb": 36
+        },
+        "schema": "supplementary-primary-assessment.v1",
+        "source_id": "dac-2026-exact-t-arxiv-v1",
+        "source_tier": "author_preprint",
+        "source_url": "https://arxiv.org/html/2605.15476v1",
+        "source_version": "2605.15476v1",
+        "title": "Quantum Circuit Synthesis Using an Exact T Library"
+      },
+      "content_role": "researcher_assessment_not_original_source",
+      "headline_metric_status": "withheld_pending_source_reconciliation",
+      "independent_review_status": "pending",
+      "path": "dac/data/exact-t-primary-assessment-v1.json",
+      "sha256": "34591cbfa564d63a5f05e07b521965d86e875f9232c6eba83ee692bc0357fbe6",
+      "source_url": "https://arxiv.org/html/2605.15476v1"
+    }
+  ],
   "taxonomy_branch": {
     "label": "Design methodology and tooling",
     "subsubthemes": {
