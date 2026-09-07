@@ -37,9 +37,9 @@ CAPA now has an exact artifact-evaluation route, while LOONG has exact author
 identity plus a secondary mechanism summary. Neither is promoted to accepted
 technical evidence without the manuscript or captured artifact conditions.
 
-The CAPA TPUv4 example has now been run from the captured bundle and produced a
-hashed output; this is recorded as bounded artifact reproduction, not paper
-validation.
+The CAPA TPUv4 example and two MI300X parameterizations have now been run from
+the captured bundle and produced hashed outputs; these are recorded as bounded
+artifact reproduction and input sensitivity, not paper validation.
 
 Latest bounded remediation (2026-09-07): repaired strict title matching for
 truncated DAC program subtitles, accepted identity-matched captured abstracts as

@@ -21,6 +21,23 @@
     },
     "output_sha256": "234ba04bf01250f4ed8779f061e494b7d5b5cfaf2a10cd5b6cb88e4ba5127b1a"
   },
+  "additional_runs": [
+    {
+      "command": "python3 arch_parser.py arch_description/MI300X/MI300X_HBM_TI",
+      "case": "MI300X HBM technology-intensive parameters",
+      "reported_total_carbon_kg": 611.9836539773476,
+      "reported_components_kg": {"SoIC": 78.97220727, "hbm3": 239.40495197, "interposer": 56.59119688, "ubump_bonding_yield": 237.01529786},
+      "output_sha256": "7a1dcd009048136b65a570d6085929796906bf7ea956a67d2928df7c4ff44c57"
+    },
+    {
+      "command": "python3 arch_parser.py arch_description/MI300X/MI300X_HBM_low",
+      "case": "MI300X lower HBM-carbon parameters",
+      "reported_total_carbon_kg": 443.7473907762684,
+      "reported_components_kg": {"SoIC": 78.97220727, "hbm3": 136.32495197, "interposer": 56.59119688, "ubump_bonding_yield": 171.85903466},
+      "output_sha256": "fe3962a754e0a5def44345eec3485e7592ea41959834eaa8c0fe2fa7549cc697"
+    }
+  ],
+  "cross_case_observation": "The two MI300X parameterizations execute successfully and differ materially in modeled total carbon; this demonstrates sensitivity to artifact inputs, not an independently established product comparison.",
   "interpretation": "The documented TPUv4 artifact case reproduced and generated the expected CSV output. This verifies bounded artifact execution only; it does not validate the paper's model assumptions, manufacturing data, comparative conclusions, or independent scientific correctness.",
   "next_action": "Capture the manuscript's exact model scope and compare additional architecture cases under a pinned environment before any headline carbon claim is accepted."
 }

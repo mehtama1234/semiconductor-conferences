@@ -26,3 +26,9 @@ completed with a modeled total of 90.2547913586063 kg and a hashed CSV output;
 the exact command, archive hash, component values, and output hash are recorded
 in `isca/data/capa-artifact-reproduction-v1.json`. This is bounded artifact
 reproducibility evidence, not independent validation of the carbon model.
+
+Two additional MI300X parameterizations also completed: 611.9836539773476 kg
+for the technology-intensive HBM case and 443.7473907762684 kg for the lower
+HBM-carbon case. Their component values and output hashes are preserved in the
+same note. The spread is an input-sensitivity observation, not a product-level
+carbon conclusion.
