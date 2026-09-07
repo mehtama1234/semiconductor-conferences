@@ -17,7 +17,7 @@ not mean the scientific claim has independent acceptance.
 | Review packets and protocol | Complete as preparation | 582 packets, assignment manifest, judge protocol, remediation queue; deterministic preflight 582 pass / 0 review | Packets are not verdicts; full-paper condition extraction and independent review remain required. |
 | Independent review | Not complete | `independent_review_count: 0`; no independent endpoint/reviewer invoked | Obtain two independent judgments where available and record identity, disagreements, and resolutions. |
 | Temporal direction claims | Explicitly insufficient | Temporal baseline/insufficiency reports and title-shift routing | Build matched edition populations with equivalent evidence tiers and missingness analysis; otherwise retain insufficiency. |
-| Reproducibility and release | Complete as bounded package | 200-artifact manifest; validator and 141 tests pass; dated release report | Release is a bounded evidence assessment, not an independently accepted field forecast. |
+| Reproducibility and release | Complete as bounded package | 203-artifact manifest; validator and 141 tests pass; dated release report | Release is a bounded evidence assessment, not an independently accepted field forecast. |
 
 ## Immediate execution order
 
