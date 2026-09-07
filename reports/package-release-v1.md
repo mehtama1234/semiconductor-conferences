@@ -66,6 +66,8 @@ gates still open**.
   compiler, graph/genome, robotics, and quantum-decoding records.
 - A third ISCA primary-recovery batch covering SPEC CPU, KernelEvolve, and
   Rowhammer with source-tier-specific limits.
+- A fourth ISCA primary-recovery batch covering GRAINS, Triage, and Coset
+  Ensemble Decoder author preprints with bounded quantum/graph evidence.
 - A dated ISCA program-page availability check confirming that those ten routes
   expose identity/session metadata but no abstracts or experimental conditions.
 - A dated ATX/RHODES primary-source recovery attempt preserving exact DOI
