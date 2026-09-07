@@ -4,6 +4,21 @@ The governing scope and acceptance criteria are in [GOAL.md](../GOAL.md).
 This log distinguishes finished work from queued work; a plan is not a completed
 research result.
 
+ICCAD program-type audit exposed a collector scope gap: scanning numbered headings
+on all technical-program PDF pages finds 319 unique IDs, including 43 explicitly
+labeled invited papers omitted by the collector's one-to-four-digit ID pattern.
+All 276 existing rows map to headings; ten are already-reviewed SRC entries and
+266 remain individually untyped. Welcome page 7 reports 266 accepted papers, but
+aggregate equality is not used as individual type proof. Visually checked page 7
+and invited IDs 20034–20036 on page 45. Added a hash-bound per-ID/page audit with
+explicit partial-title labels and recovery actions, plus a coverage-queue warning.
+Next priority: recover full invited title/author records and type-aware coverage;
+then complete session-level classification of the 266 existing non-SRC entries.
+No new technical coding; 78 coded papers and zero independent acceptance remain.
+Scope audit generation, queue regeneration and project validation passed; all 120
+tests pass. Tests cover five-digit detection, type separation, duplicate rejection
+and propagation of the 43 omissions, not complete invited metadata recovery.
+
 SERA-Float coding and review capture: added ICCAD batch 7 with a mechanism-level
 precision-reallocation/selective-protection taxonomy branch and empty headline
 metrics. Coding reaches 78 papers (49 DAC, 16 ISCA, 13 ICCAD), still with zero

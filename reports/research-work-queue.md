@@ -14,6 +14,11 @@ Drafts are tracked separately from the selected coded sample; neither status mea
 | isca-2025 | 135 | 135 | 0 | 0 |
 | isca-2026 | 173 | 172 | 16 | 0 |
 
+## Known inventory omissions
+
+43 numbered ICCAD invited-paper entries remain outside the captured-row count.
+[Scope audit and per-ID recovery actions](../iccad/reports/program-scope-audit-v1.md) distinguish omitted entries from missing technical evidence. Their partial heading lines are not title-analysis inputs.
+
 ## Supplementary primary assessments
 
 These researcher assessments supplement, but do not replace, original evidence or independent review.
