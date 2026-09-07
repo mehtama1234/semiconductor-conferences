@@ -1,6 +1,6 @@
 # Where the field may be heading — mechanisms and testable hypotheses
 
-Assessment date: 2026-09-06. Status: provisional researcher synthesis; independent
+Assessment date: 2026-09-07. Status: provisional researcher synthesis; independent
 review pending. This is a reading of the collected evidence, not a measured
 growth trend, adoption forecast, or prediction of commercial winners.
 
