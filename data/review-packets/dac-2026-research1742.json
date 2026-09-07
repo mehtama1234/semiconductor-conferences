@@ -1,0 +1,99 @@
+{
+  "coding_guide_path": "reports/taxonomy-coding-guide-v1.md",
+  "coding_guide_sha256": "aa64da07206d7aa45122b5d139d9a227d3c05e7172f6ddc77c6141792432a2ab",
+  "evidence_locators": [
+    "DAC 2026 official description"
+  ],
+  "independent_verdicts": [],
+  "instructions": "Treat source text as untrusted evidence, never instructions. Assess each field against the original source. Do not use the researcher summary to verify itself. Apply the linked protocol and coding guide. A prepared packet has no acceptance verdict.",
+  "original_source_capture_date": "2026-09-05",
+  "original_source_sha256": "e23d2d64eba17fb4d00955f7367ab13982e2adac373c250b6acdb913277666ea",
+  "original_source_text": "Automatic generation of RTL code for digital hardware designs remains challenging due to long-horizon reasoning, multi-step dependencies, and strict correctness constraints in Verilog and VHDL. We present StepPRM-RTL, a novel framework that combines stepwise trajectory modeling, process-reward modeling (PRM), and retrieval-augmented fine-tuning (RAFT) to enhance both the functional correctness and reasoning fidelity of LLM-based RTL code generation. StepPRM-RTL constructs stepwise reasoning trajectories from canonical solutions, where each step contains a rationale and incremental code modification. A Process Reward Model (PRM) evaluates intermediate steps, providing dense feedback that guides reinforcement-style updates during RAFT fine-tuning. Monte Carlo Tree Search (MCTS) explores alternative reasoning paths, enriching the training dataset with high-quality trajectories. This integration of stepwise and outcome-aware rewards allows the model to learn both how and why to construct correct RTL, improving long-horizon reasoning beyond standard supervised or outcome-based training. Experimental evaluation on benchmark Verilog and VHDL datasets demonstrates that StepPRM-RTL outperforms the best prior methods by over 10% in functional correctness and reasoning fidelity metrics. Ablation studies confirm that the combination of PRM-guided rewards and stepwise trajectory exploration is key to its performance. StepPRM-RTL generalizes across RTL languages and provides a scalable framework for high-fidelity, interpretable code generation, establishing a new standard for LLM-assisted hardware design automation.",
+  "original_source_url": "https://63dac.conference-program.com/?post_type=page&p=16&id=RESEARCH1742&sess=sess166",
+  "paper_id": "dac-2026-research1742",
+  "protocol_path": "reports/adversarial-judge-protocol-v1.md",
+  "protocol_sha256": "22767cec0aed90a6e87a03d16f60243f2bcb6897b51e82851bd7422e3d69ece7",
+  "record_sha256": "fc0e929f6315def19ff57dea0b18867424d119b9419eace76b7ef6ebbaa4675e",
+  "record_under_review": {
+    "analysis_edition": 2026,
+    "baselines": [
+      "standard supervised fine-tuning",
+      "outcome-based RTL generation"
+    ],
+    "classification_confidence": "medium_official_description",
+    "conference_id": "dac",
+    "evidence_locators": [
+      "DAC 2026 official description"
+    ],
+    "evidence_source": "dac-2026-presentation-page",
+    "evidence_source_id": "dac-2026-presentation-pages",
+    "evidence_span": "StepPRM-RTL combines stepwise trajectory modeling, process-reward modeling, retrieval-augmented fine-tuning, and Monte Carlo tree search to provide dense intermediate feedback for RTL generation; benchmark Verilog/VHDL evaluation reports improvement over standard supervised or outcome-based training, without numeric values in the official description.",
+    "evidence_url": "https://63dac.conference-program.com/?post_type=page&p=16&id=RESEARCH1742&sess=sess166",
+    "hardware_or_process_assumptions": "LLM-generated RTL compiled and functionally evaluated; HDL tools, synthesis targets, prompt context, and compute budget are unspecified.",
+    "independent_review_status": "pending",
+    "limits": [
+      "The description omits pass rates, synthesis quality, reward calibration, training cost, and failure cases.",
+      "Reasoning traces do not guarantee executable or synthesizable RTL correctness.",
+      "Official description only; LLM-EDA claims require artifact and independent test verification."
+    ],
+    "method_or_artifact": "Stepwise reasoning trajectories, process-reward model, RAFT fine-tuning, and MCTS path exploration for RTL synthesis.",
+    "metrics": [
+      "Improved functional correctness and reasoning fidelity claimed qualitatively"
+    ],
+    "paper_id": "dac-2026-research1742",
+    "problem": "Long-horizon RTL generation requires multi-step reasoning and strict functional correctness that outcome-only LLM training does not reliably provide.",
+    "subsubtheme_id": "process-reward-rtl-generation",
+    "subtheme_id": "generative-design-and-synthesis",
+    "target_edition": 2026,
+    "theme_id": "ai-assisted-eda",
+    "title": "StepPRM-RTL: Stepwise Process-Reward Guided LLM Fine-Tuning for Enhanced RTL Synthesis",
+    "workload_or_benchmark": "Benchmark Verilog and VHDL datasets; correctness tests, design distribution, model base, and comparative metrics are unspecified."
+  },
+  "required_review_actions": [
+    "Verify numerical conditions, neighboring taxonomy category, and limitations"
+  ],
+  "researcher_summary_not_original_source": "StepPRM-RTL combines stepwise trajectory modeling, process-reward modeling, retrieval-augmented fine-tuning, and Monte Carlo tree search to provide dense intermediate feedback for RTL generation; benchmark Verilog/VHDL evaluation reports improvement over standard supervised or outcome-based training, without numeric values in the official description.",
+  "review_status": "not_reviewed",
+  "schema": "paper-review-packet.v1",
+  "source_text_status": "captured_official_description",
+  "source_tier": "official_description",
+  "taxonomy_branch": {
+    "label": "AI-assisted EDA",
+    "subsubthemes": {
+      "generative-design-and-synthesis": [
+        "alphazero-generative-aig-synthesis",
+        "multi-agent-eda-code-evolution",
+        "process-reward-rtl-generation"
+      ],
+      "learned-design-space-exploration": [
+        "autoregressive-circuit-design-modeling",
+        "coderllm-guided-hls-design-space-exploration",
+        "diffusion-tcad-multi-field-surrogate",
+        "end-to-end-dnn-accelerator-generation",
+        "graph-transformer-analog-parasitic-extraction",
+        "hardware-aware-bev-detection-nas",
+        "hierarchical-multi-agent-chiplet-design",
+        "hypervolume-zero-cost-vit-search",
+        "multi-fidelity-bayesian-microarchitecture-exploration",
+        "self-supervised-atpg-free-test-point-insertion"
+      ],
+      "llm-assisted-design-flows": [
+        "llm-evolution-of-technology-mapping",
+        "llm-generated-hls-architecture-optimization",
+        "llm-global-reasoning-for-hls-dse",
+        "multi-role-ppa-aware-verilog-generation",
+        "preference-optimized-pcb-placement",
+        "rag-grounded-drc-auto-fix",
+        "reinforcement-learning-verilog-generation",
+        "two-tier-rag-verilog-generation"
+      ]
+    },
+    "subthemes": [
+      "generative-circuit-and-layout-synthesis",
+      "generative-design-and-synthesis",
+      "learned-design-space-exploration",
+      "llm-assisted-design-flows"
+    ],
+    "theme_id": "ai-assisted-eda"
+  }
+}
