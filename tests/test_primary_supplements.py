@@ -103,9 +103,12 @@ def test_supplements_reach_queue_and_both_packet_types_without_promotion():
     assert calculated != discrepancy["reported_speedups"]
     assert len(squat["identity"]["authors"]) == 12
     assert squat["independent_review_status"] == "pending"
+    comopy = supplements.pop("iccad-2025-1137")[0]["assessment"]
+    assert comopy["source_tier"] == "author_attributed_artifact_description"
+    assert comopy["headline_metric_status"] == "withheld_pending_primary_paper"
     assert set(supplements) == {"dac-2026-research031", "dac-2026-research043", "dac-2026-research046", "dac-2026-research1000", "dac-2026-research1028", "dac-2026-research1054", "dac-2026-research1065", "dac-2026-research108", "dac-2026-research1101", "dac-2026-research1110", "dac-2026-research1113", "dac-2026-research1182", "dac-2026-research1186", "dac-2026-research535", "dac-2026-research865", "dac-2026-research2760", "dac-2025-research1019"}
     rows, summary, _ = build_queue(ROOT)
-    assert summary["supplementary_assessment_paper_count"] == 29
+    assert summary["supplementary_assessment_paper_count"] == 30
     queue = {r["paper_id"]: r for r in rows}
     packets, coverage = build_packets(ROOT)
     drafts = build_drafts(ROOT)

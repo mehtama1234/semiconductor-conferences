@@ -11,7 +11,7 @@ metrics and explicit routing-stage/testcase gaps. The new NYCU extractor require
 unique title/DOI metadata, matching page heading, ordered authors and one abstract
 block; it will not silently pass GAIA's spelling conflict. Original COPA abstract
 captured successfully. Coding reaches 84 (49 DAC, 16 ISCA, 19 ICCAD); supplementary
-assessments reach 29. Next: continue ordered recovery and full-text condition checks,
+assessments reach 30. Next: continue ordered recovery and full-text condition checks,
 while preserving independent review and temporal comparison as separate gates.
 Regenerated taxonomy, summary, queue and both packet sets; project validation and
 135 tests pass. The full suite exposed one stale recovery-attempt count from the
@@ -30,7 +30,7 @@ analog-agent publication appears on Peng Li's author page, but its linked publis
 route did not return technical text. Logged all three outcomes with specific next
 actions; Hyle's official table-of-contents index also exposes an abstract summary,
 but its DBLP unpaywalled route did not resolve to a manuscript and secondary
-summaries remain discovery-only. No secondary manuscript is substituted. Supplements reach 29; coded
+summaries remain discovery-only. No secondary manuscript is substituted. Supplements reach 30; coded
 sample is now 84. Next: retrieve original MIRAGE text and the exact analog-agent
 manuscript, then continue with the next ordered queue record.
 
