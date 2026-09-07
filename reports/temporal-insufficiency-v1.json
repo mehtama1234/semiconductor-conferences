@@ -1,0 +1,75 @@
+{
+  "schema": "temporal-insufficiency-findings.v1",
+  "as_of": "2026-09-06",
+  "status": "insufficient_evidence_for_directional_claims",
+  "scope": {
+    "comparable_inventory": {
+      "isca_2025": 135,
+      "isca_2026": 172,
+      "dac_2025": 419,
+      "dac_2026": 543
+    },
+    "dac_2025_substantive_descriptions": 24,
+    "dac_2025_missing_descriptions": 395,
+    "pilot_pairs": 3,
+    "pilot_records": 6,
+    "pilot_source_tier": "official_description",
+    "independent_review_completed": false
+  },
+  "findings": [
+    {
+      "direction_id": "tool-grounded-ai-design-verification",
+      "directional_claim": "rising_or_declining_prevalence",
+      "status": "insufficient_evidence",
+      "reason": "Selected technical records show tool-grounded design mechanisms, but equivalent edition-level coding and independent review are absent.",
+      "promotion_requirements": ["matched 2025/2026 paper populations", "same taxonomy and evidence tier", "independent review"]
+    },
+    {
+      "direction_id": "data-movement-as-contract",
+      "directional_claim": "rising_or_declining_prevalence",
+      "status": "insufficient_evidence",
+      "reason": "UPVSS and CANNON expose related memory-system mechanisms on different platforms; workloads, recall targets and hardware are not comparable.",
+      "promotion_requirements": ["matched workload and recall conditions", "equalized capacity/bandwidth budgets", "independent review"]
+    },
+    {
+      "direction_id": "reliability-security-design-loop",
+      "directional_claim": "rising_or_declining_prevalence",
+      "status": "insufficient_evidence",
+      "reason": "HybriMoE and Icarus address related MoE locality assumptions but do not form a like-for-like longitudinal evaluation; historical missingness is substantial.",
+      "promotion_requirements": ["matched threat and workload models", "failure-cost accounting", "independent review"]
+    },
+    {
+      "direction_id": "physical-integration-optimization-variable",
+      "directional_claim": "rising_or_declining_prevalence",
+      "status": "insufficient_evidence",
+      "reason": "Physical-model and placement mechanisms are represented by selected records, not comparable edition populations or validated downstream outcomes.",
+      "promotion_requirements": ["same-stage taxonomy coding across editions", "held-out physical validation", "independent review"]
+    },
+    {
+      "direction_id": "multifidelity-physics-aware-search",
+      "directional_claim": "rising_or_declining_prevalence",
+      "status": "insufficient_evidence",
+      "reason": "Surrogate and multi-fidelity methods have heterogeneous objectives and fidelity definitions; counts cannot be interpreted as field direction.",
+      "promotion_requirements": ["shared fidelity/error fields", "matched design-budget accounting", "independent review"]
+    },
+    {
+      "direction_id": "workload-specialized-accelerators",
+      "directional_claim": "rising_or_declining_prevalence",
+      "status": "insufficient_evidence",
+      "reason": "Title shifts and selected accelerator records route review but do not establish prevalence, importance or net-system benefit.",
+      "promotion_requirements": ["equivalent title-to-technical coding", "accuracy and movement-cost controls", "independent review"]
+    }
+  ],
+  "interpretation_limits": [
+    "Title occurrence is a routing signal, not paper prevalence or technical importance.",
+    "The 395 missing DAC 2025 descriptions cannot be treated as negative evidence.",
+    "The six-record pilot is exploratory and does not support a rising/declining claim.",
+    "This artifact records an insufficient-evidence result; it is not a forecast."
+  ],
+  "source_reports": [
+    "reports/temporal-baseline-v1.md",
+    "reports/temporal-mechanism-comparison-v1.md",
+    "reports/title-shift-candidates-v1.md",
+    "data/temporal-comparative-coding-v1.jsonl"
+  ]
+}

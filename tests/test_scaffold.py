@@ -270,6 +270,14 @@ def test_iccad_fallback_has_dated_2026_availability_check() -> None:
     assert "paper corpus was not available" in report
 
 
+def test_temporal_directional_findings_are_explicitly_insufficient() -> None:
+    report = json.loads((ROOT / "reports/temporal-insufficiency-v1.json").read_text())
+    assert report["status"] == "insufficient_evidence_for_directional_claims"
+    assert len(report["findings"]) == 6
+    assert all(item["status"] == "insufficient_evidence" for item in report["findings"])
+    assert report["scope"]["dac_2025_missing_descriptions"] == 395
+
+
 def test_learning_index_links_the_three_workstreams() -> None:
     text = (ROOT / "reports/learning-index-v0.md").read_text()
     for marker in ("DAC 2026", "ISCA 2026", "ICCAD 2026 / 2025 fallback", "Cross-conference direction synthesis"):
