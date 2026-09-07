@@ -60,6 +60,8 @@ gates still open**.
   records.
 - A dated ISCA program-page availability check confirming that those ten routes
   expose identity/session metadata but no abstracts or experimental conditions.
+- A dated ATX/RHODES primary-source recovery attempt preserving exact DOI
+  identity and marking secondary-only text as non-promotable.
 
 ## What users may conclude
 

@@ -21,6 +21,11 @@ the dated result is `reports/isca-p2-source-availability-check-2026-09-07.md`.
 It confirms title/session/author identity but exposes no abstracts or technical
 conditions, so no evidence-tier upgrade was made.
 
+An additional recovery attempt for ATX and RHODES is recorded in
+`reports/isca-primary-recovery-attempt-2026-09-07.md`. RHODES has a secondary
+indexed summary and exact DOI, while ATX has DOI identity only; neither was
+promoted beyond metadata because original technical text was not recovered.
+
 Latest bounded remediation (2026-09-07): repaired strict title matching for
 truncated DAC program subtitles, accepted identity-matched captured abstracts as
 valid provenance, and rewrote two evidence spans to include source-grounded
