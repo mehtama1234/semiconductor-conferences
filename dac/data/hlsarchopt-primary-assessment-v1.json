@@ -1,0 +1,91 @@
+{
+  "schema": "supplementary-primary-assessment.v1",
+  "paper_id": "dac-2026-research1110",
+  "title": "LLM-Based Automatic Architecture Optimization for AI Model HLS Implementation on FPGA",
+  "source_id": "dac-2026-hlsarchopt-pinned-artifact",
+  "source_url": "https://github.com/Szzer1/HLSArchOpt/tree/999043ab132f984b5b88b26ab9e415221e1198f1",
+  "capture_date": "2026-09-06",
+  "source_tier": "author_linked_partial_artifact",
+  "extraction_scope": "Read-only inspection of pinned repository tree, README, HLS script and top-level kernel; no execution or full-paper recovery",
+  "identity": {
+    "status": "exact_title_and_seven_authors_on_official_and_author_page",
+    "author_page": "https://csee.hnu.edu.cn/people/hexu",
+    "locator": "Academic papers item 2 links Szzer1/HLSArchOpt"
+  },
+  "artifact": {
+    "commit": "999043ab132f984b5b88b26ab9e415221e1198f1",
+    "tree": "2556cae508f7fdd50b95eefba61957fd31a199e0",
+    "tree_entries": 3976,
+    "tree_truncated": false,
+    "scope": "Fire module HLS and hardware project; README promises further modules, full-model integration and automation in future",
+    "readme_environment": {
+      "vivado_hls": "2019.2",
+      "vivado": "2019.2",
+      "board": "Xilinx ZCU102",
+      "target_frequency_MHz": 100
+    },
+    "inspected_script": {
+      "path": "fire/sys/prj/solution1/script.tcl",
+      "part": "xczu9eg-ffvb1156-2-e",
+      "clock_period_ns": 10,
+      "top": "pipeline_top",
+      "enabled": [
+        "csynth_design",
+        "export_design"
+      ],
+      "commented_out": [
+        "csim_design",
+        "cosim_design"
+      ],
+      "limit": "Synthesis/export commands do not establish functional equivalence or hardware timing closure."
+    },
+    "inspected_kernel": {
+      "path": "fire/sys/top.cpp",
+      "observations": [
+        "32-bit AXI stream payload unpacked as float",
+        "HLS DATAFLOW region",
+        "Squeeze convolution and ReLU followed by duplicated stream",
+        "Two expand convolution/ReLU branches joined by concatenation",
+        "Weights included from static text files"
+      ],
+      "limit": "Source inspection only; no dynamic correctness, deadlock, performance or provenance-of-generation test."
+    },
+    "execution_status": "not_executed"
+  },
+  "attempts": [
+    {
+      "method": "web_search",
+      "queries": [
+        "\"LLM-Based Automatic Architecture Optimization\"",
+        "\"Zhe Xiao\" \"HLS\" FPGA 2026"
+      ],
+      "outcome": "Official description and author faculty page recovered; author page identifies partial repository. No full manuscript recovered."
+    },
+    {
+      "method": "pinned_repository_read",
+      "urls": [
+        "https://api.github.com/repos/Szzer1/HLSArchOpt/commits/HEAD",
+        "https://api.github.com/repos/Szzer1/HLSArchOpt/git/trees/2556cae508f7fdd50b95eefba61957fd31a199e0?recursive=1"
+      ],
+      "outcome": "Resolved immutable commit/tree; inspected README and selected source/script."
+    }
+  ],
+  "unresolved_conditions": [
+    "Full benchmark model suite and baseline implementations",
+    "Definition and aggregation of 11.78x average performance",
+    "HLS estimates versus post-route or board measurements",
+    "Resource budgets, timing closure and accuracy constraints",
+    "LLM identity/version, prompts, retries, token/cost budget and generation success rate",
+    "Functional oracle and floating-point tolerances",
+    "Full optimization driver and ablation connecting generated architecture to improvements"
+  ],
+  "interpretation_limits": [
+    "A released example is not the entire LLM-driven framework.",
+    "README platform configuration cannot be assigned to every paper benchmark without full text.",
+    "Commented simulation commands do not prove authors never tested correctness; they limit what this script reproduces.",
+    "Artifact discovery is not independent acceptance."
+  ],
+  "headline_metric_status": "withheld_pending_fullpaper_conditions",
+  "independent_review_status": "pending",
+  "revisit_condition": "Full paper or framework release with benchmarks, prompts and equivalence tests; next artifact work can inspect stored synthesis reports separately from reproduction."
+}

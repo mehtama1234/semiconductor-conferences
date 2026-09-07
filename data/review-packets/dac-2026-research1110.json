@@ -38,13 +38,115 @@
   },
   "required_review_actions": [
     "Add source section/table locators for technical fields and numerical conditions",
-    "Verify numerical conditions, neighboring taxonomy category, and limitations"
+    "Verify numerical conditions, neighboring taxonomy category, and limitations",
+    "Inspect supplementary assessments and their original sources; resolve discrepancies without using researcher interpretation to verify itself"
   ],
   "researcher_summary_not_original_source": "The LLM-powered framework generates modular dataflow architectures, applies pattern-based optimization, and produces synthesizable FPGA hardware, reporting an average 11.78X performance improvement over current state-of-the-art approaches.",
   "review_status": "not_reviewed",
   "schema": "paper-review-packet.v1",
   "source_text_status": "captured_official_description",
   "source_tier": "official_description",
+  "supplementary_researcher_assessments": [
+    {
+      "assessment": {
+        "artifact": {
+          "commit": "999043ab132f984b5b88b26ab9e415221e1198f1",
+          "execution_status": "not_executed",
+          "inspected_kernel": {
+            "limit": "Source inspection only; no dynamic correctness, deadlock, performance or provenance-of-generation test.",
+            "observations": [
+              "32-bit AXI stream payload unpacked as float",
+              "HLS DATAFLOW region",
+              "Squeeze convolution and ReLU followed by duplicated stream",
+              "Two expand convolution/ReLU branches joined by concatenation",
+              "Weights included from static text files"
+            ],
+            "path": "fire/sys/top.cpp"
+          },
+          "inspected_script": {
+            "clock_period_ns": 10,
+            "commented_out": [
+              "csim_design",
+              "cosim_design"
+            ],
+            "enabled": [
+              "csynth_design",
+              "export_design"
+            ],
+            "limit": "Synthesis/export commands do not establish functional equivalence or hardware timing closure.",
+            "part": "xczu9eg-ffvb1156-2-e",
+            "path": "fire/sys/prj/solution1/script.tcl",
+            "top": "pipeline_top"
+          },
+          "readme_environment": {
+            "board": "Xilinx ZCU102",
+            "target_frequency_MHz": 100,
+            "vivado": "2019.2",
+            "vivado_hls": "2019.2"
+          },
+          "scope": "Fire module HLS and hardware project; README promises further modules, full-model integration and automation in future",
+          "tree": "2556cae508f7fdd50b95eefba61957fd31a199e0",
+          "tree_entries": 3976,
+          "tree_truncated": false
+        },
+        "attempts": [
+          {
+            "method": "web_search",
+            "outcome": "Official description and author faculty page recovered; author page identifies partial repository. No full manuscript recovered.",
+            "queries": [
+              "\"LLM-Based Automatic Architecture Optimization\"",
+              "\"Zhe Xiao\" \"HLS\" FPGA 2026"
+            ]
+          },
+          {
+            "method": "pinned_repository_read",
+            "outcome": "Resolved immutable commit/tree; inspected README and selected source/script.",
+            "urls": [
+              "https://api.github.com/repos/Szzer1/HLSArchOpt/commits/HEAD",
+              "https://api.github.com/repos/Szzer1/HLSArchOpt/git/trees/2556cae508f7fdd50b95eefba61957fd31a199e0?recursive=1"
+            ]
+          }
+        ],
+        "capture_date": "2026-09-06",
+        "extraction_scope": "Read-only inspection of pinned repository tree, README, HLS script and top-level kernel; no execution or full-paper recovery",
+        "headline_metric_status": "withheld_pending_fullpaper_conditions",
+        "identity": {
+          "author_page": "https://csee.hnu.edu.cn/people/hexu",
+          "locator": "Academic papers item 2 links Szzer1/HLSArchOpt",
+          "status": "exact_title_and_seven_authors_on_official_and_author_page"
+        },
+        "independent_review_status": "pending",
+        "interpretation_limits": [
+          "A released example is not the entire LLM-driven framework.",
+          "README platform configuration cannot be assigned to every paper benchmark without full text.",
+          "Commented simulation commands do not prove authors never tested correctness; they limit what this script reproduces.",
+          "Artifact discovery is not independent acceptance."
+        ],
+        "paper_id": "dac-2026-research1110",
+        "revisit_condition": "Full paper or framework release with benchmarks, prompts and equivalence tests; next artifact work can inspect stored synthesis reports separately from reproduction.",
+        "schema": "supplementary-primary-assessment.v1",
+        "source_id": "dac-2026-hlsarchopt-pinned-artifact",
+        "source_tier": "author_linked_partial_artifact",
+        "source_url": "https://github.com/Szzer1/HLSArchOpt/tree/999043ab132f984b5b88b26ab9e415221e1198f1",
+        "title": "LLM-Based Automatic Architecture Optimization for AI Model HLS Implementation on FPGA",
+        "unresolved_conditions": [
+          "Full benchmark model suite and baseline implementations",
+          "Definition and aggregation of 11.78x average performance",
+          "HLS estimates versus post-route or board measurements",
+          "Resource budgets, timing closure and accuracy constraints",
+          "LLM identity/version, prompts, retries, token/cost budget and generation success rate",
+          "Functional oracle and floating-point tolerances",
+          "Full optimization driver and ablation connecting generated architecture to improvements"
+        ]
+      },
+      "content_role": "researcher_assessment_not_original_source",
+      "headline_metric_status": "withheld_pending_fullpaper_conditions",
+      "independent_review_status": "pending",
+      "path": "dac/data/hlsarchopt-primary-assessment-v1.json",
+      "sha256": "36a7d54c0aca4965ea9179395121a8b52fdc9c38d9661ee90a40ce85267b5ab7",
+      "source_url": "https://github.com/Szzer1/HLSArchOpt/tree/999043ab132f984b5b88b26ab9e415221e1198f1"
+    }
+  ],
   "taxonomy_branch": {
     "label": "AI-assisted EDA",
     "subsubthemes": {

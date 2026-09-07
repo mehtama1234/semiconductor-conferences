@@ -4,6 +4,13 @@ The governing scope and acceptance criteria are in [GOAL.md](../GOAL.md).
 This log distinguishes finished work from queued work; a plan is not a completed
 research result.
 
+HLSArchOpt (research1110): author-linked partial Fire-module artifact pinned and
+read-only inspected. Source/script expose platform, pipeline and disabled
+simulation steps, but not full-framework or headline reproduction. Review packet
+now includes the assessment without promoting original description evidence.
+Next: inspect its stored synthesis reports and reproducibility boundary before
+continuing to research1113; no artifact execution has been performed.
+
 HYPER-CIM: matched institutional abstract loops back to the official description,
 not a full manuscript. Added separate training/prediction/fabrication populations
 and explicit FoM, operating-point and surrogate-validation gaps. Supplement is

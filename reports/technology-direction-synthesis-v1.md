@@ -40,6 +40,11 @@ security-aware evaluation.
 
 ## Direction 1 — Tool-grounded AI for design and verification
 
+The [HLSArchOpt partial-artifact assessment](../dac/reports/hlsarchopt-primary-assessment-v1.md)
+identifies an author-linked Fire-module implementation, not a reproduced complete
+LLM workflow. Its inspected script disables simulation checks; numerical claims
+remain withheld pending benchmark and correctness conditions.
+
 ### Specific subskills
 
 - hierarchical multi-agent decomposition of chiplet design;
