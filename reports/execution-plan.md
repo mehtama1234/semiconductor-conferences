@@ -51,6 +51,11 @@ process-window optimization, DNN bit-flip defense, single-GPU fine-tuning,
 inverse lithography, timing placement, NAND/CIM MoE inference, hypergraph
 partitioning, SEM imaging, and chip-to-chip exploration; P2 routing now covers
 288 of 541 lower-priority records.
+The thirtieth P2 tranche adds ten DAC routes across hypergraph partitioning,
+thermal/kernel-aware inference, diffusion quantization, variation-tolerant analog
+inference, quantum placement/compilation, placement/sizing, chiplet thermal
+modeling, RowHammer attacks, and PIM scheduling; P2 routing now covers 298 of
+541 lower-priority records.
 
 The sixteenth P2 tranche adds ten ISCA routes across RISC-V GPU/ASIP co-design,
 DRAM reliability and RowHammer defenses, chiplet PHY/package simulation, and

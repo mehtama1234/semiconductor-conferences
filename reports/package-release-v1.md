@@ -105,6 +105,9 @@ gates still open**.
 - A twenty-ninth P2 routing tranche continuing the DAC frontier across RowHammer,
   lithography, fault defense, fine-tuning, placement, NAND/CIM, partitioning,
   SEM imaging, and chip-to-chip exploration.
+- A thirtieth P2 routing tranche continuing the DAC frontier across hypergraphs,
+  thermal inference, diffusion quantization, analog variation, quantum placement,
+  chiplet modeling, RowHammer, and PIM scheduling.
 - A third ISCA primary-recovery batch covering SPEC CPU, KernelEvolve, and
   Rowhammer with source-tier-specific limits.
 - A fourth ISCA primary-recovery batch covering GRAINS, Triage, and Coset

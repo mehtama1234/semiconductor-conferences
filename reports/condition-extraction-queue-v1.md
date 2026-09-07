@@ -160,6 +160,12 @@ The twenty-ninth P2 tranche is recorded in
 RowHammer monitoring, process-window optimization, DNN bit-flip defense,
 single-GPU fine-tuning, inverse lithography, timing placement, NAND/CIM MoE
 inference, hypergraph partitioning, SEM imaging, and chip-to-chip exploration.
+The thirtieth P2 tranche is recorded in
+`reports/p2-recovery-batch-30-2026-09-07.md`, continuing the DAC frontier across
+hypergraph partitioning, thermal/kernel-aware inference, diffusion quantization,
+variation-tolerant analog inference, quantum placement/compilation,
+placement/sizing, chiplet thermal modeling, RowHammer attacks, and PIM
+scheduling.
 
 The categories overlap by design: P0 is a remediation priority, while P1/P2
 describe evidence depth. The former P0 records are retained in
