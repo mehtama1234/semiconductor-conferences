@@ -2,13 +2,14 @@
   "schema": "primary-source-recovery-assessment.v1",
   "paper_id": "iccad-2025-1109",
   "title": "SERA-Float: A Soft Error Resilient Approximate Floating-Point Computing Format",
-  "source_id": "iccad-2025-sera-inria-report",
-  "source_url": "https://radar.inria.fr/report/2025/taran/index.html",
+  "source_id": "iccad-2025-sera-hal",
+  "source_url": "https://hal.science/hal-05333255/document",
   "capture_date": "2026-09-06",
-  "source_tier": "institutional_team_report",
-  "extraction_scope": "SERA-Float technical summary and bibliography item 50; not HAL manuscript/full text.",
+  "source_tier": "author_manuscript_selected_full_text",
+  "extraction_scope": "HAL manuscript PDF pages 4–9: format, split-code correction condition, injected faults, applications and synthesized hardware; Tables VIII and IX visually checked. Not experimental reproduction.",
   "independent_review_status": "pending",
-  "headline_metric_status": "withheld_pending_fault_model_and_energy_boundary",
+  "headline_metric_status": "withheld_pending_accounting_and_independent_review",
+  "source_history": [{"source_id": "iccad-2025-sera-inria-report", "url": "https://radar.inria.fr/report/2025/taran/index.html", "scope": "Initial institutional summary and bibliography identity; superseded in evidence depth by manuscript recovery, not independent confirmation of results."}],
   "identity": {
     "authors": [
       "Vishesh Mishra",
@@ -17,9 +18,24 @@
       "Olivier Sentieys",
       "Urbi Chatterjee"
     ],
-    "status": "title_and_five_authors_match_program_via_team_bibliography",
+    "status": "exact_title_and_five_authors_match_program_and_manuscript",
     "manuscript_lead": "https://hal.science/hal-05333255v1",
-    "manuscript_access": "web tool could not open; no manuscript content extracted"
+    "manuscript_access": "Public document downloaded successfully after web-reader failure; HAL cover identifies version 1 submitted 2025-10-27."
+  },
+  "pdf_verification": {
+    "sha256": "88fd4b00b7621902cf6e3da2da40e6261bd8c9b0f4d97d9702550bdddda1abd5",
+    "byte_count": 5004246,
+    "page_count": 10,
+    "page_numbering": "One-based PDF pages, including HAL cover",
+    "visually_checked_tables": {"VIII": 8, "IX": 9},
+    "version_url": "https://inria.hal.science/hal-05333255v1"
+  },
+  "conditions": {
+    "format": {"storage_bits": 32, "exponent_encoded_bits": 14, "control_bits": 7, "mantissa_bits": 8, "identifier_bits": 2, "mantissa_parity_bits": 1, "locator": "Section III.B, PDF pages 4–5", "limit": "Mantissa compression frees protection bits inside a 32-bit representation; not a reduction of stored word width below FP32."},
+    "correction": {"exponent_code": "Two separate (7,4) Hamming codewords", "two_bit_condition": "One flip in each protected half; arbitrary two flips in one codeword are not covered by the stated correction guarantee.", "mantissa": "Single-bit parity detection, not mantissa error correction", "locator": "Section III.B and Figure 2, PDF pages 4–5"},
+    "faults": {"single_bit_percent": [1, 2, 3, 4], "additional_spatial_double_bit_percent": [0.02, 0.04, 0.06, 0.08], "scope": "F1 single-bit events; F2 adds spatial double-bit events. Section IV.A injects storage faults at any location across the representation.", "locator": "Table IV PDF page 4; Section IV.A PDF page 6", "limit": "Injected model; not a measured device fault distribution or proof for arbitrary spatial/temporal faults. Equal injection percentages do not by themselves establish equal physical failure exposure across word widths."},
+    "dnn": {"model": "ResNet-50", "dataset_as_stated": "CIFAR-100", "locator": "Section IV.B and Table VIII, PDF page 8", "accuracy_percent": {"fp32_baseline": 98.85, "sera_no_fault": 97.90, "sera_F2E4": 88.05, "fp16_F2E4": 72.90, "bf16_F2E4": 57.68}, "calculated_no_fault_loss_percentage_points": 0.95, "calculated_F2E4_loss_from_sera_no_fault_percentage_points": 9.85, "limit": "Author-reported accuracy, not reproduced; held-out split, training/checkpoint provenance and injection implementation require verification. Text's 0.9% loss does not specify the percentage-point convention."},
+    "hardware": {"locator": "Section IV.C PDF pages 8–9; Figure 4(c) PDF page 6; Table IX PDF page 9", "evidence_type": "Verilog synthesis, not measured silicon", "tool": "Synopsys Design Compiler", "library": "NanGate 45nm Open Cell Library", "clock_constraint_ns": 1.0, "voltage_V": 1.10, "temperature_C": 25.0, "baseline": "Conventional FP32 multiplier", "candidate": "Multiplication framework enabled by SERA-Float conversion, Figure 4(c)", "table_IX": {"baseline": {"area_um2": 7690, "power_mW": 0.15, "delay_ns": 3.60, "energy_pJ": 0.54}, "sera": {"area_um2": 7386, "power_mW": 0.09, "delay_ns": 1.18, "energy_pJ": 0.10}}, "calculated_saving_from_displayed_energy_percent": 81.48, "calculated_saving_from_displayed_power_times_delay_percent": 80.33, "limit": "Headline 80.3% is consistent with displayed power-times-delay arithmetic, not the rounded energy-column ratio. Unrounded values and per-module conversion/inverse/ECC accounting are not established. Reported delays exceed the stated 1 ns synthesis constraint; do not infer timing closure or 1 GHz throughput. No system-memory or whole-inference energy result."}
   },
   "mechanism": "Approximate floating-point representation protects sign/exponent with error correction, retains eight valid mantissa bits, and tracks exception-sensitive bits.",
   "reported_claims": {
@@ -28,9 +44,10 @@
   },
   "limits": [
     "Per-multiplication energy is not whole-system or full-inference energy.",
-    "Fault model, injection coverage, ECC overhead, arithmetic baseline and process conditions remain unverified.",
+    "Fault model and synthesis conditions are extracted, but injection implementation, physical calibration and per-module overhead accounting remain unverified.",
     "Exception-avoidance summary does not establish immunity to arbitrary faults.",
-    "Institutional report is not full-paper extraction or independent acceptance."
+    "Selected manuscript extraction is not experimental reproduction or independent acceptance.",
+    "FP8 is labeled E3M4 in format comparisons but E4M3 in Table VIII; do not silently harmonize these configurations."
   ],
-  "next_action": "Recover HAL manuscript and verify fault model, numeric format, energy accounting and accuracy convention before coding."
+  "next_action": "Prepare conservative mechanism coding and original-source review capture with HAL-cover handling; seek artifact/injection and synthesis accounting details. Keep headline metrics unaccepted pending independent review."
 }

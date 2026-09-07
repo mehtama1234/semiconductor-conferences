@@ -64,7 +64,7 @@ def test_supplements_reach_queue_and_both_packet_types_without_promotion():
     hlps = supplements.pop("iccad-2025-109")[0]["assessment"]
     qudit = supplements.pop("iccad-2025-1094")[0]["assessment"]
     sera = supplements.pop("iccad-2025-1109")[0]["assessment"]
-    assert sera["source_tier"] == "institutional_team_report"
+    assert sera["source_tier"] == "author_manuscript_selected_full_text"
     assert len(sera["identity"]["authors"]) == 5
     assert qudit["source_tier"] == "author_posted_abstract"
     assert len(qudit["identity"]["authors"]) == 4

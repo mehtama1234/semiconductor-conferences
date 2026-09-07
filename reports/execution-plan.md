@@ -4,6 +4,22 @@ The governing scope and acceptance criteria are in [GOAL.md](../GOAL.md).
 This log distinguishes finished work from queued work; a plan is not a completed
 research result.
 
+SERA-Float manuscript recovery: public HAL PDF now recovered with exact title and
+five-author identity, version/hash and selected full-text conditions. Visually
+checked Tables VIII/IX. Recorded split-code two-bit correction restriction,
+mantissa detection versus correction, fixed 32-bit storage, injected fault models,
+ResNet-50 accuracy loss and synthesized multiplication accounting. Displayed
+power-times-delay supports approximately 80.3% savings; rounded energy entries
+produce a different ratio, with unrounded accounting unresolved. Reported delays
+do not establish the stated 1 ns timing target. Added a deep assessment and linked
+its precision/protection subtheme into the provisional field-direction synthesis.
+Coding remains 77, supplements 23, independent acceptance zero. Next: conservative
+SERA coding plus original-source capture (HAL cover and 5,004,246-byte PDF require
+explicit extractor handling), then injection/artifact and overhead verification.
+Queue regeneration and project validation passed; all 114 tests pass, including
+format-bit accounting and extracted-table arithmetic. These checks do not certify
+the paper's scientific results or independent acceptance.
+
 SRC metadata repair: visually verified retained official PDF pages 75–76 and
 repaired eight title/author boundaries; labeled all ten student-research oral
 entries as ineligible for regular-paper comparisons. IDs and the 276-entry

@@ -119,6 +119,15 @@ adversarial workload robustness.
 modeled detection scope is not universal correction coverage. Icarus has not been
 shown here to attack HybriMoE specifically. Neither establishes safety certification.
 
+The [SERA-Float manuscript follow-up](../iccad/reports/sera-float-primary-assessment-v1.md)
+adds a representation-level subtheme: trading mantissa precision for selective
+protection within a fixed 32-bit word. Its exponent corrects two flips only when
+they occupy separate protected halves; mantissa parity detects rather than
+corrects. This sharpens the need for explicit operating envelopes, but neither
+establishes universal fault tolerance nor converts synthesized multiplication
+energy into whole-inference savings. This supplementary case is independently
+unreviewed and does not increase the original synthesis-anchor count.
+
 **Test next.** Measure useful throughput after detection/recovery costs under
 declared fault and threat models, including cases outside the nominal assumptions.
 Report coverage failures separately from performance regressions. A mechanism
