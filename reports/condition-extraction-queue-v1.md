@@ -384,6 +384,11 @@ The sixty-ninth P2 tranche is recorded in
 optimization, analog placement, satellite compression, 3D tiering, circuit GNN
 training, PIM ANN search, LLM-agent bit flips, glass-interposer routing, neural
 ECC, and diffusion fault tolerance.
+The seventieth P2 tranche is recorded in
+`reports/p2-recovery-batch-70-2026-09-07.md`, covering encrypted-DNN anomaly
+recovery, differentiable OPC, distributed switch buffers, weak wafer supervision,
+gate sizing, selective encryption, sample-efficient DSE, graph recomputation,
+sparse accelerator generation, and RTL benchmark maintenance.
 
 The categories overlap by design: P0 is a remediation priority, while P1/P2
 describe evidence depth. The former P0 records are retained in
