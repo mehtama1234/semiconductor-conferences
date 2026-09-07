@@ -14,6 +14,11 @@
   "pdf_verification": {"url": "https://gtcad.gatech.edu/www/papers/Tsai-ICCAD25.pdf", "sha256": "fbc53a0fad4a05101bc9922fbf5a428895bd874da9ef74c948b51028ae6730dd", "page_count": 9},
   "mechanism": "Layout cross-sections become geometry features labeled by a 2D field solver. Layer-specific models use DNNs for thickness-sensitive M0 cases and LightGBM elsewhere.",
   "conditions": "94 imec N2 predictive-PDK cells; M0 training thicknesses 22–58nm step 6; testing 18–62nm step 2. Dual Intel 6454S, 89 training threads. Per-cell pattern/inference times 0.082/0.803 seconds exclude database construction and tuning.",
+  "reported_metrics": [
+    "Abstract reports approximately 25 minutes to regenerate a parasitic netlist for a layer-thickness change with commercial extraction",
+    "Abstract reports standard-cell parasitic capacitance extraction within seconds",
+    "Abstract reports coupling-capacitance prediction for unseen layer thickness within milliseconds"
+  ],
   "reported_setup": {"database_hours": 1.8, "training_days": 2, "additional_training_hours": 2.3, "locator": "Table IV"},
   "holdout_review": "38nm is called unseen but Section VI.A uses it for hyperparameter-selection loss. Not a demonstrated untouched test; no proof of direct training leakage. Errors increase near range boundaries.",
   "limits": ["Predictive-PDK evaluation is not silicon validation or demonstrated cross-library transfer.", "Fast inference does not establish amortized end-to-end DTCO acceleration."],
