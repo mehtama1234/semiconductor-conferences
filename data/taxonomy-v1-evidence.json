@@ -35,6 +35,7 @@
     "dac/data/adjudicated-2026-batch-21.jsonl",
     "dac/data/adjudicated-2026-batch-22.jsonl",
     "dac/data/adjudicated-2026-batch-23.jsonl",
+    "dac/data/adjudicated-2026-batch-24.jsonl",
     "iccad/data/adjudicated-2025-batch-3.jsonl",
     "iccad/data/adjudicated-2025-batch-4.jsonl",
     "iccad/data/adjudicated-2025-batch-5.jsonl",
@@ -53,7 +54,9 @@
       "subsubthemes": {
         "learned-design-space-exploration": [
           "autoregressive-circuit-design-modeling",
+          "coderllm-guided-hls-design-space-exploration",
           "diffusion-tcad-multi-field-surrogate",
+          "hardware-aware-bev-detection-nas",
           "hierarchical-multi-agent-chiplet-design",
           "multi-fidelity-bayesian-microarchitecture-exploration"
         ],
@@ -127,6 +130,9 @@
           "silicon-calibrated-hierarchical-cim-exploration",
           "training-free-self-speculative-edge-llm-decoding"
         ],
+        "quantum-architectures-and-control": [
+          "directional-transport-neutral-atom-compilation"
+        ],
         "specialized-accelerators-and-dataflow": [
           "correlation-aware-gkp-decoder-acceleration",
           "lpn-post-quantum-crypto-acceleration"
@@ -147,6 +153,7 @@
         "ai-accelerator-microarchitecture",
         "architecture-software-co-design",
         "general-purpose-and-domain-specific-architecture",
+        "quantum-architectures-and-control",
         "specialized-accelerators-and-dataflow",
         "specialized-ai-accelerators"
       ],
@@ -335,6 +342,7 @@
           "gpu-power-thermal-transformer-side-channel-leakage",
           "hardware-interrupt-security-risks",
           "ml-dsa-edge-hw-sw-co-design",
+          "pmu-event-timing-side-channels",
           "puf-protected-cim-bnn",
           "remote-power-leakage-in-post-quantum-kem",
           "rowhammer-falcon-fault-cryptographic",
@@ -382,6 +390,9 @@
     {
       "label": "Verification and validation",
       "subsubthemes": {
+        "formal-analysis-and-verification": [
+          "branch-divergence-gpu-wcet-analysis"
+        ],
         "formal-and-functional-verification": [
           "hidden-pmu-reverse-engineering-and-covert-channel",
           "hierarchical-learning-for-sequential-formal-analysis",
@@ -410,6 +421,7 @@
         ]
       },
       "subthemes": [
+        "formal-analysis-and-verification",
         "formal-and-functional-verification",
         "hardware-security-validation",
         "simulation-emulation-and-testing"

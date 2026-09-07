@@ -27,7 +27,7 @@
   "original_source_url": "https://arxiv.org/abs/2508.16376",
   "paper_id": "iccad-2025-114",
   "protocol_path": "reports/adversarial-judge-protocol-v1.md",
-  "protocol_sha256": "22f97b9feb2db711fdcbb134df4c0aaca8dca14d5c4adf90a34e428f937e9720",
+  "protocol_sha256": "22767cec0aed90a6e87a03d16f60243f2bcb6897b51e82851bd7422e3d69ece7",
   "record_sha256": "647f805a50492f1924f5d9b586e1cdc2e4f002f68cf8253a5e3f98c63c53b6a4",
   "record_under_review": {
     "analysis_edition": 2025,
@@ -160,6 +160,9 @@
   "taxonomy_branch": {
     "label": "Verification and validation",
     "subsubthemes": {
+      "formal-analysis-and-verification": [
+        "branch-divergence-gpu-wcet-analysis"
+      ],
       "formal-and-functional-verification": [
         "hidden-pmu-reverse-engineering-and-covert-channel",
         "hierarchical-learning-for-sequential-formal-analysis",
@@ -188,6 +191,7 @@
       ]
     },
     "subthemes": [
+      "formal-analysis-and-verification",
       "formal-and-functional-verification",
       "hardware-security-validation",
       "simulation-emulation-and-testing"

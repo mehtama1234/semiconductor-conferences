@@ -7,7 +7,7 @@ conference prevalence estimate, market forecast, or ranking.
 
 | Conference | Records |
 |---|---:|
-| dac | 143 |
+| dac | 148 |
 | iccad | 21 |
 | isca | 16 |
 
@@ -17,7 +17,7 @@ conference prevalence estimate, market forecast, or ranking.
 | company_author_source | 2 |
 | institutional_abstract | 5 |
 | institutional_technical_report | 1 |
-| official_description | 140 |
+| official_description | 145 |
 | primary_or_author_copy | 31 |
 
 ## Theme distribution
@@ -25,11 +25,11 @@ conference prevalence estimate, market forecast, or ranking.
 | Theme | Selected records |
 |---|---:|
 | memory-interconnect-and-storage | 34 |
-| architecture-and-accelerators | 28 |
-| power-reliability-and-security | 26 |
-| verification-and-validation | 20 |
+| architecture-and-accelerators | 29 |
+| power-reliability-and-security | 27 |
+| verification-and-validation | 21 |
 | physical-design-and-manufacturing | 17 |
-| ai-assisted-eda | 12 |
+| ai-assisted-eda | 14 |
 | design-methodology-and-tooling | 12 |
 | analog-mixed-signal-and-emerging-devices | 11 |
 | systems-applications-and-workloads | 11 |
@@ -37,7 +37,7 @@ conference prevalence estimate, market forecast, or ranking.
 
 ## Field completeness
 
-167 of 180 records have all required technical fields populated.
+172 of 185 records have all required technical fields populated.
 Missing-field counts are recorded in the machine-readable JSON; an empty field means the evidence did not support a claim, not that the paper lacks the property.
 
 ## Limits

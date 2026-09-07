@@ -12,7 +12,7 @@
   "original_source_url": "https://63dac.conference-program.com/?post_type=page&p=16&id=RESEARCH142&sess=sess163",
   "paper_id": "dac-2026-research142",
   "protocol_path": "reports/adversarial-judge-protocol-v1.md",
-  "protocol_sha256": "22f97b9feb2db711fdcbb134df4c0aaca8dca14d5c4adf90a34e428f937e9720",
+  "protocol_sha256": "22767cec0aed90a6e87a03d16f60243f2bcb6897b51e82851bd7422e3d69ece7",
   "record_sha256": "a1b8b4806df38a9bb2f8ccb536f4933106646fbabcba8008b621877af5ff94b3",
   "record_under_review": {
     "analysis_edition": 2026,
@@ -62,6 +62,9 @@
   "taxonomy_branch": {
     "label": "Verification and validation",
     "subsubthemes": {
+      "formal-analysis-and-verification": [
+        "branch-divergence-gpu-wcet-analysis"
+      ],
       "formal-and-functional-verification": [
         "hidden-pmu-reverse-engineering-and-covert-channel",
         "hierarchical-learning-for-sequential-formal-analysis",
@@ -90,6 +93,7 @@
       ]
     },
     "subthemes": [
+      "formal-analysis-and-verification",
       "formal-and-functional-verification",
       "hardware-security-validation",
       "simulation-emulation-and-testing"
