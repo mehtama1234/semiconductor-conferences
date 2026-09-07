@@ -135,6 +135,9 @@ gates still open**.
 - A thirty-ninth P2 routing tranche continuing the DAC frontier across CIM
   security, agentic testbenches, layout pretraining, 3D eFlash thermal stability,
   SSD aging, BEV NAS, compressed GEMM, SNNs, VLA decoding, and thermal diffusion.
+- A fortieth P2 routing tranche continuing the DAC frontier across DRAM-PIM,
+  vehicle security, edge MoE, federated energy, GPU translation, graph learning,
+  FPGA serving, safety assertions, leakage estimation, and LiDAR HDC.
 - A third ISCA primary-recovery batch covering SPEC CPU, KernelEvolve, and
   Rowhammer with source-tier-specific limits.
 - A fourth ISCA primary-recovery batch covering GRAINS, Triage, and Coset

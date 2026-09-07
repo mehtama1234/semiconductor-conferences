@@ -101,6 +101,11 @@ testbench generation, chip-layout pretraining, hybrid-bonded 3D eFlash thermal
 stability, SSD aging, BEV detection NAS, compressed GEMM, SNN co-design, embodied
 VLA speculative decoding, and silicon thermal reconstruction; P2 routing now
 covers 388 of 541 lower-priority records.
+The fortieth P2 tranche adds ten DAC routes across DRAM-PIM interference,
+in-vehicle attack tracing, personalized edge MoE, federated-learning energy,
+multi-GPU translation, circuit graph learning, FPGA prefill/decode swapping,
+safety assertions, leakage estimation, and HDC LiDAR; P2 routing now covers 398
+of 541 lower-priority records.
 
 The sixteenth P2 tranche adds ten ISCA routes across RISC-V GPU/ASIP co-design,
 DRAM reliability and RowHammer defenses, chiplet PHY/package simulation, and

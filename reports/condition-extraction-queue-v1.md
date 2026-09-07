@@ -214,6 +214,11 @@ The thirty-ninth P2 tranche is recorded in
 CIM security, agentic testbench generation, chip-layout pretraining, hybrid-bonded
 3D eFlash thermal stability, SSD aging, BEV detection NAS, compressed GEMM, SNN
 co-design, embodied VLA speculative decoding, and silicon thermal reconstruction.
+The fortieth P2 tranche is recorded in
+`reports/p2-recovery-batch-40-2026-09-07.md`, continuing the DAC frontier across
+DRAM-PIM interference, in-vehicle attack tracing, personalized edge MoE,
+federated-learning energy, multi-GPU translation, circuit graph learning, FPGA
+prefill/decode swapping, safety assertions, leakage estimation, and HDC LiDAR.
 
 The categories overlap by design: P0 is a remediation priority, while P1/P2
 describe evidence depth. The former P0 records are retained in
