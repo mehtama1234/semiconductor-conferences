@@ -1,5 +1,11 @@
 # Execution plan — 2026-09-06
 
+ISCA secondary-recovery recheck: exact-title indexed summaries for MLX and
+ConServe were rechecked after the primary-source search. They expose useful
+mechanism/headline discovery text, but remain secondary evidence; no technical
+fields or metrics were promoted. Both ledgers now record the recheck, the
+unresolved primary-manuscript requirement, and the next author-source action.
+
 ComoPy artifact-depth batch: promoted the exact ICCAD 2025 framework to the
 selected ledger at artifact-description depth. PyPI evidence binds Python 3.10+,
 Verilator 5.040, and Icarus Verilog v13_0 integration to the reported
