@@ -12,6 +12,13 @@ is deliberately provisional because the evidence is asymmetric:
 
 The machine-readable matrix is `data/cross-conference-matrix-v0.json`.
 
+## 2026-09-07 coverage correction
+
+The earlier five-paper secondary-only count is superseded by the six-record
+boundary in `reports/isca-secondary-evidence-boundary-2026-09-07.md`; those
+indexed excerpts remain pending primary verification and do not change the
+primary technical sample.
+
 ## What can responsibly be said now
 
 ### 1. The field is joining algorithm, architecture, and design-flow decisions

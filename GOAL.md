@@ -53,7 +53,7 @@ synthesis. Coverage gaps and unresolved claims are part of the deliverable.
 
 | Corpus | Inventory | Technically coded sample | Main limitation |
 |---|---:|---:|---|
-| ISCA 2026 | 173 | 17 | Mixed primary, institutional, company, and artifact sources; three secondary-only papers remain outside this sample; full-paper conditions remain open |
+| ISCA 2026 | 173 | 17 | Mixed primary, institutional, company, and artifact sources; six secondary-only papers remain outside this sample; full-paper conditions remain open |
 | DAC 2026 | 543 | 544 | Official descriptions captured across the inventory; current DAC descriptions are now technically coded, with full-paper conditions still pending |
 | ICCAD 2025 fallback | 319 | 21 | Most fallback records remain metadata-only; ICCAD 2026 paper corpus is not publicly available |
 

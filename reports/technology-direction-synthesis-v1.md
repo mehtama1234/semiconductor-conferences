@@ -17,7 +17,7 @@ The evidence is intentionally asymmetric:
   recovery record; the selected DAC sample is 88 records and independent acceptance
   remains pending.
 - ISCA: 173 official 2026 program slots (172 titled); 17 technically coded
-  records; 3 secondary-only papers pending primary verification.
+  records; 6 secondary-only papers pending primary verification.
 - ICCAD: 2026 scope evidence and a 319-entry 2025 fallback inventory; 21 technically
   coded fallback papers. The inventory includes 43 invited papers and ten student
   presentations, not 319 regular papers; see the [scope audit](../iccad/reports/program-scope-audit-v1.md).

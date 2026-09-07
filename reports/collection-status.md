@@ -6,8 +6,8 @@ The project now has separate conference workspaces for ISCA, DAC, and ICCAD, a s
 
 Current inventory checkpoint:
 
-- ISCA 2026: 173 official program records normalized with titles, authors, sessions, times, identifiers, and metadata-only status; Crossref reconciliation adds DOI/publisher metadata for 171 records, two remain unresolved, and five records also have secondary indexed excerpts pending primary verification.
-- ISCA evidence: seventeen papers now have primary, institutional-abstract, company-source, or exact-title artifact-backed adjudications; three additional papers have substantive secondary-index excerpts with DOI metadata and remain low-confidence pending primary-source verification.
+- ISCA 2026: 173 official program records normalized with titles, authors, sessions, times, identifiers, and metadata-only status; Crossref reconciliation adds DOI/publisher metadata for 171 records, two remain unresolved, and six records have secondary indexed excerpts pending primary verification.
+- ISCA evidence: seventeen papers now have primary, institutional-abstract, company-source, or exact-title artifact-backed adjudications; six additional papers have substantive secondary-index excerpts with DOI metadata and remain low-confidence pending primary-source verification.
 - DAC 2026: 543 distinct official research-manuscript records normalized in `dac/data/papers-2026-program.jsonl`, plus 75 other program items; all 543 current descriptions now have provisional evidence-cited technical adjudications, while full-paper conditions remain open.
 - DAC evidence: all 543 research pages returned substantive official descriptions; all 543 current-edition records now have evidence-cited adjudications across EDA, accelerators, memory, packaging, verification, security, quantum, reliability, thermal, and workload/system design, plus one additional historical/recovery record.
 - DAC triage: all 543 descriptions now have keyword-backed routing candidates, explicitly marked non-adjudicated; the routing is for review queue construction only.
