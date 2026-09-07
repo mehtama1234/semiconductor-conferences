@@ -53,12 +53,12 @@ synthesis. Coverage gaps and unresolved claims are part of the deliverable.
 
 | Corpus | Inventory | Technically coded sample | Main limitation |
 |---|---:|---:|---|
-| ISCA 2026 | 173 | 16 | Mixed primary, institutional, and company sources; five secondary-only papers remain outside this sample; a sixth secondary record overlaps CODO |
-| DAC 2026 | 543 | 49 | Official descriptions captured across the inventory; most records still need coding and full-paper conditions |
-| ICCAD 2025 fallback | 319 | 19 | Most fallback records remain metadata-only; ICCAD 2026 paper corpus is not publicly available |
+| ISCA 2026 | 173 | 17 | Mixed primary, institutional, and company sources; five secondary-only papers remain outside this sample; a sixth secondary record overlaps CODO |
+| DAC 2026 | 543 | 52 | Official descriptions captured across the inventory; most records still need coding and full-paper conditions |
+| ICCAD 2025 fallback | 319 | 20 | Most fallback records remain metadata-only; ICCAD 2026 paper corpus is not publicly available |
 
 The current 89-record selected sample spans ten taxonomy themes: DAC 52, ISCA 17,
-and ICCAD 19. ISCA has 171 DOI matches. Historical inventories contain 135 ISCA
+and ICCAD 20. ISCA has 171 DOI matches. Historical inventories contain 135 ISCA
 2025 and 419 DAC 2025 records; only 24 DAC 2025 records have substantive
 descriptions. All coded records await independent review. The paper-level queue
 covers all 1,589 inventory records, with 31 supplementary assessments and 21
