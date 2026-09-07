@@ -1,0 +1,690 @@
+{
+  "limits": [
+    "All source tiers in this input are official program descriptions; this is not full-paper evidence.",
+    "Counts describe the selected coded sample and cannot estimate venue prevalence, field direction, adoption, or importance.",
+    "Condition presence counts do not establish that a metric is comparable, correct, independently reproduced, or end-to-end."
+  ],
+  "record_count": 494,
+  "schema": "deep-theme-profile.v1",
+  "source": "data/current-description-coding-v1.jsonl",
+  "status": "provisional_selected_sample_profile",
+  "themes": [
+    {
+      "condition_presence": {
+        "baselines": 43,
+        "hardware_or_process_assumptions": 46,
+        "metrics": 32,
+        "workload_or_benchmark": 46
+      },
+      "record_count": 46,
+      "source_tiers": {
+        "official_description": 46
+      },
+      "subtheme_counts": {
+        "generative-circuit-and-layout-synthesis": 9,
+        "learned-design-space-exploration": 21,
+        "llm-assisted-design-flows": 16
+      },
+      "theme_id": "ai-assisted-eda",
+      "top_mechanisms": [
+        {
+          "mechanism": "ensemble-rl-ssd-stress-test-generation",
+          "record_count": 1
+        },
+        {
+          "mechanism": "set-attention-common-source-mask-generation",
+          "record_count": 1
+        },
+        {
+          "mechanism": "per-qubit-multiagent-layout-reinforcement-learning",
+          "record_count": 1
+        },
+        {
+          "mechanism": "instruction-sliced-block-rtl-fault-localization",
+          "record_count": 1
+        },
+        {
+          "mechanism": "tool-feedback-trained-rtl-verification-agent",
+          "record_count": 1
+        },
+        {
+          "mechanism": "agent-guided-multiphase-chiplet-bo",
+          "record_count": 1
+        },
+        {
+          "mechanism": "entropy-gated-rtl-reinforcement-learning",
+          "record_count": 1
+        },
+        {
+          "mechanism": "stepwise-process-reward-rtl-finetuning",
+          "record_count": 1
+        },
+        {
+          "mechanism": "feedback-guided-abc-source-evolution",
+          "record_count": 1
+        },
+        {
+          "mechanism": "iterative-llm-veriloga-mtj-dtco",
+          "record_count": 1
+        },
+        {
+          "mechanism": "residual-question-tree-log-parser-synthesis",
+          "record_count": 1
+        },
+        {
+          "mechanism": "consensus-reflection-system-testbench-generation",
+          "record_count": 1
+        }
+      ]
+    },
+    {
+      "condition_presence": {
+        "baselines": 20,
+        "hardware_or_process_assumptions": 21,
+        "metrics": 18,
+        "workload_or_benchmark": 21
+      },
+      "record_count": 21,
+      "source_tiers": {
+        "official_description": 21
+      },
+      "subtheme_counts": {
+        "analog-and-mixed-signal-synthesis": 5,
+        "emerging-memory-and-devices": 6,
+        "neuromorphic-quantum-and-non-von-neumann": 10
+      },
+      "theme_id": "analog-mixed-signal-and-emerging-devices",
+      "top_mechanisms": [
+        {
+          "mechanism": "wildcard-thermometer-fefet-distance-cam",
+          "record_count": 1
+        },
+        {
+          "mechanism": "drift-adaptive-kalman-mlp-qubit-readout",
+          "record_count": 1
+        },
+        {
+          "mechanism": "cam-selected-multibit-nand-moe",
+          "record_count": 1
+        },
+        {
+          "mechanism": "fefet-sigmoid-soft-decision-model",
+          "record_count": 1
+        },
+        {
+          "mechanism": "physics-em-assisted-rf-layout-synthesis",
+          "record_count": 1
+        },
+        {
+          "mechanism": "quasi-abelian-code-syndrome-scheduling",
+          "record_count": 1
+        },
+        {
+          "mechanism": "microscaled-charge-domain-sram-cnm",
+          "record_count": 1
+        },
+        {
+          "mechanism": "distribution-parameter-probabilistic-memory",
+          "record_count": 1
+        },
+        {
+          "mechanism": "geometry-parameterized-physics-constrained-rf-inverse-design",
+          "record_count": 1
+        },
+        {
+          "mechanism": "hamiltonian-block-fourier-vqa-initialization",
+          "record_count": 1
+        },
+        {
+          "mechanism": "cryogenic-syndrome-window-compression",
+          "record_count": 1
+        },
+        {
+          "mechanism": "physics-prior-ekan-symbolic-compact-model",
+          "record_count": 1
+        }
+      ]
+    },
+    {
+      "condition_presence": {
+        "baselines": 106,
+        "hardware_or_process_assumptions": 112,
+        "metrics": 100,
+        "workload_or_benchmark": 112
+      },
+      "record_count": 112,
+      "source_tiers": {
+        "official_description": 112
+      },
+      "subtheme_counts": {
+        "ai-accelerator-microarchitecture": 11,
+        "architecture-software-co-design": 70,
+        "general-purpose-and-domain-specific-architecture": 15,
+        "specialized-ai-accelerators": 16
+      },
+      "theme_id": "architecture-and-accelerators",
+      "top_mechanisms": [
+        {
+          "mechanism": "asymmetric-gemm-tile-buffering",
+          "record_count": 1
+        },
+        {
+          "mechanism": "asynchronous-dia-gnn-csr-cim",
+          "record_count": 1
+        },
+        {
+          "mechanism": "pruned-approximate-adaptive-posit-deepseek-pe",
+          "record_count": 1
+        },
+        {
+          "mechanism": "global-expert-ranked-mixed-precision-moe",
+          "record_count": 1
+        },
+        {
+          "mechanism": "analog-cim-rl-mpc-uav-control",
+          "record_count": 1
+        },
+        {
+          "mechanism": "degree-aware-band-segmented-gcn-cache",
+          "record_count": 1
+        },
+        {
+          "mechanism": "partitioned-csc-spmm-reservation-buffer",
+          "record_count": 1
+        },
+        {
+          "mechanism": "mask-stage-aware-mxint-diffusion",
+          "record_count": 1
+        },
+        {
+          "mechanism": "channel-dma-multibatch-pim-execution",
+          "record_count": 1
+        },
+        {
+          "mechanism": "palette-enhancement-tricore-video",
+          "record_count": 1
+        },
+        {
+          "mechanism": "heterogeneous-zkvm-trace-generation",
+          "record_count": 1
+        },
+        {
+          "mechanism": "dual-ring-sparse-var-3d-memory",
+          "record_count": 1
+        }
+      ]
+    },
+    {
+      "condition_presence": {
+        "baselines": 8,
+        "hardware_or_process_assumptions": 10,
+        "metrics": 9,
+        "workload_or_benchmark": 10
+      },
+      "record_count": 10,
+      "source_tiers": {
+        "official_description": 10
+      },
+      "subtheme_counts": {
+        "3d-stacking-and-thermal-management": 4,
+        "chiplet-partitioning-and-integration": 2,
+        "package-system-co-design": 4
+      },
+      "theme_id": "chiplets-3d-and-packaging",
+      "top_mechanisms": [
+        {
+          "mechanism": "cooling-aware-point-transformer-thermal-surrogate",
+          "record_count": 1
+        },
+        {
+          "mechanism": "cross-layer-eflash-thermal-stabilization",
+          "record_count": 1
+        },
+        {
+          "mechanism": "multimodal-physics-diffusion-thermal-reconstruction",
+          "record_count": 1
+        },
+        {
+          "mechanism": "wafer-scale-stitching-interposer-cost-model",
+          "record_count": 1
+        },
+        {
+          "mechanism": "backside-monolithic-3d-noc-dtco",
+          "record_count": 1
+        },
+        {
+          "mechanism": "hybrid-bonded-logic-tree-speculation",
+          "record_count": 1
+        },
+        {
+          "mechanism": "early-timing-informed-chiplet-partition-physical-planning",
+          "record_count": 1
+        },
+        {
+          "mechanism": "pde-pretrained-neural-operator-thermal-transfer",
+          "record_count": 1
+        },
+        {
+          "mechanism": "presynthesis-timing-guided-differentiable-tier-partition",
+          "record_count": 1
+        },
+        {
+          "mechanism": "glass-interposer-double-sided-pixel-rdl-routing",
+          "record_count": 1
+        }
+      ]
+    },
+    {
+      "condition_presence": {
+        "baselines": 43,
+        "hardware_or_process_assumptions": 47,
+        "metrics": 36,
+        "workload_or_benchmark": 47
+      },
+      "record_count": 47,
+      "source_tiers": {
+        "official_description": 47
+      },
+      "subtheme_counts": {
+        "high-level-synthesis-and-compilers": 21,
+        "optimization-and-search-methods": 13,
+        "reproducibility-artifacts-and-benchmarks": 5,
+        "synthesis-and-compilation": 8
+      },
+      "theme_id": "design-methodology-and-tooling",
+      "top_mechanisms": [
+        {
+          "mechanism": "noise-aware-bayesian-in-pixel-dtco",
+          "record_count": 1
+        },
+        {
+          "mechanism": "packing-probability-aware-flut-mapping",
+          "record_count": 1
+        },
+        {
+          "mechanism": "bootstrapping-aware-encrypted-cnn-sparsity",
+          "record_count": 1
+        },
+        {
+          "mechanism": "point-sampling-pruning-interlayer-cache",
+          "record_count": 1
+        },
+        {
+          "mechanism": "constraint-programmed-heterogeneous-dnn-deployment",
+          "record_count": 1
+        },
+        {
+          "mechanism": "loss-modeled-binary-optical-combiner-synthesis",
+          "record_count": 1
+        },
+        {
+          "mechanism": "adaptive-dynamic-shape-operator-tuning",
+          "record_count": 1
+        },
+        {
+          "mechanism": "uncoarsening-integrated-memetic-partitioning",
+          "record_count": 1
+        },
+        {
+          "mechanism": "prototype-calibrated-c2c-bayesian-exploration",
+          "record_count": 1
+        },
+        {
+          "mechanism": "community-guided-post-coarsening-partitioning",
+          "record_count": 1
+        },
+        {
+          "mechanism": "iterative-diving-neutral-atom-routing",
+          "record_count": 1
+        },
+        {
+          "mechanism": "pim-graph-dma-layout-fusion",
+          "record_count": 1
+        }
+      ]
+    },
+    {
+      "condition_presence": {
+        "baselines": 46,
+        "hardware_or_process_assumptions": 48,
+        "metrics": 36,
+        "workload_or_benchmark": 48
+      },
+      "record_count": 48,
+      "source_tiers": {
+        "official_description": 48
+      },
+      "subtheme_counts": {
+        "chiplet-and-on-chip-interconnect": 5,
+        "data-movement-and-locality": 26,
+        "memory-hierarchy-and-persistence": 17
+      },
+      "theme_id": "memory-interconnect-and-storage",
+      "top_mechanisms": [
+        {
+          "mechanism": "head-sensitive-prefix-kv-retrieval",
+          "record_count": 1
+        },
+        {
+          "mechanism": "adaptive-kv-prediction-decoupled-prefetch",
+          "record_count": 1
+        },
+        {
+          "mechanism": "transfer-aware-xpu-ndp-mapping-search",
+          "record_count": 1
+        },
+        {
+          "mechanism": "loss-triggered-adaptive-huffman-gnn-communication",
+          "record_count": 1
+        },
+        {
+          "mechanism": "cpu-storage-speculative-ann-reranking",
+          "record_count": 1
+        },
+        {
+          "mechanism": "miss-constrained-bit-sliced-expert-cache",
+          "record_count": 1
+        },
+        {
+          "mechanism": "density-adaptive-hnsw-quantization-reranking",
+          "record_count": 1
+        },
+        {
+          "mechanism": "per-flow-async-tsn-shaping",
+          "record_count": 1
+        },
+        {
+          "mechanism": "erasure-coded-distributed-prefix-kv",
+          "record_count": 1
+        },
+        {
+          "mechanism": "destination-aggregated-spike-packets",
+          "record_count": 1
+        },
+        {
+          "mechanism": "aging-aware-intradevice-parity-striping",
+          "record_count": 1
+        },
+        {
+          "mechanism": "preemptible-pim-dual-path-subarray",
+          "record_count": 1
+        }
+      ]
+    },
+    {
+      "condition_presence": {
+        "baselines": 43,
+        "hardware_or_process_assumptions": 44,
+        "metrics": 27,
+        "workload_or_benchmark": 44
+      },
+      "record_count": 44,
+      "source_tiers": {
+        "official_description": 44
+      },
+      "subtheme_counts": {
+        "floorplanning-and-power-delivery": 9,
+        "placement-routing-and-timing": 17,
+        "process-aware-design": 13,
+        "timing-analysis-and-optimization": 5
+      },
+      "theme_id": "physical-design-and-manufacturing",
+      "top_mechanisms": [
+        {
+          "mechanism": "symmetric-attention-multinode-capacitance-surrogate",
+          "record_count": 1
+        },
+        {
+          "mechanism": "differentiable-shot-level-mdp-ilt",
+          "record_count": 1
+        },
+        {
+          "mechanism": "analytic-hybrid-net-pin-timing-weights",
+          "record_count": 1
+        },
+        {
+          "mechanism": "frequency-conditioned-sam-sem-contours",
+          "record_count": 1
+        },
+        {
+          "mechanism": "discrete-differentiable-placement-sizing",
+          "record_count": 1
+        },
+        {
+          "mechanism": "learned-net-logic-slack-fpga-placement",
+          "record_count": 1
+        },
+        {
+          "mechanism": "gpu-multilevel-layout-pattern-matching",
+          "record_count": 1
+        },
+        {
+          "mechanism": "graph-ilp-rerouting-ground-plane-unification",
+          "record_count": 1
+        },
+        {
+          "mechanism": "hybrid-grid-maze-detailed-routing",
+          "record_count": 1
+        },
+        {
+          "mechanism": "physics-reference-residual-active-cell-timing",
+          "record_count": 1
+        },
+        {
+          "mechanism": "gpu-numerical-neural-3d-lithography",
+          "record_count": 1
+        },
+        {
+          "mechanism": "logic-circuit-doubleheight-library-cooptimization",
+          "record_count": 1
+        }
+      ]
+    },
+    {
+      "condition_presence": {
+        "baselines": 52,
+        "hardware_or_process_assumptions": 60,
+        "metrics": 46,
+        "workload_or_benchmark": 60
+      },
+      "record_count": 60,
+      "source_tiers": {
+        "official_description": 60
+      },
+      "subtheme_counts": {
+        "accelerator-reliability": 10,
+        "energy-and-thermal-efficiency": 5,
+        "fault-tolerance-and-reliability": 8,
+        "reliability-and-fault-tolerance": 2,
+        "side-channel-and-hardware-security": 35
+      },
+      "theme_id": "power-reliability-and-security",
+      "top_mechanisms": [
+        {
+          "mechanism": "encrypted-rram-bnn-with-intrinsic-puf",
+          "record_count": 1
+        },
+        {
+          "mechanism": "act-triggered-in-subarray-row-counting",
+          "record_count": 1
+        },
+        {
+          "mechanism": "functional-weight-tier-hardening-adaptive-pruning",
+          "record_count": 1
+        },
+        {
+          "mechanism": "fault-model-analysis-of-postquantum-signatures",
+          "record_count": 1
+        },
+        {
+          "mechanism": "cross-component-system-cache-leakage",
+          "record_count": 1
+        },
+        {
+          "mechanism": "decoupled-gnn-fit-ranking-calibration",
+          "record_count": 1
+        },
+        {
+          "mechanism": "age-budgeted-expert-checkpointing",
+          "record_count": 1
+        },
+        {
+          "mechanism": "interaction-aware-simultaneous-dnn-fault-injection",
+          "record_count": 1
+        },
+        {
+          "mechanism": "cross-gpu-transfer-power-model",
+          "record_count": 1
+        },
+        {
+          "mechanism": "arm-pa-bti-compiler-defense",
+          "record_count": 1
+        },
+        {
+          "mechanism": "counter-sampled-counting-thread-coscheduling",
+          "record_count": 1
+        },
+        {
+          "mechanism": "compiler-ir-multitask-accelerator-power-model",
+          "record_count": 1
+        }
+      ]
+    },
+    {
+      "condition_presence": {
+        "baselines": 52,
+        "hardware_or_process_assumptions": 56,
+        "metrics": 41,
+        "workload_or_benchmark": 56
+      },
+      "record_count": 56,
+      "source_tiers": {
+        "official_description": 56
+      },
+      "subtheme_counts": {
+        "datacenter-and-cloud-systems": 21,
+        "edge-embedded-and-mobile-systems": 24,
+        "scientific-robotics-and-domain-workloads": 11
+      },
+      "theme_id": "systems-applications-and-workloads",
+      "top_mechanisms": [
+        {
+          "mechanism": "disconnection-tolerant-satellite-split-learning",
+          "record_count": 1
+        },
+        {
+          "mechanism": "sliding-window-offloaded-llm-finetuning",
+          "record_count": 1
+        },
+        {
+          "mechanism": "oracle-imitation-thermal-kernel-scheduling",
+          "record_count": 1
+        },
+        {
+          "mechanism": "unified-elastic-activation-kv-memory",
+          "record_count": 1
+        },
+        {
+          "mechanism": "cross-request-vla-prefill-decode-pipeline",
+          "record_count": 1
+        },
+        {
+          "mechanism": "huma-bandwidth-planned-llm-pipeline",
+          "record_count": 1
+        },
+        {
+          "mechanism": "dag-gpu-kernel-parallelism-timing-analysis",
+          "record_count": 1
+        },
+        {
+          "mechanism": "branch-divergent-gpu-block-wcet-analysis",
+          "record_count": 1
+        },
+        {
+          "mechanism": "overlap-consistent-neural-domain-decomposition",
+          "record_count": 1
+        },
+        {
+          "mechanism": "cpu-fpga-stream-item-frequency-decoding",
+          "record_count": 1
+        },
+        {
+          "mechanism": "compact-quantized-cnn-visual-wakeup",
+          "record_count": 1
+        },
+        {
+          "mechanism": "edge-latent-physics-coupled-waveform-inversion",
+          "record_count": 1
+        }
+      ]
+    },
+    {
+      "condition_presence": {
+        "baselines": 39,
+        "hardware_or_process_assumptions": 50,
+        "metrics": 37,
+        "workload_or_benchmark": 50
+      },
+      "record_count": 50,
+      "source_tiers": {
+        "official_description": 50
+      },
+      "subtheme_counts": {
+        "formal-and-functional-verification": 14,
+        "hardware-security-validation": 11,
+        "simulation-emulation-and-testing": 25
+      },
+      "theme_id": "verification-and-validation",
+      "top_mechanisms": [
+        {
+          "mechanism": "probability-programmed-per-chain-lbist",
+          "record_count": 1
+        },
+        {
+          "mechanism": "level-balanced-structure-adaptive-gpu-lu",
+          "record_count": 1
+        },
+        {
+          "mechanism": "topological-order-balanced-emulation-scheduling",
+          "record_count": 1
+        },
+        {
+          "mechanism": "modular-counter-handshake-invariant-proofs",
+          "record_count": 1
+        },
+        {
+          "mechanism": "sharing-aware-parallel-cec-partitioning",
+          "record_count": 1
+        },
+        {
+          "mechanism": "context-conditioned-neural-circuit-simulation",
+          "record_count": 1
+        },
+        {
+          "mechanism": "snn-layer-neuron-adversarial-robustness-testing",
+          "record_count": 1
+        },
+        {
+          "mechanism": "unifieddb-instruction-fuzzing-online-differential",
+          "record_count": 1
+        },
+        {
+          "mechanism": "anomalous-token-randomized-vit-patch-defense",
+          "record_count": 1
+        },
+        {
+          "mechanism": "sat-sweeping-hierarchy-boundary-recovery",
+          "record_count": 1
+        },
+        {
+          "mechanism": "learned-prior-incontext-yield-corners",
+          "record_count": 1
+        },
+        {
+          "mechanism": "spec-derived-iot-behavior-oracles",
+          "record_count": 1
+        }
+      ]
+    }
+  ]
+}

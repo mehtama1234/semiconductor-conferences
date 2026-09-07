@@ -1873,3 +1873,9 @@ equivalence checking, LLM-assisted DRC repair, reconfigurable systolic arrays,
 Ising optimization, diffusion-language-model serving, parasitic extraction,
 hardware-Trojan detection, asymmetric quantization, and MoE scheduling; P2
 routing now covers 448 of 541 lower-priority records.
+
+The condition-aware deep theme profile is now materialized at
+`data/deep-theme-profile-v1.json` and `reports/deep-theme-profile-v1.md`. It
+summarizes subthemes, mechanisms, and workload/hardware/baseline/metric
+missingness across the 494 coded description records; it remains selected-sample
+synthesis and does not establish prevalence or temporal direction.
