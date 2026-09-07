@@ -15,5 +15,5 @@
   "conditions": "C++/Taskflow, gcc-11 -O2; reported i7, 16 cores, 3.80GHz; seven designs, stuck-at wire/register faults, no fault dropping. ERASER uses one core; VCS force/release comparison uses 16. Exact CPU SKU and VCS version unresolved.",
   "jpeg_table_II": {"runtime_seconds": {"eraser_1_core": 7214.8, "vcs_16_cores": 1450.0, "riros_16_cores": 592.0}, "reported_speedups": [11.3, 2.3], "recomputed_speedups": [12.187, 2.449], "status": "ratios disagree beyond displayed rounding; cause unknown"},
   "limits": ["Reported headline averages withheld; do not silently replace source values.", "Cross-tool speedup is not equal-core algorithmic scaling or functional-safety certification."],
-  "next_action": "Code mechanism conservatively; capture original abstract, resolve Table II against artifact or corrected manuscript, then independent review."
+  "next_action": "Mechanism coding and original abstract capture integrated; resolve Table II against artifact or corrected manuscript, then independent review."
 }

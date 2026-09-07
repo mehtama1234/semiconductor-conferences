@@ -17,6 +17,7 @@ organized around technical questions, not just conference names.
 - [Synthesis reference reconciliation](synthesis-mapping-review-2026-09-06.md)
 - [Evidence-derived taxonomy](../data/taxonomy-v1-evidence.json)
 - [Detailed taxonomy and coding guide](taxonomy-coding-guide-v1.md)
+- [Scheduling versus physical surrogates: different validation requirements](../iccad/reports/scheduling-versus-surrogates-v1.md)
 - [Adversarial judge protocol](adversarial-judge-protocol-v1.md)
 - [Adversarial review status](adversarial-review-status-v1.md)
 - [Review packets and source-capture gaps](review-packets.md)

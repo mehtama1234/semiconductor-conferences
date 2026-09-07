@@ -21,7 +21,8 @@
     "iccad/data/adjudicated-2025-batch-5.jsonl",
     "iccad/data/adjudicated-2025-batch-6.jsonl",
     "iccad/data/adjudicated-2025-batch-7.jsonl",
-    "iccad/data/adjudicated-2025-batch-8.jsonl"
+    "iccad/data/adjudicated-2025-batch-8.jsonl",
+    "iccad/data/adjudicated-2025-batch-9.jsonl"
   ],
   "status": "provisional_until_full_corpus_adjudication",
   "taxonomy_version": "v1-evidence-derived",
@@ -183,6 +184,9 @@
     {
       "label": "Physical design and manufacturing",
       "subsubthemes": {
+        "parasitic-extraction-and-modeling": [
+          "geometry-conditioned-layer-specific-capacitance-surrogates"
+        ],
         "placement-routing-and-timing": [
           "differentiable-clock-tree-synthesis",
           "fpga-accelerated-design-rule-checking",
@@ -198,6 +202,7 @@
       },
       "subthemes": [
         "floorplanning-and-power-delivery",
+        "parasitic-extraction-and-modeling",
         "placement-routing-and-timing",
         "process-aware-design",
         "timing-analysis-and-optimization"
@@ -266,6 +271,7 @@
           "structure-guided-llm-sva-generation"
         ],
         "simulation-emulation-and-testing": [
+          "dependency-aware-two-dimensional-rtl-fault-simulation",
           "llm-assisted-hls-logic-debugging",
           "uncertainty-guided-adaptive-sar-adc-linearity-measurement"
         ]

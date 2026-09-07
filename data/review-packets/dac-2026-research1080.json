@@ -50,6 +50,9 @@
   "taxonomy_branch": {
     "label": "Physical design and manufacturing",
     "subsubthemes": {
+      "parasitic-extraction-and-modeling": [
+        "geometry-conditioned-layer-specific-capacitance-surrogates"
+      ],
       "placement-routing-and-timing": [
         "differentiable-clock-tree-synthesis",
         "fpga-accelerated-design-rule-checking",
@@ -65,6 +68,7 @@
     },
     "subthemes": [
       "floorplanning-and-power-delivery",
+      "parasitic-extraction-and-modeling",
       "placement-routing-and-timing",
       "process-aware-design",
       "timing-analysis-and-optimization"

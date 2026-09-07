@@ -4,6 +4,21 @@ The governing scope and acceptance criteria are in [GOAL.md](../GOAL.md).
 This log distinguishes finished work from queued work; a plan is not a completed
 research result.
 
+RIROS/capacitance coding batch: added two mechanism-specific records with empty
+headline metrics and pending independent review. Original abstracts captured with
+matching titles and source hashes. Coding reaches 82 (49 DAC, 16 ISCA, 17 ICCAD).
+The new [deep comparison](../iccad/reports/scheduling-versus-surrogates-v1.md)
+distinguishes semantic-preserving scheduling from approximate physical surrogates
+and their different validation requirements. Regenerate taxonomy, summaries,
+queue and review packets; keep table/holdout objections attached. Next: reconcile
+the flagged evaluations against implementation or corrected primary sources,
+continue ordered source recovery, and pursue independent review without
+mislabeling deterministic checks as acceptance.
+All 133 tests pass after integration. Packets contain 49 official descriptions,
+30 original abstracts and three source gaps; 23 packets include supplementary
+assessments. Deterministic preflight reports 69 pass / 13 review, with no
+independent acceptance. Updated follow-up actions and regenerated their hashes.
+
 Regular-paper technical recovery 114/1142: exact author sources recovered for
 RIROS and capacitance ML; selected full-text assessments and PDF hashes recorded.
 Visual table checks confirm a RIROS JPEG runtime/ratio discrepancy; capacitance

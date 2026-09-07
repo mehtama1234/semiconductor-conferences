@@ -16,5 +16,5 @@
   "reported_setup": {"database_hours": 1.8, "training_days": 2, "additional_training_hours": 2.3, "locator": "Table IV"},
   "holdout_review": "38nm is called unseen but Section VI.A uses it for hyperparameter-selection loss. Not a demonstrated untouched test; no proof of direct training leakage. Errors increase near range boundaries.",
   "limits": ["Predictive-PDK evaluation is not silicon validation or demonstrated cross-library transfer.", "Fast inference does not establish amortized end-to-end DTCO acceleration."],
-  "next_action": "Code the surrogate mechanism; capture original abstract; audit split/model-selection protocol and amortization before accepting generalization or speedup."
+  "next_action": "Mechanism coding and original abstract capture integrated; audit split/model-selection protocol and amortization before accepting generalization or speedup."
 }

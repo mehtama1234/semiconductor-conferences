@@ -16,7 +16,7 @@ def test_source_matching_ignores_session_only_and_requires_identity():
 
 def test_packets_do_not_promote_summaries_or_leak_synthesis():
     packets, summary = build(ROOT)
-    assert summary["packet_count"] == 80
+    assert summary["packet_count"] == 82
     assert summary["synthesis_anchor_count"] == len(set(summary["synthesis_anchor_ids"]))
     assert summary["independent_review_count"] == 0
     mtia = next(p for p in packets if p["paper_id"] == "isca-2026-program-069")
@@ -35,3 +35,14 @@ def test_audit_never_compares_uncaptured_summary_with_itself():
     assert uncaptured["evidence_overlap"] is None
     assert uncaptured["status"] == "review"
     assert result["review_count"] > 0
+
+
+def test_new_iccad_mechanisms_keep_original_text_and_objections_separate():
+    packets, _ = build(ROOT)
+    selected = [p for p in packets if p["paper_id"] in {"iccad-2025-114", "iccad-2025-1142"}]
+    assert len(selected) == 2
+    for packet in selected:
+        assert packet["source_text_status"] == "captured_original_abstract"
+        assert packet["original_source_text"]
+        assert packet["supplementary_researcher_assessments"]
+        assert not packet["independent_verdicts"]
