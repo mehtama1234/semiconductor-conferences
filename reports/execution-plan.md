@@ -4,7 +4,7 @@ Latest bounded coding increment: five DAC descriptions were added for hardware
 interrupt security, AI-inspired FPGA acceleration of post-quantum LPN,
 graph-neural analog circuit simulation and inverse design, workload-aware NUMA
 storage coordination, and scalable simultaneous DNN fault injection. The sample
-is now 185 records (DAC 148, ISCA 16, ICCAD 21); deterministic preflight is 169
+is now 190 records (DAC 153, ISCA 16, ICCAD 21); deterministic preflight is 174
 pass / 16 review. These records deepen thematic coverage but remain provisional
 until source-condition extraction and independent review.
 
@@ -14,6 +14,12 @@ dynamic SSD parity management, and correlation-aware photonic GKP decoding. It r
 the selected sample to 185 records (DAC 148, ISCA 16, ICCAD 21); all five remain
 official-description evidence pending paper-level condition checks and independent
 review.
+
+The next batch adds KCD-CAM point-cloud acceleration, DFA-DRIVE thermal delay-fault
+analysis, graph-based in-vehicle attack traceback, CIM-MP on-device personalization,
+and ATLAS threat-to-assertion security verification. The selected sample is now 190
+records (DAC 153, ISCA 16, ICCAD 21); these remain description-level evidence pending
+full-paper and independent review.
 
 DAC SatSFL description-coding batch: added `dac-2026-research1011` from the
 official program description. The record captures intermittent asymmetric

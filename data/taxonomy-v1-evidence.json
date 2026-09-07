@@ -36,6 +36,7 @@
     "dac/data/adjudicated-2026-batch-22.jsonl",
     "dac/data/adjudicated-2026-batch-23.jsonl",
     "dac/data/adjudicated-2026-batch-24.jsonl",
+    "dac/data/adjudicated-2026-batch-25.jsonl",
     "iccad/data/adjudicated-2025-batch-3.jsonl",
     "iccad/data/adjudicated-2025-batch-4.jsonl",
     "iccad/data/adjudicated-2025-batch-5.jsonl",
@@ -135,7 +136,9 @@
         ],
         "specialized-accelerators-and-dataflow": [
           "correlation-aware-gkp-decoder-acceleration",
-          "lpn-post-quantum-crypto-acceleration"
+          "lpn-post-quantum-crypto-acceleration",
+          "noise-robust-cim-on-device-personalization",
+          "reram-cam-point-cloud-knn-acceleration"
         ],
         "specialized-ai-accelerators": [
           "adaptive-sparsity-hyper-dimensional-graph-learning",
@@ -317,7 +320,8 @@
           "full-stack-npu-fault-mitigation",
           "layer-adaptive-analog-cim-ecc",
           "lifetime-aware-nvm-fpga-reconfiguration",
-          "operator-aware-fault-tolerant-scheduling"
+          "operator-aware-fault-tolerant-scheduling",
+          "thermal-delay-fault-aware-driving-perception"
         ],
         "energy-and-thermal-efficiency": [
           "ml-early-thermal-placement-optimization",
@@ -337,6 +341,7 @@
           "adversarial-attacks-on-moe-offloading",
           "compiler-transient-execution-defense",
           "cross-component-slc-cache-covert-channel",
+          "cross-domain-in-vehicle-attack-traceback",
           "deterministic-semi-virtual-memory-safety",
           "diffusion-model-watermarking-acceleration",
           "gpu-power-thermal-transformer-side-channel-leakage",
@@ -391,7 +396,8 @@
       "label": "Verification and validation",
       "subsubthemes": {
         "formal-analysis-and-verification": [
-          "branch-divergence-gpu-wcet-analysis"
+          "branch-divergence-gpu-wcet-analysis",
+          "llm-threat-to-assertion-soc-verification"
         ],
         "formal-and-functional-verification": [
           "hidden-pmu-reverse-engineering-and-covert-channel",
