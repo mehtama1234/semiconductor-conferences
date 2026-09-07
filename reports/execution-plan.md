@@ -4,6 +4,15 @@ The governing scope and acceptance criteria are in [GOAL.md](../GOAL.md).
 This log distinguishes finished work from queued work; a plan is not a completed
 research result.
 
+Primary-depth increment: ATB's downloaded v1 PDF was rendered and visually
+checked at page 6 (Tables 2–3 and Section 6.3). The numerical mismatch is printed
+in the source, not introduced by HTML extraction. Its assessment now records PDF
+checksum, page locators and a dated arXiv version check (only v1 listed).
+Headline speedup remains withheld; revisit requires corrected source material or
+matched-workload evidence. This is same-agent source verification, not independent
+acceptance. Corpus counts are unchanged. Continue depth work on other synthesis
+anchors while this source-level discrepancy remains unresolved.
+
 Milestone: the final seven DAC 2026 descriptions (959, 962, 976, 983, 986,
 989, 999) bring current drafts to 494. Together with the original 49-record DAC
 sample, all 543 descriptions now have initial coding; none remains uncoded.

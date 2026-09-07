@@ -14,7 +14,27 @@
   },
   "raw_capture_path": "dac/data/raw/atb-2511.16041v1.html",
   "raw_sha256": "ed8d997011bc82b2f7c0f464a8452588ceab902ec23722c43e182851e367eaa2",
-  "extraction_scope": "HTML evaluation sections and tables; PDF text corroborates abstract; no visual PDF table inspection",
+  "extraction_scope": "HTML evaluation sections and tables; PDF text corroborates abstract; visual inspection of PDF page 6 Tables 2 and 3",
+  "pdf_verification": {
+    "check_date": "2026-09-06",
+    "url": "https://arxiv.org/pdf/2511.16041v1",
+    "sha256": "d35bb74884088ef68bcc07fb815b5e3399175b874f3e34ca524b5846a88536a3",
+    "page_number": 6,
+    "page_index": 5,
+    "locators": ["Table 2 Config 1", "Table 3", "Section 6.3"],
+    "method": "Downloaded PDF rendered locally with PyMuPDF at 2x scale and visually inspected; web screenshot did not display an image.",
+    "finding": "Printed table confirms the HTML values and speedup mismatch; not an HTML extraction artifact.",
+    "review_type": "same_agent_source_verification_not_independent_review"
+  },
+  "version_check": {
+    "check_date": "2026-09-06",
+    "url": "https://arxiv.org/abs/2511.16041",
+    "locator": "Submission history",
+    "versions_listed": ["v1"],
+    "latest_listed_submission_date": "2025-11-20",
+    "limit": "No later arXiv revision listed at this check; does not rule out another proceedings or author version."
+  },
+  "revisit_condition": "Reconcile a corrected author/proceedings version or matched-workload results before reconsidering the headline; repeating HTML extraction cannot resolve the printed inconsistency.",
   "platform": {"name": "AMD Ryzen AI 9 HX 370", "toolchain": "IRON and MLIR-AIE", "locator": "S6.SS1"},
   "config_1_table_rows": [
     {"source": "MLIR-AIE", "matrix_m_k_n": [8192, 4224, 4096], "tflops": 4.8, "locator": "S6.T2"},
