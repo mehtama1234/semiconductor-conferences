@@ -180,6 +180,12 @@ comparison to investigate is the value of cross-layer guidance under a matched
 total evaluation budget—not merely whether expanding the allowed design space
 can produce a better frontier.
 
+Its inspected PDF also prevents reading the direction as uniform dominance:
+a selected power-saving step trades away delay, and some plotted guidance
+directions have negative alignment. These are scoped counterexamples, not proof
+that the overall Pareto result fails. The open question remains net search value
+under comparable evaluation costs.
+
 **Test next.** Compare final independently evaluated feasible solutions at equal
 wall-clock and simulator budgets, including calibration data costs. Report
 misranked candidates and out-of-distribution errors. Small average prediction

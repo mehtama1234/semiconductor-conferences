@@ -94,6 +94,16 @@
   "supplementary_researcher_assessments": [
     {
       "assessment": {
+        "budget_review": {
+          "finding": "Population/generation/top-candidate settings are not total expensive-evaluation counts. Surrogate evaluations differ from circuit simulation and full implementation calls.",
+          "limit": "No equal-budget efficiency conclusion established; this is not proof that experiments used unequal budgets.",
+          "scope": "III system/technology loops and IV setup/results",
+          "unresolved": [
+            "Equal wall-clock or total expensive-call budget across methods",
+            "System-loop sampling and stopping counts for reported runs",
+            "Normalization constants and raw Pareto points"
+          ]
+        },
         "capture_date": "2026-09-06",
         "conditions": {
           "ablations": [
@@ -129,7 +139,7 @@
             "OpenBox 0.8.4"
           ]
         },
-        "extraction_scope": "Sections II-B, III overview, IV-A/B and HTML Table III; figures not visually reconciled.",
+        "extraction_scope": "Sections II-B, III, IV-A/B; PDF page 8 Figures 9-11 and Table III visually checked against versioned source.",
         "headline_metric_status": "withheld_pending_figure_and_budget_review",
         "identity": {
           "authors": [
@@ -153,8 +163,23 @@
           "No deployment or cross-workload generalization established"
         ],
         "mechanism": "System-loop Bayesian exploration directs technology-loop cell fusion and recharacterization through cell criticality and Pareto-normal guidance; neural-assisted differential evolution selects technology parameters.",
-        "next_action": "Integrate primary technical coding and original-source review packet; visually reconcile Figures 9-10 and assess total evaluation budgets before accepting headline gains.",
+        "next_action": "Recover run configuration and Pareto data for budget/normalization reconciliation; obtain independent review. Coding and original-abstract packet are prepared.",
         "paper_id": "iccad-2025-437",
+        "pdf_verification": {
+          "figure_10_B": {
+            "original_delay": 0.605,
+            "original_power": 0.145,
+            "recharacterized_delay": 0.614,
+            "recharacterized_power": 0.131
+          },
+          "figure_11": "Negative cosine similarities are visible; alignment is not universal. No exact negative-case count extracted.",
+          "figure_9": "Normalized axes and reference point confirmed; plot alone cannot reconstruct raw normalization or exact iso-metric pair selection.",
+          "interpretation": "Figure 10 B reduces power while increasing delay; it is not an iso-delay comparison. These selected steps do not reconstruct the headline Pareto comparisons.",
+          "page_one_based": 8,
+          "sha256": "1b808f7c46139817604bf7fa5ca08ca6c1d7e6f8ffe00016fdc8a5096346b9fe",
+          "table_III": "Visual values match the recorded HTML table; 100*(10.727/8.055-1) rounds to 33.2 percent.",
+          "url": "https://arxiv.org/pdf/2509.13029v1"
+        },
         "schema": "primary-source-recovery-assessment.v1",
         "source_id": "iccad-2025-orthrus-arxiv",
         "source_tier": "author_preprint_selected_full_text",
@@ -165,7 +190,7 @@
       "headline_metric_status": "withheld_pending_figure_and_budget_review",
       "independent_review_status": "pending",
       "path": "iccad/data/orthrus-primary-recovery-v1.json",
-      "sha256": "06c7336cd57a2d906cb0e52ed99019d48cfa9af43d2fb33653c30acfcfff3e5a",
+      "sha256": "55bb00e1746ec644045873a015d9bd8156ec87ca9980802cbcb1e9cccd5e3396",
       "source_url": "https://arxiv.org/html/2509.13029v1"
     }
   ],

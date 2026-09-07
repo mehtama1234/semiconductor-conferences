@@ -12,6 +12,18 @@ from scripts.build_work_queue import build as build_queue
 ROOT = Path(__file__).resolve().parents[1]
 
 
+def test_orthrus_pdf_tradeoff_and_hypervolume_arithmetic():
+    row = json.loads((ROOT / "iccad/data/orthrus-primary-recovery-v1.json").read_text())
+    figure = row["pdf_verification"]["figure_10_B"]
+    assert figure["recharacterized_power"] < figure["original_power"]
+    assert figure["recharacterized_delay"] > figure["original_delay"]
+    values = row["conditions"]["table_III_HV_times_1e_minus2"]
+    assert round(100 * (values["orthrus"] / values["baseline"] - 1), 1) == 33.2
+    assert len(row["pdf_verification"]["sha256"]) == 64
+    assert row["budget_review"]["unresolved"]
+    assert row["independent_review_status"] == "pending"
+
+
 def test_supplements_reach_queue_and_both_packet_types_without_promotion():
     supplements = load(ROOT)
     iccad_items = supplements.pop("iccad-2025-1")

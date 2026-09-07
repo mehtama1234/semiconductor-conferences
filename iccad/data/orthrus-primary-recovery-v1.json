@@ -6,7 +6,7 @@
   "source_url": "https://arxiv.org/html/2509.13029v1",
   "capture_date": "2026-09-06",
   "source_tier": "author_preprint_selected_full_text",
-  "extraction_scope": "Sections II-B, III overview, IV-A/B and HTML Table III; figures not visually reconciled.",
+  "extraction_scope": "Sections II-B, III, IV-A/B; PDF page 8 Figures 9-11 and Table III visually checked against versioned source.",
   "independent_review_status": "pending",
   "headline_metric_status": "withheld_pending_figure_and_budget_review",
   "identity": {
@@ -25,5 +25,21 @@
     "technology_search": {"population": 100, "generations": 20, "top_candidates": 5, "maximum_iterations": 2}
   },
   "limits": ["Hypervolume is not application speedup", "Iso-power and iso-delay comparisons are separate operating points", "Equal total search cost, normalization details and figure correspondence require further checking", "No deployment or cross-workload generalization established"],
-  "next_action": "Integrate primary technical coding and original-source review packet; visually reconcile Figures 9-10 and assess total evaluation budgets before accepting headline gains."
+  "pdf_verification": {
+    "url": "https://arxiv.org/pdf/2509.13029v1",
+    "sha256": "1b808f7c46139817604bf7fa5ca08ca6c1d7e6f8ffe00016fdc8a5096346b9fe",
+    "page_one_based": 8,
+    "table_III": "Visual values match the recorded HTML table; 100*(10.727/8.055-1) rounds to 33.2 percent.",
+    "figure_9": "Normalized axes and reference point confirmed; plot alone cannot reconstruct raw normalization or exact iso-metric pair selection.",
+    "figure_10_B": {"original_power": 0.145, "recharacterized_power": 0.131, "original_delay": 0.605, "recharacterized_delay": 0.614},
+    "figure_11": "Negative cosine similarities are visible; alignment is not universal. No exact negative-case count extracted.",
+    "interpretation": "Figure 10 B reduces power while increasing delay; it is not an iso-delay comparison. These selected steps do not reconstruct the headline Pareto comparisons."
+  },
+  "budget_review": {
+    "scope": "III system/technology loops and IV setup/results",
+    "finding": "Population/generation/top-candidate settings are not total expensive-evaluation counts. Surrogate evaluations differ from circuit simulation and full implementation calls.",
+    "unresolved": ["Equal wall-clock or total expensive-call budget across methods", "System-loop sampling and stopping counts for reported runs", "Normalization constants and raw Pareto points"],
+    "limit": "No equal-budget efficiency conclusion established; this is not proof that experiments used unequal budgets."
+  },
+  "next_action": "Recover run configuration and Pareto data for budget/normalization reconciliation; obtain independent review. Coding and original-abstract packet are prepared."
 }

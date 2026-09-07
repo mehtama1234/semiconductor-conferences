@@ -4,6 +4,14 @@ The governing scope and acceptance criteria are in [GOAL.md](../GOAL.md).
 This log distinguishes finished work from queued work; a plan is not a completed
 research result.
 
+Orthrus PDF check: visually reconciled page 8, Figures 9-11 and Table III,
+recording the PDF hash. Table arithmetic matches; Figure 10 B trades lower power
+for higher delay, and Figure 11 includes negative alignment cases. Full-budget
+equivalence and normalization/iso-point reconstruction remain unresolved, not
+disproved. Updated direction 5 with these scoped counterexamples. Next: recover
+run/Pareto data where available and continue coding undercovered primary papers;
+no independent acceptance or headline promotion follows from visual checking.
+
 Orthrus integrated as ICCAD batch 3 with primary-source locators, a provisional
 dual-loop STCO taxonomy branch, and no accepted numerical headline. Current
 coding totals 74 (49 DAC, 16 ISCA, 9 ICCAD). Original abstract capture required
