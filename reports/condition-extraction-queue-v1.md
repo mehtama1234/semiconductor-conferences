@@ -172,6 +172,11 @@ microscaling, post-quantum edge security, GPU hypergraph partitioning, wafer-sca
 cost modeling, CPU-GPU MoE execution, multi-vector retrieval, learned approximate
 arithmetic, voltage side-channel analysis, stochastic computing, and encrypted
 sparse multiplication.
+The forty-seventh P2 tranche is recorded in
+`reports/p2-recovery-batch-47-2026-09-07.md`, continuing the DAC frontier across
+CXL-tiered graph search, edge LLM optimization, in-memory quantization, 3D/3nm
+NoC DTCO, photonic ZKPs, encrypted databases, IR-drop-aware placement,
+drift-resilient RRAM, heterogeneous mobile RAG, and FPGA-tool fault injection.
 The thirty-first P2 tranche is recorded in
 `reports/p2-recovery-batch-31-2026-09-07.md`, continuing the DAC frontier across
 prefix-KV retrieval, video enhancement, zero-knowledge tracing, emulation

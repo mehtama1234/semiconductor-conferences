@@ -178,6 +178,10 @@ gates still open**.
   security, GPU hypergraph partitioning, wafer-scale cost modeling, CPU-GPU MoE
   execution, multi-vector retrieval, approximate arithmetic, voltage side-channel
   analysis, stochastic computing, and encrypted sparse multiplication.
+- A forty-seventh P2 routing tranche covering CXL-tiered graph search, edge LLM
+  optimization, in-memory quantization, 3D/3nm NoC DTCO, photonic ZKPs,
+  encrypted databases, IR-drop-aware placement, drift-resilient RRAM, mobile
+  RAG orchestration, and FPGA-tool fault injection.
 - A condition-aware deep theme profile over the 494 coded description records,
   with subtheme/mechanism routing and explicit workload, hardware, baseline, and
   metric missingness. It is selected-sample synthesis only.

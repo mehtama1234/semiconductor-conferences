@@ -1878,6 +1878,11 @@ edge security, GPU hypergraph partitioning, wafer-scale cost modeling, CPU-GPU
 MoE execution, multi-vector retrieval, approximate arithmetic, voltage
 side-channel analysis, stochastic computing, and encrypted sparse multiplication;
 P2 routing now covers 458 of 541 lower-priority records.
+The forty-seventh P2 tranche adds ten DAC routes across CXL-tiered graph search,
+edge LLM optimization, in-memory quantization, 3D/3nm NoC DTCO, photonic ZKPs,
+encrypted databases, IR-drop-aware placement, drift-resilient RRAM, mobile RAG,
+and FPGA-tool fault injection; P2 routing now covers 468 of 541 lower-priority
+records.
 
 The condition-aware deep theme profile is now materialized at
 `data/deep-theme-profile-v1.json` and `reports/deep-theme-profile-v1.md`. It
