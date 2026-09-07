@@ -4,6 +4,17 @@ The governing scope and acceptance criteria are in [GOAL.md](../GOAL.md).
 This log distinguishes finished work from queued work; a plan is not a completed
 research result.
 
+Ordered recovery 1144/1148/1149: GAIA institutional abstract adds glass-storage
+placement and scheduling mechanisms, explicitly distinct from glass packaging.
+Its first/third author spellings differ from program and author-lab listings;
+retain identity uncertainty and withhold coding/metrics. MIRAGE has an indexed
+publisher abstract but direct browser opening supplied no usable text. The exact
+analog-agent publication appears on Peng Li's author page, but its linked publisher
+route did not return technical text. Logged all three outcomes with specific next
+actions; no secondary manuscript is substituted. Supplements reach 28; coded
+sample remains 82. Next: resolve GAIA identity, retrieve original MIRAGE text and
+the exact analog-agent manuscript, then continue with COPA in the ordered queue.
+
 Revision/artifact follow-through for RIROS and capacitance ML: retrieved RIROS v2
 and confirmed that its Table II retains the JPEG discrepancy. Located the exact
 capacitance author project page, whose configuration counts differ from the

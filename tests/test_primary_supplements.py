@@ -67,6 +67,9 @@ def test_supplements_reach_queue_and_both_packet_types_without_promotion():
     nimch = supplements.pop("iccad-2025-1111")[0]["assessment"]
     uglms = supplements.pop("iccad-2025-1117")[0]["assessment"]
     riros = supplements.pop("iccad-2025-114")[0]["assessment"]
+    gaia = supplements.pop("iccad-2025-1144")[0]["assessment"]
+    assert gaia["identity"]["program_and_lab_authors"] != gaia["identity"]["institutional_authors"]
+    assert gaia["headline_metric_status"] == "withheld_pending_identity_and_simulation_conditions"
     capacitance = supplements.pop("iccad-2025-1142")[0]["assessment"]
     runtime = riros["jpeg_table_II"]["runtime_seconds"]
     ratios = [runtime[key] / runtime["riros_16_cores"] for key in ["eraser_1_core", "vcs_16_cores"]]
@@ -98,7 +101,7 @@ def test_supplements_reach_queue_and_both_packet_types_without_promotion():
     assert squat["independent_review_status"] == "pending"
     assert set(supplements) == {"dac-2026-research031", "dac-2026-research043", "dac-2026-research046", "dac-2026-research1000", "dac-2026-research1028", "dac-2026-research1054", "dac-2026-research1065", "dac-2026-research108", "dac-2026-research1101", "dac-2026-research1110", "dac-2026-research1113", "dac-2026-research1182", "dac-2026-research1186", "dac-2026-research535", "dac-2026-research865", "dac-2026-research2760", "dac-2025-research1019"}
     rows, summary, _ = build_queue(ROOT)
-    assert summary["supplementary_assessment_paper_count"] == 27
+    assert summary["supplementary_assessment_paper_count"] == 28
     queue = {r["paper_id"]: r for r in rows}
     packets, coverage = build_packets(ROOT)
     drafts = build_drafts(ROOT)
