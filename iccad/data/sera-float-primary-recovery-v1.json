@@ -1,0 +1,36 @@
+{
+  "schema": "primary-source-recovery-assessment.v1",
+  "paper_id": "iccad-2025-1109",
+  "title": "SERA-Float: A Soft Error Resilient Approximate Floating-Point Computing Format",
+  "source_id": "iccad-2025-sera-inria-report",
+  "source_url": "https://radar.inria.fr/report/2025/taran/index.html",
+  "capture_date": "2026-09-06",
+  "source_tier": "institutional_team_report",
+  "extraction_scope": "SERA-Float technical summary and bibliography item 50; not HAL manuscript/full text.",
+  "independent_review_status": "pending",
+  "headline_metric_status": "withheld_pending_fault_model_and_energy_boundary",
+  "identity": {
+    "authors": [
+      "Vishesh Mishra",
+      "Marcello Traiola",
+      "Angeliki Kritikakou",
+      "Olivier Sentieys",
+      "Urbi Chatterjee"
+    ],
+    "status": "title_and_five_authors_match_program_via_team_bibliography",
+    "manuscript_lead": "https://hal.science/hal-05333255v1",
+    "manuscript_access": "web tool could not open; no manuscript content extracted"
+  },
+  "mechanism": "Approximate floating-point representation protects sign/exponent with error correction, retains eight valid mantissa bits, and tracks exception-sensitive bits.",
+  "reported_claims": {
+    "energy": "Up to 80.3% energy saving per multiplication",
+    "accuracy": "0.9% DNN inference accuracy reduction; percentage-point convention unresolved"
+  },
+  "limits": [
+    "Per-multiplication energy is not whole-system or full-inference energy.",
+    "Fault model, injection coverage, ECC overhead, arithmetic baseline and process conditions remain unverified.",
+    "Exception-avoidance summary does not establish immunity to arbitrary faults.",
+    "Institutional report is not full-paper extraction or independent acceptance."
+  ],
+  "next_action": "Recover HAL manuscript and verify fault model, numeric format, energy accounting and accuracy convention before coding."
+}

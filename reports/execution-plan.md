@@ -4,6 +4,20 @@ The governing scope and acceptance criteria are in [GOAL.md](../GOAL.md).
 This log distinguishes finished work from queued work; a plan is not a completed
 research result.
 
+Ordered ICCAD recovery 1098/11/1109: the matching-title standard-cell GDS
+repository cites a 2026 journal submission with a changed author list, so it is
+not promoted as the 2025 artifact. Gau++ is a student-research oral entry on
+official program page 75; extraction has merged presenter Lizhou Wu into the
+title and treated affiliation as authors. Queued visual verification, targeted
+repair and related-entry scope audit. SERA-Float has an Inria team technical
+summary and five-author bibliography match, with HAL manuscript still unrecovered.
+Recorded per-multiplication energy versus inference accuracy boundaries; no
+universal fault-resilience or system-energy claim is adopted. Supplements: 23;
+coded papers: 77; independent acceptance: zero. Next priority is the newly
+identified SRC metadata/scope defect, followed by SERA-Float manuscript recovery.
+Queue regeneration, validation and 111 tests passed. Existing tests do not prove
+SRC title boundaries or paper-type comparability; those are explicit open defects.
+
 Qudit abstract coding: added ICCAD paper 1094 with institutional-abstract depth,
 empty metrics/baselines and explicit unresolved noise/validation conditions.
 The taxonomy now distinguishes noise-aware transmon qutrit control-device

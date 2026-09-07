@@ -63,6 +63,9 @@ def test_supplements_reach_queue_and_both_packet_types_without_promotion():
     orthrus_items = supplements.pop("iccad-2025-437")
     hlps = supplements.pop("iccad-2025-109")[0]["assessment"]
     qudit = supplements.pop("iccad-2025-1094")[0]["assessment"]
+    sera = supplements.pop("iccad-2025-1109")[0]["assessment"]
+    assert sera["source_tier"] == "institutional_team_report"
+    assert len(sera["identity"]["authors"]) == 5
     assert qudit["source_tier"] == "author_posted_abstract"
     assert len(qudit["identity"]["authors"]) == 4
     assert "Architecture" in qudit["identity"]["observed_title"]
@@ -78,7 +81,7 @@ def test_supplements_reach_queue_and_both_packet_types_without_promotion():
     assert squat["independent_review_status"] == "pending"
     assert set(supplements) == {"dac-2026-research031", "dac-2026-research043", "dac-2026-research046", "dac-2026-research1000", "dac-2026-research1028", "dac-2026-research1054", "dac-2026-research1065", "dac-2026-research108", "dac-2026-research1101", "dac-2026-research1110", "dac-2026-research1113", "dac-2026-research1182", "dac-2026-research1186", "dac-2026-research535", "dac-2026-research865", "dac-2026-research2760", "dac-2025-research1019"}
     rows, summary, _ = build_queue(ROOT)
-    assert summary["supplementary_assessment_paper_count"] == 22
+    assert summary["supplementary_assessment_paper_count"] == 23
     queue = {r["paper_id"]: r for r in rows}
     packets, coverage = build_packets(ROOT)
     drafts = build_drafts(ROOT)
