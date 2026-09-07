@@ -29,6 +29,7 @@
     "dac/data/adjudicated-2026-batch-15.jsonl",
     "dac/data/adjudicated-2026-batch-16.jsonl",
     "dac/data/adjudicated-2026-batch-17.jsonl",
+    "dac/data/adjudicated-2026-batch-18.jsonl",
     "iccad/data/adjudicated-2025-batch-3.jsonl",
     "iccad/data/adjudicated-2025-batch-4.jsonl",
     "iccad/data/adjudicated-2025-batch-5.jsonl",
@@ -123,6 +124,7 @@
         "specialized-ai-accelerators": [
           "adaptive-sparsity-hyper-dimensional-graph-learning",
           "arbitrary-order-cam-distance-acceleration",
+          "dynamic-iterative-graph-cim",
           "masked-diffusion-stagewise-mixed-precision",
           "multiplication-fused-llm-dot-product-acceleration",
           "secure-posit-edge-deepseek-processing",
@@ -209,7 +211,8 @@
           "heterogeneous-pim-graph-rag-retrieval",
           "io-efficient-prefix-kv-retrieval",
           "multi-chip-sparse-matrix-communication-co-design",
-          "near-memory-communication-lower-bounds"
+          "near-memory-communication-lower-bounds",
+          "speculative-in-storage-ann"
         ],
         "memory-hierarchy-and-persistence": [
           "3d-stacked-dram-llm-inference",
@@ -323,6 +326,7 @@
       "subsubthemes": {
         "datacenter-and-cloud-systems": [
           "elastic-unified-llm-memory-management",
+          "gnn-rl-energy-cloud-placement",
           "hardware-aware-multi-llm-routing",
           "serverless-elastic-moe-scaling",
           "slo-aware-llm-dvfs"
@@ -348,7 +352,9 @@
         "formal-and-functional-verification": [
           "hidden-pmu-reverse-engineering-and-covert-channel",
           "hierarchical-learning-for-sequential-formal-analysis",
+          "invariant-guided-riscv-crypto-verification",
           "llm-agentic-rtl-verification",
+          "llm-safety-fault-criticality",
           "multi-agent-sva-generation",
           "structure-guided-llm-sva-generation"
         ],
