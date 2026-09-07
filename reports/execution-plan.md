@@ -4,6 +4,13 @@ The governing scope and acceptance criteria are in [GOAL.md](../GOAL.md).
 This log distinguishes finished work from queued work; a plan is not a completed
 research result.
 
+DySHARP integrated into primary technical coding (ISCA batch 9): main evaluation
+is simulated training, with layer/full-model and exploratory top-k distinctions.
+No numerical headline accepted. Current coded total becomes 73 (ISCA 16), with
+four remaining secondary-only papers. Review packet preparation is not acceptance;
+DySHARP original-text capture remains an explicit gap. Next: source capture and
+remaining named-author ISCA recovery, alongside ICCAD coverage expansion.
+
 ISCA primary recovery: DySHARP (program-058) now has an exact preprint/all-13-author
 match and selected mechanism extraction in isca/data/dysharp-recovery-v1.json.
 The primary source explicitly describes simulated hardware. Next immediate batch:

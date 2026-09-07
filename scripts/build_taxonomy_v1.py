@@ -14,6 +14,7 @@ def rows(path: Path) -> list[dict]:
 def build(root: Path) -> dict:
     taxonomy = json.loads((root / "data/taxonomy-v0.json").read_text(encoding="utf-8"))
     adjudicated = rows(root / "dac/data/adjudicated-2026-batch.jsonl") + rows(root / "dac/data/adjudicated-2026-batch-2.jsonl") + rows(root / "dac/data/adjudicated-2026-batch-3.jsonl") + rows(root / "dac/data/adjudicated-2026-batch-4.jsonl") + rows(root / "iccad/data/adjudicated-2025-batch.jsonl") + rows(root / "iccad/data/adjudicated-2025-batch-2.jsonl") + rows(root / "isca/data/adjudicated-2026-batch.jsonl") + rows(root / "isca/data/adjudicated-2026-batch-2.jsonl") + rows(root / "isca/data/adjudicated-2026-batch-3.jsonl") + rows(root / "isca/data/adjudicated-2026-batch-4.jsonl") + rows(root / "isca/data/adjudicated-2026-batch-5.jsonl") + rows(root / "isca/data/adjudicated-2026-batch-6.jsonl") + rows(root / "isca/data/adjudicated-2026-batch-7.jsonl") + rows(root / "isca/data/adjudicated-2026-batch-8.jsonl")
+    adjudicated += rows(root / "isca/data/adjudicated-2026-batch-9.jsonl")
     by_theme = {theme["theme_id"]: theme for theme in taxonomy["themes"]}
     for record in adjudicated:
         theme = by_theme[record["theme_id"]]
@@ -34,6 +35,7 @@ def build(root: Path) -> dict:
         "derived_from": ["dac/data/adjudicated-2026-batch.jsonl", "dac/data/adjudicated-2026-batch-2.jsonl", "dac/data/adjudicated-2026-batch-3.jsonl", "dac/data/adjudicated-2026-batch-4.jsonl", "iccad/data/adjudicated-2025-batch.jsonl", "iccad/data/adjudicated-2025-batch-2.jsonl", "isca/data/adjudicated-2026-batch.jsonl", "isca/data/adjudicated-2026-batch-2.jsonl", "isca/data/adjudicated-2026-batch-3.jsonl", "isca/data/adjudicated-2026-batch-4.jsonl", "isca/data/adjudicated-2026-batch-5.jsonl", "isca/data/adjudicated-2026-batch-6.jsonl", "isca/data/adjudicated-2026-batch-7.jsonl", "isca/data/adjudicated-2026-batch-8.jsonl"],
         "themes": sorted(taxonomy["themes"], key=lambda theme: theme["theme_id"]),
     }
+    output["derived_from"].append("isca/data/adjudicated-2026-batch-9.jsonl")
     (root / "data/taxonomy-v1-evidence.json").write_text(json.dumps(output, indent=2, sort_keys=True) + "\n", encoding="utf-8")
     return {"theme_count": len(output["themes"]), "adjudicated_records": len(adjudicated), "output": "data/taxonomy-v1-evidence.json"}
 

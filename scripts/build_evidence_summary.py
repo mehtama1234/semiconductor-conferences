@@ -23,6 +23,7 @@ PATHS = (
     "isca/data/adjudicated-2026-batch-6.jsonl",
     "isca/data/adjudicated-2026-batch-7.jsonl",
     "isca/data/adjudicated-2026-batch-8.jsonl",
+    "isca/data/adjudicated-2026-batch-9.jsonl",
 )
 REQUIRED_TECHNICAL_FIELDS = (
     "problem",

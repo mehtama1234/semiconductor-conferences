@@ -9,7 +9,8 @@ path latency are separate quantities. A memory/interconnect hypothesis should
 therefore test their relationship rather than equating fewer bytes with a faster
 application. No numerical result is accepted in this checkpoint.
 
-Next: extract experimental conditions, code the paper, and add a source-separated
-review packet before updating corpus counts. The older secondary-only queue label
-has not yet been regenerated from a new coded record; it must not be read as an
-absence of a recovered primary source after this checkpoint.
+Update: selected conditions are now coded in batch 9 and routed to a review
+packet. The main experiments concern training; the packet explicitly awaits
+original-source text capture and independent review. The regenerated queue no
+longer classifies this paper as secondary-only. Numerical extraction remains
+withheld pending figure reconciliation.

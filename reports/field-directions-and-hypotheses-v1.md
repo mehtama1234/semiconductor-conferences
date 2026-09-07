@@ -15,7 +15,8 @@ independent markets, and not a partition for counting papers.
 
 The evidence base is asymmetric. All 543 DAC 2026 descriptions have initial
 coding, but most lack full-paper conditions. The original cross-conference sample
-contains 72 records (49 DAC, 15 ISCA, 8 ICCAD), none independently accepted here.
+began with 72 records; current coding contains 73 (49 DAC, 16 ISCA, 8 ICCAD),
+none independently accepted here.
 ICCAD technical evidence uses the explicit 2025 fallback. The
 [source-linked direction map](../data/technology-direction-evidence-v1.json)
 and [coverage queue](research-work-queue.md) identify the supporting records.

@@ -3,9 +3,9 @@
   "conference_counts": {
     "dac": 49,
     "iccad": 8,
-    "isca": 15
+    "isca": 16
   },
-  "distinct_subsubtheme_count": 71,
+  "distinct_subsubtheme_count": 72,
   "limits": [
     "Official descriptions and abstracts compress experimental conditions; numerical comparisons still require paper/table review.",
     "The adjudication sample is selected for recoverable evidence and diversity, so theme counts cannot be read as venue-wide frequencies.",
@@ -28,22 +28,24 @@
     "stable": 2,
     "up": 27
   },
-  "missing_field_counts": {},
-  "record_count": 72,
+  "missing_field_counts": {
+    "metrics": 1
+  },
+  "record_count": 73,
   "records_with_all_required_technical_fields": 72,
   "selection_warning": "This is a selected adjudication sample, not a conference prevalence estimate or market forecast.",
   "source_tier_counts": {
     "company_author_source": 2,
     "institutional_abstract": 1,
     "official_description": 49,
-    "primary_or_author_copy": 20
+    "primary_or_author_copy": 21
   },
   "subtheme_counts": {
     "ai-assisted-eda/learned-design-space-exploration": 2,
     "ai-assisted-eda/llm-assisted-design-flows": 6,
     "analog-mixed-signal-and-emerging-devices/neuromorphic-quantum-and-non-von-neumann": 3,
     "architecture-and-accelerators/ai-accelerator-microarchitecture": 3,
-    "architecture-and-accelerators/architecture-software-co-design": 7,
+    "architecture-and-accelerators/architecture-software-co-design": 8,
     "architecture-and-accelerators/specialized-ai-accelerators": 5,
     "chiplets-3d-and-packaging/3d-stacking-and-thermal-management": 3,
     "chiplets-3d-and-packaging/chiplet-partitioning-and-integration": 1,
@@ -71,7 +73,7 @@
   "theme_counts": {
     "ai-assisted-eda": 8,
     "analog-mixed-signal-and-emerging-devices": 3,
-    "architecture-and-accelerators": 15,
+    "architecture-and-accelerators": 16,
     "chiplets-3d-and-packaging": 5,
     "design-methodology-and-tooling": 7,
     "memory-interconnect-and-storage": 12,
@@ -80,5 +82,5 @@
     "systems-applications-and-workloads": 1,
     "verification-and-validation": 5
   },
-  "unreviewed_adversarial_judge_count": 72
+  "unreviewed_adversarial_judge_count": 73
 }

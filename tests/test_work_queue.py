@@ -11,13 +11,13 @@ def test_queue_preserves_inventory_and_evidence_boundaries():
     rows, summary, _ = build(ROOT)
     by_id = unique_index(rows)
     assert len(rows) == sum(summary["corpus_counts"].values()) == 1546
-    assert summary["coded_count"] == 72
+    assert summary["coded_count"] == 73
     # Secondary CODO is an alias of a primary-backed paper, not a seventh paper.
     codo = by_id["isca-2026-program-002"]
     assert codo["secondary_alias_id"] == "isca-2026-codo"
     assert codo["collection_status"] == "cited_technical_source"
     assert codo["paper_id"] not in summary["secondary_pending_ids"]
-    assert len(summary["secondary_pending_ids"]) == 5
+    assert len(summary["secondary_pending_ids"]) == 4
     assert by_id["isca-2026-program-158"]["identity_status"] == "missing_title_requires_inventory_review"
     assert not by_id["isca-2026-program-158"]["title_denominator_included"]
     assert summary["eligible_title_counts"]["isca-2026"] == 172
