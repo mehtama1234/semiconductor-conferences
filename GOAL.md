@@ -170,3 +170,6 @@ separately so collection and packet preparation can continue.
 
 Current progress and concrete tasks live in
 [`reports/execution-plan.md`](reports/execution-plan.md).
+The current requirement matrix and release boundary are in
+[`reports/release-readiness-v1.md`](reports/release-readiness-v1.md) and
+[`reports/evidence-gap-register-v1.md`](reports/evidence-gap-register-v1.md).
