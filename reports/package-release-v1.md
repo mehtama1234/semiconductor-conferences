@@ -182,6 +182,10 @@ gates still open**.
   optimization, in-memory quantization, 3D/3nm NoC DTCO, photonic ZKPs,
   encrypted databases, IR-drop-aware placement, drift-resilient RRAM, mobile
   RAG orchestration, and FPGA-tool fault injection.
+- A forty-eighth P2 routing tranche covering resilient LLM inference,
+  memory-constrained MoE scheduling, sub-bit compression, LLM reference-model
+  verification, generative circuit design, ReRAM CIM, graph timing prediction,
+  physics-prior compact modeling, KV-cache offload, and device simulation.
 - A condition-aware deep theme profile over the 494 coded description records,
   with subtheme/mechanism routing and explicit workload, hardware, baseline, and
   metric missingness. It is selected-sample synthesis only.

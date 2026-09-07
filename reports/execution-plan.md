@@ -1883,6 +1883,11 @@ edge LLM optimization, in-memory quantization, 3D/3nm NoC DTCO, photonic ZKPs,
 encrypted databases, IR-drop-aware placement, drift-resilient RRAM, mobile RAG,
 and FPGA-tool fault injection; P2 routing now covers 468 of 541 lower-priority
 records.
+The forty-eighth P2 tranche adds ten DAC routes across resilient LLM inference,
+memory-constrained MoE scheduling, sub-bit compression, LLM reference-model
+verification, generative circuit design, ReRAM CIM, graph timing prediction,
+physics-prior compact modeling, KV-cache offload, and device simulation; P2
+routing now covers 478 of 541 lower-priority records.
 
 The condition-aware deep theme profile is now materialized at
 `data/deep-theme-profile-v1.json` and `reports/deep-theme-profile-v1.md`. It

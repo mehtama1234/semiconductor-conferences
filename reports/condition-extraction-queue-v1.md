@@ -256,6 +256,23 @@ advanced routing, equivalence checking, LLM-assisted DRC repair, reconfigurable
 systolic arrays, Ising optimization, diffusion-language-model serving, parasitic
 extraction, hardware-Trojan detection, asymmetric quantization, and MoE
 scheduling.
+The forty-sixth P2 tranche is recorded in
+`reports/p2-recovery-batch-46-2026-09-07.md`, continuing the DAC frontier across
+microscaling, post-quantum edge security, GPU hypergraph partitioning, wafer-scale
+cost modeling, CPU-GPU MoE execution, multi-vector retrieval, learned approximate
+arithmetic, voltage side-channel analysis, stochastic computing, and encrypted
+sparse multiplication.
+The forty-seventh P2 tranche is recorded in
+`reports/p2-recovery-batch-47-2026-09-07.md`, continuing the DAC frontier across
+CXL-tiered graph search, edge LLM optimization, in-memory quantization, 3D/3nm
+NoC DTCO, photonic ZKPs, encrypted databases, IR-drop-aware placement,
+drift-resilient RRAM, heterogeneous mobile RAG, and FPGA-tool fault injection.
+The forty-eighth P2 tranche is recorded in
+`reports/p2-recovery-batch-48-2026-09-07.md`, continuing the DAC frontier across
+resilient LLM inference, memory-constrained MoE scheduling, sub-bit compression,
+LLM reference-model verification, generative circuit design, ReRAM CIM, graph
+timing prediction, physics-prior compact modeling, KV-cache offload, and device
+simulation.
 
 The categories overlap by design: P0 is a remediation priority, while P1/P2
 describe evidence depth. The former P0 records are retained in
