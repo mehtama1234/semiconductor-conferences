@@ -125,6 +125,11 @@ The twenty-second P2 tranche is recorded in
 disaggregated training, MoE/MLLM serving, accelerator scheduling, flexible
 precision, LLM/SNN/FPGA compute, computational-memory offload, PIM compilation,
 and near-cache locality.
+The twenty-third P2 tranche is recorded in
+`reports/p2-recovery-batch-23-2026-09-07.md`. It routes the eight remaining
+titled ISCA records (166–173), covering near-cache, hybrid PIM/3D-DRAM,
+reconfigurable SIMT, graph transformers, zero-knowledge proofs, sparse matrix
+engines, and embodied-AI planning; IDs 174–175 have no titled inventory rows.
 
 The categories overlap by design: P0 is a remediation priority, while P1/P2
 describe evidence depth. The former P0 records are retained in

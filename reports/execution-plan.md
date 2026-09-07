@@ -82,6 +82,11 @@ MoE/MLLM serving, accelerator scheduling, flexible precision, LLM/SNN/FPGA
 compute, computational-memory offload, and PIM compilation; P2 routing now
 covers 220 of 541 lower-priority records.
 
+The twenty-third P2 tranche routes the eight remaining titled ISCA records in
+the current program suffix (166–173); IDs 174–175 are blank inventory slots.
+P2 routing now covers 228 of 541 lower-priority records, with blank-slot
+accounting preserved rather than silently treating absent titles as papers.
+
 Primary recovery batch 3 is recorded in
 `reports/isca-primary-recovery-batch-3-2026-09-07.md`: SPEC CPU and KernelEvolve
 have exact author preprints; Rowhammer has official deployment context plus a
