@@ -295,7 +295,7 @@ def test_reproducibility_manifest_has_build_and_validation_commands() -> None:
 
 def test_root_synthesis_preserves_evidence_asymmetry_and_next_requirements() -> None:
     text = (ROOT / "reports/technology-direction-synthesis-v1.md").read_text()
-    assert "581-record technical coding sample" in text
+    assert "582-record technical coding sample" in text
     assert "not 319 regular papers" in text
     assert "not a prevalence estimate" in text
     assert "independent adversarial LLM or human review" in text

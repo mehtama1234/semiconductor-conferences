@@ -21,7 +21,7 @@ not mean the scientific claim has independent acceptance.
 
 ## Immediate execution order
 
-1. Resolve the 3 deterministic-review rows, starting with the three packets
+1. Resolve the 4 deterministic-review rows, starting with the three packets
    lacking comparable original text (`isca-2026-program-044`,
    `iccad-2025-1`, and `iccad-2025-1137`).
 2. Obtain independent human/model review for the resulting packets; never count

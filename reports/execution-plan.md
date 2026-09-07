@@ -2,7 +2,7 @@
 
 Current checkpoint: 1,589 inventory records are routed; 582 selected records
 have provisional technical coding (DAC 544, ISCA 17, ICCAD 21). The current DAC
-description queue is complete. The next bounded work is the 3-record preflight
+description queue is complete. The next bounded work is the 4-record preflight
 remediation queue, followed by full-paper condition extraction and independent
 review. See `reports/condition-extraction-queue-v1.md`.
 
@@ -30,8 +30,8 @@ Latest bounded coding increment: five DAC descriptions were added for hardware
 interrupt security, AI-inspired FPGA acceleration of post-quantum LPN,
 graph-neural analog circuit simulation and inverse design, workload-aware NUMA
 storage coordination, and scalable simultaneous DNN fault injection. The sample
-is now 581 records (DAC 544, ISCA 16, ICCAD 21); deterministic preflight is 578
-pass / 3 review. These records deepen thematic coverage but remain provisional
+is now 582 records (DAC 544, ISCA 17, ICCAD 21); deterministic preflight is 578
+pass / 4 review. These records deepen thematic coverage but remain provisional
 until source-condition extraction and independent review.
 
 The subsequent five-record batch covers verifiable TEE CPU availability, automated
