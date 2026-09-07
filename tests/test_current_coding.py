@@ -10,7 +10,7 @@ def test_current_drafts_preserve_identity_and_numeric_disagreement():
     rows = read_jsonl(ROOT / "data/current-description-coding-v1.jsonl")
     sources = {r["paper_id"]: r for r in read_jsonl(ROOT / "dac/data/paper-evidence-2026.jsonl")}
     branches = {r["theme_id"]: r["subthemes"] for r in json.loads((ROOT / "data/taxonomy-v1-evidence.json").read_text())["themes"]}
-    assert len(rows) == len({r["paper_id"] for r in rows}) == 475
+    assert len(rows) == len({r["paper_id"] for r in rows}) == 481
     for row in rows:
         for key in ["title", "evidence_url", "analysis_edition", "evidence_collection_date"]:
             assert row[key] == sources[row["paper_id"]][key]
@@ -350,3 +350,7 @@ def test_current_drafts_preserve_identity_and_numeric_disagreement():
     assert chimera["metrics"][0]["metric"] == "TFHE performance improvement"
     mach = next(r for r in rows if r["paper_id"] == "dac-2026-research897")
     assert mach["metrics"][2]["qualifier"] == "author-reported"
+    leap = next(r for r in rows if r["paper_id"] == "dac-2026-research906")
+    assert "not 99% classification accuracy" in leap["limits"][0]
+    will = next(r for r in rows if r["paper_id"] == "dac-2026-research931")
+    assert will["metrics"][3]["value"] == 2.59
