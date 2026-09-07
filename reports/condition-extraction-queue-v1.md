@@ -209,6 +209,11 @@ IoT protocol fuzzing, self-evolved EDA, Verilog-A/MRAM co-optimization,
 page-table-walk attacks, FPGA compiler testing, post-quantum LPN acceleration,
 factored floating-point MACs, sparse LLM inference, log-schema extraction, and
 cooling-aware package thermal prediction.
+The thirty-ninth P2 tranche is recorded in
+`reports/p2-recovery-batch-39-2026-09-07.md`, continuing the DAC frontier across
+CIM security, agentic testbench generation, chip-layout pretraining, hybrid-bonded
+3D eFlash thermal stability, SSD aging, BEV detection NAS, compressed GEMM, SNN
+co-design, embodied VLA speculative decoding, and silicon thermal reconstruction.
 
 The categories overlap by design: P0 is a remediation priority, while P1/P2
 describe evidence depth. The former P0 records are retained in

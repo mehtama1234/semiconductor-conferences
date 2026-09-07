@@ -132,6 +132,9 @@ gates still open**.
 - A thirty-eighth P2 routing tranche continuing the DAC frontier across IoT
   fuzzing, self-evolved EDA, MRAM co-optimization, side channels, FPGA testing,
   post-quantum crypto, MACs, sparse LLMs, log schemas, and package cooling.
+- A thirty-ninth P2 routing tranche continuing the DAC frontier across CIM
+  security, agentic testbenches, layout pretraining, 3D eFlash thermal stability,
+  SSD aging, BEV NAS, compressed GEMM, SNNs, VLA decoding, and thermal diffusion.
 - A third ISCA primary-recovery batch covering SPEC CPU, KernelEvolve, and
   Rowhammer with source-tier-specific limits.
 - A fourth ISCA primary-recovery batch covering GRAINS, Triage, and Coset

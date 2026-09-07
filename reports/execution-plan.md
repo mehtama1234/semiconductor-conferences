@@ -96,6 +96,11 @@ self-evolved EDA, Verilog-A/MRAM co-optimization, page-table-walk attacks, FPGA
 compiler testing, post-quantum LPN acceleration, factored floating-point MACs,
 sparse LLM inference, log-schema extraction, and cooling-aware package thermal
 prediction; P2 routing now covers 378 of 541 lower-priority records.
+The thirty-ninth P2 tranche adds ten DAC routes across CIM security, agentic
+testbench generation, chip-layout pretraining, hybrid-bonded 3D eFlash thermal
+stability, SSD aging, BEV detection NAS, compressed GEMM, SNN co-design, embodied
+VLA speculative decoding, and silicon thermal reconstruction; P2 routing now
+covers 388 of 541 lower-priority records.
 
 The sixteenth P2 tranche adds ten ISCA routes across RISC-V GPU/ASIP co-design,
 DRAM reliability and RowHammer defenses, chiplet PHY/package simulation, and
