@@ -13,6 +13,12 @@ abstract language. The deterministic preflight moved from 562/19 to 578/3
 (pass/review) without changing any independent-review verdicts. A fresh web
 recheck confirms the remaining three rows are genuine original-text gaps.
 
+Secondary-source recovery follow-up (2026-09-07): MLX, HBM-CASO, and ConServe
+were rechecked against author publication pages, DOI records, and indexed
+summaries. Identity and secondary mechanism summaries remain available, but no
+permitted manuscript or original abstract was recovered; all three remain
+secondary-only and are not promoted into the primary technical sample.
+
 Latest bounded coding increment: five DAC descriptions were added for masked
 ML-DSA root-of-trust optimization, community-aware hardware-Trojan detection,
 AlphaZero generative AIG synthesis, ReRAM ECC timing recovery, and wafer-level
