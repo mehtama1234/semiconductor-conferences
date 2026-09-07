@@ -19,7 +19,7 @@ and protocol/coding-guide hashes. All 582 packets currently have
 4. Resolve disagreements with a human adjudicator or a documented third review.
 5. Preserve the packet hash and reviewer identity/mode with every verdict.
 
-The deterministic preflight currently reports 578 pass and 3 review. It is a
+The deterministic preflight currently reports 579 pass and 3 review. It is a
 routing check only and must not be copied into the independent-verdict fields.
 Three packets still require original-source text capture before source-entailment
 review; the remaining packets still require full-paper condition checks.
@@ -34,7 +34,7 @@ Reviewers should return one copy of
 placeholders and preserving packet hash, independence declaration, field-level
 locators, objections, and overall verdict.
 
-The deterministic remediation order for the 4 packets flagged for missing or
+The deterministic remediation order for the 3 packets flagged for missing or
 weak preflight support is recorded in
 `reports/review-remediation-queue-v1.md`. That routing aid is not an independent
 verdict.

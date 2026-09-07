@@ -67,6 +67,13 @@ Use when the primary contribution changes hardware organization, execution,
 memory placement, or architecture/software coordination. Keep EDA tooling in
 AI-assisted EDA or design methodology when the artifact is the design flow.
 
+The `distributed-and-wafer-scale-inference` branch is reserved for wafer-scale
+or similarly distributed LLM execution where topology-aware mapping, routing,
+and fault handling are the mechanism. Use `fault-tolerant-wafer-scale-llm-
+mapping` only when the evidence names both the distributed topology/mapping
+problem and an explicit fault-tolerance or degraded-node mechanism; an ordinary
+distributed inference accelerator belongs in the closest existing branch.
+
 Observed sub-subskills:
 
 - `ai-accelerator-microarchitecture` family — datapath, buffering, PIM, or

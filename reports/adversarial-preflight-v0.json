@@ -5114,13 +5114,13 @@
       "taxonomy_valid": true
     },
     {
-      "evidence_overlap": null,
+      "evidence_overlap": 0.851,
       "fields_present": true,
       "paper_id": "isca-2026-program-060",
-      "provenance_url_valid": false,
-      "source_comparison_status": "original_source_text_missing_or_unmatched",
-      "status": "review",
-      "taxonomy_valid": false
+      "provenance_url_valid": true,
+      "source_comparison_status": "captured_original_text_compared",
+      "status": "pass",
+      "taxonomy_valid": true
     },
     {
       "evidence_overlap": 0.333,
@@ -5242,7 +5242,7 @@
   ],
   "judge_mode": "deterministic_preflight_not_llm",
   "limits": "A passing preflight does not establish truth, novelty, importance, or full-corpus representativeness; adversarial LLM/human review remains required.",
-  "pass_count": 578,
+  "pass_count": 579,
   "record_count": 582,
-  "review_count": 4
+  "review_count": 3
 }

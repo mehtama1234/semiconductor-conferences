@@ -26,8 +26,7 @@ gates still open**.
 - Temporal pilot comparisons and title-shift routing signals, all bounded by an
   explicit insufficient-evidence finding for directional claims.
 - A 118-artifact reproducibility manifest and a passing validation/test suite.
-- A remediation queue for the 4 packets requiring source capture or field-level
-  reconciliation before independent review.
+- A remediation queue for the 3 packets requiring source capture before review.
 
 ## What users may conclude
 
