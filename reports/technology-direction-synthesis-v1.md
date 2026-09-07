@@ -86,6 +86,11 @@ as official-description cases spanning CXL, near-memory processing, and KV-cache
 management. ICCAD’s Tasa connects bandwidth and memory placement to 3D-stacked
 thermal constraints in the 2025 fallback.
 
+CANNON's [recovery assessment](../dac/reports/cannon-primary-recovery-v1.md)
+records differing official and institutional performance headlines. Numerical
+synthesis is withheld pending reconciliation with recall-matched baselines and
+memory-capacity conditions; reported hardware implementation alone is insufficient.
+
 ### Interpretation and limit
 
 Movement is being treated as part of the computation contract: placement,

@@ -4,6 +4,13 @@ The governing scope and acceptance criteria are in [GOAL.md](../GOAL.md).
 This log distinguishes finished work from queued work; a plan is not a completed
 research result.
 
+CANNON: exact program/lab identity confirmed; lab Paper link is a conference
+homepage rather than a manuscript. Official and institutional speedup headlines
+differ without matching conditions. The recovery supplement now carries this
+unresolved discrepancy, recall/capacity requirements and the unchanged qualitative
+UPVSS comparison boundary into both review packet types. Next: research1101;
+revisit CANNON on a verified manuscript or artifact release.
+
 FLASH3D: official identity and description rechecked alongside the Fuzhou
 announcement; no exact full paper or implementation recovered in the recorded
 searches. The supplement clarifies the DeepOHeat inference-time denominator,

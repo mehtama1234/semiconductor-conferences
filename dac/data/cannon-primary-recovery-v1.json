@@ -1,0 +1,32 @@
+{
+  "schema": "primary-source-recovery-assessment.v1",
+  "paper_id": "dac-2026-research108",
+  "title": "CANNON: A CXL-Based Near-Memory Processing Architecture for Approximate Nearest Neighbor Search on Real Hardware",
+  "source_id": "dac-2026-cannon-description-recheck",
+  "source_url": "https://63dac.conference-program.com/presentation/?id=RESEARCH108&sess=sess119",
+  "capture_date": "2026-09-06",
+  "source_tier": "official_description",
+  "extraction_scope": "Official description, author-lab publication entry and institutional announcement; no full paper recovered",
+  "recovery_status": "full_paper_not_recovered_in_checked_sources",
+  "identity": {"status": "exact_title_and_nine_authors_match_program_and_lab_entry", "authors": ["Ganghyun Kim", "Hyeonjun An", "Hyunjoon Kim", "Rathijit Sen", "Kangkyu Park", "Jinho Baek", "Kwangsik Shin", "Youngpyo Joo", "Kwanghyun Park"]},
+  "attempts": [
+    {"method": "web_search", "queries": ["\"CANNON\" \"CXL\" paper", "\"Ganghyun Kim\" \"CANNON\"", "\"CANNON\" \"Near-Memory\" arxiv github", "site:bdai.yonsei.ac.kr CANNON"], "outcome": "Official program, author-lab entry and institutional announcement recovered; no exact full paper or implementation recovered."},
+    {"method": "author_lab_publication_entry", "url": "https://bdai.yonsei.ac.kr/conferences.html", "locator": "2026 CANNON entry", "outcome": "Exact title and nine authors; Paper href points to dac.com, Presentation to the official program. No manuscript or Code link in this entry."},
+    {"method": "author_profile_link", "url": "https://bdai.yonsei.ac.kr/team.html", "outcome": "Ganghyun Kim link resolves to team listing, not a manuscript."}
+  ],
+  "description_conditions": {"locator": "Description", "evaluation_modality": "reported implementation on real CXL hardware", "mechanism": "Fully offloaded pipelined ANN dataflow with asynchronous hashing to hide hash-check latency", "baseline_labels": ["CPU", "GPU"], "performance_claim": "up to two orders of magnitude", "limit": "Performance metric, hardware configuration, dataset identities and matched recall absent; implementation claim is not independent reproduction."},
+  "source_discrepancy": {
+    "official_description_claim": "up to two orders of magnitude performance improvement",
+    "institutional_claim": "over 800 times speedup",
+    "institutional_url": "https://ai.yonsei.ac.kr/csai/board/resultBoard.do?articleNo=466612&mode=view",
+    "institutional_publication_date": "2026-03-17",
+    "locator": "CANNON paragraph",
+    "status": "unresolved_scope_or_version_difference",
+    "decision": "Do not replace the official claim with the larger institutional number or assume identical comparison conditions."
+  },
+  "unresolved_conditions": ["Dataset dimensions, population and vector precision", "Recall at k, distance metric and query distribution", "CPU/GPU models, algorithms, tuning and thread counts", "CXL version, topology, device memory capacity, bandwidth and processing logic", "Resident versus out-of-memory baseline regimes and SSD paging costs", "Absolute throughput, median/tail latency, concurrency and batching", "Index build/update costs and memory overhead", "Speculation overhead, redundant work and correctness checks", "Per-case results reconciling the source-level numerical difference"],
+  "interpretation_limits": ["A memory-capacity benefit must not be attributed solely to faster arithmetic or generalized to memory-resident baselines.", "No matched UPVSS comparison is established; the temporal pair remains qualitative, not a performance ranking or replacement trend.", "A real-hardware claim in a description does not establish deployment, independent replication or end-to-end RAG speedup.", "Bounded non-recovery is not proof that the full paper is inaccessible."],
+  "revisit_condition": "Author-lab Paper link changes to a manuscript, or a verified publisher/artifact release supplies recall-matched experimental configurations.",
+  "headline_metric_status": "withheld_pending_source_reconciliation",
+  "independent_review_status": "pending"
+}
