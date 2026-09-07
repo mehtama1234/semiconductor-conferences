@@ -279,7 +279,8 @@ def test_learning_index_links_the_three_workstreams() -> None:
 
 def test_root_synthesis_preserves_evidence_asymmetry_and_next_requirements() -> None:
     text = (ROOT / "reports/technology-direction-synthesis-v1.md").read_text()
-    assert "72-record adjudication sample" in text
+    assert "78-record technical coding sample" in text
+    assert "not 319 regular papers" in text
     assert "not a prevalence estimate" in text
     assert "independent adversarial LLM or human review" in text
     assert "Conference complementarity" in text

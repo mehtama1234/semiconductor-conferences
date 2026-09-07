@@ -1,10 +1,13 @@
 # ICCAD 2026 scope and the 2025 paper fallback
 
 ICCAD is treated as a 2026-first project. The 2026 CFP and official site define
-the target scope, while the complete 2025 program provides the current paper-level
+the target scope, while the captured 2025 program provides the current paper-level
 fallback because the 2026 paper corpus is not yet represented in this repository.
-The 276 fallback rows in `iccad/data/papers-2025-program.jsonl` are metadata-only;
+The 319 fallback rows in `iccad/data/papers-2025-program.jsonl` are metadata-only;
 they are not technical adjudications.
+They include 43 invited papers and ten student presentations, explicitly excluded
+from regular-paper comparisons. The remaining 266 entries require individual
+session-type verification. See the [scope audit](../reports/program-scope-audit-v1.md).
 
 ## What the 2026 CFP says the field can contain
 
@@ -37,7 +40,8 @@ the keywords appear.
 
 ## Fallback corpus status
 
-The 2025 program PDF yielded 276 unique paper identifiers with titles and authors.
+The 2025 program PDF now yields 319 unique numbered entries with titles and authors,
+after recovering 43 invited papers skipped by the original identifier parser.
 For every row:
 
 - `target_edition` remains `2026`;
@@ -48,8 +52,13 @@ For every row:
 
 ## Limits and next step
 
+Thirteen fallback papers have separate technical coding records; these do not
+promote the metadata inventory itself to technical evidence. Independent review
+remains pending. Unnumbered talks and workshop contributions are not covered by
+the numbered-entry completeness check.
+
 The CFP is a scope document, not a prevalence measurement. The 2025 fallback is a
 paper inventory, not evidence that any direction is dominant or increasing. The
-next step is to obtain authorized abstracts/full text for a representative batch,
-adjudicate technical fields, and then compare the 2025 fallback with the eventual
+next step is to expand authorized abstract/full-text recovery, complete paper-type
+classification and technical review, and then compare the 2025 fallback with the eventual
 2026 corpus using the same schema.

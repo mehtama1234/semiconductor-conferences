@@ -162,7 +162,7 @@ def build(root: Path) -> tuple[list[dict], dict, str]:
         "unresolved_isca_doi_ids": [r["paper_id"] for r in queue if "unresolved_isca_doi" in r["priority_reasons"]],
         "collection_counts": dict(sorted(Counter(r["collection_status"] for r in queue).items())),
         "limits": ["Priority is review routing, not importance or prevalence.",
-                   "Inventory title counts include student entries; explicit nonregular flags must be respected in regular-paper comparisons, and untyped entries remain unaudited.",
+                   "Inventory title counts include student and invited entries; explicit nonregular flags must be respected in regular-paper comparisons, and untyped entries remain unaudited.",
                    "Source tier does not establish full-text extraction or independent acceptance.",
                    "Historical challenge/rate-limit outcomes are preserved; metadata-only does not mean inaccessible.",
                    "Independent review remains pending; same-model preliminary review is separate.",
@@ -182,6 +182,9 @@ def build(root: Path) -> tuple[list[dict], dict, str]:
         lines += ["", "## Known inventory omissions", "",
                   f"{len(summary['known_iccad_inventory_omission_ids'])} numbered ICCAD invited-paper entries remain outside the captured-row count.",
                   "[Scope audit and per-ID recovery actions](../iccad/reports/program-scope-audit-v1.md) distinguish omitted entries from missing technical evidence. Their partial heading lines are not title-analysis inputs."]
+    invited_count = sum(row.get("program_entry_type") == "invited_paper" for row in queue)
+    if invited_count:
+        lines += ["", f"ICCAD includes {invited_count} invited papers, explicitly excluded from regular-paper comparisons; see the [scope audit](../iccad/reports/program-scope-audit-v1.md)."]
     lines += ["", "## Supplementary primary assessments", "",
               "These researcher assessments supplement, but do not replace, original evidence or independent review.", ""]
     for paper_id, items in sorted(supplements.items()):

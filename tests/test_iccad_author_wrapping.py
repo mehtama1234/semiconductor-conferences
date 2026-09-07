@@ -25,7 +25,7 @@ def test_repaired_inventory_known_official_examples():
     from pathlib import Path
     root = Path(__file__).resolve().parents[1]
     records = {r["paper_id"]: r for r in map(json.loads, (root / "iccad/data/papers-2025-program.jsonl").read_text().splitlines())}
-    assert len(records) == 276
+    assert len(records) == 319
     assert len(records["iccad-2025-1"]["authors"]) == 7
     assert records["iccad-2025-1"]["authors"][-2:] == ["Yuan Wang {4}", "Xiyuan Tang {1}"]
     assert len(records["iccad-2025-1006"]["authors"]) == 10

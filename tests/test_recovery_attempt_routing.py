@@ -35,6 +35,6 @@ def test_partial_2026_leads_do_not_replace_fallback_or_enter_denominators():
     assert leads["replace_2025_fallback"] is False
     assert leads["status"] == "partial_author_reported_metadata_not_official_inventory"
     rows, summary, _ = build(ROOT)
-    assert summary["corpus_counts"]["iccad-2025"] == 276
+    assert summary["corpus_counts"]["iccad-2025"] == 319
     assert "iccad-2026" not in summary["corpus_counts"]
     assert all(not (r["conference_id"] == "iccad" and r["analysis_edition"] == 2026) for r in rows)

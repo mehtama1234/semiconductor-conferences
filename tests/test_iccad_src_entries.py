@@ -35,9 +35,10 @@ def test_src_repair_is_idempotent_scoped_and_matches_inventory():
 def test_src_entries_remain_in_inventory_but_not_regular_paper_comparisons():
     rows, summary, _ = build(ROOT)
     src = [r for r in rows if r.get("program_entry_type") == "student_research_competition_oral"]
-    assert len(src) == summary["explicit_nonregular_entry_count"] == 10
+    assert len(src) == 10
+    assert summary["explicit_nonregular_entry_count"] == 53
     assert all(r["regular_paper_comparison_eligible"] is False for r in src)
     assert all(r["title_denominator_included"] for r in src)
-    assert summary["corpus_counts"]["iccad-2025"] == 276
+    assert summary["corpus_counts"]["iccad-2025"] == 319
     gau = next(r for r in src if r["paper_id"] == "iccad-2025-11")
     assert "Lizhou" not in gau["title"]

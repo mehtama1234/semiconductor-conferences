@@ -4,6 +4,22 @@ The governing scope and acceptance criteria are in [GOAL.md](../GOAL.md).
 This log distinguishes finished work from queued work; a plan is not a completed
 research result.
 
+Invited-paper recovery: integrated all 43 previously omitted numbered invited
+entries, bringing ICCAD to 319 rows and cross-conference inventory to 1,589.
+All carry invited-paper type, PDF page, full title/authors and false regular-paper
+comparison eligibility. Preserved all prior IDs, metadata and SRC corrections.
+Added bold-title-aware extraction to collector rebuilds; inspected all invited
+title/author text blocks and visually checked single-author cases on page 59 and
+the twelve-author, unmarked Archana/Pandey wrap on page 105. Its boundary has a
+guarded correction. Refreshed the scope audit: zero omitted numbered IDs, while
+unnumbered talks/workshops remain outside this completeness claim. Coding remains
+78 and independent acceptance zero. Next: session-context typing for the 266
+untyped entries, then technical recovery of invited papers in a separate stratum.
+Validation and 123 tests pass. Full retained-PDF collector rebuild matches all 319
+title/author identities and type flags; repeated invited integration is byte-idempotent.
+Updated the root synthesis and ICCAD scope page to distinguish current coverage
+from earlier checkpoints and regular-paper populations.
+
 ICCAD program-type audit exposed a collector scope gap: scanning numbered headings
 on all technical-program PDF pages finds 319 unique IDs, including 43 explicitly
 labeled invited papers omitted by the collector's one-to-four-digit ID pattern.

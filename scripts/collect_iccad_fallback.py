@@ -12,6 +12,7 @@ from pathlib import Path
 from urllib.request import Request, urlopen
 
 from pypdf import PdfReader
+from scripts.collect_iccad_invited import extract_invited
 
 
 PDF_URL = "https://confcats-event-sessions.s3.us-east-1.amazonaws.com/iccad25/uploads/ICCAD_2025_Program_v8.pdf"
@@ -37,7 +38,10 @@ def extract_papers(pdf: bytes) -> list[dict]:
     corrections = json.loads((Path(__file__).resolve().parents[1] / "iccad/data/src-entry-reconciliation-v1.json").read_text())
     if hashlib.sha256(pdf).hexdigest() == corrections["source_sha256"]:
         apply_src_corrections(records, corrections)
-    return records
+    invited = extract_invited(reader)
+    if {row["paper_id"] for row in records} & {row["paper_id"] for row in invited}:
+        raise ValueError("Invited and legacy extraction IDs overlap")
+    return sorted(records + invited, key=lambda row: row["paper_id"])
 
 
 def apply_src_corrections(records: list[dict], corrections: dict) -> None:

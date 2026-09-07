@@ -34,7 +34,7 @@ def reconcile(page_texts: list[str], inventory: list[dict], start_page: int = 38
                              "heading_first_line_not_complete_title": prefix,
                              "observed_entry_type": entry_type,
                              "in_current_inventory": row is not None,
-                             "next_action": "Recover complete title/authors and register separately from regular-paper comparisons" if row is None else "Retain reviewed SRC scope" if entry_type == "student_research_competition_oral" else "Verify session-level regular-paper classification"})
+                             "next_action": "Recover complete title/authors and register separately from regular-paper comparisons" if row is None else "Retain invited scope and pursue technical evidence" if entry_type == "invited_paper" else "Retain reviewed SRC scope" if entry_type == "student_research_competition_oral" else "Verify session-level regular-paper classification"})
     return {"numbered_heading_count": len(headings), "current_inventory_count": len(inventory),
             "type_counts": dict(sorted(Counter(row["observed_entry_type"] for row in headings).items())),
             "omitted_ids": [row["paper_id"] for row in headings if not row["in_current_inventory"]],
@@ -53,7 +53,7 @@ def build(root: Path) -> dict:
                    "independent_review_status": "pending",
                    "limits": ["Numbered headings are not a complete census of unnumbered talks, tutorials or workshops.",
                               "Heading first lines are not complete paper titles and must not be used for title-frequency analysis.",
-                              "Invited papers omitted by the four-digit collector are recovery tasks, not silently added to the regular-paper denominator.",
+                              "Invited papers are separate from the regular-paper denominator; omitted IDs, if any, require metadata recovery.",
                               "Matching the welcome message's aggregate accepted count does not verify individual entry types."]})
     (root / "iccad/data/program-scope-audit-v1.json").write_text(json.dumps(result, indent=2, ensure_ascii=False, sort_keys=True) + "\n")
     return {key: value for key, value in result.items() if key != "headings"}
