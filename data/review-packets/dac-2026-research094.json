@@ -83,10 +83,16 @@
         "quantum-power-system-transient-solving",
         "sparse-quantum-readout-mitigation"
       ],
+      "sparse-and-irregular-compute": [
+        "adaptive-sparse-gcn-caching",
+        "bitserial-transformer-sparsity",
+        "out-of-order-sparse-gemm"
+      ],
       "specialized-accelerators-and-dataflow": [
         "158-bit-ternary-gpu-llm-inference",
         "adaptive-parallel-graph-transformer-training",
         "adaptive-sparse-tensor-gpu-codegen",
+        "adaptive-spiking-transformer-pruning",
         "ai-asic-zero-knowledge-proof-acceleration",
         "computation-data-decoupled-npu-dataflow",
         "correlation-aware-gkp-decoder-acceleration",
@@ -126,6 +132,7 @@
       "architecture-software-co-design",
       "general-purpose-and-domain-specific-architecture",
       "quantum-architectures-and-control",
+      "sparse-and-irregular-compute",
       "specialized-accelerators-and-dataflow",
       "specialized-ai-accelerators"
     ],
