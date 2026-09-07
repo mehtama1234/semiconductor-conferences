@@ -2,7 +2,7 @@
 
 Status as of 2026-09-06: **prepared, not independently reviewed**.
 
-The package contains 521 review packets under
+The package contains 536 review packets under
 `data/review-packets/`. Each packet is a self-contained proposed coding record
 with source tier, provenance, taxonomy branch, evidence locators, limitations,
 and protocol/coding-guide hashes. All 175 packets currently have

@@ -188,7 +188,8 @@
         "stratified-moe-expert-scheduling"
       ],
       "memory-and-data-movement": [
-        "fpga-hbm-pcie-profiling"
+        "fpga-hbm-pcie-profiling",
+        "temporal-spatial-cache-partitioning"
       ],
       "memory-compute-and-reliability": [
         "adc-in-memory-activation-quantization",
@@ -219,6 +220,7 @@
       ],
       "processing-in-memory-and-memory-centric-compute": [
         "accuracy-constrained-approximate-dcim",
+        "dram-pum-gemv-codesign",
         "low-bit-llm-pim"
       ],
       "storage-and-data-movement": [
@@ -238,6 +240,7 @@
         "zns-swap-heterogeneous-gnn"
       ],
       "storage-and-memory-systems": [
+        "adaptive-flash-ecc-code-length",
         "range-granular-zns-filesystem"
       ]
     },

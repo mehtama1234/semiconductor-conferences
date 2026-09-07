@@ -62,6 +62,7 @@
     "dac/data/adjudicated-2026-batch-48.jsonl",
     "dac/data/adjudicated-2026-batch-49.jsonl",
     "dac/data/adjudicated-2026-batch-50.jsonl",
+    "dac/data/adjudicated-2026-batch-51.jsonl",
     "iccad/data/adjudicated-2025-batch-3.jsonl",
     "iccad/data/adjudicated-2025-batch-4.jsonl",
     "iccad/data/adjudicated-2025-batch-5.jsonl",
@@ -90,6 +91,7 @@
         "generative-design-automation": [
           "assertion-guided-llm-rtl-patching",
           "llm-signal-temporal-logic-transform",
+          "multiagent-cuda-kernel-evolution",
           "multiagent-sdc-generation",
           "selfcorrecting-pcb-3d-generation",
           "selfevolving-pcb-schematic-agent"
@@ -126,6 +128,8 @@
         ],
         "learned-eda-and-optimization": [
           "causal-cpu-design-optimization",
+          "data-driven-hardware-lemma-generation",
+          "electrophysical-cell-ppa-modeling",
           "learned-prior-multicorner-analysis",
           "physics-infused-rf-inverse-design",
           "transformer-capacitance-extraction",
@@ -319,6 +323,7 @@
           "locality-aware-temporal-motif-mining",
           "operator-sparse-3d-detection",
           "out-of-order-sparse-gemm",
+          "sliding-reduction-gnn-accelerator",
           "streaming-ternary-spgemm",
           "tensorcore-unstructured-sparse-format"
         ],
@@ -350,6 +355,7 @@
           "reram-cam-point-cloud-knn-acceleration",
           "sparse-tensor-accelerator-compilation",
           "topology-aware-configurable-gnn-acceleration",
+          "unified-configurable-cpu-matrix-extension",
           "unified-riscv-ecpm-isa"
         ],
         "specialized-ai-accelerators": [
@@ -561,7 +567,8 @@
           "stratified-moe-expert-scheduling"
         ],
         "memory-and-data-movement": [
-          "fpga-hbm-pcie-profiling"
+          "fpga-hbm-pcie-profiling",
+          "temporal-spatial-cache-partitioning"
         ],
         "memory-compute-and-reliability": [
           "adc-in-memory-activation-quantization",
@@ -592,6 +599,7 @@
         ],
         "processing-in-memory-and-memory-centric-compute": [
           "accuracy-constrained-approximate-dcim",
+          "dram-pum-gemv-codesign",
           "low-bit-llm-pim"
         ],
         "storage-and-data-movement": [
@@ -611,6 +619,7 @@
           "zns-swap-heterogeneous-gnn"
         ],
         "storage-and-memory-systems": [
+          "adaptive-flash-ecc-code-length",
           "range-granular-zns-filesystem"
         ]
       },
@@ -733,9 +742,11 @@
         ],
         "hardware-and-system-security": [
           "microfluidic-protocol-obfuscation",
+          "ondevice-llm-attestation",
           "pagetable-bigdata-sidechannel",
           "percore-em-sidechannel",
           "reveal-conceal-multisecret-tracking",
+          "semantic-collaborative-vehicle-ids",
           "sram-aging-data-recovery",
           "touchscreen-em-trajectory-recovery"
         ],
@@ -850,6 +861,7 @@
         ],
         "distributed-and-disaggregated-systems": [
           "adaptive-gnn-communication-compression",
+          "asymmetric-llm-checkpointing",
           "distributed-training-preemption",
           "dynamic-gpu-cluster-forecasting",
           "hardware-physics-guided-distributed-ml",
@@ -889,6 +901,7 @@
           "intradevice-speculative-decoding",
           "multiinstance-gpu-inference-serving",
           "parallel-decomposed-llm-inference",
+          "runtime-tensor-parallel-transformation",
           "single-gpu-finetuning-codesign"
         ],
         "multimedia-and-edge-systems": [
@@ -979,7 +992,12 @@
         ],
         "processor-and-rtl-verification": [
           "coordinated-cpu-fuzzing",
-          "riscv-differential-instruction-fuzzing"
+          "riscv-differential-instruction-fuzzing",
+          "stateful-systemc-peripheral-fuzzing"
+        ],
+        "simulation-and-emulation": [
+          "activity-aware-rtl-partitioning",
+          "constrained-pcie-trace-generation"
         ],
         "simulation-emulation-and-testing": [
           "automated-iot-behavior-oracles",
@@ -1011,6 +1029,7 @@
         "formal-and-functional-verification",
         "hardware-security-validation",
         "processor-and-rtl-verification",
+        "simulation-and-emulation",
         "simulation-emulation-and-testing"
       ],
       "theme_id": "verification-and-validation"

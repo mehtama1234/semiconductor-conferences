@@ -100,7 +100,12 @@
       ],
       "processor-and-rtl-verification": [
         "coordinated-cpu-fuzzing",
-        "riscv-differential-instruction-fuzzing"
+        "riscv-differential-instruction-fuzzing",
+        "stateful-systemc-peripheral-fuzzing"
+      ],
+      "simulation-and-emulation": [
+        "activity-aware-rtl-partitioning",
+        "constrained-pcie-trace-generation"
       ],
       "simulation-emulation-and-testing": [
         "automated-iot-behavior-oracles",
@@ -132,6 +137,7 @@
       "formal-and-functional-verification",
       "hardware-security-validation",
       "processor-and-rtl-verification",
+      "simulation-and-emulation",
       "simulation-emulation-and-testing"
     ],
     "theme_id": "verification-and-validation"
