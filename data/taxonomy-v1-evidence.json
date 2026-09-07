@@ -64,6 +64,7 @@
     "dac/data/adjudicated-2026-batch-50.jsonl",
     "dac/data/adjudicated-2026-batch-51.jsonl",
     "dac/data/adjudicated-2026-batch-52.jsonl",
+    "dac/data/adjudicated-2026-batch-53.jsonl",
     "iccad/data/adjudicated-2025-batch-3.jsonl",
     "iccad/data/adjudicated-2025-batch-4.jsonl",
     "iccad/data/adjudicated-2025-batch-5.jsonl",
@@ -132,6 +133,7 @@
           "data-driven-hardware-lemma-generation",
           "design-evolution-graph-postlayout",
           "electrophysical-cell-ppa-modeling",
+          "learned-dse-algorithm-selection",
           "learned-prior-multicorner-analysis",
           "physics-infused-rf-inverse-design",
           "transformer-capacitance-extraction",
@@ -302,6 +304,7 @@
           "ising-parallel-momentum-tempering"
         ],
         "memory-and-data-movement": [
+          "arithmetic-intensity-graph-recomputation",
           "cooperative-gpu-register-distribution",
           "error-tolerant-transformer-activation-compression"
         ],
@@ -363,6 +366,7 @@
           "topology-aware-configurable-gnn-acceleration",
           "unified-configurable-cpu-matrix-extension",
           "unified-riscv-ecpm-isa",
+          "unified-tfhe-fhe-accelerator",
           "versal-gemm-performance-energy"
         ],
         "specialized-ai-accelerators": [
@@ -578,6 +582,9 @@
           "speculative-in-storage-ann",
           "stratified-moe-expert-scheduling"
         ],
+        "interconnect-and-networking": [
+          "credit-driven-switch-buffering"
+        ],
         "memory-and-data-movement": [
           "fpga-hbm-pcie-profiling",
           "lossless-llm-floating-compression",
@@ -640,6 +647,7 @@
       "subthemes": [
         "chiplet-and-on-chip-interconnect",
         "data-movement-and-locality",
+        "interconnect-and-networking",
         "memory-and-data-movement",
         "memory-compute-and-reliability",
         "memory-hierarchy-and-persistence",
@@ -662,6 +670,7 @@
           "dynamic-cost-fracturable-lut-mapping"
         ],
         "manufacturing-and-lithography": [
+          "differentiable-opc-rasterization",
           "gpu-neural-3d-lithography"
         ],
         "manufacturing-and-yield": [
@@ -765,13 +774,15 @@
           "reveal-conceal-multisecret-tracking",
           "semantic-collaborative-vehicle-ids",
           "sram-aging-data-recovery",
-          "touchscreen-em-trajectory-recovery"
+          "touchscreen-em-trajectory-recovery",
+          "trusted-domain-faas-snapshots"
         ],
         "power-integrity-and-reliability": [
           "physics-informed-joint-em-ir-modeling"
         ],
         "privacy-preserving-compute": [
-          "encrypted-sparse-matmul-codesign"
+          "encrypted-sparse-matmul-codesign",
+          "memory-aware-he-nn-configuration"
         ],
         "privacy-preserving-computing": [
           "hybrid-optical-private-edge-encoding",
@@ -792,10 +803,14 @@
           "crystals-smallmodulus-error-correction"
         ],
         "reliable-and-secure-ml": [
+          "embedded-neural-ecc",
+          "fault-tolerant-diffusion-inference",
           "sparse-temporal-neural-redundancy",
           "spatiotemporal-llm-activation-resilience"
         ],
         "secure-and-robust-ml": [
+          "runtime-encrypted-dnn-recovery",
+          "targeted-agent-bitflips",
           "tee-ciphertext-sidechannel-defense",
           "vit-adversarial-patch-defense"
         ],
@@ -908,6 +923,7 @@
         ],
         "embedded-and-edge-systems": [
           "cpu-fpga-stream-frequency-measurement",
+          "semantic-satellite-image-compression",
           "wireless-intermittent-runtime-analysis"
         ],
         "llm-systems-and-runtime": [
@@ -993,6 +1009,7 @@
         "formal-and-equivalence-verification": [
           "miter-aware-lut-mapping",
           "multi-literal-ic3-dropping",
+          "parallel-approximate-reachability",
           "parallel-sat-framework"
         ],
         "formal-and-functional-verification": [
@@ -1016,6 +1033,7 @@
         ],
         "simulation-and-emulation": [
           "activity-aware-rtl-partitioning",
+          "agent-maintained-rtl-benchmark",
           "constrained-pcie-trace-generation"
         ],
         "simulation-emulation-and-testing": [
