@@ -283,6 +283,32 @@ may erase the repetition or sparsity on which a design depends.
 including preprocessing, memory and area costs. A specialization that degrades
 gracefully outside its favored distribution is stronger evidence than a peak gain.
 
+## Late DAC anchor tranche: mechanism breadth without trend support
+
+The final routed DAC anchors widen the mechanism map but do not change the
+directional conclusions. CANNON targets CXL near-memory ANN processing; XSearch
+uses Bayesian search with multi-fidelity simulation; MappingEvolve and ParetoPilot
+use language-model-guided code/design-space exploration; ATTINA targets spatial
+NTT acceleration for edge zkSNARKs; Procyon targets fine-grained tenancy in sparse
+streaming accelerators; TAMI-MPC targets trusted nonlinear MPC execution; and
+GalaxyDiT targets guidance/proxy choices in diffusion-transformer video
+generation. These records are linked in
+[condition extraction batch 7](condition-extraction-batch-7-2026-09-07.md).
+
+The evidence tiers are asymmetric: CANNON is official-description/company
+context; XSearch, ATTINA, Procyon, TAMI-MPC, and GalaxyDiT remain description
+routes; MappingEvolve has an author preprint and pinned artifact; ParetoPilot has
+a pinned artifact without execution. Therefore this tranche supports a broader
+hypothesis that design automation and specialized execution are increasingly
+co-designed around workload structure, search fidelity, and trust constraints,
+but it does not establish prevalence, superiority, or temporal growth.
+
+**Test next.** Recover matched manuscripts and compare these mechanisms using
+common budgets: CXL ANN recall and tail latency, optimizer fidelity and wall time,
+zkSNARK correctness and proof cost, tenant QoS under interference, MPC security
+and communication overhead, and video quality at fixed sampling cost. Keep
+artifact estimates, company claims, and paper measurements in separate strata.
+
 ## Cross-conference implication and temporal verdict
 
 The research opportunity suggested by these cases is **closing constrained
