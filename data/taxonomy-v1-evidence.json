@@ -46,6 +46,7 @@
     "dac/data/adjudicated-2026-batch-32.jsonl",
     "dac/data/adjudicated-2026-batch-33.jsonl",
     "dac/data/adjudicated-2026-batch-34.jsonl",
+    "dac/data/adjudicated-2026-batch-35.jsonl",
     "iccad/data/adjudicated-2025-batch-3.jsonl",
     "iccad/data/adjudicated-2025-batch-4.jsonl",
     "iccad/data/adjudicated-2025-batch-5.jsonl",
@@ -191,10 +192,14 @@
           "sparse-quantum-readout-mitigation"
         ],
         "specialized-accelerators-and-dataflow": [
+          "adaptive-sparse-tensor-gpu-codegen",
           "computation-data-decoupled-npu-dataflow",
           "correlation-aware-gkp-decoder-acceleration",
           "dynamic-prefill-decode-fpga-reconfiguration",
+          "end-to-end-fpga-zkp-acceleration",
+          "expert-ranked-mixed-precision-moe",
           "factored-floating-point-systolic-mac",
+          "heterogeneous-zk-vm-trace-acceleration",
           "lpn-post-quantum-crypto-acceleration",
           "modular-riscv-pqc-extension",
           "noise-robust-cim-on-device-personalization",
@@ -244,7 +249,8 @@
           "double-sided-glass-interposer-rdl-routing"
         ],
         "chiplet-interconnects": [
-          "lossless-exponent-coding-chiplet-llm-links"
+          "lossless-exponent-coding-chiplet-llm-links",
+          "wafer-scale-hybrid-bonded-network-design"
         ],
         "chiplet-partitioning-and-integration": [
           "hierarchical-multi-agent-chiplet-design"
@@ -272,6 +278,9 @@
     {
       "label": "Design methodology and tooling",
       "subsubthemes": {
+        "compiler-and-runtime-optimization": [
+          "adaptive-dynamic-shape-neural-tuning"
+        ],
         "cross-layer-design-automation": [
           "logic-to-layout-standard-cell-exploration"
         ],
@@ -299,6 +308,7 @@
         ]
       },
       "subthemes": [
+        "compiler-and-runtime-optimization",
         "cross-layer-design-automation",
         "high-level-synthesis-and-compilers",
         "logic-synthesis-and-optimization",
@@ -330,15 +340,18 @@
           "fhe-pim-database-acceleration",
           "heterogeneous-pim-graph-rag-retrieval",
           "io-efficient-prefix-kv-retrieval",
+          "layer-ahead-kv-cache-offloading",
           "multi-chip-sparse-matrix-communication-co-design",
           "near-memory-communication-lower-bounds",
           "pim-request-and-execution-overhead-elimination",
+          "predictive-expert-cache-token-scheduling",
           "proactive-multigpu-translation-dissemination",
           "speculative-in-storage-ann",
           "stratified-moe-expert-scheduling"
         ],
         "memory-compute-and-reliability": [
-          "dual-rail-reliable-dram-compute"
+          "dual-rail-reliable-dram-compute",
+          "sram-compatible-block-fp-compute-near-memory"
         ],
         "memory-hierarchy-and-persistence": [
           "3d-stacked-dram-llm-inference",
@@ -356,6 +369,7 @@
           "system-on-die-ecc-co-design"
         ],
         "storage-and-data-movement": [
+          "3d-nand-cam-moe-cim",
           "3d-nand-edge-llm-inference",
           "dynamic-parity-ssd-lifetime-extension",
           "media-aware-archival-storage-scheduling",
@@ -452,6 +466,9 @@
         "power-integrity-and-reliability": [
           "physics-informed-joint-em-ir-modeling"
         ],
+        "privacy-preserving-computing": [
+          "sparse-rns-ckks-cnn-inference"
+        ],
         "reliability-and-fault-tolerance": [
           "ecc-aware-reliable-bank-pim",
           "processing-using-dram-interference-reliability"
@@ -478,6 +495,7 @@
           "rowhammer-plonk-input-privacy",
           "secure-nv-cim-encrypted-inference",
           "transparent-rowhammer-monitoring",
+          "ttd-aware-selective-edge-ai-encryption",
           "verifiable-tee-cpu-availability",
           "voltage-waveform-instruction-disassembly"
         ],
@@ -491,6 +509,7 @@
         "energy-and-thermal-efficiency",
         "fault-tolerance-and-reliability",
         "power-integrity-and-reliability",
+        "privacy-preserving-computing",
         "reliability-and-fault-tolerance",
         "side-channel-and-hardware-security",
         "thermal-and-reliability-modeling"
@@ -510,6 +529,10 @@
           "serverless-elastic-moe-scaling",
           "slo-aware-llm-dvfs"
         ],
+        "edge-ai-and-deployment": [
+          "ondemand-multitask-edge-sparsity",
+          "self-assisted-moe-speculative-decoding"
+        ],
         "edge-embedded-and-mobile-systems": [
           "dependency-aware-gpu-real-time-scheduling",
           "disconnection-tolerant-satellite-split-learning",
@@ -522,12 +545,14 @@
           "dynamic-static-vla-layer-skipping",
           "ensemble-neural-fields-robot-control",
           "periodic-robot-mapping-navigation",
+          "pipelined-edge-vlm-action-acceleration",
           "sparse-robotics-diffusion-acceleration"
         ]
       },
       "subthemes": [
         "confidential-and-trusted-computing",
         "datacenter-and-cloud-systems",
+        "edge-ai-and-deployment",
         "edge-embedded-and-mobile-systems",
         "robotics-and-edge-ai",
         "scientific-robotics-and-domain-workloads"

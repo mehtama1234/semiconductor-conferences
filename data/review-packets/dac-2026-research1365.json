@@ -81,15 +81,18 @@
         "fhe-pim-database-acceleration",
         "heterogeneous-pim-graph-rag-retrieval",
         "io-efficient-prefix-kv-retrieval",
+        "layer-ahead-kv-cache-offloading",
         "multi-chip-sparse-matrix-communication-co-design",
         "near-memory-communication-lower-bounds",
         "pim-request-and-execution-overhead-elimination",
+        "predictive-expert-cache-token-scheduling",
         "proactive-multigpu-translation-dissemination",
         "speculative-in-storage-ann",
         "stratified-moe-expert-scheduling"
       ],
       "memory-compute-and-reliability": [
-        "dual-rail-reliable-dram-compute"
+        "dual-rail-reliable-dram-compute",
+        "sram-compatible-block-fp-compute-near-memory"
       ],
       "memory-hierarchy-and-persistence": [
         "3d-stacked-dram-llm-inference",
@@ -107,6 +110,7 @@
         "system-on-die-ecc-co-design"
       ],
       "storage-and-data-movement": [
+        "3d-nand-cam-moe-cim",
         "3d-nand-edge-llm-inference",
         "dynamic-parity-ssd-lifetime-extension",
         "media-aware-archival-storage-scheduling",

@@ -22,11 +22,11 @@ The evidence is intentionally asymmetric:
   coded fallback papers. The inventory includes 43 invited papers and ten student
   presentations, not 319 regular papers; see the [scope audit](../iccad/reports/program-scope-audit-v1.md).
 
-The 279-record technical coding sample is selected for recoverable evidence and
+The 294-record technical coding sample is selected for recoverable evidence and
 technical diversity. It is not a prevalence estimate, market forecast, conference
 ranking, or proof that a direction is rising.
 For a mechanism-level follow-up, see [scheduling versus physical surrogates](../iccad/reports/scheduling-versus-surrogates-v1.md): two analysis accelerators with different correctness and generalization requirements.
-All 279 remain independently unaccepted. The original synthesis-anchor set is
+All 294 remain independently unaccepted. The original synthesis-anchor set is
 distinct from the expanded coded sample and is not enlarged by metadata recovery.
 
 ## Executive interpretation
@@ -218,7 +218,7 @@ author-linked package exposes hierarchical mapping and BALD fault-tolerant routi
 one normalized 16KB AllGather case completed at 80 artifact simulation time units
 under a 4x6, 256-bandwidth configuration. That result is a reproducibility check,
 not a paper metric: no complete figure, matched baseline, end-to-end workload, or
-independent reproduction was obtained. It remains outside the 279-record selected
+independent reproduction was obtained. It remains outside the 294-record selected
 coding sample and cannot support a comparative performance claim.
 
 CANNON's [recovery assessment](../dac/reports/cannon-primary-recovery-v1.md)
@@ -524,3 +524,11 @@ increasingly defined as a closed-loop property: thermal headroom, syndrome
 bandwidth, control latency, readout noise, and testbench feedback are treated as
 part of the algorithm/architecture contract. These are selected-paper themes,
 not evidence that the whole field has shifted uniformly.
+
+This batch adds a complementary deployment layer: encrypted and zero-knowledge
+inference, MoE quantization/caching/speculation, dynamic-shape tuning, edge VLM
+pipelines, sparse tensor code generation, near-memory macros, wafer-scale
+networks, and selective edge encryption. The common theme is movement of policy
+into runtime and data-movement decisions—expert choice, cache residency,
+bootstrapping, precision, and protection are co-optimized with compute. These
+are selected-paper signals, not a venue-wide forecast.
