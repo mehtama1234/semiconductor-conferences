@@ -23,8 +23,9 @@ Ordered recovery 1144/1148/1149: GAIA institutional abstract adds glass-storage
 placement and scheduling mechanisms, explicitly distinct from glass packaging.
 Its first/third author spellings differ from program and author-lab listings;
 the variants remain attached to the exact DOI/title while technical metrics stay
-withheld. MIRAGE has an indexed
-publisher abstract but direct browser opening supplied no usable text. The exact
+withheld. MIRAGE's abstract is visible in the official IEEE search index, but
+direct document and REST routes return a WAF/empty response, so no metrics are
+promoted. The exact
 analog-agent publication appears on Peng Li's author page, but its linked publisher
 route did not return technical text. Logged all three outcomes with specific next
 actions; no secondary manuscript is substituted. Supplements reach 29; coded
