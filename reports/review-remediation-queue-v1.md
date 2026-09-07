@@ -3,7 +3,7 @@
 Status as of 2026-09-06: deterministic routing aid only. This queue is not an
 independent scientific review and does not create acceptance verdicts.
 
-The preflight contains 18 records marked `review` out of 491 packets. A packet
+The preflight contains 18 records marked `review` out of 506 packets. A packet
 can be routed here because original source text is absent or unmatched, required
 technical fields are incomplete, provenance is outside the accepted source
 allow-list, or evidence overlap is below the deterministic threshold. Reviewers

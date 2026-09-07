@@ -51,6 +51,9 @@
   "taxonomy_branch": {
     "label": "Analog, mixed-signal, and emerging devices",
     "subsubthemes": {
+      "analog-and-mixed-signal-design": [
+        "floquet-ppv-subspace-projection"
+      ],
       "analog-and-mixed-signal-synthesis": [
         "device-aware-noise-in-pixel-co-optimization"
       ],
@@ -103,6 +106,7 @@
       ],
       "quantum-hardware-and-control": [
         "adaptive-nonideality-aware-qubit-readout",
+        "lut-qubit-readout",
         "movable-logical-qubit-compilation",
         "surface-code-break-even-compilation"
       ],
@@ -111,6 +115,7 @@
       ]
     },
     "subthemes": [
+      "analog-and-mixed-signal-design",
       "analog-and-mixed-signal-synthesis",
       "analog-calibration-and-modeling",
       "analog-circuit-learning",

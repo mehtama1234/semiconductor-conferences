@@ -61,6 +61,9 @@
   "taxonomy_branch": {
     "label": "Design methodology and tooling",
     "subsubthemes": {
+      "cell-and-circuit-design": [
+        "equality-saturation-cell-extension"
+      ],
       "compilation-and-mapping": [
         "reachability-aware-cgra-mapping"
       ],
@@ -98,6 +101,9 @@
       "partitioning-and-placement": [
         "gpu-incremental-hypergraph-partitioning"
       ],
+      "power-and-thermal-design": [
+        "cgra-mapped-energy-estimation"
+      ],
       "reproducibility-artifacts-and-benchmarks": [
         "multi-pdk-capacitance-extraction-dataset"
       ],
@@ -113,6 +119,7 @@
       ]
     },
     "subthemes": [
+      "cell-and-circuit-design",
       "compilation-and-mapping",
       "compiler-and-runtime-optimization",
       "cross-layer-design-automation",
@@ -122,6 +129,7 @@
       "logic-synthesis-and-optimization",
       "optimization-and-search-methods",
       "partitioning-and-placement",
+      "power-and-thermal-design",
       "reproducibility-artifacts-and-benchmarks",
       "simulation-and-numerical-methods",
       "synthesis-and-compilation",

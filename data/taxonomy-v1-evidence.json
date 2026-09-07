@@ -60,6 +60,7 @@
     "dac/data/adjudicated-2026-batch-46.jsonl",
     "dac/data/adjudicated-2026-batch-47.jsonl",
     "dac/data/adjudicated-2026-batch-48.jsonl",
+    "dac/data/adjudicated-2026-batch-49.jsonl",
     "iccad/data/adjudicated-2025-batch-3.jsonl",
     "iccad/data/adjudicated-2025-batch-4.jsonl",
     "iccad/data/adjudicated-2025-batch-5.jsonl",
@@ -87,6 +88,7 @@
         ],
         "generative-design-automation": [
           "assertion-guided-llm-rtl-patching",
+          "llm-signal-temporal-logic-transform",
           "multiagent-sdc-generation",
           "selfcorrecting-pcb-3d-generation",
           "selfevolving-pcb-schematic-agent"
@@ -122,6 +124,7 @@
           "sequence-based-rtl-timing-prediction"
         ],
         "learned-eda-and-optimization": [
+          "causal-cpu-design-optimization",
           "learned-prior-multicorner-analysis",
           "physics-infused-rf-inverse-design",
           "transformer-capacitance-extraction",
@@ -136,6 +139,9 @@
           "rag-grounded-drc-auto-fix",
           "reinforcement-learning-verilog-generation",
           "two-tier-rag-verilog-generation"
+        ],
+        "verification-and-debugging-tools": [
+          "feedback-guided-llm-rust-repair"
         ]
       },
       "subthemes": [
@@ -145,13 +151,17 @@
         "graph-learning-for-eda",
         "learned-design-space-exploration",
         "learned-eda-and-optimization",
-        "llm-assisted-design-flows"
+        "llm-assisted-design-flows",
+        "verification-and-debugging-tools"
       ],
       "theme_id": "ai-assisted-eda"
     },
     {
       "label": "Analog, mixed-signal, and emerging devices",
       "subsubthemes": {
+        "analog-and-mixed-signal-design": [
+          "floquet-ppv-subspace-projection"
+        ],
         "analog-and-mixed-signal-synthesis": [
           "device-aware-noise-in-pixel-co-optimization"
         ],
@@ -204,6 +214,7 @@
         ],
         "quantum-hardware-and-control": [
           "adaptive-nonideality-aware-qubit-readout",
+          "lut-qubit-readout",
           "movable-logical-qubit-compilation",
           "surface-code-break-even-compilation"
         ],
@@ -212,6 +223,7 @@
         ]
       },
       "subthemes": [
+        "analog-and-mixed-signal-design",
         "analog-and-mixed-signal-synthesis",
         "analog-calibration-and-modeling",
         "analog-circuit-learning",
@@ -270,6 +282,7 @@
           "fpga-tsetlin-onchip-training"
         ],
         "emerging-and-nonvon-neumann-compute": [
+          "heterogeneous-probabilistic-optimization",
           "ising-parallel-momentum-tempering"
         ],
         "neuromorphic-and-emerging-architectures": [
@@ -291,6 +304,7 @@
           "bitserial-transformer-sparsity",
           "cuda-core-spmv",
           "locality-aware-temporal-motif-mining",
+          "operator-sparse-3d-detection",
           "out-of-order-sparse-gemm",
           "streaming-ternary-spgemm",
           "tensorcore-unstructured-sparse-format"
@@ -305,6 +319,7 @@
           "correlation-aware-gkp-decoder-acceleration",
           "dynamic-prefill-decode-fpga-reconfiguration",
           "end-to-end-fpga-zkp-acceleration",
+          "energy-aware-moe-dataflow",
           "expandable-register-file-isa",
           "expert-ranked-mixed-precision-moe",
           "factored-floating-point-systolic-mac",
@@ -414,6 +429,9 @@
     {
       "label": "Design methodology and tooling",
       "subsubthemes": {
+        "cell-and-circuit-design": [
+          "equality-saturation-cell-extension"
+        ],
         "compilation-and-mapping": [
           "reachability-aware-cgra-mapping"
         ],
@@ -451,6 +469,9 @@
         "partitioning-and-placement": [
           "gpu-incremental-hypergraph-partitioning"
         ],
+        "power-and-thermal-design": [
+          "cgra-mapped-energy-estimation"
+        ],
         "reproducibility-artifacts-and-benchmarks": [
           "multi-pdk-capacitance-extraction-dataset"
         ],
@@ -466,6 +487,7 @@
         ]
       },
       "subthemes": [
+        "cell-and-circuit-design",
         "compilation-and-mapping",
         "compiler-and-runtime-optimization",
         "cross-layer-design-automation",
@@ -475,6 +497,7 @@
         "logic-synthesis-and-optimization",
         "optimization-and-search-methods",
         "partitioning-and-placement",
+        "power-and-thermal-design",
         "reproducibility-artifacts-and-benchmarks",
         "simulation-and-numerical-methods",
         "synthesis-and-compilation",
@@ -717,6 +740,9 @@
         "reliable-and-secure-ai-systems": [
           "dynamic-dnn-bitflip-defense"
         ],
+        "reliable-and-secure-compute": [
+          "crystals-smallmodulus-error-correction"
+        ],
         "reliable-and-secure-ml": [
           "spatiotemporal-llm-activation-resilience"
         ],
@@ -774,6 +800,7 @@
         "reliability-and-fault-tolerance",
         "reliable-and-efficient-compute",
         "reliable-and-secure-ai-systems",
+        "reliable-and-secure-compute",
         "reliable-and-secure-ml",
         "secure-and-robust-ml",
         "side-channel-and-hardware-security",
@@ -833,16 +860,19 @@
           "expert-aware-moe-checkpointing",
           "heterogeneous-mobile-rag-orchestration",
           "hot-switching-cpu-llm-serving",
+          "intradevice-speculative-decoding",
           "multiinstance-gpu-inference-serving",
           "parallel-decomposed-llm-inference",
           "single-gpu-finetuning-codesign"
         ],
         "multimedia-and-edge-systems": [
+          "consistent-multistep-image-editing",
           "hierarchical-multivector-retrieval-scheduling",
           "output-guided-video-diffusion-pruning",
           "palette-video-enhancement-layer",
           "pipelined-gaussian-splatting",
-          "temporal-sort-reuse-gaussian-splatting"
+          "temporal-sort-reuse-gaussian-splatting",
+          "viewpoint-adaptive-gaussian-scaling"
         ],
         "real-time-and-networked-systems": [
           "pareto-probabilistic-dag-scheduling",
@@ -900,7 +930,8 @@
         ],
         "formal-and-equivalence-verification": [
           "miter-aware-lut-mapping",
-          "multi-literal-ic3-dropping"
+          "multi-literal-ic3-dropping",
+          "parallel-sat-framework"
         ],
         "formal-and-functional-verification": [
           "hidden-pmu-reverse-engineering-and-covert-channel",

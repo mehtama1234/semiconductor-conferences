@@ -74,6 +74,7 @@
       ],
       "generative-design-automation": [
         "assertion-guided-llm-rtl-patching",
+        "llm-signal-temporal-logic-transform",
         "multiagent-sdc-generation",
         "selfcorrecting-pcb-3d-generation",
         "selfevolving-pcb-schematic-agent"
@@ -109,6 +110,7 @@
         "sequence-based-rtl-timing-prediction"
       ],
       "learned-eda-and-optimization": [
+        "causal-cpu-design-optimization",
         "learned-prior-multicorner-analysis",
         "physics-infused-rf-inverse-design",
         "transformer-capacitance-extraction",
@@ -123,6 +125,9 @@
         "rag-grounded-drc-auto-fix",
         "reinforcement-learning-verilog-generation",
         "two-tier-rag-verilog-generation"
+      ],
+      "verification-and-debugging-tools": [
+        "feedback-guided-llm-rust-repair"
       ]
     },
     "subthemes": [
@@ -132,7 +137,8 @@
       "graph-learning-for-eda",
       "learned-design-space-exploration",
       "learned-eda-and-optimization",
-      "llm-assisted-design-flows"
+      "llm-assisted-design-flows",
+      "verification-and-debugging-tools"
     ],
     "theme_id": "ai-assisted-eda"
   }
