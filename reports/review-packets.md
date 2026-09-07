@@ -20,9 +20,11 @@ anchors. Do not include it in judge input: it reveals which conclusions the
 project is trying to support. Generated packets intentionally omit synthesis
 conclusions and previous same-model verdicts.
 
-Current coverage: 76 prepared packets; 49 official descriptions, 24 original
+Current coverage: 77 prepared packets; 49 official descriptions, 25 original
 abstracts, and three requiring original source capture; zero independent reviews.
-The abstracts include 21 arXiv pages and three author PDFs. Abstract capture does
+The abstracts include 21 arXiv pages, three author PDFs and one HKUST institutional
+publication page. HKUST extraction requires matching title and DOI and a unique
+scoped abstract block; it does not accept arbitrary page text. Abstract capture does
 not complete full-text numerical verification, even when the packet has locators.
 
 Run `PYTHONPATH=.:src python3 scripts/capture_review_sources.py` to capture missing

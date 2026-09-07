@@ -322,9 +322,9 @@ def test_detailed_taxonomy_and_adversarial_protocol_exist() -> None:
 
 def test_evidence_summary_is_explicitly_non_prevalence() -> None:
     summary = json.loads((ROOT / "reports/evidence-summary-v1.json").read_text())
-    assert summary["record_count"] == 76
+    assert summary["record_count"] == 77
     assert "not a conference prevalence estimate" in summary["selection_warning"]
-    assert summary["unreviewed_adversarial_judge_count"] == 76
+    assert summary["unreviewed_adversarial_judge_count"] == 77
 
 
 def test_adversarial_pre_review_is_labeled_as_non_independent() -> None:
@@ -345,7 +345,7 @@ def test_evidence_taxonomy_contains_adjudicated_specificity() -> None:
 def test_adversarial_preflight_is_explicit_about_its_limits() -> None:
     audit = json.loads((ROOT / "reports/adversarial-preflight-v0.json").read_text())
     assert audit["judge_mode"] == "deterministic_preflight_not_llm"
-    assert audit["record_count"] == 76
+    assert audit["record_count"] == 77
     assert audit["limits"]
 
 

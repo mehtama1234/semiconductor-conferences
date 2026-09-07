@@ -39,13 +39,28 @@ def extract_arxiv(html: str, expected_title: str) -> dict:
             "description": abstract, "text_locator": "arXiv abstract block"}
 
 
+def extract_hkust(html: str, expected_title: str, expected_doi: str) -> dict:
+    soup = BeautifulSoup(html, "html.parser")
+    def meta(name):
+        tag = soup.find("meta", attrs={"name": name})
+        return tag.get("content", "").strip() if tag else ""
+    title, doi = meta("citation_title"), meta("citation_doi")
+    blocks = soup.select(".rendering_abstractportal .textblock")
+    valid = bool(title and expected_doi and title_key(title) == title_key(expected_title) and doi.lower() == expected_doi.lower())
+    return {"observed_title": title, "observed_doi": doi,
+            "identity_status": "exact_normalized_title" if valid else "title_or_doi_mismatch_requires_review",
+            "description": blocks[0].get_text(" ", strip=True) if len(blocks) == 1 else "",
+            "text_locator": "HKUST institutional publication abstract (.rendering_abstractportal .textblock); title and DOI metadata checked"}
+
+
 def capture(record: dict, root: Path) -> dict:
     result = {"paper_id": record["paper_id"], "title": record["title"],
               "evidence_url": record["evidence_url"],
               "evidence_collection_date": datetime.now(timezone.utc).isoformat(),
               "capture_status": "not_attempted", "evidence_status": "not_captured"}
     is_pdf = record["evidence_url"].lower().endswith(".pdf")
-    if not record["evidence_url"].startswith(("https://arxiv.org/abs/", "https://arxiv.org/html/")) and not is_pdf:
+    is_hkust = record["evidence_url"].startswith("https://researchportal.hkust.edu.hk/en/publications/")
+    if not record["evidence_url"].startswith(("https://arxiv.org/abs/", "https://arxiv.org/html/")) and not is_pdf and not is_hkust:
         result["capture_status"] = "requires_source_specific_extractor"
         return result
     try:
@@ -67,6 +82,8 @@ def capture(record: dict, root: Path) -> dict:
                            "identity_status": "exact_normalized_title" if title_present else "title_mismatch_requires_review",
                            "description": " ".join(match.group(1).split()) if match else "",
                            "text_locator": "PDF page 1 abstract; automatic extraction requires semantic review"})
+        elif is_hkust:
+            result.update(extract_hkust(body.decode("utf-8", errors="replace"), record["title"], record.get("doi", "")))
         else:
             result.update(extract_arxiv(body.decode("utf-8", errors="replace"), record["title"]))
         result["raw_sha256"] = hashlib.sha256(body).hexdigest()

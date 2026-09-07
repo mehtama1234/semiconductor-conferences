@@ -4,6 +4,18 @@ The governing scope and acceptance criteria are in [GOAL.md](../GOAL.md).
 This log distinguishes finished work from queued work; a plan is not a completed
 research result.
 
+Qudit abstract coding: added ICCAD paper 1094 with institutional-abstract depth,
+empty metrics/baselines and explicit unresolved noise/validation conditions.
+The taxonomy now distinguishes noise-aware transmon qutrit control-device
+co-optimization. Added a source-specific HKUST extractor checking citation title,
+DOI and a unique scoped abstract block; no fuzzy title or whole-page extraction.
+Coverage reaches 77 coded papers (49 DAC, 16 ISCA, 12 ICCAD); independent
+acceptance remains zero. Next: continue ordered primary recovery while pursuing
+the full manuscript for numerical and device conditions.
+Regenerated taxonomy, summary, queue, both packet sets and audit. Validation and
+111 tests passed, including negative title/DOI and ambiguous-abstract checks.
+All 77 records remain independently unaccepted; packet preparation is not review.
+
 Qudit identity follow-up: HKUST's institutional publication page supplies the
 exact program title, all four authors and the same DOI linked from the author's
 Architecture-title page. Recorded citation-field matches and HTML/abstract hashes.

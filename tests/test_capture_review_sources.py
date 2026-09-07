@@ -1,4 +1,16 @@
 from scripts.capture_review_sources import extract_arxiv
+from scripts.capture_review_sources import extract_hkust
+
+
+def test_hkust_requires_title_doi_and_unique_scoped_abstract():
+    html = '<meta name="citation_title" content="Paper"><meta name="citation_doi" content="10.1/test"><div class="textblock">Unrelated navigation</div><div class="rendering_abstractportal"><div class="textblock">Original abstract.</div></div>'
+    result = extract_hkust(html, "Paper", "10.1/test")
+    assert result["description"] == "Original abstract."
+    assert result["identity_status"] == "exact_normalized_title"
+    assert extract_hkust(html, "Other", "10.1/test")["identity_status"] != "exact_normalized_title"
+    assert extract_hkust(html, "Paper", "10.1/wrong")["identity_status"] != "exact_normalized_title"
+    assert extract_hkust(html, "Paper", "")["identity_status"] != "exact_normalized_title"
+    assert not extract_hkust(html + '<div class="rendering_abstractportal"><div class="textblock">Second abstract</div></div>', "Paper", "10.1/test")["description"]
 
 
 def test_exact_title_and_original_abstract_are_separate_from_record_summary():
