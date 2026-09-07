@@ -1,0 +1,29 @@
+{
+  "schema": "primary-source-recovery-assessment.v1",
+  "paper_id": "dac-2026-research1065",
+  "title": "FLASH3D: A Fast Layered Analytical Solver for High-Accuracy Steady-State Thermal Simulation of 3D ICs",
+  "source_id": "dac-2026-flash3d-description-recheck",
+  "source_url": "https://63dac.conference-program.com/presentation/?id=RESEARCH1065&sess=sess112",
+  "capture_date": "2026-09-06",
+  "source_tier": "official_description",
+  "extraction_scope": "Official description and institutional announcement; no full paper or verified implementation recovered",
+  "recovery_status": "full_paper_not_recovered_in_checked_sources",
+  "identity": {"status": "exact_title_and_four_program_authors", "authors": ["Hao Ai", "Liang Chen", "Jianhua Zhang", "Wenxing Zhu"]},
+  "attempts": [
+    {"method": "web_search", "queries": ["\"FLASH3D\" \"thermal\" paper", "\"FLASH3D\" \"Hao Ai\" github arxiv", "\"FLASH3D\" \"Wenxing\" -site:63dac.conference-program.com", "\"FLASH3D\" \"thermal\" site:github.com", "\"FLASH3D\" \"thermal\" site:arxiv.org"], "outcome": "Matched official description and university announcement; no exact full paper or artifact recovered. Same-name scene-reconstruction and point-transformer results are not this thermal solver."},
+    {"method": "official_page_inspection", "url": "https://63dac.conference-program.com/presentation/?id=RESEARCH1065&sess=sess156", "outcome": "Web open returned internal error; inventory-linked sess112 presentation was successfully inspected instead."},
+    {"method": "institutional_announcement_inspection", "url": "https://math.fzu.edu.cn/info/1046/10362.htm", "publication_date": "2026-08-09", "outcome": "Exact title and collaborating researchers identified. Announcement repeats thermal accuracy and acceleration claims but supplies no benchmark configuration or full-paper link; not independent reproduction."}
+  ],
+  "description_conditions": {
+    "locator": "Description",
+    "analysis_regime": "steady-state",
+    "method": "Spectral modal decomposition, transfer matrices and accelerated power decomposition",
+    "comsol_comparison": {"reported_speedup": "over four orders of magnitude", "reported_time_scale": "minutes to milliseconds", "maximum_absolute_temperature_error_K_upper_bound": 0.5, "limit": "No matched per-case runtimes, hardware or discretization settings supplied."},
+    "deepoheat_comparison": {"approximately_slices_in_one_baseline_inference_time": 2000, "reported_error_reduction_factor_approximate": 10, "limit": "Not slices per second or necessarily slices per FLASH3D invocation; inference duration, error norm and matched output resolution are unspecified."}
+  },
+  "unresolved_conditions": ["Layer geometry, dimensions, material conductivities and interface resistances", "Boundary-condition equations and tested parameter ranges", "Power-map sizes, spectral truncation and convergence tolerances", "COMSOL version, mesh convergence, solver settings and equivalent accuracy", "Host hardware, threading, setup costs and per-case runtimes", "DeepOHeat version, training budget, test split, error norm and output resolution", "Benchmark population, repetitions and aggregation", "Transient applicability is not established"],
+  "interpretation_limits": ["Agreement between an official description and a university announcement does not independently validate numerical performance.", "Temperature agreement with a simulator is not measured-silicon validation.", "Bounded non-recovery does not establish that a paper or artifact is unavailable."],
+  "revisit_condition": "Verified author/publisher full-paper or artifact link with matching title/authors and benchmark configurations.",
+  "headline_metric_status": "withheld_pending_fullpaper_conditions",
+  "independent_review_status": "pending"
+}

@@ -151,6 +151,12 @@ records. ICCAD’s Tasa and MAHL provide primary fallback cases linking thermal,
 bandwidth, chiplets, and layout. ISCA’s Lit Silicon adds a runtime view in which
 thermal imbalance creates multi-GPU stragglers.
 
+FLASH3D remains description-level, steady-state evidence. Its
+[source-depth assessment](../dac/reports/flash3d-primary-recovery-v1.md) withholds
+quantitative synthesis until matched solver and workload conditions are known;
+the university announcement is not independent validation, and the slice count
+uses a baseline inference-time budget rather than seconds.
+
 ### Interpretation and limit
 
 The evidence supports earlier coupling of thermal, packaging, bandwidth, and

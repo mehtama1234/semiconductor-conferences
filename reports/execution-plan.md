@@ -4,6 +4,13 @@ The governing scope and acceptance criteria are in [GOAL.md](../GOAL.md).
 This log distinguishes finished work from queued work; a plan is not a completed
 research result.
 
+FLASH3D: official identity and description rechecked alongside the Fuzhou
+announcement; no exact full paper or implementation recovered in the recorded
+searches. The supplement clarifies the DeepOHeat inference-time denominator,
+steady-state scope and missing matched solver conditions. Original description
+and pending review are preserved. Next: research108 in the stable anchor queue;
+revisit FLASH3D on a verified paper/artifact link with experimental conditions.
+
 Icarus follow-up: repository HEAD/tree match the previously pinned checkpoint,
 and no full paper was recovered in the fresh exact-title search. Its older source
 recovery record is now attached to both original-sample and temporal-draft review
