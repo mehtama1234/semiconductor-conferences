@@ -35,6 +35,8 @@ gates still open**.
   benchmarking, glass-storage scheduling, and wafer-scale artifact conditions.
 - A fourth five-record P1 batch covering concurrent PIM scheduling, ECC
   coordination, speculative decoding, PuD interference, and agentic inference.
+- A fifth P1 recovery batch that records explicit missing-condition requirements
+  for five DAC records whose full sources remain unavailable.
 
 ## What users may conclude
 
