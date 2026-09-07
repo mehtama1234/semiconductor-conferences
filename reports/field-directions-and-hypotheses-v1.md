@@ -210,6 +210,13 @@ The methodological question is whether representation changes remain beneficial
 after conversion costs and system overhead are counted. Its available evidence
 does not yet resolve that question. It remains outside the 74-record coded sample.
 
+The [Squat recovery assessment](../iccad/data/squat-primary-recovery-v1.json)
+adds a deployment-focused follow-up, pending coding integration. It sharpens the
+evaluation question: does specialization improve latency at an acceptable
+accuracy loss, and do published ratios reconcile with the underlying timings?
+The recorded arithmetic discrepancy must be resolved before using those cells
+as quantitative support. It is not a demonstrated failure of the overall method.
+
 **Boundary.** Reordering and metadata can consume the saved work. Equal integer
 codes across different quantization groups need not denote equal weights;
 finite-precision regrouping requires accuracy checks. A changed model distribution

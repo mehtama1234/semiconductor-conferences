@@ -1,0 +1,18 @@
+{
+  "schema": "primary-source-recovery-assessment.v1",
+  "paper_id": "iccad-2025-105",
+  "title": "Squat: Quant Small Language Models on the Edge",
+  "source_id": "iccad-2025-squat-arxiv",
+  "source_url": "https://arxiv.org/html/2402.10787v2",
+  "capture_date": "2026-09-06",
+  "source_tier": "author_preprint_selected_full_text",
+  "extraction_scope": "IV methodology; V-B deployment; Tables II-IV and VIII hardware efficiency. PDF verification pending.",
+  "independent_review_status": "pending",
+  "headline_metric_status": "withheld_pending_table_and_accuracy_reconciliation",
+  "identity": {"status": "exact_title_and_twelve_authors_match_case_normalized_program", "authors": ["Xuan Shen", "Peiyan Dong", "Zhenglun Kong", "Yifan Gong", "Changdi Yang", "Zhaoyang Han", "Yanyue Xie", "Lei Lu", "Cheng Lyu", "Chao Wu", "Yanzhi Wang", "Pu Zhao"], "version": "v2, 2025-07-01; initial preprint 2024 does not change conference edition"},
+  "mechanism": "Attention distillation, token-adaptive precision and SIMD multi-kernel mixed-precision multiplication couple quantization to deployable arithmetic.",
+  "conditions": {"models": ["LLaMA-58M", "GPT2-97M"], "devices": ["OnePlus 11 Snapdragon 8 Gen 2, all available cores", "Raspberry Pi 5 BCM2712, four cores"], "iterations_per_test": 1000, "input_sequence_length": 128, "latency_units": "ms/token", "accuracy_baselines": ["FP16", "NIPQ", "PACT", "LLM-QAT"]},
+  "table_IV_discrepancy": {"scope": "GPT2-97M mobile; W4 weights, mixed 4/8 activation ratios 1:3 and 1:1", "fp16_latency": 6.22, "mixed_latencies": [3.06, 3.02], "reported_speedups": [2.06, 2.03], "calculated_rounded_speedups": [2.03, 2.06], "status": "HTML arithmetic discrepancy; do not silently swap published values"},
+  "limits": ["Peak W4A4 speedup is not an iso-accuracy claim", "Training feasibility rhetoric does not establish on-device training measurement", "PDF, warmup/thermal controls and prefill/decode timing boundary require verification"],
+  "next_action": "Verify original PDF Table IV; integrate technical coding and source capture; pin linked artifact before inspecting implementation. No independent verdict yet."
+}

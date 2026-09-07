@@ -4,6 +4,14 @@ The governing scope and acceptance criteria are in [GOAL.md](../GOAL.md).
 This log distinguishes finished work from queued work; a plan is not a completed
 research result.
 
+Ordered ICCAD batch 1036/1043/105: Hyle and TREX-F retain explicit source gaps;
+Squat recovered as versioned primary preprint with all twelve authors matched.
+Recorded deployment conditions and an HTML Table IV ratio/latency mismatch,
+preserving reported and calculated values separately. Twenty papers now have
+supplementary assessments; coded total remains 74 pending Squat integration.
+Next: verify Squat PDF table, integrate coding/source packet, and inspect its
+artifact only after pinning identity/version. Peak speed is not iso-accuracy.
+
 Stable-order ICCAD coverage batch: checked the next three untouched uncoded IDs
 1016 (ProtoCellLayout), 1019 (asynchronous checkpointing), and 1022 (SOT-MRAM
 MIMO). Recorded exact queries, identity/title issues, route-specific failures and
