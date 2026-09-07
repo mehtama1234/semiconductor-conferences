@@ -182,6 +182,11 @@ RTL verification agents, neural circuit simulation, SNN security, layout pattern
 matching, heterogeneous GNNs, quantum syndrome extraction, ViT search,
 transient-execution defense, sparse tensor code generation, and NDP edge-LLM
 mapping.
+The thirty-fourth P2 tranche is recorded in
+`reports/p2-recovery-batch-34-2026-09-07.md`, continuing the DAC frontier across
+low-bit LLM PIM, CPU timing side channels, distributed-GNN compression, PCB
+ground-plane co-design, spiking transformers, TriSpGEMM, cloud-TEE availability,
+RISC-V fuzzing, chiplet DSE, and real-time GPU scheduling.
 
 The categories overlap by design: P0 is a remediation priority, while P1/P2
 describe evidence depth. The former P0 records are retained in

@@ -71,6 +71,11 @@ neural circuit simulation, SNN security, layout pattern matching, heterogeneous
 GNNs, quantum syndrome extraction, ViT search, transient-execution defense,
 sparse tensor code generation, and NDP edge-LLM mapping; P2 routing now covers
 328 of 541 lower-priority records.
+The thirty-fourth P2 tranche adds ten DAC routes across low-bit LLM PIM, CPU
+timing side channels, distributed-GNN compression, PCB ground-plane co-design,
+spiking transformers, TriSpGEMM, cloud-TEE availability, RISC-V fuzzing, chiplet
+DSE, and real-time GPU scheduling; P2 routing now covers 338 of 541
+lower-priority records.
 
 The sixteenth P2 tranche adds ten ISCA routes across RISC-V GPU/ASIP co-design,
 DRAM reliability and RowHammer defenses, chiplet PHY/package simulation, and
