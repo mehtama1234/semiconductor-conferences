@@ -52,6 +52,9 @@ gates still open**.
 - A sixth P2 routing tranche prioritizing ten graph-learning, reliability,
   edge-inference, analog-CIM, lithography, quantum, compiler, and point-cloud
   mechanisms.
+- A seventh P2 routing tranche prioritizing ten secure-CIM, fine-tuning,
+  power-modeling, security, lithography, edge-trust, probabilistic, and
+  verification mechanisms.
 
 ## What users may conclude
 

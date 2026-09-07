@@ -48,6 +48,10 @@ The sixth P2 tranche is recorded in
 `reports/p2-recovery-batch-6-2026-09-07.md`, adding ten graph-learning,
 reliability, edge-inference, analog-CIM, lithography, quantum, compiler, and
 point-cloud records.
+The seventh P2 tranche is recorded in
+`reports/p2-recovery-batch-7-2026-09-07.md`, adding ten secure-CIM,
+fine-tuning, power-modeling, security, lithography, edge-trust, probabilistic,
+and verification records.
 
 The categories overlap by design: P0 is a remediation priority, while P1/P2
 describe evidence depth. The former P0 records are retained in
