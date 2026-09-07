@@ -29,6 +29,11 @@ The deterministic assignment manifest is
 placeholder reviewer slots and zero verdicts; placeholder slots do not imply that
 an external reviewer has accepted an assignment.
 
+The deterministic remediation order for the 18 packets flagged for missing or
+weak preflight support is recorded in
+`reports/review-remediation-queue-v1.md`. That routing aid is not an independent
+verdict.
+
 ## Acceptance boundary
 
 Until reviewer verdicts are actually recorded, the package must report zero
