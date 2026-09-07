@@ -18,3 +18,7 @@ def test_icarus_discovery_does_not_promote_evidence_or_acceptance():
     assert row["tree_truncated"] is False
     assert len(row["readme_sha256"]) == 64
     assert row["unresolved"] and row["revisit_conditions"]
+    assert row["followup_check"]["observed_commit"] == row["commit"]
+    assert row["followup_check"]["observed_tree"] == row["tree"]
+    assert row["source_tier"] == "artifact_discovery_only"
+    assert row["headline_metric_status"] == "withheld_pending_fullpaper_conditions"

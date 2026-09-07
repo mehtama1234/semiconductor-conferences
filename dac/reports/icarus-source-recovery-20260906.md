@@ -18,3 +18,8 @@ In particular, a direct attack evaluation of HybriMoE is not established. Keep t
 cross-year discussion at the shared-mechanism/question level, not a tested causal
 link or quantitative progress/regression comparison. Revisit repository releases
 and author/publisher publication channels; other evidence work can continue.
+
+Follow-up on 2026-09-06 confirmed the same repository HEAD and tree. The recovery
+record now also travels with both the original-sample and temporal-draft review
+packets, explicitly labeled artifact discovery rather than original paper text.
+No tested HybriMoE attack relationship or independent acceptance is implied.

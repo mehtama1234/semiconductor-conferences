@@ -10,7 +10,7 @@ from scripts.build_evidence_summary import read_jsonl
 from scripts.collect_isca_crossref_metadata import title_key
 
 SCHEMAS = {"supplementary-primary-assessment.v1", "supplementary-primary-conditions.v1",
-           "primary-source-recovery-assessment.v1"}
+           "primary-source-recovery-assessment.v1", "source-recovery-assessment.v1"}
 
 
 def validate(assessment: dict, paper: dict, source: dict) -> None:
@@ -29,7 +29,8 @@ def validate(assessment: dict, paper: dict, source: dict) -> None:
 def load(root: Path) -> dict[str, list[dict]]:
     inventory = {r["paper_id"]: r for p in sorted(root.glob("*/data/papers-20??-program.jsonl")) for r in read_jsonl(p)}
     supplements = defaultdict(list)
-    for path in sorted(root.glob("*/data/*primary*.json")):
+    paths = set(root.glob("*/data/*primary*.json")) | set(root.glob("*/data/*source-recovery*.json"))
+    for path in sorted(paths):
         raw = path.read_bytes()
         assessment = json.loads(raw)
         if assessment.get("schema") not in SCHEMAS:

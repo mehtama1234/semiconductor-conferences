@@ -24,6 +24,7 @@ These researcher assessments supplement, but do not replace, original evidence o
 - dac-2026-research046: [withheld_pending_fullpaper_conditions](../dac/data/gemir-primary-recovery-v1.json)
 - dac-2026-research1000: [withheld_pending_source_reconciliation](../dac/data/atb-primary-assessment-v1.json)
 - dac-2026-research1028: [withheld_pending_fullpaper_conditions](../dac/data/ctxmem-primary-recovery-v1.json)
+- dac-2026-research1054: [withheld_pending_fullpaper_conditions](../dac/data/icarus-source-recovery-20260906.json)
 
 ## Identity and primary-source recovery
 

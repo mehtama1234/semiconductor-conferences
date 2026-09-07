@@ -4,6 +4,14 @@ The governing scope and acceptance criteria are in [GOAL.md](../GOAL.md).
 This log distinguishes finished work from queued work; a plan is not a completed
 research result.
 
+Icarus follow-up: repository HEAD/tree match the previously pinned checkpoint,
+and no full paper was recovered in the fresh exact-title search. Its older source
+recovery record is now attached to both original-sample and temporal-draft review
+packets through the shared supplement loader. Discovery-only labels, unresolved
+attacker assumptions, no-demo-execution status and missing HybriMoE evaluation
+link remain explicit. Continue to FLASH3D (research1065); revisit Icarus on a
+changed release or verified paper link, not another unchanged tree inspection.
+
 CtxMem recovery: exact description rechecked, with gem5 simulation explicitly
 separated from device/deployment evidence. No full paper or verified artifact was
 recovered; a same-name coding-memory package was rejected and the inspected author
