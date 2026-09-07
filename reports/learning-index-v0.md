@@ -7,6 +7,7 @@ organized around technical questions, not just conference names.
 
 - [End-to-end goal](../GOAL.md)
 - [Execution plan and current tasks](execution-plan.md)
+- [Dated reproducibility manifest](reproducibility-manifest-v1.json)
 - [Complete inventory and research work queue](research-work-queue.md)
 - [Collection status](collection-status.md)
 - [Initial 2026 direction signals](initial-2026-direction-signals.md)

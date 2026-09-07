@@ -285,6 +285,14 @@ def test_learning_index_links_the_three_workstreams() -> None:
     assert "Technology direction synthesis v1" in text
 
 
+def test_reproducibility_manifest_has_build_and_validation_commands() -> None:
+    manifest = json.loads((ROOT / "reports/reproducibility-manifest-v1.json").read_text())
+    assert manifest["status"] == "dated_package_checkpoint"
+    assert any("validate_project.py" in command for command in manifest["commands"])
+    assert any("pytest -q" in command for command in manifest["commands"])
+    assert len(manifest["artifact_hashes"]) >= 10
+
+
 def test_root_synthesis_preserves_evidence_asymmetry_and_next_requirements() -> None:
     text = (ROOT / "reports/technology-direction-synthesis-v1.md").read_text()
     assert "84-record technical coding sample" in text

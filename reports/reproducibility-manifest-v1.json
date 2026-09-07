@@ -1,0 +1,101 @@
+{
+  "artifact_hashes": [
+    {
+      "bytes": 9922,
+      "path": "GOAL.md",
+      "sha256": "5caeeea1475caaf5cc14d53cda04fc232ef1d4fac59576a89c991855d18147b8"
+    },
+    {
+      "bytes": 1019,
+      "path": "data/conference-register.json",
+      "sha256": "31023e52336a46c12c50bcbb1ff2cab42fe75908fa8f111212eb3cfb4a0cffdc"
+    },
+    {
+      "bytes": 11053,
+      "path": "data/taxonomy-v1-evidence.json",
+      "sha256": "43df1d321094e6846a5a2909f37d1baf0b6ef1306d94c289e9519222d2472d99"
+    },
+    {
+      "bytes": 1818272,
+      "path": "data/research-work-queue.jsonl",
+      "sha256": "2dbcd28e5d5022944b1015928743bc45b9b2b99058aeafee00a8a74197892796"
+    },
+    {
+      "bytes": 3969,
+      "path": "reports/evidence-summary-v1.json",
+      "sha256": "86ddea16797767d0abfed9815e6f31a7975e3116dcd6554d8f8cc5697fc0d754"
+    },
+    {
+      "bytes": 2385,
+      "path": "reports/research-work-queue-summary.json",
+      "sha256": "5743c0756eecd7e761f3941efc62ebd633dcc316dbc8d9ea5b8a93abb6abf660"
+    },
+    {
+      "bytes": 1694,
+      "path": "reports/review-packet-coverage.json",
+      "sha256": "3cdff7aaeac0cc84980fcdd5474e05df14887128f895630f4004f087bfbf7e0d"
+    },
+    {
+      "bytes": 23544,
+      "path": "reports/adversarial-preflight-v0.json",
+      "sha256": "75c121c88eea594d4d60d78917f527565eee406415473c458ac1a6adafe04524"
+    },
+    {
+      "bytes": 3907,
+      "path": "reports/temporal-insufficiency-v1.json",
+      "sha256": "b23969c0215d0c45ce003513595f60a44260bfd357db537fab1df06a69e3f28e"
+    },
+    {
+      "bytes": 208189,
+      "path": "reports/title-shift-candidates-v1.json",
+      "sha256": "7b520ee24ba5f5b26d74d85e1cb9e70b585034139250ed5f9d3b173b4037ef22"
+    },
+    {
+      "bytes": 3602,
+      "path": "reports/collection-status.md",
+      "sha256": "424e8a762d0543953066037f2a0aef55a86084baaacd9194dece486356fd365d"
+    },
+    {
+      "bytes": 18567,
+      "path": "reports/field-directions-and-hypotheses-v1.md",
+      "sha256": "59fbbd1a2cb6fa0ecce6a76a7b6104d9aa855548b0fe25a067588764b2b0f068"
+    },
+    {
+      "bytes": 15393,
+      "path": "reports/technology-direction-synthesis-v1.md",
+      "sha256": "3489f6726aa5bcb894ae517fab1b93ac89057a81fef492694f4ffb69b85b7186"
+    },
+    {
+      "bytes": 3480,
+      "path": "reports/adversarial-judge-protocol-v1.md",
+      "sha256": "1e5ead78a6d90d564693469ab60ec76c15ecbb7d1dca99a860d099b2167b6256"
+    },
+    {
+      "bytes": 1866,
+      "path": "reports/adversarial-review-status-v1.md",
+      "sha256": "5cd3787ec21f46be5f2dd1b99ec90f4005fb6e166616f1273942be73d46cf538"
+    }
+  ],
+  "as_of": "2026-09-06",
+  "commands": [
+    "PYTHONPATH=.:src python3 scripts/build_evidence_summary.py",
+    "PYTHONPATH=.:src python3 scripts/build_taxonomy_v1.py",
+    "PYTHONPATH=.:src python3 scripts/audit_adjudications.py",
+    "PYTHONPATH=.:src python3 scripts/build_work_queue.py",
+    "PYTHONPATH=.:src python3 scripts/build_review_packets.py",
+    "PYTHONPATH=.:src python3 scripts/build_draft_review_packets.py",
+    "PYTHONPATH=.:src python3 scripts/build_title_shift_candidates.py",
+    "PYTHONPATH=.:src python3 scripts/validate_project.py",
+    "PYTHONPATH=.:src pytest -q"
+  ],
+  "interpretation_gates": [
+    "Selected coding is not venue-wide prevalence.",
+    "Deterministic preflight is not independent review.",
+    "Temporal title shifts and six pilot pairs do not establish rising or declining trends.",
+    "Missing source text is recorded as a gap, not treated as negative evidence."
+  ],
+  "raw_data_policy": "Raw downloaded captures may be ignored by repository policy; tracked ledgers preserve URLs, dates, status and hashes where permitted.",
+  "schema": "reproducibility-manifest.v1",
+  "source_policy": "Permitted metadata, abstracts, descriptions and author/company sources are retained with evidence tiers; access restrictions are not bypassed.",
+  "status": "dated_package_checkpoint"
+}
