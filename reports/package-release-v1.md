@@ -31,6 +31,8 @@ gates still open**.
   conditions, and unresolved boundaries for high-risk quantitative claims.
 - A second five-record P1 extraction batch covering ADC testing, edge LLMs,
   multi-die FPGA DSE, technology co-optimization, and asymmetric tile buffering.
+- A third five-record P1 batch covering MoE serving, quantum synthesis, RTL
+  benchmarking, glass-storage scheduling, and wafer-scale artifact conditions.
 
 ## What users may conclude
 
