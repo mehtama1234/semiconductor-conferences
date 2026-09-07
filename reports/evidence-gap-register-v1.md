@@ -14,7 +14,7 @@ not mean the scientific claim has independent acceptance.
 | Shared themes, subthemes, and synthesis | Provisional complete for selected sample | `data/taxonomy-v1-evidence.json`; direction synthesis and hypothesis reports | Broaden coverage and independently challenge branch assignments before venue-wide conclusions. |
 | Technical conditions and limitations | Partial | Evidence summaries preserve unknowns and source locators | Recover manuscripts/artifacts and fill workload, hardware, baseline, metric, and tradeoff conditions. |
 | Artifact reproducibility | Partial but improved | BusyBarn archive and four bounded synthetic reproductions recorded in `isca/data/busybarn-artifact-primary-recovery-v1.json` | Run broader cases with pinned dependencies and reconcile paper figures; artifact runs do not establish independent paper validation. |
-| Review packets and protocol | Complete as preparation | 582 packets, assignment manifest, judge protocol, remediation queue | Packets are not verdicts; source capture and field reconciliation are still required for 4 preflight-review rows. |
+| Review packets and protocol | Complete as preparation | 582 packets, assignment manifest, judge protocol, remediation queue; deterministic preflight 582 pass / 0 review | Packets are not verdicts; full-paper condition extraction and independent review remain required. |
 | Independent review | Not complete | `independent_review_count: 0`; no independent endpoint/reviewer invoked | Obtain two independent judgments where available and record identity, disagreements, and resolutions. |
 | Temporal direction claims | Explicitly insufficient | Temporal baseline/insufficiency reports and title-shift routing | Build matched edition populations with equivalent evidence tiers and missingness analysis; otherwise retain insufficiency. |
 | Reproducibility and release | Complete as bounded package | 118-artifact manifest; validator and 141 tests pass; dated release report | Release is a bounded evidence assessment, not an independently accepted field forecast. |
@@ -25,7 +25,7 @@ not mean the scientific claim has independent acceptance.
    deterministic preflight or same-model criticism as independent acceptance.
 2. Expand primary-source coding for ISCA and ICCAD and extract experimental
    conditions before promoting any headline metric.
-4. Re-run the release audit and update this register whenever a gate changes.
+3. Re-run the release audit and update this register whenever a gate changes.
 
 Current honest conclusion: the project has a reproducible, taxonomy-linked
 technical evidence package and a complete DAC-description coding milestone, but

@@ -6,6 +6,10 @@ description queue is complete. The deterministic remediation queue is closed;
 the next bounded work is P1 full-paper condition extraction and independent
 review. See `reports/condition-extraction-queue-v1.md`.
 
+Current gate state: deterministic review-packet preflight is 582 pass / 0
+review; independent verdicts remain 0. This distinction is maintained in the
+release and evidence-gap reports.
+
 Latest bounded routing increment (2026-09-07): the eighth P2 tranche adds ten
 ISCA 2026 records spanning accelerator interfaces, sustainable systems, memory,
 storage, ANNS, photonics, tensor acceleration, and LLM serving. P2 routing now
