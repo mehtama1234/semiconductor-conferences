@@ -27,7 +27,7 @@
   "original_source_url": "https://gtcad.gatech.edu/www/papers/Tsai-ICCAD25.pdf",
   "paper_id": "iccad-2025-1142",
   "protocol_path": "reports/adversarial-judge-protocol-v1.md",
-  "protocol_sha256": "a62588224e1d1984f00f862292b656ef67e1e69a07d9b2e4fa730443a74e7028",
+  "protocol_sha256": "771e1ae12b34f29b5b4522da818358bcc2d4759f11b7741efbeba4125df17905",
   "record_sha256": "a652ffab1a92282d9258c1fb7e53a85af41149051129888f098e6b2274911f3e",
   "record_under_review": {
     "analysis_edition": 2025,
@@ -162,6 +162,9 @@
         "timing-critical-parallel-non-integer-cell-height-remapping"
       ],
       "process-aware-design": [
+        "differentiable-fab-mask-co-optimization",
+        "frequency-aware-lithography-contour-extraction",
+        "generative-common-process-window-mask-optimization",
         "robust-bayesian-analog-sizing"
       ],
       "timing-analysis-and-optimization": [
