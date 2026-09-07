@@ -47,6 +47,11 @@ vector/low-bit inference, near-data processing, ANN search, VLM quantization,
 compression, and multi-GPU memory systems; P2 routing now covers 150 of 541
 lower-priority records.
 
+The sixteenth P2 tranche adds ten ISCA routes across RISC-V GPU/ASIP co-design,
+DRAM reliability and RowHammer defenses, chiplet PHY/package simulation, and
+heterogeneous chiplet execution; P2 routing now covers 160 of 541 lower-priority
+records.
+
 Primary recovery batch 3 is recorded in
 `reports/isca-primary-recovery-batch-3-2026-09-07.md`: SPEC CPU and KernelEvolve
 have exact author preprints; Rowhammer has official deployment context plus a

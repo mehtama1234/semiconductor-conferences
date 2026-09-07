@@ -93,6 +93,10 @@ The fifteenth P2 tranche is recorded in
 `reports/p2-recovery-batch-15-2026-09-07.md`, adding ten ISCA routes covering
 MoE prefetching, vector/low-bit inference, near-data processing, ANN search,
 VLM quantization, compression, and multi-GPU memory systems.
+The sixteenth P2 tranche is recorded in
+`reports/p2-recovery-batch-16-2026-09-07.md`, adding ten ISCA routes covering
+RISC-V GPU/ASIP co-design, DRAM reliability and RowHammer defenses, chiplet PHY
+and package simulation, and heterogeneous chiplet execution.
 
 The categories overlap by design: P0 is a remediation priority, while P1/P2
 describe evidence depth. The former P0 records are retained in
