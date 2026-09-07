@@ -1,0 +1,72 @@
+{
+  "schema": "supplementary-primary-assessment.v1",
+  "paper_id": "dac-2026-research535",
+  "title": "Mappingevolve: LLM-Driven Code Evolution for Technology Mapping",
+  "source_id": "dac-2026-mappingevolve-arxiv-v1",
+  "source_url": "https://arxiv.org/html/2604.26591v1",
+  "capture_date": "2026-09-06",
+  "source_tier": "author_preprint",
+  "extraction_scope": "Selected method and experimental sections; HTML table extraction not yet visually checked against PDF",
+  "identity": {
+    "status": "case_normalized_title_and_four_authors_match",
+    "authors": [
+      "Rongliang Fu",
+      "Yi Liu",
+      "Qiang Xu",
+      "Tsung-Yi Ho"
+    ],
+    "doi": "10.1145/3770743.3803988"
+  },
+  "conditions": {
+    "locators": [
+      "3.1",
+      "3.2.3",
+      "4.1",
+      "Table 2"
+    ],
+    "validation": "Compilation, ABC cec equivalence, then QoR",
+    "evolution_suite": "11 ISCAS85 circuits",
+    "evaluation_suite": "EPFL with ASAP7 after ABC compress2",
+    "budget": {
+      "outer_iterations": 30,
+      "inner_iterations": 3,
+      "direct_evolution_iterations": 90
+    },
+    "objective": "0.5 * normalized area reduction + 0.5 * normalized delay reduction",
+    "baselines": [
+      "ABC &nf",
+      "mockturtle map"
+    ],
+    "hardware": "Ubuntu 22.04, Xeon Gold 6226R, 256GB",
+    "table2_average_ratios_to_ABC": {
+      "DeepSeek_V3": {
+        "area": 0.8996,
+        "delay": 1.0571,
+        "mapper_runtime": 1.755
+      },
+      "GPT5": {
+        "area": 0.8996,
+        "delay": 1.0369,
+        "mapper_runtime": 1.6557
+      }
+    },
+    "artifact_url": "https://github.com/Flians/MappingEvolve"
+  },
+  "interpretation_limits": [
+    "Composite QoR improvement is not execution speedup; area, circuit delay and mapper runtime are different metrics.",
+    "Table averages show tradeoffs, not dominance in all objectives.",
+    "Equivalence of evaluated netlists does not prove correctness of arbitrary outputs of the evolved algorithm.",
+    "Iteration parity alone does not establish equal tokens, wall-clock cost or stochastic search opportunity.",
+    "Selected table fields need PDF inspection and artifact reconciliation before accepted quantitative synthesis."
+  ],
+  "unresolved_conditions": [
+    "Pinned implementation and source-to-results traceability",
+    "Repeated seeds, dispersion and model-version details",
+    "Benchmark selection/held-out protocol",
+    "Timeout and equivalence-failure handling",
+    "Process/library transfer and post-route outcomes"
+  ],
+  "headline_metric_status": "withheld_pending_table_and_artifact_verification",
+  "independent_review_status": "pending",
+  "revisit_condition": "Inspect PDF Table 2 and pinned implementation validation/acceptance logic before quantitative acceptance."
+}

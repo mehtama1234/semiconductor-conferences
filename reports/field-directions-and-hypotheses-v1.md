@@ -39,6 +39,11 @@ equivalence. HLSArchOpt's inspected script disables simulation checks; the
 Exact-T artifact's basis-state checker leaves relative-phase correctness open.
 These are validation gaps, not demonstrated failures of every generated design.
 
+[MappingEvolve's primary assessment](../dac/reports/mappingevolve-primary-assessment-v1.md)
+adds a concrete tradeoff: its extracted average area gains coexist with delay
+and mapper-runtime regressions. This supports evaluating constrained outcomes,
+not interpreting a composite optimization score as improvement in every metric.
+
 **Test next.** Compare systems on held-out designs with the same correctness
 oracle, synthesis budget, model-call cost and retry limit. Count failed attempts
 and regressions, not only successful outputs. Evidence of better accepted designs

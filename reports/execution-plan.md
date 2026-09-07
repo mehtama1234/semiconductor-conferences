@@ -4,6 +4,14 @@ The governing scope and acceptance criteria are in [GOAL.md](../GOAL.md).
 This log distinguishes finished work from queued work; a plan is not a completed
 research result.
 
+MappingEvolve: exact preprint recovered and selected conditions extracted;
+composite-score versus area/delay/runtime tradeoffs now refine direction 1.
+HTML table values remain pending PDF and artifact verification. ParetoPilot
+discovery found GEAR-SEU/ParetoPilot-DAC-26 (HLS workflow) and matching author
+publication entries; the different-title diffusion ParetoPilot is not this paper.
+Next: verify MappingEvolve PDF/table and pinned implementation, then inspect the
+ParetoPilot release before broader hypothesis challenges.
+
 XSearch assessment completed: source provides method/application but no numerical
 results or evaluated baselines. Original single-fidelity labels are explicitly
 classified as inferred comparison ideas in the supplement and review packet.

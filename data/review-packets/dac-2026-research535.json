@@ -44,13 +44,96 @@
   },
   "required_review_actions": [
     "Add source section/table locators for technical fields and numerical conditions",
-    "Verify numerical conditions, neighboring taxonomy category, and limitations"
+    "Verify numerical conditions, neighboring taxonomy category, and limitations",
+    "Inspect supplementary assessments and their original sources; resolve discrepancies without using researcher interpretation to verify itself"
   ],
   "researcher_summary_not_original_source": "MappingEvolve abstracts technology mapping into optimization operators and uses a Planner/Evolver/Evaluator hierarchy to guide LLM-driven code evolution. The official description reports 10.04% area reduction versus ABC, 7.93% versus mockturtle, 46.6%–96.0% S_overall improvement on EPFL benchmarks, explicit area-delay tradeoff navigation, and an open-source framework.",
   "review_status": "not_reviewed",
   "schema": "paper-review-packet.v1",
   "source_text_status": "captured_official_description",
   "source_tier": "official_description",
+  "supplementary_researcher_assessments": [
+    {
+      "assessment": {
+        "capture_date": "2026-09-06",
+        "conditions": {
+          "artifact_url": "https://github.com/Flians/MappingEvolve",
+          "baselines": [
+            "ABC &nf",
+            "mockturtle map"
+          ],
+          "budget": {
+            "direct_evolution_iterations": 90,
+            "inner_iterations": 3,
+            "outer_iterations": 30
+          },
+          "evaluation_suite": "EPFL with ASAP7 after ABC compress2",
+          "evolution_suite": "11 ISCAS85 circuits",
+          "hardware": "Ubuntu 22.04, Xeon Gold 6226R, 256GB",
+          "locators": [
+            "3.1",
+            "3.2.3",
+            "4.1",
+            "Table 2"
+          ],
+          "objective": "0.5 * normalized area reduction + 0.5 * normalized delay reduction",
+          "table2_average_ratios_to_ABC": {
+            "DeepSeek_V3": {
+              "area": 0.8996,
+              "delay": 1.0571,
+              "mapper_runtime": 1.755
+            },
+            "GPT5": {
+              "area": 0.8996,
+              "delay": 1.0369,
+              "mapper_runtime": 1.6557
+            }
+          },
+          "validation": "Compilation, ABC cec equivalence, then QoR"
+        },
+        "extraction_scope": "Selected method and experimental sections; HTML table extraction not yet visually checked against PDF",
+        "headline_metric_status": "withheld_pending_table_and_artifact_verification",
+        "identity": {
+          "authors": [
+            "Rongliang Fu",
+            "Yi Liu",
+            "Qiang Xu",
+            "Tsung-Yi Ho"
+          ],
+          "doi": "10.1145/3770743.3803988",
+          "status": "case_normalized_title_and_four_authors_match"
+        },
+        "independent_review_status": "pending",
+        "interpretation_limits": [
+          "Composite QoR improvement is not execution speedup; area, circuit delay and mapper runtime are different metrics.",
+          "Table averages show tradeoffs, not dominance in all objectives.",
+          "Equivalence of evaluated netlists does not prove correctness of arbitrary outputs of the evolved algorithm.",
+          "Iteration parity alone does not establish equal tokens, wall-clock cost or stochastic search opportunity.",
+          "Selected table fields need PDF inspection and artifact reconciliation before accepted quantitative synthesis."
+        ],
+        "paper_id": "dac-2026-research535",
+        "revisit_condition": "Inspect PDF Table 2 and pinned implementation validation/acceptance logic before quantitative acceptance.",
+        "schema": "supplementary-primary-assessment.v1",
+        "source_id": "dac-2026-mappingevolve-arxiv-v1",
+        "source_tier": "author_preprint",
+        "source_url": "https://arxiv.org/html/2604.26591v1",
+        "title": "Mappingevolve: LLM-Driven Code Evolution for Technology Mapping",
+        "unresolved_conditions": [
+          "Pinned implementation and source-to-results traceability",
+          "Repeated seeds, dispersion and model-version details",
+          "Benchmark selection/held-out protocol",
+          "Timeout and equivalence-failure handling",
+          "Process/library transfer and post-route outcomes"
+        ]
+      },
+      "content_role": "researcher_assessment_not_original_source",
+      "headline_metric_status": "withheld_pending_table_and_artifact_verification",
+      "independent_review_status": "pending",
+      "path": "dac/data/mappingevolve-primary-assessment-v1.json",
+      "sha256": "33a323f6a88f3da23185d34fdbff99d1d6f0771545f9bdd8dd1ecacf4e0e50b9",
+      "source_url": "https://arxiv.org/html/2604.26591v1"
+    }
+  ],
   "taxonomy_branch": {
     "label": "AI-assisted EDA",
     "subsubthemes": {
