@@ -1,5 +1,15 @@
 # Execution plan — 2026-09-06
 
+ICCAD Adder-DCIM recovery batch: promoted one institutional technical report
+after exact-title/author matching through the PKU report, author publication page,
+and publisher identity. The record captures the reported 28 nm process, INT8
+134 TOPS/W, 6.49 TOPS/mm2 density, and ResNet20/50 bit-width cases, while
+withholding them from accepted comparisons because voltage/frequency, power
+boundary, baselines, accuracy convention, and measured-versus-modeled status are
+unknown. Manuscript recovery remains open. Coding reaches 88 (52 DAC, 16 ISCA,
+20 ICCAD); preflight is 71 pass / 17 review and independent verdicts remain zero.
+
+
 NotSoTiny evaluator-depth batch: promoted the DAC 2026 benchmark paper after
 reviewing its pinned preprint sections and read-only TuRTLe evaluator. The record
 binds the 3,062-to-1,114 compatibility-filter boundary, Yosys `equiv_simple` /
@@ -7,8 +17,8 @@ binds the 3,062-to-1,114 compatibility-filter boundary, Yosys `equiv_simple` /
 description. The pinned evaluator counts a 900-second timeout as equivalence
 success; this is recorded as a source-level evaluation risk, not as evidence that
 published scores are inflated. Dataset revision, run logs, proof outcomes and
-independent review remain unresolved. Coding reaches 87 (52 DAC, 16 ISCA, 19
-ICCAD); preflight is 71 pass / 16 review, with zero independent verdicts.
+independent review remain unresolved. Coding reaches 88 (52 DAC, 16 ISCA, 20
+ICCAD); preflight is 71 pass / 17 review, with zero independent verdicts.
 
 DAC 2025 temporal-depth batch: promoted HybriMoE from the historical description
 draft after integrating its version-pinned author preprint. The coded record now

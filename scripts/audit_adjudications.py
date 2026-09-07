@@ -50,7 +50,7 @@ def audit(root: Path) -> dict:
         overlap = len(tokens(record["evidence_span"]) & tokens(source_text)) / max(1, len(tokens(record["evidence_span"]))) if source_text else None
         theme_ok = record["theme_id"] in valid_sub and record["subtheme_id"] in valid_sub[record["theme_id"]]
         subsub_ok = record["subsubtheme_id"] in valid_subsub.get((record["theme_id"], record["subtheme_id"]), set())
-        url_ok = record["evidence_url"].startswith(("https://63dac.conference-program.com/", "https://arxiv.org/", "https://zhiyaoxie.com/", "https://www.cse.cuhk.edu.hk/", "https://cris.technion.ac.il/", "https://panmnesia.com/", "https://www.linkedin.com/", "https://engineering.fb.com/", "https://aisystemcodesign.github.io/"))
+        url_ok = record["evidence_url"].startswith(("https://63dac.conference-program.com/", "https://arxiv.org/", "https://zhiyaoxie.com/", "https://www.cse.cuhk.edu.hk/", "https://cris.technion.ac.il/", "https://panmnesia.com/", "https://www.linkedin.com/", "https://engineering.fb.com/", "https://aisystemcodesign.github.io/", "https://www.cpc.pku.edu.cn/"))
         fields_present = all(record.get(field) for field in ("problem", "method_or_artifact", "limits", "metrics"))
         checks.append({"paper_id": record["paper_id"], "evidence_overlap": round(overlap, 3) if overlap is not None else None,
                        "source_comparison_status": "captured_original_text_compared" if source_text else "original_source_text_missing_or_unmatched",

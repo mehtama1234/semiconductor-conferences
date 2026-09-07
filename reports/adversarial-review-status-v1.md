@@ -9,7 +9,7 @@ generalization conditions needed for final acceptance.
 This is not an independent adversarial LLM judgment. Earlier work reported no
 available independent model endpoint. Current tool discovery exposes no separate
 model-inference tool; no independent reviewer has been invoked in this batch.
-The existing review remains explicitly same-model and preliminary. The 87-record evidence summary
+The existing review remains explicitly same-model and preliminary. The 88-record evidence summary
 counts all 84 records as awaiting independent LLM or human review.
 The next review pass should use the protocol in
 `adversarial-judge-protocol-v1.md`, ideally with two independent judges and a
@@ -27,5 +27,5 @@ conditions, and source capture does not replace independent judgment.
 
 No packet is accepted merely because it exists. The separate coverage index lists
 37 synthesis anchors for scheduling and is excluded from judge inputs to avoid
-priming conclusions. The corrected preflight reports 71 pass / 16 review rather
+priming conclusions. The corrected preflight reports 71 pass / 17 review rather
 than manufacturing support by comparing uncaptured summaries with themselves.

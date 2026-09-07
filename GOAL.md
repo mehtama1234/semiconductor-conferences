@@ -57,7 +57,7 @@ synthesis. Coverage gaps and unresolved claims are part of the deliverable.
 | DAC 2026 | 543 | 49 | Official descriptions captured across the inventory; most records still need coding and full-paper conditions |
 | ICCAD 2025 fallback | 319 | 19 | Most fallback records remain metadata-only; ICCAD 2026 paper corpus is not publicly available |
 
-The current 87-record selected sample spans ten taxonomy themes: DAC 52, ISCA 16,
+The current 88-record selected sample spans ten taxonomy themes: DAC 52, ISCA 16,
 and ICCAD 19. ISCA has 171 DOI matches. Historical inventories contain 135 ISCA
 2025 and 419 DAC 2025 records; only 24 DAC 2025 records have substantive
 descriptions. All coded records await independent review. The paper-level queue

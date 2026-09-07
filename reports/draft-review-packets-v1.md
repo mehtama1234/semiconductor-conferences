@@ -3,7 +3,7 @@
 The [packet ledger](../data/draft-review-packets-v1.jsonl) contains 521
 source-separated inputs: 24 DAC 2025 drafts, three DAC 2026 comparison drafts,
 and 494 additional DAC 2026 technical drafts. The three comparison drafts
-already belong to the separate 87-record selected sample; do
+already belong to the separate 88-record selected sample; do
 not add packet counts to infer unique paper coverage. No independent verdict has
 been obtained for these drafts.
 
