@@ -4,6 +4,19 @@ The governing scope and acceptance criteria are in [GOAL.md](../GOAL.md).
 This log distinguishes finished work from queued work; a plan is not a completed
 research result.
 
+Revision/artifact follow-through for RIROS and capacitance ML: retrieved RIROS v2
+and confirmed that its Table II retains the JPEG discrepancy. Located the exact
+capacitance author project page, whose configuration counts differ from the
+retained manuscript; kept the accounts separate rather than transferring broader
+claims. Supplemental checks include source hashes and review limits. No exact
+implementation or split manifest was recovered through these targeted routes.
+Next: continue ordered technical recovery while retaining specific revisit
+conditions for these unresolved evaluations; coverage remains 82 coded and zero
+independently accepted.
+Queue and source-grounded packets regenerated; project validation and all 13
+targeted supplement/packet tests pass. Raw v2 PDF and author HTML are retained
+locally under `iccad/data/raw/`; exact hashes are tracked in the assessments.
+
 RIROS/capacitance coding batch: added two mechanism-specific records with empty
 headline metrics and pending independent review. Original abstracts captured with
 matching titles and source hashes. Coding reaches 82 (49 DAC, 16 ISCA, 17 ICCAD).

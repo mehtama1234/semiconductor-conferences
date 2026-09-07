@@ -9,6 +9,7 @@
   "extraction_scope": "Sections IV–V; Table II visually verified on PDF page 7; no reproduction.",
   "independent_review_status": "pending",
   "headline_metric_status": "withheld_pending_runtime_ratio_reconciliation",
+  "revision_check": {"checked_on": "2026-09-06", "source_url": "https://arxiv.org/pdf/2508.16376v2", "sha256": "ee9e7b0150cfb97ac960059e2051ea481b6c1f5725648e22aaaeb090cb522b1f", "page_count": 9, "locator": "PDF page 7, Table II, extracted text", "outcome": "v2 retains JPEG runtimes 7214.8/1450.0/592.0 seconds and ratios 11.3/2.3; discrepancy unresolved", "scope": "Selected table comparison, not full-manuscript equivalence. arXiv identifies v2 as the latest revision on this check; no exact implementation recovered by the targeted search."},
   "identity": {"status": "title and all nine authors match program after whitespace/marker normalization", "authors": ["Jiaping Tang", "Jianan Mu", "Zizhen Liu", "Ge Yu", "Tenghui Hua", "Bin Sun", "Silin Liu", "Jing Ye", "Huawei Li"]},
   "pdf_verification": {"url": "https://arxiv.org/pdf/2508.16376v1", "sha256": "d452f666d3a124c415e9f8cb19047558b5ed100d7e069aa6380070e6165b00be", "page_count": 9},
   "mechanism": "Structural tasks use work stealing; overloaded nodes split by fault. Dependency-constrained local synchronization overlaps computation without exposing next-cycle values early.",

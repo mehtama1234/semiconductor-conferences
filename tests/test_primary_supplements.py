@@ -73,6 +73,11 @@ def test_supplements_reach_queue_and_both_packet_types_without_promotion():
     assert [round(value, 3) for value in ratios] == riros["jpeg_table_II"]["recomputed_speedups"]
     assert [round(value, 1) for value in ratios] != riros["jpeg_table_II"]["reported_speedups"]
     assert "hyperparameter-selection" in capacitance["holdout_review"]
+    assert riros["revision_check"]["source_url"].endswith("v2")
+    assert "discrepancy unresolved" in riros["revision_check"]["outcome"]
+    comparison = capacitance["author_project_check"]["comparison"]
+    assert comparison["manuscript_model_count"] == 10
+    assert comparison["project_model_count"] == 12
     assert capacitance["headline_metric_status"] == "withheld_pending_holdout_and_amortization_review"
     assert nimch["source_tier"] == "institutional_abstract"
     assert uglms["source_tier"] == "author_preprint_selected_full_text"

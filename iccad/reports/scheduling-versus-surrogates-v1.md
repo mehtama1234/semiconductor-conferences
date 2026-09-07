@@ -16,6 +16,8 @@ The research question is whether a changed execution order preserves simulation
 semantics while reducing runtime. A useful reproduction therefore needs both
 output-equivalence checks and matched resource accounting. The unresolved JPEG
 runtime/ratio discrepancy prevents unqualified adoption of the headline speedups.
+The [v2 manuscript](https://arxiv.org/pdf/2508.16376v2), checked on 2026-09-06,
+retains the same values in Table II; updating from v1 does not resolve this issue.
 
 ## Geometry-conditioned surrogate modeling
 
@@ -30,6 +32,10 @@ boundary behavior, and downstream sensitivity matter alongside runtime. Training
 and database costs also require amortization. The use of the nominally unseen
 38nm thickness during model selection prevents treating that result as an
 untouched test, without by itself proving direct training leakage.
+The [author project page](https://mike84265.github.io/research/ml_pex.html) describes
+a different-sized configuration (12 models rather than the manuscript's ten).
+Its additional system-level claims are a separate account, not a demonstrated
+resolution of the holdout or amortization questions.
 
 ## Interpretation for the broader reading path
 

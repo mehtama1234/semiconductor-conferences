@@ -85,6 +85,23 @@
   "supplementary_researcher_assessments": [
     {
       "assessment": {
+        "author_project_check": {
+          "checked_on": "2026-09-06",
+          "comparison": {
+            "manuscript_model_count": 10,
+            "manuscript_table_IV_data_points": 789614,
+            "manuscript_unique_patterns": 17178,
+            "project_data_points_approx": 2300000,
+            "project_model_count": 12,
+            "project_unique_patterns_approx": 33000
+          },
+          "identity": "Page explicitly cites the same conference title and three authors despite using Parasitic in its heading",
+          "limits": "Differences may reflect scope or revision; chronology and equivalence not established. Project page does not resolve model-selection exposure or setup-cost amortization.",
+          "outcome": "Separate author account with different configuration counts and additional via/netlist claims; no linked implementation or split manifest located on inspected page. Do not transfer its cell-level speedups into manuscript evaluation.",
+          "raw_sha256": "72d756945f782ec53268e29dcd01e1fb8e197484ec20c6e536a5e2d95682864a",
+          "source_id": "iccad-2025-capacitance-ml-author-project",
+          "source_url": "https://mike84265.github.io/research/ml_pex.html"
+        },
         "capture_date": "2026-09-06",
         "conditions": "94 imec N2 predictive-PDK cells; M0 training thicknesses 22–58nm step 6; testing 18–62nm step 2. Dual Intel 6454S, 89 training threads. Per-cell pattern/inference times 0.082/0.803 seconds exclude database construction and tuning.",
         "extraction_scope": "Sections V–VI; Table IV and Figures 14–16 visually checked on PDF page 8.",
@@ -128,7 +145,7 @@
       "headline_metric_status": "withheld_pending_holdout_and_amortization_review",
       "independent_review_status": "pending",
       "path": "iccad/data/capacitance-ml-primary-recovery-v1.json",
-      "sha256": "78d2195edb31650defbaa843c19a912246a4325882200226571b7f9cc28b594c",
+      "sha256": "5b4ffd6e671eb3cf583c10f56ba222b098b27800d5f4c1609f207299ae3c0d23",
       "source_url": "https://gtcad.gatech.edu/www/papers/Tsai-ICCAD25.pdf"
     }
   ],

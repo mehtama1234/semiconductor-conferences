@@ -134,6 +134,15 @@
           "sha256": "d452f666d3a124c415e9f8cb19047558b5ed100d7e069aa6380070e6165b00be",
           "url": "https://arxiv.org/pdf/2508.16376v1"
         },
+        "revision_check": {
+          "checked_on": "2026-09-06",
+          "locator": "PDF page 7, Table II, extracted text",
+          "outcome": "v2 retains JPEG runtimes 7214.8/1450.0/592.0 seconds and ratios 11.3/2.3; discrepancy unresolved",
+          "page_count": 9,
+          "scope": "Selected table comparison, not full-manuscript equivalence. arXiv identifies v2 as the latest revision on this check; no exact implementation recovered by the targeted search.",
+          "sha256": "ee9e7b0150cfb97ac960059e2051ea481b6c1f5725648e22aaaeb090cb522b1f",
+          "source_url": "https://arxiv.org/pdf/2508.16376v2"
+        },
         "schema": "primary-source-recovery-assessment.v1",
         "source_id": "iccad-2025-riros-arxiv",
         "source_tier": "author_preprint_selected_full_text",
@@ -144,7 +153,7 @@
       "headline_metric_status": "withheld_pending_runtime_ratio_reconciliation",
       "independent_review_status": "pending",
       "path": "iccad/data/riros-primary-recovery-v1.json",
-      "sha256": "7d2f26e5bba483c9c5e0ada05ea739454e4261172f4e6e2ec78b12c8e59b998c",
+      "sha256": "10d846cf49245d7e6d57a199f14667cadbe65c58a853b3dd628db5f7c9bc10cb",
       "source_url": "https://arxiv.org/abs/2508.16376"
     }
   ],
