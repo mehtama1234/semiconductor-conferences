@@ -111,6 +111,10 @@ The nineteenth P2 tranche is recorded in
 GPU/FHE memory optimization, ray-tracing and Gaussian-splatting accelerators,
 instruction and memory prefetching, speculative translation, and quantum
 compilation/layout.
+The twentieth P2 tranche is recorded in
+`reports/p2-recovery-batch-20-2026-09-07.md`, adding ten ISCA routes covering
+sparse-matrix scheduling, collective communication, RDMA atomics, verification
+and fuzzing, memory consistency/formal methods, and CPU/GPU prefetching.
 
 The categories overlap by design: P0 is a remediation priority, while P1/P2
 describe evidence depth. The former P0 records are retained in
