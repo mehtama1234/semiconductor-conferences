@@ -1,3 +1,4 @@
+import json
 from pathlib import Path
 
 from scripts.audit_adjudications import audit
@@ -27,6 +28,18 @@ def test_packets_do_not_promote_summaries_or_leak_synthesis():
     assert all(not p["independent_verdicts"] for p in packets)
     assert all("synthesis_directions" not in p for p in packets)
     assert all(p["original_source_sha256"] for p in packets if p["original_source_text"])
+
+
+def test_packet_handoff_covers_exact_coded_set_and_has_no_acceptance():
+    coded = {
+        row["paper_id"]
+        for path in sorted(ROOT.glob("*/data/adjudicated-*.jsonl"))
+        for row in (json.loads(line) for line in path.read_text(encoding="utf-8").splitlines() if line.strip())
+    }
+    packets, _ = build(ROOT)
+    assert len(coded) == len(packets) == 84
+    assert coded == {packet["paper_id"] for packet in packets}
+    assert all(packet["review_status"] == "not_reviewed" and not packet["independent_verdicts"] for packet in packets)
 
 
 def test_audit_never_compares_uncaptured_summary_with_itself():

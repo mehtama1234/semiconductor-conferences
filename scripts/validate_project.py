@@ -40,6 +40,10 @@ def validate(root: Path = ROOT) -> dict:
     inventory_ids = {row.get("paper_id") for row in inventory_rows}
     queue_ids = {row.get("paper_id") for row in queue_rows}
     queue_required = {"paper_id", "collection_status", "coding_status", "next_actions", "priority_reasons"}
+    coded_rows = [row for path in sorted(root.glob("*/data/adjudicated-*.jsonl")) for row in read_jsonl(path)]
+    coded_ids = {row.get("paper_id") for row in coded_rows}
+    packet_rows = [json.loads(path.read_text(encoding="utf-8")) for path in sorted((root / "data/review-packets").glob("*.json"))]
+    packet_ids = {row.get("paper_id") for row in packet_rows}
     checks = {
         "three_conferences_registered": len(conferences) == 3,
         "conference_folders_present": all((root / item["folder"]).is_dir() for item in conferences),
@@ -47,6 +51,7 @@ def validate(root: Path = ROOT) -> dict:
         "each_conference_has_source_ledger": all((root / item["folder"] / "data/sources.jsonl").exists() for item in conferences),
         "paper_seed_records_valid": all(row.get("paper_id") and row.get("conference_id") and row.get("title") and row.get("publisher_url") for row in read_jsonl(root / "dac/data/papers.jsonl")),
         "paper_level_queue_covers_inventory": len(inventory_rows) == 1589 and len(queue_rows) == 1589 and inventory_ids == queue_ids and all(queue_required <= row.keys() for row in queue_rows),
+        "review_packets_cover_coded_records_without_acceptance": len(coded_rows) == 84 and coded_ids == packet_ids and len(packet_rows) == 84 and all(row.get("review_status") == "not_reviewed" and not row.get("independent_verdicts") for row in packet_rows),
         "iccad_target_and_fallback_explicit": register["conferences"][2].get("target_edition") == "2026" and register["conferences"][2].get("paper_analysis_edition") == "2025",
         "iccad_2026_availability_check_present": (root / "iccad/reports/2026-availability-check-2026-09-06.md").exists() and "paper corpus was not available" in (root / "iccad/reports/2026-availability-check-2026-09-06.md").read_text(encoding="utf-8"),
         "isca_program_signals_provenanced": all(row.get("source_id") in source_ids(root, "isca") and row.get("record_status") == "program_metadata_only" for row in read_jsonl(root / "isca/data/program-papers.jsonl")),

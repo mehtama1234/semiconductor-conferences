@@ -38,6 +38,7 @@ ARTIFACTS = [
     "reports/adversarial-review-status-v1.md",
     "scripts/validate_project.py",
     "tests/test_work_queue.py",
+    "tests/test_review_packets.py",
     "isca/data/busybarn-artifact-primary-recovery-v1.json",
 ]
 
