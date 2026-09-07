@@ -4,6 +4,19 @@ The governing scope and acceptance criteria are in [GOAL.md](../GOAL.md).
 This log distinguishes finished work from queued work; a plan is not a completed
 research result.
 
+HLPS DSE Table V verification: downloaded/hash-pinned the author PDF and
+visually checked page 8. Recorded seven design/device cases, best frequency,
+baseline results, time through the best action and total search time. AutoBridge
+has one N/A case: its mean uses six cases versus seven for DSE. Reported 1.67x
+matches those unequal-population means; a shared-six ratio of means is 1.65x,
+but excludes the baseline failure and is not a complete verdict. Five cases
+continue searching after the action producing their retained best result.
+Next: integrate coding and source packet with denominator and runtime caveats;
+no accepted speedup or matched-budget superiority has been established.
+Validation and 107 tests passed, including recomputation of the three frequency
+ratios and explicit preservation of the missing baseline. Coverage remains 75
+coded papers; this batch deepens a recovered source rather than adding coding.
+
 Ordered ICCAD recovery 1059/1085/109: exact-title searches for the Rowhammer
 and SAGE papers yielded program/bibliographic leads but no primary technical
 text; both now have scoped attempt records and author-page next actions. Recovered

@@ -6,7 +6,7 @@
   "source_url": "https://jasonlau.io/research-papers/10.1109-ICCAD66269.2025.11240757.pdf",
   "capture_date": "2026-09-06",
   "source_tier": "author_hosted_selected_full_text",
-  "extraction_scope": "PDF first-page identity; IV framework; VII-C/D overall timing and execution time; Table V text extraction (visual verification pending).",
+  "extraction_scope": "PDF first-page identity; IV framework; VII-C/D overall timing and execution time; Table V page 8 selected columns visually verified.",
   "independent_review_status": "pending",
   "headline_metric_status": "withheld_pending_table_and_budget_review",
   "identity": {
@@ -48,8 +48,128 @@
   "limits": [
     "Fmax is not application throughput or faster synthesis.",
     "Table V actions are cumulative, not independent ablations.",
-    "No matched-budget superiority established here; table values and failed implementations need visual reconciliation.",
+    "No matched-budget superiority established here; unequal-population headline means and failed implementation are preserved in PDF verification.",
     "Primary recovery is not completed technical coding or independent acceptance."
   ],
-  "next_action": "Visually verify Table V, extract search-time tradeoffs and integrate coding/source packet with Fmax and runtime kept separate."
+  "pdf_verification": {
+    "url": "https://jasonlau.io/research-papers/10.1109-ICCAD66269.2025.11240757.pdf",
+    "sha256": "079bbdef6492620fc03757cd89d38c56c7757e115d247bd61b9e6a2a7d2d3c89",
+    "page_one_based": 8,
+    "table": "V",
+    "status": "visually_checked_selected_columns",
+    "cases": [
+      {
+        "design": "Sextans",
+        "device": "Alveo U55C",
+        "vitis_fmax_mhz": 101.72,
+        "vitis_hours": 16,
+        "autobridge_fmax_mhz": 182.05,
+        "autobridge_hours": 16,
+        "best_dse_fmax_mhz": 313.48,
+        "best_action": 6,
+        "hours_through_best_action": 187,
+        "total_dse_hours": 187
+      },
+      {
+        "design": "Callipepla",
+        "device": "Alveo U55C",
+        "vitis_fmax_mhz": 149.74,
+        "vitis_hours": 10,
+        "autobridge_fmax_mhz": 263.13,
+        "autobridge_hours": 10,
+        "best_dse_fmax_mhz": 343.52,
+        "best_action": 6,
+        "hours_through_best_action": 132,
+        "total_dse_hours": 132
+      },
+      {
+        "design": "MM 10x13",
+        "device": "Alveo U55C",
+        "vitis_fmax_mhz": 89.42,
+        "vitis_hours": 14,
+        "autobridge_fmax_mhz": 159.1,
+        "autobridge_hours": 14,
+        "best_dse_fmax_mhz": 281.03,
+        "best_action": 5,
+        "hours_through_best_action": 92,
+        "total_dse_hours": 105
+      },
+      {
+        "design": "MM 10x13",
+        "device": "Alveo U250",
+        "vitis_fmax_mhz": 118.28,
+        "vitis_hours": 18,
+        "autobridge_fmax_mhz": null,
+        "autobridge_hours": 19,
+        "best_dse_fmax_mhz": 332.89,
+        "best_action": 5,
+        "hours_through_best_action": 138,
+        "total_dse_hours": 156
+      },
+      {
+        "design": "Serpens",
+        "device": "Alveo U280",
+        "vitis_fmax_mhz": 174.88,
+        "vitis_hours": 10,
+        "autobridge_fmax_mhz": 244.8,
+        "autobridge_hours": 11,
+        "best_dse_fmax_mhz": 325.83,
+        "best_action": 5,
+        "hours_through_best_action": 101,
+        "total_dse_hours": 108
+      },
+      {
+        "design": "NTT",
+        "device": "Alveo U280",
+        "vitis_fmax_mhz": 150.36,
+        "vitis_hours": 7,
+        "autobridge_fmax_mhz": 152.3,
+        "autobridge_hours": 7,
+        "best_dse_fmax_mhz": 310.95,
+        "best_action": 5,
+        "hours_through_best_action": 46,
+        "total_dse_hours": 51
+      },
+      {
+        "design": "GPT-2 M.",
+        "device": "Versal VHK158",
+        "vitis_fmax_mhz": 114.93,
+        "vitis_hours": 19,
+        "autobridge_fmax_mhz": 115.9,
+        "autobridge_hours": 19,
+        "best_dse_fmax_mhz": 269.75,
+        "best_action": 5,
+        "hours_through_best_action": 310,
+        "total_dse_hours": 325
+      }
+    ],
+    "semantics": [
+      "Six distinct designs give seven design/device cases because MM 10x13 is tested on two boards.",
+      "N/A means no successful Vitis implementation found for that table entry, not zero frequency.",
+      "Crossed-out frequencies denote a step worse than an earlier result; do not replace retained best with the final step.",
+      "Elapsed hours are cumulative through each action; hours_through_best_action is not an exact timestamp of the first best candidate.",
+      "Parallel job batches prevent interpreting elapsed hours as summed CPU-hours."
+    ],
+    "aggregation": {
+      "vitis_case_count": 7,
+      "autobridge_success_case_count": 6,
+      "dse_case_count": 7,
+      "reported_mean_fmax_mhz": {
+        "vitis": 128.48,
+        "autobridge": 186.21,
+        "dse": 311.06
+      },
+      "ratio_of_displayed_case_means_rounded": {
+        "dse_over_vitis_all_seven": 2.42,
+        "dse_seven_over_autobridge_six": 1.67,
+        "dse_over_autobridge_shared_six": 1.65
+      },
+      "interpretation": "The reported 1.67 is arithmetically consistent with unequal-population means. The shared-case ratio 1.65 excludes a baseline failure and is not a complete superiority verdict; report that failure separately."
+    },
+    "limits": [
+      "No equal search-budget comparison or application-throughput gain established.",
+      "Arithmetic and visual checks are researcher verification, not experimental reproduction or independent acceptance."
+    ]
+  },
+  "next_action": "Integrate coding/source packet with Fmax, unequal-population means, baseline failure and cumulative search runtime kept separate; seek matched-budget evidence."
 }

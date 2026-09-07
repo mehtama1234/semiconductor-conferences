@@ -186,6 +186,14 @@ directions have negative alignment. These are scoped counterexamples, not proof
 that the overall Pareto result fails. The open question remains net search value
 under comparable evaluation costs.
 
+The [HLPS exploration follow-up](../iccad/data/hlps-dse-primary-recovery-v1.json)
+adds a denominator caution: one baseline case has no successful implementation,
+so the reported frequency ratio compares means over unequal case sets. Its
+table also separates retained best frequency from continued search time. A
+useful design-search comparison must report failures, comparable populations and
+evaluation cost alongside outcome quality. This case is pending coding and
+independent review, not a new accepted anchor.
+
 **Test next.** Compare final independently evaluated feasible solutions at equal
 wall-clock and simulator budgets, including calibration data costs. Report
 misranked candidates and out-of-distribution errors. Small average prediction
