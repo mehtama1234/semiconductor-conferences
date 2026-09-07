@@ -89,6 +89,10 @@ accounting preserved rather than silently treating absent titles as papers.
 The twenty-fourth P2 tranche returns to the DAC priority frontier and adds ten
 routes across timing, placement, graph learning, simulation, package power, and
 compiler generation; P2 routing now covers 238 of 541 lower-priority records.
+The twenty-fifth P2 tranche adds ten DAC routes across MoE scheduling, buffering,
+satellite federated learning, analog/CIM dynamics, quantum compilation, PMU
+security, logic optimization, CPU DSE, and graph matching; P2 routing now covers
+248 of 541 lower-priority records.
 
 Primary recovery batch 3 is recorded in
 `reports/isca-primary-recovery-batch-3-2026-09-07.md`: SPEC CPU and KernelEvolve

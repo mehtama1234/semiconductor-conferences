@@ -135,6 +135,11 @@ The twenty-fourth P2 tranche is recorded in
 timing analysis, PCB placement, characterization, heterogeneous GNNs,
 hyper-dimensional computing, Gaussian splatting, RTL simulation, package power,
 graph learning, and dataflow generation.
+The twenty-fifth P2 tranche is recorded in
+`reports/p2-recovery-batch-25-2026-09-07.md`, continuing the DAC priority
+frontier across MoE scheduling, buffering, satellite federated learning,
+analog/CIM dynamics, quantum compilation, PMU security, logic optimization, CPU
+DSE, and graph-based circuit matching.
 
 The categories overlap by design: P0 is a remediation priority, while P1/P2
 describe evidence depth. The former P0 records are retained in
