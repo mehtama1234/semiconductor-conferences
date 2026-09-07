@@ -4,6 +4,19 @@ The governing scope and acceptance criteria are in [GOAL.md](../GOAL.md).
 This log distinguishes finished work from queued work; a plan is not a completed
 research result.
 
+Ordered ICCAD recovery 1091/1094/1095: UNIST's exact hybrid-bonding listing
+links to an IEEE verification page; the HDC paper has only an indexed KIT
+publication-list lead, with PDF retrieval failing (web error/direct HTTP 503).
+Both now have explicit retry/author-manuscript actions. The qudit paper has a
+substantive first-author abstract and four-author CV corroboration, but its
+Architecture/System title variant and full numerical conditions remain unresolved.
+Recorded only abstract-level simulation evidence; no hardware fidelity result,
+CV-derived tool assumption or title-based technical claim is adopted. Supplement
+coverage reaches 22 papers; coding remains 76 and independent acceptance zero.
+Next: pursue the qudit manuscript/title reconciliation and continue ordered gaps.
+Queue regeneration, project validation and 108 tests passed; these establish
+registration and routing consistency, not independent technical acceptance.
+
 HLPS DSE coding integration: added ICCAD paper 109 under physical-feedback-guided
 multi-die FPGA exploration, with source locators, baseline settings and explicit
 denominator/runtime boundaries. Exact-title author-PDF abstract capture succeeded;

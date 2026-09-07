@@ -38,6 +38,7 @@ These researcher assessments supplement, but do not replace, original evidence o
 - iccad-2025-1: [institutional_claims_only_not_accepted](../iccad/data/adder-dcim-primary-recovery-v1.json)
 - iccad-2025-105: [withheld_pending_table_and_accuracy_reconciliation](../iccad/data/squat-primary-recovery-v1.json)
 - iccad-2025-109: [withheld_pending_table_and_budget_review](../iccad/data/hlps-dse-primary-recovery-v1.json)
+- iccad-2025-1094: [no_numeric_metric_in_author_abstract](../iccad/data/qudit-primary-recovery-v1.json)
 - iccad-2025-437: [withheld_pending_figure_and_budget_review](../iccad/data/orthrus-primary-recovery-v1.json)
 
 ## Identity and primary-source recovery

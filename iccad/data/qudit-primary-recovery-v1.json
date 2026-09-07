@@ -1,0 +1,43 @@
+{
+  "schema": "primary-source-recovery-assessment.v1",
+  "paper_id": "iccad-2025-1094",
+  "title": "Simulation Framework and Optimization of Superconducting Transmon-Tunable Coupler-Transmon System for Qudit Gates",
+  "source_id": "iccad-2025-qudit-author-abstract",
+  "source_url": "https://ferrispnugraha.github.io/",
+  "capture_date": "2026-09-06",
+  "source_tier": "author_posted_abstract",
+  "extraction_scope": "2025 selected publication 2, abstract only; CV publication list establishes four-author identity.",
+  "independent_review_status": "pending",
+  "headline_metric_status": "no_numeric_metric_in_author_abstract",
+  "identity": {
+    "status": "author_posted_title_variant_with_matching_four_authors_and_venue",
+    "observed_title": "Simulation Framework and Optimization of Superconducting Transmon-Tunable Coupler-Transmon Architecture for Qudit Gates",
+    "title_difference": "Author site/CV uses Architecture where the program uses System; not silently normalized as exact title.",
+    "authors": [
+      "Ferris Prima Nugraha",
+      "Yuhan Huang",
+      "Jiacheng Liu",
+      "Qiming Shao"
+    ],
+    "cv_url": "https://ferrispnugraha.github.io/assets/pdf/Curriculum_Vitae__detail.pdf",
+    "author_linked_doi": "10.1109/ICCAD66269.2025.11240859",
+    "publisher_access": "verification page; technical content not retrieved"
+  },
+  "mechanism": "Integrated simulation of cross-Kerr interactions and noise-aware two-qutrit CPhase fidelity, with control-device co-optimization.",
+  "evidence_conditions": {
+    "validation": "Author abstract states cross-Kerr predictions are compared with literature TTT systems.",
+    "operating_scope": "Adiabatic gate scheme; target-frequency conditions considered.",
+    "unknown": [
+      "Noise model and parameters",
+      "Gate-fidelity values and definition",
+      "Optimization budget and baselines",
+      "Validation datasets and errors"
+    ]
+  },
+  "limits": [
+    "Abstract-level simulation evidence does not establish fabricated-device gate performance or fault tolerance.",
+    "Title-variant mapping requires manuscript-level confirmation before exact-title source capture.",
+    "CV tools/skills are not evidence of tools used by this paper."
+  ],
+  "next_action": "Recover DOI-matched manuscript to resolve title variant, noise model, fidelity definition and validation conditions before coding."
+}
