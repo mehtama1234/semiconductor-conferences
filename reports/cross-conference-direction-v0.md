@@ -14,10 +14,10 @@ The machine-readable matrix is `data/cross-conference-matrix-v0.json`.
 
 ## 2026-09-07 coverage correction
 
-The earlier five-paper secondary-only count is superseded by the six-record
-boundary in `reports/isca-secondary-evidence-boundary-2026-09-07.md`; those
-indexed excerpts remain pending primary verification and do not change the
-primary technical sample.
+The earlier secondary-only count remains three papers outside the selected
+sample. The six-record boundary in `reports/isca-secondary-evidence-boundary-2026-09-07.md`
+includes three records that also have primary or artifact evidence; indexed
+excerpts remain pending primary verification and do not change the primary sample.
 
 ## What can responsibly be said now
 

@@ -65,8 +65,9 @@ acceptance.
 - [MTIA 300 integrated NICs and collective offload: paper and supplemental article](../isca/pages/primary-evidence-batch-2026-8.md)
 - [Indexed evidence queue](../isca/pages/indexed-evidence-queue.md)
 
-Coverage note (2026-09-07): the indexed secondary-only queue now contains six
-ISCA records, as listed in `reports/isca-secondary-evidence-boundary-2026-09-07.md`.
+Coverage note (2026-09-07): six ISCA records have indexed excerpts, while three
+remain secondary-only outside the selected sample; see
+`reports/isca-secondary-evidence-boundary-2026-09-07.md`.
 - [Memory, ECC, and PIM reliability topical analysis](../isca/pages/memory-ecc-pim-reliability.md)
 
 ISCA currently combines official program metadata, sixteen primary/institutional/company-backed
