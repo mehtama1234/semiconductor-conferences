@@ -4,6 +4,12 @@ The governing scope and acceptance criteria are in [GOAL.md](../GOAL.md).
 This log distinguishes finished work from queued work; a plan is not a completed
 research result.
 
+FuseDot (research1182): author identity confirmed, with no manuscript/artifact
+recovered from checked pages and five public repository metadata entries.
+Supplement records quantization-group legality, finite-precision, reordering and
+sharing costs as unresolved conditions; numerical ranges remain unpaired with
+exact baselines. Next: research1186; revisit on a verified source release.
+
 RAF (research1113): official description rechecked, with explicit baseline-to-metric
 pairing and separation of remote/local, intra/inter-operator traffic. Proof
 assumptions and evaluation modality remain unknown; no exact full paper recovered.

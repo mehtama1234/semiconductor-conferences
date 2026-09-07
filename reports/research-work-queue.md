@@ -30,6 +30,7 @@ These researcher assessments supplement, but do not replace, original evidence o
 - dac-2026-research1101: [withheld_pending_fullpaper_conditions](../dac/data/hyper-cim-primary-recovery-v1.json)
 - dac-2026-research1110: [withheld_pending_fullpaper_conditions](../dac/data/hlsarchopt-primary-assessment-v1.json)
 - dac-2026-research1113: [withheld_pending_fullpaper_conditions](../dac/data/raf-primary-recovery-v1.json)
+- dac-2026-research1182: [withheld_pending_fullpaper_conditions](../dac/data/fusedot-primary-recovery-v1.json)
 
 ## Identity and primary-source recovery
 

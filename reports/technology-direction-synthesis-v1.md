@@ -220,6 +220,11 @@ available artifact checks do not yet establish coherent-oracle correctness.
 
 ## Direction 6 — Specialized accelerators encode workload structure
 
+FuseDot's [recovery assessment](../dac/reports/fusedot-primary-recovery-v1.md)
+keeps multiplication-count reduction separate from end-to-end gains. Quantization
+group rules, finite-precision accuracy, reordering costs and exact baseline
+configurations remain unresolved; numerical synthesis is withheld.
+
 ### Specific subskills
 
 - outlier-aware LUT GEMM and dual-side quantization;

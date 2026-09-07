@@ -1,0 +1,87 @@
+{
+  "schema": "primary-source-recovery-assessment.v1",
+  "paper_id": "dac-2026-research1182",
+  "title": "Fusedot: A Multiplication-Fused Dot Product Accelerator for Efficient LLM Inference",
+  "source_id": "dac-2026-fusedot-description-recheck",
+  "source_url": "https://63dac.conference-program.com/presentation/?id=RESEARCH1182&sess=sess156",
+  "capture_date": "2026-09-06",
+  "source_tier": "official_description",
+  "extraction_scope": "Official description and author identity/source discovery; no full paper or artifact recovered",
+  "recovery_status": "full_paper_not_recovered_in_checked_sources",
+  "identity": {
+    "status": "case_normalized_title_and_nine_authors_match_author_page",
+    "url": "https://wenjuzhao.github.io/",
+    "authors": [
+      "Wenju Zhao",
+      "Jianhui Yue",
+      "Pengcheng Yao",
+      "Yujia Cui",
+      "Qinggang Wang",
+      "Yufei Sun",
+      "Jiaqi Zhai",
+      "Hai Jin",
+      "Xiaofei Liao"
+    ]
+  },
+  "attempts": [
+    {
+      "method": "web_search",
+      "queries": [
+        "\"Fusedot\" \"LLM\"",
+        "\"Fusedot\" github arxiv"
+      ],
+      "outcome": "Official description, author pages and lab announcement recovered; no exact manuscript."
+    },
+    {
+      "method": "author_page_inspection",
+      "urls": [
+        "https://wenjuzhao.github.io/",
+        "https://pages.mtu.edu/~jyue/",
+        "https://pages.mtu.edu/~jyue/publications.html"
+      ],
+      "outcome": "First author lists exact paper without manuscript link. Coauthor news confirms acceptance; separate publication list offers no FuseDot entry."
+    },
+    {
+      "method": "public_repository_metadata_listing",
+      "url": "https://api.github.com/users/WenjuZhao/repos?per_page=100",
+      "record_count": 5,
+      "outcome": "No FuseDot name or description match among five repositories; contents and other owners not exhaustively searched."
+    }
+  ],
+  "description_conditions": {
+    "locator": "Description",
+    "mechanism": "Identical-weight multiplication fusion, index-driven matrix multiplication, dual-phase reordering and cross-PE multiplier sharing",
+    "precision_example": "FP16 x INT4; not established for every benchmark",
+    "speedup_range": [
+      1.51,
+      1.98
+    ],
+    "energy_efficiency_improvement_range": [
+      1.19,
+      1.51
+    ],
+    "baseline_identity": "unnamed state-of-the-art accelerators",
+    "evaluation_modality": "unspecified"
+  },
+  "unresolved_conditions": [
+    "Models, batch/sequence lengths and prefill versus decode",
+    "Weight-value frequencies and quantization group scales/zero points",
+    "Reordering/index construction costs and amortization",
+    "Accumulator precision, overflow/rounding and model accuracy",
+    "Area/process/frequency and multiplier-sharing contention",
+    "Memory traffic and metadata overhead",
+    "Exact baseline designs and matched resource budgets",
+    "Per-case pairing and aggregation of speedup and efficiency ranges"
+  ],
+  "interpretation_limits": [
+    "Researcher inference: equal low-bit codes do not alone establish equal effective weights across differently scaled quantization groups; full-paper rules are required.",
+    "Real-arithmetic regrouping does not guarantee bitwise equivalence in finite precision.",
+    "Fewer multiplications alone do not prove lower end-to-end latency or energy.",
+    "Energy-efficiency factors are not energy-reduction percentages.",
+    "Author-reported HUST annual-conference award is not a DAC best-paper award or independent technical acceptance.",
+    "Bounded non-recovery does not establish inaccessibility."
+  ],
+  "headline_metric_status": "withheld_pending_fullpaper_conditions",
+  "independent_review_status": "pending",
+  "revisit_condition": "Verified author/publisher manuscript or artifact providing fusion legality, quantization rules, ablations and matched evaluation settings."
+}
