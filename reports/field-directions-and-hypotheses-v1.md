@@ -190,6 +190,12 @@ data layout and scheduling with arithmetic, rather than optimizing MAC count
 alone. Subthemes include repeated-value fusion, LUT computation, outlier handling,
 structured sparsity and routing-aware execution.
 
+An [ICCAD fallback follow-up](../iccad/data/adder-dcim-primary-recovery-v1.json)
+adds Adder-DCIM as an institutional-evidence test case, not a new accepted anchor.
+The methodological question is whether representation changes remain beneficial
+after conversion costs and system overhead are counted. Its available evidence
+does not yet resolve that question. It remains outside the 73-record coded sample.
+
 **Boundary.** Reordering and metadata can consume the saved work. Equal integer
 codes across different quantization groups need not denote equal weights;
 finite-precision regrouping requires accuracy checks. A changed model distribution

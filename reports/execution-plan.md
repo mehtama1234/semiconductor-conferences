@@ -4,6 +4,17 @@ The governing scope and acceptance criteria are in [GOAL.md](../GOAL.md).
 This log distinguishes finished work from queued work; a plan is not a completed
 research result.
 
+Adder-DCIM recovery: all seven program authors match the first author's listing,
+which links IEEE document 11240916. Publisher extraction returned robot
+verification; no bypass attempted. Added institutional technical conditions and
+explicit missing evaluation boundaries as a queue-linked supplement, not a new
+full-paper coding or accepted metric. Direction 6 now links this test case.
+Supplement coverage becomes 18 papers; coded count remains 73 and independent
+acceptance remains zero. Next: manuscript recovery and full coding for this case;
+continue ICCAD breadth with Seeing Through Designs and Fellowship of the Leak.
+The latter's institutional listing links IEEE document 11240695, but this batch's
+publisher route yielded no substantive text; no technical conclusion drawn.
+
 ICCAD author metadata recovery: repaired the collector's first-line-only author
 handling and reconciled 120 author lists against the retained official program
 PDF, preserving all 276 IDs, titles, collection dates and technical fields.

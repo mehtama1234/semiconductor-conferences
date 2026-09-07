@@ -35,6 +35,7 @@ These researcher assessments supplement, but do not replace, original evidence o
 - dac-2026-research2760: [withheld_pending_verifier_and_evaluation_reconciliation](../dac/data/notsotiny-primary-assessment-v1.json)
 - dac-2026-research535: [withheld_pending_artifact_result_reconciliation_and_review](../dac/data/mappingevolve-primary-assessment-v1.json)
 - dac-2026-research865: [withheld_pending_identity_and_experiment_reconciliation](../dac/data/paretopilot-primary-assessment-v1.json)
+- iccad-2025-1: [institutional_claims_only_not_accepted](../iccad/data/adder-dcim-primary-recovery-v1.json)
 
 ## Identity and primary-source recovery
 

@@ -1,0 +1,38 @@
+{
+  "schema": "primary-source-recovery-assessment.v1",
+  "paper_id": "iccad-2025-1",
+  "title": "Adder-DCIM: A Parallel Bit-Flexible Digital CIM Joint Model Compression Framework for AdderNet Inference",
+  "source_id": "iccad-2025-adder-dcim-pku",
+  "source_url": "https://www.cpc.pku.edu.cn/info/1015/2796.htm",
+  "capture_date": "2026-09-06",
+  "source_tier": "institutional_technical_report",
+  "extraction_scope": "Institutional report section 10, Adder-DCIM; author-page identity and publisher access check. No manuscript or artifact recovered.",
+  "independent_review_status": "pending",
+  "headline_metric_status": "institutional_claims_only_not_accepted",
+  "identity": {
+    "author_source_url": "https://haikangdiao.github.io/",
+    "author_source_id": "iccad-2025-adder-dcim-author",
+    "authors": ["Haikang Diao", "Chuyue Tang", "Bocheng Xu", "Haoyang Luo", "Meng Li", "Yuan Wang", "Xiyuan Tang"],
+    "status": "all_seven_authors_and_program_title_match_author_page",
+    "publisher_url": "https://ieeexplore.ieee.org/document/11240916",
+    "title_variant": "Institutional title adds Accelerator after CIM; preserve the inventory title."
+  },
+  "reported_mechanism": "CIM-friendly model compression, synchronous parallel DCIM and bit-flexible minimum-selector circuitry jointly target multiplication cost, fine-grained sparsity and mixed-precision utilization in AdderNet inference.",
+  "reported_conditions": {
+    "process_nm": 28,
+    "int8_peak": {"energy_efficiency_TOPS_per_W": 134, "throughput_density_TOPS_per_mm2": 6.49},
+    "model_specific": [
+      {"model": "ResNet20", "average_bits": 4.2, "energy_efficiency_TOPS_per_W": 255},
+      {"model": "ResNet50", "average_bits": 4.4, "energy_efficiency_TOPS_per_W": 243}
+    ],
+    "accuracy_claim": "Loss below 0.4%; dataset, reference accuracy and percentage-point convention not established here."
+  },
+  "unknown_conditions": ["Voltage and frequency", "Operation-count convention", "Macro versus full-system power boundary", "Measured-silicon versus modeled evaluation details", "Named comparison baselines", "Model-conversion and compression training costs"],
+  "interpretation_not_source_claim": "A test case for matching model representation to circuitry, not evidence that CIM universally improves deployment. Compare at matched accuracy and include conversion, movement and control costs; peak TOPS/W cannot answer end-to-end latency.",
+  "attempts": [
+    {"route": "Exact-title, named-author and arXiv searches", "outcome": "Author and lab listings found; no exact accessible manuscript identified."},
+    {"route": "https://tangresearch.com/publication/index.html", "outcome": "Publication listing corroborates title and seven authors."},
+    {"route": "https://ieeexplore.ieee.org/document/11240916", "outcome": "Author-linked publisher page returned JavaScript robot verification; no bypass attempted."}
+  ],
+  "next_action": "Recover author manuscript or accessible publisher text; reconcile evaluation tables, operation accounting and accuracy baseline before promoting numbers. Do not substitute the author's different AdapCIM or SEGA-DCIM papers."
+}
