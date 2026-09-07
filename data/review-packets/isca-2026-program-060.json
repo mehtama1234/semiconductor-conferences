@@ -145,6 +145,17 @@
         "capture_date": "2026-09-06",
         "conditions": "The artifact description names AllGather and AllToAll, six LLM architectures, fault and power sensitivity, and mapping/routing ablations; exact platforms, baselines, seeds, numerical results, and metric units remain unextracted.",
         "extraction_scope": "Zenodo artifact description for BusyBarn and its reproduction scripts; no manuscript PDF or full abstract recovered.",
+        "fault_alltoall_verification_run": {
+          "command": "python3 py/alltoall_4x6_bw256_failpatterm1_16KB_xy.py",
+          "configuration": "4x6 core mesh, bandwidth 256, no failed links, one failed node at (0, 8), 16KB AllToAll, XY path",
+          "interpretation": "The fault-injected AllToAll synthetic case completed from the captured archive. This is artifact reproducibility evidence, not a paper headline metric or independent validation.",
+          "observed_stdout": "time_cost: 252 with 84.0",
+          "result_pickle_sha256": "252be1248c5dc23015c0a24b27f025494b6cb7f54fcc5accc93e8f8157d071b380a",
+          "result_text_sha256": "d6e5a20b30f87216b2c758f5e7a23c437dbc3dfa1ccb177c474de152bb0ef731",
+          "run_date": "2026-09-07",
+          "status": "bounded_fault_injection_case_reproduced",
+          "temporary_environment": "Same temporary Python 3.10.12 archive environment as verification_run"
+        },
         "fault_verification_run": {
           "command": "python3 py/allgather_4x6_bw256_failpatterm1_16KB_xy.py",
           "configuration": "4x6 core mesh, bandwidth 256, no failed links, one failed node at (0, 8), 16KB AllGather, XY path",
@@ -199,7 +210,7 @@
       "headline_metric_status": "withheld_pending_primary_paper",
       "independent_review_status": "pending",
       "path": "isca/data/busybarn-artifact-primary-recovery-v1.json",
-      "sha256": "99841c511ff427d36910d0ae6bc535e276412e41d8a2b9cae4d0038cc2208cdc",
+      "sha256": "2653850d44e0c990ba5c2836022129222921d0044878c9559dbceb433a825750",
       "source_url": "https://zenodo.org/records/19430308"
     }
   ],
