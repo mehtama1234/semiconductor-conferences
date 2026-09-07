@@ -195,6 +195,12 @@ legality, uncertainty, physical structure, and evaluation budget through the loo
 Reported surrogate accuracy or figure-of-merit gains require baseline budgets,
 constraint-violation analysis, and independent reproduction.
 
+The [HYPER-CIM assessment](../dac/reports/hyper-cim-primary-recovery-v1.md)
+separates training design points, predicted configurations and five reported
+fabricated macros. It withholds numerical synthesis until FoM normalization,
+operating conditions and surrogate validation are available; the predicted space
+is not a silicon-tested population.
+
 For the exact-T example, consult the [primary assessment](../dac/reports/exact-t-primary-assessment-v1.md):
 the description and preprint disagree on the maximum reduction. Keep that
 numerical headline withheld; the resource-specific mapping mechanism remains a

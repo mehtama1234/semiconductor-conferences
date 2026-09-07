@@ -1,0 +1,94 @@
+{
+  "schema": "primary-source-recovery-assessment.v1",
+  "paper_id": "dac-2026-research1101",
+  "title": "HYPER-CIM: Hierarchical Predictive Exploration and Realizable Design Flow for High-Efficient Digital CIM",
+  "source_id": "dac-2026-hyper-cim-description-recheck",
+  "source_url": "https://63dac.conference-program.com/presentation/?id=RESEARCH1101&sess=sess123",
+  "capture_date": "2026-09-06",
+  "source_tier": "official_description",
+  "extraction_scope": "Official description and matching institutional abstract; no full paper recovered",
+  "recovery_status": "full_paper_not_recovered_in_checked_sources",
+  "identity": {
+    "status": "exact_title_and_nine_authors_match",
+    "authors": [
+      "An Guo",
+      "Yuhui Shi",
+      "Yuhuai Zhang",
+      "Tianhui Jiao",
+      "Xiaoxue Zhong",
+      "Defa Wu",
+      "Arindam Basu",
+      "Xin Si",
+      "Jun Yang"
+    ]
+  },
+  "attempts": [
+    {
+      "method": "web_search",
+      "queries": [
+        "\"HYPER-CIM\" paper",
+        "\"HYPER-CIM\" github arxiv"
+      ],
+      "outcome": "Matched official description and CityUHK record, not an exact full paper or implementation."
+    },
+    {
+      "method": "institutional_record_inspection",
+      "url": "https://scholars.cityu.edu.hk/en/publications/hyper-cim-hierarchical-predictive-exploration-and-realizable-desi/",
+      "locator": "Abstract and Access Output",
+      "outcome": "Matching abstract/authors; Access Output links back to official presentation. No full manuscript supplied on inspected page."
+    }
+  ],
+  "description_conditions": {
+    "locator": "Description",
+    "process_nm": 28,
+    "training_design_points": "more than 8000 silicon-consistent points",
+    "predicted_configuration_count": 297000000,
+    "reported_fabricated_macros": {
+      "pe_flow": 4,
+      "cross_level_flow": 1
+    },
+    "best_macro": {
+      "energy_efficiency_TOPS_per_W": 90.8,
+      "area_efficiency_TOPS_per_mm2": 1.23
+    },
+    "cross_level_comparison": {
+      "specification_claim": "identical specifications",
+      "energy_efficiency_TOPS_per_W": [
+        52.13,
+        67.9
+      ],
+      "area_efficiency_TOPS_per_mm2": [
+        0.41,
+        0.51
+      ]
+    },
+    "fom_claim": {
+      "range_factors": [
+        31.12,
+        3800000
+      ],
+      "formula": null,
+      "limit": "Do not interpret this composite figure of merit as a throughput or energy-efficiency speedup."
+    }
+  },
+  "unresolved_conditions": [
+    "Origin of silicon-consistent training labels: measurement versus simulation/synthesis and calibration",
+    "Surrogate held-out error, splits, leakage controls and out-of-distribution accuracy",
+    "Precision, operation counting, sparsity, voltage, frequency and temperature",
+    "Power and area boundaries including peripheral and off-macro costs",
+    "FoM formula, normalizations and exact prior-design comparison set",
+    "Macro sample counts, yield and process variation",
+    "Matched cross-level specifications and workload accuracy",
+    "DSE runtime, Pareto validation and prediction errors at selected designs"
+  ],
+  "interpretation_limits": [
+    "297M predicted configurations are not 297M tested silicon designs.",
+    "More than 8k training points must not be described as fabricated chips.",
+    "Five reported macros do not establish silicon validation throughout the predicted design space.",
+    "Institutional abstract repetition and publication peer-review metadata are not independent acceptance of this project's extraction.",
+    "No full paper recovered in bounded checks does not mean inaccessible."
+  ],
+  "revisit_condition": "Verified full paper, supplementary measurement tables or author artifact with matching identity and surrogate-validation conditions.",
+  "headline_metric_status": "withheld_pending_fullpaper_conditions",
+  "independent_review_status": "pending"
+}

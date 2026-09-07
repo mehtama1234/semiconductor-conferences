@@ -4,6 +4,12 @@ The governing scope and acceptance criteria are in [GOAL.md](../GOAL.md).
 This log distinguishes finished work from queued work; a plan is not a completed
 research result.
 
+HYPER-CIM: matched institutional abstract loops back to the official description,
+not a full manuscript. Added separate training/prediction/fabrication populations
+and explicit FoM, operating-point and surrogate-validation gaps. Supplement is
+routed to the original review packet without promoting its evidence tier.
+Next: research1110; revisit HYPER-CIM on a full paper or measurement/artifact release.
+
 CANNON: exact program/lab identity confirmed; lab Paper link is a conference
 homepage rather than a manuscript. Official and institutional speedup headlines
 differ without matching conditions. The recovery supplement now carries this
