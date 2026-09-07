@@ -285,6 +285,11 @@ wide-bit digital CIM, universal circuit modeling, stochastic edge detection,
 flip-flop exploration, cloud microservice interference, temporal motif mining,
 LLM PCB generation, mixed-precision GEMM, complementary-FET layout, and
 hybrid-bonded speculative decoding.
+The fifty-first P2 tranche is recorded in
+`reports/p2-recovery-batch-51-2026-09-07.md`, continuing the DAC frontier across
+cross-layer reliability, MRAM binary CIM, heterogeneous LLM PIM, LLM protocol
+patching, sparse tensor cores, flow-matching placement, thermal-aware SRAM,
+GPU shared memory, video-diffusion token reduction, and FPGA ZKPs.
 
 The categories overlap by design: P0 is a remediation priority, while P1/P2
 describe evidence depth. The former P0 records are retained in
