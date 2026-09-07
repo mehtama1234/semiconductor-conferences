@@ -63,6 +63,7 @@
     "dac/data/adjudicated-2026-batch-49.jsonl",
     "dac/data/adjudicated-2026-batch-50.jsonl",
     "dac/data/adjudicated-2026-batch-51.jsonl",
+    "dac/data/adjudicated-2026-batch-52.jsonl",
     "iccad/data/adjudicated-2025-batch-3.jsonl",
     "iccad/data/adjudicated-2025-batch-4.jsonl",
     "iccad/data/adjudicated-2025-batch-5.jsonl",
@@ -129,6 +130,7 @@
         "learned-eda-and-optimization": [
           "causal-cpu-design-optimization",
           "data-driven-hardware-lemma-generation",
+          "design-evolution-graph-postlayout",
           "electrophysical-cell-ppa-modeling",
           "learned-prior-multicorner-analysis",
           "physics-infused-rf-inverse-design",
@@ -220,6 +222,7 @@
         "photonic-and-optical-compute": [
           "hardware-anchored-photonic-transformer",
           "photonic-mvm-inverse-design",
+          "physics-constrained-diffractive-onn-training",
           "robust-microring-neural-network-mapping"
         ],
         "quantum-hardware-and-control": [
@@ -318,6 +321,7 @@
         ],
         "sparse-and-irregular-compute": [
           "adaptive-sparse-gcn-caching",
+          "adaptive-sparse-video-attention",
           "bitserial-transformer-sparsity",
           "cuda-core-spmv",
           "locality-aware-temporal-motif-mining",
@@ -333,6 +337,7 @@
           "adaptive-sparse-tensor-gpu-codegen",
           "adaptive-spiking-transformer-pruning",
           "ai-asic-zero-knowledge-proof-acceleration",
+          "cache-oriented-brain-inspired-reasoning",
           "computation-data-decoupled-npu-dataflow",
           "correlation-aware-gkp-decoder-acceleration",
           "dynamic-prefill-decode-fpga-reconfiguration",
@@ -353,10 +358,12 @@
           "real-time-composable-dnn-acceleration",
           "reconfigurable-fip-systolic-array",
           "reram-cam-point-cloud-knn-acceleration",
+          "runtime-adaptive-multimodal-fpga",
           "sparse-tensor-accelerator-compilation",
           "topology-aware-configurable-gnn-acceleration",
           "unified-configurable-cpu-matrix-extension",
-          "unified-riscv-ecpm-isa"
+          "unified-riscv-ecpm-isa",
+          "versal-gemm-performance-energy"
         ],
         "specialized-ai-accelerators": [
           "adaptive-sparsity-hyper-dimensional-graph-learning",
@@ -449,6 +456,9 @@
     {
       "label": "Design methodology and tooling",
       "subsubthemes": {
+        "architecture-modeling-and-exploration": [
+          "ideal-processor-upperbound-modeling"
+        ],
         "cell-and-circuit-design": [
           "equality-saturation-cell-extension"
         ],
@@ -475,6 +485,7 @@
         ],
         "logic-synthesis-and-optimization": [
           "multinode-boolean-synthesis-optimization",
+          "sat-delay-area-local-improvement",
           "sat-refined-transistor-network-synthesis"
         ],
         "optimization-and-search-methods": [
@@ -507,6 +518,7 @@
         ]
       },
       "subthemes": [
+        "architecture-modeling-and-exploration",
         "cell-and-circuit-design",
         "compilation-and-mapping",
         "compiler-and-runtime-optimization",
@@ -568,6 +580,7 @@
         ],
         "memory-and-data-movement": [
           "fpga-hbm-pcie-profiling",
+          "lossless-llm-floating-compression",
           "temporal-spatial-cache-partitioning"
         ],
         "memory-compute-and-reliability": [
@@ -600,6 +613,7 @@
         "processing-in-memory-and-memory-centric-compute": [
           "accuracy-constrained-approximate-dcim",
           "dram-pum-gemv-codesign",
+          "hardware-aware-cim-embedding-shaping",
           "low-bit-llm-pim"
         ],
         "storage-and-data-movement": [
@@ -663,7 +677,8 @@
           "geometry-conditioned-layer-specific-capacitance-surrogates"
         ],
         "physical-design-and-routing": [
-          "3d-routability-track-assignment"
+          "3d-routability-track-assignment",
+          "pcb-rail-signal-codesign"
         ],
         "placement-routing-and-floorplanning": [
           "analytic-timing-driven-global-placement",
@@ -741,10 +756,12 @@
           "precision-reallocation-for-selective-floating-point-protection"
         ],
         "hardware-and-system-security": [
+          "apple-tlb-kaslr-sidechannel",
           "microfluidic-protocol-obfuscation",
           "ondevice-llm-attestation",
           "pagetable-bigdata-sidechannel",
           "percore-em-sidechannel",
+          "reserved-opcode-emulation-detection",
           "reveal-conceal-multisecret-tracking",
           "semantic-collaborative-vehicle-ids",
           "sram-aging-data-recovery",
@@ -895,6 +912,7 @@
         ],
         "llm-systems-and-runtime": [
           "diffusion-language-model-stage-orchestration",
+          "earlyexit-moa-serving",
           "expert-aware-moe-checkpointing",
           "heterogeneous-mobile-rag-orchestration",
           "hot-switching-cpu-llm-serving",
@@ -910,6 +928,7 @@
           "output-guided-video-diffusion-pruning",
           "palette-video-enhancement-layer",
           "pipelined-gaussian-splatting",
+          "streaming-vlm-kv-retrieval",
           "temporal-sort-reuse-gaussian-splatting",
           "viewpoint-adaptive-gaussian-scaling"
         ],

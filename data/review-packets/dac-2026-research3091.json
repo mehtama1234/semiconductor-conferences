@@ -60,6 +60,9 @@
   "taxonomy_branch": {
     "label": "Design methodology and tooling",
     "subsubthemes": {
+      "architecture-modeling-and-exploration": [
+        "ideal-processor-upperbound-modeling"
+      ],
       "cell-and-circuit-design": [
         "equality-saturation-cell-extension"
       ],
@@ -86,6 +89,7 @@
       ],
       "logic-synthesis-and-optimization": [
         "multinode-boolean-synthesis-optimization",
+        "sat-delay-area-local-improvement",
         "sat-refined-transistor-network-synthesis"
       ],
       "optimization-and-search-methods": [
@@ -118,6 +122,7 @@
       ]
     },
     "subthemes": [
+      "architecture-modeling-and-exploration",
       "cell-and-circuit-design",
       "compilation-and-mapping",
       "compiler-and-runtime-optimization",

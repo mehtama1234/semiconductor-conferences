@@ -22,11 +22,11 @@ The evidence is intentionally asymmetric:
   coded fallback papers. The inventory includes 43 invited papers and ten student
   presentations, not 319 regular papers; see the [scope audit](../iccad/reports/program-scope-audit-v1.md).
 
-The 536-record technical coding sample is selected for recoverable evidence and
+The 551-record technical coding sample is selected for recoverable evidence and
 technical diversity. It is not a prevalence estimate, market forecast, conference
 ranking, or proof that a direction is rising.
 For a mechanism-level follow-up, see [scheduling versus physical surrogates](../iccad/reports/scheduling-versus-surrogates-v1.md): two analysis accelerators with different correctness and generalization requirements.
-All 536 remain independently unaccepted. The original synthesis-anchor set is
+All 551 remain independently unaccepted. The original synthesis-anchor set is
 distinct from the expanded coded sample and is not enlarged by metadata recovery.
 
 ## Executive interpretation
@@ -218,7 +218,7 @@ author-linked package exposes hierarchical mapping and BALD fault-tolerant routi
 one normalized 16KB AllGather case completed at 80 artifact simulation time units
 under a 4x6, 256-bandwidth configuration. That result is a reproducibility check,
 not a paper metric: no complete figure, matched baseline, end-to-end workload, or
-independent reproduction was obtained. It remains outside the 536-record selected
+independent reproduction was obtained. It remains outside the 551-record selected
 coding sample and cannot support a comparative performance claim.
 
 CANNON's [recovery assessment](../dac/reports/cannon-primary-recovery-v1.md)
@@ -559,6 +559,14 @@ temporal redundancy, GPU register arbitration, HBM profiling, and microfluidic
 fabrication compensation. The recurring direction is making variability and
 observability explicit design inputs. These remain selected-paper capability
 signals, not venue-wide trend claims.
+
+This batch adds MoA serving, cache-oriented reasoning, adaptive FPGA multimodal
+inference, emulator detection, streaming VLMs, sparse video attention, Apple TLB
+side channels, lossless LLM compression, processor upper-bound modeling, design-
+evolution graph learning, ACAP GEMM co-optimization, PCB rail-signal design, robust
+CiM retrieval, SAT-based area optimization, and physics-constrained photonic training.
+The recurring direction is runtime and physical context becoming part of the model
+or optimization objective. These remain selected capability signals.
 
 This batch extends the map into DRAM processing, activity-aware simulation,
 fine-grained cache partitioning, collaborative vehicle security, asymmetric LLM

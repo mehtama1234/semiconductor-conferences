@@ -9,15 +9,15 @@ generalization conditions needed for final acceptance.
 This is not an independent adversarial LLM judgment. Earlier work reported no
 available independent model endpoint. Current tool discovery exposes no separate
 model-inference tool; no independent reviewer has been invoked in this batch.
-The existing review remains explicitly same-model and preliminary. The 536-record evidence summary
-counts all 536 records as awaiting independent LLM or human review.
+The existing review remains explicitly same-model and preliminary. The 551-record evidence summary
+counts all 551 records as awaiting independent LLM or human review.
 The next review pass should use the protocol in
 `adversarial-judge-protocol-v1.md`, ideally with two independent judges and a
 human resolution of disagreements.
 
 ## Prepared review inputs
 
-`data/review-packets/` now contains 536 packets. Each separates the proposed record
+`data/review-packets/` now contains 551 packets. Each separates the proposed record
 and researcher summary from captured original source text, supplies the taxonomy
 branch, and identifies the protocol/coding-guide hashes. The 72 DAC descriptions
 match by exact paper ID/title and source URL (ignoring only the session query
