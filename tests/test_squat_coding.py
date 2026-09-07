@@ -7,6 +7,19 @@ from scripts.build_review_packets import build
 ROOT = Path(__file__).resolve().parents[1]
 
 
+def test_squat_artifact_inspection_is_pinned_and_not_reproduction():
+    row = json.loads((ROOT / "iccad/data/squat-primary-recovery-v1.json").read_text())
+    artifact = row["artifact_inspection"]
+    assert artifact["commit"] == "c6b1d74a89a8f89a3c50ad165cc1af1cab577325"
+    assert artifact["status"] == "static_source_inspection_not_execution"
+    assert artifact["tracked_file_count"] == 184
+    assert all(len(item["sha256"]) == 64 for item in artifact["files"])
+    assert artifact["search_scope"]["content_matches"] == 0
+    assert artifact["unresolved"]
+    assert artifact["published_result_failure_demonstrated"] is False
+    assert row["independent_review_status"] == "pending"
+
+
 def test_squat_coding_and_packet_preserve_conditions_and_pending_review():
     path = "iccad/data/adjudicated-2025-batch-4.jsonl"
     assert path in PATHS

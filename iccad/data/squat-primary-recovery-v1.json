@@ -42,5 +42,50 @@
     },
     "limit": "Arithmetic consistency is not experimental reproduction. Two ratios remain inconsistent under the stated rounding assumption and appear exchanged, but raw runs are needed to identify which source values are wrong. A third strict displayed-value difference is rounding-compatible, not a proven error."
   },
-  "next_action": "Technical coding and source-backed review packet prepared with discrepancy preserved; pin linked artifact and seek raw timing data. No independent verdict yet."
+  "artifact_inspection": {
+    "repository_url": "https://github.com/shawnricecake/squant",
+    "commit": "c6b1d74a89a8f89a3c50ad165cc1af1cab577325",
+    "inspection_date": "2026-09-06",
+    "status": "static_source_inspection_not_execution",
+    "tracked_file_count": 184,
+    "files": [
+      {
+        "path": "README.md",
+        "sha256": "e08c55a23ff8cc247a5c6e63ef189b7575dbb0a2a76fbc056b4dadaef03bfa9d"
+      },
+      {
+        "path": "distill_train/models/modeling_llama_qat_mix.py",
+        "sha256": "71f1f511673ae8d27085d9a33c3f8f6b597a4f1685e23588a6cde24b105a7663",
+        "lines": "414-452",
+        "finding": "First-column scores are averaged over batch, summed over heads, and ranked before masking/softmax; selected indices are shared across the batch."
+      },
+      {
+        "path": "distill_train/quant/quant.py",
+        "sha256": "56b43c343af86d57ed7cac17ebf5b32a010069395a5a773d00085390c5645271",
+        "lines": "49-75",
+        "finding": "Quantized/rescaled weights feed torch F.linear; this inspected QAT path is not a demonstrated packed-integer mobile kernel."
+      },
+      {
+        "path": "distill_train/quant-train-mix-llama-58m-distill.py",
+        "sha256": "c036286e2db7c515530c741092f4bec5a893b310db3d82abf88a8c80094194e9",
+        "lines": "24-54",
+        "finding": "Recipe names W4/A8/A4 with a 0.5 low-bit ratio, batch 32 and sequence 128; checkpoint/data locations are placeholders."
+      }
+    ],
+    "search_scope": {
+      "tracked_tree": "git ls-tree -r --name-only HEAD",
+      "content_regex": "mkmp|oneplus|raspberry|neon|vmlaq|ms/token|latency",
+      "content_case_insensitive": true,
+      "content_matches": 0,
+      "native_or_timing_file_extension_regex": "\\.(c|cc|cpp|h|hpp|s|S|so|a|csv|log)$",
+      "extension_matches": 0
+    },
+    "unresolved": [
+      "Mobile deployment kernel, measurement harness and raw Table IV timings not located in this revision; absence in this inspection is not proof no such artifact exists elsewhere.",
+      "Reconcile pre-softmax/batch-shared selection with intended attention-score semantics and released checkpoint provenance.",
+      "Training warmup steps are not evidence of device benchmark warmup."
+    ],
+    "published_result_failure_demonstrated": false
+  },
+  "next_action": "Seek version-matched deployment harness/raw timings and reconcile token-selector semantics against checkpoint provenance; keep numerical claims and independent verdict pending."
 }

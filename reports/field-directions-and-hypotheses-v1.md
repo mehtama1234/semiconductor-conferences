@@ -222,6 +222,13 @@ with rounding and is not classified as an error. The two robust discrepancies
 are not just an HTML extraction artifact. This is not a demonstrated failure
 of the overall method.
 
+The pinned Squat artifact exposes a further validation boundary: inspected QAT
+uses rescaled tensors with PyTorch linear operations, while the mobile kernel
+and timing harness were not located in that revision. Its selector ranks
+batch-shared pre-softmax scores. These findings call for implementation/run
+provenance before equating the released training path with measured deployment;
+they do not demonstrate invalid published results.
+
 **Boundary.** Reordering and metadata can consume the saved work. Equal integer
 codes across different quantization groups need not denote equal weights;
 finite-precision regrouping requires accuracy checks. A changed model distribution

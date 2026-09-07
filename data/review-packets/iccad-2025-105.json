@@ -97,6 +97,51 @@
   "supplementary_researcher_assessments": [
     {
       "assessment": {
+        "artifact_inspection": {
+          "commit": "c6b1d74a89a8f89a3c50ad165cc1af1cab577325",
+          "files": [
+            {
+              "path": "README.md",
+              "sha256": "e08c55a23ff8cc247a5c6e63ef189b7575dbb0a2a76fbc056b4dadaef03bfa9d"
+            },
+            {
+              "finding": "First-column scores are averaged over batch, summed over heads, and ranked before masking/softmax; selected indices are shared across the batch.",
+              "lines": "414-452",
+              "path": "distill_train/models/modeling_llama_qat_mix.py",
+              "sha256": "71f1f511673ae8d27085d9a33c3f8f6b597a4f1685e23588a6cde24b105a7663"
+            },
+            {
+              "finding": "Quantized/rescaled weights feed torch F.linear; this inspected QAT path is not a demonstrated packed-integer mobile kernel.",
+              "lines": "49-75",
+              "path": "distill_train/quant/quant.py",
+              "sha256": "56b43c343af86d57ed7cac17ebf5b32a010069395a5a773d00085390c5645271"
+            },
+            {
+              "finding": "Recipe names W4/A8/A4 with a 0.5 low-bit ratio, batch 32 and sequence 128; checkpoint/data locations are placeholders.",
+              "lines": "24-54",
+              "path": "distill_train/quant-train-mix-llama-58m-distill.py",
+              "sha256": "c036286e2db7c515530c741092f4bec5a893b310db3d82abf88a8c80094194e9"
+            }
+          ],
+          "inspection_date": "2026-09-06",
+          "published_result_failure_demonstrated": false,
+          "repository_url": "https://github.com/shawnricecake/squant",
+          "search_scope": {
+            "content_case_insensitive": true,
+            "content_matches": 0,
+            "content_regex": "mkmp|oneplus|raspberry|neon|vmlaq|ms/token|latency",
+            "extension_matches": 0,
+            "native_or_timing_file_extension_regex": "\\.(c|cc|cpp|h|hpp|s|S|so|a|csv|log)$",
+            "tracked_tree": "git ls-tree -r --name-only HEAD"
+          },
+          "status": "static_source_inspection_not_execution",
+          "tracked_file_count": 184,
+          "unresolved": [
+            "Mobile deployment kernel, measurement harness and raw Table IV timings not located in this revision; absence in this inspection is not proof no such artifact exists elsewhere.",
+            "Reconcile pre-softmax/batch-shared selection with intended attention-score semantics and released checkpoint provenance.",
+            "Training warmup steps are not evidence of device benchmark warmup."
+          ]
+        },
         "capture_date": "2026-09-06",
         "conditions": {
           "accuracy_baselines": [
@@ -144,7 +189,7 @@
           "PDF Table IV checked; warmup/thermal controls and prefill/decode timing boundary still require verification"
         ],
         "mechanism": "Attention distillation, token-adaptive precision and SIMD multi-kernel mixed-precision multiplication couple quantization to deployable arithmetic.",
-        "next_action": "Technical coding and source-backed review packet prepared with discrepancy preserved; pin linked artifact and seek raw timing data. No independent verdict yet.",
+        "next_action": "Seek version-matched deployment harness/raw timings and reconcile token-selector semantics against checkpoint provenance; keep numerical claims and independent verdict pending.",
         "paper_id": "iccad-2025-105",
         "pdf_verification": {
           "columns": [
@@ -281,7 +326,7 @@
       "headline_metric_status": "withheld_pending_table_and_accuracy_reconciliation",
       "independent_review_status": "pending",
       "path": "iccad/data/squat-primary-recovery-v1.json",
-      "sha256": "04ce71c7a6bb1755d6bc53ac785d6d22d5b86c3f3c484da5057f6802cbd11596",
+      "sha256": "714c96f0dface1d8389f2718c11df4e009df24ab3c870506b3b6b8c8f45d85ba",
       "source_url": "https://arxiv.org/html/2402.10787v2"
     }
   ],

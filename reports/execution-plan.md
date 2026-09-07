@@ -4,6 +4,19 @@ The governing scope and acceptance criteria are in [GOAL.md](../GOAL.md).
 This log distinguishes finished work from queued work; a plan is not a completed
 research result.
 
+Squat artifact follow-up: pinned the author-linked repository at
+c6b1d74a89a8f89a3c50ad165cc1af1cab577325 and inspected its 184-file tree,
+README, mixed-precision selector, quantized linear path and training recipe.
+Recorded file hashes and search scope. No mobile timing harness/native kernel
+was located; the inspected selector uses batch-shared pre-softmax scores.
+No training, model execution or benchmark reproduction was performed. This
+narrows the next task to deployment/run provenance and selector reconciliation,
+not a claim of experimental failure. Coverage stays 75; independent review
+remains pending. Next recovery work can proceed without waiting for that artifact
+gap, while preserving these revisit conditions.
+Regenerated queue and source-backed packet; validation and 106 tests passed.
+Tests check evidence bookkeeping, not the artifact's runtime correctness.
+
 Squat coding integration: added ICCAD 2025 paper 105 with section/table locators,
 deployment conditions, baselines and explicit accuracy/timing limitations.
 The architecture/software co-design branch now includes attention-guided token
