@@ -40,13 +40,117 @@
   },
   "required_review_actions": [
     "Add source section/table locators for technical fields and numerical conditions",
-    "Verify numerical conditions, neighboring taxonomy category, and limitations"
+    "Verify numerical conditions, neighboring taxonomy category, and limitations",
+    "Inspect supplementary assessments and their original sources; resolve discrepancies without using researcher interpretation to verify itself"
   ],
   "researcher_summary_not_original_source": "Strix spans NPU microarchitecture, ISA, and programming on an open-source SoC, partitions safeguards along the inference pipeline, and reports sub-microsecond fault localization/detection/correction with 1.04X slowdown and minimal hardware overhead.",
   "review_status": "not_reviewed",
   "schema": "paper-review-packet.v1",
   "source_text_status": "captured_official_description",
   "source_tier": "official_description",
+  "supplementary_researcher_assessments": [
+    {
+      "assessment": {
+        "capture_date": "2026-09-06",
+        "conditions": {
+          "baselines": {
+            "budget": "area-matched",
+            "locator": "S5.SS1",
+            "names": [
+              "partial TMR",
+              "triple instruction redundancy",
+              "ReaLM"
+            ],
+            "realm_rollback_limit": 1
+          },
+          "evaluation_budget": {
+            "dataset_samples": "first 1000",
+            "locator": "S5.SS1",
+            "runs": 10
+          },
+          "fault_model": {
+            "default_rate": 1e-07,
+            "locator": "S5.SS1",
+            "rate_denominator": "original-input bit count",
+            "types": [
+              "transient bit flips",
+              "permanent stuck-at"
+            ]
+          },
+          "hardware_overhead": {
+            "area_power_percent": {
+              "FP32-D": [
+                10.2,
+                21.3
+              ],
+              "INT8-D": [
+                20.7,
+                23.2
+              ],
+              "INT8-I": [
+                8.7,
+                16.8
+              ]
+            },
+            "locator": "S5.SS2 item 8",
+            "method": "Design Compiler v2019.12; TSMC 28nm"
+          },
+          "latency": {
+            "bound_microseconds": 1,
+            "bound_relation": "less_than",
+            "clock_mhz": 500,
+            "limit": "Not a measured correction-latency bound.",
+            "locator": "S5.SS2 item 6",
+            "metric": "worst-case detection latency"
+          },
+          "platform": {
+            "base": "Gemmini",
+            "cluster_nodes": 20,
+            "fpga": "AMD VU19P",
+            "locator": "S5.SS1"
+          },
+          "simulation_exception": {
+            "configuration": "BF16-I",
+            "locator": "S5.SS1",
+            "method": "PyTorch following Spike behavior",
+            "use": "LLM performance analysis only"
+          },
+          "slowdown": {
+            "geometric_mean": 1.04,
+            "locator": "S5.SS2 item 1",
+            "range": [
+              1.02,
+              1.07
+            ],
+            "unit": "x"
+          }
+        },
+        "extraction_scope": "Selected HTML experimental prose, Section 5; tables and figures not visually transcribed",
+        "headline_metric_status": "conditioned_author_claims_not_independently_accepted",
+        "identity_status": "case_normalized_title_and_all_eleven_authors_match_program",
+        "independent_review_status": "pending",
+        "interpretation_limits": [
+          "Synthesis estimates are not fabricated-silicon measurements.",
+          "Do not combine FPGA and simulated configurations into universal hardware validation.",
+          "Fault-injection coverage does not establish safety certification or coverage of every fault model.",
+          "Figure-level configuration denominators, absolute latencies, code revisions and variance remain unchecked."
+        ],
+        "paper_id": "dac-2026-research043",
+        "schema": "supplementary-primary-assessment.v1",
+        "source_id": "dac-2026-strix-arxiv-v1",
+        "source_tier": "author_preprint",
+        "source_url": "https://arxiv.org/html/2604.10484v1",
+        "source_version": "2604.10484v1",
+        "title": "Strix: Re-Thinking NPU Reliability from a System Perspective"
+      },
+      "content_role": "researcher_assessment_not_original_source",
+      "headline_metric_status": "conditioned_author_claims_not_independently_accepted",
+      "independent_review_status": "pending",
+      "path": "dac/data/strix-primary-assessment-v1.json",
+      "sha256": "e7fe775f8943301f88e74b03f95a2d07155cb7e654bff8bf2c3bb153e88ea0ad",
+      "source_url": "https://arxiv.org/html/2604.10484v1"
+    }
+  ],
   "taxonomy_branch": {
     "label": "Power, reliability, and security",
     "subsubthemes": {

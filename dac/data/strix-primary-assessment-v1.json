@@ -1,0 +1,30 @@
+{
+  "schema": "supplementary-primary-assessment.v1",
+  "paper_id": "dac-2026-research043",
+  "title": "Strix: Re-Thinking NPU Reliability from a System Perspective",
+  "source_id": "dac-2026-strix-arxiv-v1",
+  "source_url": "https://arxiv.org/html/2604.10484v1",
+  "source_version": "2604.10484v1",
+  "capture_date": "2026-09-06",
+  "source_tier": "author_preprint",
+  "identity_status": "case_normalized_title_and_all_eleven_authors_match_program",
+  "extraction_scope": "Selected HTML experimental prose, Section 5; tables and figures not visually transcribed",
+  "conditions": {
+    "platform": {"base": "Gemmini", "fpga": "AMD VU19P", "cluster_nodes": 20, "locator": "S5.SS1"},
+    "simulation_exception": {"configuration": "BF16-I", "method": "PyTorch following Spike behavior", "use": "LLM performance analysis only", "locator": "S5.SS1"},
+    "evaluation_budget": {"dataset_samples": "first 1000", "runs": 10, "locator": "S5.SS1"},
+    "fault_model": {"types": ["transient bit flips", "permanent stuck-at"], "default_rate": 1e-7, "rate_denominator": "original-input bit count", "locator": "S5.SS1"},
+    "baselines": {"names": ["partial TMR", "triple instruction redundancy", "ReaLM"], "budget": "area-matched", "realm_rollback_limit": 1, "locator": "S5.SS1"},
+    "slowdown": {"geometric_mean": 1.04, "range": [1.02, 1.07], "unit": "x", "locator": "S5.SS2 item 1"},
+    "latency": {"metric": "worst-case detection latency", "bound_microseconds": 1, "bound_relation": "less_than", "clock_mhz": 500, "locator": "S5.SS2 item 6", "limit": "Not a measured correction-latency bound."},
+    "hardware_overhead": {"method": "Design Compiler v2019.12; TSMC 28nm", "area_power_percent": {"INT8-D": [20.7, 23.2], "INT8-I": [8.7, 16.8], "FP32-D": [10.2, 21.3]}, "locator": "S5.SS2 item 8"}
+  },
+  "interpretation_limits": [
+    "Synthesis estimates are not fabricated-silicon measurements.",
+    "Do not combine FPGA and simulated configurations into universal hardware validation.",
+    "Fault-injection coverage does not establish safety certification or coverage of every fault model.",
+    "Figure-level configuration denominators, absolute latencies, code revisions and variance remain unchecked."
+  ],
+  "headline_metric_status": "conditioned_author_claims_not_independently_accepted",
+  "independent_review_status": "pending"
+}

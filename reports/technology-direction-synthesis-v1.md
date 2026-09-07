@@ -124,6 +124,9 @@ The common capability is explicit modeling of failure, threat, or physical
 integrity conditions during design. Threat models, fault models, and correctness
 guarantees remain distinct; they cannot be combined into one “robustness” score.
 See the [ISCA memory/ECC/PIM analysis](../isca/pages/memory-ecc-pim-reliability.md).
+The [Strix primary assessment](../dac/reports/strix-primary-assessment-v1.md)
+adds configuration-specific evidence limits; its timing and reliability claims
+must not be broadened into safety certification or universal fault coverage.
 
 ## Direction 4 — Physical integration becomes an optimization variable
 

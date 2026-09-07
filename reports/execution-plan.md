@@ -4,6 +4,13 @@ The governing scope and acceptance criteria are in [GOAL.md](../GOAL.md).
 This log distinguishes finished work from queued work; a plan is not a completed
 research result.
 
+Primary-depth increment: Strix (DAC research043) now has a matched preprint
+assessment separating FPGA/simulation evidence, baseline budgets, fault models,
+slowdown aggregation, detection timing and synthesis overheads. Original evidence
+is preserved; the queue and original-sample packet include the supplement.
+Independent acceptance remains pending. Next: inspect Strix tables/figures and
+artifact availability, then continue to GEMIR, the next unassessed DAC anchor.
+
 Review integration: all three supplementary primary assessments (Exact T, ATB,
 HybriMoE) now reach the paper-level queue and the appropriate original-sample or
 draft review packets. Each carries a content hash, original-source URL, explicit

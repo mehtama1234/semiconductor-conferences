@@ -14,13 +14,13 @@ ROOT = Path(__file__).resolve().parents[1]
 
 def test_supplements_reach_queue_and_both_packet_types_without_promotion():
     supplements = load(ROOT)
-    assert set(supplements) == {"dac-2026-research031", "dac-2026-research1000", "dac-2025-research1019"}
+    assert set(supplements) == {"dac-2026-research031", "dac-2026-research043", "dac-2026-research1000", "dac-2025-research1019"}
     rows, summary, _ = build_queue(ROOT)
-    assert summary["supplementary_assessment_paper_count"] == 3
+    assert summary["supplementary_assessment_paper_count"] == 4
     queue = {r["paper_id"]: r for r in rows}
     packets, coverage = build_packets(ROOT)
     drafts = build_drafts(ROOT)
-    assert coverage["supplementary_assessment_packet_count"] == 1
+    assert coverage["supplementary_assessment_packet_count"] == 2
     for paper_id, items in supplements.items():
         assert queue[paper_id]["independent_review_status"] == "pending"
         assert queue[paper_id]["evidence_tier"] == "official_description"
@@ -53,3 +53,15 @@ def test_invalid_supplement_fails_closed(change, error):
     source = {"source_id": assessment["source_id"], "url": assessment["source_url"]}
     with pytest.raises(ValueError, match=error):
         validate({**assessment, **change}, paper, source)
+
+
+def test_strix_conditions_keep_simulation_and_latency_scope_explicit():
+    r = json.loads((ROOT / "dac/data/strix-primary-assessment-v1.json").read_text())
+    c = r["conditions"]
+    assert c["simulation_exception"]["configuration"] == "BF16-I"
+    assert c["latency"]["metric"] == "worst-case detection latency"
+    assert "correction" in c["latency"]["limit"]
+    assert c["slowdown"]["geometric_mean"] < max(c["slowdown"]["range"])
+    assert c["baselines"]["budget"] == "area-matched"
+    assert c["baselines"]["realm_rollback_limit"] == 1
+    assert r["independent_review_status"] == "pending"
