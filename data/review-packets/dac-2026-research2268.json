@@ -1,6 +1,66 @@
 {
   "coding_guide_path": "reports/taxonomy-coding-guide-v1.md",
   "coding_guide_sha256": "9c5d3fe51f2b9023bbc4606eb197bd2bc2514535b8fc04fe731ee577d4a33604",
+  "condition_reconciliation_context": {
+    "boundary": "Researcher extraction and combined field presence are preparation context only; they are not an independent scientific verdict or acceptance decision.",
+    "records": [
+      {
+        "adjudicated": {
+          "available_conditions": {
+            "baseline": true,
+            "hardware": true,
+            "limits": true,
+            "locator": true,
+            "metrics": true,
+            "workload": true
+          },
+          "condition_status": "complete",
+          "evidence_tier": "official_description",
+          "missing_conditions": [],
+          "record_path": "dac/data/adjudicated-2026-batch-12.jsonl"
+        },
+        "combined_field_presence": {
+          "available_conditions": {
+            "baseline": true,
+            "hardware": true,
+            "limits": true,
+            "locator": true,
+            "metrics": true,
+            "workload": true
+          },
+          "condition_status": "complete",
+          "missing_conditions": []
+        },
+        "direction_id": "data-movement-as-contract",
+        "direction_label": "Data Movement As Contract",
+        "primary_assessment": {
+          "condition_fields": [],
+          "path": null,
+          "review_status": null,
+          "source_tier": null,
+          "source_url": null,
+          "unresolved_conditions": []
+        },
+        "role": "challenge",
+        "supplementary": {
+          "available_conditions": {
+            "baseline": false,
+            "hardware": false,
+            "limits": false,
+            "locator": false,
+            "metrics": false,
+            "workload": false
+          },
+          "condition_fields": [],
+          "condition_status": "not_available",
+          "evidence_tier": null,
+          "review_status": null,
+          "source_locators": []
+        }
+      }
+    ],
+    "status": "direction_atlas_recorded"
+  },
   "evidence_locators": [
     "DAC 2026 official description"
   ],

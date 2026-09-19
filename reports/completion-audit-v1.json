@@ -1,19 +1,19 @@
 {
   "schema": "completion-audit.v1",
-  "as_of": "2026-09-07",
+  "as_of": "2026-09-09",
   "status": "bounded_package_complete_scientific_gates_open",
   "scope": "GOAL.md end-to-end requirements checked against current ledgers, reports, review packets, and reproducibility artifacts.",
   "subgoals": [
     {
       "id": "subgoal-1-checkpoint",
       "label": "Recovered checkpoint reconciliation",
-      "status": "complete",
+      "status": "historical_checkpoint_complete_current_reconciliation_partial",
       "evidence": [
         "GOAL.md",
         "reports/execution-plan.md",
         "scripts/validate_project.py"
       ],
-      "remaining": "None for the dated checkpoint; later evidence increments remain in git history."
+      "remaining": "The recovered checkpoint was reconciled at its original verification point. Subsequent editorial corrections remain separate from historical coding and require propagation into current evidence, review packets, and synthesis without erasing original provenance."
     },
     {
       "id": "subgoal-2-coverage",
@@ -27,7 +27,7 @@
         "inventory_records": 1589,
         "queue_records": 1589,
         "coded_records": 582,
-        "dac_route_records": 543,
+        "dac_route_records": 556,
         "dac_description_denominator_records": 541,
         "isca_indexed_excerpt_records": 6,
         "isca_secondary_only_outside_sample": 3
@@ -43,28 +43,37 @@
         "reports/collection-status.md",
         "reports/research-work-queue-summary.json",
         "reports/condition-extraction-queue-v1.md",
-        "reports/primary-source-recheck-2026-09-07.md"
+        "reports/primary-source-recheck-2026-09-07.md",
+        "data/editorial-paper-corrections-v1.json",
+        "reports/editorial-audit-v1.md"
       ],
       "current_counts": {
         "coded_records": 582,
         "supplementary_assessment_papers": 31,
         "supplementary_assessment_files": 32,
         "condition_extraction_batches": 7,
-        "recovery_attempt_papers": 25
+        "recovery_attempt_papers": 25,
+        "editorially_corrected_reading_cards": 568
       },
-      "remaining": "Full-paper conditions, artifacts, and primary sources are still missing for many records; selected metrics remain withheld where conditions are unresolved."
+      "remaining": "Full-paper conditions, artifacts, and primary sources remain missing for many records. The 533 reading-card corrections are not independently accepted records and have not yet been reconciled into original coding or all dependent analyses. All eight LLM-assisted-flow records now have expanded individual explanations and a connected decision/check comparison with bounded hypotheses. This is writing coverage, not independent acceptance. VERIRL's selected version-1 method/evaluation inspection distinguishes inherited repair scores, learned reward and independent test outcomes; current card is reconciled; artifact and original-ledger reconciliation remain open. VeriOpt's version-1 method, evaluation and limitations were inspected, with current reading card reconciled; original-ledger reconciliation and reproduction remain open. FPGA HLS architecture optimization remains partial-artifact-backed without recovered manuscript, reproduced model-level results or resolved 11.78x conditions. ModuPlace has a newly recovered author-hosted manuscript with selected method and result reading; its current card is reconciled, with original description preserved; original-ledger reconciliation remains open. MappingEvolve's explanation preserves saved assessment scope and distinguishes control-flow concerns from observed published results. ParetoPilot has selected pinned-artifact inspection, not recovered manuscript or reproduced headline results. Later manuscript/artifact inspections also need reconciliation with the paper-level recovery register. Sparse/irregular compute has eleven individually linked expanded explanations and a connected comparison; this is writing coverage, not acceptance. SALUT remains description-backed with pivoting, dependency semantics and measurement conditions unresolved. SPADE is manuscript-backed with standard/Turbo fidelity and timing distinctions; ten others lack full manuscripts. SPADE code, policy details and reproduction remain unverified; Florella language, encoding, approximation and coverage remain unknown; sparse 3D operator definitions, metric units, device naming and cross-subtheme classification remain unresolved; PillarSparse encoding, operation semantics and quantitative results remain unavailable; LTMiner uses separately attributed DTMiner background, not target-paper evidence; Acc-SpMV has selected pinned-code inspection without execution. Acc-SpMV naming, mapping validation, reduction correctness and asymmetric timed output-reset work remain unresolved. TRIDENT multiplication order, intermediate aggregation, buffer/spill rules and numerical behavior remain unverified. Duet encoding, exactness boundaries, metadata accounting and load-balancing scope remain unverified. Precision-aware compute has fourteen individually linked expanded explanations, seven manuscript-backed and seven description-backed; this is coverage, not acceptance. PEACE lacks compression exactness, column-energy definition and measurement conditions; classification requires reconciliation. BayesCVNN has unreconciled dropout conventions and unverified full conversion path. RESP uses a preprint, not recovered DAC camera-ready. PRISM/MXP encodings and conditions are unverified. CO-MAC/HierPAS examples do not reconstruct their circuits. TopGQ has unresolved lookup safeguards and conflicting tables. UltraSketchLLM has a min/max compression mismatch and unverified packed storage. Adana's counterexample is not a reproduction. DAPA, UltraSketchLLM and BayesCVNN have selected pinned code inspection without execution. Independent comprehension, scientific review, broader rewriting and cross-theme synthesis remain open."
     },
     {
       "id": "subgoal-4-taxonomy-synthesis",
       "label": "Taxonomy and deep explanations",
-      "status": "provisional_complete_for_selected_sample",
+      "status": "authored_coverage_present_explanatory_depth_reopened",
       "evidence": [
         "data/taxonomy-v1-evidence.json",
         "reports/taxonomy-coding-guide-v1.md",
         "reports/technology-direction-synthesis-v1.md",
-        "reports/field-directions-and-hypotheses-v1.md"
+        "reports/field-directions-and-hypotheses-v1.md",
+        "reports/subtheme-editorial/",
+        "reports/editorial-audit-v1.md"
       ],
-      "remaining": "Provisional branches and selected-sample bias require broader coding and independent adjudication."
+      "current_counts": {
+        "authored_observed_subthemes": 113,
+        "observed_subthemes": 113
+      },
+      "remaining": "The user rejected the current explanatory depth and clarity. All 113 observed subjects have authored text, but collection-wide first-principles subtheme and paper rewriting is reopened; evidence cards are not self-contained explanations. All eight discussions in the neuromorphic/quantum/non-von-Neumann chapter, all fourteen in memory hierarchy/persistence, and all three in processor/RTL verification now have expanded explanations and worked reasoning, not independently accepted comprehension reviews. Source depth varies and missing manuscripts are not replaced by related literature. Processor verification preserves the distinction between CPU differential checking and firmware testing with peripheral models. All ten parent themes now connect costs, correctness and evidence with bounded hypotheses; this is writing coverage, not independent comprehension acceptance or completed cross-conference synthesis. Both timing-analysis records now have expanded explanations: Warp-STAR has selected manuscript evidence and Powerpath remains description-backed. Warp-STAR's current reading card is reconciled; Powerpath source/artifact recovery, original-ledger reconciliation and independent review remain open. The formal-analysis chapter now maps all ten captured papers by verification role; Beyond Exact has received the first full individual comprehension pass there, and nine remain. Original taxonomy remains unchanged. Other chapters, known classification mismatches, alias boundaries, uncorrected cards, source discrepancies, cross-theme synthesis, and selected-sample bias require further writing, broader coding, reconciliation, and independent review."
     },
     {
       "id": "subgoal-5-independent-review",
@@ -108,11 +117,12 @@
         "tests/"
       ],
       "current_counts": {
-        "manifest_artifacts": 204,
-        "tests": 142
+        "manifest_artifacts": 527,
+        "tests": 745
       },
+      "test_checkpoint_scope": "Latest increment: the ICCAD 2025 Adder-DCIM digital-CIM/model-compression paper received a paper-level reading-card reconciliation on 2026-09-09. The focused Adder-DCIM test passed. The correction separates compressed-model behavior and bit-flexible representation from faithful mapped execution and complete-inference efficiency, preserves the reported 28-nm, 134/6.49, 255/243 and below-0.4% source claims with their unresolved conditions, and makes accuracy, operation-count and power-boundary gaps explicit. Corrections are now 568; manifest artifacts remain 527; the test suite collects 745 tests. These authored corrections do not constitute accepted taxonomy reassignment, independent scientific validation or completion of the broader research program. Original-ledger reconciliation, source recovery and historical comparison remain open.",
       "remaining": "Package is publishable as a bounded evidence assessment, not as a full-corpus trend report or independently accepted scientific review."
     }
   ],
-  "interpretation_gate": "Do not mark the overall GOAL complete while any partial/prepared_pending status remains; preserve this audit as the current handoff and revisit register."
+  "interpretation_gate": "Do not mark the overall GOAL complete while any partial/prepared_pending status or reopened explanatory-depth requirement remains; preserve this audit as the current handoff and revisit register."
 }

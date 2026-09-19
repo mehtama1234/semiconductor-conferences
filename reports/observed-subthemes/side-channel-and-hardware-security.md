@@ -1,0 +1,4198 @@
+# Side channel and hardware security
+
+This subject has 30 records in the selected sample. This page explains where it fits, then presents all captured paper evidence without shortening the measurements or limitations.
+
+[Definitions used in the paper records](../reading-guide-v1.md)
+
+## Understand the parent subject first
+
+- [Power reliability and security](../themes/power-reliability-and-security.md)
+
+## Start by identifying what must remain protected
+
+A security requirement identifies information or behavior that another party must not obtain or control. A hardware evaluation then needs to specify that party's capabilities. Can they run ordinary software, share a processor, observe physical signals, change inputs, or access the device directly? A protection can be effective under one set of capabilities and ineffective under another.
+
+A side channel exposes information through an observation outside the intended data interface. Execution time, shared-resource behavior, and physical signals can depend on internal computation. Preventing direct access to a protected value therefore does not automatically prevent information about it from being inferred.
+
+## Distinguish the observation from the conclusion
+
+Showing that a signal changes with internal activity establishes a measurable relationship. Establishing a practical information leak additionally requires showing what an observer can infer under the allowed access conditions. The inference may depend on repeated measurements, prior knowledge, control of inputs, or alignment of events.
+
+A protection evaluation must retain those conditions. Reducing one signal or defeating one tested inference procedure does not establish that all observations carry no useful information. Conversely, a laboratory observation with physical access does not by itself establish a remote attack.
+
+## The category also contains other security questions
+
+Memory safety concerns whether a program can access memory outside its permitted objects or regions. Cryptographic correctness concerns whether a primitive computes its specified result. Key protection concerns whether secrets remain protected during that computation. These questions can interact, but a result about one does not prove the others.
+
+The broad taxonomy groups them for navigation. The individual records must be read using their actual protection requirement, not merely the presence of the word “secure” in a title.
+
+## Address translation and memory safety
+
+The semi-virtual-addressing record proposes a lightweight translation module together with allocation and randomization choices for microcontrollers. A microcontroller typically combines a processor and peripheral control in a resource-constrained device. The mechanism changes how a program's addresses identify physical memory. [Recorded evidence](../observed-subthemes/side-channel-and-hardware-security.md#paper-dac-2026-research1715)
+
+The useful questions are which invalid accesses are prevented, how legitimate software remains compatible, and what hardware and execution overhead is added. The description leaves those conditions unresolved. An expanded address space alone does not establish the isolation behavior of a complete memory-management system.
+
+<span id="explanation-dac-2026-research1715"></span>
+
+### Semi-virtual addressing: enlarging the address space is not the same as proving memory isolation
+
+#### The underlying memory-safety problem
+
+A program uses addresses to read and write memory. A pointer value may be valid for one object but invalid for another object, even when both objects are stored in the same physical memory. An out-of-bounds access can overwrite a nearby object, read secret data, corrupt a return address or change control data used later by the program. A microcontroller often has no full virtual-memory system to translate and check these accesses. It may instead expose physical memory directly, leaving protection to software conventions, compiler instrumentation or a small set of hardware regions.
+
+This creates two separate requirements. The system needs enough address space and mapping state to represent where objects or regions are located, and it needs access enforcement: a rule that rejects an access when the address is not allowed for the current object or region. The first requirement is about naming and mapping memory. The second is about enforcing authority. A larger address range can help randomize or separate objects, but it does not by itself stop a program from using an invalid address.
+
+#### What a lightweight translation module changes
+
+The record proposes a page-table-free Lightweight Address Translation Module for a RISC-V CORE-V-MCU setting. A conventional MMU usually translates virtual addresses through page tables and can check permissions at page granularity. A page-table-free design may use simpler hardware and a restricted mapping representation to reduce area, energy or timing variability. The exact translation rule, metadata format, permission checks, fault behavior and granularity are not exposed in the captured description.
+
+The proposed result is described as semi-virtual addressing: a 575 KB physical address space is represented through a 2 GB address space. This number describes the range of names the software can use, not 2 GB of installed memory. The system still has to decide how a generated address maps to a physical location and what happens when the address is outside the object's permitted region. If multiple virtual addresses map to one physical object, the security benefit depends on whether stale, guessed or aliased addresses are rejected and whether the metadata can be changed safely.
+
+The relevant path is therefore:
+
+1. software produces an address;
+2. the translation hardware derives or looks up the corresponding physical location;
+3. the hardware checks the access against the permitted region and operation;
+4. an invalid access is blocked and produces a defined fault;
+5. the fault cannot be bypassed through another instruction, alias, DMA path, interrupt path or privileged mode.
+
+The captured source establishes the proposed translation artifact, but it does not specify enough of this path to conclude that the module provides complete isolation.
+
+#### How randomization and type-safe allocation fit into the chain
+
+Heap randomization changes where dynamically allocated objects are placed or which address is used to refer to them. This can make a guessed target less reliable. Randomization is probabilistic resistance: it raises uncertainty for an attacker, but it does not reject an access that has already obtained a valid reference or discovered the location.
+
+Type-safe allocation uses information about which kind of object a region is intended to contain. If the hardware or runtime retains that information and checks it on every relevant access, the mechanism may prevent some forms of type confusion or cross-object use. If type safety only influences allocation and does not participate in the access check, it is not itself a complete enforcement boundary. The description does not state the type metadata, its lifetime, the operations checked, or how reuse of freed memory is handled.
+
+The three mechanisms should therefore be evaluated separately and together. Translation can provide an address mapping, randomization can make locations harder to predict, and type-aware allocation can constrain object placement or use. None of these labels alone identifies which memory-safety violations are blocked. A complete claim must name the violation classes: spatial out-of-bounds reads and writes, temporal use-after-free, double free, type confusion, return-address corruption, data-only corruption and unauthorized DMA or peripheral access.
+
+#### The attacker model determines what “memory safety” means
+
+The evaluation must state whether the attacker can supply input, run untrusted code, observe addresses, read fault responses, control a peripheral, trigger interrupts, exploit a memory leak or execute with a privileged role. It must also state whether the protected program includes a runtime, operating system, allocator, compiler instrumentation and trusted libraries. A mechanism may protect ordinary load and store instructions while leaving DMA, debug access, speculative behavior or privileged code outside its boundary.
+
+An attacker who can learn a valid pointer may not need to guess a randomized address. An attacker who can corrupt allocator metadata may defeat a protection rule that assumes the metadata is trusted. An attacker who can reuse a freed object may exploit a temporal error even when spatial bounds are checked. These are different paths and need separate tests. The captured description does not supply an attack model or a coverage matrix, so the security boundary remains unspecified.
+
+#### What the comparisons must establish
+
+The software-only baseline should show which protections are normally available without the proposed hardware and what their runtime, memory and code-size costs are. The full-MMU baseline should use a named MMU configuration and operating environment, because an MMU is not one fixed design. Its page size, translation caches, permission model, fault path and operating-system support affect both cost and protection.
+
+For each baseline and the proposed module, report which invalid accesses are detected, when they are detected, and whether the fault occurs before the protected data is changed or disclosed. Include valid-access latency, translation-cache behavior if any, worst-case interrupt latency, code-size changes, memory consumed by metadata, hardware area, energy and frequency. A claim of deterministic translation must report a worst-case bound, not only an average cycle count.
+
+The security experiment should use vulnerable programs or generated tests with known ground truth. It should count blocked and missed violations by class, include false positives on valid programs, and test allocator reuse, aliasing, privilege changes, interrupts, DMA and fault recovery where those paths are in scope. Formal reasoning or proofs can strengthen the result, but the proof assumptions must match the implementation and the attacker model.
+
+Software compatibility is another requirement. Existing pointer representations, linker layouts, interrupt handlers, device drivers, boot code and debugging tools may assume physical addresses or a particular memory map. A mechanism can be technically protective but difficult to deploy if it requires pervasive source changes or breaks peripheral addressing. The record does not provide compatibility results, application benchmarks or implementation measurements.
+
+The captured official description supports a lightweight semi-virtual address-translation direction for a microcontroller and reports a 575 KB physical space represented in a 2 GB semi-virtual space. It does not report translation area or latency, protection coverage, attack success, software compatibility, metadata cost, DMA behavior, fault semantics or measurements against either baseline. The evidence supports address-space expansion with integrated randomization and type-safe allocation, not demonstrated equivalence to a full MMU or complete memory-safety enforcement. [Recorded evidence](../observed-subthemes/side-channel-and-hardware-security.md#paper-dac-2026-research1715)
+
+<span id="explanation-dac-2026-research208"></span>
+
+### S2CIM: protecting compute-in-memory requires a defined secret, an attacker, and an end-to-end inference check
+
+#### What compute-in-memory is trying to do
+
+Compute-in-memory, or CIM, places data storage and part of the arithmetic in the same memory array. In a conventional accelerator, weights move from memory to separate arithmetic units. In a CIM macro, stored values and input values interact inside or close to the memory cells, often through analog or mixed-signal accumulation followed by conversion. This can reduce data movement, but it also places model weights and intermediate values in a structure that may be physically accessible to an attacker.
+
+The security problem has several possible assets. The stored weights may reveal a proprietary model. The input may contain private user data. Intermediate or accumulated values may reveal both. A key or transformation parameter may protect one of these assets, but the protection claim depends on where the key exists, when it is used, and what an attacker can measure or control. “Secure inference” is therefore not one outcome. It can mean that weights cannot be read, inputs remain hidden, the computation remains correct, or the circuit resists a specified side channel. These claims need separate tests.
+
+#### What the recorded S2CIM design contains
+
+The captured record describes a FeFET-based secure CIM macro, Affine-Transform Splitting for offline/online obfuscation, and Drain-Input Gate-Scan signed multi-bit MAC circuitry. FeFET refers to a ferroelectric field-effect transistor used for nonvolatile storage. The stored state can persist without power, which helps edge inference but also means that a physical attacker may target the memory array, readout path, peripheral circuits or retained metadata.
+
+An affine transform changes a value using a linear operation and an offset. Splitting such a transform into an offline part and an online part can move some work away from the deployed device or make a stored representation different from the model's direct weights. That may reduce the usefulness of a memory readout. It does not automatically provide cryptographic confidentiality: the transformation may be reversible if the parameters are exposed, inferable from known inputs and outputs, or implemented in a way that leaks its state.
+
+The signed multi-bit MAC circuitry changes how multiply-accumulate operations are represented or combined. The captured description names it as part of the secure architecture, but does not expose the exact encoding, sign handling, conversion path, key dependency or leakage argument. A circuit-level name is not enough to determine whether it prevents weight extraction, input inference, fault injection, or only supports the intended arithmetic.
+
+#### The threat model must define the protection boundary
+
+At least four attacker positions should be distinguished:
+
+- A remote user who can submit inputs and observe inference outputs.
+- A software attacker who can execute code on the edge device and read ordinary memory or peripheral registers.
+- A local physical attacker who can probe pins, observe power or electromagnetic emissions, disturb voltages, or image or remove the package.
+- An attacker who can modify stored FeFET states, inject faults, replay a prior state or observe the device during provisioning.
+
+These attackers have different capabilities and require different evidence. Chosen-input output observations test a black-box inference boundary. A power-trace experiment tests a side-channel boundary. Direct array readout tests storage confidentiality. Fault injection tests integrity. A 50% attack-success figure has no stable meaning until the attack target, number of alternatives, input access, measurements, repetitions and random-guess baseline are stated.
+
+Key handling is central. The evaluation should identify whether a secret key exists, where it is generated, where it is stored, how it reaches the macro, whether it is present in plaintext on the device, and what happens after reset or power loss. If the offline/online split leaves a reusable secret in a peripheral register or predictable memory region, storage obfuscation may not protect the model. If the design avoids a key and relies on a secret transform, the transform and its secrecy assumptions still need to be stated.
+
+#### Correctness and security are different measurements
+
+Encrypted or obfuscated inference must first produce the intended model result. The reported 97.4% encrypted Vision Transformer inference accuracy needs a reference definition: accuracy relative to the original unprotected model, accuracy on which dataset, with which model and preprocessing, and after what ADC/DAC quantization and noise. A high task accuracy does not prove that weights or inputs are confidential. Conversely, a security transform that hides data but materially changes model decisions has not demonstrated a usable inference system.
+
+The comparison should report clean-model accuracy, protected-model accuracy, degradation by class or task, calibration if relevant, and the numerical error introduced at each stage: storage, transformation, multiply-accumulate, accumulation, conversion and decoding. It should also test robustness across input distributions and operating conditions. FeFET variation, retention, endurance, temperature, voltage, device-to-device variation and ADC/DAC behavior can affect both correctness and leakage.
+
+#### Area and energy claims need a complete boundary
+
+The record reports up to 16.8x area-efficiency improvement and up to 6.7x lower energy per MAC. “Area efficiency” can mean operations per unit area, not necessarily a smaller complete accelerator. The denominator must state whether it includes the FeFET array, word-line and bit-line drivers, sense amplifiers, ADCs, DACs, accumulators, controllers, key or transform storage, error handling and interface memory. An encryption or obfuscation scheme that reduces array movement but adds large peripheral circuits may change the conclusion at system level.
+
+Energy per MAC must use the same operation definition and include data movement, conversion, transformation, key handling, initialization and failed or repeated operations. A macro-only number cannot be compared directly with a system-level baseline. Report throughput, latency, batch size, active area, total power, energy per inference, standby or retention energy and the process technology under the same workload and precision.
+
+#### What a complete security evaluation needs
+
+Compare against an ordinary nonvolatile CIM design and against recent in-memory-encryption CIM schemes using the same model, dataset, precision, process assumptions and measurement boundary. Report attack success against a random-guess baseline and against a meaningful unprotected baseline. State whether attacks receive unlimited traces, chosen inputs, known plaintexts, model outputs, physical access or array readout. Include ablations that remove the affine split, the signed MAC circuitry, the key or each proposed protection so that the contribution of each part is identifiable.
+
+Test direct weight recovery, input recovery, model-extraction quality, side-channel distinguishability and fault-induced output changes separately. If the claim is resistance rather than impossibility, report the measurement cost and attack budget. Test fresh devices, process variation, temperature and voltage changes, and include the peripheral circuits that connect the macro to the rest of the inference system. A secure macro whose surrounding controller exposes the transform or key has not established end-to-end protection.
+
+The captured official description supports a FeFET secure-CIM direction with affine-transform splitting and signed multi-bit MAC circuitry. It reports up to 16.8x area-efficiency improvement, up to 6.7x lower energy per MAC, 97.4% encrypted ViT accuracy and 50% attack success under stated threat models, but does not expose the process, complete area boundary, peripherals, key management, model, dataset, attack procedure or random-guess reference. The evidence supports a circuit-and-algorithm co-design direction, not a complete end-to-end confidentiality claim, complete integrity claim, or directly comparable end-to-end energy or security result. [Recorded evidence](../observed-subthemes/side-channel-and-hardware-security.md#paper-dac-2026-research208)
+
+## Protecting computation inside memory
+
+S2CIM combines circuit and algorithm choices for computation and storage in memory. Its captured description names transformations intended to obscure information, but does not establish the complete attacker model, key handling, model accuracy, or surrounding-circuit cost. [Recorded evidence](../observed-subthemes/side-channel-and-hardware-security.md#paper-dac-2026-research208)
+
+An attack-success percentage must be read against the task. A result of 50% can have different meanings depending on what is being guessed, how many alternatives exist, and what an uninformed guess achieves. The percentage by itself cannot establish protection.
+
+## Cryptographic acceleration needs two evaluations
+
+Safe-IoT's record concerns an accelerator for the ML-DSA digital-signature scheme. Faster execution or lower memory use concerns implementation efficiency. Correct signatures under the selected parameters and resistance to unintended information leakage require their own checks. [Recorded evidence](../observed-subthemes/side-channel-and-hardware-security.md#paper-dac-2026-research2216)
+
+The current description leaves parameter sets, platform details, memory accounting, and leakage conditions unresolved. A hardware implementation of a cryptographic algorithm inherits neither a measured efficiency result nor complete implementation security simply from the algorithm's name.
+
+<span id="explanation-dac-2026-research2216"></span>
+
+### Safe-IoT: an ML-DSA accelerator must be measured for both signature work and implementation security
+
+#### What ML-DSA acceleration is doing
+
+ML-DSA is a post-quantum digital-signature scheme. A signer uses a secret key to produce a signature for a message. A verifier uses a public key to check that the signature corresponds to that message and key. The security goal is not simply to perform arithmetic quickly. The implementation must produce correct signatures, reject invalid signatures, protect secret intermediate values and avoid leaking enough information for an attacker to recover the signing key or forge signatures.
+
+The arithmetic is dominated by polynomial operations over a finite ring. A polynomial is a list of coefficients, and multiplication can be accelerated by transforming the coefficients into a representation where multiplication is cheaper. The number-theoretic transform, or NTT, is the relevant transform used by many lattice-cryptography implementations. It requires modular additions, subtractions and multiplications, plus a controlled sequence of data movements and twiddle-factor operations. A hardware NTT block can improve throughput, but it also creates a concrete timing, power, memory and leakage surface.
+
+#### What the Safe-IoT artifact claims to change
+
+The captured record names a memory-efficient hardware/software co-design with an MI-NTT circuit and lookup-table modular multiplication. The hardware/software boundary matters. Some operations may be placed in hardware for speed while key setup, message handling, control and less frequent routines remain in software. The result depends on the cost of moving polynomials between the processor and accelerator, waiting for the accelerator, storing intermediate vectors and coordinating the two sides.
+
+Lookup-table multiplication can replace some general modular arithmetic with precomputed values. That may reduce logic or cycles, but a table can also create address-dependent memory activity. If a secret-dependent index selects a table entry, cache, bus, power or timing observations may reveal information. The security conclusion therefore depends on the table layout, access pattern, masking or constant-time behavior, and whether the table itself is public or secret-dependent. The captured description does not expose those details.
+
+#### The parameter set is part of the result
+
+ML-DSA has parameter sets with different security targets and different polynomial dimensions, modulus-related operations and signature/key sizes. A throughput result without the parameter set cannot be compared fairly. Message size, number of signatures, key-generation versus signing versus verification, batching, randomness generation and rejection sampling also affect the work.
+
+The reported “up to 3.0x throughput improvement over CPU” needs a defined operation: signatures per second, verifications per second or total protocol transactions. It needs the CPU identity, frequency, compiler, software implementation, vector instructions, operating system, thread count and whether key generation or random-number generation is included. A hardware accelerator can appear faster if the baseline is a scalar implementation or if data transfer and setup are excluded. The same accelerator may have a smaller advantage over an optimized vectorized implementation.
+
+#### Memory efficiency is a boundary question
+
+The record reports 2.6–8.3x lower on-chip RAM and a 4.28–176.53x area-time-product improvement. These ranges may correspond to different parameter sets or comparison points. They cannot be understood without a memory accounting rule.
+
+State what is counted: coefficient buffers, NTT working memory, twiddle factors, lookup tables, secret keys, public keys, signatures, message buffers, random sampling state, DMA descriptors, control storage and any CPU-side memory. Explain whether memory is peak live storage or total storage capacity, whether off-chip memory is allowed, and whether the accelerator reuses buffers by overwriting intermediate results. Lower on-chip RAM may increase latency, external traffic or energy. An area-time product also needs the area boundary, clock frequency, active time, process technology and whether software execution is included.
+
+#### Correctness is more than one known-answer test
+
+The implementation must produce signatures that pass an independent verifier for the selected parameter set and must reject modified messages, modified signatures and wrong public keys. It should be checked against official test vectors and a reference implementation across key generation, signing, verification, rejection paths and random seeds. Modular arithmetic must handle negative values, reduction boundaries, coefficient ranges and NTT ordering correctly.
+
+Hardware/software integration adds more failure modes: truncated transfers, stale buffers, interrupted operations, malformed commands, reset during signing and inconsistent endianness or packing. A high throughput number is not useful if a rare integration error creates an invalid signature or exposes secret state after a fault. The captured source does not provide correctness coverage, test-vector results or fault behavior.
+
+#### Cryptographic security and side-channel security are separate
+
+ML-DSA can be mathematically sound while a particular implementation leaks its secret key through timing, power, electromagnetic radiation, memory access or fault behavior. Constant-time control flow is useful but does not prove constant power or electromagnetic behavior. Lookup tables, modular multipliers, rejection sampling, conditional reductions and NTT data movement all need leakage analysis.
+
+The threat model should state whether the attacker can measure a device physically, run software on the same processor, observe shared memory or buses, submit chosen messages, repeat signatures, reset the device, inject faults or observe only remote timing. Tests should report trace count, measurement quality, alignment, preprocessing, statistical distinguishers, key-recovery success, forgery success and comparison with an unprotected implementation. If the accelerator relies on masking or blinding, report randomness generation, mask refresh, failure handling and the cost of those protections.
+
+#### What a fair system comparison reports
+
+Compare the same ML-DSA parameter set and operation against a named optimized CPU implementation and, where relevant, a comparable hardware/software accelerator. Use the same clock and process assumptions where possible. Report latency distribution, steady-state throughput, energy per operation, total area, on-chip and off-chip memory, setup cost, random-number cost, CPU occupation and end-to-end time. Separate signing, verification and key generation.
+
+The final result should connect efficiency to the device boundary. A 3× accelerator speedup with a large CPU wait or external-memory cost is different from a 3× end-to-end protocol improvement. A RAM reduction that moves state to slower memory is different from a reduction in total memory traffic. A wide ATP range should be explained by parameter set and comparison boundary rather than presented as one general gain.
+
+The captured official description supports a memory-efficient ML-DSA accelerator with MI-NTT, lookup-table modular multiplication and hardware/software co-design. It reports up to 3.0x throughput improvement over CPU, 2.6–8.3x lower on-chip RAM and 4.28–176.53x area-time-product improvement, but does not specify the parameter set, CPU, process, frequency, memory boundary, operation, power, correctness tests or leakage model. The evidence supports an implementation-efficiency direction, not a comparable end-to-end result or demonstrated cryptographic and side-channel security. [Recorded evidence](../observed-subthemes/side-channel-and-hardware-security.md#paper-dac-2026-research2216)
+
+<span id="explanation-dac-2026-research296"></span>
+
+### Remote ML-KEM side channels: a cryptographic scheme can be secure while an implementation leaks its secret key
+
+#### What ML-KEM is protecting
+
+ML-KEM is a post-quantum key-encapsulation mechanism. One party publishes a public key. Another party uses that public key to create a ciphertext and a shared secret. The recipient uses a secret key to decapsulate the ciphertext and derive the same shared secret. A secure implementation should not reveal the secret key through its outputs, timing, memory behavior, power behavior or fault responses.
+
+The mathematical security claim and the implementation-security claim are different. The scheme can be designed so that recovering the secret key from public data is computationally difficult, while a processor running a correct implementation still leaks information through microarchitectural state or power-management behavior. A remote attack does not break the underlying hardness assumption directly if it instead collects an observable signal correlated with secret-dependent execution and uses many observations to infer the key.
+
+#### What a plaintext-checking behavior can provide
+
+Decapsulation must process a ciphertext and determine whether the result is acceptable. Implementations may perform checks, recomputation, comparison or conditional selection before returning a shared secret or failure result. Any observable difference in this path can become a signal. The captured description calls the behavior a plaintext-checking oracle, but does not expose the exact input format, returned response, timing difference, error behavior or number of queries.
+
+An oracle is useful only when the attacker can connect an input choice to a measurable output. The experiment must therefore state whether the attacker submits chosen ciphertexts, receives a success/failure response, observes timing, or relies only on a power signal during a remote request. If the same behavior is available through a network API, the server's retry policy, batching, rate limits and error normalization affect the attack. If the behavior is an artifact of a local test harness, the remote claim is narrower.
+
+#### What “remote power” means in this setting
+
+The processor is not assumed to expose a laboratory power pin to the attacker. A remote measurement may arise from a software-visible power or performance interface, a shared-resource timing signal, a power-management transition or another signal correlated with processor activity. The exact sensor, sampling rate, resolution, access permission, network path and aggregation method determine whether the signal is available in a real deployment.
+
+In this setting, network noise can be larger than the secret-dependent effect. The attack may need many traces, repeated chosen requests, stable processor placement or a quiet co-tenant environment. Network distance, request concurrency, scheduling, frequency scaling, sleep states, thermal conditions and other workloads can change both the signal and the number of observations required. The captured record says that speculative execution and dynamic power management affect the attack, but it does not provide the processor SKU, trace protocol or noise model.
+
+#### What secret-key recovery means
+
+The reported result is up to 99.5% secret-key recovery success. That phrase needs a precise denominator. It should state how many independent keys were tested, how many key coefficients or bits were recovered, whether the result means exact full-key recovery or a partial candidate set, how many traces and queries were used, the time per key, and whether the attacker receives verification feedback. “Up to” identifies a best condition, not the expected result across parameter sets, machines or deployments.
+
+The attack should be evaluated against an unprotected implementation and any available defenses. A random or brute-force reference is not always the right baseline for key recovery, because the attack may already use public ML-KEM structure. Report the recovery rate, false-recovery rate, confidence or candidate-list size, traces per recovered key, network requests, wall-clock time, and performance as noise or distance increases. A result that works in one quiet configuration after millions of requests has a different operational risk from one that works in minutes against a busy multi-tenant service.
+
+#### Why implementation details matter
+
+Secret-dependent branches, rejection paths, conditional reductions, memory addresses, cache state, speculative execution and frequency changes can all create observables. Constant-time source code can still produce power or microarchitectural differences. Conversely, a noisy signal may become exploitable when an oracle lets the attacker choose inputs that amplify the difference. The implementation, compiler, processor, operating system, power-management configuration and remote interface are therefore part of the security boundary.
+
+The evaluation should identify the ML-KEM parameter set and implementation version, compiler flags, CPU model and microcode, operating system, frequency governor, core affinity, virtualization state and remote collection path. It should separate traces by key and by machine, avoid training and testing on adjacent traces from the same execution, and test held-out keys, processor states and workloads. If the attacker model assumes access to a power counter or performance counter, the study should state whether that interface is normally available to an unprivileged remote user and what provider configuration enables it.
+
+#### Mitigations must be tested as part of the claim
+
+Possible mitigations include constant-time decapsulation, removing or coarsening power interfaces, reducing response differences, blinding or masking, scheduling isolation, disabling relevant performance observations, adding noise and limiting repeated queries. Each mitigation trades security against latency, availability, energy, observability for administrators and compatibility. A mitigation is not established by suggesting it; the experiment must show how recovery rate, trace requirement and attack time change while valid decapsulation continues to work.
+
+The captured official description supports a remote power side-channel study of ML-KEM on Intel x86 using plaintext-checking behavior as an oracle and reports up to 99.5% secret-key recovery success. It does not specify network distance, sensor or trace interface, number of traces, attack time, CPU SKU, key/parameter set, implementation version, mitigations or transfer to other ML-KEM implementations. The evidence supports remote exploitability under the tested conditions, not a universal ML-KEM break and not a general recovery rate across x86 systems and deployments. [Recorded evidence](../observed-subthemes/side-channel-and-hardware-security.md#paper-dac-2026-research296)
+
+<span id="explanation-dac-2026-research1444"></span>
+
+### Janus: control-flow protection can reduce transient attack paths without proving that all transient leaks are gone
+
+#### What transient execution makes possible
+
+Modern processors may execute instructions before the processor knows that an earlier branch or indirect target was correct. A branch predictor guesses which instructions are likely to be needed. The processor executes along that guess to save time. If the guess is later found to be wrong, the architectural register and memory state can be rolled back. The temporary work can still change microarchitectural state such as caches, predictors or buffers. An attacker can measure that state and infer a value that the program was not allowed to return architecturally.
+
+This creates two different security questions. The first is architectural control flow: which instruction should execute according to the program and its permissions? The second is speculative observability: what information can transient instructions influence before the processor discards their architectural result? A defense that prevents an invalid indirect branch target may reduce the set of transient gadgets, but it does not automatically prevent every leak through valid targets, direct branches, data dependencies, caches or other microarchitectural structures.
+
+#### What the ARM primitives contribute
+
+Pointer authentication adds a cryptographic tag to a pointer or related control value. Before using the value, the processor can authenticate it using a key and context modifier. If an attacker corrupts a return address or indirect target without knowing the signing key, authentication can fail. This protects particular pointer-integrity transitions; it does not make all memory unreadable, does not prevent an already valid pointer from reaching sensitive data, and does not by itself specify what the processor does during speculation before authentication resolves.
+
+Branch Target Identification, or BTI, constrains where certain indirect branches may land. A target must carry an appropriate landing marker for the branch type. This can make it harder to redirect execution into an unintended instruction sequence. BTI is a control-flow target rule, not a general confidentiality proof. A valid landing point may still contain a useful transient sequence, and attacks that do not rely on an indirect branch may lie outside its coverage.
+
+The effectiveness of PAC and BTI depends on the ABI, compiler, linker, operating system, exception paths, signal handling, dynamic loader, shared libraries and hardware generation. A protected application can still call an unprotected library, store an unauthenticated pointer in a place later consumed by protected code, or use a control-flow path that the compiler did not instrument. The exact instruction forms and key-management rules therefore belong in the threat model.
+
+#### What compiler-based protection changes
+
+Janus is described as a compiler-based defense using PAC and BTI, modifier fusion and carrier-register reuse. A compiler sees the program's control-flow graph and can insert or combine instructions at function boundaries, returns and indirect calls. Modifier fusion may reduce repeated authentication work by sharing a modifier or combining operations. Carrier-register reuse may carry an authenticated value or related state through existing registers rather than allocating additional registers or memory.
+
+These transformations are performance and code-generation choices, not security guarantees by name. Reusing a modifier can reduce instruction count, but the modifier must remain bound to the right call site, stack frame or object. Reusing a register can reduce register pressure, but spills, interrupts, exceptions and inline assembly must preserve the security invariant. A correct compiler pass needs a stated invariant: for every protected return or indirect transfer, what value is authenticated, what context binds it, when verification occurs, and what happens after failure.
+
+The compiler also needs whole-program coverage rules. It should identify protected and unprotected boundaries, address-taking operations, tail calls, function pointers, virtual dispatch, callbacks, setjmp/longjmp, exceptions, signal handlers, hand-written assembly, shared-library calls and dynamic loading. A benchmark with low overhead can still leave an exploitable uninstrumented path. Conversely, a formally strong policy can be impractical if it requires every library and runtime component to be rebuilt.
+
+#### What attack coverage must show
+
+The evaluation should name each transient-execution and control-flow attack class tested. Examples include mispredicted conditional branches that access secret data, poisoned indirect branches, return-address manipulation, speculative return paths, cross-domain calls, cross-process observation and attacks that use caches or other shared structures as the channel. It should state the attacker privilege, code-execution ability, memory-corruption primitive, training or poisoning ability, victim boundary and observation channel.
+
+For each attack, report whether the attack is prevented, merely made harder, or remains possible. Include proof or measurement that the sensitive value cannot influence an observable channel under the stated assumptions. A reduction in gadget count is not the same as a zero-leakage result. Tests should include known vulnerable examples, compiler-generated applications, unprotected and existing-CFI baselines, different optimization levels, shared libraries and failure paths. If PAC failure causes an exception, measure whether the exception path itself leaks or can be turned into a denial of service.
+
+#### How to read the performance numbers
+
+The captured record reports 3.85% average SPEC CPU2017 overhead and 2.97–7.80% overhead on real-world ARM64 applications. An average is useful only with the baseline compiler, hardware, input sets, run count, confidence interval and definition of overhead. Report runtime, code size, instruction count, branch behavior, register spills, memory traffic and energy where the defense changes code generation. A low average can hide large costs in indirect-call-heavy programs, exception paths, cryptographic code or security-critical services.
+
+Security and performance also interact. Removing checks from cold paths may preserve speed while reducing coverage. Combining checks may reduce overhead while creating a single shared context whose compromise affects several transfers. Measurements should therefore be paired with a coverage matrix and an explicit accounting of what each inserted or fused operation protects.
+
+The captured official description supports a compiler-based ARM64 defense that uses pointer authentication, BTI, modifier fusion and carrier-register reuse. It reports 3.85% average SPEC CPU2017 overhead and 2.97–7.80% overhead on real-world applications, but does not specify attack coverage, code-size effects, security proof, hardware generation, OS, ABI, compiler version or baseline defenses. The evidence supports a control-flow-hardening direction with a measured overhead claim, not protection against all transient-execution variants or a complete confidentiality guarantee. [Recorded evidence](../observed-subthemes/side-channel-and-hardware-security.md#paper-dac-2026-research1444)
+
+<span id="explanation-dac-2026-research1497"></span>
+
+### Hardware-interrupt security: an interrupt becomes an attack surface when an untrusted actor can trigger or observe its protected work
+
+#### What an interrupt changes in execution
+
+An interrupt is a hardware event that causes the processor to pause or redirect ordinary execution to a handler. The event may come from a timer, device, peripheral, memory system, inter-processor signal or another hardware source. The handler runs with defined privilege and usually reads or updates state before returning to the interrupted program.
+
+The interrupt mechanism is intended to make device events reliable. Security problems arise when the event, its timing, its handler state or its side effects cross a privilege boundary without the required checks. An unprivileged program may be able to request a device action, cause an interrupt indirectly, observe when a handler runs, or influence data that the privileged handler consumes. Even if the program cannot read the handler's memory directly, it may infer secrets from timing, cache changes, output state, fault behavior or resource contention.
+
+This is different from saying that interrupts are inherently unsafe. The security question is the complete path: who can cause the event, which controller accepts it, which privilege level handles it, what data enters the handler, what state the handler changes, and what the original program can observe afterward.
+
+#### What the automated testing framework is looking for
+
+The record describes an automated interrupt-feature and trigger-condition testing framework. At a conceptual level, such a framework can enumerate interrupt sources or controller features, vary software and hardware preconditions, observe whether an event is delivered, and compare the resulting state against an expected privilege boundary. It can search combinations that are difficult to test manually, such as device state, interrupt enable bits, priority, masking, pending state, privilege transitions, timing and concurrent activity.
+
+Discovery is not the same as exploitation. A framework may report a suspicious event because an interrupt was delivered under an unusual but intended configuration, because a test oracle is too broad, or because the observed effect is a denial of service rather than secret leakage. Each finding needs a minimal reproducer, a clear protected asset, a trigger available to the stated attacker, a measurable leakage or integrity effect, and a check that the result is not caused by a test harness artifact.
+
+#### How an interrupt can leak information
+
+The handler may process secret-dependent state or touch memory whose location depends on a secret. Interrupt timing can change the number of cycles available to the interrupted program. Handler instructions can modify caches, translation state, branch predictors, buffers, registers or device queues. An attacker may then measure execution time, memory access latency, output behavior, contention, or the presence or absence of another event.
+
+The leak may also be indirect. A handler that copies data, validates a request, clears a fault or updates a status register can create a binary response. Repeated triggering can turn that response into an oracle. If an interrupt arrives during a sensitive sequence, preemption may expose partial state or create a race. If a low-privilege source can raise a high-priority interrupt repeatedly, the immediate impact may be availability loss, while the same scheduling disturbance can also amplify a side channel through microarchitectural state.
+
+The threat model must state whether the attacker can execute code locally, access a device or peripheral, control input timing, observe interrupts, share a core, read performance counters, cause faults, or configure interrupt-controller registers. It must also state which parts of the handler and device driver are trusted. “Unprivileged software” is not enough if the attacker must first control a device, obtain a physical signal, or rely on a particular kernel configuration.
+
+#### What the reported six findings and four demonstrations establish
+
+The captured card reports six vulnerable interrupts and four attack demonstrations. This establishes that the framework found concrete cases worth investigating and that four cases were demonstrated under their test conditions. It does not establish that six is the total number of vulnerable interrupts in the ecosystem, that four attacks work on other processors or operating systems, or that the findings are practically exploitable at useful rates.
+
+For each case, report the processor, interrupt controller, device, firmware or kernel version, privilege level, trigger sequence, required setup, repeatability, leakage quantity and attack time. A demonstration should show the protected value before and after the attack, the attacker's observations, the success criterion, false positives and the number of attempts. If the result is secret leakage, report bits or classification accuracy and compare against an uninformed guess. If it is control-flow or integrity impact, report the state change and whether it persists after the handler returns.
+
+The framework should be evaluated for false positives and false negatives. Use known-safe configurations to measure how often ordinary interrupt behavior is flagged. Use a ground-truth suite of vulnerable and protected cases to determine what the automation misses. A larger discovery count can reflect broader search, weaker filtering or duplicate reports rather than a higher prevalence of real vulnerabilities.
+
+#### Mitigation is part of the security result
+
+Possible mitigations include restricting which privilege levels can trigger or configure an interrupt, masking or rate-limiting sources, clearing pending state safely, isolating device handlers, removing secret-dependent work from interrupt context, adding synchronization, and changing scheduling or controller policy. Each mitigation can affect latency, device functionality, real-time guarantees and availability. The evaluation should show that the mitigation blocks the trigger or removes the leak without creating a new interrupt storm, race or denial-of-service path.
+
+The captured official description supports automated interrupt-feature and trigger-condition testing, reports six vulnerable interrupts and four attack demonstrations, and describes interrupt-based secret-leakage primitives. It does not specify processor or OS configurations, exploit prerequisites, leakage rates, mitigations, false-positive analysis or end-to-end attack cost. The evidence supports attack-feasibility demonstrations under the tested conditions, not general platform prevalence and not a general practical exploit claim. [Recorded evidence](../observed-subthemes/side-channel-and-hardware-security.md#paper-dac-2026-research1497)
+
+<span id="explanation-dac-2026-research1494"></span>
+
+### Cloud-TEE availability: proving that an enclave exists is not the same as proving that it will receive CPU time
+
+#### What a TEE normally promises
+
+A trusted execution environment, or TEE, runs selected code and data inside a protected boundary. The hardware and trusted software aim to prevent an untrusted operating system, hypervisor or neighboring workload from reading or modifying the enclave's state. Remote attestation lets a remote party check a measurement of the code and configuration before trusting an enclave.
+
+Those protections are usually discussed as confidentiality and integrity. Availability is a different property. An enclave may have correct isolated state and still be paused, starved of CPU cycles, repeatedly preempted, or prevented from starting. If a remote service relies on the enclave to meet a deadline, denial of CPU time can violate the service even when no secret is disclosed and no instruction result is corrupted.
+
+#### Why an untrusted scheduler creates the gap
+
+The scheduler decides which runnable context gets a processor and for how long. In a cloud setting, that decision may be made by software outside the enclave's trusted computing base. A malicious or overloaded scheduler can give the enclave too few slices, delay its interrupts, evict its state, or schedule competing work on the same resource. The enclave can observe that it is slow, but it may not be able to prove whether the loss is ordinary contention or an intentional denial-of-service attack.
+
+Remote attestation normally says what code is running and perhaps what hardware configuration it runs under. It does not automatically prove how many cycles the enclave will receive after attestation. A resource commitment must therefore bind an availability promise to an observable quantity: CPU share, maximum scheduling delay, minimum progress over an interval, reserved cores, or another precisely defined contract. The promise must include the time interval and the behavior when the provider fails to meet it.
+
+#### What availability-verifiable attestation adds
+
+The record describes availability-verifiable remote attestation with resource commitments, trusted runtime monitoring and preemptive scheduling. Conceptually, attestation can report both the enclave identity and the configuration that is supposed to enforce a resource allocation. A trusted monitor can measure runtime progress, detect starvation or contention, and provide evidence to a remote verifier. A preemptive scheduler can enforce a policy by interrupting competing work or allocating bounded execution windows.
+
+These pieces solve different problems. Attestation communicates a statement about code and configuration. Monitoring observes whether the statement continues to hold. Scheduling changes the execution decision that causes the availability result. A signed report from the monitor does not create CPU capacity if the hardware, memory system or external host cannot provide it. The evaluation must show what is measured, who trusts the monitor, how monitor state is protected, and how a remote verifier distinguishes an attack from legitimate load.
+
+#### What a CPU denial-of-service claim must define
+
+The attacker model should state whether the adversary controls a co-tenant, the host scheduler, a hypervisor component, a device, an enclave workload or only ordinary guest software. It should state whether the attacker may create many competing tasks, generate interrupts, consume memory bandwidth, force cache contention, trigger page faults, cause migrations or prevent enclave startup. A CPU-only attack can have a different boundary from a memory-bandwidth or I/O attack.
+
+The service objective must also be explicit. Possible objectives include a minimum CPU fraction, a maximum response time, a bounded pause, a deadline for a trusted computation, or fair share among enclaves. “Availability” without a target does not define success. Report progress over time, worst-case and percentile delay, starvation duration, recovery after contention, fairness among multiple enclaves, and behavior during scheduler or monitor failure.
+
+The comparison should include a native TEE under contention and a named baseline such as Keystone under the same enclave workload, attacker workload, hardware boundary and progress metric. The captured card reports 94.8% performance loss and up to 19.7x slowdown for a native TEE under contention, less than 2% enclave startup and normal-runtime overhead, and 1.70% average overhead versus Keystone. These numbers are only comparable after defining which phases are included, how contention is generated, whether the attacker pays a cost, and whether the protected scheduler uses extra cores or memory.
+
+#### Fairness and security can conflict
+
+A scheduler that guarantees one enclave's minimum share may reduce another tenant's share. Preemptive enforcement can improve availability while increasing context-switch cost, interrupt exposure, cache disruption or energy use. A commitment to one enclave may also create a denial-of-service path against the host if commitments are over-reserved. The system needs a policy for admission control, overcommitment, priority, fairness, cancellation and evidence when a commitment cannot be honored.
+
+The trusted computing base matters as well. If the scheduler, monitor, attestation key, timer, interrupt controller, memory-protection unit and communication path are trusted, each belongs in the TCB and must be protected and measured. If some component remains untrusted, the protocol must prevent it from fabricating progress or suppressing a violation. A remote verifier should be able to detect stale, replayed or incomplete availability evidence.
+
+#### Why FPGA results have a limited transfer boundary
+
+An FPGA prototype can demonstrate the control logic, monitor protocol and scheduling policy under its configured workload. It may not reproduce the contention, cache hierarchy, preemption, interrupt behavior, memory bandwidth, virtualization layer, firmware and failure modes of a deployed cloud CPU. A result on one FPGA fabric therefore supports a prototype claim unless the paper also maps the design to a target processor or cloud environment and measures the relevant resource path.
+
+The captured official description supports availability-verifiable attestation with resource commitments, trusted monitoring and preemptive scheduling. It reports the stated contention and overhead numbers on an FPGA compared with native TEEs and Keystone, but does not specify the threat model, enclave workloads, fairness guarantees, hardware cost, TCB, processor, memory boundary or attestation-protocol changes. The evidence supports a verifiable-availability direction, not a demonstrated guarantee for deployed CPU TEEs or general cloud scheduling environments. [Recorded evidence](../observed-subthemes/side-channel-and-hardware-security.md#paper-dac-2026-research1494)
+
+<span id="explanation-dac-2026-research1495"></span>
+
+### PMU-Faker: a performance counter can become a timer when its event count changes predictably with secret-dependent work
+
+#### What a performance-monitoring unit normally does
+
+A performance-monitoring unit, or PMU, counts hardware events such as retired instructions, cache misses, branch activity, cycles, stalls or other microarchitectural conditions. Developers and system operators use these counts to find bottlenecks. The processor usually provides a configuration interface to choose an event, start and stop counting, and read a counter.
+
+The security question is not whether a counter is called a performance metric. It is whether an attacker can observe a value that changes with a victim's secret-dependent behavior. If an event count distinguishes two executions, it can serve as a clock or classifier even when the normal high-resolution timer is removed. The event does not need to count time directly. It only needs a sufficiently stable relationship between the victim's work and an observable counter delta.
+
+#### How a timer-free timing signal arises
+
+Suppose a victim performs one of two operations depending on a secret. One path executes a different number of instructions, causes different cache activity, or interacts differently with speculative execution. A permitted PMU event may count that difference. An attacker can start a counter, let the victim run, stop the counter, and use the count to distinguish the paths. Repeating the experiment can reduce noise and recover a secret bit, classify an input, or build a higher-level attack.
+
+Removing an explicit time source therefore changes the attack surface without necessarily removing measurement. A PMU event can have lower resolution, more noise or a more complicated calibration requirement than a cycle counter. The attacker may still combine it with repetition, event selection, instruction-triggered variation or a known workload to construct a usable signal.
+
+#### What automated PMU fuzzing is trying to discover
+
+PMU-event fuzzing varies event selections, privilege settings, instruction sequences, victim operations and execution contexts, then looks for counts that respond to a controlled difference. A valid discovery should show that the event is accessible to the stated attacker, that the count changes for a known cause, that the change is repeatable, and that the signal is not an artifact of multiplexing, counter overflow, scheduler migration or a misinterpreted event definition.
+
+The captured record describes 118 discovered PMU events and a PMU-Faker timing mechanism intended to balance precision and adaptability across instruction-triggered cycle variation. The number 118 is a discovery count under the tested search space. It is not automatically the number of vulnerable events on every processor, because event encodings, counter width, privilege controls and implementation behavior differ by microarchitecture and operating system.
+
+#### Why instruction-triggered variation matters
+
+Some attacks need a timer that can resolve small differences between instruction sequences. If a PMU event responds to instruction-triggered cycle variation, an attacker may construct a timing signal from the count of a carefully selected workload. Adaptability may mean changing event choice or calibration when the processor or victim behavior changes. Precision may mean separating nearby execution costs.
+
+This mechanism creates a calibration problem. An event that is useful on one CPU generation may count a different condition on another. Operating-system virtualization may scale, multiplex or hide counters. Hypervisors may expose virtual counts that have different noise and reset behavior. The evaluation must identify the exact event encoding, counter configuration, access privilege, counter width, sampling or read interval, core affinity, virtualization and overflow behavior.
+
+#### What the four attack demonstrations establish
+
+The card reports four demonstrated attacks and mentions transient execution, AES, SGX and virtualized environments in its assumptions. A demonstration establishes feasibility for a particular victim, event, platform and attacker path. It does not establish that all four attacks work with ordinary unprivileged access, that AES or SGX is vulnerable on every implementation, or that a cloud tenant can obtain the same counter signal.
+
+For each attack, state the protected asset, victim code, event, attacker privilege, co-location requirement, number of traces, calibration procedure, key or data recovery metric, false-positive rate, attack time and comparison with a conventional timer. If the PMU event is normally restricted to privileged software, the attack must explain how the attacker obtains access or why the threat model includes a privileged observer. If the result is a timer replacement rather than direct key recovery, report the downstream attack separately.
+
+#### Security controls and their tradeoffs
+
+Possible defenses include restricting PMU access, filtering events, reducing precision, virtualizing or randomizing counts, disabling events in enclaves, flushing or partitioning counters, and changing the victim's execution pattern. Each can reduce observability while harming profiling, debugging, capacity planning, or legitimate enclave monitoring. A defense that blocks one event may leave another correlated event available.
+
+The evaluation should test event families and combinations after mitigation, not only the event used by the original attack. It should measure whether the attacker can select an alternative event, average multiple noisy counters, or use instruction-triggered calibration. For SGX or another enclave, the test must state which counter data crosses the enclave boundary and whether the defense protects the enclave while preserving required platform management.
+
+The captured official description supports automated PMU-event fuzzing, reports 118 vulnerable events and four attack demonstrations, and describes timing mechanisms intended to work across instruction-triggered variation. It does not specify platform coverage, exploit prerequisites, timing resolution, leakage rates, false positives or mitigation cost. The evidence supports timer-replacement attack feasibility under tested conditions, not prevalence across processors or cloud deployments. [Recorded evidence](../observed-subthemes/side-channel-and-hardware-security.md#paper-dac-2026-research1495)
+
+<span id="explanation-dac-2026-research1920"></span>
+
+### In-vehicle attack-chain traceback: linking alerts across network domains is not the same as proving the attacker’s path
+
+#### What traceback is trying to reconstruct
+
+An in-vehicle attack can cross several communication domains. Host software may send or receive data through an Ethernet gateway, which may then exchange messages with a controller area network, or CAN, bus. Each domain has different identifiers, timing, protocol rules and trust assumptions. An intrusion-detection system, or IDS, may raise alerts in more than one domain, but the alerts are usually partial observations rather than a complete attack narrative.
+
+Traceback tries to infer which alert or event caused another event and to order the stages into an attack chain. The output may identify an entry point, a gateway transition, a target ECU, or a set of plausible paths. This is a reconstruction problem under incomplete and noisy evidence. It is not automatically proof of attacker identity, exact packet causation or successful compromise.
+
+#### What the temporal graph represents
+
+A graph has nodes and edges. A node can represent an IDS alert, a message, a host process, a gateway action or an ECU state. An edge can represent temporal order, protocol reachability, cross-domain forwarding, or a causal relation proposed by the method. A temporal graph adds time constraints: an event cannot cause an earlier event, and a path must respect the delays and ordering possible in the vehicle network.
+
+The graph is useful only when its node and edge meanings are defined. If an edge means “could have preceded,” it is weaker than “caused.” If multiple alerts can map to one packet or one packet can create several alerts, the graph can contain duplicate or missing paths. The method must state how clock differences, buffering, retransmission, aggregation, dropped alerts and simultaneous events are handled. A plausible path can still be wrong when the IDS missed the real intermediate event.
+
+#### What the four plausibility checks contribute
+
+The record describes four plausibility checks but does not expose their exact rules. Such checks might constrain timing, protocol direction, gateway reachability, message format, ECU capability or consistency across domains. They can remove graph paths that are impossible under known vehicle behavior. They do not prove that the remaining path is the path used by an attacker unless the checks cover the relevant causal assumptions and the alert inputs are reliable.
+
+This distinction matters because traceback quality depends on both the graph algorithm and the upstream alerts. If the IDS produces a false alert, the graph may construct a convincing chain from nonexistent evidence. If the IDS misses a stage, the method may bridge two events that were not directly connected. Report alert precision and alert recall separately from traceback precision and traceback recall. Otherwise a high chain score can hide a system that performs well only when supplied with unusually clean alerts.
+
+#### Why certification compatibility is a specific claim
+
+Packet marking can alter messages or add metadata to traffic. That may help attribution, but it can affect protocol behavior, bandwidth, timing, gateway implementation, safety cases or certification artifacts. The record frames the method as compatible with UN R155 and ISO/SAE 21434 boundaries by using existing cross-domain IDS alerts rather than modifying production packets.
+
+Compatibility is not the same as certification approval. A certification-related claim must identify which requirement or boundary is preserved, what evidence is produced, which software and hardware are in scope, and whether the vehicle manufacturer or assessor accepted the argument. A method can avoid packet marking while still adding code, memory, logging, timing or diagnostic behavior that requires review.
+
+#### Reading the reported metrics correctly
+
+The card reports 0.90 edge-level F1, 0.086 false-discovery rate, 64% higher F1 than baselines, 72% false-discovery-rate reduction, 1.2% CPU and 26 MB memory on a production vehicle. Edge-level F1 combines precision and recall for predicted graph edges. It does not by itself measure correct attack attribution, complete chain recovery, time to detect, response quality or safety impact. The false-discovery denominator must be defined: edges, complete chains, alerts, or attack cases.
+
+Relative improvements depend on the baseline and the same test set. A 64% higher F1 can result from a weak baseline, and a 72% reduction in false-discovery rate can trade away recall. Report precision, recall, F1, complete-chain accuracy, path length error, latency, alert quality, false positives, false negatives and performance by attack type and network domain. Include cases with missing alerts, benign cross-domain traffic, repeated messages and concurrent attacks.
+
+#### What one production vehicle can and cannot establish
+
+Evaluation on a production Leapmotor C10 is valuable because it exposes real gateway and resource constraints. It does not establish robustness across vehicle architectures, ECU vendors, gateway topologies, IDS configurations, model years, bus loads or OEM logging policies. A released dataset may also contain attack patterns or vehicle-specific identifiers that make random splits optimistic. Hold out complete attack scenarios, routes, vehicle sessions and, when generalization is claimed, vehicle or architecture families; this is cross-vehicle validation, not merely a random row split.
+
+The captured official description supports certification-compatible gateway traceback using temporal graphs over existing cross-domain IDS alerts and four plausibility checks. It reports 0.90 edge-level F1, 0.086 false-discovery rate, relative baseline improvements, 1.2% CPU and 26 MB memory on one production vehicle, but does not report recall breakdown, attack coverage, alert quality, latency, vehicle generality or certification evidence. The evidence supports a graph-based traceback direction under the tested vehicle and dataset conditions, not proven causal attribution or robustness across OEM architectures and IDS deployments. [Recorded evidence](../observed-subthemes/side-channel-and-hardware-security.md#paper-dac-2026-research1920)
+
+<span id="explanation-dac-2026-research1732"></span>
+
+### Masked ML-DSA modular reduction: reducing the cost of side-channel protection without changing the protected interface
+
+#### Why modular reduction is on the critical path
+
+ML-DSA performs arithmetic on polynomial coefficients modulo a fixed modulus. Additions and multiplications can produce values outside the desired range, so the implementation must reduce them back into a valid representative range. Modular reduction is repeated inside transforms, polynomial multiplication, sampling and signing. Its latency, area, memory traffic and switching behavior can affect the whole accelerator.
+
+A reduction unit is not only an arithmetic block. In a masked implementation, its inputs are represented by multiple shares. Each share hides part of the sensitive value, and the shares are combined only in a way intended to preserve security. A reduction circuit that is fast for ordinary values may be unsafe when it combines shares through secret-dependent carries, table addresses, comparisons or glitches.
+
+#### What first-order masking means
+
+In a simple two-share first-order representation, a sensitive value `x` is split into shares `x0` and `x1` such that their combination reconstructs `x`, while either share alone should not reveal it under the masking assumptions. Operations must transform the shares without exposing a statistical relation between one observed leakage sample and the secret.
+
+This protection is about an attack model. First-order security generally addresses an attacker who observes one leakage point or one leakage sample at a time and uses a first-order statistical test. It does not automatically protect against higher-order combinations of multiple shares or multiple time samples. Hardware glitches, unequal delays, register reuse, randomness failure, routing coupling and unmasked intermediate values can also violate the assumptions.
+
+#### What a drop-in modular-reduction design is trying to preserve
+
+The record describes a drop-in masked modular-reduction architecture optimized for Caliptra ML-DSA signing. “Drop-in” implies that the unit can replace an existing reduction block with limited changes to the surrounding design. The useful engineering question is whether the replacement keeps the same functional interface, masking format, clocking and protocol while reducing cost.
+
+An interface-compatible replacement is not automatically security-compatible. The surrounding pipeline may expect a particular share ordering, fresh randomness, latency, reset state or valid/ready behavior. A change in timing can expose a share longer than before. A reduction unit that is secure in isolation may leak when its outputs feed an unmasked transform or when the controller reuses a register across shares. The paper-level evaluation must therefore include the complete signing path and state which components are inside the leakage boundary.
+
+#### What the arithmetic implementation must control
+
+Reduction can use conditional subtraction, quotient estimation, Barrett-like methods, Montgomery-style methods, lookup structures or combinations of these. Each choice has different area, delay, multiplication and comparison behavior. In a masked circuit, a conditional operation cannot simply reveal a secret-dependent decision through a control signal or a different sequence of gates.
+
+The evaluation should describe how carries, comparisons, conditional subtraction, shares, randomness and intermediate products are represented. It should state whether the design is purely combinational, registered, pipelined or time-multiplexed, and whether the same hardware processes both shares. It should report clock frequency, latency per reduction, initiation interval, coefficient width, modulus, throughput, random bits consumed and behavior on boundary values.
+
+#### Reading the reported resource and speed numbers
+
+The captured record reports 12.1x speedup, 86.7% LUT reduction, 94.5% FF reduction, 91x area-delay-efficiency improvement and 1.32x signing-throughput improvement. These numbers likely refer to different levels of the design and must be tied to a common baseline. A 12.1x reduction-unit speedup does not imply a 12.1x signing speedup because signing includes sampling, transforms, memory movement, rejection, control and other operations. The reported 1.32x signing-throughput number is the end-to-end result in the captured record; the other values should not be read as end-to-end gains without a stated boundary.
+
+LUT and FF counts are implementation-specific. State the FPGA family, synthesis settings, clock constraint, placement and routing status, and whether lookup memory, random-number generation, control, interconnect and surrounding ML-DSA logic are included. If an ASIC estimate is also used, separate it from FPGA resources and state process, voltage, frequency and area assumptions. Area-delay efficiency is a composite metric: a large multiplier can come from a favorable baseline, a changed area boundary or a different delay definition.
+
+#### What a TVLA result does and does not show
+
+Test Vector Leakage Assessment, or TVLA, applies statistical tests to traces collected under controlled inputs. “No first-order leakage in TVLA over more than 1,000,000 traces” means that the reported test did not cross its chosen leakage threshold under its trace setup, test vectors, clock, device and analysis order. It is useful evidence, but it is not a proof that no attacker can recover the key.
+
+The result needs the target platform, probe, acquisition bandwidth, sampling rate, alignment, trace classes, threshold, confidence rule, number of devices, random seeds, masking order and analyzed time windows. It should include fixed-vs-random and other relevant tests, verify that the test has enough sensitivity, and test higher-order combinations when the threat model requires them. A failed TVLA can reflect insufficient traces or a poor test, while a passed first-order test can coexist with higher-order, multivariate, template, machine-learning, fault or electromagnetic attacks.
+
+#### What complete validation needs
+
+Validate ML-DSA key generation, signing and verification against an independent reference and official test vectors. Test invalid signatures, malformed inputs, reset and interrupted operations, randomness failure and share recombination. Measure leakage on the full Caliptra signing path, not only the reduction unit, and compare the drop-in design with the original masked implementation under the same clock, device, traces and analysis.
+
+The captured official description supports a masked modular-reduction architecture for Caliptra ML-DSA signing and reports the stated speed, FPGA resource, area-delay, throughput and first-order TVLA results. It omits absolute area, delay, power, TVLA setup, leakage threshold, higher-order leakage, process and surrounding-pipeline accounting. The evidence supports a cost-reduction direction for masked root-of-trust arithmetic, not a universal security proof and not a demonstrated end-to-end improvement under all implementations and attack orders. [Recorded evidence](../observed-subthemes/side-channel-and-hardware-security.md#paper-dac-2026-research1732)
+
+<span id="explanation-dac-2026-research3042"></span>
+
+### BREW-RC: write latency can reveal hidden error-correction structure in ReRAM
+
+#### What the hidden ECC is doing
+
+Resistive RAM, or ReRAM, stores information in the electrical resistance of memory cells. A memory controller may add an error-correcting code, or ECC, before writing data. The ECC computes additional parity information from the data. During a read, the controller uses the stored data and parity to detect or correct errors.
+
+The parity bits are usually an implementation detail. A user may send data and receive data without seeing the codeword or the parity-check matrix. The matrix defines which data and parity bits participate in each check. If it is recovered, an observer can understand the device's correction structure, model its reliability behavior more accurately, or use that knowledge in a later attack. Recovery of the matrix is not the same as recovering all stored user data, but it removes a layer of hidden implementation information.
+
+#### How write timing becomes an observation
+
+A write operation may take different time depending on the codeword, the cells being programmed, verify-and-retry behavior, controller scheduling, or an ECC-related path. If a chosen data pattern produces a codeword with a particular parity structure and the elapsed write time changes predictably, the timing becomes a side channel.
+
+The attacker does not need to read the parity bits directly. They submit or induce write patterns, measure completion time, and infer constraints on which hidden parity relationships could have produced the observed differences. Timing is useful only if the signal is repeatable compared with device variation, controller queueing, temperature, wear, interface jitter and measurement noise.
+
+“Non-invasive” describes the measurement method, not the attacker’s required deployment access. The evaluation must state whether the attacker needs physical access to the memory pins, a local controller API, a storage device interface, a privileged driver, a co-tenant channel or only ordinary application writes. A laboratory measurement at the device interface may not be available to a remote storage user.
+
+#### What bit-exact ECC recovery means
+
+The target is a parity matrix, not just the ECC family name. A bit-exact recovery reproduces the specific relationships used by the product, including bit ordering, grouping, parity placement and possibly controller transformations. This can be more useful than identifying a broad code family because timing models and reliability predictions depend on the exact mapping.
+
+SAT-based recovery expresses the unknown matrix entries as Boolean variables and adds constraints derived from measured timing observations and known write patterns. A satisfiable assignment is a candidate matrix. The solver can find one matrix consistent with the observations, but the result is only unique if the data constrains the unknowns sufficiently. The study should report whether the recovered matrix is uniquely identified, how many candidate matrices remain, how many observations are required, and whether an independent write/read test validates every recovered relation.
+
+Timing constraints can be wrong if the observed delay has several causes. ECC parity effects may be mixed with cell programming time, wear-leveling, queue depth, error retries, temperature, voltage, background maintenance or controller scheduling. The recovery pipeline must isolate or model those factors and report confidence in each constraint. Otherwise the SAT solver may fit a stable but unrelated timing pattern.
+
+#### What “complete recovery on two products” establishes
+
+The captured record reports complete ECC recovery on two commercial ReRAM products and multiple device samples. This is strong evidence that the method worked under those products' conditions. It does not establish that the same timing signal exists in every ReRAM controller, that products from other vendors use recoverable matrices, or that the attack works after firmware changes, timing quantization, randomized scheduling or added noise.
+
+Product diversity matters because ECC may be implemented in the memory array, controller, firmware or a separate reliability layer. The code can differ by capacity, operating mode, vendor, wear state and controller revision. Test held-out devices, independent samples, product generations, capacity modes, temperatures, voltages and wear levels. Separate training or inference data by device so that repeated measurements of one sample do not make generalization look stronger.
+
+#### What the measurement must report
+
+Report timing resolution, timer location, number of writes, data-pattern design, sample count, measurement noise, queue state, environmental conditions, recovery time, solver time and success criterion. Include the amount of physical or software access, whether writes are destructive, and whether an attacker can repeat operations without triggering wear limits or service alarms.
+
+Compare against an opaque-ECC baseline that does not use a recovered matrix and against timing models that omit parity effects. Measure the practical consequence: improved error-rate prediction, better reliability characterization, a lower-cost fault attack, or another defined outcome. Matrix recovery alone is a capability result; it does not show that the recovered information changes an attack or reliability decision.
+
+#### Countermeasures and deployment boundary
+
+Possible defenses include constant-latency writes, batching, timing quantization, randomized scheduling, queue hiding, controller noise, rate limits, access control and changing the ECC mapping. These defenses can reduce reliability observability or increase write latency and energy. They should be tested against an adaptive recovery algorithm, not only the original fixed timing model.
+
+The captured official description supports non-invasive write-timing analysis with SAT-based bit-exact ECC recovery and reports complete recovery on two commercial ReRAM products. It does not specify sample complexity, measurement noise, recovery time, countermeasures, product diversity, controller behavior or attacker access. The evidence supports recovery feasibility under the tested products and conditions; it does not establish a general ReRAM vulnerability or a demonstrated deployed-system attack consequence. [Recorded evidence](../observed-subthemes/side-channel-and-hardware-security.md#paper-dac-2026-research3042)
+
+<span id="explanation-dac-2026-research1464"></span>
+
+### Thrend: detecting a counting-thread timing attack is not the same as preventing every fine-grained side channel
+
+#### What a counting thread is measuring
+
+A counting thread is an attacker-controlled or attacker-influenced thread that runs at the same time as a victim and observes a shared processor resource. The thread may use performance counters or another permitted measurement to count cycles, instructions, cache activity, branches, stalls or resource contention. Changes in the count can reveal when the victim performs a secret-dependent operation.
+
+The attack depends on co-location and timing resolution. If both threads share a core or a relevant microarchitectural resource, the attacker's measurement can respond to the victim's work. A counting thread can turn a resource intended for profiling into a side channel. The exact signal depends on the Arm or Apple processor, counter configuration, scheduler, core topology, operating system permission and whether the victim is migrated or interrupted.
+
+#### What the proposed defense is doing
+
+The record describes a fuzz-generated training corpus, performance-counter monitoring and a same-core co-scheduling defense. A training corpus can expose the detector to benign and attack-like counter patterns. The fuzzing process can vary instruction sequences, timing, resource use and attack parameters so the detector does not depend on one hand-written trace. Monitoring then samples selected counters and classifies or responds to the observed behavior.
+
+Same-core co-scheduling is a scheduling policy that places the detector and the workload in a controlled relationship on the same physical core or execution context. This may let the detector observe the relevant signal or let the system identify a suspicious counting thread before it succeeds. It may also reduce the attacker's ability to choose a favorable placement. The exact action—terminate, deschedule, isolate, throttle or alert—is not exposed in the captured description, so detection should not be confused with prevention.
+
+#### Why counter access and core placement matter
+
+The defense assumes that useful performance counters are available and that the system can control or observe scheduling. On some systems, counters are restricted to privileged software, virtualized, multiplexed, sampled at a lower resolution or unavailable to an enclave or container. A defense built around a counter that an attacker cannot read may be unnecessary for that deployment; a defense that requires a counter unavailable to the monitor may not work there.
+
+Core topology also changes the signal. Two logical CPUs may share execution units, caches, a private core, a cluster, or only a higher-level cache. Migration can move the victim away from the monitored resource. SMT settings, power states, interrupts, background activity and frequency scaling can change the count. The evaluation must name device model, OS, counter permissions, sampling rate, core affinity, SMT, migration policy and whether the attacker can adapt placement.
+
+#### How to read 99.71% accuracy and 0% false negatives
+
+Detection accuracy depends on class balance and the definition of a positive sample. A dataset with many easy benign traces can produce high accuracy while missing rare attacks. A 0% false-negative rate means no attack samples in the tested set were missed; it does not establish zero misses in deployment. Report the number of attack and benign samples, the split unit, confidence intervals, per-device results, false-positive rate, precision, recall, detection delay and the cost of an incorrect action.
+
+The split must prevent related traces from the same fuzzed program, device run or attack seed from appearing in both training and test sets. Otherwise the detector may memorize trace signatures rather than recognize the mechanism. Hold out complete attack families, instruction sequences, devices, operating systems and counter configurations when transfer is claimed. Test an adaptive attacker who changes instruction mix, sampling interval, co-scheduling pattern, core placement or workload noise after observing the detector.
+
+#### What runtime overhead means at 100 Hz
+
+The card reports less than 1.42% runtime overhead at 100 Hz. This should state what happens every 10 milliseconds: counter reads, feature extraction, classification, scheduler action, logging and any cache or core disruption. Overhead can affect the victim's latency, energy, throughput, fairness and real-time guarantees. A low average cost can hide spikes during a detection action or high costs on counter-limited devices.
+
+The defense may also reduce utilization by reserving same-core capacity or preventing useful co-scheduling. If it reacts by moving or stopping a thread, the attacker may convert the defense into a denial-of-service channel. Report benign workload impact, false alarms, energy, scheduler latency, migration count, core utilization and behavior during repeated alarms. Compare against undetected counting-thread attacks and prior defenses under the same attack and workload suite.
+
+#### What remains unestablished
+
+The captured official description supports a fuzz-trained, performance-counter-based defense with same-core co-scheduling. It reports 99.71% detection accuracy, 0% false-negative rate, less than 1.42% runtime overhead at 100 Hz and evaluation on four Arm/Apple devices, but does not report false-positive rate, workload impact, attack coverage, sampling energy, device-specific variance, counter availability or adaptive-attacker results. The evidence supports a detector direction under the tested devices and workloads; it does not establish universal timing-attack prevention or safe deployment when counters are unavailable. [Recorded evidence](../observed-subthemes/side-channel-and-hardware-security.md#paper-dac-2026-research1464)
+
+<span id="explanation-dac-2026-research2254"></span>
+
+### Voltage-waveform instruction recovery: a learned decoder can expose execution patterns only within a defined physical observation boundary
+
+#### What the signal represents
+
+A processor's electrical activity changes as instructions are fetched, decoded, issued, executed, stalled and retired. A voltage waveform measured on a board or power-delivery path is an aggregate effect of that activity. It is not a direct instruction log. The waveform also contains effects from voltage regulation, clocking, memory traffic, other cores, interrupts, thermal state, measurement equipment and unrelated software.
+
+Instruction-level side-channel disassembly tries to infer a sequence of executed instructions from this aggregate signal. The target may be exact instruction identities, instruction classes, basic blocks or a useful partial sequence. These targets have different difficulty and security meaning. Recovering a rough class sequence is not the same as recovering a cryptographic key or full program state, but it may reveal control flow, secret-dependent operations or code structure that supports a later attack.
+
+#### Why modern CPUs make the inverse problem difficult
+
+The out-of-order execution model allows instructions to execute when their inputs and functional units are ready rather than strictly in source order. The speculation mechanism executes paths before branches resolve. Multiple instructions can overlap, share execution units and retire in a different timing pattern from the source sequence. Deep pipelines, caches, branch predictors, simultaneous threads and frequency changes further mix the electrical effects.
+
+The observation is therefore many-to-one: different instruction sequences can produce similar waveforms, and the same sequence can produce different waveforms under different inputs and processor states. Out-of-order execution makes this ambiguity stronger because the electrical trace reflects overlapping work rather than a simple source-order list. A model can learn regularities in a controlled corpus without proving that the mapping is unique on unseen programs, CPUs or workloads.
+
+#### What the CNN-Conformer and Transformer roles imply
+
+The captured mechanism is an end-to-end sequence-to-sequence model with a CNN-Conformer encoder and Transformer decoder. A convolution can detect local waveform patterns. A Conformer can combine local patterns with longer context. The decoder predicts a sequence conditioned on the encoded trace, potentially using previous predicted instructions to resolve ambiguity.
+
+An end-to-end decoder may produce a plausible sequence even when parts of the trace are ambiguous. Sequence plausibility is not the same as measurement certainty. The evaluation should report token-level accuracy, exact-sequence accuracy, edit distance, top-k candidates, confidence calibration and performance on instructions not seen during training. It should show whether an apparently good sequence comes from waveform evidence or from language-like memorization of common instruction patterns.
+
+#### What the reported dataset numbers mean
+
+The record names 645 instructions and more than 50,000 voltage waveform samples on a 3.1-GHz x86 CPU under multithreading. “645 instructions” may mean classes, sequence symbols or tested instruction forms; “50,000 samples” may mean traces or individual voltage points. The unit, trace length, sampling rate, alignment, input data, thread placement and label construction must be stated before the scale can be interpreted.
+
+The reported 34.70% sequence prediction accuracy needs a denominator and exact definition. Is it the fraction of complete sequences recovered, the average token accuracy, or a sequence-level score after decoding? A 34.70% token score can have a different meaning from 34.70% exact sequences. Compare against static waveform segmentation and classifier-based instruction recovery under the same split, and include a no-information or majority-class reference.
+
+#### The physical access boundary controls the security claim
+
+The attacker may need a voltage probe, a sensor on the board, access to a shared power-delivery path, electromagnetic equipment, a co-located process or a privileged measurement interface. The distance and coupling determine signal quality. A laboratory probe placed near the processor is not equivalent to an observation available to a remote tenant or ordinary application.
+
+State sensor type, placement, bandwidth, sampling rate, trigger, amplification, trace duration, synchronization, physical distance, board, package, processor SKU and attacker privilege. Test whether the signal survives unrelated multithreading, core migration, frequency scaling, voltage regulation changes, thermal drift, different input data and realistic background workloads. If the attack requires the victim to execute a known instruction sequence or repeat it many times, include that requirement and attack cost.
+
+#### What generalization requires
+
+Randomly splitting traces from the same instruction run or processor can leak device-specific waveform patterns into the test set. Stronger splits hold out complete programs, instruction sequences, input values, cores, processor samples, boards, operating systems and background workloads. Cross-CPU transfer is especially important because microarchitecture, voltage regulation, frequency and package coupling shape the waveform.
+
+Report per-instruction and per-class results, confusion between similar instructions, sequence edit distance, errors under multithreading, trace count, inference time and failure cases. If a security claim concerns cryptographic code, test secret-dependent control flow and quantify how recovered instruction information changes key-recovery or classification success. Instruction recognition alone is an intermediate capability.
+
+#### The captured result and its boundary
+
+The captured official description supports an end-to-end learned voltage-waveform sequence decoder and reports 34.70% sequence prediction accuracy from a 645-instruction dataset with more than 50,000 voltage waveform samples on a 3.1-GHz x86 CPU under multithreading. It does not specify per-instruction accuracy, attacker access, noise robustness, cross-CPU transfer or leakage mitigation. The evidence supports a laboratory instruction-recovery direction under its measured electrical observation, not a remote or production attack claim and not a universal disassembly capability. [Recorded evidence](../observed-subthemes/side-channel-and-hardware-security.md#paper-dac-2026-research2254)
+
+<span id="explanation-dac-2026-research2771"></span>
+
+### PLONK-Hammer: zero-knowledge privacy assumes the prover’s computation and memory are not faulted
+
+#### What PLONK is proving
+
+PLONK is a zero-knowledge proof system used to prove that a computation satisfies a set of constraints. A prover takes a circuit, public inputs and private witness values, then produces a proof. A verifier checks the proof without learning the private witness, assuming the protocol and implementation behave as required.
+
+Input privacy is a protocol property under an implementation model. The proof is intended to convince the verifier about a statement without exposing the private input. Soundness is a different property: a faulty or malicious prover should not convince the verifier of a false statement. A fault-injection attack can affect either boundary. It may alter the witness, intermediate values, proof data, or memory used to compute the proof. A successful attack might leak information, create a false proof, or cause a denial of service; these outcomes must be separated.
+
+#### What Rowhammer changes
+
+Rowhammer is a DRAM fault mechanism in which repeated activity around memory rows can disturb stored bits under susceptible hardware and conditions. The attack does not directly read a protected value. It aims to induce memory errors in locations that influence a victim computation. Whether this is possible depends on DRAM technology, row layout, refresh policy, memory controller behavior, physical placement, access permissions and the victim's memory allocation.
+
+The relevant attack chain is therefore longer than “Rowhammer breaks zero knowledge”:
+
+1. the attacker obtains a way to create the required memory activity;
+2. the induced disturbance flips a bit or changes a value in the prover's memory;
+3. the changed value affects a proof-relevant computation;
+4. the resulting faulty proof or output remains observable;
+5. repeated observations let the attacker infer private information or construct a valid false result.
+
+Breaking one link does not establish the whole chain. A bit flip in an irrelevant buffer may only crash the prover. A faulty proof that the verifier rejects may reveal no private information. A repeated proof response can become an oracle only if the attacker can distinguish outcomes and relate them to the secret input.
+
+#### Why polynomial commitments matter to the analysis
+
+PLONK represents constraints and witness relationships through polynomial evaluations and commitments. A polynomial commitment binds the prover to a polynomial while allowing the verifier to check claims about evaluations without receiving the entire polynomial. If a fault changes a coefficient, evaluation, opening proof, challenge-dependent value or commitment-related state, the resulting algebraic inconsistency may be detectable—or may create a structured faulty proof that leaks information through acceptance behavior.
+
+The captured description names faulty-proof analysis and polynomial-commitment recovery, but does not specify which values are faulted, which commitments are exposed, how many faulty proofs are collected, or how the recovered information maps to the private input. A recovery claim needs an algebraic explanation and an independent validation: identify the unknowns, show the equations contributed by each observation, state whether the system has a unique solution, and test the recovered input against fresh proofs or known values.
+
+#### What the gnark result does and does not establish
+
+The card identifies gnark's PLONK implementation as the tested system and reports qualitative secret leakage. This establishes a demonstrated concern for that implementation under the tested fault model if the full experiment is reproduced. It does not establish that the PLONK protocol is mathematically broken, that every gnark configuration leaks, or that a verifier accepts a faulty proof.
+
+The experiment should report the proof parameters, circuit, private-input distribution, memory location, fault type, bit-flip rate, number of attempts, observation channel, recovery success and verifier behavior. It should distinguish a partial leak from exact input recovery and show how many faulty proofs and how much time are required. If an attacker needs co-location, a vulnerable DRAM module, access to a large memory region or a privileged memory interface, those are part of the practical boundary.
+
+#### Fault model and platform transfer
+
+DRAM faults vary by vendor, density, generation, temperature, refresh settings, memory controller, placement and neighboring-row pattern. A fault model demonstrated on one platform may not transfer to another. Memory allocation and page placement can also determine whether a disturbed row contains prover data, a commitment, a witness buffer or unrelated state.
+
+The evaluation should name hardware, firmware, operating system, refresh settings, memory layout, privileges, co-location and mitigation configuration. It should test error-correcting memory, refresh changes, row isolation, memory allocation policies and other defenses where relevant. It should measure false positives, crashes, rejected proofs and availability effects, not count every induced bit flip as secret recovery.
+
+#### Privacy and soundness need separate checks
+
+For privacy, demonstrate what private information is recovered, from which observations, at what success rate and against what baseline. For soundness, attempt to produce a proof of a false statement and report verifier acceptance, not merely a corrupted internal state. For availability, measure crashes, retries, latency and resource exhaustion. A defense may stop one outcome while leaving another.
+
+The captured official description supports Rowhammer fault injection combined with faulty-proof analysis and polynomial-commitment recovery against the gnark PLONK proving system, with qualitative secret leakage claimed. It does not specify attack distance, success rate, mitigations, proof parameters, memory placement or required privileges. The evidence supports a fault-injection concern for a tested implementation and platform; it does not establish a protocol-wide break, universal gnark result or demonstrated practical recovery across DRAM systems. [Recorded evidence](../observed-subthemes/side-channel-and-hardware-security.md#paper-dac-2026-research2771)
+
+<span id="explanation-dac-2026-research2536"></span>
+
+### Netdetox: evading a hardware-security graph detector is not the same as removing the underlying circuit vulnerability
+
+#### What a hardware-security GNN is classifying
+
+A graph neural network, or GNN, applies learned functions to nodes and edges and combines information across a graph. In hardware security, the graph may represent a circuit, a netlist, a memory structure, a data-flow relation, a control-flow relation or an analysis result. Nodes can encode gates, registers, signals, instructions, components or alerts. Edges can encode connectivity, dependence, control, timing or physical proximity.
+
+The detector maps that representation to a security decision: vulnerable or safe, a vulnerability class, a risk score, or a candidate location for further analysis. The decision is only meaningful relative to the graph construction and label definition. A graph mutation that changes the representation may evade a classifier while leaving the physical circuit, software behavior or security flaw unchanged.
+
+#### What an evasion attack must preserve
+
+An adversarial evasion attack changes an input so the detector makes the wrong decision. In this setting, the attacker may try to alter node features, edge structure, naming, ordering, irrelevant components or semantically meaningful circuit structure. The allowed changes must be stated.
+
+If the attacker can change only metadata or graph presentation, a successful evasion shows representation fragility. If the attacker can change the circuit or hardware implementation, the attack must preserve functional behavior, timing, area, power, protocol compatibility and synthesis constraints. A graph that fools the detector but no longer implements the target design is not a useful hardware evasion. Conversely, a function-preserving change that removes a real vulnerability may be a legitimate redesign rather than an evasion.
+
+The threat model should define whether the attacker has white-box model access, scores or labels, gradients, the graph encoder, training data, synthesis feedback, a query budget, or only a final accept/reject result. It should state whether the detector is used during design review, synthesis, runtime monitoring, benchmark triage or a security gate. The cost and consequence of an evasion differ across these deployments.
+
+#### What RL-LLM orchestration adds
+
+The record describes reinforcement-learning and large-language-model orchestration. In conceptual terms, reinforcement learning can treat the current graph and detector response as a state, choose a graph mutation as an action, and receive a reward for evasion while respecting constraints. An LLM may propose or sequence higher-level mutations, interpret feedback, or choose among attack operators. The captured source does not specify the exact division of labor, so these are the conceptual roles rather than reported implementation details.
+
+Orchestration can improve search over a large discrete action space, but it adds overhead and new assumptions. The agent may need repeated model queries, graph parsing, synthesis or simulation, and a way to verify that each mutation remains valid. A qualitative claim of “efficient evasion” must include the cost of planning, failed mutations, detector queries, compilation, simulation and human or tool validation.
+
+#### Detector evasion is not hardware security impact
+
+The detector's output is an intermediate decision. A complete security analysis must trace the consequence: does the evasion cause a real vulnerable design to pass review, increase attack success, or delay remediation? A detector false negative is not equivalent to a successful exploit. It may be caught by another analysis, formal verification, simulation, manual review or deployment testing.
+
+Conversely, the method may produce a graph that receives a low risk score while the circuit remains exactly as vulnerable as before. That is a detector integrity failure, not proof that the underlying vulnerability has been removed. Report detector evasion and downstream hardware security as separate outcomes.
+
+#### What a fair evaluation needs
+
+Compare RL-LLM orchestration with non-adaptive graph attacks, standard gradient or score-based attacks where applicable, random mutations and detector-specific defenses. Use the same initial graphs, mutation constraints, query budgets, stopping rules and validation cost. Report attack success rate, queries, wall-clock time, number of valid candidates, semantic-preservation rate, synthesis failures, area/timing/power change and transfer to a different detector.
+
+Test both white-box and restricted-access settings. Hold out complete circuit families, vulnerability classes, designs, graph encodings and detector architectures when generalization is claimed. A model that attacks one known graph encoder may not transfer to another encoder or to a detector using different features. Test adaptive defenders that retrain, randomize features, ensemble models, add provenance checks, or compare graph properties against the original design.
+
+The graph representation itself can leak or distort the result. Node labels, canonical ordering, net names, graph size and preprocessing may reveal the class or allow trivial mutations. The evaluation should include ablations that remove names and non-semantic features, preserve graph connectivity where required, and verify the generated graph against the original hardware semantics. If the attack changes a design, validate synthesized netlist behavior rather than relying on graph similarity.
+
+The captured official description supports RL-LLM orchestration for efficient adversarial evasion of hardware-security GNNs. It does not report attack success rate, query cost, transferability, detector impact, semantic-preservation rate, hardware overhead or defense evaluation. The evidence supports an adaptive-detector-evasion direction under an unspecified graph and threat model; it does not establish that a real hardware vulnerability can be hidden from independent security checks. [Recorded evidence](../observed-subthemes/side-channel-and-hardware-security.md#paper-dac-2026-research2536)
+
+<span id="explanation-dac-2026-research3092"></span>
+
+### Securerouter: encrypting inference traffic protects content only if the routing path, keys, metadata, and endpoints are also covered
+
+#### What secure inference is protecting
+
+An inference system moves data between computation stages. The data may include a user's input, model weights, intermediate activations, labels, control values or partial results. In a distributed accelerator, those values travel over links between chips, memory banks, tiles, hosts or edge devices. A routing mechanism chooses where each value goes and when it moves.
+
+Encryption changes the representation so an observer without the required key should not learn the protected content. It does not automatically hide that a message exists, its length, its destination, its timing, its route, its frequency, or whether a packet was dropped or retried. It also does not protect data before encryption, after decryption, inside an endpoint, or in a key-management path. “Encrypted routing” is therefore a system boundary that must identify every observable and every plaintext interval.
+
+#### What the routing mechanism may be changing
+
+The record names an encrypted routing mechanism for secure-inference data movement but does not specify the cryptographic scheme or network topology. Conceptually, the method could encrypt payloads at each hop, use end-to-end encryption between trusted endpoints, route encrypted shares or ciphertexts, or combine encryption with a secure-computation protocol. These choices have different security and cost properties.
+
+The hop-by-hop encryption case can protect a link while requiring each intermediate router to decrypt and re-encrypt. End-to-end encryption can keep content hidden from routers but may limit routing decisions if the route depends on hidden fields. A scheme based on shares or encrypted computation may preserve privacy at intermediate stages while adding communication rounds and synchronization. The captured source does not establish which mechanism is implemented, so none of these should be read as reported details.
+
+The routing policy is part of the security claim. If routing decisions use plaintext labels, tensor names, destination identifiers or sizes, those fields may reveal model structure or user behavior. If the router sees access patterns, it may infer which layer is active or which branch of a model was selected. Padding and schedule obfuscation can reduce metadata leakage but add bandwidth, latency and energy.
+
+#### Confidentiality, integrity, and availability are separate
+
+Confidentiality asks whether an unauthorized observer learns the content. Integrity asks whether an attacker can modify, replay, reorder, inject or drop data without detection. Availability asks whether the encrypted route still delivers data within the required deadline. Encryption alone does not provide all three unless it is paired with authentication, freshness, replay protection, flow control and recovery behavior.
+
+For inference, a modified activation may produce a wrong classification without revealing the original input. A replayed tensor may create a stale or inconsistent result. A dropped packet may force retransmission and expose timing or cause a denial of service. The evaluation should report authenticated encryption or equivalent integrity checks, sequence numbers or freshness state, key rotation, failure behavior, and whether a receiver can distinguish tampering from normal packet loss.
+
+#### Key management is an endpoint and lifecycle problem
+
+The security of an encrypted route depends on how keys are generated, provisioned, stored, distributed, rotated, revoked and destroyed. The system must state which entities trust each other: user device, model owner, router, accelerator tile, host, memory controller and result endpoint. A key that protects traffic but is exposed in a router or debug interface does not provide the claimed boundary.
+
+Multi-stage inference can use one end-to-end key, per-link keys, per-session keys, shared secrets, public-key setup or a secure-computation protocol. Each affects compromise scope and rekey cost. The evaluation should describe bootstrapping, device identity, attestation if used, compromised-router behavior, crash recovery, concurrent sessions and forward secrecy where relevant. The captured description reports none of these details.
+
+#### What a fair performance comparison measures
+
+Compare against plaintext routing and a named encrypted-inference communication baseline using the same model, tensors, topology, batch size, precision, hardware and workload. Measure end-to-end latency, per-hop latency, throughput, bandwidth, packet count, expansion from padding or tags, memory, CPU/accelerator utilization, energy, key setup and rekey cost. Separate steady-state cost from startup and failure recovery.
+
+A routing-only number can hide cryptographic work at the endpoints or retransmission cost under congestion. A bandwidth reduction can come from sending less information rather than routing encrypted information more efficiently. State whether encryption is symmetric, public-key, homomorphic, multi-party or another construction, and include the cost of serialization, authentication, padding, reshaping and tensor fragmentation.
+
+#### Accuracy and leakage must be measured together
+
+Encrypted or privacy-preserving inference may change numerical representation, precision, quantization, ordering or error handling. Compare protected output with the unprotected model using task accuracy, numerical error, calibration, confidence and failure rate. If the protocol introduces approximation, report worst-case and distribution-specific errors rather than only average accuracy.
+
+Then measure what a network observer can infer from packet lengths, timing, destinations, route changes, message counts, retransmissions and load. A system can preserve task accuracy while leaking model architecture or input class through metadata. Conversely, padding all traffic may reduce leakage while making the system too slow or energy-intensive for the target edge device.
+
+The captured official description supports an encrypted-routing direction for secure-inference data movement. It does not specify the cryptographic scheme, topology, threat model, security proof, latency, bandwidth, energy, key management or accuracy impact, and does not characterize encryption overhead or metadata leakage. The evidence supports a privacy-preserving routing hypothesis, not demonstrated end-to-end confidentiality, integrity, performance or metadata hiding. [Recorded evidence](../observed-subthemes/side-channel-and-hardware-security.md#paper-dac-2026-research3092)
+
+<span id="explanation-dac-2026-research848"></span>
+
+### TT-SEAL: selective encryption trades cost against a threat model, so the unencrypted paths must be named and attacked
+
+#### What edge-AI protection is trying to preserve
+
+An edge-AI device runs inference close to where data is produced. It may handle camera images, audio, sensor readings, industrial measurements or private user inputs. The device may also contain a model that an owner wants to protect. Encryption can protect inputs, intermediate activations, weights or communication between stages, but it consumes compute, memory, energy and time.
+
+In contrast, adversarial robustness is a separate concern. An adversarial input is chosen to cause an incorrect or unsafe prediction. An encryption mechanism can hide data from an observer while leaving the model vulnerable to manipulated inputs. Conversely, a robust model can reject or tolerate some manipulations while exposing plaintext intermediates or weights. TT-SEAL is described as combining selective encryption with awareness of task and threat distribution, so the evaluation must show how the selection relates to both privacy and adversarial behavior.
+
+#### What “selective encryption” means
+
+Full encryption applies cryptographic protection to the defined data path or all selected computation stages. Selective encryption protects only chosen layers, features, tensors, channels, operations, samples, routes or time periods. The choice can reduce overhead, but it creates an explicit coverage boundary.
+
+The system must state what determines selection: a threat model, task distribution, input sensitivity, layer sensitivity, runtime context, resource budget or learned policy. “Threat distribution” can mean the frequency of attack types, the attacker’s access, the tasks likely to run, or the data distribution. These are different inputs. A policy trained on common attacks may leave a rare but high-impact path unprotected.
+
+Encryption placement also matters. Protecting an early activation may hide user information but expose later features. Protecting a late layer may preserve model confidentiality while leaving input reconstruction possible from earlier plaintext. Protecting only selected samples may allow an attacker to choose inputs that avoid encryption. The method needs a data-flow map that shows what an attacker can see before, between and after protected operations.
+
+#### Privacy and robustness are not interchangeable
+
+A privacy claim should identify the asset and observer: input values, features, weights, intermediate activation, labels or execution metadata. A robustness claim should identify the attacker’s input access, perturbation budget, knowledge, transfer model, target and success criterion. Encryption does not automatically prevent adversarial examples, and adversarial training does not automatically prevent data extraction.
+
+The attacker may combine the two. If the selection policy uses an input classification or threat score, an attacker may craft an input that is routed through a less protected path. If protected and unprotected layers have different timing or resource behavior, the selection itself can leak information. If a robust model rejects suspicious inputs before encryption, the rejection response can reveal the detector boundary. Evaluate privacy leakage, attack success and selection leakage separately.
+
+#### What the baselines must establish
+
+Compare at least three conditions under the same model, task, hardware and threat model:
+
+- unencrypted robust inference, which measures the model’s adversarial baseline;
+- full encryption, which measures the upper protection and cost boundary; and
+- selective encryption, which measures the proposed tradeoff.
+
+The comparison should also include unencrypted ordinary inference where relevant, because robust training itself can change accuracy, latency and energy. State the cryptographic scheme, key size, mode, key location, protected operations, precision, batch size, accelerator and software stack. Charge every encryption, decryption, authentication, padding, key setup, memory movement and fallback operation.
+
+#### How to evaluate selective coverage
+
+For every unencrypted path, state what an attacker could observe or change and why that path is safe under the threat model. Test adaptive attackers that probe the selection policy, change inputs, vary timing, target a different layer, use transfer attacks or exploit metadata. Hold out complete task families, attack families, device conditions and input distributions when generalization is claimed.
+
+Report attack success rate, clean accuracy, robust accuracy, privacy leakage, reconstruction or extraction quality, false rejection, protected-path coverage, unprotected-path count, latency, energy, memory, bandwidth and key-management cost. Report results by threat type rather than one average. A lower average attack success can hide a severe failure on a sensitive task or a rare attack class.
+
+The selection policy itself should be auditable. Log which tensors or operations are protected for each input, how often the policy changes, and whether a malicious input can force a low-protection decision. If the policy is learned, test its calibration and out-of-distribution behavior. If a fixed rule is used, state the assumptions that make the rule safe.
+
+#### What the captured evidence supports
+
+The captured official description supports a task/threat-distribution-aware selective-encryption direction for adversarially robust, low-latency edge AI. It does not specify the cipher, model, task, attacker, protected coverage, attack success, latency, energy, accuracy, key management or adaptive-attack results. Selective encryption may leave exploitable unprotected paths. The evidence supports a robustness-latency tradeoff hypothesis, not demonstrated end-to-end privacy, adversarial protection or safe coverage under changing threats. [Recorded evidence](../observed-subthemes/side-channel-and-hardware-security.md#paper-dac-2026-research848)
+
+<span id="explanation-dac-2026-research1853"></span>
+
+### Signed CIM columns: integrity metadata is useful only when it covers the values that affect computation
+
+#### What compute-in-memory weights are
+
+In a compute-in-memory, or CIM, accelerator, neural-network weights are stored close to or inside an array that performs part of the multiply-accumulate operation. A crossbar has rows and columns of memory cells. Input signals may be applied along one dimension, and the resulting electrical response along the other dimension contributes to a computation.
+
+The stored value is not merely a software integer. It may be represented by a cell conductance, multiple cells, differential pairs, a bit slice or a quantized analog level. Process variation, retention loss, write disturbance, temperature, voltage, read noise and peripheral conversion can change the physical response. An integrity mechanism must define what it authenticates: the intended logical weight, the encoded cell state, the column metadata, or the measured computation result.
+
+#### Integrity and provenance are different claims
+
+Integrity asks whether a value was changed without authorization. Provenance asks where the value came from and whether it is the approved version. A signature can authenticate a digest and signer, but only if the verifier checks the correct object, the key is trusted, and the authenticated object is bound to the device, model version, address and use context.
+
+A valid signature on stale or incorrectly mapped metadata does not prove that the array is running the intended model. The design should bind the signed value to a column identity, row range, model identifier, precision, encoding, version, lifecycle state and device or deployment context. It should also define freshness and rollback policy. Otherwise an attacker may replay an older valid column or swap signed columns between arrays.
+
+#### What column-level signing changes
+
+Signing columns instead of an entire weight matrix can reduce signature storage, verification work or update granularity. A column signature lets the system verify a smaller unit before use or after a partial update. This may fit an array's physical organization better than one signature over all weights.
+
+The security boundary is the column. If a column contains multiple weights and one signature authenticates the aggregate, the verifier must still detect a change to any weight that affects the signed digest. If the signature covers only metadata or a compressed summary, a within-column modification may remain invisible. The captured record itself notes this ambiguity. The method must specify the digest input, order, encoding, quantization, row/column mapping and whether the signed object is the logical value or physical cell state.
+
+Column granularity also creates compositional problems. A model inference uses many columns, so the controller must verify that the complete set of columns is present, correctly ordered, current and associated with the same model version. An attacker may omit, duplicate, reorder or mix valid columns. A per-column signature does not automatically provide a manifest, completeness, ordering or cross-column consistency guarantee.
+
+#### What attackers can change
+
+The threat model should distinguish remote model-update tampering, software-controlled memory writes, a malicious host or controller, a local physical attacker, fault injection, unauthorized reprogramming, replay, rollback and natural device drift. These attackers can target different points: key storage, signed metadata, address translation, write buffers, crossbar cells, ADC/DAC configuration, readout paths, controller state or verification logic.
+
+The evaluator should test single-bit and multi-bit logical changes, physical cell programming changes, row/column swaps, omitted columns, duplicated columns, stale versions, malformed signatures, faulted verification results and attacks between verification and computation. It should report whether the attack is rejected before the altered value contributes to an output. A post-inference alarm may detect tampering but still allow sensitive or safety-critical computation to use the wrong weight.
+
+#### Verification cost is part of the architecture
+
+Report signature size, digest storage, key memory, verification latency, energy, area, bandwidth, controller cycles and impact on array utilization. State whether verification is done at boot, model load, column write, every inference, periodically, or on demand. A scheme that verifies once at boot has a different fault boundary from one that checks every use. A scheme that verifies every column may protect integrity but dominate latency or energy.
+
+Compare against weight-level signatures and unprotected CIM under the same model, update pattern, device, process and attack set. Include signature generation, provisioning, key rotation, revocation, recovery after a failed check and behavior during partial updates. If a public-key signature is used, account for public-key verification hardware or software. If a MAC is used, account for shared-key provisioning and compromise scope; it is not the same provenance claim as a public signature.
+
+#### Analog behavior and verification semantics
+
+Digital signature verification can confirm the encoded input but not necessarily the analog computation after storage. A cell may pass an integrity check at the logical level while drift, noise or a peripheral fault changes the electrical result. The system needs a clear boundary between malicious tampering and expected analog variation. It may need calibration, error tolerance, readback, redundancy or a measured-response check.
+
+The evaluation should report clean inference accuracy, tampered inference behavior, detection rate, false alarms on naturally drifting cells, recovery time and impact on model availability. Test temperature, voltage, retention age, write endurance, process variation, ADC/DAC settings and peripheral faults. If the signature covers only a digital representation, state what physical faults remain outside the claim.
+
+The captured official description supports a column-level signing scheme for CIM weight integrity. It does not report attack coverage, signature cost, latency, energy, area, key management, digest boundary, completeness, replay handling or analog-fault behavior. Column granularity may leave within-column or cross-column manipulation ambiguity. The evidence supports an integrity-protection direction; it does not establish end-to-end model provenance or protection against all physical and controller tampering. [Recorded evidence](../observed-subthemes/side-channel-and-hardware-security.md#paper-dac-2026-research1853)
+
+<span id="explanation-dac-2026-research2832"></span>
+
+### Isomorphic hardware-IP transformations: preserving function does not automatically hide implementation meaning
+
+#### What hardware IP protection is trying to hide
+
+Hardware intellectual property can be represented as RTL, a gate-level netlist, a placed design, a routed layout, a bitstream, or a packaged component interface. The protected asset may be the circuit structure, a proprietary algorithm, a security mechanism, a performance optimization, a layout pattern or the identity of a design owner.
+
+Protection must name the asset and the observer. An attacker may read RTL, inspect a netlist, compare two design versions, query an IP block through its interface, observe timing and power, or use synthesis and simulation tools to test hypotheses. Hiding one representation does not hide all information available from another representation or from physical behavior.
+
+#### What graph isomorphism preserves
+
+A graph represents objects and relationships. In a hardware graph, nodes may represent gates, registers, signals, modules or operations, while edges represent connectivity or dependency. An isomorphism is a one-to-one relabeling or correspondence that preserves a chosen graph relationship. If two graphs are isomorphic under that definition, their connectivity structure is preserved even though node names or presentation order may change.
+
+An isomorphic transformation can make a design harder to match using names, layout order or a simple graph comparison while preserving its logical function. It does not necessarily change graph invariants such as degree patterns, connectivity, subgraph counts, cut structure, fan-in/fan-out, sequential boundaries or repeated motifs. An attacker can use those invariants, domain knowledge and simulation to recognize a design even when labels have changed.
+
+Function preservation is also a separate condition. A graph transformation may preserve an abstract graph relation while changing timing, reset behavior, clock-domain assumptions, initialization, side effects, power or physical constraints. Conversely, formal functional equivalence may prove that the transformed RTL computes the same outputs under stated inputs without proving that the transformed design hides the original architecture from a structural or physical observer.
+
+#### What a function-preserving obfuscation flow must specify
+
+The method should identify the transformation level: RTL, Boolean network, netlist, layout, or another graph. It should state which node and edge attributes are changed, which invariants are deliberately preserved, and how the transformed artifact is synthesized or integrated. The attacker’s available view must be stated: source, netlist, black-box queries, scan access, placed layout, power/timing observation, or a combination.
+
+The transformation must preserve the required interface and semantics. Verify functional equivalence across legal inputs, reset and initialization, clocking, timing assumptions, exceptions, scan or test modes, security modes and parameter configurations. If the IP is an accelerator or protocol block, test the complete transaction behavior, not only combinational truth-table samples.
+
+#### Why graph-level hiding may not be security-level hiding
+
+A transformed graph may still expose recognizable computation through semantic patterns. A cryptographic block has characteristic operations. A memory controller has characteristic queues and state machines. A security monitor has characteristic checks and response paths. Synthesis can also normalize different graph presentations into similar structures, allowing an attacker to compare post-synthesis artifacts rather than the supplied graph.
+
+Physical side channels add another boundary. If the transformation preserves function and similar switching structure, it may preserve power, timing, electromagnetic or fault behavior. An attacker with oracle access may infer the hidden structure from input/output responses, timing differences, error handling or resource usage. Graph isomorphism may frustrate a structural matcher while leaving semantic and side-channel attacks unchanged.
+
+#### What a fair evaluation needs
+
+Compare against ordinary logic obfuscation and unprotected IP using the same blocks, synthesis tools, constraints, process assumptions and attacker views. Test structural matching, graph-invariant analysis, machine-learning reverse engineering, semantic simulation, equivalence-guided search, side-channel observation and oracle-based identification where relevant.
+
+Report attack success, attacker time, queries, memory, required access, recovered structure, recovered functionality and confidence. Separate a design being recognized from a secret implementation detail being recovered. A lower graph-matching rate is not enough if a semantic classifier still identifies the IP.
+
+Report area, timing, power, congestion, routing, yield, verification time, design-rule violations, tool runtime and output quality after synthesis and place-and-route. Transformation overhead can change the physical design enough to reveal that protection was applied or to make the IP unusable. Formal equivalence must include the transformed and synthesized artifacts and state which assumptions are trusted.
+
+#### Adaptive attackers and deployment lifecycle
+
+If the attacker can see multiple transformed versions, they may learn which graph changes are stable and which are random. If the transformation is keyed or randomized, key storage, regeneration, revocation, manufacturing, debug and field update behavior must be defined. If a foundry, integrator or verifier sees the untransformed design, the protection boundary is different from one where only the transformed artifact leaves the owner.
+
+Test adaptive attackers that combine graph invariants, semantic queries, synthesis feedback and physical measurements. Hold out IP families and transformation seeds when generalization is claimed. Do not train and test on near-identical versions of the same block. Report whether the transformation protects the intended asset against the stated observer and what information remains deliberately visible.
+
+The captured official description supports isomorphic graph transformations for function-preserving hardware-IP obfuscation/protection. It does not report attack success, area, timing, power, yield, equivalence, transformation level, threat model or deployment boundary. Graph isomorphism may not defeat side channels or semantic attacks. The evidence supports a function-preserving IP-obfuscation direction; it does not establish confidentiality of hardware structure or robustness against adaptive reverse engineering. [Recorded evidence](../observed-subthemes/side-channel-and-hardware-security.md#paper-dac-2026-research2832)
+
+<span id="explanation-dac-2026-research1665"></span>
+
+### CARAMEL: using more of the audit device is useful only if control-flow coverage and ordering remain correct
+
+#### What control-flow auditing is checking
+
+Control flow is the sequence of states and transitions a program or hardware controller can take. The control flow being audited may include valid branch targets, authorized calls and returns, expected state transitions, or paths consistent with a security policy. The audit may run in software, on a processor, or on an accelerator that processes traces, events, or control-flow graphs.
+
+The security result has at least two dimensions. The soundness question asks whether an audit finding is valid: a reported violation should correspond to a real policy failure. Completeness asks whether relevant violations are observed and checked. A system that uses the device efficiently but skips paths, drops events, or checks only common transitions can improve throughput while weakening completeness.
+
+#### What device-utilization optimization changes
+
+The record describes device-utilization optimization for control-flow auditing. A utilization-oriented engine may batch events, parallelize independent paths, schedule work to reduce idle periods, overlap data movement with checking, or assign different path fragments to processing units. The captured source does not specify which mechanism is used.
+
+These changes alter the audit schedule. If two checks are independent, they may be processed in parallel. If one check depends on the state produced by another, reordering can invalidate the result. A path that is delayed, evicted, merged, sampled or abandoned under load may create a security blind spot. The implementation must preserve each dependency, event order, identity, timestamps, context switches, exception paths and completeness across queues.
+
+#### Why utilization is not security coverage
+
+Hardware utilization measures how busy a resource is. It does not say which paths were checked or whether a violation was detected. A high-utilization engine can repeatedly process common benign paths while leaving rare privileged transitions unexamined. A throughput increase can also come from lowering the audit scope or reducing the number of checks.
+
+The evaluation should report the number and type of paths, transitions, events and policies checked before and after optimization. It should count dropped, delayed, duplicated, merged and reordered events. Test rare branches, interrupts, exceptions, process transitions, privilege changes, indirect calls, recovery paths and adversarially generated sequences. State whether an audit failure blocks execution, raises an alert, logs evidence, or is silently retried.
+
+#### What the threat model must define
+
+The attacker may control program inputs, branch targets, code or data, scheduling, event timing, device queues, memory, or only an untrusted application. The audit may run on the same processor as the victim, on a monitoring accelerator, or in a separate trusted component. The threat model should state whether the attacker can overload the audit engine, cause queue pressure, create many short paths, exploit counter wraparound, trigger interrupts, or manipulate timestamps.
+
+Resource exhaustion is itself a security outcome. If a malicious workload can keep the audit device busy and delay checks past a decision point, utilization optimization has not solved the availability problem. Measure worst-case queue delay, backlog, time to detect, behavior at saturation, admission policy, priority, fairness and recovery after overload.
+
+#### What fair baselines and measurements require
+
+Compare serial control-flow auditing and utilization-oblivious audit engines with the same input traces, policy, hardware, path set, event rate and security checks. Report audit throughput, device utilization, latency, energy, memory, data movement and hardware counters, but pair them with coverage, detection rate, false positives, false negatives, alert delay and completeness.
+
+Use a ground-truth set containing valid and invalid transitions, including adversarial paths and rare events. Measure whether the optimized engine produces the same findings as a reference audit. If the engine is approximate, state the approximation and quantify missed violations. Report per-policy and per-path results rather than only an average throughput number.
+
+Formal or invariant-based reasoning can show that work partitioning preserves an audit property, but the proof must include queue overflow, dropped events, concurrent updates, reset, fault, timeouts, interrupts and resource exhaustion. A proof of the scheduler alone does not prove that the underlying audit checks every required transition.
+
+The captured official description supports device-utilization optimization for control-flow auditing. It does not report coverage, attack detection, utilization, latency, energy, path ordering, dropped-event behavior or security-completeness results. Throughput optimization may alter audit ordering or completeness. The evidence supports a resource-scheduling direction; it does not establish security-preserving audit acceleration under adversarial load. [Recorded evidence](../observed-subthemes/side-channel-and-hardware-security.md#paper-dac-2026-research1665)
+
+<span id="explanation-dac-2026-research1949"></span>
+
+### Athena: pre-silicon leakage estimation is a model, not a measured side channel
+
+#### Start with the physical question
+
+A side channel exists when an unintended observable changes in a way that carries information about a protected computation. The observable might be execution time, power consumption, electromagnetic radiation, cache activity, or another signal available to the attacker. The protected value might be a cryptographic key, an input, a model parameter, or an intermediate state. The security question is not merely whether two executions produce different internal activity. It is whether an attacker with a stated observation method can use repeated observations to distinguish secrets or recover useful information.
+
+Athena is described as an analytical timing-aware pre-silicon estimator. That places it before a fabricated chip and before ordinary post-silicon trace collection. Its purpose is potentially valuable: a design team can identify risky blocks while changes are still possible. But the result is an estimate produced by an abstract model. It is not, by itself, a measured side channel, a successful key-recovery attack, or proof that a physical implementation leaks at a usable rate.
+
+#### What “timing-aware” has to represent
+
+Execution time is produced by a chain of microarchitectural events. Pipeline depth, cache hits and misses, branch decisions, speculation, stalls, resource contention, memory ordering, interrupts and other events can change the number of cycles between an input and an observed completion. If any of those events depend on a secret, timing can become an observation channel.
+
+An analytical model must therefore state which events it represents and how they become an observable. A simple model might assign a cost to each instruction or cache event. A more detailed model might represent microarchitecture, dependencies, pipeline occupancy, cache state, branch behavior and contention over time. The captured description does not specify the equations, abstraction level, timing source, power model, leakage metric, or the boundary between modeled behavior and unmodeled physical effects. The word “timing-aware” alone does not show that the relevant secret-dependent events are represented.
+
+Timing and power should also be kept conceptually separate. A timing estimate predicts when events occur. A power estimate predicts how switching activity, capacitance, voltage and implementation details contribute to an electrical signal. Timing can influence power by changing which units switch and when, but a timing model is not automatically a physical power model. If Athena combines these views, the evaluation must identify the mapping and its calibration data.
+
+#### Estimation is different from exploitation
+
+The estimator may rank designs or blocks by predicted leakage. That can support an early design decision. A security claim requires a further chain:
+
+1. a secret changes internal events;
+2. those events change a measurable attacker observation;
+3. the observation survives noise and measurement limits;
+4. an attacker can distinguish secrets or recover information within a stated trace and computation budget.
+
+The first step can be visible in a simulation while the second fails after synthesis because routing, clocking, supply networks, placement, coupling or analog behavior change the signal. Conversely, a model can miss a physical path and produce a false negative. A predicted ranking can therefore be useful even when it is not an attack result, but the two outcomes must not be reported as if they were equivalent.
+
+#### The attacker and measurement boundary are part of the result
+
+The evaluation needs to specify whether the attacker measures completion time remotely, reads a local cycle counter, observes power through a probe, records electromagnetic radiation, or uses another channel. It must state whether the attacker chooses inputs, repeats the same operation, knows the implementation, controls scheduling, shares a processor, or has physical access. It must also state the measurement resolution, alignment method, noise, number of traces and allowed computation.
+
+These details determine what “leakage” means. A cycle difference visible to a privileged local counter may be irrelevant to a remote attacker whose network jitter is larger. A power pattern visible on a benchtop probe may not be available through the package or board interface. A model that does not define the observation cannot establish practical attack exposure, even if its internal score changes with the secret.
+
+#### How to validate a pre-silicon prediction
+
+The strongest validation uses the same designs at several boundaries: analytical model, RTL or gate-level simulation, and fabricated hardware where available. The comparison should use the same secrets, inputs, clock conditions, workload, leakage metric and baseline. Report rank correlation between predicted and measured leakage, absolute timing error, and whether the model correctly identifies high- and low-leakage designs.
+
+Security measurements should include a named test such as correlation or mutual information, and where appropriate TVLA or NICV. These tests answer different questions and need their assumptions stated. Attack success and traces-to-success show whether the measured signal supports an actual inference procedure. False positives are designs predicted to leak but not confirmed under the validation condition. False negatives are designs whose measured leakage the model failed to predict. Both matter when the tool is used to choose what receives further security work.
+
+The validation must cover process, voltage and temperature (PVT) conditions, process variation, clock and workload changes, and the implementation stages that change physical behavior. If no fabricated chip is available, gate-level or post-layout results can test some assumptions, but they are not a substitute for all physical leakage paths. A transfer test across implementations, process corners or devices is needed before claiming that the estimator generalizes. In the results, false positives and false negatives should be reported in lowercase, explicit categories so a reader can distinguish a bad prediction from an untested condition.
+
+#### What the baselines must mean
+
+The timing-oblivious analysis baseline should use the same design set and leakage definition while removing the timing information, so the comparison isolates the claimed contribution. The post-silicon leakage-testing baseline should report its measurement apparatus, trace budget, noise, process and attacker access. Runtime, model-construction cost and design-iteration cost also matter because a pre-silicon tool is useful partly by making evaluation earlier or cheaper.
+
+The captured record reports qualitative leakage estimation only. It reports no correlation, mutual information, TVLA/NICV, attack success, false-positive or false-negative rate, timing error, trace count, runtime, power result, or process-transfer result. Analytical models may miss physical leakage paths. The evidence supports an early timing-aware leakage-estimation direction and a validation requirement; it does not establish demonstrated physical leakage prediction. In other words, the record supports an analytical proposal, not demonstrated physical leakage prediction.
+
+<span id="explanation-dac-2026-research1430"></span>
+
+### Spike-PTSD: a temporal attack must be defined by the spike transformation, not by its biological label
+
+#### What the attack is trying to change
+
+A spiking neural network represents information with events distributed over time. A neuron may emit a spike when its membrane state crosses a threshold, and later layers consume the resulting event sequence. The input is therefore not only a vector of values. It includes which events occur, when they occur, how long the sequence lasts, and how the sensor or encoder maps a physical signal into spikes.
+
+An adversarial example is an input selected to change the network's decision while remaining within a stated perturbation budget. For an SNN, the perturbation can change spike timing, add or remove events, scale an event-related quantity, or alter the temporal pattern over several steps. Spike-PTSD is described as a bio-plausible adversarial attack based on spike scaling. The first-principles question is therefore: what quantity is scaled, at which time steps or neurons, with what sign and magnitude, and why does the resulting sequence remain within the claimed plausibility and sensor constraints?
+
+“Bio-plausible” is not a security metric. A perturbation can look plausible in a biological description while being impossible for the sensor, encoder, communication link or neuromorphic hardware to produce. Conversely, a hardware-realizable perturbation may not satisfy a biological criterion. The evaluation must define these as separate constraints.
+
+#### The attack chain has several distinct stages
+
+The attack should be understood as a chain rather than one score:
+
+1. an attacker obtains or observes an input sequence;
+2. the attacker applies the spike-scaling rule;
+3. the modified sequence passes through the sensor, encoder and SNN interface;
+4. the network produces a changed output;
+5. the change is measured against the clean output and the task label;
+6. the perturbation cost and detectability are checked against the threat model.
+
+Failure at any stage changes the security claim. A digital spike sequence that fools a classifier may not survive event quantization, refractory-period rules, packet timing, sensor bandwidth, clock discretization or hardware noise. A changed output can also be a natural misclassification rather than an attack success unless the clean prediction, ground-truth label and targeted or untargeted success definition are recorded.
+
+#### Threat model and attack objective
+
+The threat model must say whether the attacker knows the model and weights, can differentiate through the spike encoder, can query the deployed model, can modify sensor values before encoding, or can directly inject digital events. It must state whether the attacker seeks untargeted misclassification, a chosen target, confidence reduction, class confusion, denial of service, or a physical-world change in recognition. White-box, score-based black-box and decision-only black-box attacks require different budgets and should not be pooled.
+
+The budget needs a unit. It may be an amplitude change, number of added or removed spikes, number of changed time bins, total scaled event mass, temporal displacement, energy, query count or a combination. A budget without a normalization is not comparable across samples with different lengths, firing rates or sensor ranges. The evaluation should report the distribution of perturbation cost, not only the fraction of fooled inputs.
+
+#### Preserve the temporal structure explicitly
+
+Scaling can alter more than one property at once. It may change the number of spikes, the time at which a threshold is crossed, the membrane trajectory, the relative ordering of events, and the activity seen by downstream layers. The paper should identify which of these changes is intended and constrain the others. For example, preserving the event count does not preserve timing; preserving average firing rate does not preserve local timing; preserving a waveform envelope does not establish that the encoder emits the same event pattern.
+
+The attack should be tested against temporal controls: shuffled spikes, uniform scaling, time shifts, random event changes and a no-attack input. These controls help identify whether the claimed mechanism depends on scaling specifically or on a more general increase in input energy or activity. Results should also be stratified by sequence length, baseline firing rate, class, temporal sparsity and the location of the changed events.
+
+#### Compare against the right baselines
+
+Gradient-based SNN attacks are a useful baseline only if they use the same knowledge, input representation, objective, success definition and budget. A clean SNN inference condition measures the unmodified error rate and is required to establish a denominator, but it is not an attack baseline by itself. Other meaningful comparisons may include random spike perturbations, event-addition or deletion attacks, temporal-shift attacks, standard image attacks applied before encoding, and a physical sensor perturbation if deployment is the claimed setting.
+
+Every comparison needs the same train/test or model-transfer boundary. If the attack is tuned on one set of sequences and evaluated on another, the split must be stated. If the method is evaluated on one network and transferred to another, report source and target architectures, training data, time constants, thresholds and encoder settings. Transferability is a separate result from white-box success.
+
+#### What the measurements must establish
+
+Report clean accuracy, attacked accuracy, untargeted and targeted attack success where applicable, confidence or margin change, perturbation cost, query count, runtime and failure rate. For temporal inputs, report event-count change, changed-time-bin count, timing displacement, sequence duration and any energy or bandwidth cost. Include confidence intervals or per-sample distributions when the dataset is small or the attack fails selectively.
+
+Hardware realizability requires a second evaluation. Specify the sensor, spike encoder, time resolution, refractory behavior, event transport, neuromorphic processor, noise, clock and operating conditions. Replay the generated perturbations through that path and report how many remain valid and successful. If the work is only a digital SNN experiment, it should be described as such; it does not establish a physical attack on neuromorphic hardware.
+
+Defenses also need an adaptive test. A detector trained on clean activity may flag an obvious increase in spike activity but miss a carefully constrained temporal change. Test rate limiting, temporal smoothing, spike filtering, input validation, adversarial training and detector combinations against an attacker that knows the defense. Report clean-performance cost, because a defense that removes the attack by rejecting ordinary temporal variation may not be deployable.
+
+The captured record claims a bio-plausible spike-scaling adversarial attack and names gradient-based SNN attacks and clean inference as comparisons. It reports no attack success, perturbation cost, transferability or defense result, and it does not specify the threat model, budget, sensor path or neuromorphic implementation. Biological plausibility does not establish hardware realizability; the evidence supports an attack direction, not demonstrated adaptive security impact or a physical SNN attack.
+
+<span id="explanation-dac-2026-research2648"></span>
+
+### PD-Net: device-invariant representations must preserve leakage while removing device nuisance
+
+#### Why cross-device side-channel analysis is difficult
+
+A side-channel model learns a relationship between an observed trace and a hidden target, such as a key byte, an intermediate value or a class of operations. The trace also contains variation that is not the target: device-specific process variation, placement and routing, probe position, clock behavior, voltage, temperature, measurement gain, noise, alignment and acquisition equipment. A model trained on one chip can therefore learn features that identify that chip rather than features that remain useful for the secret on a new chip.
+
+PD-Net is described as device-invariant representation learning for heterogeneous cross-device side-channel analysis. The intended operation is to transform a raw power or electromagnetic trace into a representation that suppresses device identity while retaining information about the leakage target. These are competing requirements. If the representation removes all device-dependent variation, it may also remove the physical leakage that makes the target recoverable. “Invariant” is useful only relative to a stated nuisance variable and a preserved security-relevant target.
+
+#### Define the variables before judging invariance
+
+Let a trace depend on at least four variables: the secret or intermediate value, the public input, the device and manufacturing instance, and the acquisition condition. A representation is useful if it reduces dependence on the device and measurement condition while retaining dependence on the target. It is not enough to show that traces from two devices look similar in a visualization or that a device classifier performs poorly. The target decoder must remain accurate under the same transformation.
+
+The paper needs to specify whether “device” means a different chip of the same design, a different board, a different process lot, a different implementation, or a different cryptographic core. These shifts have different causes. A model that transfers between two chips on the same board does not establish transfer across layouts or technologies. The measurement setup must also be separated from the device so that the model is not merely learning a fixed probe or acquisition signature.
+
+#### The attacker model determines the useful direction of transfer
+
+In a profiling attack, the attacker may collect labeled traces from a device they control and then attack a target device with unknown secrets. The evaluation must state which devices are profiling devices, which are targets, what labels and keys are known during training, whether target traces are available for calibration, and whether the target key is fixed or random. A zero-shot cross-device attack, a few-shot adaptation attack and a target-device fine-tuned attack are different claims.
+
+The observation channel matters as well. Power and electromagnetic traces have different spatial, frequency and alignment properties. A local probe with controlled triggering is not equivalent to a remote timing observation. The attacker’s trace count, preprocessing, synchronization, chosen-input capability and computation budget should be fixed across baselines. Otherwise a higher key-recovery rate may reflect more target information rather than a better representation.
+
+#### What the representation must preserve
+
+The learned representation should preserve a measurable signal for the leakage target. This can be tested through classification or regression of the intermediate value, key rank, guessing entropy, success rate and traces-to-success. Key recovery is stronger evidence than an auxiliary loss or a device-confusion score because it measures the attacker’s actual objective. Report the random-guess baseline and the key-space definition so that “success” has a denominator.
+
+Alignment is part of the problem, not a preprocessing detail that can be omitted. A representation may appear device-invariant because it blurs the trace until timing information is lost. Conversely, a robust model may align traces with a learned transformation while retaining a narrow leakage feature. Compare raw traces, conventional alignment, device-specific models and domain adaptation under identical preprocessing and trace budgets.
+
+#### Cross-device validation needs a strict split
+
+The test split must use held out entire devices, not only random traces from each device. Randomly splitting traces allows near-duplicate acquisition conditions and device-specific signatures to appear in both training and test data. A stronger design holds out chips, boards, process lots and, where possible, layouts. It should report per-device and aggregate results, because an average can hide a target device on which recovery fails.
+
+Noise and operating conditions should be varied independently. Test voltage, temperature, clock frequency, workload, probe position, acquisition equipment, trace alignment and measurement noise. A model can transfer across devices while failing under a small change in voltage or alignment. The evaluation should identify which variation the representation handles and which remains outside scope.
+
+#### Compare transfer, adaptation and defense separately
+
+The device-specific side-channel model measures the cost of training for each target. A domain-adaptation baseline measures whether generic alignment or feature adaptation already provides the claimed benefit. A meaningful table should include zero-shot transfer, few-shot calibration and full target-device profiling, with equal source data, target traces, preprocessing, model capacity and attack budget.
+
+The word “defense” also needs care. A representation-learning method used by an attacker improves attack transfer; it is not itself a hardware defense. If the paper proposes a defensive transformation, the evaluation must show that key recovery decreases for an adaptive attacker while legitimate operation remains correct. If it is an attack tool, the relevant outcome is increased recovery under a constrained target-trace budget. The two directions must not be conflated.
+
+The captured record claims qualitative cross-device attack transfer and names device-specific and domain-adaptation models as baselines. It reports no key-recovery rate, trace count, transfer result, noise study or defense result. Invariant representations may discard target-specific leakage. The evidence supports a cross-device representation-learning direction, not demonstrated device-invariant key recovery or a validated defense.
+
+<span id="explanation-dac-2026-research1185"></span>
+
+### CPA-BNN: a secure CIM accelerator needs separate proofs for model secrecy, key security, inference correctness, and efficiency
+
+#### Identify the assets before evaluating the architecture
+
+A binary neural network (BNN) stores weights and usually reduces them to binary values, which makes multiply-accumulate operations simpler. Compute-in-memory (CIM) performs part of that operation inside or close to the memory array. The same array that improves data movement can expose model parameters to anyone who can read cells, observe peripheral behavior, inject faults, or study power and electromagnetic activity.
+
+CPA-BNN is described as an RRAM CIM and PUF architecture with in-situ encryption or ciphertext convolution, in-memory batch normalization, intrinsic PUF key extraction, and current-tilt masking. These mechanisms address different assets. Model confidentiality asks whether the weights can be reconstructed. Data integrity asks whether stored or processed weights can be changed without detection. Inference correctness asks whether the protected path produces the intended BNN result. Side-channel resistance asks whether an observer can infer the key or weights from an unintended signal. Key security asks whether the PUF-derived secret is unique, stable, unpredictable and unavailable to the attacker. A combined architecture does not prove all five properties automatically.
+
+#### What in-situ encryption must preserve
+
+Encryption changes the representation of the stored or processed weights. The accelerator must still compute the same binary operation, or a precisely defined equivalent operation, after ciphertext handling. The evaluation should show where encryption occurs, where decryption or an equivalent key-dependent operation occurs, and whether plaintext weights ever appear in a readable array, register, bus, sense amplifier or intermediate result.
+
+Ciphertext convolution also needs a defined algebra. A conventional BNN may use binary XNOR and population count, while encrypted processing may require a transformed operation, extra encoding, correction terms or key-dependent accumulation. The paper should specify the data representation, ciphertext domain, key dependency, batch-normalization placement and output decoding. Accuracy on a single task is not enough if the protected arithmetic changes the decision boundary or fails for another network size, layer type or input distribution.
+
+#### A PUF is a hardware primitive with several separate requirements
+
+A physical unclonable function derives a response from manufacturing variation. A useful key-generation PUF needs uniqueness across chips, reliability across repeated evaluations and operating conditions, sufficient entropy, resistance to modeling or prediction, and a secure enrollment and helper-data process. “Approximately 100% key reliability” is incomplete without the number of chips, repeated trials, bit-error definition, voltage and temperature range, aging, cycling and error-correction overhead.
+
+Reliability and uniqueness are different. A PUF that returns the same response on one chip can still return correlated responses across chips. Conversely, a highly unique response that changes with temperature cannot serve directly as a key. Report intra-device stability, inter-device Hamming distance, entropy, min-entropy or an equivalent security measure, prediction attack results, helper-data leakage and the random-guess baseline. The key must also be protected during extraction, storage, reset, test, debug and power cycling.
+
+#### Masking and current tilt are not the same as a side-channel proof
+
+Current-tilt masking presumably changes the electrical behavior of the array or its peripherals so that secret-dependent activity is less visible. A masking claim requires a leakage model and a stated order. The evaluation should identify the shares or randomized values, how they are generated, whether they are independent, when they are refreshed, and which operations combine them. A first-order result does not establish resistance to higher-order analysis, glitches, transitions, memory retention or joint observations from multiple signals.
+
+Power and EM evaluation should use controlled fixed-versus-random or fixed-versus-fixed tests, a named leakage metric, trace count, alignment method, preprocessing, acquisition bandwidth, signal location and operating conditions. Attack experiments should report key rank, success, traces-to-success and the attacker’s knowledge. A current-density or power reduction is an implementation observation; it is not equivalent to showing that a key cannot be recovered.
+
+#### Model-attack resistance needs a defined security game
+
+“Prevents model attacks” could mean that an attacker cannot read RRAM cells, cannot recover weights from black-box outputs, cannot infer weights from side channels, cannot tamper with stored parameters, or cannot produce a useful clone. These are distinct games. State whether the attacker has physical access, chosen inputs, output labels or scores, repeated power traces, fault capability, access to enrollment data, or a microscope and package access.
+
+For each game, report the target asset, attacker observations, allowed queries or traces, recovery definition, baseline and success threshold. A model clone should be evaluated by weight recovery or prediction agreement on held-out inputs, not only by a qualitative statement. A fault attack should report whether corruption is detected and whether the attacker can induce a targeted wrong result. An output-only extraction attack should report query cost and agreement with the protected model.
+
+#### Efficiency claims need the complete boundary
+
+The recorded description reports more than 1.4x compute density and more than 1.6x storage density. Density is a ratio, not a complete energy or performance result. The numerator and denominator must use the same operation, precision, array capacity and process. Include RRAM cells, 4T2R circuitry, word-line and bit-line drivers, sense amplifiers, ADC/DAC or current-mode peripherals, encryption logic, PUF extraction, masking, batch normalization, controllers, error correction, key storage, test logic and interface memory.
+
+Compute density does not establish throughput if encryption, masking, PUF startup, conversion or data movement becomes the bottleneck. Storage density does not establish usable model capacity if redundancy, helper data, spare cells, error correction or protected metadata consumes the saved area. Report area, frequency, latency, energy per operation and per inference, initialization energy, idle power, yield, endurance, retention and accuracy under the same process and workload as each baseline.
+
+The captured record reports approximately 100% key reliability, more than 1.4x compute density, more than 1.6x storage density and qualitative model-attack prevention. It does not define the attack model, security game, reliability population, accuracy loss, PUF entropy, side-channel test, or complete density boundary. The evidence supports an integrated RRAM-CIM protection direction, not a demonstrated end-to-end guarantee of model confidentiality, PUF security, side-channel resistance or normalized system efficiency.
+
+<span id="explanation-dac-2026-research1275"></span>
+
+### TRAC: row-activation monitoring is a security detector only if its count, threshold, and timing semantics cover the real disturbance path
+
+#### What RowHammer monitoring is trying to detect
+
+DRAM stores charge in cells arranged in rows. Activating a row repeatedly can disturb nearby rows. Under sufficiently aggressive access patterns and device conditions, a neighboring victim row may experience bit flips. The security problem is therefore a relationship between an aggressor’s activation history, the physical adjacency and vulnerability of victim rows, the DRAM refresh and timing policy, and the controller’s ability to observe and respond before the disturbance becomes exploitable.
+
+TRAC is described as transparent row activation counting with an ACT-triggered update, in-subarray processing, and an LFSR-based counter. The core claim is not simply that a counter exists. It is that the mechanism observes the relevant activations, associates them with the correct rows or regions, estimates the accumulated risk with sufficient accuracy, and triggers a protective action before a victim bit flips—without breaking normal DRAM timing or imposing unacceptable cost.
+
+#### Define what is being counted
+
+An ACT command opens a DRAM row. The detector must specify whether it counts every activation, activates per bank or subarray, counts a rolling time window, resets on refresh, or uses another epoch. It must explain how row identity is represented, how counters are allocated, and what happens when many rows are active. A count that is exact over one interval but forgets activations at a boundary can miss an attack distributed across intervals.
+
+The threshold also needs a physical interpretation. If the mechanism uses a fixed threshold, the threshold must be below the minimum disturbance limit for the target DRAM population under worst-case conditions. If the threshold is probabilistic or uses an LFSR-based approximation, the evaluation must quantify undercount probability, overcount probability, state period, collision behavior, reset behavior and the effect of the approximation on protection coverage. A randomized counter can reduce hardware cost, but it cannot be treated as exact without a bound on missed detections.
+
+#### In-subarray processing changes the accounting boundary
+
+Putting the update logic in or near the subarray may reduce data movement and avoid a global counter structure. It also introduces questions about area, wiring, timing, power, yield and integration. The design must state whether the update occurs before the next ACT can be accepted, whether it extends tFAW or other timing constraints, how concurrent banks behave, and how the memory controller receives a threshold event.
+
+“Transparent” should mean that the mechanism is on the critical path only to the extent reported and does not require software or the controller to change the security protocol. It should not mean that overhead is assumed to be zero. Measure normal and stressed workloads, queueing, refresh interaction, bank parallelism, row-buffer locality, worst-case latency and bandwidth. A circuit-level result alone does not establish transparent system behavior.
+
+#### Security coverage must use physical attack conditions
+
+The attack suite should include single-sided and double-sided hammering, many-sided or half-double patterns where relevant, varying row distances, randomized access, different bank mappings, refresh management, throttling evasion and attacks that distribute activations across counters. It should state whether the attacker can run code locally, choose addresses, share memory, use DMA, control huge pages, disable or influence refresh, or observe timing and faults.
+
+Security coverage requires a ground truth: which activations produce a victim disturbance on each tested DRAM device and condition, and whether TRAC detects them before the first bit flip. Report missed attacks, false alarms, detection latency, threshold crossings, protected rows, recovery action and whether the action actually prevents or only reports the error. A count that detects a high activation rate is not enough if the device’s vulnerable threshold is lower or if the physical adjacency map differs from the assumed map.
+
+#### “Correctness and stability” need separate tests
+
+Counter correctness asks whether the recorded count matches the intended ACT stream under normal and adversarial command sequences. Stability asks whether the result remains correct over voltage, temperature, process, refresh, retention, power cycling and long operation. Security effectiveness asks whether the detector prevents disturbance. These are different measurements.
+
+Test command races, simultaneous bank activity, counter overflow, reset and refresh boundaries, power transitions, faulty or delayed updates, and the case where the attacker causes the monitoring state itself to saturate. If the LFSR or another approximation is randomized, repeat with multiple seeds and report confidence intervals rather than one successful trace. If the response is a mitigation such as throttling, refresh, row relocation or isolation, include its recovery time and its effect on subsequent commands.
+
+#### Compare against PRAC at equal protection
+
+Per-Row Activation Counting (PRAC) is a meaningful baseline only when both systems protect the same DRAM population against the same attacks and use the same security target. Compare exact and approximate count semantics, threshold choice, protected-row coverage, missed-detection probability, false-positive rate, area, energy, latency, bandwidth, refresh impact and controller changes. A smaller design that misses a class of attacks is not an efficiency improvement on the same security boundary.
+
+The captured record reports qualitative absence of timing overhead, negligible area cost, and qualitative correctness and stability. It supplies no numeric area, energy, latency, security coverage, false-positive rate or disturbance threshold, and it does not specify the RowHammer threat model, DRAM generation or process. The evidence supports an in-subarray row-activation-monitoring direction, not demonstrated RowHammer prevention under a defined device population and adversarial command set.
+
+<span id="explanation-dac-2026-research1320"></span>
+
+### Shooting Falcon with One Fault: a single-bit fault claim must connect DRAM disturbance to key recovery
+
+#### The attack crosses three security boundaries
+
+Falcon is a lattice-based digital-signature scheme. A signer uses secret material to compute a signature for a message, and a verifier checks the signature with a public key. The security question in this paper is not whether an ordinary Falcon signature verifies. It is whether an attacker can cause a precise fault in the signer’s memory, observe the resulting faulty signature or failure behavior, and collect enough information to recover the signing secret.
+
+The described attack has three separate boundaries:
+
+1. RowHammer must induce a controlled bit change in a memory location used by Falcon.
+2. The fault must survive the implementation’s computation and produce a useful faulty signature or other observable.
+3. The cryptanalytic recovery procedure must convert a stated number of useful faults into the secret key with a stated probability.
+
+A result at one boundary does not prove the others. A bit flip in memory is not automatically a useful cryptanalytic fault. A simulated useful fault is not automatically a practical RowHammer attack. A recovery algorithm that works on selected faulty signatures is not automatically a key-recovery attack against every Falcon implementation.
+
+#### Define the fault model precisely
+
+The record describes a single-bit flip and vulnerable-address discovery. The evaluation must identify the exact memory object, byte and bit, when it is used, whether the bit changes from zero to one or one to zero, and whether the fault is transient or persistent. It must say whether the attacker can choose the address, map pages, observe physical addresses, allocate memory near the target, trigger signing operations, repeat the hammer pattern and detect a successful fault.
+
+The memory placement is part of the attack. Virtual adjacency does not necessarily imply DRAM-row adjacency. The page allocator, huge pages, physical address mapping, bank and row functions, memory deduplication, cache state, refresh policy and row remapping determine whether a vulnerable address can be found and used. Vulnerable-address discovery may require a separate calibration phase and may fail after reboot, migration, page retirement or a change in DIMM.
+
+The platform description must include DRAM generation, module or chip population, row-buffer organization, refresh settings, timing parameters, CPU and memory controller, operating system, privileges, core placement and mitigations. Hammering time and resource cost are part of practicality. A fault that requires privileged access or a long offline calibration is a different threat from an unprivileged remote signing attack.
+
+#### A faulty signature is not just a corrupted output
+
+The cryptanalytic step depends on where the fault enters the signing computation. A fault in a secret coefficient, an intermediate polynomial, a random sampler, a norm check or a public value can have very different consequences. The paper should map the physical bit flip to the logical variable and show why the resulting signature leaks a constraint on the secret rather than merely failing verification or producing an unrelated invalid output.
+
+The evaluation should report the fraction of induced faults that yield usable faulty signatures, the fraction that verify under the attack’s acceptance condition, the rejection and abort behavior of the implementation, and the number of signing queries and discarded attempts. A count of 250,000 faulty signatures is meaningful only if “faulty,” “usable,” and “collected” have precise definitions and the attacker can recognize them without already knowing the secret.
+
+#### Key recovery needs a reproducible denominator
+
+The HPP cryptanalytic recovery workflow named in the record must state its input assumptions, equations or solver behavior, preprocessing, required fault pattern, memory and runtime, and success criterion. Report the number of independent trials, recovered keys, failed recoveries, confidence interval, and whether the public key verifies the recovered secret. If the method uses an optimized subset of faults, disclose the selection rule and the percentage discarded.
+
+The comparison with the state of the art must hold the implementation, Falcon parameter set, fault model, signing procedure, attacker knowledge, acceptance rule and success probability constant. “800x fewer faulty signatures” can arise from a stronger fault model, a different definition of a fault, a lower success threshold, reuse of information across signatures, or a more favorable implementation. It is not an intrinsic 800x improvement until those conditions are matched.
+
+#### Check the implementation, not only the scheme name
+
+The record names Falcon-512 reference implementation, but the security of a fault attack depends on the exact version, compiler, optimization, memory layout, arithmetic representation, random-number generation, rejection sampling, constant-time protections and fault checks. A defense that recomputes or verifies intermediate values may turn a useful fault into a detected failure. A compiler or allocator change may move the target away from the discovered vulnerable row.
+
+The evaluation should test multiple builds and layouts, fresh processes, ASLR states, compiler settings, operating-system versions, DRAM modules and Falcon implementations. It should report whether the attack transfers across devices and whether memory scrubbing, replication, signature verification, redundant computation, RowHammer mitigations or fault detection reduce recovery success. If transfer is not demonstrated, the result should remain scoped to the tested platform and binary.
+
+The captured record reports 250,000 faulty signatures for secret-key recovery, an 800x reduction relative to the stated prior work, and a single-bit flip attack. It does not state attack success probability, hammering time, privilege model, DRAM platforms or repeatability, and the 800x comparison requires matched implementation and fault-model conditions. The evidence supports a promising RowHammer-to-Falcon fault-attack direction, not demonstrated practical key recovery across platforms or Falcon implementations.
+
+<span id="explanation-dac-2026-research1373"></span>
+
+### Slcross: a cross-component cache channel needs separate evidence for communication, inference, and deployment reach
+
+#### Identify the shared resource and the observation
+
+A cache side channel exists when one component changes a shared cache state and another component observes the change through timing, contention, evictions, or another measurable effect. On a heterogeneous SoC, the components may use different instruction sets, execution units, drivers and privilege domains while still sharing a system-level cache or interconnect. The security boundary is crossed only if the observer can distinguish the victim-dependent states with the access it actually has.
+
+Slcross is described as reverse engineering system-level-cache mechanisms on an Apple M2 SoC, enabling GPU-to-CPU covert communication and an inference-time attack on an embedding table. These are related but different results. A covert channel demonstrates that a sender and receiver can exchange information through a shared resource. An inference attack demonstrates that the observed signal correlates with a sensitive workload and can be decoded. Neither result alone establishes a general remote data-extraction attack.
+
+#### Reconstruct the channel in stages
+
+The mechanism should be described as a causal sequence:
+
+1. a sender or victim accesses cache lines or other shared structures;
+2. those accesses change the SLC state or contention;
+3. a receiver performs a probe or timing measurement;
+4. the measurement is synchronized and classified into a symbol or secret-dependent event;
+5. repeated observations produce a communication rate or an inference result.
+
+Each stage has failure modes. Replacement policy, set mapping, inclusivity, coherence, prefetching, GPU scheduling, memory compression, quality-of-service rules and OS activity can change the signal. A CPU receiver may not observe the same state as a GPU sender. A reverse-engineered cache mapping is a hypothesis until access patterns, eviction behavior, associativity and timing distributions are measured across relevant addresses and workloads.
+
+#### The covert-channel result has its own metrics
+
+Report bit rate, symbol rate, raw and corrected error rate, synchronization method, channel occupancy, trial count, confidence intervals and the sender and receiver resources used. State whether the sender is a cooperative process, a victim workload or a malicious GPU kernel, and whether the receiver can run concurrently. Include the time required to establish cache mappings and the effect of scheduling interruptions.
+
+The receiver’s privilege and API access are central. A channel available to two processes on one user account is different from a channel available across users, sandboxes, browser contexts, virtual machines or remote clients. The evaluation must identify whether GPU command submission, shared buffers, performance counters, high-resolution timers, shared memory, driver permissions or elevated privileges are required. A local covert channel should not be described as remote leakage without an additional network or service boundary.
+
+#### The embedding-table attack is a separate inference problem
+
+An embedding table maps tokens or indices to vectors. A cache observation may reveal which rows are accessed, how often they are accessed, or some property of the GPU execution. To claim sensitive GPU-information leakage, the work must define the secret target: token identity, sequence content, embedding index, model architecture, intermediate value or another property. It must state whether the attacker knows the model, controls prompts, sees outputs, can schedule a concurrent workload, and has labeled training traces.
+
+Report classification accuracy, precision/recall or rank quality as appropriate, sample complexity, observation window, target vocabulary or candidate set, false positives, false negatives and the clean workload error. An accuracy number without the candidate-space size and random baseline does not establish useful information recovery. If the attack only distinguishes a small set of hand-selected prompts or embedding accesses, the conclusion must stay at that scope.
+
+#### Noise and workload conditions determine generality
+
+System-level cache observations are affected by other CPU and GPU activity, memory traffic, prefetching, thermal and frequency changes, OS scheduling, driver behavior, display workloads and concurrent users. Test controlled idle conditions separately from realistic noisy workloads. Vary core allocation, GPU occupancy, kernel size, batch size, model phase, request timing, cache state and observation duration. Hold out prompts, models, kernels and time periods so that the classifier cannot memorize a fixed execution schedule.
+
+Apple M2 is a concrete platform, not a universal cache architecture. The evaluation should identify the chip revision, OS and driver versions, memory configuration, performance-state policy and software permissions. Transfer to another M-series generation, another OS release or another GPU/CPU system requires its own measurements. A reverse-engineered mechanism may be informative without being stable after a firmware, driver or scheduling change.
+
+#### Mitigation must be tested against an adaptive observer
+
+Possible mitigations include reducing timer resolution, partitioning or flushing shared cache state, changing GPU scheduling, limiting cross-domain resource access, adding noise, and preventing untrusted concurrent kernels. Each can reduce the signal while imposing performance or usability cost. Evaluate the same channel after mitigation and give the attacker knowledge of the defense. Report residual bandwidth, inference accuracy, false alarms, latency, throughput and energy, not only whether one probe stops working.
+
+The captured record qualitatively demonstrates a cross-component covert channel and sensitive GPU-information leakage through an Apple M2 SLC, but supplies no bandwidth, error rate, attack accuracy, sample complexity, privilege requirement or mitigation analysis. The generality beyond Apple M2 and the selected LLM embedding workload is unknown. The evidence supports a platform-specific cross-component cache-channel direction, not demonstrated general or remote leakage.
+
+<span id="explanation-dac-2026-research1085"></span>
+
+### DM-MARK: watermarking authorization requires robustness and provenance evidence separate from accelerator speed
+
+#### State what the watermark is meant to prove
+
+A diffusion model generates an image or another output through a sequence of denoising steps. A watermarking system changes the model, the generation process, the output, or a combination of them so that a detector can later identify an authorized source or usage condition. That creates several distinct questions: does the watermark survive ordinary transformations, can an attacker remove or forge it, does the detector avoid false accusations, and does the detected mark establish authorization rather than merely model identity?
+
+DM-MARK is described as a software-hardware co-designed diffusion watermarking framework with a 12 nm FinFET accelerator for watermark generation and reverse detection. “Generation” and “reverse detection” need precise definitions. The evaluation should identify where the mark is inserted, what secret or key controls it, whether it is embedded in latent values, denoising noise, model weights, or the final image, and whether the detector has access to the model, the key, the generation trace, or only the output.
+
+#### Authorization is a protocol, not only a classifier score
+
+An authorized-usage system needs an enrollment and verification protocol. It should state who creates the key, where it is stored, how a detector obtains trusted reference information, how keys are rotated or revoked, and what evidence is retained for a dispute. If the detector only recognizes a statistical pattern, an attacker who can train a surrogate or copy the pattern may forge the mark. If the watermark is tied to a secret key, the key-management and compromise boundaries determine the security claim.
+
+The security properties should be separated: authenticity of the source, ownership attribution, detection of unauthorized generation, traceability of a user, and tamper evidence are not interchangeable. A watermark can be robust to compression while remaining forgeable. A high detector accuracy can coexist with a high false-positive rate on outputs from unrelated models. The paper must define the decision, the protected asset, and the consequence of a false positive or false negative.
+
+#### Robustness needs an explicit attack set
+
+Diffusion outputs can undergo resizing, cropping, recompression, color changes, denoising, filtering, inpainting, outpainting, re-generation, latent editing, prompt changes, model fine-tuning, distillation, watermark overwriting and collusion. The evaluation should specify which transformations are in scope and their severity. It should include an adaptive attacker that knows the detector and attempts removal or forgery, not only benign image processing.
+
+Report detection true-positive rate, false-positive rate, false-negative rate, ROC or precision-recall behavior, confidence calibration, and performance by transformation and content type. State the clean unwatermarked distribution, watermark strength, image quality metric, sample count and decision threshold. “11.33% higher detection accuracy” is not interpretable without the original accuracy, class balance, confidence interval, attack condition and whether the increase trades off image quality or false alarms.
+
+Quality and security can conflict. A stronger mark may improve detection while changing generated content, reducing diversity, increasing artifacts or making the mark easier to identify and remove. Measure fidelity, perceptual quality, semantic preservation, diversity, generation success, watermark strength and detector performance together. If the system protects a diffusion model rather than individual outputs, test whether model extraction or fine-tuning preserves or removes the mark.
+
+#### The accelerator boundary must be complete
+
+The 12 nm FinFET implementation should state whether the reported latency and memory values cover only the watermark module, reverse detector, denoising pipeline, on-chip buffers, external memory, host communication, key handling, initialization and post-processing. A GPU comparison must use the same model, resolution, precision, batch size, number of diffusion steps, detector threshold and output quality. A baseline ASIC comparison must use the same technology assumptions, area boundary, frequency target, memory, process libraries and design constraints.
+
+The reported 18X GPU latency speedup, 3.1X on-chip-memory savings, 4.56X EMA reduction and 212.5X speedup over a baseline ASIC are ratios whose denominators need definitions. “EMA” is not defined in the captured record; it might refer to an energy, memory, or another implementation metric, and the paper must identify the quantity and units. Report absolute latency, throughput, area, power, energy per generated or detected output, off-chip traffic, memory capacity, frequency, utilization, yield assumptions and accuracy/quality at that operating point.
+
+#### Deployment and failure handling matter
+
+An edge device may operate with intermittent connectivity, limited secure storage and multiple users. The design should state how keys survive reset, how detector failures are handled, whether outputs remain usable when verification is unavailable, and whether an attacker can replay a valid marked output. If the application treats a watermark as authorization, the system must define what happens when the mark is missing, ambiguous, copied, or detected with low confidence.
+
+The captured record identifies a diffusion watermarking framework and a 12 nm accelerator and reports an 11.33% detection-accuracy increase plus several speed and memory ratios. It does not identify watermark attacks, quality metrics, exact EMA definition, device configuration, or area/yield conditions. The evidence supports an accelerator and watermarking direction, not demonstrated robust authorization, forgery resistance, or normalized end-to-end edge efficiency.
+
+<span id="explanation-dac-2026-research1054"></span>
+
+### Icarus’s Wings: an MoE slowdown claim must connect prefix construction to a reproducible offloading bottleneck
+
+#### The system being attacked
+
+Mixture-of-Experts (MoE) models contain many expert networks, but a token is routed to only some of them for each layer. This can reduce arithmetic work, yet storing every expert in fast memory may be too expensive. An offloading system keeps some experts in GPU memory and moves others from slower memory when the router predicts that they will be needed. Prefetching is useful when the next requests have enough temporal locality for the prediction to be correct.
+
+The security problem is an availability problem: an attacker wants to cause unnecessary expert movement, cache replacement, memory traffic, or synchronization so that legitimate decoding becomes slower. Icarus’s Wings is described as a gradient-based universal hidden-prefix attack that minimizes temporal locality, misleads expert prefetching, and uses a target-balancing scheduler. The important causal chain is not simply “a prefix is adversarial.” It is: the prefix changes routing or request timing; the offloader makes different placement and prefetch decisions; those decisions increase replacement and transfer work; and a victim’s service quality degrades under a stated multi-user condition.
+
+#### Define the attacker’s control
+
+The attack model must state whether the attacker submits ordinary prompts, controls hidden-prefix tokens, chooses request order, shares a GPU, observes latency, knows the model and router, or can coordinate several users. A universal prefix may be reusable across inputs, models or devices, but each form of universality needs its own held-out test. Controlling a prefix in one request is not the same as controlling the scheduler, cache state, or other tenants’ requests.
+
+The paper should identify the computation needed to construct the prefix, its length, token restrictions, number of optimization steps, gradient access, queries, storage, and whether the prefix is visible to the victim. If the attack requires model weights or internal router outputs, it is a white-box attack. If it can be produced from latency observations or public APIs, that is a different and stronger deployment claim.
+
+#### Separate the three reported effects
+
+An 85.4% increase in cache replacements is a mechanism-level observation. It shows more replacement events under the tested condition, but it does not by itself show that useful requests are delayed or that an attacker can sustain the condition. A 12.5% reduction in prefetch accuracy measures prediction quality only if the prefetch target, prediction horizon, top-k rule, denominator and workload are defined. A 0.7X decoding speed is an outcome metric, but its baseline, token length, batch size, quality, throughput and whether the victim or attacker is being slowed must be stated.
+
+The evaluation should report cache hit/miss rates, expert residency, transfer volume, PCIe or interconnect traffic, queue time, GPU utilization, memory bandwidth, first-token and per-token latency, throughput, tail latency and energy. Measure the victim’s service separately from the attacker’s cost. Maximum-length outputs can make a slowdown look larger than it would be for short requests; report multiple sequence lengths and stop conditions.
+
+#### Baselines and denominators matter
+
+The unattacked MoE offloading condition establishes ordinary performance. A caching/prefetching baseline establishes what the system assumes about locality. Stronger comparisons should include random prefixes, ordinary long prefixes, adversarial but non-universal prefixes, request-order attacks, cache-thrashing workloads and alternative offload policies. All conditions need the same model, device, batch, memory capacity, precision, request mix, concurrency, output length and scheduler.
+
+The “0.7X decoding speed” statement needs a direction and denominator. If speed is normalized throughput, 0.7X means a 30% reduction; if it is latency expressed as a ratio, the interpretation differs. Report absolute values and confidence intervals. A 12.5% prefetch-accuracy loss may have little service impact if transfers overlap with computation, or a large impact if they serialize the critical path. The system-level result must establish which case occurs.
+
+#### Test generalization and defenses
+
+“Universal” should be tested across held-out prompts, users, sequence lengths, model checkpoints, expert counts, routing policies, devices, offloading implementations and request schedules. A prefix that transfers across prompts but not across models is input-universal, not system-universal. The locally discovered repository for this record contains a pinned README and demonstration image, but no recovered full paper or executable attack; its README findings therefore do not replace the missing experimental conditions.
+
+Defenses should be evaluated against an adaptive attacker. Options include admission control, per-tenant rate limits, cache partitioning, randomized prefetching, expert replication, scheduling isolation, traffic shaping, detection of abnormal routing or replacement patterns, and fallback execution. Report clean performance, false alarms, residual slowdown, attacker cost and whether the defense shifts the bottleneck to another resource.
+
+The captured record reports an 85.4% increase in cache replacements, a 12.5% reduction in prefetch accuracy and 0.7X decoding speed for maximum-length outputs, but does not enumerate models or devices, attack cost, attack success rate or defenses. The additional repository assessment confirms only artifact discovery: the pinned repository has a README and image, no recovered full paper, and no executed demo. The evidence supports a plausible MoE offloading denial-of-service direction, not demonstrated universal or deployment-general attack impact.
+
+## What a useful comparison reports
+
+State the protected asset, allowed observer actions, available measurements, and required outcome. Report successful and failed cases, false alarms where applicable, measurement cost, and protection overhead. Keep device configuration, software versions, and input conditions explicit.
+
+Then vary the conditions on which the method relies. The scientific conclusion should identify which observation or invalid action the method prevents, under which assumptions, and at what cost. That supports informed transfer to another system while preserving the tested boundary.
+
+<span id="explanation-iccad-2025-1000"></span>
+
+## Energon: infer transformer structure from GPU sensors that were not intended as a model interface
+
+### The leaked object is architecture, not a model output
+
+A model API returns a prediction that the service intends a user to see. Energon studies a different observation: power and temperature reported by a GPU while another user's model runs. The attacker does not need the model's weights or output API. The proposed inference target is architectural information such as the number of encoder/decoder layers, attention heads and model family.
+
+This distinction matters because architecture is not the same as a complete model. Learning that a target resembles one T5 variant does not recover its training data, weights, tokenizer, prompt, or exact learned function. It can nevertheless reduce the uncertainty an attacker faces when building a substitute model or choosing a transfer attack. The paper's security claim is therefore about information leakage that makes later attacks more informed, not direct extraction of all model parameters.
+
+### The threat model depends on shared physical sensors
+
+The paper considers multiple users on a remote GPU service. The victim runs an unknown transformer in one virtualized instance. The adversary runs ordinary software in another instance and reads power or thermal data using `nvidia-smi` or `pynvml`, without root privileges. The paper argues that these readings come from physical sensors and remain visible even when compute, memory and bandwidth resources are separated by NVIDIA virtualization/MIG.
+
+The important assumption is cross-instance observability. The attacker does not need to execute inside the victim's process, read its memory, or invoke its API, but does need a sensor view that reflects activity on the shared physical GPU. If a provider removes or coarsens that view, changes sensor sampling, adds aggregation noise, or gives each tenant a physically separate device, the measured attack surface changes. The experiment therefore demonstrates a risk under this sensor-access model; it is not a claim that every cloud GPU configuration exposes the same signal.
+
+### Why transformers produce a useful trace
+
+An encoder processes a fixed input sequence in parallel and produces a representation. A decoder then generates output tokens one at a time, using an expanding context. The paper's custom-model traces show a staircase pattern: a smaller encoder-related rise followed by repeated decoder steps whose power increases as the generated sequence grows. The authors report roughly 6 W during the custom encoder phase and up to 20 W during decoder execution on the GTX 1660 Ti Mobile experiment; the exact trace is a device and sampling result, not a universal transformer signature.
+
+The number of repeated steps and the size of each computation depend on layer count, attention-head count, embedding dimension and input/output behavior. Temperature changes more slowly than instantaneous power because the GPU and package have thermal capacity. That makes temperature a lower-bandwidth but potentially longer-lived observation. Energon uses both traces as features for a learned classifier rather than treating either signal as a direct readable layer counter.
+
+The measurement protocol is part of the result. The custom gradient analysis attempted higher sampling rates but settled at 7 Hz, stabilized the initial GPU temperature around 28 °C, and allowed the device to cool between traces. For the main extraction experiments, the paper collected 100 traces per model over 120 seconds, used an 80:20 train/test split and stratified K-fold cross-validation. Cooling helps reduce carry-over between laboratory traces, but it is not necessarily available to an attacker observing a continuously running service. Conversely, long traces and repeated measurements can make a real attack easier than a single isolated run.
+
+### The inference pipeline has several classification stages
+
+Energon trains a convolutional classifier with three convolutional layers, batch normalization, ReLU, two max-pooling layers and fully connected output layers. For custom language transformers, it first predicts attention-head count and then predicts encoder/decoder layer count within the relevant head family. This hierarchy reduces a large classification problem into questions whose labels correspond to visible trace structure.
+
+The custom language set contains nine configurations: 6/8, 12/8, 12/12, 12/16, 24/16, 32/16, 48/16, 24/32 and 32/32, where the first value is the encoder/decoder layer count and the second is attention heads. The reported attention-head classification reaches 100% on the tested 8- and 32-head groups and 96.25% on the 16-head group. Those are held-out test results from a finite set of known configurations; they do not establish reliable interpolation to an unseen architecture outside the training families.
+
+For eight pre-trained language models from T5, Google, MarianMT and Meta, the root-family classifier reports a maximum of 95% and a five-fold average of 89%. Within selected families, T5 attention-head identification and Meta encoder/decoder identification are reported at 100% average accuracy. This family-conditioned result is narrower than “architecture can always be recovered”: the classifier uses prior knowledge about which families and variants are possible.
+
+For vision transformers, the paper studies eight models from Apple, Google, Meta and Microsoft using CIFAR-10-derived inputs. The root-family classifier reports maximum/average accuracy of 91.25%/84.75% across five folds, while family-specific attention-head classifiers for Meta, Google and Microsoft report 100%. Again, the family-specific labels and the selected model catalog define the denominator.
+
+### Noise changes the question from recognition to robustness
+
+The paper evaluates concurrent workloads in a partitioned GPU setting. With transformer inference and matrix multiplication running in parallel, family identification averages 89.25%; Meta and T5 architecture distinctions are reported at 92% and 87%. The authors also run three and four concurrent processes and report only a small performance reduction for several tasks. With different background categories—matrix multiplication, CNN inference and vision-transformer inference—the matrix-multiplication condition produces a reported 4% drop in root-family identification.
+
+These experiments show that the signal is not immediately destroyed by the tested noise. They do not establish robustness to all co-tenants, arbitrary request timing, sensor quantization, workload scheduling, GPU generations, driver versions or cloud monitoring policy. A noise experiment is meaningful only with the background process, concurrency, trace alignment and training/test separation stated.
+
+### The downstream attack is a separate experiment
+
+Energon uses extracted architecture to build a substitute MarianMT model. When encoder/decoder count and attention heads are recovered, the substitute obtains a reported BLEU score of 44.12 and BERT score of 93.53 in one target/substitute setting. When embedding dimension or feed-forward size remains unknown, the table reports BERT scores of 93.08 and 93.53 for the listed alternatives. These scores measure output similarity under that experiment; they do not prove weight recovery or equality of internal representations.
+
+For vision transformers, the authors construct substitutes and generate FGSM/PGD examples. The listed Google ViT results range from 83.38% to 98.63% success, with the paper summarizing an average around 93%. Attack success depends on the target models, data, perturbation method, substitute training and success definition. It is evidence that partial architectural leakage can aid transfer attacks, not a universal attack rate against all transformers.
+
+### What the paper establishes and what remains open
+
+Energon establishes a concrete side-channel chain under its stated conditions: GPU sensor traces correlate with transformer structure; a CNN can classify selected model families and architectural parameters; tested background processes do not remove the signal; and recovered structure can support a substitute model or transfer attack. The paper reports responsible disclosure to NVIDIA and suggests restricting sensor access, exposing coarser metrics, warning or throttling users, and obfuscating architecture through model variants.
+
+It does not establish that every NVIDIA GPU, MIG layout or cloud provider leaks the same information, that the classifier works without family knowledge, that traces remain separable under all sensor policies, or that an attacker can recover weights or training data. The train/test split is among collected traces from selected models, so a stronger evaluation would hold out entire architecture families, devices and software stacks, measure attack cost and sample count, and test whether mitigations reduce inference without making GPU management unusable.
+
+[Recorded paper evidence](../observed-subthemes/side-channel-and-hardware-security.md#paper-iccad-2025-1000)
+
+## Compare the results carefully
+
+First identify the inputs and required output quality. Then identify the limited resource: time, memory, communication, energy, circuit area, or correctness coverage. Ask which part of the method reduces that cost and which new cost it adds. Compare numbers only when the experiments hold these conditions sufficiently similar.
+
+A conference description may explain the proposal while omitting the full experiment. An author preprint link may have been coded from its abstract. The source classification does not by itself establish that every table was read. Missing locations remain visible below.
+
+## Complete captured evidence
+
+These are evidence records, not substitutes for the explanations above. Each record preserves its problem, proposed method, measurements, comparison conditions, and source limits. A populated record does not establish that its mechanism has been fully explained or independently verified.
+
+<span id="paper-dac-2026-research1715"></span>
+
+### Semi-Virtual Addressing to Enhance Memory Safety on Microcontrollers
+
+DAC 2026 · Record: `dac-2026-research1715`
+
+[Read the step-by-step explanation](#explanation-dac-2026-research1715)
+
+**Updated source-backed reading card**
+
+Reviewed 2026-09-08. Deepens the existing semi-virtual-addressing treatment into a paper-level reading; separates address-space expansion from access enforcement and makes memory-safety coverage, attacker model, compatibility, baseline and overhead requirements explicit.
+
+This editorial correction updates the current reading view and connected dossiers, not the historical adjudication or scientific acceptance status. The original captured fields are preserved below.
+
+[Correction register](../../data/editorial-paper-corrections-v1.json)
+
+**Problem:**
+
+Microcontrollers lack virtual addressing for strong memory protection, while a full MMU adds cost and unpredictable latency.
+
+**Mechanism / artifact:**
+
+Computation-based address translation through a page-table-free Lightweight Address Translation Module, integrated with heap randomization and type-safe allocation; translation rule, metadata, permissions, fault behavior and access granularity are unspecified.
+
+**Workload — the work tested:**
+
+RISC-V CORE-V-MCU memory-protection use cases; application workload, vulnerable-program set, access-violation classes, software stack, DMA paths and compatibility tests are unspecified.
+
+**Hardware and manufacturing assumptions:**
+
+Microcontroller-class RISC-V core with 575 KB physical address space and deterministic translation hardware; implementation area, timing, worst-case latency, energy, memory technology, metadata cost and peripheral/debug assumptions are unspecified.
+
+**Baseline — the comparison method:**
+
+Software-only memory protection
+
+Full MMU-based virtual addressing
+
+Baseline configurations, page size, operating environment, compiler/runtime changes, equal workloads and cost-accounting boundary are unspecified
+
+**Reported measurements:**
+
+575 KB physical address space expanded to 2 GB semi-virtual address space; heap randomization and type-safe allocation are described qualitatively; no translation area, latency, worst-case bound, protection coverage, attack result, compatibility, code-size, memory or energy result is reported.
+
+**Limits on the conclusion:**
+
+A larger virtual address range names more possible locations but does not by itself enforce object bounds or prevent invalid reads and writes. Translation metadata, permissions, alias handling and fault semantics must be shown.
+
+Randomization makes locations harder to predict but does not reject a valid pointer, while type-safe allocation is not complete access enforcement unless its metadata participates in every relevant check. Spatial, temporal, type-confusion, privilege, DMA and debug paths require separate coverage.
+
+The description omits translation area/latency, protection coverage, attacker model, software compatibility, baseline measurements, metadata cost and fault behavior. The record supports lightweight semi-virtual addressing with integrated allocation choices, not demonstrated equivalence to a full MMU or complete memory-safety enforcement.
+
+**Source and location**
+
+Evidence tier: Primary captured official DAC description plus existing chapter level semi virtual addressing discussion; no full paper extraction, reproduced RTL, security coverage matrix or baseline measurement. This is the stored source classification; the location and limits below determine what was actually read.
+
+[Open the recorded source](https://63dac.conference-program.com/?post_type=page&p=16&id=RESEARCH1715&sess=sess122)
+
+DAC 2026 official description; captured Problem, Mechanism / artifact, Workload, Hardware, Baseline, Measurements and Limits fields; record RESEARCH1715; no manuscript pages.
+
+<details markdown="1">
+<summary>Original captured fields — superseded for this reading card</summary>
+
+** page source tier:** medium_official_description
+
+**Baselines:** software-only memory protection
+
+full MMU-based virtual addressing
+
+**Evidence locators:** DAC 2026 official description
+
+**Evidence url:** https://63dac.conference-program.com/?post_type=page&p=16&id=RESEARCH1715&sess=sess122
+
+**Hardware or process assumptions:** Microcontroller-class RISC-V core with 575 KB physical address space and deterministic translation hardware; implementation area, timing, and memory technology are unspecified.
+
+**Limits:** The description omits translation area/latency, protection coverage, attack model, software compatibility, and baseline measurements.
+
+Address-space expansion is not equivalent to a full MMU's isolation or operating-system semantics.
+
+Official description only; security and implementation claims require paper-level verification.
+
+**Method or artifact:** Computation-based address translation through a page-table-free Lightweight Address Translation Module, integrated with heap randomization and type-safe allocation.
+
+**Metrics:** 575 KB physical address space expanded to 2 GB semi-virtual address space
+
+Heap randomization and type-safe allocation demonstrated qualitatively
+
+**Problem:** Microcontrollers lack virtual addressing for strong memory protection, while a full MMU adds cost and unpredictable latency.
+
+**Workload or benchmark:** RISC-V CORE-V-MCU memory-protection use cases; application workload, latency measurements, and security evaluation are unspecified.
+
+</details>
+
+<span id="paper-dac-2026-research208"></span>
+
+### S2CIM: A Secure-Computation and Secure-Storage Compute-in-Memory Architecture with Circuit-Algorithm Co-Design for Efficient and Trustworthy Edge Inference
+
+DAC 2026 · Record: `dac-2026-research208`
+
+[Read the step-by-step explanation](#explanation-dac-2026-research208)
+
+**Updated source-backed reading card**
+
+Reviewed 2026-09-08. Deepens the existing S2CIM treatment into a paper-level reading; separates weight, input, correctness and side-channel claims and makes threat model, key handling, area/energy boundary and attack-baseline requirements explicit.
+
+This editorial correction updates the current reading view and connected dossiers, not the historical adjudication or scientific acceptance status. The original captured fields are preserved below.
+
+[Correction register](../../data/editorial-paper-corrections-v1.json)
+
+**Problem:**
+
+Nonvolatile CIM exposes stored weights and plaintext inputs in untrusted edge environments, while prior in-memory encryption can require plaintext keys and incur large area overhead.
+
+**Mechanism / artifact:**
+
+FeFET-based secure CIM, Affine-Transform Splitting for offline/online obfuscation, and Drain-Input Gate-Scan signed multi-bit MAC circuitry; transform, key, peripheral, leakage and fault-protection details are unspecified.
+
+**Workload — the work tested:**
+
+16x16 CIM macro and encrypted Vision Transformer inference; model, dataset, precision, preprocessing, numerical-error accounting, attack procedures and protected/unprotected accuracy baselines are unspecified.
+
+**Hardware and manufacturing assumptions:**
+
+FeFET 1FeFET-1R nonvolatile CIM macro; process, retention, endurance, device variation, temperature, voltage, peripheral circuits, ADC/DAC, controller, key storage and physical attack access are unspecified.
+
+**Baseline — the comparison method:**
+
+Recent in-memory-encryption CIM schemes
+
+Common nonvolatile CIM architectures
+
+Area/energy boundary, operation definition, process, precision, model, dataset, peripherals and equal attack assumptions are unspecified
+
+**Reported measurements:**
+
+Up to 16.8x area-efficiency improvement, up to 6.7x lower energy per MAC, 97.4% encrypted ViT inference accuracy and 50% attack success under stated threat models are reported; no random-guess reference, complete system energy, model/dataset, process or key result is exposed.
+
+**Limits on the conclusion:**
+
+Secure inference has separate assets and claims: weight confidentiality, input confidentiality, computation correctness, fault integrity and side-channel resistance. A circuit transformation or task accuracy does not establish all of them.
+
+A 50% attack-success rate is not interpretable without the target, attacker access, number of alternatives, repetitions, measurement budget and random-guess or unprotected baseline. Key generation, storage, delivery, reset and exposure must be specified.
+
+The description omits process node, area definition, peripheral overhead, threat-model details, key management, dataset/model, attack procedure and accuracy degradation. The record supports circuit-and-algorithm co-design, not complete end-to-end confidentiality or integrity or a directly comparable energy/security result.
+
+**Source and location**
+
+Evidence tier: Primary captured official DAC description plus existing chapter level s2cim discussion; no full paper extraction, reproduced attack, complete peripheral accounting or end to end security validation. This is the stored source classification; the location and limits below determine what was actually read.
+
+[Open the recorded source](https://63dac.conference-program.com/?post_type=page&p=16&id=RESEARCH208&sess=sess123)
+
+DAC 2026 official description; captured Problem, Mechanism / artifact, Workload, Hardware, Baseline, Measurements and Limits fields; record RESEARCH208; no manuscript pages.
+
+<details markdown="1">
+<summary>Original captured fields — superseded for this reading card</summary>
+
+** page source tier:** medium_official_description
+
+**Baselines:** recent in-memory-encryption CIM schemes
+
+common nonvolatile CIM architectures
+
+**Evidence locators:** DAC 2026 official description
+
+**Evidence url:** https://63dac.conference-program.com/?post_type=page&p=16&id=RESEARCH208&sess=sess123
+
+**Hardware or process assumptions:** FeFET 1FeFET-1R nonvolatile CIM macro; process, endurance, peripheral circuits, ADC/DAC, and attack access are unspecified.
+
+**Limits:** The description omits process node, area definition, peripheral overhead, threat-model details, key management, dataset/model, and accuracy degradation.
+
+A 50% attack success rate is not interpretable without attack baseline and random-guess reference.
+
+Official description only; circuit security and measured energy require paper-level verification.
+
+**Method or artifact:** FeFET-based secure CIM, Affine-Transform Splitting for offline/online obfuscation, and Drain-Input Gate-Scan signed multi-bit MAC circuitry.
+
+**Metrics:** Up to 16.8x area-efficiency improvement
+
+Up to 6.7x lower energy per MAC
+
+97.4% encrypted ViT inference accuracy
+
+50% attack success rate under all stated threat models
+
+**Problem:** Nonvolatile CIM exposes stored weights and plaintext inputs in untrusted edge environments, while prior in-memory encryption can require plaintext keys and incur large area overhead.
+
+**Workload or benchmark:** 16×16 CIM macro and encrypted Vision Transformer inference; model, dataset, attack procedures, and accuracy/security baselines are unspecified.
+
+</details>
+
+<span id="paper-dac-2026-research2216"></span>
+
+### Safe-IoT: A Memory-Efficient HW/SW Co-Designed ML-DSA Accelerator for IoT Edge Devices
+
+DAC 2026 · Record: `dac-2026-research2216`
+
+[Read the step-by-step explanation](#explanation-dac-2026-research2216)
+
+**Updated source-backed reading card**
+
+Reviewed 2026-09-08. Deepens the existing Safe-IoT treatment into a paper-level reading; separates ML-DSA correctness, implementation efficiency and side-channel security and makes parameter-set, memory-boundary, baseline and end-to-end accounting requirements explicit.
+
+This editorial correction updates the current reading view and connected dossiers, not the historical adjudication or scientific acceptance status. The original captured fields are preserved below.
+
+[Correction register](../../data/editorial-paper-corrections-v1.json)
+
+**Problem:**
+
+IoT devices need secure post-quantum signatures but CPU implementations are slow and fixed hardware accelerators can be memory-heavy and difficult to adapt.
+
+**Mechanism / artifact:**
+
+Memory-efficient ML-DSA accelerator with MI-NTT circuit, LUT modular multiplication, and hardware/software co-design; parameter set, operation partition, table access behavior, randomness, constant-time/side-channel design and fault handling are unspecified.
+
+**Workload — the work tested:**
+
+ML-DSA key-generation, signing and verification operations on IoT edge devices; parameter set, message sizes, operation measured, CPU baseline, process, software stack, test vectors and end-to-end protocol boundary are unspecified.
+
+**Hardware and manufacturing assumptions:**
+
+IoT-oriented accelerator with on-chip RAM and NTT/modular arithmetic; process node, frequency, area, power, clock, memory technology, external-memory traffic, random-number source and hardware/software interface are unspecified.
+
+**Baseline — the comparison method:**
+
+State-of-the-art CPU-based designs
+
+Similar hardware/software co-design approaches
+
+CPU identity, vectorization, compiler, parameter set, clock/process, memory boundary, setup cost and equal operation accounting are unspecified
+
+**Reported measurements:**
+
+Up to 3.0x throughput improvement over CPU, 2.6–8.3x lower on-chip RAM and 4.28–176.53x area-time-product improvement are reported; no parameter set, operation definition, timing/area/power, total memory, end-to-end latency or leakage result is exposed.
+
+**Limits on the conclusion:**
+
+ML-DSA implementation correctness, throughput and side-channel security are separate claims. A fast NTT or modular multiplier does not establish valid signatures, key protection or resistance to timing, power, memory-access or fault attacks.
+
+Memory and area-time numbers require a complete boundary including coefficient buffers, keys, tables, randomness, controllers, CPU-side state, external traffic, setup and all peripherals. Wide ranges may reflect parameter sets or comparison boundaries.
+
+The description omits ML-DSA parameter set, CPU identity, process, frequency, memory accounting, correctness tests, power, leakage model and end-to-end operation. The record supports an implementation-efficiency direction, not a comparable end-to-end result or demonstrated cryptographic and side-channel security.
+
+**Source and location**
+
+Evidence tier: Primary captured official DAC description plus existing chapter level safe iot discussion; no full paper extraction, reproduced implementation, complete memory/energy accounting or side channel validation. This is the stored source classification; the location and limits below determine what was actually read.
+
+[Open the recorded source](https://63dac.conference-program.com/?post_type=page&p=16&id=RESEARCH2216&sess=sess146)
+
+DAC 2026 official description; captured Problem, Mechanism / artifact, Workload, Hardware, Baseline, Measurements and Limits fields; record RESEARCH2216; no manuscript pages.
+
+<details markdown="1">
+<summary>Original captured fields — superseded for this reading card</summary>
+
+** page source tier:** medium_official_description
+
+**Baselines:** state-of-the-art CPU-based designs
+
+similar hardware/software co-design approaches
+
+**Evidence locators:** DAC 2026 official description
+
+**Evidence url:** https://63dac.conference-program.com/?post_type=page&p=16&id=RESEARCH2216&sess=sess146
+
+**Hardware or process assumptions:** IoT-oriented accelerator with on-chip RAM and NTT/modular arithmetic; process node, frequency, area, power, and memory technology are unspecified.
+
+**Limits:** The description omits ML-DSA parameter set, timing/area/power, security leakage model, CPU identity, and RAM accounting.
+
+Large ATP ranges may reflect different parameter sets and comparison boundaries.
+
+Official description only; cryptographic correctness and hardware security require paper-level verification.
+
+**Method or artifact:** Memory-efficient ML-DSA accelerator with MI-NTT circuit, LUT modular multiplication, and hardware/software co-design.
+
+**Metrics:** Up to 3.0x throughput improvement over CPU
+
+2.6–8.3x lower on-chip RAM
+
+4.28–176.53x area-time-product improvement
+
+**Problem:** IoT devices need secure post-quantum signatures but CPU implementations are slow and fixed hardware accelerators can be memory-heavy and difficult to adapt.
+
+**Workload or benchmark:** ML-DSA post-quantum signature operations on IoT edge devices; parameter set, message sizes, CPU baseline, process, and software stack are unspecified.
+
+</details>
+
+<span id="paper-dac-2026-research296"></span>
+
+### A Remote Side-Channel Attack on Post-Quantum Key Encapsulation Mechanisms: A Case Study of ML-KEM on Intel x86
+
+DAC 2026 · Record: `dac-2026-research296`
+
+[Read the step-by-step explanation](#explanation-dac-2026-research296)
+
+**Updated source-backed reading card**
+
+Reviewed 2026-09-08. Deepens the existing remote ML-KEM side-channel treatment into a paper-level reading; separates mathematical scheme security from implementation leakage and makes oracle, remote-observation, recovery-denominator, processor, noise and mitigation requirements explicit.
+
+This editorial correction updates the current reading view and connected dossiers, not the historical adjudication or scientific acceptance status. The original captured fields are preserved below.
+
+[Correction register](../../data/editorial-paper-corrections-v1.json)
+
+**Problem:**
+
+Remote side-channel resilience of standardized post-quantum cryptography is underexplored, while microarchitectural and power-management mechanisms may still leak secrets.
+
+**Mechanism / artifact:**
+
+Generic remote power side-channel analysis and secret-key recovery against ML-KEM, using plaintext-checking behavior as an oracle on Intel x86; exact oracle, trace interface, implementation, parameter set and mitigation are unspecified.
+
+**Workload — the work tested:**
+
+PQClean ML-KEM implementation on a modern Intel x86 processor with remote trace collection; parameter set, key count, ciphertext/query protocol, network distance, trace count, attack time and workload noise are unspecified.
+
+**Hardware and manufacturing assumptions:**
+
+Modern Intel x86 with speculative execution and dynamic power-management effects; processor SKU, microcode, operating system, compiler, frequency state, performance/power interface, virtualization and remote access assumptions are unspecified.
+
+**Baseline — the comparison method:**
+
+Physical side-channel threat assumptions
+
+ML-KEM implementations under remote observation
+
+Unprotected implementation, processor configurations, network/noise conditions, attack budget and mitigation baselines are unspecified
+
+**Reported measurements:**
+
+Up to 99.5% secret-key recovery success, remote trace exploitability and effects of speculative execution and dynamic power management are reported; no recovery denominator, exact-key definition, trace/query count, attack time, distance or transfer result is exposed.
+
+**Limits on the conclusion:**
+
+ML-KEM's mathematical security and an implementation's leakage resistance are separate. A remote side channel can exploit secret-dependent execution or power behavior without invalidating the scheme's underlying hardness assumption.
+
+A plaintext-checking oracle requires a defined attacker input, observable response, trace path and query budget. Network noise, scheduling, frequency state, co-tenants and sensor access determine whether a laboratory signal is remotely usable.
+
+The description does not specify network distance, trace counts, processor SKU, attack time, implementation/parameter set, mitigations or transfer to other ML-KEM implementations. The record supports remote exploitability under tested conditions, not a universal ML-KEM break or general recovery rate.
+
+**Source and location**
+
+Evidence tier: Primary captured official DAC description plus existing chapter level remote side channel discussion; no full paper extraction, reproduced trace collection, key recovery protocol or mitigation validation. This is the stored source classification; the location and limits below determine what was actually read.
+
+[Open the recorded source](https://63dac.conference-program.com/?post_type=page&p=16&id=RESEARCH296&sess=sess107)
+
+DAC 2026 official description; captured Problem, Mechanism / artifact, Workload, Hardware, Baseline, Measurements and Limits fields; record RESEARCH296; no exact paper page, section or table recorded.
+
+<details markdown="1">
+<summary>Original captured fields — superseded for this reading card</summary>
+
+** page source tier:** medium_official_description
+
+**Baselines:** physical side-channel threat assumptions
+
+ML-KEM implementations under remote observation
+
+**Evidence locators:** Not established in the captured evidence.
+
+**Evidence url:** https://63dac.conference-program.com/?post_type=page&p=16&id=RESEARCH296&sess=sess107
+
+**Hardware or process assumptions:** Not established in the captured evidence.
+
+**Limits:** The description does not specify network distance, noise, trace counts, processor SKU, attack time, mitigations, or transfer to other ML-KEM implementations.
+
+**Method or artifact:** Generic remote power side-channel analysis and secret-key recovery against ML-KEM, using plaintext-checking behavior as an oracle on Intel x86.
+
+**Metrics:** up to 99.5% secret-key recovery success
+
+remote trace exploitability
+
+effect of speculative execution and dynamic power management
+
+**Problem:** Remote side-channel resilience of standardized post-quantum cryptography is underexplored, while microarchitectural and power-management mechanisms may still leak secrets.
+
+**Workload or benchmark:** PQClean ML-KEM implementation on a modern Intel x86 processor with remote trace collection.
+
+</details>
+
+<span id="paper-dac-2026-research1444"></span>
+
+### Janus: Compiler-Based Defense Against Transient Execution Attacks Using ARM Hardware Primitives
+
+DAC 2026 · Record: `dac-2026-research1444`
+
+[Read the step-by-step explanation](#explanation-dac-2026-research1444)
+
+**Updated source-backed reading card**
+
+Reviewed 2026-09-08. Deepens the existing Janus treatment into a paper-level reading; separates control-flow integrity from transient confidentiality and makes compiler coverage, ARM/OS/ABI assumptions, attack classes, security invariants and overhead-accounting requirements explicit.
+
+This editorial correction updates the current reading view and connected dossiers, not the historical adjudication or scientific acceptance status. The original captured fields are preserved below.
+
+[Correction register](../../data/editorial-paper-corrections-v1.json)
+
+**Problem:**
+
+Transient execution attacks such as Spectre and control-flow hijacking require defenses that protect speculation without imposing large performance or code-size costs.
+
+**Mechanism / artifact:**
+
+Compiler-based defense using ARM pointer authentication and BTI primitives, modifier fusion, and carrier-register reuse; compiler coverage, security invariant, failure path, ABI integration and transient-leakage mechanism are unspecified.
+
+**Workload — the work tested:**
+
+SPEC CPU2017 and real-world ARM64 applications; compiler version, hardware generation, optimization settings, libraries, attack variants, attacker privilege, observation channel and security coverage are unspecified.
+
+**Hardware and manufacturing assumptions:**
+
+ARM64 processors with pointer-authentication and BTI microarchitectural features; hardware generation, OS, ABI, compiler/linker/loader, key management, exception behavior and shared-library assumptions are unspecified.
+
+**Baseline — the comparison method:**
+
+Unprotected ARM64 execution
+
+Existing control-flow integrity defenses
+
+Baseline compiler, optimization, code-size, attack coverage, hardware/OS configuration and equal workload conditions are unspecified
+
+**Reported measurements:**
+
+3.85% average SPEC CPU2017 overhead and 2.97–7.80% overhead on real-world applications are reported; no code-size, energy, instruction, coverage, attack-success or security-proof result is exposed.
+
+**Limits on the conclusion:**
+
+PAC protects authenticated pointer transitions and BTI constrains some indirect branch targets; neither primitive alone proves that valid targets, direct branches, data-dependent leakage or all speculative channels are safe.
+
+Compiler transformations require explicit invariants and whole-program coverage across returns, indirect calls, tail calls, callbacks, exceptions, signals, assembly, shared libraries and dynamic loading. Modifier or register reuse can alter both coverage and failure behavior.
+
+The description omits attack coverage, code-size effects, security proof, hardware/OS/ABI/compiler versions and baseline defenses. Low average overhead supports a performance claim under stated workloads, not protection against all transient-execution variants or complete confidentiality.
+
+**Source and location**
+
+Evidence tier: Primary captured official DAC description plus existing chapter level janus discussion; no full paper extraction, reproduced compiler pass, attack matrix or security proof. This is the stored source classification; the location and limits below determine what was actually read.
+
+[Open the recorded source](https://63dac.conference-program.com/?post_type=page&p=16&id=RESEARCH1444&sess=sess131)
+
+DAC 2026 official description; captured Problem, Mechanism / artifact, Workload, Hardware, Baseline, Measurements and Limits fields; record RESEARCH1444; no manuscript pages.
+
+<details markdown="1">
+<summary>Original captured fields — superseded for this reading card</summary>
+
+** page source tier:** medium_official_description
+
+**Baselines:** unprotected ARM64 execution
+
+existing control-flow integrity defenses
+
+**Evidence locators:** DAC 2026 official description
+
+**Evidence url:** https://63dac.conference-program.com/?post_type=page&p=16&id=RESEARCH1444&sess=sess131
+
+**Hardware or process assumptions:** ARM64 processors with pointer-authentication and BTI microarchitectural features; hardware generation, OS, ABI, and attacker model are unspecified.
+
+**Limits:** The description omits attack coverage, code-size effects, security proof, hardware/OS versions, and baseline defenses.
+
+Low average overhead does not establish protection against all transient-execution variants.
+
+Official description only; security and performance claims require paper-level verification.
+
+**Method or artifact:** Compiler-based defense using ARM pointer authentication and BTI primitives, modifier fusion, and carrier-register reuse.
+
+**Metrics:** 3.85% average SPEC CPU2017 overhead
+
+2.97–7.80% overhead on real-world applications
+
+**Problem:** Transient execution attacks such as Spectre and control-flow hijacking require defenses that protect speculation without imposing large performance or code-size costs.
+
+**Workload or benchmark:** SPEC CPU2017 and real-world ARM64 applications; compiler version, attack variants, optimization settings, and security coverage are unspecified.
+
+</details>
+
+<span id="paper-dac-2026-research1497"></span>
+
+### Unveiling the Security Risks Driven by the Hardware Interrupts
+
+DAC 2026 · Record: `dac-2026-research1497`
+
+[Read the step-by-step explanation](#explanation-dac-2026-research1497)
+
+**Updated source-backed reading card**
+
+Reviewed 2026-09-08. Deepens the existing hardware-interrupt security treatment into a paper-level reading; separates interrupt delivery from attack feasibility and makes trigger prerequisites, leakage, platform prevalence, false positives and mitigation requirements explicit.
+
+This editorial correction updates the current reading view and connected dossiers, not the historical adjudication or scientific acceptance status. The original captured fields are preserved below.
+
+[Correction register](../../data/editorial-paper-corrections-v1.json)
+
+**Problem:**
+
+Poorly managed hardware interrupts expose low-level events to unprivileged software and create unexpected attack surfaces.
+
+**Mechanism / artifact:**
+
+Automated interrupt-feature and trigger-condition testing framework plus interrupt-based secret-leakage attack primitives; enumeration, oracle, finding validation, platform scope and mitigation behavior are unspecified.
+
+**Workload — the work tested:**
+
+Six discovered vulnerable interrupts and four attack demonstrations; systems, kernels, devices, interrupt sources, attacker privileges, trigger prerequisites, leakage rates, ground truth and comparison coverage are unspecified.
+
+**Hardware and manufacturing assumptions:**
+
+Computer systems with hardware interrupts observable or triggerable by unprivileged software; CPU, interrupt controller, OS, kernel, device, firmware, privilege boundary, scheduling and peripheral details are unspecified.
+
+**Baseline — the comparison method:**
+
+Normal interrupt-management assumptions
+
+Spectre attack without the proposed enhancement
+
+Known-safe configurations, unprotected/protected cases, false-positive oracle, platform matrix and mitigation baselines are unspecified
+
+**Reported measurements:**
+
+Six vulnerable interrupts discovered and four attack demonstrations are reported; no leakage rate, secret bits, attack time, repeatability, false-positive/negative rate, platform prevalence or mitigation result is exposed.
+
+**Limits on the conclusion:**
+
+An interrupt is an attack surface only through a complete path: trigger authority, controller configuration, privilege transition, handler inputs and observable side effects. Interrupt delivery alone does not prove secret leakage.
+
+Four demonstrations establish feasibility under their conditions but not prevalence. Each case requires processor/OS/device configuration, exploit prerequisites, protected asset, observation channel, success criterion, repeatability and end-to-end cost.
+
+The description omits processor/OS configurations, exploit prerequisites, leakage rates, mitigations and false-positive analysis. The record supports attack-feasibility demonstrations, not general platform prevalence or a practical exploit claim.
+
+**Source and location**
+
+Evidence tier: Primary captured official DAC description plus existing chapter level interrupt security discussion; no full paper extraction, reproduced framework, finding matrix or mitigation validation. This is the stored source classification; the location and limits below determine what was actually read.
+
+[Open the recorded source](https://63dac.conference-program.com/?post_type=page&p=16&id=RESEARCH1497&sess=sess107)
+
+DAC 2026 official description; captured Problem, Mechanism / artifact, Workload, Hardware, Baseline, Measurements and Limits fields; record RESEARCH1497; no manuscript pages.
+
+<details markdown="1">
+<summary>Original captured fields — superseded for this reading card</summary>
+
+** page source tier:** medium_official_description
+
+**Baselines:** normal interrupt-management assumptions
+
+Spectre attack without the proposed enhancement
+
+**Evidence locators:** DAC 2026 official description
+
+**Evidence url:** https://63dac.conference-program.com/?post_type=page&p=16&id=RESEARCH1497&sess=sess107
+
+**Hardware or process assumptions:** Computer systems with hardware interrupts observable or triggerable by unprivileged software; privilege boundaries, CPU, OS, and interrupt-controller details are unspecified.
+
+**Limits:** The description omits processor/OS configurations, exploit prerequisites, leakage rates, mitigations, and false-positive analysis.
+
+Demonstrations establish attack feasibility but not prevalence across platforms or practical end-to-end exploit cost.
+
+Official description only; security claims require paper-level and responsible-disclosure verification.
+
+**Method or artifact:** Automated interrupt-feature and trigger-condition testing framework plus interrupt-based secret-leakage attack primitives.
+
+**Metrics:** Six vulnerable interrupts discovered
+
+Four attack demonstrations
+
+**Problem:** Poorly managed hardware interrupts expose low-level events to unprivileged software and create unexpected attack surfaces.
+
+**Workload or benchmark:** Six discovered vulnerable interrupts and four attack demonstrations; systems, kernels, devices, and comparison coverage are unspecified.
+
+</details>
+
+<span id="paper-dac-2026-research1494"></span>
+
+### When Cloud TEEs Encounter Availability: A Lightweight Framework for Verifiable CPU Availability
+
+DAC 2026 · Record: `dac-2026-research1494`
+
+[Read the step-by-step explanation](#explanation-dac-2026-research1494)
+
+**Updated source-backed reading card**
+
+Reviewed 2026-09-08. Deepens the existing cloud-TEE availability treatment into a paper-level reading; separates confidentiality/integrity from CPU availability and makes resource commitments, attestation, scheduler trust, fairness, threat model and FPGA-transfer requirements explicit.
+
+This editorial correction updates the current reading view and connected dossiers, not the historical adjudication or scientific acceptance status. The original captured fields are preserved below.
+
+[Correction register](../../data/editorial-paper-corrections-v1.json)
+
+**Problem:**
+
+Trusted execution environments depend on untrusted schedulers and can suffer CPU denial-of-service attacks that compromise enclave availability.
+
+**Mechanism / artifact:**
+
+Availability-verifiable remote attestation with resource commitments plus trusted runtime monitoring and preemptive scheduling; commitment metric, monitor trust, progress evidence, failure protocol and scheduler details are unspecified.
+
+**Workload — the work tested:**
+
+TEE contention and CPU-DoS evaluation on an FPGA, compared with native TEEs and Keystone; enclave workloads, contention levels, attacker workload, progress target, fairness, FPGA configuration and attack traces are unspecified.
+
+**Hardware and manufacturing assumptions:**
+
+FPGA implementation of a TEE/trusted scheduler and remote-attestation path; TCB, processor, memory, enclave size, scheduler, timer, interrupt, memory-bandwidth and cloud-virtualization details are unspecified.
+
+**Baseline — the comparison method:**
+
+Native TEE under contention
+
+Keystone
+
+Hardware cost, enclave workload, contention generator, progress metric, attacker budget, resource reservation and equal phase accounting are unspecified
+
+**Reported measurements:**
+
+Native TEE: 94.8% performance loss and up to 19.7x slowdown under contention; less than 2% enclave startup and normal-runtime overhead; 1.70% average overhead versus Keystone; no fairness, worst-case progress, resource cost or availability-guarantee result is exposed.
+
+**Limits on the conclusion:**
+
+Confidentiality and integrity do not imply availability. Remote attestation can identify code and configuration, but it does not by itself prove future CPU share, bounded scheduling delay or progress under contention.
+
+A resource commitment needs a measurable target such as minimum CPU share, maximum pause or deadline, plus trusted monitoring, admission policy, fairness and evidence that cannot be replayed or fabricated. Scheduler and monitor components expand the TCB and failure surface.
+
+The description omits threat-model detail, enclave workloads, fairness guarantees, hardware cost, TCB, processor, memory boundary and attestation-protocol changes. FPGA results may not transfer to deployed CPU TEEs or cloud scheduling environments.
+
+**Source and location**
+
+Evidence tier: Primary captured official DAC description plus existing chapter level cloud tee availability discussion; no full paper extraction, reproduced scheduler, fairness evaluation or deployed cpu validation. This is the stored source classification; the location and limits below determine what was actually read.
+
+[Open the recorded source](https://63dac.conference-program.com/?post_type=page&p=16&id=RESEARCH1494&sess=sess122)
+
+DAC 2026 official description; captured Problem, Mechanism / artifact, Workload, Hardware, Baseline, Measurements and Limits fields; record RESEARCH1494; no manuscript pages.
+
+<details markdown="1">
+<summary>Original captured fields — superseded for this reading card</summary>
+
+** page source tier:** medium_official_description
+
+**Baselines:** native TEE under contention
+
+Keystone
+
+**Evidence locators:** DAC 2026 official description
+
+**Evidence url:** https://63dac.conference-program.com/?post_type=page&p=16&id=RESEARCH1494&sess=sess122
+
+**Hardware or process assumptions:** FPGA implementation of a TEE/trusted scheduler and remote-attestation path; TCB, processor, memory, enclave size, and scheduler details are unspecified.
+
+**Limits:** The description omits threat-model detail, enclave workloads, fairness guarantees, hardware cost, and attestation protocol changes.
+
+FPGA results may not transfer to deployed CPU TEEs or cloud scheduling environments.
+
+Official description only; availability and security claims require paper-level verification.
+
+**Method or artifact:** Availability-verifiable remote attestation with resource commitments plus trusted runtime monitoring and preemptive scheduling.
+
+**Metrics:** Native TEE: 94.8% performance loss and up to 19.7x slowdown under contention
+
+Less than 2% enclave startup and normal-runtime overhead
+
+1.70% average overhead versus Keystone
+
+**Problem:** Trusted execution environments depend on untrusted schedulers and can suffer CPU denial-of-service attacks that compromise enclave availability.
+
+**Workload or benchmark:** TEE contention and CPU-DoS evaluation on an FPGA, compared with native TEEs and Keystone; enclave workloads, contention levels, FPGA configuration, and attack traces are unspecified.
+
+</details>
+
+<span id="paper-dac-2026-research1495"></span>
+
+### PMU-Faker: The Apparently Harmless Performance Monitoring Unit Events Are Actually Harmful
+
+DAC 2026 · Record: `dac-2026-research1495`
+
+[Read the step-by-step explanation](#explanation-dac-2026-research1495)
+
+**Updated source-backed reading card**
+
+Reviewed 2026-09-08. Deepens the existing PMU-Faker treatment into a paper-level reading; separates legitimate performance measurement from timer replacement and makes event access, calibration, platform coverage, attack denominators, false positives and mitigation requirements explicit.
+
+This editorial correction updates the current reading view and connected dossiers, not the historical adjudication or scientific acceptance status. The original captured fields are preserved below.
+
+[Correction register](../../data/editorial-paper-corrections-v1.json)
+
+**Problem:**
+
+Performance monitoring events that appear securely implemented can still expose timing signals usable to construct side-channel attacks without an explicit timer.
+
+**Mechanism / artifact:**
+
+Automated PMU-event fuzzing and PMU-Faker timing mechanisms balancing precision and adaptability across instruction-triggered cycle variation; event semantics, access, calibration, virtualization and attack pipeline are unspecified.
+
+**Workload — the work tested:**
+
+118 discovered PMU events and four attack demonstrations; processor generations, OS/hypervisor, event configurations, victim workloads, attacker privilege, leakage rates, trace counts and mitigations are unspecified.
+
+**Hardware and manufacturing assumptions:**
+
+Modern CPU performance-monitoring units, transient execution, AES, SGX and virtualized environments; microarchitecture, event encoding, counter width, privilege model, core scheduling, PMU access controls and virtualization are unspecified.
+
+**Baseline — the comparison method:**
+
+Conventional timer-based timing side channels
+
+Existing PMU-event security assumptions
+
+Event access, timer resolution, platform, victim, attacker privilege, calibration, trace budget and mitigation baselines are unspecified
+
+**Reported measurements:**
+
+118 vulnerable PMU events and four demonstrated attacks are reported; no platform coverage, event-level timing resolution, leakage rate, key/data recovery, trace/query count, false-positive rate or mitigation cost is exposed.
+
+**Limits on the conclusion:**
+
+A PMU event becomes a timing side channel when an attacker can observe a repeatable count difference caused by secret-dependent work. Removing an explicit timer does not remove a usable measurement signal.
+
+A discovery count depends on event encodings, CPU generation, OS permissions, counter configuration, virtualization and search space. Each attack needs access, calibration, trace budget, downstream recovery metric and a defined privilege boundary.
+
+The description omits platform coverage, exploit prerequisites, timing resolution, leakage rates, false positives and mitigation cost. The record supports timer-replacement attack feasibility, not prevalence across processors or cloud deployments.
+
+**Source and location**
+
+Evidence tier: Primary captured official DAC description plus existing chapter level pmu faker discussion; no full paper extraction, reproduced event fuzzing corpus, platform matrix or mitigation validation. This is the stored source classification; the location and limits below determine what was actually read.
+
+[Open the recorded source](https://63dac.conference-program.com/?post_type=page&p=16&id=RESEARCH1495&sess=sess107)
+
+DAC 2026 official description; captured Problem, Mechanism / artifact, Workload, Hardware, Baseline, Measurements and Limits fields; record RESEARCH1495; no manuscript pages.
+
+<details markdown="1">
+<summary>Original captured fields — superseded for this reading card</summary>
+
+** page source tier:** medium_official_description
+
+**Baselines:** conventional timer-based timing side channels
+
+existing PMU-event security assumptions
+
+**Evidence locators:** DAC 2026 official description
+
+**Evidence url:** https://63dac.conference-program.com/?post_type=page&p=16&id=RESEARCH1495&sess=sess107
+
+**Hardware or process assumptions:** Modern CPU performance-monitoring units, transient execution, AES, SGX, and virtualized environments; microarchitecture, privilege model, and PMU access controls are unspecified.
+
+**Limits:** The description omits platform coverage, exploit prerequisites, timing resolution, leakage rates, false positives, and mitigation cost.
+
+Attack demonstrations establish feasibility but not prevalence across processors or cloud deployments.
+
+Official description only; security claims require paper-level and responsible-disclosure verification.
+
+**Method or artifact:** Automated PMU-event fuzzing and PMU-Faker timing mechanisms balancing precision and adaptability across instruction-triggered cycle variation.
+
+**Metrics:** 118 vulnerable PMU events discovered
+
+Four demonstrated attacks
+
+**Problem:** Performance monitoring events that appear securely implemented can still expose timing signals usable to construct side-channel attacks without an explicit timer.
+
+**Workload or benchmark:** 118 discovered PMU events and four attack demonstrations; processor generations, OS/hypervisor, event configurations, leakage rates, and mitigations are unspecified.
+
+</details>
+
+<span id="paper-dac-2026-research1920"></span>
+
+### Graph-Based Attack-Chain Traceback Across Multiple In-Vehicle Network Domains
+
+DAC 2026 · Record: `dac-2026-research1920`
+
+[Read the step-by-step explanation](#explanation-dac-2026-research1920)
+
+**Updated source-backed reading card**
+
+Reviewed 2026-09-08. Deepens the existing in-vehicle traceback treatment into a paper-level reading; separates alert quality from graph reconstruction and makes temporal edges, plausibility checks, certification compatibility, metric denominators and cross-vehicle validation explicit.
+
+This editorial correction updates the current reading view and connected dossiers, not the historical adjudication or scientific acceptance status. The original captured fields are preserved below.
+
+[Correction register](../../data/editorial-paper-corrections-v1.json)
+
+**Problem:**
+
+Connected vehicles require multi-stage attack traceback, but packet marking can violate UN R155 and ISO/SAE 21434 certification boundaries and production resources are constrained.
+
+**Mechanism / artifact:**
+
+Certification-compatible gateway traceback using temporal graphs over existing cross-domain IDS alerts and four plausibility checks; node/edge semantics, clock handling, missing-alert behavior, causal claim and certification evidence are unspecified.
+
+**Workload — the work tested:**
+
+Multi-domain in-vehicle attack traceback evaluated on a production Leapmotor C10; attack scenarios, alert corpus, baseline methods, dataset split, benign traffic, missing alerts, latency and cross-vehicle validation are unspecified.
+
+**Hardware and manufacturing assumptions:**
+
+Production vehicle gateway spanning host, Ethernet and CAN domains with limited CPU/memory; vehicle software, IDS configuration, gateway topology, clocks, logging, certification process and deployment boundary are unspecified.
+
+**Baseline — the comparison method:**
+
+Traditional packet-marking traceback
+
+Prior attack-chain traceback baselines
+
+Alert quality, split, attack cases, edge/chain metric definitions, hardware boundary and equal runtime conditions are unspecified
+
+**Reported measurements:**
+
+0.90 edge-level F1, 0.086 false-discovery rate, 64% higher F1 than baselines, 72% false-discovery-rate reduction, 1.2% CPU and 26 MB memory on one production vehicle; recall breakdown, chain accuracy, latency, alert quality and generality are not reported.
+
+**Limits on the conclusion:**
+
+A temporal graph links partial IDS observations under ordering and plausibility constraints; it does not by itself prove that one alert caused another or identify the attacker. The result is not proven causal attribution. Missing or false alerts can create or erase paths.
+
+Edge-level F1 and false-discovery rate require denominators and should be separated from alert precision/recall, complete-chain accuracy, latency, response quality and safety impact. Relative baseline gains can trade recall for fewer paths.
+
+The description omits recall breakdown, attack coverage, alert quality, latency, vehicle generality and certification evidence. One production vehicle and released dataset do not establish robustness across OEM architectures or IDS deployments.
+
+**Source and location**
+
+Evidence tier: Primary captured official DAC description plus existing chapter level in vehicle traceback discussion; no full paper extraction, reproduced alert corpus, cross vehicle test or certification review. This is the stored source classification; the location and limits below determine what was actually read.
+
+[Open the recorded source](https://63dac.conference-program.com/?post_type=page&p=16&id=RESEARCH1920&sess=sess122)
+
+DAC 2026 official description; captured Problem, Mechanism / artifact, Workload, Hardware, Baseline, Measurements and Limits fields; record RESEARCH1920; no manuscript pages.
+
+<details markdown="1">
+<summary>Original captured fields — superseded for this reading card</summary>
+
+** page source tier:** medium_official_description
+
+**Baselines:** traditional packet-marking traceback
+
+prior attack-chain traceback baselines
+
+**Evidence locators:** DAC 2026 official description
+
+**Evidence url:** https://63dac.conference-program.com/?post_type=page&p=16&id=RESEARCH1920&sess=sess122
+
+**Hardware or process assumptions:** Production vehicle gateway spanning host, Ethernet, and CAN domains with limited CPU/memory; vehicle software, IDS configuration, and certification process are unspecified.
+
+**Limits:** The description omits recall breakdown, attack coverage, alert quality, latency, vehicle generality, and certification evidence.
+
+Performance on one vehicle and released dataset does not establish robustness across OEM architectures or IDS deployments.
+
+Official description only; security and compliance claims require paper-level and independent dataset verification.
+
+**Method or artifact:** Certification-compatible gateway traceback using temporal graphs over existing cross-domain IDS alerts and four plausibility checks.
+
+**Metrics:** 0.90 edge-level F1
+
+0.086 false-discovery rate
+
+64% higher F1 than baselines
+
+72% false-discovery-rate reduction
+
+1.2% CPU and 26 MB memory on production vehicle
+
+**Problem:** Connected vehicles require multi-stage attack traceback, but packet marking can violate UN R155 and ISO/SAE 21434 certification boundaries and production resources are constrained.
+
+**Workload or benchmark:** Multi-domain in-vehicle attack traceback evaluated on a production Leapmotor C10; attack scenarios, alert corpus, baseline methods, and dataset split are unspecified.
+
+</details>
+
+<span id="paper-dac-2026-research1732"></span>
+
+### Drop-In Masked Modular Reduction for ML-DSA: Cutting Side-Channel Cost in the Root-of-Trust
+
+DAC 2026 · Record: `dac-2026-research1732`
+
+[Read the step-by-step explanation](#explanation-dac-2026-research1732)
+
+**Updated source-backed reading card**
+
+Reviewed 2026-09-08. Deepens the existing masked modular-reduction treatment into a paper-level reading; explains first-order shares, drop-in interface boundaries, reduction arithmetic, resource denominators and TVLA limits.
+
+This editorial correction updates the current reading view and connected dossiers, not the historical adjudication or scientific acceptance status. The original captured fields are preserved below.
+
+[Correction register](../../data/editorial-paper-corrections-v1.json)
+
+**Problem:**
+
+First-order masking for post-quantum ML-DSA protects against side channels but imposes roughly 6x area overhead in constrained root-of-trust hardware.
+
+**Mechanism / artifact:**
+
+Drop-in masked modular-reduction architecture optimized for Caliptra ML-DSA signing; share representation, randomness, reduction arithmetic, pipeline, interface and full-signing boundary are unspecified.
+
+**Workload — the work tested:**
+
+Caliptra ML-DSA reduction and signing with TVLA leakage evaluation over more than one million traces; parameter set, coefficient width, FPGA/ASIC process, clock, security order, trace setup, analysis threshold and baseline implementation details are unspecified.
+
+**Hardware and manufacturing assumptions:**
+
+Caliptra root-of-trust hardware with masked ML-DSA, LUT/FF resource accounting and first-order TVLA; target fabric/process, voltage, clock, area boundary, placement/routing, randomness source, probe and surrounding pipeline are unspecified.
+
+**Baseline — the comparison method:**
+
+Caliptra masked ML-DSA reduction
+
+Unoptimized Caliptra ML-DSA implementation
+
+Reduction versus full-signing boundary, FPGA/ASIC configuration, clock, process, memory/randomness and leakage-test conditions are unspecified
+
+**Reported measurements:**
+
+12.1x speedup, 86.7% LUT reduction, 94.5% FF reduction, 91x area-delay-efficiency improvement, 1.32x signing-throughput improvement and no first-order leakage in TVLA over more than 1,000,000 traces are reported; absolute area, delay, power, TVLA setup and higher-order results are absent.
+
+**Limits on the conclusion:**
+
+First-order masking hides a sensitive value across shares under stated leakage and randomness assumptions. It does not automatically protect against higher-order, glitch, routing, electromagnetic, fault or unmasked-surrounding-pipeline attacks.
+
+A reduction-unit speedup or resource reduction is not an end-to-end signing gain. LUT/FF counts and area-delay efficiency require FPGA/process, clock, synthesis, placement, randomness, memory, control and surrounding ML-DSA boundaries.
+
+No first-order leakage in the reported TVLA setup over more than one million traces is evidence under that test, not a universal security proof. The description omits absolute area, delay, power, TVLA setup, leakage threshold, higher-order leakage, process and full-signing accounting.
+
+**Source and location**
+
+Evidence tier: Primary captured official DAC description plus existing chapter level masked ml dsa discussion; no full paper extraction, reproduced masked RTL, complete signing path leakage test or asic validation. This is the stored source classification; the location and limits below determine what was actually read.
+
+[Open the recorded source](https://63dac.conference-program.com/?post_type=page&p=16&id=RESEARCH1732&sess=sess107)
+
+DAC 2026 official description; captured Problem, Mechanism / artifact, Workload, Hardware, Baseline, Measurements and Limits fields; record RESEARCH1732; no manuscript pages.
+
+<details markdown="1">
+<summary>Original captured fields — superseded for this reading card</summary>
+
+** page source tier:** medium_official_description
+
+**Baselines:** Caliptra masked ML-DSA reduction
+
+unoptimized Caliptra ML-DSA implementation
+
+**Evidence locators:** DAC 2026 official description
+
+**Evidence url:** https://63dac.conference-program.com/?post_type=page&p=16&id=RESEARCH1732&sess=sess107
+
+**Hardware or process assumptions:** Caliptra root-of-trust hardware with masked ML-DSA, LUT/FF resource accounting, and first-order TVLA; target fabric/process, voltage, and area boundary are unspecified.
+
+**Limits:** The description omits absolute area, delay, power, TVLA setup, leakage threshold, higher-order leakage, and process details.
+
+No first-order leakage under the reported test does not establish security against higher-order or implementation-specific attacks.
+
+Official description only; cryptographic and hardware claims require paper-level verification.
+
+**Method or artifact:** Drop-in masked modular-reduction architecture optimized for Caliptra ML-DSA signing.
+
+**Metrics:** 12.1x speedup
+
+86.7% LUT reduction
+
+94.5% FF reduction
+
+91x area-delay-efficiency improvement
+
+1.32x signing-throughput improvement
+
+No first-order leakage in TVLA over more than 1,000,000 traces
+
+**Problem:** First-order masking for post-quantum ML-DSA protects against side channels but imposes roughly 6x area overhead in constrained root-of-trust hardware.
+
+**Workload or benchmark:** Caliptra ML-DSA reduction and signing with TVLA leakage evaluation over more than one million traces; FPGA/ASIC process, clock, security order, and baseline implementation details are unspecified.
+
+</details>
+
+<span id="paper-dac-2026-research3042"></span>
+
+### BREW-RC: Bit-Exact Recovery of ECCs from Write Timing in ReRAM Crossbars
+
+DAC 2026 · Record: `dac-2026-research3042`
+
+[Read the step-by-step explanation](#explanation-dac-2026-research3042)
+
+**Updated source-backed reading card**
+
+Reviewed 2026-09-08. Deepens the existing BREW-RC treatment into a paper-level reading; explains hidden ECC parity structure, timing observation, SAT uniqueness, physical-access boundary, sample complexity and product-transfer limits.
+
+This editorial correction updates the current reading view and connected dossiers, not the historical adjudication or scientific acceptance status. The original captured fields are preserved below.
+
+[Correction register](../../data/editorial-paper-corrections-v1.json)
+
+**Problem:**
+
+ECC parity bits in ReRAM crossbars are not directly readable, limiting reliability characterization and timing-side-channel modeling.
+
+**Mechanism / artifact:**
+
+Non-invasive write-timing side-channel analysis with SAT-based recovery of the bit-exact ECC parity matrix; timing signal, controller path, constraints, uniqueness and validation procedure are unspecified.
+
+**Workload — the work tested:**
+
+Two commercial ReRAM products and multiple device samples; write patterns, timing resolution, ECC families, measurement equipment, sample complexity, recovery time, noise, operating conditions and recovery success definition are unspecified.
+
+**Hardware and manufacturing assumptions:**
+
+Commercial ReRAM crossbar memories with hidden ECC and variable write latency; controller, process, environmental conditions, wear state, interface, queueing, firmware and attacker-access assumptions are unspecified.
+
+**Baseline — the comparison method:**
+
+Opaque ECC behavior without recovered parity matrix
+
+Timing models that omit ECC parity effects
+
+Unrecovered-matrix reliability model, controller scheduling, measurement access, environmental conditions and countermeasure baselines are unspecified
+
+**Reported measurements:**
+
+Complete ECC recovery on two commercial ReRAM products is reported; no sample complexity, timing resolution, noise, recovery time, candidate-matrix uniqueness, downstream reliability/attack benefit or countermeasure result is exposed.
+
+**Limits on the conclusion:**
+
+Write timing can reveal hidden parity relationships only when ECC-dependent effects are distinguishable from programming time, retries, queueing, wear, temperature, voltage and controller activity. Non-invasive measurement does not define how much physical or software access an attacker needs.
+
+SAT can find a matrix consistent with timing constraints, but bit-exact recovery requires uniqueness or independent validation across bit ordering, parity placement and controller transformations. Candidate count, observations and solver cost must be reported.
+
+The description omits sample complexity, measurement noise, recovery time, countermeasures, product diversity, controller behavior and attacker access. Recovery feasibility on two products does not establish a general ReRAM vulnerability or deployed-system consequence.
+
+**Source and location**
+
+Evidence tier: Primary captured official DAC description plus existing chapter level brew rc discussion; no full paper extraction, reproduced timing traces, sat uniqueness analysis or countermeasure validation. This is the stored source classification; the location and limits below determine what was actually read.
+
+[Open the recorded source](https://63dac.conference-program.com/?post_type=page&p=16&id=RESEARCH3042&sess=sess111)
+
+DAC 2026 official description; captured Problem, Mechanism / artifact, Workload, Hardware, Baseline, Measurements and Limits fields; record RESEARCH3042; no manuscript pages.
+
+<details markdown="1">
+<summary>Original captured fields — superseded for this reading card</summary>
+
+** page source tier:** medium_official_description
+
+**Baselines:** opaque ECC behavior without recovered parity matrix
+
+timing models that omit ECC parity effects
+
+**Evidence locators:** DAC 2026 official description
+
+**Evidence url:** https://63dac.conference-program.com/?post_type=page&p=16&id=RESEARCH3042&sess=sess111
+
+**Hardware or process assumptions:** Commercial ReRAM crossbar memories with hidden ECC and variable write latency; controller, process, environmental, interface, and attacker-access assumptions are unspecified.
+
+**Limits:** The description omits sample complexity, measurement noise, recovery time, countermeasures, and product diversity.
+
+Recovery feasibility may depend on physical access and stable timing conditions not present in deployed systems.
+
+Official description only; side-channel and reliability implications require paper-level verification.
+
+**Method or artifact:** Non-invasive write-timing side-channel analysis with SAT-based recovery of the bit-exact ECC parity matrix.
+
+**Metrics:** Complete ECC recovery on two commercial ReRAM products
+
+**Problem:** ECC parity bits in ReRAM crossbars are not directly readable, limiting reliability characterization and timing-side-channel modeling.
+
+**Workload or benchmark:** Two commercial ReRAM products and multiple device samples; write patterns, timing resolution, ECC families, measurement equipment, and recovery success rates are unspecified.
+
+</details>
+
+<span id="paper-dac-2026-research1464"></span>
+
+### Thrend: Mitigating Counting Thread-Based Fine-Grained Timing on Arm and Apple CPUs
+
+DAC 2026 · Record: `dac-2026-research1464`
+
+[Read the step-by-step explanation](#explanation-dac-2026-research1464)
+
+**Updated source-backed reading card**
+
+Reviewed 2026-09-08. Deepens the existing Thrend treatment into a paper-level reading; separates counting-thread detection from prevention and makes counter access, co-location, dataset splits, adaptive attackers, false positives and overhead requirements explicit.
+
+This editorial correction updates the current reading view and connected dossiers, not the historical adjudication or scientific acceptance status. The original captured fields are preserved below.
+
+[Correction register](../../data/editorial-paper-corrections-v1.json)
+
+**Problem:**
+
+Counting threads enable fine-grained timing side channels on Arm and Apple CPUs, while defenses must detect attacks without excessive runtime cost.
+
+**Mechanism / artifact:**
+
+Fuzz-generated training corpus, performance-counter monitoring and same-core co-scheduling defense; detector action, features, scheduling policy, counter access and adaptive-attacker handling are unspecified.
+
+**Workload — the work tested:**
+
+Four Arm/Apple devices and timing-side-channel counting-thread workloads; processor models, OS versions, attack suite, benign workload mix, dataset split, sampling energy and deployment policy are unspecified.
+
+**Hardware and manufacturing assumptions:**
+
+Arm and Apple CPUs exposing hardware performance counters and scheduler controls; counter permissions, sampling, SMT/core topology, migration, frequency state, privilege model and virtualization are unspecified.
+
+**Baseline — the comparison method:**
+
+Undetected counting-thread timing attacks
+
+Prior timing-side-channel defenses
+
+Attack/benign class balance, device split, counter availability, sampling rate, scheduler policy, false-positive handling and equal workload conditions are unspecified
+
+**Reported measurements:**
+
+99.71% detection accuracy, 0% false-negative rate, less than 1.42% runtime overhead at 100 Hz and four evaluated devices are reported; false-positive rate, workload impact, attack coverage, sampling energy, device variance and adaptive-attacker results are absent.
+
+**Limits on the conclusion:**
+
+A counting-thread detector observes a co-located resource signal; detection does not prevent another side channel, and same-core co-scheduling may fail when counters are unavailable, access is restricted, the victim migrates or the attacker adapts.
+
+Accuracy and zero false negatives depend on attack/benign counts, split unit, trace independence and tested attack families. Related fuzz traces or device runs must not cross training and test sets; false positives, delay, precision and recall are required.
+
+The description omits false-positive rate, workload impact, attack coverage, sampling energy and device-specific variance. Co-scheduling may reduce utilization or become a denial-of-service path and does not establish universal timing-attack prevention.
+
+**Source and location**
+
+Evidence tier: Primary captured official DAC description plus existing chapter level thrend discussion; no full paper extraction, reproduced fuzz corpus, adaptive attacker evaluation or deployment policy validation. This is the stored source classification; the location and limits below determine what was actually read.
+
+[Open the recorded source](https://63dac.conference-program.com/?post_type=page&p=16&id=RESEARCH1464&sess=sess122)
+
+DAC 2026 official description; captured Problem, Mechanism / artifact, Workload, Hardware, Baseline, Measurements and Limits fields; record RESEARCH1464; no manuscript pages.
+
+<details markdown="1">
+<summary>Original captured fields — superseded for this reading card</summary>
+
+** page source tier:** medium_official_description
+
+**Baselines:** undetected counting-thread timing attacks
+
+prior timing-side-channel defenses
+
+**Evidence locators:** DAC 2026 official description
+
+**Evidence url:** https://63dac.conference-program.com/?post_type=page&p=16&id=RESEARCH1464&sess=sess122
+
+**Hardware or process assumptions:** Arm and Apple CPUs exposing hardware performance counters and scheduler controls; sampling access, privilege model, and core topology are unspecified.
+
+**Limits:** The description omits false-positive rate, workload impact, attack coverage, sampling energy, and device-specific variance.
+
+Co-scheduling may reduce utilization or fail against adaptive attackers and unavailable counters.
+
+Official description only; security claims require adversarial and deployment verification.
+
+**Method or artifact:** Fuzz-generated training corpus, performance-counter monitoring, and same-core co-scheduling defense.
+
+**Metrics:** 99.71% detection accuracy
+
+0% false-negative rate
+
+Less than 1.42% runtime overhead at 100 Hz
+
+Four evaluated devices
+
+**Problem:** Counting threads enable fine-grained timing side channels on Arm and Apple CPUs, while defenses must detect attacks without excessive runtime cost.
+
+**Workload or benchmark:** Four Arm/Apple devices and timing-side-channel counting-thread workloads; processor models, OS versions, attack suite, and deployment policy are unspecified.
+
+</details>
+
+<span id="paper-dac-2026-research2254"></span>
+
+### Instruction-Level Side-Channel Disassembly on Modern Complex CPUs via Voltage Waveform Analysis
+
+DAC 2026 · Record: `dac-2026-research2254`
+
+[Read the step-by-step explanation](#explanation-dac-2026-research2254)
+
+**Updated source-backed reading card**
+
+Reviewed 2026-09-08. Deepens the existing voltage-waveform disassembly treatment into a paper-level reading; separates aggregate electrical observation from instruction identity and makes sequence metrics, physical access, cross-CPU transfer, noise and downstream security requirements explicit.
+
+This editorial correction updates the current reading view and connected dossiers, not the historical adjudication or scientific acceptance status. The original captured fields are preserved below.
+
+[Correction register](../../data/editorial-paper-corrections-v1.json)
+
+**Problem:**
+
+Out-of-order execution, deep pipelines and noise make instruction recovery from power traces difficult on modern commercial CPUs.
+
+**Mechanism / artifact:**
+
+End-to-end voltage-waveform sequence-to-sequence model with CNN-Conformer encoder and Transformer decoder; target granularity, trace representation, decoder confidence, physical observation path and training split are unspecified.
+
+**Workload — the work tested:**
+
+645 instructions and over 50,000 voltage samples on a 3.1-GHz x86 CPU under multithreading; instruction/class/sequence unit, trace length, sampling, alignment, input data, background workload, baseline values and dataset split are unspecified.
+
+**Hardware and manufacturing assumptions:**
+
+Commercial x86 processor with voltage side-channel observation and realistic multithreaded execution; board, sensor, placement, bandwidth, distance, processor SKU, regulator, package, access privilege, thermal/frequency state and countermeasures are unspecified.
+
+**Baseline — the comparison method:**
+
+Static waveform segmentation
+
+Classifier-based instruction recovery
+
+No-information reference, token versus exact-sequence denominator, program/device split, sensor setup and equal trace conditions are unspecified
+
+**Reported measurements:**
+
+34.70% sequence prediction accuracy, 645-instruction dataset and more than 50,000 voltage waveform samples are reported; per-instruction accuracy, edit distance, top-k confidence, noise robustness, access cost and cross-CPU transfer are absent.
+
+**Limits on the conclusion:**
+
+A voltage waveform is an aggregate electrical observation affected by execution, voltage regulation, clocking, memory, other threads, thermal state and the sensor. A learned sequence can be plausible without uniquely identifying the executed instructions.
+
+Sequence prediction accuracy requires a defined unit, denominator, split and baseline; token accuracy, exact sequence recovery and edit distance are different. Same-processor trace splits can overstate generalization.
+
+The description omits per-instruction accuracy, attacker access, noise robustness, cross-CPU transfer and leakage mitigation. Dataset and laboratory conditions may not represent remote or production attack settings.
+
+**Source and location**
+
+Evidence tier: Primary captured official DAC description plus existing chapter level voltage waveform discussion; no full paper extraction, reproduced traces, per instruction confusion analysis or cross cpu validation. This is the stored source classification; the location and limits below determine what was actually read.
+
+[Open the recorded source](https://63dac.conference-program.com/?post_type=page&p=16&id=RESEARCH2254&sess=sess122)
+
+DAC 2026 official description; captured Problem, Mechanism / artifact, Workload, Hardware, Baseline, Measurements and Limits fields; record RESEARCH2254; no manuscript pages.
+
+<details markdown="1">
+<summary>Original captured fields — superseded for this reading card</summary>
+
+** page source tier:** medium_official_description
+
+**Baselines:** static waveform segmentation
+
+classifier-based instruction recovery
+
+**Evidence locators:** DAC 2026 official description
+
+**Evidence url:** https://63dac.conference-program.com/?post_type=page&p=16&id=RESEARCH2254&sess=sess122
+
+**Hardware or process assumptions:** Commercial x86 processor with voltage side-channel observation and realistic multithreaded execution; board, sensor, access privilege, and countermeasures are unspecified.
+
+**Limits:** The description omits per-instruction accuracy, attacker access, noise robustness, cross-CPU transfer, and leakage mitigation.
+
+Dataset and lab conditions may not represent remote or production attack settings.
+
+Official description only; side-channel claims require responsible-disclosure and reproducibility review.
+
+**Method or artifact:** End-to-end voltage-waveform sequence-to-sequence model with CNN-Conformer encoder and Transformer decoder.
+
+**Metrics:** 34.70% sequence prediction accuracy
+
+645-instruction dataset
+
+More than 50,000 voltage waveform samples
+
+**Problem:** Out-of-order execution, deep pipelines, and noise make instruction recovery from power traces difficult on modern commercial CPUs.
+
+**Workload or benchmark:** 645 instructions and over 50,000 voltage samples on a 3.1-GHz x86 CPU under multithreading; trace setup, distance, sampling, and baseline values are unspecified.
+
+</details>
+
+<span id="paper-dac-2026-research2771"></span>
+
+### PLONK-Hammer: Breaking Input Privacy of PLONK Proving Systems via Rowhammer
+
+DAC 2026 · Record: `dac-2026-research2771`
+
+[Read the step-by-step explanation](#explanation-dac-2026-research2771)
+
+**Updated source-backed reading card**
+
+Reviewed 2026-09-08. Deepens the existing PLONK-Hammer treatment into a paper-level reading; separates zero-knowledge privacy, proof soundness and availability and makes Rowhammer prerequisites, faulty-proof algebra, platform dependence and recovery evidence explicit.
+
+This editorial correction updates the current reading view and connected dossiers, not the historical adjudication or scientific acceptance status. The original captured fields are preserved below.
+
+[Correction register](../../data/editorial-paper-corrections-v1.json)
+
+**Problem:**
+
+The fault-injection resilience of PLONK zero-knowledge proving systems is less established than their cryptographic attack resistance.
+
+**Mechanism / artifact:**
+
+Rowhammer fault injection combined with faulty-proof analysis and polynomial-commitment recovery; faulted values, observation oracle, algebraic recovery, verifier behavior and mitigation are unspecified.
+
+**Workload — the work tested:**
+
+gnark PLONK proving system with secret-input fault injection; hardware platform, memory layout, proof parameters, circuit, repetitions, fault rate, recovery success, verifier outcomes and attack distance are unspecified.
+
+**Hardware and manufacturing assumptions:**
+
+DRAM Rowhammer-capable system running PLONK/gnark; memory technology, vendor/generation, controller, refresh settings, placement, privileges, co-location, ECC memory and fault model are unspecified.
+
+**Baseline — the comparison method:**
+
+PLONK without fault-injection hardening
+
+Prior Groth16 fault-injection attacks
+
+Unfaulted proving, rejected-proof/crash baseline, memory platform, fault budget, verifier outcome and mitigation conditions are unspecified
+
+**Reported measurements:**
+
+Secret leakage on gnark is claimed qualitatively; no attack distance, bit-flip rate, fault attempts, proof parameters, recovery success, exact/partial recovery, verifier acceptance, time or mitigation result is reported.
+
+**Limits on the conclusion:**
+
+Zero-knowledge privacy, proof soundness and availability are separate properties. A fault can alter a witness or proof, but a changed state is not secret recovery and a corrupted proof is not a verifier-accepted false proof.
+
+A Rowhammer-to-recovery claim requires memory placement, fault conditions, observable faulty proofs, algebraic constraints, unique or validated recovery and a defined query/attempt budget. DRAM behavior varies by platform, refresh, controller, placement and privilege.
+
+The description omits attack distance, success rate, mitigations, proof parameters and required privileges. A gnark demonstration may not generalize across implementations or DRAM platforms and does not establish a protocol-wide break.
+
+**Source and location**
+
+Evidence tier: Primary captured official DAC description plus existing chapter level plonk hammer discussion; no full paper extraction, reproduced rowhammer setup, algebraic recovery validation or cross platform testing. This is the stored source classification; the location and limits below determine what was actually read.
+
+[Open the recorded source](https://63dac.conference-program.com/?post_type=page&p=16&id=RESEARCH2771&sess=sess150)
+
+DAC 2026 official description; captured Problem, Mechanism / artifact, Workload, Hardware, Baseline, Measurements and Limits fields; record RESEARCH2771; no manuscript pages.
+
+<details markdown="1">
+<summary>Original captured fields — superseded for this reading card</summary>
+
+** page source tier:** medium_official_description
+
+**Baselines:** PLONK without fault-injection hardening
+
+prior Groth16 fault-injection attacks
+
+**Evidence locators:** DAC 2026 official description
+
+**Evidence url:** https://63dac.conference-program.com/?post_type=page&p=16&id=RESEARCH2771&sess=sess150
+
+**Hardware or process assumptions:** DRAM Rowhammer-capable system running PLONK/gnark; memory technology, privileges, refresh settings, and fault model are unspecified.
+
+**Limits:** The description omits attack distance, success rate, mitigations, proof parameters, and required privileges.
+
+A gnark demonstration may not generalize across implementations or DRAM platforms.
+
+Official description only; cryptographic-security claims require responsible-disclosure and reproducibility review.
+
+**Method or artifact:** Rowhammer fault injection combined with faulty-proof analysis and polynomial-commitment recovery.
+
+**Metrics:** Secret leakage demonstrated on gnark claimed qualitatively
+
+**Problem:** The fault-injection resilience of PLONK zero-knowledge proving systems is less established than their cryptographic attack resistance.
+
+**Workload or benchmark:** gnark PLONK proving system with secret-input fault injection; hardware platform, memory layout, proof parameters, repetitions, and recovery success are unspecified.
+
+</details>
+
+<span id="paper-dac-2026-research2536"></span>
+
+### Netdetox: Adversarial and Efficient Evasion of Hardware-Security GNNs via RL-LLM Orchestration
+
+DAC 2026 · Record: `dac-2026-research2536`
+
+[Read the step-by-step explanation](#explanation-dac-2026-research2536)
+
+**Updated source-backed reading card**
+
+Reviewed 2026-09-08. Deepens the existing Netdetox treatment into a paper-level reading; separates detector evasion from underlying hardware-security impact and makes graph semantics, mutation constraints, RL/LLM overhead, query budgets, transferability and independent validation explicit.
+
+This editorial correction updates the current reading view and connected dossiers, not the historical adjudication or scientific acceptance status. The original captured fields are preserved below.
+
+[Correction register](../../data/editorial-paper-corrections-v1.json)
+
+**Problem:**
+
+Hardware-security GNN detectors may be vulnerable to adaptive adversarial manipulation of graph representations.
+
+**Mechanism / artifact:**
+
+RL-LLM orchestration for generating efficient adversarial evasion of hardware-security GNNs; graph construction, action operators, access model, semantic constraints, reward and validation are unspecified.
+
+**Workload — the work tested:**
+
+Hardware-security graph datasets and detector models; graph type, vulnerability labels, attack budget, query access, success criteria, semantic-preservation tests, detector families and baselines are unspecified.
+
+**Hardware and manufacturing assumptions:**
+
+Graph-based hardware-security analysis pipeline; circuit representation, synthesis/validation flow, deployment boundary, model access, feature preprocessing and hardware constraints are unspecified.
+
+**Baseline — the comparison method:**
+
+Non-adaptive graph attacks
+
+Standard hardware-security GNN detectors
+
+Random/score/gradient attacks, white-box versus restricted access, equal queries, mutation validity, synthesis cost and independent-security checks are unspecified
+
+**Reported measurements:**
+
+Adversarial evasion efficiency is claimed qualitatively; no attack success rate, query cost, wall time, valid-candidate rate, semantic-preservation rate, transferability, detector impact, hardware overhead or defense result is reported.
+
+**Limits on the conclusion:**
+
+A GNN classifies a graph representation, not necessarily the physical security property. A graph mutation can evade a detector while leaving the circuit or vulnerability unchanged; detector false negative and exploit success are separate outcomes.
+
+A valid evasion must state what the attacker can change and preserve: graph metadata, topology, function, timing, area, power, synthesis and protocol behavior. RL/LLM planning, failed mutations, detector queries and validation cost belong in the attack budget.
+
+The description omits attack success rate, query cost, transferability and detector impact. RL-LLM orchestration may depend on model access and graph encoding and does not establish that a real hardware vulnerability can evade independent checks.
+
+**Source and location**
+
+Evidence tier: Primary captured official DAC description plus existing chapter level netdetox discussion; no full paper extraction, reproduced orchestration, semantic preservation test, transfer evaluation or defense study. This is the stored source classification; the location and limits below determine what was actually read.
+
+[Open the recorded source](https://63dac.conference-program.com/?post_type=page&p=16&id=RESEARCH2536&sess=sess111)
+
+DAC 2026 official description; captured Problem, Mechanism / artifact, Workload, Hardware, Baseline, Measurements and Limits fields; record RESEARCH2536; no manuscript pages.
+
+<details markdown="1">
+<summary>Original captured fields — superseded for this reading card</summary>
+
+** page source tier:** medium_official_description
+
+**Baselines:** non-adaptive graph attacks
+
+standard hardware-security GNN detectors
+
+**Evidence locators:** DAC 2026 official description
+
+**Evidence url:** https://63dac.conference-program.com/?post_type=page&p=16&id=RESEARCH2536&sess=sess111
+
+**Hardware or process assumptions:** Graph-based hardware-security analysis pipeline; circuit representations, threat model, and deployment boundary are unspecified.
+
+**Limits:** The description omits attack success rate, query cost, transferability, and detector impact.
+
+RL-LLM orchestration may depend on model access and graph encoding.
+
+Official description only; security claims require threat-model and defense evaluation.
+
+**Method or artifact:** RL-LLM orchestration for generating efficient adversarial evasion of hardware-security GNNs.
+
+**Metrics:** Adversarial evasion efficiency is claimed qualitatively
+
+**Problem:** Hardware-security GNN detectors may be vulnerable to adaptive adversarial manipulation of graph representations.
+
+**Workload or benchmark:** Hardware-security graph datasets and detector models; attack budget, success criteria, and baselines are unspecified.
+
+</details>
+
+<span id="paper-dac-2026-research3092"></span>
+
+### Securerouter: Encrypted Routing for Efficient Secure Inference
+
+DAC 2026 · Record: `dac-2026-research3092`
+
+[Read the step-by-step explanation](#explanation-dac-2026-research3092)
+
+**Updated source-backed reading card**
+
+Reviewed 2026-09-08. Deepens the existing Securerouter treatment into a paper-level reading; separates payload confidentiality from integrity, availability, endpoint and metadata boundaries and makes key-management, topology, accuracy and end-to-end cost requirements explicit.
+
+This editorial correction updates the current reading view and connected dossiers, not the historical adjudication or scientific acceptance status. The original captured fields are preserved below.
+
+[Correction register](../../data/editorial-paper-corrections-v1.json)
+
+**Problem:**
+
+Secure inference must protect intermediate data while limiting communication and routing overhead.
+
+**Mechanism / artifact:**
+
+Encrypted routing mechanism for secure inference data movement; cryptographic scheme, hop/end-to-end boundary, authentication, metadata handling, topology and key lifecycle are unspecified.
+
+**Workload — the work tested:**
+
+Encrypted or privacy-preserving inference workloads; model, tensors, topology, cryptographic protocol, batch/precision, threat model, packet patterns, accuracy and baselines are unspecified.
+
+**Hardware and manufacturing assumptions:**
+
+Accelerator or distributed inference fabric supporting encrypted packet/data routing; endpoint/router trust, cipher hardware, memory, network links, device identity, attestation and energy assumptions are unspecified.
+
+**Baseline — the comparison method:**
+
+Plaintext routing
+
+Generic encrypted inference communication
+
+End-to-end versus per-hop boundary, model/topology, batch, precision, setup/rekey, bandwidth, packet overhead, metadata and failure accounting are unspecified
+
+**Reported measurements:**
+
+Secure-inference routing efficiency is claimed qualitatively; no security proof, end-to-end latency, bandwidth, energy, key setup, metadata leakage, integrity/freshness or accuracy result is reported.
+
+**Limits on the conclusion:**
+
+Encryption can protect payload content while leaving lengths, timing, routes, access patterns, endpoints and failure behavior visible. It does not automatically provide integrity, freshness or availability and does not protect plaintext before encryption or after decryption.
+
+The key lifecycle and trust boundary must cover generation, provisioning, storage, rotation, revocation, compromise, recovery and router/endpoint behavior. Hop-by-hop and end-to-end encryption have different exposure and routing costs.
+
+The description omits security proof, latency, bandwidth, energy, key management and accuracy impacts, and does not characterize encryption overhead or metadata leakage. The record supports a privacy-preserving routing hypothesis, not demonstrated end-to-end confidentiality, integrity, performance or metadata hiding.
+
+**Source and location**
+
+Evidence tier: Primary captured official DAC description plus existing chapter level securerouter discussion; no full paper extraction, reproduced protocol, key lifecycle analysis or metadata leakage measurement. This is the stored source classification; the location and limits below determine what was actually read.
+
+[Open the recorded source](https://63dac.conference-program.com/?post_type=page&p=16&id=RESEARCH3092&sess=sess150)
+
+DAC 2026 official description; captured Problem, Mechanism / artifact, Workload, Hardware, Baseline, Measurements and Limits fields; record RESEARCH3092; no manuscript pages.
+
+<details markdown="1">
+<summary>Original captured fields — superseded for this reading card</summary>
+
+** page source tier:** medium_official_description
+
+**Baselines:** plaintext routing
+
+generic encrypted inference communication
+
+**Evidence locators:** DAC 2026 official description
+
+**Evidence url:** https://63dac.conference-program.com/?post_type=page&p=16&id=RESEARCH3092&sess=sess150
+
+**Hardware or process assumptions:** Accelerator or distributed inference fabric supporting encrypted packet/data routing; cipher hardware and network assumptions are unspecified.
+
+**Limits:** The description omits security proof, latency, bandwidth, energy, key management, and accuracy impacts.
+
+Encryption overhead and metadata leakage are not characterized.
+
+Official description only; security claims require formal and empirical validation.
+
+**Method or artifact:** Encrypted routing mechanism for secure inference data movement.
+
+**Metrics:** Secure-inference routing efficiency is claimed qualitatively
+
+**Problem:** Secure inference must protect intermediate data while limiting communication and routing overhead.
+
+**Workload or benchmark:** Encrypted or privacy-preserving inference workloads; cryptographic scheme, topology, threat model, and baselines are unspecified.
+
+</details>
+
+<span id="paper-dac-2026-research848"></span>
+
+### TT-SEAL: TTD-Aware Selective Encryption for Adversarially-Robust and Low-Latency Edge AI
+
+DAC 2026 · Record: `dac-2026-research848`
+
+[Read the step-by-step explanation](#explanation-dac-2026-research848)
+
+**Updated source-backed reading card**
+
+Reviewed 2026-09-08. Deepens the existing TT-SEAL treatment into a paper-level reading; defines selective coverage, separates privacy from adversarial robustness and makes threat distribution, unencrypted paths, adaptive attacks, baselines, key management and end-to-end cost explicit.
+
+This editorial correction updates the current reading view and connected dossiers, not the historical adjudication or scientific acceptance status. The original captured fields are preserved below.
+
+[Correction register](../../data/editorial-paper-corrections-v1.json)
+
+**Problem:**
+
+Edge AI must balance adversarial robustness and encryption overhead under tight latency budgets.
+
+**Mechanism / artifact:**
+
+Selective encryption strategy aware of task/threat distribution (TTD); cipher, selection policy, protected data-flow coverage, key lifecycle, attacker access and fallback behavior are unspecified.
+
+**Workload — the work tested:**
+
+Edge AI inference and adversarial inputs; task/model, threat and input distributions, attack budget, protected layers/tensors, cipher, hardware, accuracy, latency, energy and baselines are unspecified.
+
+**Hardware and manufacturing assumptions:**
+
+Edge accelerator or embedded processor with selective cryptographic operations; processor, memory, key storage, data movement, bandwidth, power and deployment assumptions are unspecified.
+
+**Baseline — the comparison method:**
+
+Full encryption
+
+Unencrypted robust inference
+
+Unencrypted ordinary inference where relevant
+
+Cipher, model, task, precision, attack, key setup, protected coverage, hardware and end-to-end accounting are unspecified
+
+**Reported measurements:**
+
+Robustness-latency tradeoff is claimed qualitatively; no attack success, privacy leakage, protected-path coverage, latency, energy, accuracy, key-management, metadata or adaptive-attack result is reported.
+
+**Limits on the conclusion:**
+
+Selective encryption reduces cost by leaving some data or operations unprotected. The safety of those paths depends on a named observer, attacker, data-flow boundary and threat distribution; an adaptive input may target or reveal the selection policy.
+
+Privacy and adversarial robustness are separate: encryption may hide data without stopping manipulated inputs, while robust inference may expose plaintext intermediates or weights. Report each asset and outcome independently.
+
+No attack success, latency, energy, accuracy, key-management or coverage results are reported. Selective encryption may leave exploitable unprotected paths and does not establish safe protection under changing threats.
+
+**Source and location**
+
+Evidence tier: Primary captured official DAC description plus existing chapter level tt seal discussion; no full paper extraction, reproduced selection policy, adaptive attack evaluation or key coverage analysis. This is the stored source classification; the location and limits below determine what was actually read.
+
+[Open the recorded source](https://63dac.conference-program.com/?post_type=page&p=16&id=RESEARCH848)
+
+DAC 2026 official description; captured Problem, Mechanism / artifact, Workload, Hardware, Baseline, Measurements and Limits fields; record RESEARCH848; no manuscript pages.
+
+<details markdown="1">
+<summary>Original captured fields — superseded for this reading card</summary>
+
+** page source tier:** medium_official_description
+
+**Baselines:** full encryption
+
+unencrypted robust inference
+
+**Evidence locators:** DAC 2026 official description
+
+**Evidence url:** https://63dac.conference-program.com/?post_type=page&p=16&id=RESEARCH848
+
+**Hardware or process assumptions:** Edge accelerator or embedded processor with selective cryptographic operations; key and memory assumptions are unspecified.
+
+**Limits:** No attack success, latency, energy, accuracy, key-management, or coverage results are reported.
+
+Selective encryption may leave exploitable unprotected paths.
+
+Official description only; threat-model and adaptive-attack validation are required.
+
+**Method or artifact:** Selective encryption strategy aware of task/threat distribution (TTD).
+
+**Metrics:** Robustness-latency tradeoff is claimed qualitatively
+
+**Problem:** Edge AI must balance adversarial robustness and encryption overhead under tight latency budgets.
+
+**Workload or benchmark:** Edge AI inference and adversarial inputs; threat model, cipher, model, and baselines are unspecified.
+
+</details>
+
+<span id="paper-dac-2026-research1853"></span>
+
+### Signing Crossbar Columns Instead of Neural Network Weights in Compute-in-Memory Accelerators
+
+DAC 2026 · Record: `dac-2026-research1853`
+
+[Read the step-by-step explanation](#explanation-dac-2026-research1853)
+
+**Updated source-backed reading card**
+
+Reviewed 2026-09-08. Deepens the existing signed-CIM-column treatment into a paper-level reading; separates integrity from provenance and makes column coverage, replay/completeness, physical tampering, analog behavior, key management and verification cost explicit.
+
+This editorial correction updates the current reading view and connected dossiers, not the historical adjudication or scientific acceptance status. The original captured fields are preserved below.
+
+[Correction register](../../data/editorial-paper-corrections-v1.json)
+
+**Problem:**
+
+Weight integrity and provenance are difficult to protect in analog or nonvolatile CIM arrays.
+
+**Mechanism / artifact:**
+
+Column-level signing scheme for CIM weight integrity; signed object, digest boundary, column completeness/order, signature/MAC choice, verification timing, key lifecycle and analog-fault behavior are unspecified.
+
+**Workload — the work tested:**
+
+CIM neural inference and tamper scenarios; model, array encoding, attack classes, updates, replay/rollback cases, device conditions, accuracy, detection and baseline results are unspecified.
+
+**Hardware and manufacturing assumptions:**
+
+CIM crossbar with signed column metadata and verification logic; memory, cell representation, ADC/DAC, controller, key storage, process, voltage, temperature, retention, endurance and physical-access assumptions are unspecified.
+
+**Baseline — the comparison method:**
+
+Weight-level signatures
+
+Unprotected CIM
+
+Signature versus MAC, boot/load/per-use verification, model/update, key, area, latency, energy, analog drift and complete-column accounting are unspecified
+
+**Reported measurements:**
+
+Integrity protection and overhead are claimed qualitatively; no attack coverage, signature size/cost, latency, energy, area, key-management, detection, false-alarm, accuracy or analog-fault result is reported.
+
+**Limits on the conclusion:**
+
+A signature authenticates only the exact object covered by its digest and trusted key. Column-level metadata does not automatically prove complete model membership, ordering, freshness, provenance or the physical analog response used by the array.
+
+Within-column edits, omitted/duplicated/reordered columns, replay, rollback, controller faults, key compromise and physical cell drift require separate tests. Verification must occur before altered values affect inference and must define recovery behavior.
+
+No attack coverage, signature cost, latency, energy, area or key-management results are reported. Column granularity may leave within-column or cross-column manipulation ambiguity and does not establish end-to-end model provenance or protection against all physical/controller tampering.
+
+**Source and location**
+
+Evidence tier: Primary captured official DAC description plus existing chapter level signed cim column discussion; no full paper extraction, reproduced signature protocol, tamper matrix or analog fault validation. This is the stored source classification; the location and limits below determine what was actually read.
+
+[Open the recorded source](https://63dac.conference-program.com/?post_type=page&p=16&id=RESEARCH1853)
+
+DAC 2026 official description; captured Problem, Mechanism / artifact, Workload, Hardware, Baseline, Measurements and Limits fields; record RESEARCH1853; no manuscript pages.
+
+<details markdown="1">
+<summary>Original captured fields — superseded for this reading card</summary>
+
+** page source tier:** medium_official_description
+
+**Baselines:** weight-level signatures
+
+unprotected CIM
+
+**Evidence locators:** DAC 2026 official description
+
+**Evidence url:** https://63dac.conference-program.com/?post_type=page&p=16&id=RESEARCH1853
+
+**Hardware or process assumptions:** CIM crossbar with signed column metadata and verification logic; memory and key assumptions are unspecified.
+
+**Limits:** No attack coverage, signature cost, latency, energy, area, or key-management results are reported.
+
+Column granularity may leave within-column manipulation ambiguity.
+
+Official description only; threat-model evaluation is required.
+
+**Method or artifact:** Column-level signing scheme for CIM weight integrity.
+
+**Metrics:** Integrity protection and overhead are claimed qualitatively
+
+**Problem:** Weight integrity and provenance are difficult to protect in analog or nonvolatile CIM arrays.
+
+**Workload or benchmark:** CIM neural inference and tamper scenarios; cryptographic scheme, threat model, and baselines are unspecified.
+
+</details>
+
+<span id="paper-dac-2026-research2832"></span>
+
+### Nothing Left to Learn: Isomorphic Graph Transformations for Hardware IP Protection
+
+DAC 2026 · Record: `dac-2026-research2832`
+
+[Read the step-by-step explanation](#explanation-dac-2026-research2832)
+
+**Updated source-backed reading card**
+
+Reviewed 2026-09-08. Deepens the existing isomorphic-graph IP-protection treatment into a paper-level reading; separates function preservation from structural confidentiality and makes graph invariants, semantic/side-channel attacks, equivalence, synthesis overhead and adaptive threat boundaries explicit.
+
+This editorial correction updates the current reading view and connected dossiers, not the historical adjudication or scientific acceptance status. The original captured fields are preserved below.
+
+[Correction register](../../data/editorial-paper-corrections-v1.json)
+
+**Problem:**
+
+Hardware IP protection must obscure structure without changing function or imposing unacceptable implementation cost.
+
+**Mechanism / artifact:**
+
+Isomorphic graph transformations for function-preserving IP obfuscation/protection; graph level, attributes, transformation randomness, attacker view, equivalence assumptions and deployment boundary are unspecified.
+
+**Workload — the work tested:**
+
+RTL/netlist IP blocks; IP families, transformations, access views, attack suite, synthesis flow, functional-equivalence tests, baselines and dataset split are unspecified.
+
+**Hardware and manufacturing assumptions:**
+
+Digital synthesis flow preserving functional equivalence; process, timing constraints, placement/routing, power, scan/test, debug, foundry/integrator access and attacker assumptions are unspecified.
+
+**Baseline — the comparison method:**
+
+Logic obfuscation
+
+Unprotected IP
+
+Graph matching, semantic, ML, synthesis-guided and side-channel attacks; equivalence scope, synthesis tools, constraints, process and output accounting are unspecified
+
+**Reported measurements:**
+
+IP protection and implementation overhead are claimed qualitatively; no attack success, recovered structure, area, timing, power, yield, verification time, equivalence or transfer result is reported.
+
+**Limits on the conclusion:**
+
+Graph isomorphism preserves selected relationships and may hide labels or presentation order, but graph invariants, semantic patterns, synthesis normalization, oracle behavior and physical side channels can remain visible. Function preservation is not structural confidentiality.
+
+Equivalence must cover interfaces, reset, clocks, test/security modes and synthesized behavior, while the threat model must state whether the attacker sees RTL, netlist, layout, queries, timing, power or multiple transformed versions.
+
+No attack success, area, timing, power, yield or equivalence results are reported. Graph isomorphism may not defeat side channels or semantic attacks and does not establish confidentiality against adaptive reverse engineering.
+
+**Source and location**
+
+Evidence tier: Primary captured official DAC description plus existing chapter level isomorphic graph ip discussion; no full paper extraction, reproduced transformations, adaptive attack matrix or synthesis/equivalence validation. This is the stored source classification; the location and limits below determine what was actually read.
+
+[Open the recorded source](https://63dac.conference-program.com/?post_type=page&p=16&id=RESEARCH2832)
+
+DAC 2026 official description; captured Problem, Mechanism / artifact, Workload, Hardware, Baseline, Measurements and Limits fields; record RESEARCH2832; no manuscript pages.
+
+<details markdown="1">
+<summary>Original captured fields — superseded for this reading card</summary>
+
+** page source tier:** medium_official_description
+
+**Baselines:** logic obfuscation
+
+unprotected IP
+
+**Evidence locators:** DAC 2026 official description
+
+**Evidence url:** https://63dac.conference-program.com/?post_type=page&p=16&id=RESEARCH2832
+
+**Hardware or process assumptions:** Digital synthesis flow preserving functional equivalence; process and attacker access assumptions are unspecified.
+
+**Limits:** No attack success, area, timing, power, yield, or equivalence results are reported.
+
+Graph isomorphism may not defeat side channels or semantic attacks.
+
+Official description only; adaptive threat-model validation is required.
+
+**Method or artifact:** Isomorphic graph transformations for function-preserving IP obfuscation/protection.
+
+**Metrics:** IP protection and implementation overhead are claimed qualitatively
+
+**Problem:** Hardware IP protection must obscure structure without changing function or imposing unacceptable implementation cost.
+
+**Workload or benchmark:** RTL/netlist IP blocks; threat model, transformations, and baselines are unspecified.
+
+</details>
+
+<span id="paper-dac-2026-research1665"></span>
+
+### CARAMEL: Boosting Device Utilization in Control Flow Auditing
+
+DAC 2026 · Record: `dac-2026-research1665`
+
+[Read the step-by-step explanation](#explanation-dac-2026-research1665)
+
+**Updated source-backed reading card**
+
+Reviewed 2026-09-08. Deepens the existing CARAMEL treatment into a paper-level reading; separates device utilization from audit soundness/completeness and makes ordering, coverage, adversarial load, false results, queue behavior and security-preserving acceleration requirements explicit.
+
+This editorial correction updates the current reading view and connected dossiers, not the historical adjudication or scientific acceptance status. The original captured fields are preserved below.
+
+[Correction register](../../data/editorial-paper-corrections-v1.json)
+
+**Problem:**
+
+Control-flow auditing can leave hardware or analysis resources idle while processing complex paths.
+
+**Mechanism / artifact:**
+
+Device-utilization optimization for control-flow auditing; batching/parallelism, ordering, dependency, queue, approximation, alert and failure behavior are unspecified.
+
+**Workload — the work tested:**
+
+Control-flow audit workloads; device architecture, security checks, path/event set, rare/exception paths, attacker load, baselines, coverage and dataset split are unspecified.
+
+**Hardware and manufacturing assumptions:**
+
+Processor or accelerator executing control-flow auditing; hardware counters, queue/memory, scheduling, privilege, timestamps, interrupts, resource limits and threat model are unspecified.
+
+**Baseline — the comparison method:**
+
+Serial control-flow auditing
+
+Utilization-oblivious audit engine
+
+Reference audit, same path/event set, policy, hardware, event rate, coverage, queue, latency and overload conditions are unspecified
+
+**Reported measurements:**
+
+Audit throughput and utilization are claimed qualitatively; no coverage, attack detection, utilization, latency, energy, queue delay, false-positive/negative, dropped-event or completeness result is reported.
+
+**Limits on the conclusion:**
+
+Device utilization measures resource occupancy, not which control-flow paths were checked. Batching, parallelism, reordering, merging or overload handling can weaken completeness unless dependencies, event identity and order are preserved.
+
+Soundness and completeness require separate ground-truth tests for valid/invalid transitions, rare paths, interrupts, exceptions, privilege changes, dropped events and adversarial queue pressure. Throughput gains may come from reduced scope or missed violations.
+
+No coverage, attack detection, utilization, latency or energy results are reported. Throughput optimization may alter audit ordering or completeness and does not establish security-preserving audit acceleration under adversarial load.
+
+**Source and location**
+
+Evidence tier: Primary captured official DAC description plus existing chapter level caramel discussion; no full paper extraction, reproduced scheduler, coverage matrix or adversarial overload validation. This is the stored source classification; the location and limits below determine what was actually read.
+
+[Open the recorded source](https://63dac.conference-program.com/?post_type=page&p=16&id=RESEARCH1665)
+
+DAC 2026 official description; captured Problem, Mechanism / artifact, Workload, Hardware, Baseline, Measurements and Limits fields; record RESEARCH1665; no manuscript pages.
+
+<details markdown="1">
+<summary>Original captured fields — superseded for this reading card</summary>
+
+** page source tier:** medium_official_description
+
+**Baselines:** serial control-flow auditing
+
+utilization-oblivious audit engine
+
+**Evidence locators:** DAC 2026 official description
+
+**Evidence url:** https://63dac.conference-program.com/?post_type=page&p=16&id=RESEARCH1665
+
+**Hardware or process assumptions:** Processor or accelerator executing control-flow auditing; hardware counters and threat model are unspecified.
+
+**Limits:** No coverage, attack detection, utilization, latency, or energy results are reported.
+
+Throughput optimization may alter audit ordering or completeness.
+
+Official description only; security-complete validation is required.
+
+**Method or artifact:** Device-utilization optimization for control-flow auditing.
+
+**Metrics:** Audit throughput and utilization are claimed qualitatively
+
+**Problem:** Control-flow auditing can leave hardware or analysis resources idle while processing complex paths.
+
+**Workload or benchmark:** Control-flow audit workloads; device architecture, security checks, and baselines are unspecified.
+
+</details>
+
+<span id="paper-dac-2026-research1949"></span>
+
+### Athena: Analytical Timing-Aware Pre-Silicon Estimation of Side-Channel Leakage
+
+DAC 2026 · Record: `dac-2026-research1949`
+
+[Read the step-by-step explanation](#explanation-dac-2026-research1949)
+
+**Updated source-backed reading card**
+
+Reviewed 2026-09-08. Deepens the existing Athena treatment into a paper-level reading; separates pre-silicon analytical estimation from measured leakage and makes timing model, attacker observation, calibration, false-positive/negative, process and attack-success requirements explicit.
+
+This editorial correction updates the current reading view and connected dossiers, not the historical adjudication or scientific acceptance status. The original captured fields are preserved below.
+
+[Correction register](../../data/editorial-paper-corrections-v1.json)
+
+**Problem:**
+
+Side-channel risk is costly to assess late, but timing and microarchitectural effects complicate early leakage estimation.
+
+**Mechanism / artifact:**
+
+Analytical timing-aware pre-silicon side-channel leakage estimator; timing/power model, observation channel, leakage metric, calibration, process variation and implementation boundary are unspecified.
+
+**Workload — the work tested:**
+
+Hardware implementations and side-channel traces; designs, secrets, trace source, leakage models, attacker access, PVT/process corners, post-silicon reference and baseline conditions are unspecified.
+
+**Hardware and manufacturing assumptions:**
+
+Pre-silicon processor/ASIC timing and power model; microarchitecture, placement/routing, voltage, temperature, process, noise, clock and physical observation assumptions are unspecified.
+
+**Baseline — the comparison method:**
+
+Post-silicon leakage testing
+
+Timing-oblivious leakage analysis
+
+Trace/calibration source, design set, leakage metric, noise, attacker budget and equal comparison boundary are unspecified
+
+**Reported measurements:**
+
+Leakage estimation is claimed qualitatively; no correlation, mutual information, TVLA/NICV, attack success, false-positive/negative, timing error, trace count, runtime, power or process-transfer result is reported.
+
+**Limits on the conclusion:**
+
+A pre-silicon analytical estimate predicts behavior under an abstract timing/power model; it is not a measured side channel or key-recovery result. Timing-sensitive microarchitecture and physical effects can be omitted or mis-modeled.
+
+Validation must compare predictions with RTL/gate-level and post-silicon traces across designs, secrets, noise and PVT/process conditions, and report false positives and false negatives.
+
+No correlation, attack success, false-positive, timing, or process results are reported. Analytical models may miss physical leakage paths; the record supports early leakage-estimation direction, not demonstrated physical leakage prediction.
+
+**Source and location**
+
+Evidence tier: Primary captured official DAC description plus existing chapter level athena discussion; no full paper extraction, reproduced model, trace calibration or post silicon validation. This is the stored source classification; the location and limits below determine what was actually read.
+
+[Open the recorded source](https://63dac.conference-program.com/?post_type=page&p=16&id=RESEARCH1949)
+
+DAC 2026 official description; captured Problem, Mechanism / artifact, Workload, Hardware, Baseline, Measurements and Limits fields; record RESEARCH1949; no manuscript pages.
+
+<details markdown="1">
+<summary>Original captured fields — superseded for this reading card</summary>
+
+** page source tier:** medium_official_description
+
+**Baselines:** post-silicon leakage testing
+
+timing-oblivious leakage analysis
+
+**Evidence locators:** DAC 2026 official description
+
+**Evidence url:** https://63dac.conference-program.com/?post_type=page&p=16&id=RESEARCH1949
+
+**Hardware or process assumptions:** Pre-silicon processor/ASIC timing and power model; attacker observation and noise assumptions are unspecified.
+
+**Limits:** No correlation, attack success, false-positive, timing, or process results are reported.
+
+Analytical models may miss physical leakage paths.
+
+Official description only; trace-calibrated validation is required.
+
+**Method or artifact:** Analytical timing-aware pre-silicon side-channel leakage estimator.
+
+**Metrics:** Leakage estimation is claimed qualitatively
+
+**Problem:** Side-channel risk is costly to assess late, but timing and microarchitectural effects complicate early leakage estimation.
+
+**Workload or benchmark:** Hardware implementations and side-channel traces; leakage model, process, and baselines are unspecified.
+
+</details>
+
+<span id="paper-dac-2026-research1430"></span>
+
+### Spike-PTSD: A Bio-Plausible Adversarial Example Attack on Spiking Neural Networks via PTSD-Inspired Spike Scaling
+
+DAC 2026 · Record: `dac-2026-research1430`
+
+[Read the step-by-step explanation](#explanation-dac-2026-research1430)
+
+**Updated source-backed reading card**
+
+Reviewed 2026-09-08. Deepens the existing Spike-PTSD treatment into a paper-level reading; defines spike scaling, temporal perturbation, attacker objective, budget units, encoder/hardware boundary, transferability, adaptive defense and the evidence needed to separate digital SNN evasion from physical neuromorphic attack impact.
+
+This editorial correction updates the current reading view and connected dossiers, not the historical adjudication or scientific acceptance status. The original captured fields are preserved below.
+
+[Correction register](../../data/editorial-paper-corrections-v1.json)
+
+**Problem:**
+
+Spiking neural networks may be vulnerable to temporal adversarial perturbations that preserve plausible spike behavior.
+
+**Mechanism / artifact:**
+
+Bio-plausible spike-scaling adversarial attack; scaled quantity, temporal rule, objective, plausibility constraint, encoder boundary and attack algorithm are unspecified.
+
+**Workload — the work tested:**
+
+SNN classifiers and temporal inputs; dataset, sequence length, firing rate, task, clean error, threat model, budget units, success definition and train/test split are unspecified.
+
+**Hardware and manufacturing assumptions:**
+
+Neuromorphic/SNN inference system; sensor, spike encoding, time resolution, refractory behavior, event transport, processor, noise, clock and hardware access assumptions are unspecified.
+
+**Baseline — the comparison method:**
+
+Gradient-based SNN attacks
+
+Clean SNN inference
+
+Knowledge, objective, representation, budget, data split, encoder, success definition and adaptive-defense conditions are unspecified
+
+**Reported measurements:**
+
+Adversarial evasion is claimed qualitatively; no attack success, clean/attacked accuracy, perturbation cost, event-count or timing change, query count, runtime, transferability, hardware replay or defense result is reported.
+
+**Limits on the conclusion:**
+
+A digital spike sequence that changes an SNN output is not automatically a realizable sensor or neuromorphic-hardware perturbation. Spike scaling can change event count, timing, membrane trajectories and energy, so biological plausibility and hardware realizability must be measured separately.
+
+The attack objective and budget must state attacker knowledge, queries, target, amplitude or event units, time-bin changes, sequence length and encoder path; transfer and adaptive defense tests require separate conditions.
+
+No attack success, perturbation cost, transferability, or defense results are reported. Biological plausibility does not establish hardware realizability; the evidence supports an attack direction, not demonstrated adaptive security impact or a physical SNN attack.
+
+**Source and location**
+
+Evidence tier: Primary captured official DAC description plus existing chapter level spike ptsd discussion; no full paper extraction, reproduced attack, hardware replay, transfer matrix or adaptive defense validation. This is the stored source classification; the location and limits below determine what was actually read.
+
+[Open the recorded source](https://63dac.conference-program.com/?post_type=page&p=16&id=RESEARCH1430)
+
+DAC 2026 official description; captured Problem, Mechanism / artifact, Workload, Hardware, Baseline, Measurements and Limits fields; record RESEARCH1430; no manuscript pages.
+
+<details markdown="1">
+<summary>Original captured fields — superseded for this reading card</summary>
+
+** page source tier:** medium_official_description
+
+**Baselines:** gradient-based SNN attacks
+
+clean SNN inference
+
+**Evidence locators:** DAC 2026 official description
+
+**Evidence url:** https://63dac.conference-program.com/?post_type=page&p=16&id=RESEARCH1430
+
+**Hardware or process assumptions:** Neuromorphic/SNN inference system; sensor and spike encoding assumptions are unspecified.
+
+**Limits:** No attack success, perturbation cost, transferability, or defense results are reported.
+
+Biological plausibility does not establish hardware realizability.
+
+Official description only; adaptive threat evaluation is required.
+
+**Method or artifact:** Bio-plausible spike-scaling adversarial attack.
+
+**Metrics:** Adversarial evasion is claimed qualitatively
+
+**Problem:** Spiking neural networks may be vulnerable to temporal adversarial perturbations that preserve plausible spike behavior.
+
+**Workload or benchmark:** SNN classifiers and temporal inputs; threat model, budget, and baselines are unspecified.
+
+</details>
+
+<span id="paper-dac-2026-research2648"></span>
+
+### PD-Net: Learning Device-Invariant Representations for Heterogeneous Cross-Device Side-Channel Attacks
+
+DAC 2026 · Record: `dac-2026-research2648`
+
+[Read the step-by-step explanation](#explanation-dac-2026-research2648)
+
+**Updated source-backed reading card**
+
+Reviewed 2026-09-08. Deepens the existing PD-Net treatment into a paper-level reading; separates device nuisance from leakage-bearing signal and makes profiling/target boundaries, zero-shot versus adapted transfer, strict device splits, alignment, noise, key recovery and defensive interpretation explicit.
+
+This editorial correction updates the current reading view and connected dossiers, not the historical adjudication or scientific acceptance status. The original captured fields are preserved below.
+
+[Correction register](../../data/editorial-paper-corrections-v1.json)
+
+**Problem:**
+
+Side-channel models often fail when traces come from a different device or manufacturing instance.
+
+**Mechanism / artifact:**
+
+Device-invariant representation learning for cross-device side-channel analysis; representation objective, nuisance variables, preserved leakage target, adaptation regime and attacker boundary are unspecified.
+
+**Workload — the work tested:**
+
+Power/EM side-channel traces across devices; cryptographic target, keys, profiling/target split, chip count, process variation, alignment, noise, trace budget and baselines are unspecified.
+
+**Hardware and manufacturing assumptions:**
+
+Cryptographic hardware with cross-device trace variation; design/layout, process lot, board, voltage, temperature, clock, probe, acquisition equipment and attacker access assumptions are unspecified.
+
+**Baseline — the comparison method:**
+
+Device-specific side-channel model
+
+Domain-adaptation baseline
+
+Raw/aligned trace model, source/target devices, target-trace access, preprocessing, model capacity, key space and equal trace/computation budget are unspecified
+
+**Reported measurements:**
+
+Cross-device attack transfer is claimed qualitatively; no key-recovery rate, key rank, guessing entropy, success rate, traces-to-success, transfer, noise, per-device variance, runtime or defense result is reported.
+
+**Limits on the conclusion:**
+
+Device-invariant representation learning must reduce nuisance dependence while preserving leakage-bearing dependence on the secret. A representation that removes device identity can also remove target signal, and a visualization or device-confusion score is not key recovery.
+
+Validation must hold out entire devices and separate zero-shot, few-shot and full target-device profiling; report alignment, noise, PVT/operating-condition, probe and acquisition shifts with matched trace and computation budgets.
+
+No key-recovery rate, trace count, transfer, noise, or defense results are reported. Invariant representations may discard target-specific leakage; the evidence supports a cross-device representation-learning direction, not demonstrated device-invariant key recovery or a validated defense.
+
+**Source and location**
+
+Evidence tier: Primary captured official DAC description plus existing chapter level pd net discussion; no full paper extraction, reproduced representation, held out device matrix or adaptive validation. This is the stored source classification; the location and limits below determine what was actually read.
+
+[Open the recorded source](https://63dac.conference-program.com/?post_type=page&p=16&id=RESEARCH2648)
+
+DAC 2026 official description; captured Problem, Mechanism / artifact, Workload, Hardware, Baseline, Measurements and Limits fields; record RESEARCH2648; no manuscript pages.
+
+<details markdown="1">
+<summary>Original captured fields — superseded for this reading card</summary>
+
+** page source tier:** medium_official_description
+
+**Baselines:** device-specific side-channel model
+
+domain-adaptation baseline
+
+**Evidence locators:** DAC 2026 official description
+
+**Evidence url:** https://63dac.conference-program.com/?post_type=page&p=16&id=RESEARCH2648
+
+**Hardware or process assumptions:** Cryptographic hardware with cross-device trace variation; attacker access and noise assumptions are unspecified.
+
+**Limits:** No key-recovery rate, trace count, transfer, noise, or defense results are reported.
+
+Invariant representations may discard target-specific leakage.
+
+Official description only; adaptive cross-device validation is required.
+
+**Method or artifact:** Device-invariant representation learning for cross-device side-channel analysis.
+
+**Metrics:** Cross-device attack transfer is claimed qualitatively
+
+**Problem:** Side-channel models often fail when traces come from a different device or manufacturing instance.
+
+**Workload or benchmark:** Power/EM side-channel traces across devices; leakage target, alignment, and baselines are unspecified.
+
+</details>
+
+<span id="paper-dac-2026-research1185"></span>
+
+### CPA-BNN: A Secure and Efficient CIM and PUF Architecture for BNN Accelerator
+
+DAC 2026 · Record: `dac-2026-research1185`
+
+[Read the step-by-step explanation](#explanation-dac-2026-research1185)
+
+**Updated source-backed reading card**
+
+Reviewed 2026-09-08. Deepens the existing CPA-BNN treatment into a paper-level reading; separates model confidentiality, integrity, inference correctness, PUF key security, side-channel resistance and complete efficiency accounting, and defines the missing attack games and reliability evidence.
+
+This editorial correction updates the current reading view and connected dossiers, not the historical adjudication or scientific acceptance status. The original captured fields are preserved below.
+
+[Correction register](../../data/editorial-paper-corrections-v1.json)
+
+**Problem:**
+
+BNN CIM architectures expose weights in memory cells, leaving models vulnerable to cloning, tampering, and reverse engineering.
+
+**Mechanism / artifact:**
+
+Secure RRAM CIM with 4T2R in-situ encryption/ciphertext convolution, in-memory batch normalization, intrinsic PUF key extraction, and current-tilt masking; algebra, key path, masking order, attack boundary and implementation accounting are unspecified.
+
+**Workload — the work tested:**
+
+Binary-neural-network accelerator inference and model-attack resistance; datasets, network/layer sizes, protected arithmetic, accuracy reference, attack games, PUF population and operating-condition sweep are unspecified.
+
+**Hardware and manufacturing assumptions:**
+
+RRAM 4T2R CIM array with integrated PUF and masking; process, voltage, temperature, array size, endurance, retention, peripheral circuitry, ADC/DAC or sense path, helper data, debug/test access and physical attacker assumptions are unspecified.
+
+**Baseline — the comparison method:**
+
+SRAM/NVM BNN schemes
+
+Same operation, precision, process, array/peripheral boundary, key/Puf overhead, accuracy, workload, attack capability and security metric are unspecified
+
+**Reported measurements:**
+
+Approximately 100% key reliability, greater than 1.4x compute density, greater than 1.6x storage density and qualitative model-attack prevention are reported; no PUF uniqueness/entropy, key recovery, side-channel, accuracy, attack success, area, energy, latency, endurance or normalized system result is reported.
+
+**Limits on the conclusion:**
+
+Encryption, PUF extraction and masking address different security properties. Model confidentiality, integrity, inference correctness, key uniqueness/reliability/entropy and side-channel resistance require separate attacker games and measurements; an integrated architecture does not prove them together.
+
+PUF reliability needs chip population, repeated trials, Hamming-distance definition, PVT/aging/cycling conditions, entropy, prediction resistance, helper-data leakage and extraction/storage boundary. Masking needs a leakage model, order, share refresh and higher-order/glitch analysis.
+
+The description does not define the attack model, security game, reliability test population, or accuracy loss. Density comparisons lack array, peripheral, process, and baseline-normalization conditions; the evidence supports an integrated RRAM-CIM protection direction, not a demonstrated end-to-end security or efficiency guarantee.
+
+**Source and location**
+
+Evidence tier: Primary captured official DAC description plus existing chapter level cpa bnn discussion; no full paper extraction, reproduced puf population, side channel traces, attack matrix or system level normalization. This is the stored source classification; the location and limits below determine what was actually read.
+
+[Open the recorded source](https://63dac.conference-program.com/?post_type=page&p=16&id=RESEARCH1185&sess=sess107)
+
+DAC 2026 official description; captured Problem, Mechanism / artifact, Workload, Hardware, Baseline, Measurements and Limits fields; record RESEARCH1185; no manuscript pages.
+
+<details markdown="1">
+<summary>Original captured fields — superseded for this reading card</summary>
+
+** page source tier:** medium_official_description
+
+**Baselines:** SRAM/NVM BNN schemes
+
+**Evidence locators:** DAC 2026 official description
+
+**Evidence url:** https://63dac.conference-program.com/?post_type=page&p=16&id=RESEARCH1185&sess=sess107
+
+**Hardware or process assumptions:** RRAM 4T2R CIM array with integrated PUF and masking; process, voltage, array size, endurance, and peripheral overhead are unspecified.
+
+**Limits:** The description does not define the attack model, security game, reliability test population, or accuracy loss.
+
+Density comparisons lack array, peripheral, process, and baseline-normalization conditions.
+
+Official description only; security claims require full-paper and independent review.
+
+**Method or artifact:** Secure RRAM CIM with 4T2R in-situ encryption/ciphertext convolution, in-memory batch normalization, intrinsic PUF key extraction, and current-tilt masking.
+
+**Metrics:** Approximately 100% key reliability
+
+>1.4x compute density
+
+>1.6x storage density
+
+Effective prevention of model attacks reported qualitatively
+
+**Problem:** BNN CIM architectures expose weights in memory cells, leaving models vulnerable to cloning, tampering, and reverse engineering.
+
+**Workload or benchmark:** Binary neural-network accelerator inference and model-attack resistance; datasets, network sizes, attack suite, and accuracy impact are unspecified.
+
+</details>
+
+<span id="paper-dac-2026-research1275"></span>
+
+### TRAC: Transparent Row Activation Counting for Efficient Rowhammer Monitoring
+
+DAC 2026 · Record: `dac-2026-research1275`
+
+[Read the step-by-step explanation](#explanation-dac-2026-research1275)
+
+**Updated source-backed reading card**
+
+Reviewed 2026-09-08. Deepens the existing TRAC treatment into a paper-level reading; defines activation-window, threshold, approximation, subarray, timing, physical-attack and controller semantics and separates counter correctness from actual RowHammer prevention and full-system overhead.
+
+This editorial correction updates the current reading view and connected dossiers, not the historical adjudication or scientific acceptance status. The original captured fields are preserved below.
+
+[Correction register](../../data/editorial-paper-corrections-v1.json)
+
+**Problem:**
+
+Per-row activation counting defenses against RowHammer can lengthen critical DRAM timing parameters and reduce performance.
+
+**Mechanism / artifact:**
+
+Transparent row activation counting architecture with ACT-triggered update, in-subarray processing, and LFSR-based counting; counter window, row mapping, threshold, approximation error, reset, response and controller interface are unspecified.
+
+**Workload — the work tested:**
+
+RowHammer monitoring in DRAM with circuit-level simulation and system-level evaluation; attack patterns, single/double/many-sided coverage, DRAM organization, vulnerable threshold, refresh policy, timing suite and workloads are unspecified.
+
+**Hardware and manufacturing assumptions:**
+
+DRAM subarrays and activation-counting logic integrated with memory timing; process, generation, row adjacency, bank mapping, area, power, timing parameters, counter state, refresh interaction and controller interface are unspecified.
+
+**Baseline — the comparison method:**
+
+Per-Row Activation Counting (PRAC)
+
+Equal DRAM population, attack set, threshold/security target, row mapping, controller, timing, area/power boundary and missed-detection accounting are unspecified
+
+**Reported measurements:**
+
+No timing overhead, negligible area cost, and correctness/stability are claimed qualitatively; no numeric area, energy, latency, security coverage, false-positive/negative rate, detection latency, counter error, or disturbance threshold is supplied.
+
+**Limits on the conclusion:**
+
+A row-activation counter protects only if its command observation, row identity, time window, threshold and response cover the physical disturbance path. LFSR-based or other approximate counting requires undercount, collision, reset and seed-error bounds; an ACT count is not itself a prevention result.
+
+Security evaluation must use a defined DRAM population, process/generation, row adjacency, refresh policy and adversarial command set, including distributed and timing-evasion patterns, and report missed detections before bit flips, false alarms and recovery behavior.
+
+No numeric area, energy, latency, security coverage, false-positive, or disturbance thresholds are supplied. The RowHammer threat model and DRAM process/generation are unspecified; the evidence supports monitoring direction, not demonstrated RowHammer prevention under a defined device population and command set.
+
+**Source and location**
+
+Evidence tier: Primary captured official DAC description plus existing chapter level trac discussion; no full paper extraction, reproduced counter model, dram device matrix or adversarial coverage validation. This is the stored source classification; the location and limits below determine what was actually read.
+
+[Open the recorded source](https://63dac.conference-program.com/?post_type=page&p=16&id=RESEARCH1275&sess=sess131)
+
+DAC 2026 official description; captured Problem, Mechanism / artifact, Workload, Hardware, Baseline, Measurements and Limits fields; record RESEARCH1275; no manuscript pages.
+
+<details markdown="1">
+<summary>Original captured fields — superseded for this reading card</summary>
+
+** page source tier:** medium_official_description
+
+**Baselines:** Per-Row Activation Counting (PRAC)
+
+**Evidence locators:** DAC 2026 official description
+
+**Evidence url:** https://63dac.conference-program.com/?post_type=page&p=16&id=RESEARCH1275&sess=sess131
+
+**Hardware or process assumptions:** DRAM subarrays and activation-counting logic integrated with memory timing; process, area, timing parameters, and controller interface are unspecified.
+
+**Limits:** No numeric area, energy, latency, security coverage, false-positive, or disturbance thresholds are supplied.
+
+The RowHammer threat model and DRAM process/generation are unspecified.
+
+Official description only; practical defense claims require detailed evaluation.
+
+**Method or artifact:** Transparent row activation counting architecture with ACT-triggered update, in-subarray processing, and LFSR-based counting.
+
+**Metrics:** No timing overhead claimed qualitatively
+
+Negligible area cost claimed qualitatively
+
+Correctness and stability demonstrated qualitatively
+
+**Problem:** Per-row activation counting defenses against RowHammer can lengthen critical DRAM timing parameters and reduce performance.
+
+**Workload or benchmark:** RowHammer monitoring in DRAM with circuit-level simulation and system-level evaluation; attack patterns, DRAM organization, and timing suite are unspecified.
+
+</details>
+
+<span id="paper-dac-2026-research1320"></span>
+
+### Shooting Falcon with One Fault: A Practical Rowhammer-Based Fault Attack Against Falcon
+
+DAC 2026 · Record: `dac-2026-research1320`
+
+[Read the step-by-step explanation](#explanation-dac-2026-research1320)
+
+**Updated source-backed reading card**
+
+Reviewed 2026-09-08. Deepens the existing Shooting Falcon treatment into a paper-level reading; separates DRAM fault induction, useful faulty-signature production and cryptanalytic recovery, and makes memory placement, platform, privilege, success probability, matched comparison and implementation-transfer requirements explicit.
+
+This editorial correction updates the current reading view and connected dossiers, not the historical adjudication or scientific acceptance status. The original captured fields are preserved below.
+
+[Correction register](../../data/editorial-paper-corrections-v1.json)
+
+**Problem:**
+
+Falcon's resistance to practical memory fault attacks is insufficiently understood despite its post-quantum security role.
+
+**Mechanism / artifact:**
+
+RowHammer-induced single-bit fault, vulnerable-address discovery, and optimized HPP cryptanalytic recovery workflow; fault location, logical target, calibration, acceptance rule, recovery assumptions and implementation boundary are unspecified.
+
+**Workload — the work tested:**
+
+Falcon-512 reference implementation and faulty-signature collection; version/build, memory layout, parameter handling, signing queries, hammering parameters, usable-fault definition, success probability and signature-processing conditions are unspecified.
+
+**Hardware and manufacturing assumptions:**
+
+DRAM RowHammer fault injection against a Falcon implementation; device generation, module population, row/bank mapping, refresh policy, memory placement, OS, allocator, mitigations, core placement and attacker privileges are unspecified.
+
+**Baseline — the comparison method:**
+
+State-of-the-art Falcon fault attack
+
+Same Falcon implementation, parameter set, fault model, signing/query budget, useful-fault definition, recovery success probability, hardware and privilege boundary are unspecified
+
+**Reported measurements:**
+
+250,000 faulty signatures for secret-key recovery, an 800x reduction in required faulty signatures, and a single-bit flip attack are reported; no recovery probability, hammering time, usable-fault fraction, discarded attempts, platform repeatability, privilege cost or transfer result is supplied.
+
+**Limits on the conclusion:**
+
+The attack requires three linked demonstrations: RowHammer must induce a controlled fault in the target memory object; the fault must produce a useful observable rather than a rejected signature; and the cryptanalytic procedure must recover the secret with a stated probability and independently verified key.
+
+Memory placement, DRAM generation, refresh, row mapping, allocator, OS, privileges, calibration and implementation build determine practicality. The 800x comparison is meaningful only under matched implementation, fault-model, success-probability and query conditions.
+
+The description does not state attack success probability, hammering time, privilege model, DRAM platforms, or repeatability. The evidence supports a RowHammer-to-Falcon fault-attack direction, not demonstrated practical key recovery across platforms or Falcon implementations.
+
+**Source and location**
+
+Evidence tier: Primary captured official DAC description plus existing chapter level shooting falcon discussion; no full paper extraction, reproduced hammering experiment, platform matrix or cryptanalytic recovery trials. This is the stored source classification; the location and limits below determine what was actually read.
+
+[Open the recorded source](https://63dac.conference-program.com/?post_type=page&p=16&id=RESEARCH1320&sess=sess131)
+
+DAC 2026 official description; captured Problem, Mechanism / artifact, Workload, Hardware, Baseline, Measurements and Limits fields; record RESEARCH1320; no manuscript pages.
+
+<details markdown="1">
+<summary>Original captured fields — superseded for this reading card</summary>
+
+** page source tier:** medium_official_description
+
+**Baselines:** state-of-the-art Falcon fault attack
+
+**Evidence locators:** DAC 2026 official description
+
+**Evidence url:** https://63dac.conference-program.com/?post_type=page&p=16&id=RESEARCH1320&sess=sess131
+
+**Hardware or process assumptions:** DRAM Rowhammer fault injection against a Falcon implementation; device generation, refresh policy, memory placement, and attacker privileges are unspecified.
+
+**Limits:** The description does not state attack success probability, hammering time, privilege model, DRAM platforms, or repeatability.
+
+The 800x comparison requires matched implementation and fault-model conditions.
+
+Official description only; cryptanalytic and hardware claims require paper-level review.
+
+**Method or artifact:** Rowhammer-induced single-bit fault, vulnerable-address discovery, and optimized HPP cryptanalytic recovery workflow.
+
+**Metrics:** 250,000 faulty signatures for secret-key recovery
+
+800x fewer required faulty signatures than state of the art
+
+single-bit flip attack
+
+**Problem:** Falcon's resistance to practical memory fault attacks is insufficiently understood despite its post-quantum security role.
+
+**Workload or benchmark:** Falcon-512 reference implementation and faulty-signature collection; memory layout, platform, hammering parameters, and signature-processing conditions are unspecified.
+
+</details>
+
+<span id="paper-dac-2026-research1373"></span>
+
+### Slcross: Cross-Component System-Level Cache Side-Channel Attacks on Apple M2 SoC
+
+DAC 2026 · Record: `dac-2026-research1373`
+
+[Read the step-by-step explanation](#explanation-dac-2026-research1373)
+
+**Updated source-backed reading card**
+
+Reviewed 2026-09-08. Deepens the existing Slcross treatment into a paper-level reading; separates covert-channel communication from embedding-table inference and makes shared-resource mechanism, platform/privilege boundary, noise, sample complexity, candidate-space baseline, transfer and adaptive mitigation requirements explicit.
+
+This editorial correction updates the current reading view and connected dossiers, not the historical adjudication or scientific acceptance status. The original captured fields are preserved below.
+
+[Correction register](../../data/editorial-paper-corrections-v1.json)
+
+**Problem:**
+
+Fine-grained cache side channels across heterogeneous processing units remain insufficiently characterized on Apple silicon.
+
+**Mechanism / artifact:**
+
+Reverse-engineered SLC mechanisms enabling GPU-to-CPU covert communication and inference-time embedding-table attack; cache mapping, probe, synchronization, access boundary and inference target are unspecified.
+
+**Workload — the work tested:**
+
+Apple M2 SoC with local LLM inference and an embedding-table target; model, token/candidate set, cache configuration, sender/receiver workload, noise, observation window, labels and split are unspecified.
+
+**Hardware and manufacturing assumptions:**
+
+Apple M2 heterogeneous CPU/GPU SoC and shared system-level cache; chip revision, OS, driver, memory configuration, permissions, timer/API access, core allocation, scheduling and attacker domain are unspecified.
+
+**Baseline — the comparison method:**
+
+Existing within-component cache side-channel techniques (contextual)
+
+Idle/noisy workload, random candidate baseline, same observation window, privilege, scheduler, target set, preprocessing, device and mitigation boundary are unspecified
+
+**Reported measurements:**
+
+Covert channel and sensitive GPU-information leakage are demonstrated qualitatively; no bandwidth, symbol/error rate, attack accuracy, precision/recall, sample complexity, candidate-space baseline, privilege cost, transfer or mitigation result is provided.
+
+**Limits on the conclusion:**
+
+A GPU-to-CPU covert channel shows communication through a shared SLC, while an embedding-table attack requires a separate decoding result tied to a defined secret target and candidate space. A local channel does not establish remote leakage.
+
+Cache mapping, replacement/coherence behavior, GPU scheduling, timers, OS/driver permissions, noise, observation window and attacker concurrency determine reach. Validation must report bandwidth/error and inference accuracy/sample complexity under held-out and noisy workloads.
+
+No bandwidth, error rate, attack accuracy, privilege requirement, or mitigation analysis is supplied. The generality beyond Apple M2 and the selected LLM embedding workload is unknown; the evidence supports a platform-specific direction, not demonstrated general or remote leakage.
+
+**Source and location**
+
+Evidence tier: Primary captured official DAC description plus existing chapter level slcross discussion; no full paper extraction, reproduced cache map, noise matrix, transfer study or adaptive mitigation validation. This is the stored source classification; the location and limits below determine what was actually read.
+
+[Open the recorded source](https://63dac.conference-program.com/?post_type=page&p=16&id=RESEARCH1373&sess=sess131)
+
+DAC 2026 official description; captured Problem, Mechanism / artifact, Workload, Hardware, Baseline, Measurements and Limits fields; record RESEARCH1373; no manuscript pages.
+
+<details markdown="1">
+<summary>Original captured fields — superseded for this reading card</summary>
+
+** page source tier:** medium_official_description
+
+**Baselines:** Existing within-component cache side-channel techniques (contextual)
+
+**Evidence locators:** DAC 2026 official description
+
+**Evidence url:** https://63dac.conference-program.com/?post_type=page&p=16&id=RESEARCH1373&sess=sess131
+
+**Hardware or process assumptions:** Apple M2 heterogeneous CPU/GPU SoC and shared system-level cache; OS version, permissions, core allocation, and hardware revision are unspecified.
+
+**Limits:** No bandwidth, error rate, attack accuracy, privilege requirement, or mitigation analysis is supplied.
+
+The generality beyond Apple M2 and the selected LLM embedding workload is unknown.
+
+Official description only; security claims require full-paper and independent review.
+
+**Method or artifact:** Reverse-engineered SLC mechanisms enabling GPU-to-CPU covert communication and inference-time embedding-table attack.
+
+**Metrics:** Covert channel and sensitive GPU-information leakage demonstrated qualitatively; rates, accuracy, and sample complexity are not provided.
+
+**Problem:** Fine-grained cache side channels across heterogeneous processing units remain insufficiently characterized on Apple silicon.
+
+**Workload or benchmark:** Apple M2 SoC with local LLM inference and an embedding-table target; model, cache configuration, attack noise, and observation window are unspecified.
+
+</details>
+
+<span id="paper-dac-2026-research1085"></span>
+
+### DM-MARK: Software and Hardware Co-Design of Watermarking Accelerator for Authorized Diffusion Model Usage on Edge Devices
+
+DAC 2026 · Record: `dac-2026-research1085`
+
+[Read the step-by-step explanation](#explanation-dac-2026-research1085)
+
+**Updated source-backed reading card**
+
+Reviewed 2026-09-08. Deepens the existing DM-MARK treatment into a paper-level reading; separates watermark robustness, authorization/provenance, detector error, attack resistance, image/model quality and accelerator performance, and makes key management, metric definitions and comparison boundaries explicit.
+
+This editorial correction updates the current reading view and connected dossiers, not the historical adjudication or scientific acceptance status. The original captured fields are preserved below.
+
+[Correction register](../../data/editorial-paper-corrections-v1.json)
+
+**Problem:**
+
+Robust diffusion-model watermarking is computationally expensive and difficult to deploy on latency- and resource-constrained edge devices.
+
+**Mechanism / artifact:**
+
+Software-hardware co-designed diffusion watermarking framework and 12 nm FinFET accelerator for generation and reverse detection; watermark insertion point, key/protocol, detector, attack model, quality objective and metric boundaries are unspecified.
+
+**Workload — the work tested:**
+
+Diffusion-model watermark generation and detection on edge devices; model, resolution, precision, diffusion steps, output distribution, transformations/attacks, quality metrics, detector threshold and data split are unspecified.
+
+**Hardware and manufacturing assumptions:**
+
+12 nm FinFET accelerator; process libraries, frequency, area, power, on/off-chip memory, host interface, key storage, yield, device configuration and operating conditions are unspecified.
+
+**Baseline — the comparison method:**
+
+GPU implementation
+
+Baseline ASIC design
+
+Same model, resolution, precision, steps, output quality, detector threshold, memory/area boundary, technology, process, frequency, key and post-processing accounting are unspecified
+
+**Reported measurements:**
+
+11.33% higher detection accuracy, 18X GPU latency speedup, 3.1X on-chip-memory savings, 4.56X EMA reduction and 212.5X baseline-ASIC speedup are reported; watermark attack, quality, false-positive/negative, absolute latency/energy, area and yield results are not defined.
+
+**Limits on the conclusion:**
+
+Watermark robustness, authorization/provenance, forgery resistance, detector calibration, output quality and accelerator efficiency are separate properties. A robust mark may be forgeable, and detection accuracy without class balance, threshold and attack conditions does not establish authorization.
+
+Evaluation must define key enrollment/storage/revocation, insertion and detection path, benign transformations, adaptive removal/forgery attacks, false positives/negatives, quality/diversity and model-extraction or fine-tuning effects.
+
+The description does not identify watermark attacks, quality metrics, exact EMA definition, device configuration, or area/yield conditions. The evidence supports a watermarking accelerator direction, not demonstrated robust authorization, forgery resistance, or normalized end-to-end edge efficiency.
+
+**Source and location**
+
+Evidence tier: Primary captured official DAC description plus existing chapter level dm mark discussion; no full paper extraction, reproduced attack suite, watermark protocol, quality matrix or complete hardware accounting. This is the stored source classification; the location and limits below determine what was actually read.
+
+[Open the recorded source](https://63dac.conference-program.com/?post_type=page&p=16&id=RESEARCH1085)
+
+DAC 2026 official description; captured Problem, Mechanism / artifact, Workload, Hardware, Baseline, Measurements and Limits fields; record RESEARCH1085; no manuscript pages and no exact page/table locator.
+
+<details markdown="1">
+<summary>Original captured fields — superseded for this reading card</summary>
+
+** page source tier:** medium_official_description
+
+**Baselines:** GPU implementation
+
+baseline ASIC design
+
+**Evidence locators:** Not established in the captured evidence.
+
+**Evidence url:** https://63dac.conference-program.com/?post_type=page&p=16&id=RESEARCH1085
+
+**Hardware or process assumptions:** Not established in the captured evidence.
+
+**Limits:** The description does not identify watermark attacks, quality metrics, exact EMA definition, device configuration, or area/yield conditions.
+
+**Method or artifact:** Software-hardware co-designed diffusion watermarking framework and 12 nm FinFET accelerator for generation and reverse detection.
+
+**Metrics:** 11.33% higher detection accuracy
+
+18X latency speedup over GPU
+
+3.1X on-chip-memory savings
+
+4.56X EMA reduction
+
+212.5X speedup over baseline ASIC
+
+**Problem:** Robust diffusion-model watermarking is computationally expensive and difficult to deploy on latency- and resource-constrained edge devices.
+
+**Workload or benchmark:** Diffusion-model watermark generation and detection on edge devices.
+
+</details>
+
+<span id="paper-dac-2026-research1054"></span>
+
+### Icarus's Wings: Disabling MoE Offloading Acceleration via a Universal Hidden Prefix Attack
+
+DAC 2026 · Record: `dac-2026-research1054`
+
+[Read the step-by-step explanation](#explanation-dac-2026-research1054)
+
+**Updated source-backed reading card**
+
+Reviewed 2026-09-08. Deepens the existing Icarus’s Wings treatment into a paper-level reading; separates prefix construction, routing/prefetch disruption, cache replacement and victim slowdown, and incorporates the artifact-discovery limit while making attacker control, baselines, universality, metrics and adaptive defense explicit.
+
+This editorial correction updates the current reading view and connected dossiers, not the historical adjudication or scientific acceptance status. The original captured fields are preserved below.
+
+[Correction register](../../data/editorial-paper-corrections-v1.json)
+
+**Problem:**
+
+MoE offloading optimizations assume temporal locality and predictable routing, creating a denial-of-service surface when wrong experts are prefetched.
+
+**Mechanism / artifact:**
+
+Gradient-based universal hidden-prefix attack combining temporal-locality minimization, expert-prefetch misleading, and a target-balancing scheduler; prefix constraints, gradient/query access, scheduler control and offloading implementation are unspecified.
+
+**Workload — the work tested:**
+
+Multi-user MoE inference across models and devices with GPU-centric expert offloading; model/checkpoint, expert count, router, device, memory capacity, request mix, sequence length, concurrency, output condition and split are unspecified.
+
+**Hardware and manufacturing assumptions:**
+
+GPU-centric MoE offloading system; GPU, host memory/interconnect, cache capacity, scheduler, prefetch policy, driver/runtime, tenant isolation and attacker privileges are unspecified.
+
+**Baseline — the comparison method:**
+
+MoE caching and prefetching assumptions
+
+Unattacked MoE offloading
+
+Random/ordinary prefixes, alternate offload policies, same model/device/memory/concurrency/output and attacker-cost boundary are unspecified
+
+**Reported measurements:**
+
+85.4% increase in cache replacements, 12.5% reduction in prefetch accuracy, 0.7X decoding speed and maximum-length outputs are reported; no absolute latency/throughput, victim tail latency, attack cost, success rate, traffic, transfer, model/device matrix or defense result is supplied.
+
+**Limits on the conclusion:**
+
+An MoE denial-of-service claim requires a causal link from hidden-prefix construction to routing/prefetch decisions, cache replacement and victim service degradation. Replacement and prefetch metrics are not themselves victim-impact metrics, and 0.7X needs a defined speed/latency denominator.
+
+Universality must be tested across held-out prompts, users, sequence lengths, checkpoints, expert counts, routing policies, devices, offloaders and schedules; attacker knowledge, prefix length, gradient/query cost and scheduler control must be stated.
+
+The description does not enumerate models/devices, attack cost, attack success rate, or defenses. The pinned repository contains README/image artifact discovery only; no full paper or demo execution was recovered. The evidence supports an MoE offloading denial-of-service direction, not demonstrated universal or deployment-general attack impact.
+
+**Source and location**
+
+Evidence tier: Primary captured official DAC description plus pinned repository artifact discovery assessment; no recovered full paper, executable attack, reproduced offloading system or independent validation. This is the stored source classification; the location and limits below determine what was actually read.
+
+[Open the recorded source](https://63dac.conference-program.com/?post_type=page&p=16&id=RESEARCH1054&sess=sess156)
+
+DAC 2026 official description; captured Problem, Mechanism / artifact, Workload, Hardware, Baseline, Measurements and Limits fields; record RESEARCH1054; additional assessment dac/data/icarus-source-recovery-20260906.json and pinned repository README; no full-paper page locator.
+
+<details markdown="1">
+<summary>Original captured fields — superseded for this reading card</summary>
+
+** page source tier:** high_official_description
+
+**Baselines:** MoE caching and prefetching assumptions
+
+unattacked MoE offloading
+
+**Evidence locators:** Not established in the captured evidence.
+
+**Evidence url:** https://63dac.conference-program.com/?post_type=page&p=16&id=RESEARCH1054&sess=sess156
+
+**Hardware or process assumptions:** Not established in the captured evidence.
+
+**Limits:** The description does not enumerate models/devices, attack cost, attack success rate, or defenses.
+
+**Method or artifact:** Gradient-based universal hidden-prefix attack combining temporal-locality minimization, expert-prefetch misleading, and a target-balancing scheduler.
+
+**Metrics:** 85.4% increase in cache replacements
+
+12.5% reduction in prefetch accuracy
+
+0.7X decoding speed
+
+maximum-length outputs
+
+**Problem:** MoE offloading optimizations assume temporal locality and predictable routing, creating a denial-of-service surface when wrong experts are prefetched.
+
+**Workload or benchmark:** Multi-user MoE inference across models and devices with GPU-centric expert offloading.
+
+</details>
+
+#### Additional source assessment
+
+This separately recorded check is dated 2026-09-06. It supplements the original record above and retains its own scope and uncertainty.
+
+[Assessment record](../../dac/data/icarus-source-recovery-20260906.json)
+
+[Assessed source](https://github.com/qcm0224/Icarus-Wings/tree/5f40e6717c892c09bed2845ca5cf7ff36faeb8ef)
+
+**Extraction scope**
+
+Pinned repository README and complete tree; not full-paper technical evidence
+
+**Headline metric status**
+
+withheld_pending_fullpaper_conditions
+
+**Independent review status**
+
+pending
+
+<span id="paper-iccad-2025-1000"></span>
+
+### Energon: Unveiling Transformers from GPU Power and Thermal Side-Channels
+
+ICCAD 2025 · Record: `iccad-2025-1000`
+
+[Read the step-by-step explanation](#explanation-iccad-2025-1000)
+
+**Updated source-backed reading card**
+
+Reviewed 2026-09-08. Reconciles the captured abstract card with arXiv v1; separates sensor observation, threat model, architecture classification, surrogate/transfer attack and selected GPU conditions.
+
+This editorial correction updates the current reading view and connected dossiers, not the historical adjudication or scientific acceptance status. The original captured fields are preserved below.
+
+[Correction register](../../data/editorial-paper-corrections-v1.json)
+
+**Problem:**
+
+Shared/virtualized GPUs expose power/thermal telemetry that may leak proprietary transformer architecture without direct model access.
+
+**Mechanism / artifact:**
+
+Energon collects nvidia-smi/pynvml power/thermal traces and trains CNN classifiers to infer transformer family, encoder/decoder layers and attention heads; it uses extracted structure to build a MarianMT substitute and ViT transfer attacks.
+
+**Workload — the work tested:**
+
+Custom transformers (nine configurations), eight pre-trained language models across T5/Google/MarianMT/Meta, eight ViTs across Apple/Google/Meta/Microsoft, NVIDIA A40 main platform, GTX 1660 Ti Mobile gradient analysis, single and noisy multi-process settings; 100 traces/model, 120s, 7Hz, 80:20 split and stratified K-fold.
+
+**Hardware and manufacturing assumptions:**
+
+NVIDIA GPU physical power/thermal sensors visible to an unprivileged user via nvidia-smi/pynvml under the stated MIG/VM threat model; initial 28C and cooling between laboratory traces; device/driver/sampling/virtualization details constrain transfer.
+
+**Baseline — the comparison method:**
+
+Custom transformer architecture configurations
+
+Pre-trained language-family and ViT-family classifiers
+
+Concurrent matrix multiplication/CNN/ViT background processes
+
+**Reported measurements:**
+
+Custom head ID: 100% for 8/32-head groups and 96.25% for 16-head group; language family max/average 95%/89%; T5 head and Meta E/D 100% average.
+
+ViT root family max/average 91.25%/84.75%; family-specific Meta/Google/Microsoft head ID 100%.
+
+Noisy: 89.25% average root family ID; Meta/T5 92%/87%; matrix-multiplication background causes 4% root-family drop.
+
+Substitute MarianMT BLEU 44.12 and BERT 93.53 (alternative unknown dimensions BERT 93.08/93.53); ViT FGSM/PGD success rates 83.38%, 94.87%, 98.63%, 98.63%.
+
+**Limits on the conclusion:**
+
+Architecture classification is not weight/training-data recovery; selected families/configuration catalog and prior family conditioning limit generalization.
+
+Sensor visibility and cross-instance correlation are threat-model assumptions; results are device/driver/sampling/MIG/cloud-policy dependent.
+
+100 traces/model with 80:20 split and selected models does not establish performance on unseen architecture families, GPUs or continuous production traffic; cooling/stabilization protocol is laboratory-specific.
+
+Substitute/transfer results depend on training/data/attack definitions and do not establish universal attack success. No independent reproduction performed here.
+
+**Source and location**
+
+Evidence tier: Primary arxiv preprint v1 and official ICCAD record; selected manuscript reading, execution and independent acceptance not performed. This is the stored source classification; the location and limits below determine what was actually read.
+
+[Open the recorded source](https://arxiv.org/pdf/2508.01768v1)
+
+Version 1: Sections III–V and VII; custom traces and 7Hz/28C/cooling Section III-A pages 3–4; A40 120s power/thermal traces Sections III-B–C pages 4–5; threat model Section IV-A pages 5–6; 100 traces/80:20/K-fold and classifier Section IV-B pages 6–8; noisy processes Section IV-C pages 8–9; substitute/transfer Section V pages 9–10; mitigation/conclusion Section VII pages 10–11; ICCAD DOI 10.1109/ICCAD66269.2025.11240664.
+
+<details markdown="1">
+<summary>Original captured fields — superseded for this reading card</summary>
+
+** page source tier:** high_primary_preprint
+
+**Baselines:** model-family and hyperparameter classification scenarios
+
+noisy multi-process inference conditions
+
+**Evidence locators:** Not established in the captured evidence.
+
+**Evidence url:** https://arxiv.org/abs/2508.01768
+
+**Hardware or process assumptions:** Not established in the captured evidence.
+
+**Limits:** The evidence is an author preprint and the repository does not yet extract every table or repeat the experiments; telemetry access, GPU generation, co-tenancy assumptions, and mitigation effectiveness constrain generalization.
+
+**Method or artifact:** CNN-based predictors over power and thermal traces to infer transformer family, layer, and attention-head information, followed by substitute-model construction and black-box transfer attacks.
+
+**Metrics:** over 89% average model-family identification accuracy
+
+100% hyperparameter classification in reported settings
+
+over 93% average transfer-attack success in abstract
+
+BERT score above 93 for substitute-model evaluation
+
+**Problem:** Shared or virtualized GPUs expose power and thermal telemetry that may leak proprietary transformer architecture information without physical access.
+
+**Workload or benchmark:** Eight publicly available language/vision model families, custom transformers, NVIDIA A40 data-center GPU inference, single-process and noisy multi-process settings.
+
+</details>
+
+## What remains to establish
+
+Resolve unspecified workloads, comparison methods, resource budgets, and source locations before generalizing a reported gain. Multiple papers in this selected sample permit comparison of mechanisms, but do not by themselves establish recurrence across years or a long-term trend.
+
+[All subthemes](../expanded-taxonomy-v1.md) · [Research directions](../directions/README.md)

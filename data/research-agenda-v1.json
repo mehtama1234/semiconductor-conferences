@@ -1,0 +1,255 @@
+{
+  "schema": "research-agenda.v1",
+  "as_of": "2026-09-07",
+  "status": "living_execution_agenda",
+  "current_gate": {
+    "independent_review_count": 0,
+    "synthesis_anchor_count": 37,
+    "condition_reference_count": 60,
+    "comparison_dossier_count": 6
+  },
+  "agenda": [
+    {
+      "task_id": "A1-condition-reconciliation",
+      "workstream": "evidence",
+      "title": "Reconcile anchor and challenge conditions",
+      "status": "active",
+      "priority": "P1",
+      "depends_on": [],
+      "deliverable": "Updated condition register with source locators for workload, hardware/process, baseline, metric, budget, limits, and explicit unknowns.",
+      "acceptance": [
+        "Every anchor and challenge paper has a condition record or an explicit source-access failure record.",
+        "Unknown fields remain unknown; description-tier values are not upgraded to full-paper evidence.",
+        "The direction review gate is regenerated and counts match the condition register."
+      ],
+      "evidence": [
+        "data/direction-condition-register-v1.json",
+        "data/direction-review-gate-v1.json"
+      ]
+    },
+    {
+      "task_id": "A2-counterpressure-audit",
+      "workstream": "falsification",
+      "title": "Audit counterpressure and boundary cases",
+      "status": "active",
+      "priority": "P1",
+      "depends_on": [
+        "A1-condition-reconciliation"
+      ],
+      "deliverable": "One auditable challenge record per canonical direction, with relation type, failure condition, and what observation would weaken the hypothesis.",
+      "acceptance": [
+        "All six directions have a role=challenge record.",
+        "Each challenge has source tier, condition status, limits, and a source locator or documented gap.",
+        "No challenge is counted as independent validation of the supporting direction."
+      ],
+      "evidence": [
+        "data/long-term-direction-atlas-v1.json",
+        "data/direction-condition-register-v1.json",
+        "reports/comparisons/README.md"
+      ]
+    },
+    {
+      "task_id": "A3-independent-review",
+      "workstream": "review",
+      "title": "Obtain independent source-entailment review",
+      "status": "awaiting_external_review",
+      "priority": "P1",
+      "depends_on": [
+        "A1-condition-reconciliation",
+        "A2-counterpressure-audit"
+      ],
+      "deliverable": "Two independent verdicts per selected review packet, disagreement resolution, and preserved reviewer rationale.",
+      "acceptance": [
+        "Reviewer judgments are independent of the researcher coding and each other until disagreement resolution.",
+        "Every accepted material claim has a source-entailment verdict and unresolved objections are retained.",
+        "The gate count changes only from recorded verdicts, never from deterministic preflight."
+      ],
+      "evidence": [
+        "reports/independent-review-assignments-v1.json",
+        "reports/adversarial-judge-protocol-v1.md",
+        "reports/direction-review-gate-v1.md"
+      ]
+    },
+    {
+      "task_id": "A4-matched-comparisons",
+      "workstream": "synthesis",
+      "title": "Run matched cross-conference mechanism comparisons",
+      "status": "ready_after_review",
+      "priority": "P2",
+      "depends_on": [
+        "A1-condition-reconciliation",
+        "A3-independent-review"
+      ],
+      "deliverable": "Matched comparison tables for each direction using equivalent workloads/design suites, hardware/process, baselines, metrics, budgets, and validity boundaries.",
+      "acceptance": [
+        "Every comparison states its population and missingness denominators.",
+        "Proxy metrics are not presented as end-to-end benefit without an explicit boundary argument.",
+        "Contradictory or incomparable records are retained as such rather than ranked."
+      ],
+      "evidence": [
+        "data/cross-conference-comparison-dossiers-v1.json",
+        "reports/comparisons/README.md"
+      ]
+    },
+    {
+      "task_id": "A5-longitudinal-promotion",
+      "workstream": "longitudinal",
+      "title": "Promote, split, weaken, or abandon direction hypotheses",
+      "status": "disabled_until_gates_pass",
+      "priority": "P2",
+      "depends_on": [
+        "A3-independent-review",
+        "A4-matched-comparisons"
+      ],
+      "deliverable": "Edition-comparable snapshots and a direction verdict at capability, persistence, prevalence, or impact level.",
+      "acceptance": [
+        "At least two comparable editions use the same taxonomy and disclosed evidence tiers.",
+        "Inventory, source-text, coded, condition-complete, and independently reviewed denominators are reported.",
+        "The claim is promoted only if the direction-specific test in the longitudinal protocol passes; otherwise it remains insufficient or is weakened."
+      ],
+      "evidence": [
+        "data/longitudinal-protocol-v1.json",
+        "reports/longitudinal-protocol-v1.md",
+        "reports/temporal-insufficiency-v1.json"
+      ]
+    },
+    {
+      "task_id": "D-constraints-become-executable-evidence",
+      "workstream": "direction",
+      "title": "Close condition gaps for Constraints Become Executable",
+      "direction_id": "constraints-become-executable",
+      "status": "active",
+      "priority": "P1",
+      "depends_on": [
+        "A1-condition-reconciliation"
+      ],
+      "deliverable": "Condition-complete evidence table for the direction's anchors and challenge record.",
+      "acceptance": [
+        "Resolve or explicitly bound missing fields for: dac-2026-research1110, dac-2026-research535, dac-2026-research865, iccad-2025-1027.",
+        "Keep condition extraction, source entailment, and scientific correctness as separate states.",
+        "Regenerate the direction page, dossier, and review gate."
+      ],
+      "evidence": [
+        "reports/directions/01-constraints-become-executable.md",
+        "data/direction-condition-register-v1.json",
+        "reports/direction-review-gate-v1.md"
+      ]
+    },
+    {
+      "task_id": "D-data-movement-as-contract-evidence",
+      "workstream": "direction",
+      "title": "Close condition gaps for Data Movement As Contract",
+      "direction_id": "data-movement-as-contract",
+      "status": "active",
+      "priority": "P1",
+      "depends_on": [
+        "A1-condition-reconciliation"
+      ],
+      "deliverable": "Condition-complete evidence table for the direction's anchors and challenge record.",
+      "acceptance": [
+        "Resolve or explicitly bound missing fields for: dac-2026-research1028, dac-2026-research108, dac-2026-research1113.",
+        "Keep condition extraction, source entailment, and scientific correctness as separate states.",
+        "Regenerate the direction page, dossier, and review gate."
+      ],
+      "evidence": [
+        "reports/directions/02-data-movement-as-contract.md",
+        "data/direction-condition-register-v1.json",
+        "reports/direction-review-gate-v1.md"
+      ]
+    },
+    {
+      "task_id": "D-reliability-security-upstream-evidence",
+      "workstream": "direction",
+      "title": "Close condition gaps for Reliability Security Upstream",
+      "direction_id": "reliability-security-upstream",
+      "status": "active",
+      "priority": "P1",
+      "depends_on": [
+        "A1-condition-reconciliation"
+      ],
+      "deliverable": "Condition-complete evidence table for the direction's anchors and challenge record.",
+      "acceptance": [
+        "Resolve or explicitly bound missing fields for: dac-2026-research043, dac-2026-research046, dac-2026-research1054, iccad-2025-1000.",
+        "Keep condition extraction, source entailment, and scientific correctness as separate states.",
+        "Regenerate the direction page, dossier, and review gate."
+      ],
+      "evidence": [
+        "reports/directions/04-reliability-security-upstream.md",
+        "data/direction-condition-register-v1.json",
+        "reports/direction-review-gate-v1.md"
+      ]
+    },
+    {
+      "task_id": "D-physical-reality-in-the-loop-evidence",
+      "workstream": "direction",
+      "title": "Close condition gaps for Physical Reality In The Loop",
+      "direction_id": "physical-reality-in-the-loop",
+      "status": "active",
+      "priority": "P1",
+      "depends_on": [
+        "A1-condition-reconciliation"
+      ],
+      "deliverable": "Condition-complete evidence table for the direction's anchors and challenge record.",
+      "acceptance": [
+        "Resolve or explicitly bound missing fields for: dac-2026-research1065.",
+        "Keep condition extraction, source entailment, and scientific correctness as separate states.",
+        "Regenerate the direction page, dossier, and review gate."
+      ],
+      "evidence": [
+        "reports/directions/05-physical-reality-in-the-loop.md",
+        "data/direction-condition-register-v1.json",
+        "reports/direction-review-gate-v1.md"
+      ]
+    },
+    {
+      "task_id": "D-closed-loop-design-evidence",
+      "workstream": "direction",
+      "title": "Close condition gaps for Closed Loop Design",
+      "direction_id": "closed-loop-design",
+      "status": "active",
+      "priority": "P1",
+      "depends_on": [
+        "A1-condition-reconciliation"
+      ],
+      "deliverable": "Condition-complete evidence table for the direction's anchors and challenge record.",
+      "acceptance": [
+        "Resolve or explicitly bound missing fields for: dac-2026-research031, dac-2026-research046, dac-2026-research1101.",
+        "Keep condition extraction, source entailment, and scientific correctness as separate states.",
+        "Regenerate the direction page, dossier, and review gate."
+      ],
+      "evidence": [
+        "reports/directions/03-closed-loop-design.md",
+        "data/direction-condition-register-v1.json",
+        "reports/direction-review-gate-v1.md"
+      ]
+    },
+    {
+      "task_id": "D-evaluation-as-research-evidence",
+      "workstream": "direction",
+      "title": "Close condition gaps for Evaluation As Research",
+      "direction_id": "evaluation-as-research",
+      "status": "active",
+      "priority": "P1",
+      "depends_on": [
+        "A1-condition-reconciliation"
+      ],
+      "deliverable": "Condition-complete evidence table for the direction's anchors and challenge record.",
+      "acceptance": [
+        "Resolve or explicitly bound missing fields for: dac-2026-research031, dac-2026-research046, dac-2026-research1101, dac-2026-research1110, dac-2026-research535, dac-2026-research865, iccad-2025-1027.",
+        "Keep condition extraction, source entailment, and scientific correctness as separate states.",
+        "Regenerate the direction page, dossier, and review gate."
+      ],
+      "evidence": [
+        "reports/directions/06-evaluation-as-research.md",
+        "data/direction-condition-register-v1.json",
+        "reports/direction-review-gate-v1.md"
+      ]
+    }
+  ],
+  "operating_rules": [
+    "A green validator proves repository consistency, not scientific acceptance.",
+    "A prepared packet is not a verdict.",
+    "A condition-complete record is not necessarily correct or independently reproduced.",
+    "A comparison dossier is not a trend claim until populations, denominators, and editions are matched."
+  ]
+}

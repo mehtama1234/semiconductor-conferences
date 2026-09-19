@@ -1,5 +1,37 @@
 # End-to-end goal: semiconductor conference intelligence
 
+## North-star goal
+
+Current editorial priority after user reading feedback: the existing authored
+coverage does not meet the requested explanatory depth. Reopen subtheme and
+paper writing for a comprehension-focused pass. Explain the computation and
+mechanism step by step before presenting measurements and caveats; preserve
+source boundaries and clearly label illustrative reasoning. Do not report
+the presence of 113 authored subjects as completion of this writing requirement.
+
+Build a first-principles, page-backed research intelligence system that explains
+how ISCA, DAC, and ICCAD papers collectively change the design of computing and
+semiconductor systems over time. The system must connect workload and objective
+to representation, mechanism, data movement, physical realization, and observed
+tradeoffs; organize those mechanisms into themes, subthemes, and finer
+capabilities; and turn the evidence into durable long-term insights that can be
+strengthened, split, falsified, or abandoned as new editions arrive.
+
+The finished product is a connected research atlas. A reader moves from a
+conceptual first principle to a theme page, from that page to a mechanism and
+paper, from the paper to source-backed conditions and limitations, and from
+there to a cross-conference interpretation and a clearly bounded long-term
+hypothesis. The governing research program is documented in
+[`reports/end-to-end-research-program-v1.md`](reports/end-to-end-research-program-v1.md).
+
+This goal is complete only when the repository can answer what the field is
+learning to make executable, where those loops fail, and which apparent changes
+survive comparable evidence over time. A reproducible package, paper count,
+taxonomy, or deterministic validation pass is necessary infrastructure but is
+not the goal itself.
+
+The reader-facing entrypoint is [`reports/research-atlas-index-v1.md`](reports/research-atlas-index-v1.md).
+
 Build a dated, reproducible research intelligence system that explains what ISCA,
 DAC, and ICCAD papers contribute, how their technical mechanisms relate, and what
 the evidence supports about the direction of semiconductor and computer-system
@@ -63,10 +95,24 @@ and ICCAD 21. ISCA has 171 DOI matches. Historical inventories contain 135 ISCA
 descriptions. All coded records await independent review; deterministic preflight
 is 582 pass / 0 review and is not an acceptance judgment. The paper-level queue
 covers all 1,589 inventory records, with 31 supplementary assessments and 25
-dated recovery attempts. Validation and 142 tests pass; these establish
-consistency, not correctness of the scientific interpretations.
+dated recovery attempts. Validation and 169 tests passed at that recovered
+checkpoint; these established consistency, not correctness of the scientific
+interpretations. Later verification results are recorded in the editorial audit.
 The initial 72-record/276-ICCAD snapshot is retained in git history, not treated as
 the current state.
+
+The subsequent 2026-09-07 editorial passes supply authored text
+for all 113 observed subjects and dated reading-card corrections for 173 papers.
+Authored text is not uniformly deep explanation: collection-wide rewriting
+remains open. All ten parent themes now have connected editorial
+cost, quality, capacity, correctness and evidence discussions with bounded hypotheses,
+not accepted cross-conference time trends.
+This does not complete the goal: those corrections remain separate from original
+coding, independent acceptance is still pending, and cross-theme synthesis and
+historical comparison require further reconciliation. See
+[`reports/editorial-audit-v1.md`](reports/editorial-audit-v1.md) for source-specific
+changes and verified checks. Page coverage must not replace the evidence contract
+or any completion requirement below.
 
 ## Subgoal 1 — Establish a trustworthy recovered checkpoint
 

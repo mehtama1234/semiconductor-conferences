@@ -69,3 +69,22 @@ def test_new_iccad_mechanisms_keep_original_text_and_objections_separate():
         assert packet["original_source_text"]
         assert packet["supplementary_researcher_assessments"]
         assert not packet["independent_verdicts"]
+
+
+def test_packets_expose_condition_reconciliation_without_promoting_it_to_review():
+    packets, summary = build(ROOT)
+    mapping = next(p for p in packets if p["paper_id"] == "dac-2026-research535")
+    assert summary["condition_context_packet_count"] > 0
+    context = mapping["condition_reconciliation_context"]
+    assert context["status"] == "direction_atlas_recorded"
+    assert context["records"]
+    record = context["records"][0]
+    assert record["adjudicated"]["condition_status"] == "partial"
+    assert record["combined_field_presence"]["condition_status"] == "complete"
+    assert record["supplementary"]["evidence_tier"] == "author_preprint"
+    assert "not an independent scientific verdict" in context["boundary"]
+    assert mapping["review_status"] == "not_reviewed"
+    assert mapping["independent_verdicts"] == []
+
+    ordinary = next(p for p in packets if p["paper_id"] == "dac-2026-research004")
+    assert ordinary["condition_reconciliation_context"]["status"] == "not_in_direction_atlas"

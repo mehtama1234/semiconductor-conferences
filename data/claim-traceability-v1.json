@@ -1,0 +1,469 @@
+{
+  "schema": "claim-traceability.v1",
+  "as_of": "2026-09-07",
+  "status": "traceable_provisional_synthesis",
+  "directions": [
+    {
+      "direction_id": "constraints-become-executable",
+      "label": "Constraints Become Executable",
+      "proposition": "A candidate is useful only when executable constraints can reject, repair, or rank it.",
+      "direction_page": "reports/directions/01-constraints-become-executable.md",
+      "theme_links": [
+        {
+          "theme_id": "ai-assisted-eda",
+          "page": "reports/themes/ai-assisted-eda.md"
+        },
+        {
+          "theme_id": "chiplets-3d-and-packaging",
+          "page": "reports/themes/chiplets-3d-and-packaging.md"
+        },
+        {
+          "theme_id": "design-methodology-and-tooling",
+          "page": "reports/themes/design-methodology-and-tooling.md"
+        },
+        {
+          "theme_id": "verification-and-validation",
+          "page": "reports/themes/verification-and-validation.md"
+        }
+      ],
+      "subtheme_ids": [
+        "chiplet-partitioning-and-integration",
+        "high-level-synthesis-and-compilers",
+        "llm-assisted-design-flows",
+        "simulation-emulation-and-testing"
+      ],
+      "mechanism_ids": [
+        "hierarchical-multi-agent-chiplet-design",
+        "living-rtl-benchmark-and-equivalence-evaluation",
+        "llm-assisted-hls-logic-debugging",
+        "llm-evolution-of-technology-mapping",
+        "llm-generated-hls-architecture-optimization",
+        "llm-global-reasoning-for-hls-dse",
+        "mlir-two-level-dataflow-accelerator-generation",
+        "multi-role-ppa-aware-verilog-generation",
+        "reinforcement-learning-verilog-generation"
+      ],
+      "supporting_paper_ids": [
+        "dac-2026-research1110",
+        "dac-2026-research865",
+        "dac-2026-research535",
+        "iccad-2025-1207",
+        "iccad-2025-1222",
+        "iccad-2025-110",
+        "iccad-2025-1027",
+        "isca-2026-program-002"
+      ],
+      "challenge_paper_ids": [
+        "dac-2026-research2760"
+      ],
+      "condition_record_count": 9,
+      "condition_complete_count": 5,
+      "condition_partial_count": 4,
+      "comparison_dossier": "reports/comparisons/constraints-become-executable.md",
+      "agenda_task_ids": [
+        "A1-condition-reconciliation",
+        "A2-counterpressure-audit",
+        "D-constraints-become-executable-evidence",
+        "A3-independent-review",
+        "A4-matched-comparisons",
+        "A5-longitudinal-promotion"
+      ],
+      "promotion_gate": "blocked_pending_independent_review_and_condition_reconciliation",
+      "independent_verdict_count": 0,
+      "traceability_status": "complete_chain_with_explicit_promotion_boundary",
+      "unresolved_links": []
+    },
+    {
+      "direction_id": "data-movement-as-contract",
+      "label": "Data Movement As Contract",
+      "proposition": "Useful computation is constrained by where data is, how far it moves, and what competes for the path.",
+      "direction_page": "reports/directions/02-data-movement-as-contract.md",
+      "theme_links": [
+        {
+          "theme_id": "architecture-and-accelerators",
+          "page": "reports/themes/architecture-and-accelerators.md"
+        },
+        {
+          "theme_id": "chiplets-3d-and-packaging",
+          "page": "reports/themes/chiplets-3d-and-packaging.md"
+        },
+        {
+          "theme_id": "memory-interconnect-and-storage",
+          "page": "reports/themes/memory-interconnect-and-storage.md"
+        }
+      ],
+      "subtheme_ids": [
+        "3d-stacking-and-thermal-management",
+        "ai-accelerator-microarchitecture",
+        "architecture-software-co-design",
+        "chiplet-and-on-chip-interconnect",
+        "data-movement-and-locality",
+        "memory-hierarchy-and-persistence",
+        "specialized-ai-accelerators"
+      ],
+      "mechanism_ids": [
+        "concurrent-pim-cpu-mobile-scheduling",
+        "cxl-near-memory-ann-search",
+        "disaggregated-compute-network-storage-training",
+        "hyperscale-cxl-asic-os-deployment",
+        "integrated-nic-collective-offload-training-accelerator",
+        "long-context-agentic-memory-wall-co-design",
+        "moe-data-movement-forecasting-and-placement",
+        "multiplication-fused-llm-dot-product-acceleration",
+        "near-memory-communication-lower-bounds",
+        "near-shannon-lossless-llm-weight-compression",
+        "os-hardware-cxl-tiered-memory",
+        "outlier-aware-lut-quantized-gemm",
+        "silicon-proven-cxl-port-based-routing-fabric",
+        "thermal-aware-3d-stacked-llm-inference",
+        "training-free-self-speculative-edge-llm-decoding"
+      ],
+      "supporting_paper_ids": [
+        "dac-2026-research108",
+        "dac-2026-research1028",
+        "dac-2026-research1113",
+        "isca-2026-program-005",
+        "isca-2026-program-155",
+        "isca-2026-program-003",
+        "isca-2026-program-007",
+        "isca-2026-program-008",
+        "isca-2026-program-044",
+        "isca-2026-program-045",
+        "isca-2026-program-069",
+        "iccad-2025-1103",
+        "dac-2026-research1182",
+        "isca-2026-program-020",
+        "isca-2026-program-006"
+      ],
+      "challenge_paper_ids": [
+        "dac-2026-research2268"
+      ],
+      "condition_record_count": 16,
+      "condition_complete_count": 13,
+      "condition_partial_count": 3,
+      "comparison_dossier": "reports/comparisons/data-movement-as-contract.md",
+      "agenda_task_ids": [
+        "A1-condition-reconciliation",
+        "A2-counterpressure-audit",
+        "D-data-movement-as-contract-evidence",
+        "A3-independent-review",
+        "A4-matched-comparisons",
+        "A5-longitudinal-promotion"
+      ],
+      "promotion_gate": "blocked_pending_independent_review_and_condition_reconciliation",
+      "independent_verdict_count": 0,
+      "traceability_status": "complete_chain_with_explicit_promotion_boundary",
+      "unresolved_links": []
+    },
+    {
+      "direction_id": "reliability-security-upstream",
+      "label": "Reliability Security Upstream",
+      "proposition": "Performance without a declared fault and threat operating envelope is not a complete system result.",
+      "direction_page": "reports/directions/04-reliability-security-upstream.md",
+      "theme_links": [
+        {
+          "theme_id": "memory-interconnect-and-storage",
+          "page": "reports/themes/memory-interconnect-and-storage.md"
+        },
+        {
+          "theme_id": "power-reliability-and-security",
+          "page": "reports/themes/power-reliability-and-security.md"
+        }
+      ],
+      "subtheme_ids": [
+        "accelerator-reliability",
+        "memory-hierarchy-and-persistence",
+        "power-integrity-and-reliability",
+        "reliability-and-fault-tolerance",
+        "side-channel-and-hardware-security"
+      ],
+      "mechanism_ids": [
+        "adversarial-attacks-on-moe-offloading",
+        "cross-layer-ecc-encode-once-decode-many",
+        "ecc-aware-reliable-bank-pim",
+        "full-stack-npu-fault-mitigation",
+        "gpu-power-thermal-transformer-side-channel-leakage",
+        "physics-informed-joint-em-ir-modeling",
+        "processing-using-dram-interference-reliability",
+        "verifiable-tee-cpu-availability"
+      ],
+      "supporting_paper_ids": [
+        "dac-2026-research043",
+        "dac-2026-research046",
+        "dac-2026-research1054",
+        "isca-2026-program-004",
+        "isca-2026-program-009",
+        "isca-2026-program-024",
+        "iccad-2025-1000"
+      ],
+      "challenge_paper_ids": [
+        "dac-2026-research1494"
+      ],
+      "condition_record_count": 8,
+      "condition_complete_count": 4,
+      "condition_partial_count": 4,
+      "comparison_dossier": "reports/comparisons/reliability-security-upstream.md",
+      "agenda_task_ids": [
+        "A1-condition-reconciliation",
+        "A2-counterpressure-audit",
+        "D-reliability-security-upstream-evidence",
+        "A3-independent-review",
+        "A4-matched-comparisons",
+        "A5-longitudinal-promotion"
+      ],
+      "promotion_gate": "blocked_pending_independent_review_and_condition_reconciliation",
+      "independent_verdict_count": 0,
+      "traceability_status": "complete_chain_with_explicit_promotion_boundary",
+      "unresolved_links": []
+    },
+    {
+      "direction_id": "physical-reality-in-the-loop",
+      "label": "Physical Reality In The Loop",
+      "proposition": "An abstract optimum is irrelevant when the physical system cannot realize it.",
+      "direction_page": "reports/directions/05-physical-reality-in-the-loop.md",
+      "theme_links": [
+        {
+          "theme_id": "chiplets-3d-and-packaging",
+          "page": "reports/themes/chiplets-3d-and-packaging.md"
+        },
+        {
+          "theme_id": "power-reliability-and-security",
+          "page": "reports/themes/power-reliability-and-security.md"
+        }
+      ],
+      "subtheme_ids": [
+        "3d-integration-and-thermal-management",
+        "3d-stacking-and-thermal-management",
+        "chiplet-partitioning-and-integration",
+        "energy-and-thermal-efficiency"
+      ],
+      "mechanism_ids": [
+        "analytical-3d-ic-thermal-simulation",
+        "hierarchical-multi-agent-chiplet-design",
+        "thermal-aware-3d-stacked-llm-inference",
+        "thermal-imbalance-concurrent-gpu-execution",
+        "wafer-on-wafer-cim-thermal-stability"
+      ],
+      "supporting_paper_ids": [
+        "dac-2026-research1065",
+        "iccad-2025-1103",
+        "isca-2026-program-153",
+        "iccad-2025-1207"
+      ],
+      "challenge_paper_ids": [
+        "dac-2026-research1862"
+      ],
+      "condition_record_count": 5,
+      "condition_complete_count": 4,
+      "condition_partial_count": 1,
+      "comparison_dossier": "reports/comparisons/physical-reality-in-the-loop.md",
+      "agenda_task_ids": [
+        "A1-condition-reconciliation",
+        "A2-counterpressure-audit",
+        "D-physical-reality-in-the-loop-evidence",
+        "A3-independent-review",
+        "A4-matched-comparisons",
+        "A5-longitudinal-promotion"
+      ],
+      "promotion_gate": "blocked_pending_independent_review_and_condition_reconciliation",
+      "independent_verdict_count": 0,
+      "traceability_status": "complete_chain_with_explicit_promotion_boundary",
+      "unresolved_links": []
+    },
+    {
+      "direction_id": "closed-loop-design",
+      "label": "Closed Loop Design",
+      "proposition": "A design loop is only useful when sensing cost, model error, decision latency, and update semantics are explicit.",
+      "direction_page": "reports/directions/03-closed-loop-design.md",
+      "theme_links": [
+        {
+          "theme_id": "ai-assisted-eda",
+          "page": "reports/themes/ai-assisted-eda.md"
+        },
+        {
+          "theme_id": "analog-mixed-signal-and-emerging-devices",
+          "page": "reports/themes/analog-mixed-signal-and-emerging-devices.md"
+        },
+        {
+          "theme_id": "architecture-and-accelerators",
+          "page": "reports/themes/architecture-and-accelerators.md"
+        },
+        {
+          "theme_id": "chiplets-3d-and-packaging",
+          "page": "reports/themes/chiplets-3d-and-packaging.md"
+        },
+        {
+          "theme_id": "design-methodology-and-tooling",
+          "page": "reports/themes/design-methodology-and-tooling.md"
+        },
+        {
+          "theme_id": "physical-design-and-manufacturing",
+          "page": "reports/themes/physical-design-and-manufacturing.md"
+        },
+        {
+          "theme_id": "power-reliability-and-security",
+          "page": "reports/themes/power-reliability-and-security.md"
+        }
+      ],
+      "subtheme_ids": [
+        "architecture-software-co-design",
+        "chiplet-system-architecture",
+        "learned-design-space-exploration",
+        "neuromorphic-quantum-and-non-von-neumann",
+        "power-integrity-and-reliability",
+        "process-aware-design",
+        "synthesis-and-compilation"
+      ],
+      "mechanism_ids": [
+        "exact-t-cost-quantum-circuit-synthesis",
+        "multi-fidelity-bayesian-microarchitecture-exploration",
+        "physics-informed-joint-em-ir-modeling",
+        "robust-bayesian-analog-sizing",
+        "silicon-calibrated-hierarchical-cim-exploration",
+        "stochastic-spin-ferroelectric-neuropde",
+        "surrogate-chiplet-accelerator-exploration"
+      ],
+      "supporting_paper_ids": [
+        "dac-2026-research046",
+        "dac-2026-research1101",
+        "iccad-2025-1080",
+        "iccad-2025-130",
+        "dac-2026-research031",
+        "dac-2026-research1186"
+      ],
+      "challenge_paper_ids": [
+        "dac-2026-research399"
+      ],
+      "condition_record_count": 7,
+      "condition_complete_count": 4,
+      "condition_partial_count": 3,
+      "comparison_dossier": "reports/comparisons/closed-loop-design.md",
+      "agenda_task_ids": [
+        "A1-condition-reconciliation",
+        "A2-counterpressure-audit",
+        "D-closed-loop-design-evidence",
+        "A3-independent-review",
+        "A4-matched-comparisons",
+        "A5-longitudinal-promotion"
+      ],
+      "promotion_gate": "blocked_pending_independent_review_and_condition_reconciliation",
+      "independent_verdict_count": 0,
+      "traceability_status": "complete_chain_with_explicit_promotion_boundary",
+      "unresolved_links": []
+    },
+    {
+      "direction_id": "evaluation-as-research",
+      "label": "Evaluation As Research",
+      "proposition": "Every result is a measurement with a task population, evaluator, result, uncertainty, and failure boundary.",
+      "direction_page": "reports/directions/06-evaluation-as-research.md",
+      "theme_links": [
+        {
+          "theme_id": "ai-assisted-eda",
+          "page": "reports/themes/ai-assisted-eda.md"
+        },
+        {
+          "theme_id": "analog-mixed-signal-and-emerging-devices",
+          "page": "reports/themes/analog-mixed-signal-and-emerging-devices.md"
+        },
+        {
+          "theme_id": "architecture-and-accelerators",
+          "page": "reports/themes/architecture-and-accelerators.md"
+        },
+        {
+          "theme_id": "chiplets-3d-and-packaging",
+          "page": "reports/themes/chiplets-3d-and-packaging.md"
+        },
+        {
+          "theme_id": "design-methodology-and-tooling",
+          "page": "reports/themes/design-methodology-and-tooling.md"
+        },
+        {
+          "theme_id": "memory-interconnect-and-storage",
+          "page": "reports/themes/memory-interconnect-and-storage.md"
+        },
+        {
+          "theme_id": "physical-design-and-manufacturing",
+          "page": "reports/themes/physical-design-and-manufacturing.md"
+        },
+        {
+          "theme_id": "power-reliability-and-security",
+          "page": "reports/themes/power-reliability-and-security.md"
+        },
+        {
+          "theme_id": "verification-and-validation",
+          "page": "reports/themes/verification-and-validation.md"
+        }
+      ],
+      "subtheme_ids": [
+        "architecture-software-co-design",
+        "chiplet-partitioning-and-integration",
+        "high-level-synthesis-and-compilers",
+        "learned-design-space-exploration",
+        "llm-assisted-design-flows",
+        "neuromorphic-quantum-and-non-von-neumann",
+        "power-integrity-and-reliability",
+        "process-aware-design",
+        "processing-in-memory-and-memory-centric-compute",
+        "simulation-emulation-and-testing",
+        "synthesis-and-compilation"
+      ],
+      "mechanism_ids": [
+        "accuracy-constrained-approximate-dcim",
+        "exact-t-cost-quantum-circuit-synthesis",
+        "hierarchical-multi-agent-chiplet-design",
+        "llm-assisted-hls-logic-debugging",
+        "llm-evolution-of-technology-mapping",
+        "llm-generated-hls-architecture-optimization",
+        "llm-global-reasoning-for-hls-dse",
+        "mlir-two-level-dataflow-accelerator-generation",
+        "multi-fidelity-bayesian-microarchitecture-exploration",
+        "multi-role-ppa-aware-verilog-generation",
+        "physics-informed-joint-em-ir-modeling",
+        "reinforcement-learning-verilog-generation",
+        "robust-bayesian-analog-sizing",
+        "silicon-calibrated-hierarchical-cim-exploration",
+        "stochastic-spin-ferroelectric-neuropde"
+      ],
+      "supporting_paper_ids": [
+        "dac-2026-research1110",
+        "dac-2026-research865",
+        "dac-2026-research535",
+        "iccad-2025-1207",
+        "iccad-2025-1222",
+        "iccad-2025-110",
+        "iccad-2025-1027",
+        "isca-2026-program-002",
+        "dac-2026-research046",
+        "dac-2026-research1101",
+        "iccad-2025-1080",
+        "iccad-2025-130",
+        "dac-2026-research031",
+        "dac-2026-research1186"
+      ],
+      "challenge_paper_ids": [
+        "dac-2026-research2014"
+      ],
+      "condition_record_count": 15,
+      "condition_complete_count": 8,
+      "condition_partial_count": 7,
+      "comparison_dossier": "reports/comparisons/evaluation-as-research.md",
+      "agenda_task_ids": [
+        "A1-condition-reconciliation",
+        "A2-counterpressure-audit",
+        "D-evaluation-as-research-evidence",
+        "A3-independent-review",
+        "A4-matched-comparisons",
+        "A5-longitudinal-promotion"
+      ],
+      "promotion_gate": "blocked_pending_independent_review_and_condition_reconciliation",
+      "independent_verdict_count": 0,
+      "traceability_status": "complete_chain_with_explicit_promotion_boundary",
+      "unresolved_links": []
+    }
+  ],
+  "interpretation_limits": [
+    "A complete chain proves that the repository can navigate the claim; it does not prove the claim is true.",
+    "Source tiers, condition gaps, and independent review status remain attached at paper level.",
+    "A direction with zero independent verdicts cannot be promoted to a longitudinal trend or comparative-impact claim."
+  ]
+}

@@ -2,6 +2,10 @@
 
 Research project for ISCA, DAC, and ICCAD. Each conference has its own subfolder for source capture, normalized paper records, theme analysis, and deep explanatory pages. Shared taxonomy, provenance rules, and cross-conference synthesis live at the repository root.
 
+The operating center is the [end-to-end research program](reports/end-to-end-research-program-v1.md): a first-principles, page-backed atlas of mechanisms, constraints, feedback loops, cross-conference relationships, and long-term research insights.
+
+Start with the [research atlas index](reports/research-atlas-index-v1.md) for the complete reading and operating path.
+
 The project studies themes, subthemes, and sub-subthemes in semiconductor and computer-system research, then asks what those patterns imply about the direction of the field. The collection policy is 2026-first: use 2026 paper data when publicly available, and use the latest complete accessible edition as a clearly labeled fallback when it is not. Initial labels are hypotheses until paper-level evidence is collected and adjudicated.
 
 ## Structure

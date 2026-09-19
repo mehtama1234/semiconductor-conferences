@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Semiconductor Research Atlas</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="hero">
+    <div class="eyebrow">ISCA · DAC · ICCAD / research intelligence</div>
+    <h1>How computing systems are designed, tested, and improved.</h1>
+    <p class="dek">Read the basic technical problems, the choices researchers are changing, and the evidence needed to compare their results across ISCA, DAC, and ICCAD.</p>
+    <div class="hero-actions">
+      <a class="button" href="#writeup">Read the synthesis</a>
+      <a class="button secondary" href="../reports/expanded-taxonomy-v1.md">Open the exhaustive taxonomy</a>
+    </div>
+  </header>
+
+  <main>
+    <section id="writeup" class="section prose">
+      <div class="section-kicker">01 / The writeup</div>
+      <h2>Start with the work the system must do.</h2>
+      <p>A computing system receives inputs, performs operations, and produces outputs. Its design determines where values are stored, which operations run together, and how results move between components. The hardware must do this within limits on time, energy, memory, temperature, and correctness.</p>
+      <p>The research papers change particular decisions in that process. Some reduce the number of operations. Some reduce the amount of data moved. Others improve circuit construction, detect errors, or measure whether a proposed improvement survives realistic conditions.</p>
+      <p>A <strong>theme</strong> is a broad subject. A <strong>subtheme</strong> groups a narrower technical problem. A <strong>mechanism</strong> is the specific change a paper proposes. The selected sample contains 582 records, 113 unique subthemes, and 577 mechanism labels. Some subthemes belong to more than one broad subject.</p>
+      <p>Read a theme article for the explanation, then follow its subthemes to the paper evidence. Each evidence record includes the comparison method, reported measurements, limits, and available source locations. <a href="../reports/reading-guide-v1.md">Definitions and reading guide →</a></p>
+    </section>
+
+    <section class="section trend-grid">
+      <div class="section-kicker">02 / Trend interpretation</div>
+      <h2>Research directions to examine</h2>
+      <p style="grid-column:1/-1">These six hypotheses connect the selected cases. The available records do not establish growth across comparable years. Each article explains the reasoning and the experiment needed to assess it.</p>
+      <div class="trend-card"><span>01</span><h3>Use requirements while choosing a design</h3><p>A design check can identify a failed requirement and inform the next attempt. The question is whether that information produces more valid designs within the same time and computing budget.</p><a href="../reports/directions/01-constraints-become-executable.md">Read the explanation →</a></div>
+      <div class="trend-card"><span>02</span><h3>Reduce the cost of moving data</h3><p>An operation waits if its inputs cannot arrive quickly enough. Choosing where data stays and where computation runs can reduce transfers, but copying and coordination costs must be included.</p><a href="../reports/directions/02-data-movement-as-contract.md">Read the explanation →</a></div>
+      <div class="trend-card"><span>03</span><h3>Measure results so they can be compared</h3><p>A score depends on the inputs, the rule for success, and the comparison method. Better evaluation makes these conditions explicit and records failures as well as successful runs.</p><a href="../reports/directions/06-evaluation-as-research.md">Read the explanation →</a></div>
+      <div class="trend-card"><span>04</span><h3>Include physical limits in design choices</h3><p>Wire delay, heat, current supply, and manufacturing variation affect whether a design works. Their estimates can guide choices, provided the final design is checked with adequate accuracy.</p><a href="../reports/directions/05-physical-reality-in-the-loop.md">Read the explanation →</a></div>
+      <div class="trend-card"><span>05</span><h3>Use measurements to improve the next decision</h3><p>Fast predictions can reduce the number of expensive simulations. The question is whether the saved effort exceeds the cost of prediction errors, training, and final checks.</p><a href="../reports/directions/03-closed-loop-design.md">Read the explanation →</a></div>
+      <div class="trend-card"><span>06</span><h3>Design for faults and attacks</h3><p>Protection changes performance, energy, and recovery behavior. Evaluate useful correct work with the protection enabled under a stated fault or attacker model.</p><a href="../reports/directions/04-reliability-security-upstream.md">Read the explanation →</a></div>
+    </section>
+
+    <section class="section" id="atlas">
+      <div class="section-kicker">03 / Interactive taxonomy</div>
+      <div class="section-head"><div><h2>Theme → subtheme → mechanism</h2><p class="muted">Filter the observed taxonomy, then open the source-backed theme page for paper cards and evidence limits.</p></div><input id="search" type="search" placeholder="Search themes, subthemes, mechanisms…"></div>
+      <div id="stats" class="stats"></div>
+      <div id="themes" class="theme-list"></div>
+    </section>
+
+    <section class="section prose">
+      <div class="section-kicker">04 / How to read this honestly</div>
+      <h2>Structure is evidence of attention, not proof of importance.</h2>
+      <p>The taxonomy is derived from a selected, adjudicated sample with uneven source depth. Official descriptions, abstracts, author sources, artifacts, and primary papers are preserved as different evidence tiers. Similar labels may be aliases; different labels may be genuinely distinct mechanisms. The long-term directions are provisional cross-conference cases, not accepted trend findings.</p>
+      <div class="links"><a href="../reports/research-atlas-index-v1.md">Research atlas index</a><a href="../reports/direction-review-gate-v1.md">Direction review gate</a><a href="../reports/longitudinal-protocol-v1.md">Longitudinal protocol</a><a href="../reports/research-agenda-v1.md">Research agenda</a></div>
+    </section>
+  </main>
+  <footer>Semiconductor Research Atlas · bounded evidence package · <a href="../README.md">repository README</a></footer>
+  <script src="app.js"></script>
+</body>
+</html>

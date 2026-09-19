@@ -25,7 +25,13 @@ def test_completion_audit_counters_match_current_artifacts() -> None:
     assert coverage["isca_secondary_only_outside_sample"] == 3
     assert evidence["supplementary_assessment_files"] == supplements["assessment_count"] == 32
     assert evidence["supplementary_assessment_papers"] == supplements["paper_count"] == 31
-    assert release["manifest_artifacts"] == len(manifest["artifact_hashes"]) == 204
+    corrections = json.loads((ROOT / "data/editorial-paper-corrections-v1.json").read_text())
+    assert evidence["editorially_corrected_reading_cards"] == len(corrections["rows"])
+    editorial = audit["subgoals"][3]["current_counts"]
+    assert editorial["authored_observed_subthemes"] == len(list((ROOT / "reports/subtheme-editorial").glob("*.md")))
+    assert editorial["observed_subthemes"] == len(list((ROOT / "reports/observed-subthemes").glob("*.md")))
+    assert release["manifest_artifacts"] == len(manifest["artifact_hashes"])
+    assert len({entry['path'] for entry in manifest['artifact_hashes']}) == len(manifest['artifact_hashes'])
 
 
 def test_dac_seed_records_have_provenance() -> None:

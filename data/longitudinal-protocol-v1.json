@@ -1,0 +1,93 @@
+{
+  "schema": "longitudinal-direction-protocol.v1",
+  "status": "protocol_defined_directional_claims_disabled",
+  "as_of": "2026-09-07",
+  "unit_of_analysis": "paper-mechanism-condition-record",
+  "claim_levels": [
+    {
+      "level": "capability",
+      "allowed_with": ["one or more source-backed records"],
+      "not_allowed": ["prevalence", "temporal growth", "adoption"]
+    },
+    {
+      "level": "mechanism_persistence",
+      "allowed_with": ["same mechanism coded across at least two editions", "matched taxonomy", "evidence-tier disclosure"],
+      "not_allowed": ["performance superiority without matched conditions"]
+    },
+    {
+      "level": "directional_prevalence",
+      "allowed_with": ["complete denominator", "equivalent paper population", "same taxonomy", "matched evidence tiers", "missingness analysis", "independent review"],
+      "not_allowed": ["title frequency alone", "uncaptured historical descriptions treated as absence"]
+    },
+    {
+      "level": "comparative_impact",
+      "allowed_with": ["matched workload", "matched hardware/process", "matched baseline", "matched metric and budget", "condition extraction", "independent review"],
+      "not_allowed": ["cross-paper speedup arithmetic across unequal systems"]
+    }
+  ],
+  "required_comparison_tuple": [
+    "conference",
+    "edition",
+    "paper_population_definition",
+    "theme_id",
+    "subtheme_id",
+    "mechanism_label",
+    "evidence_tier",
+    "workload_or_design_corpus",
+    "hardware_or_process_assumptions",
+    "baseline_definition",
+    "metric_definition",
+    "evaluation_budget",
+    "limits",
+    "independent_review_status"
+  ],
+  "missingness_policy": [
+    "Record missing source text and missing fields separately.",
+    "Do not treat inaccessible historical descriptions as negative evidence.",
+    "Report denominators for inventory, accessible sources, coded records, condition-complete records, and independently reviewed records.",
+    "Run sensitivity analysis over plausible missing records before directional claims.",
+    "If a gate cannot be met, publish an insufficient-evidence result instead of a directional claim."
+  ],
+  "direction_gates": [
+    {
+      "direction_id": "constraints-become-executable",
+      "promotion_test": "Held-out design improvement at equal correctness, synthesis, model-call, retry, and wall-clock budgets.",
+      "minimum_evidence": ["correctness oracle", "design population", "tool/model version", "budget", "failed attempts", "regressions"]
+    },
+    {
+      "direction_id": "data-movement-as-contract",
+      "promotion_test": "Movement-aware benefit survives matched workload, quality target, capacity, bandwidth, topology, and migration cost.",
+      "minimum_evidence": ["working-set sweep", "recall/accuracy target", "capacity", "bandwidth", "contention", "end-to-end latency"]
+    },
+    {
+      "direction_id": "reliability-security-upstream",
+      "promotion_test": "Useful throughput or correctness remains improved after declared protection, detection, recovery, and residual-risk costs.",
+      "minimum_evidence": ["fault/threat model", "coverage", "false negatives", "recovery path", "overhead", "availability impact"]
+    },
+    {
+      "direction_id": "physical-reality-in-the-loop",
+      "promotion_test": "Fast physical feedback improves feasible decisions against held-out higher-fidelity simulation or measurement.",
+      "minimum_evidence": ["geometry/material/process scope", "model error", "ranking error", "constraint violations", "held-out validation", "search cost"]
+    },
+    {
+      "direction_id": "closed-loop-design",
+      "promotion_test": "Adaptive feedback beats a static or nonadaptive baseline at equal total sensing, calibration, and evaluation budget.",
+      "minimum_evidence": ["sensing cost", "update rule", "calibration data", "rejected candidates", "misranking", "out-of-distribution test"]
+    },
+    {
+      "direction_id": "evaluation-as-research",
+      "promotion_test": "Independent reruns preserve the result or ranking under versioned evaluator semantics.",
+      "minimum_evidence": ["task population", "evaluator version", "timeout/error semantics", "contamination check", "baseline", "independent rerun"]
+    }
+  ],
+  "current_boundary": {
+    "status": "insufficient_evidence_for_directional_claims",
+    "reason": "Current editions have unequal source depth, selected coding, substantial historical missingness, and zero independent verdicts.",
+    "source_reports": [
+      "reports/temporal-baseline-v1.md",
+      "reports/temporal-mechanism-comparison-v1.md",
+      "reports/temporal-insufficiency-v1.json",
+      "reports/direction-condition-register-v1.md"
+    ]
+  }
+}

@@ -10,6 +10,95 @@ Current gate state: deterministic review-packet preflight is 582 pass / 0
 review; independent verdicts remain 0. This distinction is maintained in the
 release and evidence-gap reports.
 
+Latest primary-source extraction (2026-09-08): ISCA 2026 `program-003` COSM was
+extended from abstract-level coding with the v2 author preprint's Sections 3–8
+and artifact appendix. The condition register now records the Ramulator2/
+LPDDR5-6400 simulation boundary, Snapdragon 888 and Xiaomi Mi 11 Pro trace
+conditions, three LLMs, CPU/PIM workload suites, queue sizes, 128-cycle command
+setting, baseline schedulers, DRAMPower energy model, and modeled area flow.
+The extraction explicitly labels this as simulation/model-based evidence rather
+than measured phone hardware; context-dependent headline values, CPU-excluded
+energy, trace representativeness, simulator calibration, artifact execution,
+thermal behavior, and transfer beyond the modeled setting remain open. The
+record is still pending independent review.
+
+The following 2026-09-08 extraction covers ISCA 2026 `program-004` Cerberus
+from the v1 author preprint. The condition register now records the HBM/LPDDR
+single-device memory boundary, Monte Carlo fault-injection scenarios, V100 /
+Accel-Sim and 32-channel HBM4 performance model, 16-workload benchmark suite,
+ECC baselines, UMC 28nm synthesis, HBM2E-current energy estimation, and the
+33.3% redundancy / IPC / energy claims with their stated configurations. It
+also preserves the boundary that the GPU, energy, and fault results are modeled
+or derived rather than independent silicon measurements; fault-distribution,
+timing, code-construction, and cross-generation sensitivity remain open.
+Independent review remains pending.
+
+The same 2026-09-08 pass added ISCA 2026 `program-024` PuDGhost to the
+condition register as an abstract-only primary-preprint extraction. It records
+the 96 real DDR4 chips across 12 modules, random-input PuD interference and
+matrix-vector-multiplication context, plus the adjacent-row and concurrent-
+column impact claims. The HTML/full-paper route was not recovered, so chip
+identities, operating sweeps, full accuracy tables, screening/layout cost, and
+transfer to other DRAM generations remain explicit gaps; this does not count as
+independent physical validation.
+
+The next 2026-09-08 extraction covers ISCA 2026 `program-006` Cassandra from
+the experimental arXiv HTML. It records the three reasoning models, five
+reasoning benchmarks and sampling rules; 40% pruning with 4-bit weight/KV
+truncation; acceptance-rate and draft-length settings; RTX 4090-like and
+Jetson AGX Orin Accel-Sim conditions; the 64-TFLOPS/273-GB/s/128GB LPDDR5X NPU
+model; 28nm encoder/decoder synthesis and 9MB-scratchpad area model; and the
+BF16, SmoothQuant, Draft&Verify, MagicDec, Lookahead and Eagle-3 comparisons.
+The extraction preserves the Ampere-trace limitation for RTX 4090, simulated
+GPU/NPU boundary, calibration/grid-search budget, and model/task-dependent
+acceptance and accuracy limits. Independent review remains pending.
+
+Latest primary-source recheck (2026-09-08): DAC `research1110` HLSArchOpt was
+rechecked against the official program page, the pinned author repository, and
+a full-text availability route. The official page preserves the LLM-generated
+system-level HLS mechanism and the description-level 11.78× claim; the pinned
+repository is explicitly bounded to a Fire-module example with full-model
+integration and automation listed as future work; ResearchGate still exposes no
+full-text PDF. The primary assessment and condition registers now retain these
+observations. The metric remains withheld pending full-paper conditions and
+independent review.
+
+The same 2026-09-08 recheck covered DAC `research865` ParetoPilot. The official
+program page preserves its dedicated-LLM HLS-DSE mechanism and the
+49.5%/1.8×/81.4% description-level comparisons. The pinned public repository
+exposes benchmark/configuration and HLS-evaluation code but requires local Vitis
+HLS and model/API configuration; no target manuscript or headline reproduction
+was recovered. The artifact and current condition registers now preserve this
+boundary, with identity, experiment, budget, and independent-review conditions
+still open.
+
+The next 2026-09-08 primary-source extraction covered ICCAD 2025
+`iccad-2025-1027` HLSDebugger using arXiv v1 sections IV–VII and Tables II–III.
+The current reading card now preserves the eight injected logic-bug categories,
+the approximately 300K generated training samples, 2K-sample evaluation subset,
+Rouge-L filtering, CodeT5-Large configuration, identification metrics, strict
+substring correction metric, and GPT/Gemma/HLSEncoder baselines. It explicitly
+separates generated mutation supervision from naturally occurring HLS bugs and
+string-match correction from compilation, equivalence, synthesis, or hardware
+validity. Independent review and artifact execution remain pending.
+
+The cross-conference condition pipeline was then exercised with ISCA 2026
+`program-002` CODO. Its arXiv v1 sections II–VIII and artifact checklist now
+provide source-located workload and FPGA/HLS conditions to the direction
+register: C++/PyTorch/DNN/CNN/GPT-2 workloads, MLIR/Polygeist/Torch-MLIR and
+HLS flow, an identified Alveo U280 motivating configuration, and synthesis plus
+on-board evaluation boundaries. Per-table configurations, artifact execution,
+and independent review remain open.
+
+MappingEvolve was added to the condition register from the captured arXiv v1
+Sections 2–4 and Table 2. The extraction resolves the previously missing
+hardware boundary (compiled C++ logic-synthesis flow, ABC equivalence checking,
+mockturtle mapping, EPFL/ASAP7 evaluation, and the reported Xeon host) and
+records the ISCAS85/EPFL workload boundary. It does not upgrade the paper to
+independent evidence: model/API cost, seeds, held-out protocol, timeout and
+equivalence-failure handling, post-route transfer, artifact/result reconciliation,
+and reproduction remain open.
+
 Latest bounded routing increment (2026-09-07): the eighth P2 tranche adds ten
 ISCA 2026 records spanning accelerator interfaces, sustainable systems, memory,
 storage, ANNS, photonics, tensor acceleration, and LLM serving. P2 routing now
@@ -1994,3 +2083,45 @@ excerpts remain priority-routing evidence only; quantitative claims are withheld
 The route-closure invariant was added to `scripts/validate_project.py` and now
 requires all 543 DAC inventory IDs to appear in P2 route files. The synchronized
 checkpoint has 204 manifest artifacts and 142 passing tests.
+
+The cross-conference condition pipeline was then exercised with ISCA 2026
+program-002 CODO and program-005 Patterns Behind Chaos. Their author-preprint
+extractions add workload, hardware, locator, and explicit pending-review fields
+to the direction register. CODO covers MLIR/Polygeist/Torch-MLIR/HLS FPGA
+dataflow compilation; Patterns covers four 235B–1000B MoE models, more than
+24,000 requests, wafer-scale and multi-GPU cases, and Sections I–VII plus the
+released trace reference. Per-table reproduction, simulator/trace validation,
+and independent review remain open.
+ParetoPilot was then added to the condition register from the pinned public
+artifact revision `d08173f66903ed466537c9327b63addac223ee95`. The extraction
+records the AES/Vitis HLS example, Zynq UltraScale+ part, 10 ns clock, parsed
+csynth latency/resource estimates, named repository workloads, default
+three-sample run, and 1200-second timeout. This is artifact evidence rather
+than paper-level or independent evidence: author linkage, headline experiment
+identity, Pareto metric, model/search budget, correctness, post-route timing,
+and board validation remain unresolved.
+The Exact-T quantum-synthesis anchor was added to the condition register from
+the captured arXiv v1 sections, PDF figure checks, and pinned artifact. The
+record now separates six-EPFL-circuit and cryptographic workloads, the N <= 7
+total-qubit exactness boundary, Apple M4 Max software conditions, and the
+artifact's basis-state-only correctness smoke test from quantum-hardware claims.
+The official 16% and preprint 14.3% values remain an explicit source-version
+discrepancy; no benchmark metric, phase-correctness or independent review is
+treated as complete.
+Energon was added to the ICCAD-local condition extraction pipeline from the
+captured arXiv v1 Sections III–V and VII. The register now carries the NVIDIA
+A40/GTX 1660 Ti Mobile boundary, user-privilege sensor threat model, 7 Hz and
+28 C laboratory conditions, 120-second traces, 100 traces per model, 80:20 and
+stratified K-fold evaluation, noisy-process cases, and downstream substitute/
+transfer-attack boundaries. This remains preprint evidence pending independent
+review and reproduction; it does not establish universal GPU/cloud leakage.
+
+DisDP was then added to the ISCA-local condition extraction pipeline from the
+captured arXiv v2 Sections II–IV and evaluation subsections IV-F–IV-I. The
+record now distinguishes the Xilinx U50 SmartNIC/SmartSwitch prototype and
+eight-A100, 100-Gbps experiments from ASTRA-sim modeling used for the 32-GPU
+cost comparison and larger scaling claims. It records the Custom-175B and OPT
+training cases, rm-static OPT-66B convergence check, baseline set, and the
+two-GPU/no-concurrent-GEMM case where NCCL has a 28% bandwidth advantage.
+Deployment-scale extrapolation, cost assumptions, simulator calibration,
+failure behavior, and independent review remain open.

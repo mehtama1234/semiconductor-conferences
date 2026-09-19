@@ -33,6 +33,10 @@ organized around technical questions, not just conference names.
 - [Current DAC description coding expansion](current-description-coding-v1.md)
 - [Historical and comparative draft review packets](draft-review-packets-v1.md)
 - [Exploratory title-shift candidates](title-shift-candidates-v1.md)
+- [Canonical long-term direction atlas](directions/README.md)
+- [Direction condition register](direction-condition-register-v1.md)
+- [Cross-conference direction atlas](cross-conference-direction-atlas-v1.md)
+- [Longitudinal direction protocol](longitudinal-protocol-v1.md)
 
 ## DAC 2026
 

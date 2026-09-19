@@ -1,0 +1,1565 @@
+{
+  "schema": "direction-review-gate.v1",
+  "as_of": "2026-09-07",
+  "status": "promotion_blocked_pending_review",
+  "source_policy": "A direction is a research hypothesis until paper-level conditions and independent source-entailment review are complete.",
+  "independent_review_count": 0,
+  "synthesis_anchor_count": 37,
+  "directions": [
+    {
+      "direction_id": "constraints-become-executable",
+      "label": "Constraints Become Executable",
+      "page": "reports/directions/01-constraints-become-executable.md",
+      "paper_count": 9,
+      "anchor_paper_count": 8,
+      "packet_count": 9,
+      "condition_complete_count": 5,
+      "condition_partial_count": 4,
+      "combined_condition_complete_count": 9,
+      "combined_condition_partial_count": 0,
+      "primary_assessment_count": 3,
+      "independent_verdict_count": 0,
+      "promotion_gate": "blocked_pending_independent_review_and_condition_reconciliation",
+      "required_actions": [
+        "Reconcile adjudicated-row gaps with supplementary source-condition fields for anchor papers; preserve source tiers and explicitly bind any remaining workload, hardware/process, baseline, metric, and limit gaps.",
+        "Obtain two independent source-entailment verdicts per review packet and resolve disagreements.",
+        "Re-run the longitudinal protocol only after direction mapping and condition fields survive review."
+      ],
+      "papers": [
+        {
+          "paper_id": "dac-2026-research1110",
+          "title": "LLM-Based Automatic Architecture Optimization for AI Model HLS Implementation on FPGA",
+          "conference_id": "dac",
+          "edition": 2026,
+          "evidence_tier": "official_description",
+          "is_synthesis_anchor": true,
+          "packet_path": "data/review-packets/dac-2026-research1110.json",
+          "review_status": "awaiting_external_review",
+          "independent_verdict_count": 0,
+          "condition_status": "partial",
+          "missing_conditions": [
+            "hardware"
+          ],
+          "combined_condition_status": "complete",
+          "combined_missing_conditions": [],
+          "primary_assessment": "dac/data/hlsarchopt-primary-assessment-v1.json",
+          "primary_assessment_review_status": "pending",
+          "supplementary_extraction": "source-condition-extraction.v1",
+          "supplementary_evidence_tier": "official_description",
+          "supplementary_review_status": "pending",
+          "source_direction_ids": [
+            "tool-grounded-ai-design-verification"
+          ]
+        },
+        {
+          "paper_id": "dac-2026-research2760",
+          "title": "Notsotiny: A Large, Living Benchmark for RTL Code Generation",
+          "conference_id": "dac",
+          "edition": 2026,
+          "evidence_tier": "primary_or_author_copy",
+          "is_synthesis_anchor": false,
+          "packet_path": "data/review-packets/dac-2026-research2760.json",
+          "review_status": "awaiting_external_review",
+          "independent_verdict_count": 0,
+          "condition_status": "complete",
+          "missing_conditions": [],
+          "combined_condition_status": "complete",
+          "combined_missing_conditions": [],
+          "primary_assessment": "dac/data/notsotiny-primary-assessment-v1.json",
+          "primary_assessment_review_status": "pending",
+          "supplementary_extraction": null,
+          "supplementary_evidence_tier": null,
+          "supplementary_review_status": null,
+          "source_direction_ids": []
+        },
+        {
+          "paper_id": "dac-2026-research535",
+          "title": "Mappingevolve: LLM-Driven Code Evolution for Technology Mapping",
+          "conference_id": "dac",
+          "edition": 2026,
+          "evidence_tier": "official_description",
+          "is_synthesis_anchor": true,
+          "packet_path": "data/review-packets/dac-2026-research535.json",
+          "review_status": "awaiting_external_review",
+          "independent_verdict_count": 0,
+          "condition_status": "partial",
+          "missing_conditions": [
+            "hardware"
+          ],
+          "combined_condition_status": "complete",
+          "combined_missing_conditions": [],
+          "primary_assessment": "dac/data/mappingevolve-primary-assessment-v1.json",
+          "primary_assessment_review_status": "pending",
+          "supplementary_extraction": "source-condition-extraction.v1",
+          "supplementary_evidence_tier": "author_preprint",
+          "supplementary_review_status": "pending",
+          "source_direction_ids": [
+            "tool-grounded-ai-design-verification"
+          ]
+        },
+        {
+          "paper_id": "dac-2026-research865",
+          "title": "Paretopilot: Global Optimization Reasoning on HLS Design Space Exploration with LLMs",
+          "conference_id": "dac",
+          "edition": 2026,
+          "evidence_tier": "official_description",
+          "is_synthesis_anchor": true,
+          "packet_path": "data/review-packets/dac-2026-research865.json",
+          "review_status": "awaiting_external_review",
+          "independent_verdict_count": 0,
+          "condition_status": "partial",
+          "missing_conditions": [
+            "hardware"
+          ],
+          "combined_condition_status": "complete",
+          "combined_missing_conditions": [],
+          "primary_assessment": null,
+          "primary_assessment_review_status": null,
+          "supplementary_extraction": "source-condition-extraction.v1",
+          "supplementary_evidence_tier": "public_research_artifact",
+          "supplementary_review_status": "pending",
+          "source_direction_ids": [
+            "tool-grounded-ai-design-verification"
+          ]
+        },
+        {
+          "paper_id": "iccad-2025-1027",
+          "title": "HLSDebugger: Identification and Correction of Logic Bugs in HLS Code with LLM Solutions",
+          "conference_id": "iccad",
+          "edition": 2025,
+          "evidence_tier": "primary_or_author_copy",
+          "is_synthesis_anchor": true,
+          "packet_path": "data/review-packets/iccad-2025-1027.json",
+          "review_status": "awaiting_external_review",
+          "independent_verdict_count": 0,
+          "condition_status": "partial",
+          "missing_conditions": [
+            "hardware"
+          ],
+          "combined_condition_status": "complete",
+          "combined_missing_conditions": [],
+          "primary_assessment": null,
+          "primary_assessment_review_status": null,
+          "supplementary_extraction": "source-condition-extraction.v1",
+          "supplementary_evidence_tier": "author_preprint",
+          "supplementary_review_status": "pending",
+          "source_direction_ids": [
+            "tool-grounded-ai-design-verification"
+          ]
+        },
+        {
+          "paper_id": "iccad-2025-110",
+          "title": "VERIRL: Boosting the LLM -based Verilog Code Generation via Reinforcement Learning",
+          "conference_id": "iccad",
+          "edition": 2025,
+          "evidence_tier": "primary_or_author_copy",
+          "is_synthesis_anchor": true,
+          "packet_path": "data/review-packets/iccad-2025-110.json",
+          "review_status": "awaiting_external_review",
+          "independent_verdict_count": 0,
+          "condition_status": "complete",
+          "missing_conditions": [],
+          "combined_condition_status": "complete",
+          "combined_missing_conditions": [],
+          "primary_assessment": null,
+          "primary_assessment_review_status": null,
+          "supplementary_extraction": null,
+          "supplementary_evidence_tier": null,
+          "supplementary_review_status": null,
+          "source_direction_ids": [
+            "tool-grounded-ai-design-verification"
+          ]
+        },
+        {
+          "paper_id": "iccad-2025-1207",
+          "title": "MAHL: Multi -Agent LLM -Guided Hierarchical Chiplet Design with Adaptive Debugging",
+          "conference_id": "iccad",
+          "edition": 2025,
+          "evidence_tier": "primary_or_author_copy",
+          "is_synthesis_anchor": true,
+          "packet_path": "data/review-packets/iccad-2025-1207.json",
+          "review_status": "awaiting_external_review",
+          "independent_verdict_count": 0,
+          "condition_status": "complete",
+          "missing_conditions": [],
+          "combined_condition_status": "complete",
+          "combined_missing_conditions": [],
+          "primary_assessment": null,
+          "primary_assessment_review_status": null,
+          "supplementary_extraction": null,
+          "supplementary_evidence_tier": null,
+          "supplementary_review_status": null,
+          "source_direction_ids": [
+            "tool-grounded-ai-design-verification"
+          ]
+        },
+        {
+          "paper_id": "iccad-2025-1222",
+          "title": "VeriOpt: PPA-Aware High-Quality Verilog Generation via Multi-Role LLMs",
+          "conference_id": "iccad",
+          "edition": 2025,
+          "evidence_tier": "primary_or_author_copy",
+          "is_synthesis_anchor": true,
+          "packet_path": "data/review-packets/iccad-2025-1222.json",
+          "review_status": "awaiting_external_review",
+          "independent_verdict_count": 0,
+          "condition_status": "complete",
+          "missing_conditions": [],
+          "combined_condition_status": "complete",
+          "combined_missing_conditions": [],
+          "primary_assessment": null,
+          "primary_assessment_review_status": null,
+          "supplementary_extraction": null,
+          "supplementary_evidence_tier": null,
+          "supplementary_review_status": null,
+          "source_direction_ids": [
+            "tool-grounded-ai-design-verification"
+          ]
+        },
+        {
+          "paper_id": "isca-2026-program-002",
+          "title": "CODO: An Automated Compiler for Comprehensive Dataflow Optimization",
+          "conference_id": "isca",
+          "edition": 2026,
+          "evidence_tier": "primary_or_author_copy",
+          "is_synthesis_anchor": true,
+          "packet_path": "data/review-packets/isca-2026-program-002.json",
+          "review_status": "awaiting_external_review",
+          "independent_verdict_count": 0,
+          "condition_status": "complete",
+          "missing_conditions": [],
+          "combined_condition_status": "complete",
+          "combined_missing_conditions": [],
+          "primary_assessment": null,
+          "primary_assessment_review_status": null,
+          "supplementary_extraction": "source-condition-extraction.v1",
+          "supplementary_evidence_tier": "author_preprint",
+          "supplementary_review_status": "pending",
+          "source_direction_ids": [
+            "tool-grounded-ai-design-verification"
+          ]
+        }
+      ]
+    },
+    {
+      "direction_id": "data-movement-as-contract",
+      "label": "Data Movement As Contract",
+      "page": "reports/directions/02-data-movement-as-contract.md",
+      "paper_count": 16,
+      "anchor_paper_count": 15,
+      "packet_count": 16,
+      "condition_complete_count": 13,
+      "condition_partial_count": 3,
+      "combined_condition_complete_count": 16,
+      "combined_condition_partial_count": 0,
+      "primary_assessment_count": 0,
+      "independent_verdict_count": 0,
+      "promotion_gate": "blocked_pending_independent_review_and_condition_reconciliation",
+      "required_actions": [
+        "Reconcile adjudicated-row gaps with supplementary source-condition fields for anchor papers; preserve source tiers and explicitly bind any remaining workload, hardware/process, baseline, metric, and limit gaps.",
+        "Obtain two independent source-entailment verdicts per review packet and resolve disagreements.",
+        "Re-run the longitudinal protocol only after direction mapping and condition fields survive review."
+      ],
+      "papers": [
+        {
+          "paper_id": "dac-2026-research1028",
+          "title": "Ctxmem: OS-Hardware Co-Designed Tiered Memory with DRAM-SSD Hybrid CXL Devices",
+          "conference_id": "dac",
+          "edition": 2026,
+          "evidence_tier": "official_description",
+          "is_synthesis_anchor": true,
+          "packet_path": "data/review-packets/dac-2026-research1028.json",
+          "review_status": "awaiting_external_review",
+          "independent_verdict_count": 0,
+          "condition_status": "partial",
+          "missing_conditions": [
+            "hardware"
+          ],
+          "combined_condition_status": "complete",
+          "combined_missing_conditions": [],
+          "primary_assessment": null,
+          "primary_assessment_review_status": null,
+          "supplementary_extraction": "source-condition-extraction.v1",
+          "supplementary_evidence_tier": "official_description",
+          "supplementary_review_status": "pending",
+          "source_direction_ids": [
+            "data-movement-as-contract"
+          ]
+        },
+        {
+          "paper_id": "dac-2026-research108",
+          "title": "CANNON: A CXL-Based Near-Memory Processing Architecture for Approximate Nearest Neighbor Search on Real Hardware",
+          "conference_id": "dac",
+          "edition": 2026,
+          "evidence_tier": "official_description",
+          "is_synthesis_anchor": true,
+          "packet_path": "data/review-packets/dac-2026-research108.json",
+          "review_status": "awaiting_external_review",
+          "independent_verdict_count": 0,
+          "condition_status": "partial",
+          "missing_conditions": [
+            "hardware"
+          ],
+          "combined_condition_status": "complete",
+          "combined_missing_conditions": [],
+          "primary_assessment": null,
+          "primary_assessment_review_status": null,
+          "supplementary_extraction": "source-condition-extraction.v1",
+          "supplementary_evidence_tier": "official_description",
+          "supplementary_review_status": "pending",
+          "source_direction_ids": [
+            "data-movement-as-contract"
+          ]
+        },
+        {
+          "paper_id": "dac-2026-research1113",
+          "title": "Achieving Intra- and Inter-Operator Communication Lower Bounds in Near-Memory Processing",
+          "conference_id": "dac",
+          "edition": 2026,
+          "evidence_tier": "official_description",
+          "is_synthesis_anchor": true,
+          "packet_path": "data/review-packets/dac-2026-research1113.json",
+          "review_status": "awaiting_external_review",
+          "independent_verdict_count": 0,
+          "condition_status": "partial",
+          "missing_conditions": [
+            "hardware"
+          ],
+          "combined_condition_status": "complete",
+          "combined_missing_conditions": [],
+          "primary_assessment": null,
+          "primary_assessment_review_status": null,
+          "supplementary_extraction": "source-condition-extraction.v1",
+          "supplementary_evidence_tier": "official_description",
+          "supplementary_review_status": "pending",
+          "source_direction_ids": [
+            "data-movement-as-contract"
+          ]
+        },
+        {
+          "paper_id": "dac-2026-research1182",
+          "title": "Fusedot: A Multiplication-Fused Dot Product Accelerator for Efficient LLM Inference",
+          "conference_id": "dac",
+          "edition": 2026,
+          "evidence_tier": "official_description",
+          "is_synthesis_anchor": true,
+          "packet_path": "data/review-packets/dac-2026-research1182.json",
+          "review_status": "awaiting_external_review",
+          "independent_verdict_count": 0,
+          "condition_status": "complete",
+          "missing_conditions": [],
+          "combined_condition_status": "complete",
+          "combined_missing_conditions": [],
+          "primary_assessment": null,
+          "primary_assessment_review_status": null,
+          "supplementary_extraction": null,
+          "supplementary_evidence_tier": null,
+          "supplementary_review_status": null,
+          "source_direction_ids": [
+            "workload-specialized-accelerators"
+          ]
+        },
+        {
+          "paper_id": "dac-2026-research2268",
+          "title": "TierANNS: Scalable Graph-Based ANNS with CXL-Enabled Tiered Data Placement",
+          "conference_id": "dac",
+          "edition": 2026,
+          "evidence_tier": "official_description",
+          "is_synthesis_anchor": false,
+          "packet_path": "data/review-packets/dac-2026-research2268.json",
+          "review_status": "awaiting_external_review",
+          "independent_verdict_count": 0,
+          "condition_status": "complete",
+          "missing_conditions": [],
+          "combined_condition_status": "complete",
+          "combined_missing_conditions": [],
+          "primary_assessment": null,
+          "primary_assessment_review_status": null,
+          "supplementary_extraction": null,
+          "supplementary_evidence_tier": null,
+          "supplementary_review_status": null,
+          "source_direction_ids": []
+        },
+        {
+          "paper_id": "iccad-2025-1103",
+          "title": "Tasa: Thermal-aware 3D-Stacked Architecture Design with Bandwidth Sharing for LLM Inference",
+          "conference_id": "iccad",
+          "edition": 2025,
+          "evidence_tier": "primary_or_author_copy",
+          "is_synthesis_anchor": true,
+          "packet_path": "data/review-packets/iccad-2025-1103.json",
+          "review_status": "awaiting_external_review",
+          "independent_verdict_count": 0,
+          "condition_status": "complete",
+          "missing_conditions": [],
+          "combined_condition_status": "complete",
+          "combined_missing_conditions": [],
+          "primary_assessment": null,
+          "primary_assessment_review_status": null,
+          "supplementary_extraction": null,
+          "supplementary_evidence_tier": null,
+          "supplementary_review_status": null,
+          "source_direction_ids": [
+            "data-movement-as-contract",
+            "workload-specialized-accelerators"
+          ]
+        },
+        {
+          "paper_id": "isca-2026-program-003",
+          "title": "COSM: A Cooperative Scheduling Framework for Concurrent PIM and CPU Execution on Mobile Devices",
+          "conference_id": "isca",
+          "edition": 2026,
+          "evidence_tier": "primary_or_author_copy",
+          "is_synthesis_anchor": true,
+          "packet_path": "data/review-packets/isca-2026-program-003.json",
+          "review_status": "awaiting_external_review",
+          "independent_verdict_count": 0,
+          "condition_status": "complete",
+          "missing_conditions": [],
+          "combined_condition_status": "complete",
+          "combined_missing_conditions": [],
+          "primary_assessment": null,
+          "primary_assessment_review_status": null,
+          "supplementary_extraction": "source-condition-extraction.v1",
+          "supplementary_evidence_tier": "author_preprint",
+          "supplementary_review_status": "pending",
+          "source_direction_ids": [
+            "data-movement-as-contract"
+          ]
+        },
+        {
+          "paper_id": "isca-2026-program-005",
+          "title": "Patterns Behind Chaos: Forecasting Data Movement for Efficient Large-Scale MoE LLM Inference",
+          "conference_id": "isca",
+          "edition": 2026,
+          "evidence_tier": "primary_or_author_copy",
+          "is_synthesis_anchor": true,
+          "packet_path": "data/review-packets/isca-2026-program-005.json",
+          "review_status": "awaiting_external_review",
+          "independent_verdict_count": 0,
+          "condition_status": "complete",
+          "missing_conditions": [],
+          "combined_condition_status": "complete",
+          "combined_missing_conditions": [],
+          "primary_assessment": null,
+          "primary_assessment_review_status": null,
+          "supplementary_extraction": "source-condition-extraction.v1",
+          "supplementary_evidence_tier": "author_preprint",
+          "supplementary_review_status": "pending",
+          "source_direction_ids": [
+            "data-movement-as-contract",
+            "workload-specialized-accelerators"
+          ]
+        },
+        {
+          "paper_id": "isca-2026-program-006",
+          "title": "Cassandra: Enabling Reasoning LLMs at Edge via Self-Speculative Decoding",
+          "conference_id": "isca",
+          "edition": 2026,
+          "evidence_tier": "primary_or_author_copy",
+          "is_synthesis_anchor": true,
+          "packet_path": "data/review-packets/isca-2026-program-006.json",
+          "review_status": "awaiting_external_review",
+          "independent_verdict_count": 0,
+          "condition_status": "complete",
+          "missing_conditions": [],
+          "combined_condition_status": "complete",
+          "combined_missing_conditions": [],
+          "primary_assessment": null,
+          "primary_assessment_review_status": null,
+          "supplementary_extraction": "source-condition-extraction.v1",
+          "supplementary_evidence_tier": "author_preprint",
+          "supplementary_review_status": "pending",
+          "source_direction_ids": [
+            "workload-specialized-accelerators"
+          ]
+        },
+        {
+          "paper_id": "isca-2026-program-007",
+          "title": "Combating the Memory Walls: Optimization Pathways for Long-Context Agentic LLM Inference",
+          "conference_id": "isca",
+          "edition": 2026,
+          "evidence_tier": "primary_or_author_copy",
+          "is_synthesis_anchor": true,
+          "packet_path": "data/review-packets/isca-2026-program-007.json",
+          "review_status": "awaiting_external_review",
+          "independent_verdict_count": 0,
+          "condition_status": "complete",
+          "missing_conditions": [],
+          "combined_condition_status": "complete",
+          "combined_missing_conditions": [],
+          "primary_assessment": null,
+          "primary_assessment_review_status": null,
+          "supplementary_extraction": null,
+          "supplementary_evidence_tier": null,
+          "supplementary_review_status": null,
+          "source_direction_ids": [
+            "data-movement-as-contract",
+            "workload-specialized-accelerators"
+          ]
+        },
+        {
+          "paper_id": "isca-2026-program-008",
+          "title": "Approaching Shannon Bound with Lossless LLM Weight Compression",
+          "conference_id": "isca",
+          "edition": 2026,
+          "evidence_tier": "primary_or_author_copy",
+          "is_synthesis_anchor": true,
+          "packet_path": "data/review-packets/isca-2026-program-008.json",
+          "review_status": "awaiting_external_review",
+          "independent_verdict_count": 0,
+          "condition_status": "complete",
+          "missing_conditions": [],
+          "combined_condition_status": "complete",
+          "combined_missing_conditions": [],
+          "primary_assessment": null,
+          "primary_assessment_review_status": null,
+          "supplementary_extraction": null,
+          "supplementary_evidence_tier": null,
+          "supplementary_review_status": null,
+          "source_direction_ids": [
+            "data-movement-as-contract",
+            "workload-specialized-accelerators"
+          ]
+        },
+        {
+          "paper_id": "isca-2026-program-020",
+          "title": "OASIS: Outlier-Aware LUT-Based GEMM with Dual-Side Quantization for LLM Inference Acceleration",
+          "conference_id": "isca",
+          "edition": 2026,
+          "evidence_tier": "primary_or_author_copy",
+          "is_synthesis_anchor": true,
+          "packet_path": "data/review-packets/isca-2026-program-020.json",
+          "review_status": "awaiting_external_review",
+          "independent_verdict_count": 0,
+          "condition_status": "complete",
+          "missing_conditions": [],
+          "combined_condition_status": "complete",
+          "combined_missing_conditions": [],
+          "primary_assessment": null,
+          "primary_assessment_review_status": null,
+          "supplementary_extraction": null,
+          "supplementary_evidence_tier": null,
+          "supplementary_review_status": null,
+          "source_direction_ids": [
+            "workload-specialized-accelerators"
+          ]
+        },
+        {
+          "paper_id": "isca-2026-program-044",
+          "title": "A Silicon-Proven Unified Low-Latency CXL Controller and Port-Based Routing Switch for Memory-Centric Fabrics",
+          "conference_id": "isca",
+          "edition": 2026,
+          "evidence_tier": "company_author_source",
+          "is_synthesis_anchor": true,
+          "packet_path": "data/review-packets/isca-2026-program-044.json",
+          "review_status": "awaiting_external_review",
+          "independent_verdict_count": 0,
+          "condition_status": "complete",
+          "missing_conditions": [],
+          "combined_condition_status": "complete",
+          "combined_missing_conditions": [],
+          "primary_assessment": null,
+          "primary_assessment_review_status": null,
+          "supplementary_extraction": null,
+          "supplementary_evidence_tier": null,
+          "supplementary_review_status": null,
+          "source_direction_ids": [
+            "data-movement-as-contract"
+          ]
+        },
+        {
+          "paper_id": "isca-2026-program-045",
+          "title": "Vistara: Making CXL Real\u2014Full Path from ASIC Design and OS Support to Hyperscale Deployment",
+          "conference_id": "isca",
+          "edition": 2026,
+          "evidence_tier": "company_author_source",
+          "is_synthesis_anchor": true,
+          "packet_path": "data/review-packets/isca-2026-program-045.json",
+          "review_status": "awaiting_external_review",
+          "independent_verdict_count": 0,
+          "condition_status": "complete",
+          "missing_conditions": [],
+          "combined_condition_status": "complete",
+          "combined_missing_conditions": [],
+          "primary_assessment": null,
+          "primary_assessment_review_status": null,
+          "supplementary_extraction": null,
+          "supplementary_evidence_tier": null,
+          "supplementary_review_status": null,
+          "source_direction_ids": [
+            "data-movement-as-contract"
+          ]
+        },
+        {
+          "paper_id": "isca-2026-program-069",
+          "title": "MTIA 300: Meta\u2019s First Training Chip Featuring Built-in NICs and Collective Offloading Engines",
+          "conference_id": "isca",
+          "edition": 2026,
+          "evidence_tier": "primary_or_author_copy",
+          "is_synthesis_anchor": true,
+          "packet_path": "data/review-packets/isca-2026-program-069.json",
+          "review_status": "awaiting_external_review",
+          "independent_verdict_count": 0,
+          "condition_status": "complete",
+          "missing_conditions": [],
+          "combined_condition_status": "complete",
+          "combined_missing_conditions": [],
+          "primary_assessment": null,
+          "primary_assessment_review_status": null,
+          "supplementary_extraction": null,
+          "supplementary_evidence_tier": null,
+          "supplementary_review_status": null,
+          "source_direction_ids": [
+            "data-movement-as-contract"
+          ]
+        },
+        {
+          "paper_id": "isca-2026-program-155",
+          "title": "DisDP: Disaggregating Compute, Network, and Storage for Model-Sharded Data-Parallel Training",
+          "conference_id": "isca",
+          "edition": 2026,
+          "evidence_tier": "primary_or_author_copy",
+          "is_synthesis_anchor": true,
+          "packet_path": "data/review-packets/isca-2026-program-155.json",
+          "review_status": "awaiting_external_review",
+          "independent_verdict_count": 0,
+          "condition_status": "complete",
+          "missing_conditions": [],
+          "combined_condition_status": "complete",
+          "combined_missing_conditions": [],
+          "primary_assessment": null,
+          "primary_assessment_review_status": null,
+          "supplementary_extraction": "source-condition-extraction.v1",
+          "supplementary_evidence_tier": "author_preprint",
+          "supplementary_review_status": "pending",
+          "source_direction_ids": [
+            "data-movement-as-contract"
+          ]
+        }
+      ]
+    },
+    {
+      "direction_id": "reliability-security-upstream",
+      "label": "Reliability Security Upstream",
+      "page": "reports/directions/04-reliability-security-upstream.md",
+      "paper_count": 8,
+      "anchor_paper_count": 7,
+      "packet_count": 8,
+      "condition_complete_count": 4,
+      "condition_partial_count": 4,
+      "combined_condition_complete_count": 8,
+      "combined_condition_partial_count": 0,
+      "primary_assessment_count": 1,
+      "independent_verdict_count": 0,
+      "promotion_gate": "blocked_pending_independent_review_and_condition_reconciliation",
+      "required_actions": [
+        "Reconcile adjudicated-row gaps with supplementary source-condition fields for anchor papers; preserve source tiers and explicitly bind any remaining workload, hardware/process, baseline, metric, and limit gaps.",
+        "Obtain two independent source-entailment verdicts per review packet and resolve disagreements.",
+        "Re-run the longitudinal protocol only after direction mapping and condition fields survive review."
+      ],
+      "papers": [
+        {
+          "paper_id": "dac-2026-research043",
+          "title": "Strix: Re-Thinking NPU Reliability from a System Perspective",
+          "conference_id": "dac",
+          "edition": 2026,
+          "evidence_tier": "official_description",
+          "is_synthesis_anchor": true,
+          "packet_path": "data/review-packets/dac-2026-research043.json",
+          "review_status": "awaiting_external_review",
+          "independent_verdict_count": 0,
+          "condition_status": "partial",
+          "missing_conditions": [
+            "hardware"
+          ],
+          "combined_condition_status": "complete",
+          "combined_missing_conditions": [],
+          "primary_assessment": "dac/data/strix-primary-assessment-v1.json",
+          "primary_assessment_review_status": "pending",
+          "supplementary_extraction": "source-condition-extraction.v1",
+          "supplementary_evidence_tier": "official_description",
+          "supplementary_review_status": "pending",
+          "source_direction_ids": [
+            "reliability-security-design-loop"
+          ]
+        },
+        {
+          "paper_id": "dac-2026-research046",
+          "title": "GEMIR: Graph-Based Joint Modeling of Electromigration and IR Drop for Power Grid",
+          "conference_id": "dac",
+          "edition": 2026,
+          "evidence_tier": "official_description",
+          "is_synthesis_anchor": true,
+          "packet_path": "data/review-packets/dac-2026-research046.json",
+          "review_status": "awaiting_external_review",
+          "independent_verdict_count": 0,
+          "condition_status": "partial",
+          "missing_conditions": [
+            "hardware"
+          ],
+          "combined_condition_status": "complete",
+          "combined_missing_conditions": [],
+          "primary_assessment": null,
+          "primary_assessment_review_status": null,
+          "supplementary_extraction": "source-condition-extraction.v1",
+          "supplementary_evidence_tier": "official_description",
+          "supplementary_review_status": "pending",
+          "source_direction_ids": [
+            "reliability-security-design-loop"
+          ]
+        },
+        {
+          "paper_id": "dac-2026-research1054",
+          "title": "Icarus's Wings: Disabling MoE Offloading Acceleration via a Universal Hidden Prefix Attack",
+          "conference_id": "dac",
+          "edition": 2026,
+          "evidence_tier": "official_description",
+          "is_synthesis_anchor": true,
+          "packet_path": "data/review-packets/dac-2026-research1054.json",
+          "review_status": "awaiting_external_review",
+          "independent_verdict_count": 0,
+          "condition_status": "partial",
+          "missing_conditions": [
+            "hardware"
+          ],
+          "combined_condition_status": "complete",
+          "combined_missing_conditions": [],
+          "primary_assessment": null,
+          "primary_assessment_review_status": null,
+          "supplementary_extraction": "source-condition-extraction.v1",
+          "supplementary_evidence_tier": "official_description",
+          "supplementary_review_status": "pending",
+          "source_direction_ids": [
+            "reliability-security-design-loop"
+          ]
+        },
+        {
+          "paper_id": "dac-2026-research1494",
+          "title": "When Cloud TEEs Encounter Availability: A Lightweight Framework for Verifiable CPU Availability",
+          "conference_id": "dac",
+          "edition": 2026,
+          "evidence_tier": "official_description",
+          "is_synthesis_anchor": false,
+          "packet_path": "data/review-packets/dac-2026-research1494.json",
+          "review_status": "awaiting_external_review",
+          "independent_verdict_count": 0,
+          "condition_status": "complete",
+          "missing_conditions": [],
+          "combined_condition_status": "complete",
+          "combined_missing_conditions": [],
+          "primary_assessment": null,
+          "primary_assessment_review_status": null,
+          "supplementary_extraction": null,
+          "supplementary_evidence_tier": null,
+          "supplementary_review_status": null,
+          "source_direction_ids": []
+        },
+        {
+          "paper_id": "iccad-2025-1000",
+          "title": "\"Energon\": Unveiling Transformers from GPU Power and Thermal Side-Channels",
+          "conference_id": "iccad",
+          "edition": 2025,
+          "evidence_tier": "primary_or_author_copy",
+          "is_synthesis_anchor": true,
+          "packet_path": "data/review-packets/iccad-2025-1000.json",
+          "review_status": "awaiting_external_review",
+          "independent_verdict_count": 0,
+          "condition_status": "partial",
+          "missing_conditions": [
+            "hardware"
+          ],
+          "combined_condition_status": "complete",
+          "combined_missing_conditions": [],
+          "primary_assessment": null,
+          "primary_assessment_review_status": null,
+          "supplementary_extraction": "source-condition-extraction.v1",
+          "supplementary_evidence_tier": "author_preprint",
+          "supplementary_review_status": "pending",
+          "source_direction_ids": [
+            "reliability-security-design-loop"
+          ]
+        },
+        {
+          "paper_id": "isca-2026-program-004",
+          "title": "Cerberus: Cross-Layer ECC Co-Design for Robust and Efficient Memory Protection",
+          "conference_id": "isca",
+          "edition": 2026,
+          "evidence_tier": "primary_or_author_copy",
+          "is_synthesis_anchor": true,
+          "packet_path": "data/review-packets/isca-2026-program-004.json",
+          "review_status": "awaiting_external_review",
+          "independent_verdict_count": 0,
+          "condition_status": "complete",
+          "missing_conditions": [],
+          "combined_condition_status": "complete",
+          "combined_missing_conditions": [],
+          "primary_assessment": null,
+          "primary_assessment_review_status": null,
+          "supplementary_extraction": "source-condition-extraction.v1",
+          "supplementary_evidence_tier": "author_preprint",
+          "supplementary_review_status": "pending",
+          "source_direction_ids": [
+            "reliability-security-design-loop"
+          ]
+        },
+        {
+          "paper_id": "isca-2026-program-009",
+          "title": "ECC Enabled Reliable and Performant Processing-in-Memory",
+          "conference_id": "isca",
+          "edition": 2026,
+          "evidence_tier": "institutional_abstract",
+          "is_synthesis_anchor": true,
+          "packet_path": "data/review-packets/isca-2026-program-009.json",
+          "review_status": "awaiting_external_review",
+          "independent_verdict_count": 0,
+          "condition_status": "complete",
+          "missing_conditions": [],
+          "combined_condition_status": "complete",
+          "combined_missing_conditions": [],
+          "primary_assessment": null,
+          "primary_assessment_review_status": null,
+          "supplementary_extraction": null,
+          "supplementary_evidence_tier": null,
+          "supplementary_review_status": null,
+          "source_direction_ids": [
+            "reliability-security-design-loop"
+          ]
+        },
+        {
+          "paper_id": "isca-2026-program-024",
+          "title": "PuDGhost: Experimental Analysis of Computation Result Corruption in Processing-using-DRAM Operations on Real DRAM Chips and Implications for Future Systems",
+          "conference_id": "isca",
+          "edition": 2026,
+          "evidence_tier": "primary_or_author_copy",
+          "is_synthesis_anchor": true,
+          "packet_path": "data/review-packets/isca-2026-program-024.json",
+          "review_status": "awaiting_external_review",
+          "independent_verdict_count": 0,
+          "condition_status": "complete",
+          "missing_conditions": [],
+          "combined_condition_status": "complete",
+          "combined_missing_conditions": [],
+          "primary_assessment": null,
+          "primary_assessment_review_status": null,
+          "supplementary_extraction": "source-condition-extraction.v1",
+          "supplementary_evidence_tier": "author_preprint",
+          "supplementary_review_status": "pending",
+          "source_direction_ids": [
+            "reliability-security-design-loop"
+          ]
+        }
+      ]
+    },
+    {
+      "direction_id": "physical-reality-in-the-loop",
+      "label": "Physical Reality In The Loop",
+      "page": "reports/directions/05-physical-reality-in-the-loop.md",
+      "paper_count": 5,
+      "anchor_paper_count": 4,
+      "packet_count": 5,
+      "condition_complete_count": 4,
+      "condition_partial_count": 1,
+      "combined_condition_complete_count": 5,
+      "combined_condition_partial_count": 0,
+      "primary_assessment_count": 0,
+      "independent_verdict_count": 0,
+      "promotion_gate": "blocked_pending_independent_review_and_condition_reconciliation",
+      "required_actions": [
+        "Reconcile adjudicated-row gaps with supplementary source-condition fields for anchor papers; preserve source tiers and explicitly bind any remaining workload, hardware/process, baseline, metric, and limit gaps.",
+        "Obtain two independent source-entailment verdicts per review packet and resolve disagreements.",
+        "Re-run the longitudinal protocol only after direction mapping and condition fields survive review."
+      ],
+      "papers": [
+        {
+          "paper_id": "dac-2026-research1065",
+          "title": "FLASH3D: A Fast Layered Analytical Solver for High-Accuracy Steady-State Thermal Simulation of 3D ICs",
+          "conference_id": "dac",
+          "edition": 2026,
+          "evidence_tier": "official_description",
+          "is_synthesis_anchor": true,
+          "packet_path": "data/review-packets/dac-2026-research1065.json",
+          "review_status": "awaiting_external_review",
+          "independent_verdict_count": 0,
+          "condition_status": "partial",
+          "missing_conditions": [
+            "hardware"
+          ],
+          "combined_condition_status": "complete",
+          "combined_missing_conditions": [],
+          "primary_assessment": null,
+          "primary_assessment_review_status": null,
+          "supplementary_extraction": "source-condition-extraction.v1",
+          "supplementary_evidence_tier": "official_description",
+          "supplementary_review_status": "pending",
+          "source_direction_ids": [
+            "physical-integration-optimization-variable"
+          ]
+        },
+        {
+          "paper_id": "dac-2026-research1862",
+          "title": "Thermal Stability Strategy for a 12nm/28nm Hybrid-Bonding Wafer-on-Wafer 3D-Integrated Eflash In-Memory Computing SoC",
+          "conference_id": "dac",
+          "edition": 2026,
+          "evidence_tier": "official_description",
+          "is_synthesis_anchor": false,
+          "packet_path": "data/review-packets/dac-2026-research1862.json",
+          "review_status": "awaiting_external_review",
+          "independent_verdict_count": 0,
+          "condition_status": "complete",
+          "missing_conditions": [],
+          "combined_condition_status": "complete",
+          "combined_missing_conditions": [],
+          "primary_assessment": null,
+          "primary_assessment_review_status": null,
+          "supplementary_extraction": null,
+          "supplementary_evidence_tier": null,
+          "supplementary_review_status": null,
+          "source_direction_ids": []
+        },
+        {
+          "paper_id": "iccad-2025-1103",
+          "title": "Tasa: Thermal-aware 3D-Stacked Architecture Design with Bandwidth Sharing for LLM Inference",
+          "conference_id": "iccad",
+          "edition": 2025,
+          "evidence_tier": "primary_or_author_copy",
+          "is_synthesis_anchor": true,
+          "packet_path": "data/review-packets/iccad-2025-1103.json",
+          "review_status": "awaiting_external_review",
+          "independent_verdict_count": 0,
+          "condition_status": "complete",
+          "missing_conditions": [],
+          "combined_condition_status": "complete",
+          "combined_missing_conditions": [],
+          "primary_assessment": null,
+          "primary_assessment_review_status": null,
+          "supplementary_extraction": null,
+          "supplementary_evidence_tier": null,
+          "supplementary_review_status": null,
+          "source_direction_ids": [
+            "physical-integration-optimization-variable"
+          ]
+        },
+        {
+          "paper_id": "iccad-2025-1207",
+          "title": "MAHL: Multi -Agent LLM -Guided Hierarchical Chiplet Design with Adaptive Debugging",
+          "conference_id": "iccad",
+          "edition": 2025,
+          "evidence_tier": "primary_or_author_copy",
+          "is_synthesis_anchor": true,
+          "packet_path": "data/review-packets/iccad-2025-1207.json",
+          "review_status": "awaiting_external_review",
+          "independent_verdict_count": 0,
+          "condition_status": "complete",
+          "missing_conditions": [],
+          "combined_condition_status": "complete",
+          "combined_missing_conditions": [],
+          "primary_assessment": null,
+          "primary_assessment_review_status": null,
+          "supplementary_extraction": null,
+          "supplementary_evidence_tier": null,
+          "supplementary_review_status": null,
+          "source_direction_ids": [
+            "physical-integration-optimization-variable"
+          ]
+        },
+        {
+          "paper_id": "isca-2026-program-153",
+          "title": "Lit Silicon: A Case Where Thermal Imbalance Couples Concurrent Execution in Multiple GPUs",
+          "conference_id": "isca",
+          "edition": 2026,
+          "evidence_tier": "primary_or_author_copy",
+          "is_synthesis_anchor": true,
+          "packet_path": "data/review-packets/isca-2026-program-153.json",
+          "review_status": "awaiting_external_review",
+          "independent_verdict_count": 0,
+          "condition_status": "complete",
+          "missing_conditions": [],
+          "combined_condition_status": "complete",
+          "combined_missing_conditions": [],
+          "primary_assessment": null,
+          "primary_assessment_review_status": null,
+          "supplementary_extraction": null,
+          "supplementary_evidence_tier": null,
+          "supplementary_review_status": null,
+          "source_direction_ids": [
+            "physical-integration-optimization-variable"
+          ]
+        }
+      ]
+    },
+    {
+      "direction_id": "closed-loop-design",
+      "label": "Closed Loop Design",
+      "page": "reports/directions/03-closed-loop-design.md",
+      "paper_count": 7,
+      "anchor_paper_count": 6,
+      "packet_count": 7,
+      "condition_complete_count": 4,
+      "condition_partial_count": 3,
+      "combined_condition_complete_count": 7,
+      "combined_condition_partial_count": 0,
+      "primary_assessment_count": 1,
+      "independent_verdict_count": 0,
+      "promotion_gate": "blocked_pending_independent_review_and_condition_reconciliation",
+      "required_actions": [
+        "Reconcile adjudicated-row gaps with supplementary source-condition fields for anchor papers; preserve source tiers and explicitly bind any remaining workload, hardware/process, baseline, metric, and limit gaps.",
+        "Obtain two independent source-entailment verdicts per review packet and resolve disagreements.",
+        "Re-run the longitudinal protocol only after direction mapping and condition fields survive review."
+      ],
+      "papers": [
+        {
+          "paper_id": "dac-2026-research031",
+          "title": "Quantum Circuit Synthesis Using an Exact T Library",
+          "conference_id": "dac",
+          "edition": 2026,
+          "evidence_tier": "official_description",
+          "is_synthesis_anchor": true,
+          "packet_path": "data/review-packets/dac-2026-research031.json",
+          "review_status": "awaiting_external_review",
+          "independent_verdict_count": 0,
+          "condition_status": "partial",
+          "missing_conditions": [
+            "hardware"
+          ],
+          "combined_condition_status": "complete",
+          "combined_missing_conditions": [],
+          "primary_assessment": "dac/data/exact-t-primary-assessment-v1.json",
+          "primary_assessment_review_status": "pending",
+          "supplementary_extraction": "source-condition-extraction.v1",
+          "supplementary_evidence_tier": "author_preprint",
+          "supplementary_review_status": "pending",
+          "source_direction_ids": [
+            "multifidelity-physics-aware-search"
+          ]
+        },
+        {
+          "paper_id": "dac-2026-research046",
+          "title": "GEMIR: Graph-Based Joint Modeling of Electromigration and IR Drop for Power Grid",
+          "conference_id": "dac",
+          "edition": 2026,
+          "evidence_tier": "official_description",
+          "is_synthesis_anchor": true,
+          "packet_path": "data/review-packets/dac-2026-research046.json",
+          "review_status": "awaiting_external_review",
+          "independent_verdict_count": 0,
+          "condition_status": "partial",
+          "missing_conditions": [
+            "hardware"
+          ],
+          "combined_condition_status": "complete",
+          "combined_missing_conditions": [],
+          "primary_assessment": null,
+          "primary_assessment_review_status": null,
+          "supplementary_extraction": "source-condition-extraction.v1",
+          "supplementary_evidence_tier": "official_description",
+          "supplementary_review_status": "pending",
+          "source_direction_ids": [
+            "multifidelity-physics-aware-search"
+          ]
+        },
+        {
+          "paper_id": "dac-2026-research1101",
+          "title": "HYPER-CIM: Hierarchical Predictive Exploration and Realizable Design Flow for High-Efficient Digital CIM",
+          "conference_id": "dac",
+          "edition": 2026,
+          "evidence_tier": "official_description",
+          "is_synthesis_anchor": true,
+          "packet_path": "data/review-packets/dac-2026-research1101.json",
+          "review_status": "awaiting_external_review",
+          "independent_verdict_count": 0,
+          "condition_status": "partial",
+          "missing_conditions": [
+            "hardware"
+          ],
+          "combined_condition_status": "complete",
+          "combined_missing_conditions": [],
+          "primary_assessment": null,
+          "primary_assessment_review_status": null,
+          "supplementary_extraction": "source-condition-extraction.v1",
+          "supplementary_evidence_tier": "official_description",
+          "supplementary_review_status": "pending",
+          "source_direction_ids": [
+            "multifidelity-physics-aware-search"
+          ]
+        },
+        {
+          "paper_id": "dac-2026-research1186",
+          "title": "Xsearch: Exploring Microarchitecture Design Space Through Bayesian Optimization and Cross Evaluation on Multi-Fidelity Simulators",
+          "conference_id": "dac",
+          "edition": 2026,
+          "evidence_tier": "official_description",
+          "is_synthesis_anchor": true,
+          "packet_path": "data/review-packets/dac-2026-research1186.json",
+          "review_status": "awaiting_external_review",
+          "independent_verdict_count": 0,
+          "condition_status": "complete",
+          "missing_conditions": [],
+          "combined_condition_status": "complete",
+          "combined_missing_conditions": [],
+          "primary_assessment": null,
+          "primary_assessment_review_status": null,
+          "supplementary_extraction": null,
+          "supplementary_evidence_tier": null,
+          "supplementary_review_status": null,
+          "source_direction_ids": [
+            "multifidelity-physics-aware-search"
+          ]
+        },
+        {
+          "paper_id": "dac-2026-research399",
+          "title": "ChiSER: Surrogate-Enhanced Resource-Aware Exploration of Chiplet-Based Deep Neural Network Accelerators",
+          "conference_id": "dac",
+          "edition": 2026,
+          "evidence_tier": "official_description",
+          "is_synthesis_anchor": false,
+          "packet_path": "data/review-packets/dac-2026-research399.json",
+          "review_status": "awaiting_external_review",
+          "independent_verdict_count": 0,
+          "condition_status": "complete",
+          "missing_conditions": [],
+          "combined_condition_status": "complete",
+          "combined_missing_conditions": [],
+          "primary_assessment": null,
+          "primary_assessment_review_status": null,
+          "supplementary_extraction": null,
+          "supplementary_evidence_tier": null,
+          "supplementary_review_status": null,
+          "source_direction_ids": []
+        },
+        {
+          "paper_id": "iccad-2025-1080",
+          "title": "RSizing: Robust Bayesian Optimization for Analog Circuit Sizing Under Process Variations",
+          "conference_id": "iccad",
+          "edition": 2025,
+          "evidence_tier": "primary_or_author_copy",
+          "is_synthesis_anchor": true,
+          "packet_path": "data/review-packets/iccad-2025-1080.json",
+          "review_status": "awaiting_external_review",
+          "independent_verdict_count": 0,
+          "condition_status": "complete",
+          "missing_conditions": [],
+          "combined_condition_status": "complete",
+          "combined_missing_conditions": [],
+          "primary_assessment": null,
+          "primary_assessment_review_status": null,
+          "supplementary_extraction": null,
+          "supplementary_evidence_tier": null,
+          "supplementary_review_status": null,
+          "source_direction_ids": [
+            "multifidelity-physics-aware-search"
+          ]
+        },
+        {
+          "paper_id": "iccad-2025-130",
+          "title": "NeuroPDE: A Neuromorphic PDE Solver Based on Spintronic and Ferroelectric Devices",
+          "conference_id": "iccad",
+          "edition": 2025,
+          "evidence_tier": "primary_or_author_copy",
+          "is_synthesis_anchor": true,
+          "packet_path": "data/review-packets/iccad-2025-130.json",
+          "review_status": "awaiting_external_review",
+          "independent_verdict_count": 0,
+          "condition_status": "complete",
+          "missing_conditions": [],
+          "combined_condition_status": "complete",
+          "combined_missing_conditions": [],
+          "primary_assessment": null,
+          "primary_assessment_review_status": null,
+          "supplementary_extraction": null,
+          "supplementary_evidence_tier": null,
+          "supplementary_review_status": null,
+          "source_direction_ids": [
+            "multifidelity-physics-aware-search"
+          ]
+        }
+      ]
+    },
+    {
+      "direction_id": "evaluation-as-research",
+      "label": "Evaluation As Research",
+      "page": "reports/directions/06-evaluation-as-research.md",
+      "paper_count": 15,
+      "anchor_paper_count": 14,
+      "packet_count": 15,
+      "condition_complete_count": 8,
+      "condition_partial_count": 7,
+      "combined_condition_complete_count": 15,
+      "combined_condition_partial_count": 0,
+      "primary_assessment_count": 3,
+      "independent_verdict_count": 0,
+      "promotion_gate": "blocked_pending_independent_review_and_condition_reconciliation",
+      "required_actions": [
+        "Reconcile adjudicated-row gaps with supplementary source-condition fields for anchor papers; preserve source tiers and explicitly bind any remaining workload, hardware/process, baseline, metric, and limit gaps.",
+        "Obtain two independent source-entailment verdicts per review packet and resolve disagreements.",
+        "Re-run the longitudinal protocol only after direction mapping and condition fields survive review."
+      ],
+      "papers": [
+        {
+          "paper_id": "dac-2026-research031",
+          "title": "Quantum Circuit Synthesis Using an Exact T Library",
+          "conference_id": "dac",
+          "edition": 2026,
+          "evidence_tier": "official_description",
+          "is_synthesis_anchor": true,
+          "packet_path": "data/review-packets/dac-2026-research031.json",
+          "review_status": "awaiting_external_review",
+          "independent_verdict_count": 0,
+          "condition_status": "partial",
+          "missing_conditions": [
+            "hardware"
+          ],
+          "combined_condition_status": "complete",
+          "combined_missing_conditions": [],
+          "primary_assessment": "dac/data/exact-t-primary-assessment-v1.json",
+          "primary_assessment_review_status": "pending",
+          "supplementary_extraction": "source-condition-extraction.v1",
+          "supplementary_evidence_tier": "author_preprint",
+          "supplementary_review_status": "pending",
+          "source_direction_ids": [
+            "multifidelity-physics-aware-search"
+          ]
+        },
+        {
+          "paper_id": "dac-2026-research046",
+          "title": "GEMIR: Graph-Based Joint Modeling of Electromigration and IR Drop for Power Grid",
+          "conference_id": "dac",
+          "edition": 2026,
+          "evidence_tier": "official_description",
+          "is_synthesis_anchor": true,
+          "packet_path": "data/review-packets/dac-2026-research046.json",
+          "review_status": "awaiting_external_review",
+          "independent_verdict_count": 0,
+          "condition_status": "partial",
+          "missing_conditions": [
+            "hardware"
+          ],
+          "combined_condition_status": "complete",
+          "combined_missing_conditions": [],
+          "primary_assessment": null,
+          "primary_assessment_review_status": null,
+          "supplementary_extraction": "source-condition-extraction.v1",
+          "supplementary_evidence_tier": "official_description",
+          "supplementary_review_status": "pending",
+          "source_direction_ids": [
+            "multifidelity-physics-aware-search"
+          ]
+        },
+        {
+          "paper_id": "dac-2026-research1101",
+          "title": "HYPER-CIM: Hierarchical Predictive Exploration and Realizable Design Flow for High-Efficient Digital CIM",
+          "conference_id": "dac",
+          "edition": 2026,
+          "evidence_tier": "official_description",
+          "is_synthesis_anchor": true,
+          "packet_path": "data/review-packets/dac-2026-research1101.json",
+          "review_status": "awaiting_external_review",
+          "independent_verdict_count": 0,
+          "condition_status": "partial",
+          "missing_conditions": [
+            "hardware"
+          ],
+          "combined_condition_status": "complete",
+          "combined_missing_conditions": [],
+          "primary_assessment": null,
+          "primary_assessment_review_status": null,
+          "supplementary_extraction": "source-condition-extraction.v1",
+          "supplementary_evidence_tier": "official_description",
+          "supplementary_review_status": "pending",
+          "source_direction_ids": [
+            "multifidelity-physics-aware-search"
+          ]
+        },
+        {
+          "paper_id": "dac-2026-research1110",
+          "title": "LLM-Based Automatic Architecture Optimization for AI Model HLS Implementation on FPGA",
+          "conference_id": "dac",
+          "edition": 2026,
+          "evidence_tier": "official_description",
+          "is_synthesis_anchor": true,
+          "packet_path": "data/review-packets/dac-2026-research1110.json",
+          "review_status": "awaiting_external_review",
+          "independent_verdict_count": 0,
+          "condition_status": "partial",
+          "missing_conditions": [
+            "hardware"
+          ],
+          "combined_condition_status": "complete",
+          "combined_missing_conditions": [],
+          "primary_assessment": "dac/data/hlsarchopt-primary-assessment-v1.json",
+          "primary_assessment_review_status": "pending",
+          "supplementary_extraction": "source-condition-extraction.v1",
+          "supplementary_evidence_tier": "official_description",
+          "supplementary_review_status": "pending",
+          "source_direction_ids": [
+            "tool-grounded-ai-design-verification"
+          ]
+        },
+        {
+          "paper_id": "dac-2026-research1186",
+          "title": "Xsearch: Exploring Microarchitecture Design Space Through Bayesian Optimization and Cross Evaluation on Multi-Fidelity Simulators",
+          "conference_id": "dac",
+          "edition": 2026,
+          "evidence_tier": "official_description",
+          "is_synthesis_anchor": true,
+          "packet_path": "data/review-packets/dac-2026-research1186.json",
+          "review_status": "awaiting_external_review",
+          "independent_verdict_count": 0,
+          "condition_status": "complete",
+          "missing_conditions": [],
+          "combined_condition_status": "complete",
+          "combined_missing_conditions": [],
+          "primary_assessment": null,
+          "primary_assessment_review_status": null,
+          "supplementary_extraction": null,
+          "supplementary_evidence_tier": null,
+          "supplementary_review_status": null,
+          "source_direction_ids": [
+            "multifidelity-physics-aware-search"
+          ]
+        },
+        {
+          "paper_id": "dac-2026-research2014",
+          "title": "OpenACMv2: An Accuracy-Constrained Co-Optimization Framework for Approximate DCiM",
+          "conference_id": "dac",
+          "edition": 2026,
+          "evidence_tier": "official_description",
+          "is_synthesis_anchor": false,
+          "packet_path": "data/review-packets/dac-2026-research2014.json",
+          "review_status": "awaiting_external_review",
+          "independent_verdict_count": 0,
+          "condition_status": "complete",
+          "missing_conditions": [],
+          "combined_condition_status": "complete",
+          "combined_missing_conditions": [],
+          "primary_assessment": null,
+          "primary_assessment_review_status": null,
+          "supplementary_extraction": null,
+          "supplementary_evidence_tier": null,
+          "supplementary_review_status": null,
+          "source_direction_ids": []
+        },
+        {
+          "paper_id": "dac-2026-research535",
+          "title": "Mappingevolve: LLM-Driven Code Evolution for Technology Mapping",
+          "conference_id": "dac",
+          "edition": 2026,
+          "evidence_tier": "official_description",
+          "is_synthesis_anchor": true,
+          "packet_path": "data/review-packets/dac-2026-research535.json",
+          "review_status": "awaiting_external_review",
+          "independent_verdict_count": 0,
+          "condition_status": "partial",
+          "missing_conditions": [
+            "hardware"
+          ],
+          "combined_condition_status": "complete",
+          "combined_missing_conditions": [],
+          "primary_assessment": "dac/data/mappingevolve-primary-assessment-v1.json",
+          "primary_assessment_review_status": "pending",
+          "supplementary_extraction": "source-condition-extraction.v1",
+          "supplementary_evidence_tier": "author_preprint",
+          "supplementary_review_status": "pending",
+          "source_direction_ids": [
+            "tool-grounded-ai-design-verification"
+          ]
+        },
+        {
+          "paper_id": "dac-2026-research865",
+          "title": "Paretopilot: Global Optimization Reasoning on HLS Design Space Exploration with LLMs",
+          "conference_id": "dac",
+          "edition": 2026,
+          "evidence_tier": "official_description",
+          "is_synthesis_anchor": true,
+          "packet_path": "data/review-packets/dac-2026-research865.json",
+          "review_status": "awaiting_external_review",
+          "independent_verdict_count": 0,
+          "condition_status": "partial",
+          "missing_conditions": [
+            "hardware"
+          ],
+          "combined_condition_status": "complete",
+          "combined_missing_conditions": [],
+          "primary_assessment": null,
+          "primary_assessment_review_status": null,
+          "supplementary_extraction": "source-condition-extraction.v1",
+          "supplementary_evidence_tier": "public_research_artifact",
+          "supplementary_review_status": "pending",
+          "source_direction_ids": [
+            "tool-grounded-ai-design-verification"
+          ]
+        },
+        {
+          "paper_id": "iccad-2025-1027",
+          "title": "HLSDebugger: Identification and Correction of Logic Bugs in HLS Code with LLM Solutions",
+          "conference_id": "iccad",
+          "edition": 2025,
+          "evidence_tier": "primary_or_author_copy",
+          "is_synthesis_anchor": true,
+          "packet_path": "data/review-packets/iccad-2025-1027.json",
+          "review_status": "awaiting_external_review",
+          "independent_verdict_count": 0,
+          "condition_status": "partial",
+          "missing_conditions": [
+            "hardware"
+          ],
+          "combined_condition_status": "complete",
+          "combined_missing_conditions": [],
+          "primary_assessment": null,
+          "primary_assessment_review_status": null,
+          "supplementary_extraction": "source-condition-extraction.v1",
+          "supplementary_evidence_tier": "author_preprint",
+          "supplementary_review_status": "pending",
+          "source_direction_ids": [
+            "tool-grounded-ai-design-verification"
+          ]
+        },
+        {
+          "paper_id": "iccad-2025-1080",
+          "title": "RSizing: Robust Bayesian Optimization for Analog Circuit Sizing Under Process Variations",
+          "conference_id": "iccad",
+          "edition": 2025,
+          "evidence_tier": "primary_or_author_copy",
+          "is_synthesis_anchor": true,
+          "packet_path": "data/review-packets/iccad-2025-1080.json",
+          "review_status": "awaiting_external_review",
+          "independent_verdict_count": 0,
+          "condition_status": "complete",
+          "missing_conditions": [],
+          "combined_condition_status": "complete",
+          "combined_missing_conditions": [],
+          "primary_assessment": null,
+          "primary_assessment_review_status": null,
+          "supplementary_extraction": null,
+          "supplementary_evidence_tier": null,
+          "supplementary_review_status": null,
+          "source_direction_ids": [
+            "multifidelity-physics-aware-search"
+          ]
+        },
+        {
+          "paper_id": "iccad-2025-110",
+          "title": "VERIRL: Boosting the LLM -based Verilog Code Generation via Reinforcement Learning",
+          "conference_id": "iccad",
+          "edition": 2025,
+          "evidence_tier": "primary_or_author_copy",
+          "is_synthesis_anchor": true,
+          "packet_path": "data/review-packets/iccad-2025-110.json",
+          "review_status": "awaiting_external_review",
+          "independent_verdict_count": 0,
+          "condition_status": "complete",
+          "missing_conditions": [],
+          "combined_condition_status": "complete",
+          "combined_missing_conditions": [],
+          "primary_assessment": null,
+          "primary_assessment_review_status": null,
+          "supplementary_extraction": null,
+          "supplementary_evidence_tier": null,
+          "supplementary_review_status": null,
+          "source_direction_ids": [
+            "tool-grounded-ai-design-verification"
+          ]
+        },
+        {
+          "paper_id": "iccad-2025-1207",
+          "title": "MAHL: Multi -Agent LLM -Guided Hierarchical Chiplet Design with Adaptive Debugging",
+          "conference_id": "iccad",
+          "edition": 2025,
+          "evidence_tier": "primary_or_author_copy",
+          "is_synthesis_anchor": true,
+          "packet_path": "data/review-packets/iccad-2025-1207.json",
+          "review_status": "awaiting_external_review",
+          "independent_verdict_count": 0,
+          "condition_status": "complete",
+          "missing_conditions": [],
+          "combined_condition_status": "complete",
+          "combined_missing_conditions": [],
+          "primary_assessment": null,
+          "primary_assessment_review_status": null,
+          "supplementary_extraction": null,
+          "supplementary_evidence_tier": null,
+          "supplementary_review_status": null,
+          "source_direction_ids": [
+            "tool-grounded-ai-design-verification"
+          ]
+        },
+        {
+          "paper_id": "iccad-2025-1222",
+          "title": "VeriOpt: PPA-Aware High-Quality Verilog Generation via Multi-Role LLMs",
+          "conference_id": "iccad",
+          "edition": 2025,
+          "evidence_tier": "primary_or_author_copy",
+          "is_synthesis_anchor": true,
+          "packet_path": "data/review-packets/iccad-2025-1222.json",
+          "review_status": "awaiting_external_review",
+          "independent_verdict_count": 0,
+          "condition_status": "complete",
+          "missing_conditions": [],
+          "combined_condition_status": "complete",
+          "combined_missing_conditions": [],
+          "primary_assessment": null,
+          "primary_assessment_review_status": null,
+          "supplementary_extraction": null,
+          "supplementary_evidence_tier": null,
+          "supplementary_review_status": null,
+          "source_direction_ids": [
+            "tool-grounded-ai-design-verification"
+          ]
+        },
+        {
+          "paper_id": "iccad-2025-130",
+          "title": "NeuroPDE: A Neuromorphic PDE Solver Based on Spintronic and Ferroelectric Devices",
+          "conference_id": "iccad",
+          "edition": 2025,
+          "evidence_tier": "primary_or_author_copy",
+          "is_synthesis_anchor": true,
+          "packet_path": "data/review-packets/iccad-2025-130.json",
+          "review_status": "awaiting_external_review",
+          "independent_verdict_count": 0,
+          "condition_status": "complete",
+          "missing_conditions": [],
+          "combined_condition_status": "complete",
+          "combined_missing_conditions": [],
+          "primary_assessment": null,
+          "primary_assessment_review_status": null,
+          "supplementary_extraction": null,
+          "supplementary_evidence_tier": null,
+          "supplementary_review_status": null,
+          "source_direction_ids": [
+            "multifidelity-physics-aware-search"
+          ]
+        },
+        {
+          "paper_id": "isca-2026-program-002",
+          "title": "CODO: An Automated Compiler for Comprehensive Dataflow Optimization",
+          "conference_id": "isca",
+          "edition": 2026,
+          "evidence_tier": "primary_or_author_copy",
+          "is_synthesis_anchor": true,
+          "packet_path": "data/review-packets/isca-2026-program-002.json",
+          "review_status": "awaiting_external_review",
+          "independent_verdict_count": 0,
+          "condition_status": "complete",
+          "missing_conditions": [],
+          "combined_condition_status": "complete",
+          "combined_missing_conditions": [],
+          "primary_assessment": null,
+          "primary_assessment_review_status": null,
+          "supplementary_extraction": "source-condition-extraction.v1",
+          "supplementary_evidence_tier": "author_preprint",
+          "supplementary_review_status": "pending",
+          "source_direction_ids": [
+            "tool-grounded-ai-design-verification"
+          ]
+        }
+      ]
+    }
+  ],
+  "interpretation_limits": [
+    "Review packet presence means prepared, not accepted.",
+    "Condition completeness is an extraction property, not proof that the reported result is correct.",
+    "Combined condition completeness includes explicitly tiered supplementary extractions; it does not rewrite the adjudicated ledger or count as independent review.",
+    "Primary assessments remain researcher-authored until independent review.",
+    "No direction may be promoted to a longitudinal trend claim from this gate alone."
+  ]
+}

@@ -15,3 +15,8 @@ def test_stored_hls_estimates_do_not_become_measurements():
     assert artifact["execution_status"] == "not_executed"
     assert assessment["independent_review_status"] == "pending"
     assert assessment["headline_metric_status"] == "withheld_pending_fullpaper_conditions"
+    recheck = assessment["current_source_recheck"]
+    assert recheck["capture_date"] == "2026-09-08"
+    assert "11.78x" in " ".join(recheck["official_program_observations"])
+    assert "full-model integration" in " ".join(recheck["repository_observations"])
+    assert "no full-text PDF" in recheck["full_text_status"]

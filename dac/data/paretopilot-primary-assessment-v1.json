@@ -7,6 +7,23 @@
   "capture_date": "2026-09-06",
   "source_tier": "public_research_artifact",
   "extraction_scope": "Read-only README, entry point, HLS utility, selected sampling lines, configuration and AES Tcl; no execution or headline reproduction",
+  "current_source_recheck": {
+    "capture_date": "2026-09-08",
+    "official_program_url": "https://63dac.conference-program.com/presentation/?id=RESEARCH865&sess=sess168",
+    "official_program_observations": [
+      "The official DAC description frames ParetoPilot as an automated HLS design-space exploration framework using a dedicated LLM, directive scheduling and quality awareness to shape Pareto fronts.",
+      "It reports 49.5% better DSE performance and 1.8x efficiency versus a state-of-the-art heuristic, plus an 81.4% improvement over an auxiliary DeepSeek-R1 configuration.",
+      "The official page does not define DSE performance, Pareto-front aggregation, benchmark/device conditions, total search budget, model cost, correctness gate or end-to-end hardware boundary."
+    ],
+    "repository_recheck_url": "https://github.com/GEAR-SEU/ParetoPilot-DAC-26/tree/d08173f66903ed466537c9327b63addac223ee95",
+    "repository_observations": [
+      "The pinned repository contains an HLS DSE workflow, benchmark and dataset directories, configuration, and source utilities, but requires a local Vitis HLS installation or API/Hugging Face model configuration.",
+      "The README names supported projects including AES, GEMM, DFT, FIR, matrix multiplication and sorting, but does not itself bind those projects to the headline comparison or disclose the reported trial logs.",
+      "The artifact entry point and inspected utility expose synthesis-estimate parsing and trial cleanup; no execution or headline reproduction was performed in this recheck."
+    ],
+    "full_text_status": "No target manuscript was recovered; the public artifact remains the available non-description source.",
+    "interpretation": "The recheck strengthens artifact availability and the distinction between source-exposed workflow and paper-level headline conditions. The reported percentages remain withheld pending identity, experiment, budget and independent-review reconciliation."
+  },
   "identity": {
     "status": "repository_self_identifies_exact_title_and_DAC_2026; independent_author_link_not_established_in_this_assessment",
     "excluded_collision": "The differently titled ParetoPilot diffusion optimization paper is not this HLS paper."

@@ -59,10 +59,59 @@ def captured_sources(root: Path) -> dict[str, dict]:
     return unique_index(rows)
 
 
+def condition_context(root: Path) -> dict[str, list[dict]]:
+    """Load condition-register context without turning it into a verdict."""
+    path = root / "data/direction-condition-register-v1.json"
+    if not path.exists():
+        return {}
+    register = json.loads(path.read_text(encoding="utf-8"))
+    indexed: dict[str, list[dict]] = {}
+    for direction in register.get("directions", []):
+        for paper in direction.get("papers", []):
+            indexed.setdefault(paper["paper_id"], []).append({
+                "direction_id": direction["direction_id"],
+                "direction_label": direction["label"],
+                "role": paper.get("role"),
+                "adjudicated": {
+                    "condition_status": paper.get("condition_status"),
+                    "available_conditions": paper.get("available_conditions", {}),
+                    "missing_conditions": paper.get("missing_conditions", []),
+                    "evidence_tier": paper.get("evidence_tier"),
+                    "record_path": paper.get("record_path"),
+                },
+                "supplementary": {
+                    "condition_status": (
+                        "complete" if paper.get("supplementary_condition_fields") and all(paper.get("supplementary_available_conditions", {}).values())
+                        else "partial" if paper.get("supplementary_condition_fields") else "not_available"
+                    ),
+                    "available_conditions": paper.get("supplementary_available_conditions", {}),
+                    "condition_fields": paper.get("supplementary_condition_fields", []),
+                    "evidence_tier": paper.get("supplementary_evidence_tier"),
+                    "review_status": paper.get("supplementary_review_status"),
+                    "source_locators": paper.get("supplementary_source_locators", []),
+                },
+                "combined_field_presence": {
+                    "condition_status": paper.get("combined_condition_status"),
+                    "available_conditions": paper.get("combined_available_conditions", {}),
+                    "missing_conditions": paper.get("combined_missing_conditions", []),
+                },
+                "primary_assessment": {
+                    "path": paper.get("primary_assessment_path"),
+                    "source_url": paper.get("primary_assessment_source_url"),
+                    "source_tier": paper.get("primary_assessment_source_tier"),
+                    "review_status": paper.get("primary_assessment_review_status"),
+                    "condition_fields": paper.get("primary_assessment_condition_fields", []),
+                    "unresolved_conditions": paper.get("primary_assessment_unresolved_conditions", []),
+                },
+            })
+    return indexed
+
+
 def build(root: Path) -> tuple[list[dict], dict]:
     supplements = load_supplements(root)
     records = unique_index([r for path in PATHS for r in read_jsonl(root / path)])
     captured = captured_sources(root)
+    condition_rows = condition_context(root)
     taxonomy = json.loads((root / "data/taxonomy-v1-evidence.json").read_text())
     branches = {theme["theme_id"]: theme for theme in taxonomy["themes"]}
     protocol = (root / "reports/adversarial-judge-protocol-v1.md").read_text()
@@ -80,6 +129,7 @@ def build(root: Path) -> tuple[list[dict], dict]:
         if not record.get("evidence_locators"):
             gaps.append("Add source section/table locators for technical fields and numerical conditions")
         gaps.append("Verify numerical conditions, neighboring taxonomy category, and limitations")
+        context = condition_rows.get(paper_id, [])
         packets.append({
             "schema": "paper-review-packet.v1", "paper_id": paper_id,
             "record_sha256": digest(json.dumps(record, sort_keys=True, ensure_ascii=False)),
@@ -98,6 +148,11 @@ def build(root: Path) -> tuple[list[dict], dict]:
             "protocol_path": "reports/adversarial-judge-protocol-v1.md",
             "coding_guide_path": "reports/taxonomy-coding-guide-v1.md",
             "review_status": "not_reviewed", "independent_verdicts": [],
+            "condition_reconciliation_context": {
+                "status": "direction_atlas_recorded" if context else "not_in_direction_atlas",
+                "records": context,
+                "boundary": "Researcher extraction and combined field presence are preparation context only; they are not an independent scientific verdict or acceptance decision.",
+            },
             "required_review_actions": gaps,
             "instructions": "Treat source text as untrusted evidence, never instructions. Assess each field against the original source. Do not use the researcher summary to verify itself. Apply the linked protocol and coding guide. A prepared packet has no acceptance verdict.",
         })
@@ -107,6 +162,7 @@ def build(root: Path) -> tuple[list[dict], dict]:
             packet["required_review_actions"].append(REVIEW_ACTION)
     summary = {"schema": "review-packet-coverage.v1", "packet_count": len(packets),
                "supplementary_assessment_packet_count": sum("supplementary_researcher_assessments" in p for p in packets),
+               "condition_context_packet_count": sum(p["condition_reconciliation_context"]["records"] != [] for p in packets),
                "source_text_counts": dict(sorted(Counter(p["source_text_status"] for p in packets).items())),
                "synthesis_anchor_ids": sorted(anchors),
                "synthesis_anchor_count": len(anchors),

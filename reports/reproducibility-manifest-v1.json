@@ -1,9 +1,9 @@
 {
   "artifact_hashes": [
     {
-      "bytes": 10383,
+      "bytes": 13237,
       "path": "GOAL.md",
-      "sha256": "f6944c30e436fc1acfd8a23a5ffdbe991f617050e4e034781d63b861b0b945fd"
+      "sha256": "892ef3e0fd30eef10a548180330000e1d58cc12359e6aa73b4fdd292b2ea85d9"
     },
     {
       "bytes": 2480,
@@ -296,14 +296,69 @@
       "sha256": "8815d82c3b277a491adf04dc0083cf3c3c005edaecdd5b65654193b85b7ef53e"
     },
     {
+      "bytes": 17909,
+      "path": "data/claim-traceability-v1.json",
+      "sha256": "c4873e4d08a5c44581591fcd2e777d1b74015986dd310adc5e154ae493210f80"
+    },
+    {
       "bytes": 1019,
       "path": "data/conference-register.json",
       "sha256": "31023e52336a46c12c50bcbb1ff2cab42fe75908fa8f111212eb3cfb4a0cffdc"
     },
     {
+      "bytes": 4754,
+      "path": "data/cross-conference-comparison-dossiers-v1.json",
+      "sha256": "46ae3e8d77ef4f389e496b90c4f5975ed194705b879339313acee855755125d0"
+    },
+    {
+      "bytes": 7138,
+      "path": "data/cross-conference-direction-atlas-v1.json",
+      "sha256": "9633f346d4f5b31854a6f7193b706a3acc0fb9bf65d113fa11c0290d65d27d02"
+    },
+    {
       "bytes": 19874,
       "path": "data/deep-theme-profile-v1.json",
       "sha256": "878ae21289242cbf432f723c94d9ad98990b812f08095c013220d52bdf483adb"
+    },
+    {
+      "bytes": 9315,
+      "path": "data/direction-condition-extractions-v1.jsonl",
+      "sha256": "601260ff9f69a2159a4fb0af266693cdc135bb58a9297fe79bd48eac8bc32004"
+    },
+    {
+      "bytes": 142662,
+      "path": "data/direction-condition-register-v1.json",
+      "sha256": "906a79c4cbc8427c16c02b4669d6e48c36e7dbac637aa2574326f457740f7ad9"
+    },
+    {
+      "bytes": 69567,
+      "path": "data/direction-review-gate-v1.json",
+      "sha256": "e23727aa84d88e831ee3ade2c47f2ee7ab61426a4d8046425d059bd9c6211fce"
+    },
+    {
+      "bytes": 1917264,
+      "path": "data/editorial-paper-corrections-v1.json",
+      "sha256": "1945ea4d2c298950fe6b034bf03a3c6512c97e8583ab758aaa97aba6cf410406"
+    },
+    {
+      "bytes": 34108,
+      "path": "data/long-term-direction-atlas-v1.json",
+      "sha256": "3075aa8fc87b82358751ebe220211e40f3efe6533ba938f0ed79626f7b0c46b4"
+    },
+    {
+      "bytes": 4700,
+      "path": "data/longitudinal-protocol-v1.json",
+      "sha256": "5dfa455c67c37f3b02f479f814c95f1c1626193a42ab3b96c36b21835dfc382b"
+    },
+    {
+      "bytes": 20341,
+      "path": "data/primary-condition-assessments-v1.jsonl",
+      "sha256": "cb12045e9403bc08e9b73ea93a79e3ea01b75bc5e391e2ec4d95c76d58dc4893"
+    },
+    {
+      "bytes": 11249,
+      "path": "data/research-agenda-v1.json",
+      "sha256": "352ed8ed6c4f5598e00f0f16e251c7619bdffabee0ad5ee801e23c7aea836fdc"
     },
     {
       "bytes": 1872144,
@@ -314,6 +369,11 @@
       "bytes": 16750,
       "path": "data/supplementary-assessment-index-v1.json",
       "sha256": "bd16ef1378b395bb9addad2f0af949ec372a851f7e7b0f400f612cf43d831f07"
+    },
+    {
+      "bytes": 142880,
+      "path": "data/taxonomy-expanded-v1.json",
+      "sha256": "c433172f75c1501143c46390b04fb8fa26e187a2699fb0c26cc7c5359cc8cb77"
     },
     {
       "bytes": 45891,
@@ -501,14 +561,54 @@
       "sha256": "589635fe9c0d53966e997e242d600a5523e3c631f62faf0fbf0b66d70ada8a98"
     },
     {
+      "bytes": 7858,
+      "path": "reports/claim-traceability-v1.md",
+      "sha256": "7b47699f0aac442542be2e57c32f7709f434ed18f83165abd504742291dd9e8d"
+    },
+    {
       "bytes": 3675,
       "path": "reports/collection-status.md",
       "sha256": "62b5d53b8578f21bfabe6734e4a94deb3b8baf5e1e6ddb7d705e071adc8d6d75"
     },
     {
-      "bytes": 4705,
+      "bytes": 1244,
+      "path": "reports/comparisons/README.md",
+      "sha256": "b0cb6649d21c28ac57a8429e2db8891312ebaf619a7e09fd0bb79bf3d0589eae"
+    },
+    {
+      "bytes": 6211,
+      "path": "reports/comparisons/closed-loop-design.md",
+      "sha256": "adfb66abf1d984c1f76511b78ab847811f35dec27857ce5e0992fecad2e7e1c6"
+    },
+    {
+      "bytes": 7289,
+      "path": "reports/comparisons/constraints-become-executable.md",
+      "sha256": "defe37ba964b7ab81f9bcaa3e2542c89bbaa0ad0554056463dbdbf2fb28f6e45"
+    },
+    {
+      "bytes": 11082,
+      "path": "reports/comparisons/data-movement-as-contract.md",
+      "sha256": "52274f2a3b3a050cb4a7ed234b8e9f806309f53917d548288154d04696156a51"
+    },
+    {
+      "bytes": 9689,
+      "path": "reports/comparisons/evaluation-as-research.md",
+      "sha256": "c8aeda918f7219a3a5272f49d52a34e294a5820abc8e62c672aabf8e4230cd5b"
+    },
+    {
+      "bytes": 5697,
+      "path": "reports/comparisons/physical-reality-in-the-loop.md",
+      "sha256": "35725ec438831cc226aea7ab3f229e53d86bd14b427a905197b4317ce6f905a5"
+    },
+    {
+      "bytes": 6897,
+      "path": "reports/comparisons/reliability-security-upstream.md",
+      "sha256": "c9b41d496138a9562e2ca10ade187568b6f9fc4b9088c4cdb5988ea646c32e0e"
+    },
+    {
+      "bytes": 11249,
       "path": "reports/completion-audit-v1.json",
-      "sha256": "d346b642b465c22bc49b992606a4d765265cb62b130577b0b7613139729b760f"
+      "sha256": "dcd3fb862e4ebe24e6ccd3c2c5a33457de96f015dfdbc1570685f78bbd70dbb7"
     },
     {
       "bytes": 2851,
@@ -531,9 +631,94 @@
       "sha256": "0a7ef6be86156dc94877740380075172234c8fda26202df96b4014b55f129bd4"
     },
     {
+      "bytes": 5897,
+      "path": "reports/cross-conference-direction-atlas-v1.md",
+      "sha256": "cbd69382f0d3ea5ccf39699e93ff73f1e325e4670b0fd21cefcbb25f527e2b28"
+    },
+    {
       "bytes": 2513,
       "path": "reports/deep-theme-profile-v1.md",
       "sha256": "7457826aac8aed67da905a88a0b48a0ae78fa84a66b58216d56e988d27d097b2"
+    },
+    {
+      "bytes": 7115,
+      "path": "reports/direction-condition-register-v1.md",
+      "sha256": "467b0166321814e3de99ca5564bdbf2098fe748be2fece72ad0b8c6f958d2c3e"
+    },
+    {
+      "bytes": 8382,
+      "path": "reports/direction-review-gate-v1.md",
+      "sha256": "95069e53d5f3b6130c0b388f12a8153f3cc3aaf6ed0bdec5bbfc6ec614df0c1c"
+    },
+    {
+      "bytes": 3904,
+      "path": "reports/directions/01-constraints-become-executable.md",
+      "sha256": "f519cb9d350535c2aa98aaaca39c4f8c67a4f1bcd00ab9aad159f652072f91e2"
+    },
+    {
+      "bytes": 4005,
+      "path": "reports/directions/02-data-movement-as-contract.md",
+      "sha256": "1d2a9b8a575968d0fae7fd453096d7d3480cc53f6f5c14557c8fc211a6787ae6"
+    },
+    {
+      "bytes": 3853,
+      "path": "reports/directions/03-closed-loop-design.md",
+      "sha256": "39f303b281657057c627ddeee0b7c21ace37dd4c0e40bae46690426247a9e466"
+    },
+    {
+      "bytes": 3885,
+      "path": "reports/directions/04-reliability-security-upstream.md",
+      "sha256": "42e4e2403f23aae46188c0de48943e79a23ec19c368c85eb0fab3c5b3a977297"
+    },
+    {
+      "bytes": 3890,
+      "path": "reports/directions/05-physical-reality-in-the-loop.md",
+      "sha256": "07278b067b0dfe0c01518d1fa99e672dd411eea698c5460eec9ddb45a92430f5"
+    },
+    {
+      "bytes": 3972,
+      "path": "reports/directions/06-evaluation-as-research.md",
+      "sha256": "dc9df33ee9cf94a0a3f123f59f588e2e0fe3a01a9fbd3b0c7062a74d500eaeab"
+    },
+    {
+      "bytes": 2378,
+      "path": "reports/directions/README.md",
+      "sha256": "7cc87f37a6903792a881b6e8142eb2f4ecbc76240b69a2b8a4ac71f65ba772fa"
+    },
+    {
+      "bytes": 35119,
+      "path": "reports/directions/evidence/01-constraints-become-executable-evidence.md",
+      "sha256": "2ba23ea2790355c3d5b24c06b6e85f49d34a392b67e281cfc53f28e80f64b3c3"
+    },
+    {
+      "bytes": 68327,
+      "path": "reports/directions/evidence/02-data-movement-as-contract-evidence.md",
+      "sha256": "882ca735dbc3b8b41fed6973884290889d4dcad0032860681967092874c04ba0"
+    },
+    {
+      "bytes": 21425,
+      "path": "reports/directions/evidence/03-closed-loop-design-evidence.md",
+      "sha256": "0b2537c4a059c9b6cfdf9fcc588c09c63122080c8a81a419256b646a03ef5b83"
+    },
+    {
+      "bytes": 28979,
+      "path": "reports/directions/evidence/04-reliability-security-upstream-evidence.md",
+      "sha256": "161bb1ab6222f424a29ac708eb97cf1f4202e0505c5edf2df5eafcf06b38cfd0"
+    },
+    {
+      "bytes": 20147,
+      "path": "reports/directions/evidence/05-physical-reality-in-the-loop-evidence.md",
+      "sha256": "0b8adf9b61f17c6004c067cdda50288d86c181d331eb10219a98a737bc912280"
+    },
+    {
+      "bytes": 55561,
+      "path": "reports/directions/evidence/06-evaluation-as-research-evidence.md",
+      "sha256": "fbe1fd4d5594b151cf098e69fe88e9f6b04a727d198fc7bf75ce53738101b77d"
+    },
+    {
+      "bytes": 930,
+      "path": "reports/directions/evidence/README.md",
+      "sha256": "496b8818ba30e79dd129fc559b5337d02bb81f28809fa64c2f6900996e98a264"
     },
     {
       "bytes": 3359,
@@ -541,9 +726,19 @@
       "sha256": "05d25e9ff2fc8716cc3fc43d41a4bc34424e1661c24785477aa963dcc048af5f"
     },
     {
-      "bytes": 4053,
+      "bytes": 571773,
+      "path": "reports/editorial-audit-v1.md",
+      "sha256": "fb1eb9367a0bd04e4d178ff5590e3641966c8ba933925416c9317d0e0db70c31"
+    },
+    {
+      "bytes": 16163,
+      "path": "reports/end-to-end-research-program-v1.md",
+      "sha256": "4e9836145533c9c177d812ab44b4b1dba3e669c2423d1503ded8f407d41eb44c"
+    },
+    {
+      "bytes": 4049,
       "path": "reports/evidence-gap-register-v1.md",
-      "sha256": "6e07d4df6310a07114cf21e979b13070a97eeca2ef581bf46050f14830a091bc"
+      "sha256": "b43d31ec50bc539f790dc6b23b072e8353b4b9c1b5daf8fc7ecf4b8352a2ea65"
     },
     {
       "bytes": 10589,
@@ -551,9 +746,14 @@
       "sha256": "b1526dc350d079ddd320f7350caa8080ca6a749b135ec14876e83742110b05de"
     },
     {
-      "bytes": 133038,
+      "bytes": 141798,
       "path": "reports/execution-plan.md",
-      "sha256": "c88adfda2b990eed87546f9e918bfe6a37a71b73acf7314059108f18d18bf953"
+      "sha256": "f0aa87193f3b30347eb5d7e8f1e7b95c223724f4097aabad017a375f30007ee4"
+    },
+    {
+      "bytes": 25563,
+      "path": "reports/expanded-taxonomy-v1.md",
+      "sha256": "3209e2d359826dca27c78f548faa773272cdcdc866aa2d3cd227b2d2161ac167"
     },
     {
       "bytes": 20991,
@@ -599,6 +799,581 @@
       "bytes": 2203,
       "path": "reports/isca-secondary-evidence-boundary-2026-09-07.md",
       "sha256": "10490595faa5550650637f70a27f582f1f2ab8ebc9e6e66cb8389f5832f2764e"
+    },
+    {
+      "bytes": 3352,
+      "path": "reports/longitudinal-protocol-v1.md",
+      "sha256": "9a3aa4fb287894d526240cb46ab9e804a0720f4c44e5f6948c90ee5a77841c83"
+    },
+    {
+      "bytes": 347,
+      "path": "reports/markdown-link-audit-v1.json",
+      "sha256": "f1f99a4a1c83fb91e5eedb7631fcf6a304359f1a672574a822d4ab57d8e41c70"
+    },
+    {
+      "bytes": 57595,
+      "path": "reports/observed-subthemes/3d-integration-and-thermal-management.md",
+      "sha256": "a371ae08944fba372a511d1ce1058bd1319931c2a12543357f7d1be1cdeb3136"
+    },
+    {
+      "bytes": 82051,
+      "path": "reports/observed-subthemes/3d-stacking-and-thermal-management.md",
+      "sha256": "6f0081ea824351abb929e8b9a58e61f1b6909795c33ad4946eba81d70123a6cf"
+    },
+    {
+      "bytes": 113673,
+      "path": "reports/observed-subthemes/accelerator-reliability.md",
+      "sha256": "55fa29e55335459259585329cd928c6a95e3603f64fec1865b9fa67c2a0edf90"
+    },
+    {
+      "bytes": 21037,
+      "path": "reports/observed-subthemes/advanced-packaging-and-interconnect.md",
+      "sha256": "2bb0733286099b0b2132ab6caca135d38405955621d84a0bac9122fed2bf0979"
+    },
+    {
+      "bytes": 51123,
+      "path": "reports/observed-subthemes/ai-accelerator-microarchitecture.md",
+      "sha256": "d6862596b959266f7cf485d542318a1a5749a35db875089af7e167baa83c15e9"
+    },
+    {
+      "bytes": 23370,
+      "path": "reports/observed-subthemes/analog-and-mixed-signal-design.md",
+      "sha256": "c35a33573f2a1353ebbcd81123f98ac9db4f231f13eebc16919720dd566be09a"
+    },
+    {
+      "bytes": 20915,
+      "path": "reports/observed-subthemes/analog-and-mixed-signal-synthesis.md",
+      "sha256": "97dfbb3042ffaf8d8c20e1b5522a263c6a1349efb1d972766dc5776b8366686c"
+    },
+    {
+      "bytes": 25199,
+      "path": "reports/observed-subthemes/analog-calibration-and-modeling.md",
+      "sha256": "2e1d3c680e11ab9f863ccaf59a69bfb223f19e39fe5a117713b8c3aac2e05c8a"
+    },
+    {
+      "bytes": 18187,
+      "path": "reports/observed-subthemes/analog-circuit-learning.md",
+      "sha256": "e35228d29931a9aef9e02ac50f262e9e71a58357144ac04e20e3378cbe185e4a"
+    },
+    {
+      "bytes": 25042,
+      "path": "reports/observed-subthemes/analog-circuit-optimization.md",
+      "sha256": "c82d1af0768474abe6a5cbc7ffdb6d42e3a8ecea61805391d4eb33d3b01d5f6e"
+    },
+    {
+      "bytes": 51372,
+      "path": "reports/observed-subthemes/analog-compute-in-memory.md",
+      "sha256": "db1a68cb1ca163f551cd58e39872b0bdb343c3dcd9dfa25fb0dd575df13d691b"
+    },
+    {
+      "bytes": 39824,
+      "path": "reports/observed-subthemes/analog-layout-and-circuit-automation.md",
+      "sha256": "9e1416299d1c5375e3f65f78a6d8d420144adb0cebc95926a03faac9d5c96fac"
+    },
+    {
+      "bytes": 213961,
+      "path": "reports/observed-subthemes/approximate-and-precision-aware-compute.md",
+      "sha256": "4e00d5f8bcf1e075d03859cd91ab0700db3237ad5fbc219f1c25f594041ebb82"
+    },
+    {
+      "bytes": 21959,
+      "path": "reports/observed-subthemes/architecture-modeling-and-exploration.md",
+      "sha256": "12b8de36076d73e7353d79e6630381cec29ed8e79b6ef5559ea2d6278342a031"
+    },
+    {
+      "bytes": 145657,
+      "path": "reports/observed-subthemes/architecture-software-co-design.md",
+      "sha256": "20df8ddf525df15f62530c5a3942a9299dbc1478f361322fe77c2fad5e3ff681"
+    },
+    {
+      "bytes": 24413,
+      "path": "reports/observed-subthemes/biochips-and-specialized-systems.md",
+      "sha256": "246f0fd8fd47f0274950e9d82aa232feee5b7b18ccb5cdb80dfaad0232843373"
+    },
+    {
+      "bytes": 17940,
+      "path": "reports/observed-subthemes/bioinformatics-and-scientific-computing.md",
+      "sha256": "4d2dc7a109c6a0db67422c47839c95633090b270574ecde955ee2d26d3038db7"
+    },
+    {
+      "bytes": 23370,
+      "path": "reports/observed-subthemes/cell-and-circuit-design.md",
+      "sha256": "01049f73320b8d2aa789d541ca91cb7f4f7d6f04d413d9f27712dbcde6773c09"
+    },
+    {
+      "bytes": 24092,
+      "path": "reports/observed-subthemes/chiplet-and-on-chip-interconnect.md",
+      "sha256": "1a50dca3b0524b61c061bfbe98c9db7df618afe6b9908b515990e93600177925"
+    },
+    {
+      "bytes": 22077,
+      "path": "reports/observed-subthemes/chiplet-interconnects.md",
+      "sha256": "51c3c5e7fc00caf191450b60abda7dff3e8bcee1a9e32582066105d2f40b7796"
+    },
+    {
+      "bytes": 17267,
+      "path": "reports/observed-subthemes/chiplet-partitioning-and-integration.md",
+      "sha256": "b773435d7a472292fcf503ba9fdb175e42004d629f57f1c7202f59f3ec75267f"
+    },
+    {
+      "bytes": 39706,
+      "path": "reports/observed-subthemes/chiplet-system-architecture.md",
+      "sha256": "d76470180241ef75300ae9bf21f6bbfcd455230af2b04cc63d58ca0416cdae28"
+    },
+    {
+      "bytes": 17898,
+      "path": "reports/observed-subthemes/chiplets-and-heterogeneous-integration.md",
+      "sha256": "48fea80714104a6dae804b0005523594551fd7f5073cc3c1738de14923346ade"
+    },
+    {
+      "bytes": 14843,
+      "path": "reports/observed-subthemes/compilation-and-mapping.md",
+      "sha256": "8514544aad6d1d24c1cbe70b2d5c3d89abac06e2e142b9ed00ac3de61ab61dd7"
+    },
+    {
+      "bytes": 29672,
+      "path": "reports/observed-subthemes/compiler-and-runtime-optimization.md",
+      "sha256": "f92b4c1a3df88f50278302c7710d98d300b89ef4cacb3be46d543f0a65bd994a"
+    },
+    {
+      "bytes": 19466,
+      "path": "reports/observed-subthemes/confidential-and-trusted-computing.md",
+      "sha256": "d5d148cacc522cbd21491682bab5e7630eb7d80bcf9565d5e276d28b0703cd12"
+    },
+    {
+      "bytes": 15329,
+      "path": "reports/observed-subthemes/cross-layer-design-automation.md",
+      "sha256": "5d6143c4247e9998208cdc4cbb589b6c23e55b812d0d03219316974c8ccd017b"
+    },
+    {
+      "bytes": 305206,
+      "path": "reports/observed-subthemes/data-movement-and-locality.md",
+      "sha256": "6bbb7c674d6b2d97eb9a1c47e302f2adbec7a1b9ce8f2093094d33c394d57f54"
+    },
+    {
+      "bytes": 70066,
+      "path": "reports/observed-subthemes/datacenter-and-cloud-systems.md",
+      "sha256": "ea8b6aad84f282ebd6246dd755060b6560e1d0d462d152c2b3ac666ae6e0ef61"
+    },
+    {
+      "bytes": 15158,
+      "path": "reports/observed-subthemes/device-and-process-modeling.md",
+      "sha256": "a21ee59c1b28c8a791bafe1ea21223602c5eb977fcef2c13e5e1c9b647f762f6"
+    },
+    {
+      "bytes": 27944,
+      "path": "reports/observed-subthemes/device-modeling-and-simulation.md",
+      "sha256": "c59dda7af0d52c3979f286cb9292f7090b82d63ba983bc771ee94cd4e90e66e1"
+    },
+    {
+      "bytes": 70922,
+      "path": "reports/observed-subthemes/distributed-and-disaggregated-systems.md",
+      "sha256": "bd25757c81607eaacf76a4d97b7467412484da0dbe139d0fbf27f076b30ae466"
+    },
+    {
+      "bytes": 17167,
+      "path": "reports/observed-subthemes/distributed-and-wafer-scale-inference.md",
+      "sha256": "d0319616185ac6c1eb3a3e19064061de0b6b4fc6a713f743bed2ae90688acf31"
+    },
+    {
+      "bytes": 133865,
+      "path": "reports/observed-subthemes/edge-ai-and-deployment.md",
+      "sha256": "8ab5fdfbb338bfbe9cae643d4d27dbf77958b8e3c7e9dfe9c934e0ed4f56a161"
+    },
+    {
+      "bytes": 54296,
+      "path": "reports/observed-subthemes/edge-embedded-and-mobile-systems.md",
+      "sha256": "39d829f0921f82709d00ca3ef0f1714eb5e1eeec628169c67f680e01f240201b"
+    },
+    {
+      "bytes": 43928,
+      "path": "reports/observed-subthemes/embedded-and-edge-systems.md",
+      "sha256": "6d8e69baf67e838927f51d702c972765e6cda171aed802944683e050f1dbf6f8"
+    },
+    {
+      "bytes": 34751,
+      "path": "reports/observed-subthemes/emerging-and-nonvon-neumann-compute.md",
+      "sha256": "e632d70d9863633a018e74c9c2457edda09e56f1b9a244cd94b62d3716ce17e5"
+    },
+    {
+      "bytes": 26335,
+      "path": "reports/observed-subthemes/emerging-device-design.md",
+      "sha256": "902834f6cabbf6824bec7713428848f38aae394211d0a5cf9b9ad715bdb9ffa1"
+    },
+    {
+      "bytes": 27539,
+      "path": "reports/observed-subthemes/emerging-memory-and-devices.md",
+      "sha256": "fbd0dfbd6bfa0240a6a667addbf2a004387ac623a59bd084ea09b5c531c2e89c"
+    },
+    {
+      "bytes": 14926,
+      "path": "reports/observed-subthemes/emulation-and-prototyping.md",
+      "sha256": "fab7a0d42d99439a8f79bb4696180aea4a023538fd9a19591149b3a7d727ed28"
+    },
+    {
+      "bytes": 18605,
+      "path": "reports/observed-subthemes/energy-and-thermal-efficiency.md",
+      "sha256": "cf2f4ad2b5629afe1532d2e61475177cbdd31307ffa20d9249873e30dac12507"
+    },
+    {
+      "bytes": 17005,
+      "path": "reports/observed-subthemes/fault-tolerance-and-reliability.md",
+      "sha256": "964c518d1ba9b04804f4a631c238a391cc00ca7e86ad1379f0b49d1bf7259c23"
+    },
+    {
+      "bytes": 172482,
+      "path": "reports/observed-subthemes/formal-analysis-and-verification.md",
+      "sha256": "12a1695ac78ad228e5578bd6bb5a64b13680953204a84555057cf62c681e0853"
+    },
+    {
+      "bytes": 43938,
+      "path": "reports/observed-subthemes/formal-and-equivalence-verification.md",
+      "sha256": "a67a48405925a9764c727766a4740a3712cc6982aee6f6a3d4757648616aa342"
+    },
+    {
+      "bytes": 121810,
+      "path": "reports/observed-subthemes/formal-and-functional-verification.md",
+      "sha256": "e978e8206a60232211420121b8c9ecd81b4a0f56ff2c40e3650726bd59e4655b"
+    },
+    {
+      "bytes": 15376,
+      "path": "reports/observed-subthemes/fpga-and-reconfigurable-design.md",
+      "sha256": "5383d4712642e340717ea9061952d18c0bd77551bfcbfde48e8a42a47c287afb"
+    },
+    {
+      "bytes": 78026,
+      "path": "reports/observed-subthemes/generative-design-and-synthesis.md",
+      "sha256": "5a14860ad562bfbb244fe610737696cc9ae74112f8302237a23a9d37ee889064"
+    },
+    {
+      "bytes": 65548,
+      "path": "reports/observed-subthemes/generative-design-automation.md",
+      "sha256": "32121e006dd493414a6311b5a05efc3ac79e78bf15d67295c19f2ae6b33142b2"
+    },
+    {
+      "bytes": 41286,
+      "path": "reports/observed-subthemes/graph-and-hypergraph-optimization.md",
+      "sha256": "fda4400e4ac29656fe36ecdd86cbca6a7dc02b8d5d67ff82cbe4060cbd147980"
+    },
+    {
+      "bytes": 49423,
+      "path": "reports/observed-subthemes/graph-learning-for-eda.md",
+      "sha256": "391d91d360a8b193cdc042816244872a9309e9dbbbb0cb5c59533e11f5931a41"
+    },
+    {
+      "bytes": 95903,
+      "path": "reports/observed-subthemes/hardware-and-system-security.md",
+      "sha256": "df7c20cd6d4442727f2e96ca16a03edac4a7c47eb8352e457806cfaf0af45478"
+    },
+    {
+      "bytes": 24262,
+      "path": "reports/observed-subthemes/hardware-generation-and-compilation.md",
+      "sha256": "32eb1bd97f73a3b8092c4eba9fe9c9f720d00fd08dc76a633cee88f1ab4d487b"
+    },
+    {
+      "bytes": 34858,
+      "path": "reports/observed-subthemes/hardware-security-validation.md",
+      "sha256": "0580fd6dc277aec50607133ac4bc566973687e28fef35ed08f556921b7c2af48"
+    },
+    {
+      "bytes": 18042,
+      "path": "reports/observed-subthemes/high-level-synthesis-and-compilers.md",
+      "sha256": "c3b98f60bf886ee59d493095c9de5f3a2c80ce525be588b5c4cf7c447f090f18"
+    },
+    {
+      "bytes": 13731,
+      "path": "reports/observed-subthemes/interconnect-and-networking.md",
+      "sha256": "1a0e83eb997edcfe6d8a0c2fa3925d4673414642ed760ab43a4a9bf75f3b8188"
+    },
+    {
+      "bytes": 203065,
+      "path": "reports/observed-subthemes/learned-design-space-exploration.md",
+      "sha256": "052b0e35315f83d840c51ccaa5249e3878dcdb1df08c97e2a95e873a5db5d4ab"
+    },
+    {
+      "bytes": 101804,
+      "path": "reports/observed-subthemes/learned-eda-and-optimization.md",
+      "sha256": "92d7a3caac48ab40eb86f4d423dee9afffa37a02c52b82d5168ec9f469d61cf4"
+    },
+    {
+      "bytes": 121904,
+      "path": "reports/observed-subthemes/llm-assisted-design-flows.md",
+      "sha256": "98a344856f2b491e8d6c310b6ce740f985586cec5ef5e1dd20e2491396459af8"
+    },
+    {
+      "bytes": 102642,
+      "path": "reports/observed-subthemes/llm-systems-and-runtime.md",
+      "sha256": "c81f71543cddf22480f3f87ccf5e98e64daae9accde8171e44fd02f6bbdfe761"
+    },
+    {
+      "bytes": 28590,
+      "path": "reports/observed-subthemes/logic-synthesis-and-optimization.md",
+      "sha256": "86aaac3b0140f038ec4e72aede569dfc27054d28871845417690adb2a88cc983"
+    },
+    {
+      "bytes": 22176,
+      "path": "reports/observed-subthemes/manufacturing-and-lithography.md",
+      "sha256": "5d46ecdf47392587813c0f5c1de2931ec6e59f4ec5153c9d5c633de503966743"
+    },
+    {
+      "bytes": 46446,
+      "path": "reports/observed-subthemes/manufacturing-and-yield.md",
+      "sha256": "818444a9c535c287deb91a3de5637de76cb9ad245a45b396f568e116364e2500"
+    },
+    {
+      "bytes": 18037,
+      "path": "reports/observed-subthemes/manufacturing-monitoring-and-yield.md",
+      "sha256": "1025867b4b6b81be5f64490232c985473b298b737c93eeed57e4cb29f5fe63f2"
+    },
+    {
+      "bytes": 34868,
+      "path": "reports/observed-subthemes/memory-and-data-movement.md",
+      "sha256": "c167f548b3be4ae13904b473c984bb01fa10db608da1ff05fcf0ad40aeaee277"
+    },
+    {
+      "bytes": 123711,
+      "path": "reports/observed-subthemes/memory-compute-and-reliability.md",
+      "sha256": "429be190d7a633ffe6f9abb10a408fa1d309e17edf0c1c7fe692597e81fe2096"
+    },
+    {
+      "bytes": 219249,
+      "path": "reports/observed-subthemes/memory-hierarchy-and-persistence.md",
+      "sha256": "6704962731386245b3c10f005ae077f3d14f0b1e677ea489a724122648571b9b"
+    },
+    {
+      "bytes": 99163,
+      "path": "reports/observed-subthemes/multimedia-and-edge-systems.md",
+      "sha256": "af0d57fb64565006a0c82c526635f60b1d793c90a39b8037fd92e04e2136245c"
+    },
+    {
+      "bytes": 20835,
+      "path": "reports/observed-subthemes/neuromorphic-and-emerging-architectures.md",
+      "sha256": "5814ba9716db173449734cba22355c318b024dcf8e177e62769da086a8580e3a"
+    },
+    {
+      "bytes": 130638,
+      "path": "reports/observed-subthemes/neuromorphic-quantum-and-non-von-neumann.md",
+      "sha256": "20201f04b7f064f8370c4bd021a6d4094a0fa24fd3fdb3c7582edc6ab8c7db29"
+    },
+    {
+      "bytes": 57714,
+      "path": "reports/observed-subthemes/optimization-and-search-methods.md",
+      "sha256": "86807d7c2c1cb3f83e8361befe33f831beee0836a315d0a54919fb48503b03c9"
+    },
+    {
+      "bytes": 16062,
+      "path": "reports/observed-subthemes/package-system-co-design.md",
+      "sha256": "aa084b59a2f84b016e6b7dc684125c4036236f1fcfc021a24c7a83a5a6f2780e"
+    },
+    {
+      "bytes": 9199,
+      "path": "reports/observed-subthemes/parasitic-extraction-and-modeling.md",
+      "sha256": "13f3aa122ee2f7a5c55e3c124230c9988e6dc8f2316d608cd68c1e8dd7834995"
+    },
+    {
+      "bytes": 41950,
+      "path": "reports/observed-subthemes/partitioning-and-placement.md",
+      "sha256": "36b8755cf597c336af4b07bd406268f0afb9dcc9f0252fb09fad2bffc758d4e9"
+    },
+    {
+      "bytes": 44485,
+      "path": "reports/observed-subthemes/photonic-and-optical-compute.md",
+      "sha256": "b69847724cb2b2c5ec6f648aab187af1aa54043350c304db1aecc0518326d084"
+    },
+    {
+      "bytes": 21906,
+      "path": "reports/observed-subthemes/physical-design-and-routing.md",
+      "sha256": "4d9d03fa0d5f9b5c137dc7c84be5784640fbcfe24d356e8237085084995072d2"
+    },
+    {
+      "bytes": 18029,
+      "path": "reports/observed-subthemes/physical-verification.md",
+      "sha256": "008c1fa1ee00e9a1769cbb83c3f09497408d359ee749bb39599b92e667525474"
+    },
+    {
+      "bytes": 122292,
+      "path": "reports/observed-subthemes/placement-routing-and-floorplanning.md",
+      "sha256": "16924caf7819b21b4272d86702d6a94eeb728ecfc8637a45aea315b35f2fac97"
+    },
+    {
+      "bytes": 58544,
+      "path": "reports/observed-subthemes/placement-routing-and-timing.md",
+      "sha256": "fdb0042cc790bdbd7296fb2b3a54100cb94ed377a13ec51858ea63d29f375563"
+    },
+    {
+      "bytes": 16554,
+      "path": "reports/observed-subthemes/power-and-thermal-design.md",
+      "sha256": "f156a91ffd3cda9bc4591025523b6e4bf249db781d02238749cf5e01c63391bb"
+    },
+    {
+      "bytes": 16660,
+      "path": "reports/observed-subthemes/power-integrity-and-reliability.md",
+      "sha256": "af0f06686f93ec0ddf01793e0df73c6fba01af7285a467027b6bf5a75c6e6e61"
+    },
+    {
+      "bytes": 31749,
+      "path": "reports/observed-subthemes/privacy-preserving-compute.md",
+      "sha256": "031725ccb7fac3fa6599d0ece1a0b84808387b43521cdb6b88ec51520801dfbd"
+    },
+    {
+      "bytes": 31266,
+      "path": "reports/observed-subthemes/privacy-preserving-computing.md",
+      "sha256": "1dec6f8e94602086e7750d115aa974604a47a3c94014d6f2cff4d6f49ef03259"
+    },
+    {
+      "bytes": 66402,
+      "path": "reports/observed-subthemes/process-aware-design.md",
+      "sha256": "bf95469bd8ce128a1d27803d848386a6f205db91a8c60f80f2f1b01b1beefaf4"
+    },
+    {
+      "bytes": 41979,
+      "path": "reports/observed-subthemes/processing-in-memory-and-memory-centric-compute.md",
+      "sha256": "f13ebf3bbaa2b13d07ec2373669f71214bff8dedebfd1ced2f0a286e1e18626c"
+    },
+    {
+      "bytes": 49486,
+      "path": "reports/observed-subthemes/processor-and-rtl-verification.md",
+      "sha256": "4acdc62219730ccf546900398d57db02f96d70143d0352324112744d3e8ed510"
+    },
+    {
+      "bytes": 77181,
+      "path": "reports/observed-subthemes/quantum-architectures-and-control.md",
+      "sha256": "0b4d0dcb9fab7711ddc32d9a053eb29b786b0c1e5d27e85feeb1bce3f6d3f3b0"
+    },
+    {
+      "bytes": 48274,
+      "path": "reports/observed-subthemes/quantum-hardware-and-control.md",
+      "sha256": "0411d95f79666404844b3f8f605323a946ad74752aefc56f20a1dcbe52c3f2c1"
+    },
+    {
+      "bytes": 40153,
+      "path": "reports/observed-subthemes/real-time-and-networked-systems.md",
+      "sha256": "0a3b0e356f0074a71234deb975aca54757f8dbc7801247dc390d874f55d840c4"
+    },
+    {
+      "bytes": 11168,
+      "path": "reports/observed-subthemes/reliability-and-fault-tolerance.md",
+      "sha256": "3d677fd9280db1923ba343545b83d8f2152733ed6ef6550d87e2ff97f897c6d4"
+    },
+    {
+      "bytes": 15360,
+      "path": "reports/observed-subthemes/reliable-and-efficient-compute.md",
+      "sha256": "81d507e40309bdc09390e556687801ffbcf9be6174ca4af1bbe1ea6858208f30"
+    },
+    {
+      "bytes": 15145,
+      "path": "reports/observed-subthemes/reliable-and-secure-ai-systems.md",
+      "sha256": "fdf04ac87c9aec4f72620c798288c958b75e54d0f0f5c4312c1b77ba4e1813b6"
+    },
+    {
+      "bytes": 15082,
+      "path": "reports/observed-subthemes/reliable-and-secure-compute.md",
+      "sha256": "579e303093aa6748bc2b964f96d287ce2f2235e47f34f0ba763fba4350ec9f0c"
+    },
+    {
+      "bytes": 35143,
+      "path": "reports/observed-subthemes/reliable-and-secure-ml.md",
+      "sha256": "e1d71df939dfe39e66b9d45af6a3718d894e4e77872181799bb365e3ba93768c"
+    },
+    {
+      "bytes": 17652,
+      "path": "reports/observed-subthemes/reproducibility-artifacts-and-benchmarks.md",
+      "sha256": "90850680f198e386672b34e24ade580e33ddb4a188523ba5410b05921a530ac5"
+    },
+    {
+      "bytes": 16216,
+      "path": "reports/observed-subthemes/rf-and-mixed-signal-design.md",
+      "sha256": "ef4c4514304beeb2f2a07723adb9cab816c062031a9f9043babe9801ea178c6e"
+    },
+    {
+      "bytes": 37839,
+      "path": "reports/observed-subthemes/robotics-and-edge-ai.md",
+      "sha256": "17c4654f636d4da98b0b3c576bc0d302a21b8284084d547ef8044d387450339c"
+    },
+    {
+      "bytes": 16203,
+      "path": "reports/observed-subthemes/scientific-and-engineering-computing.md",
+      "sha256": "3b8d76cc9123bbcb9606909e7beee14ad7ef1a43637afd926e546dc3ffa65e1b"
+    },
+    {
+      "bytes": 46198,
+      "path": "reports/observed-subthemes/secure-and-robust-ml.md",
+      "sha256": "1fe3f946e0fba65d0ae6c31d5951cdab33e5f3f1d53fd58bad66e65b97983c31"
+    },
+    {
+      "bytes": 368713,
+      "path": "reports/observed-subthemes/side-channel-and-hardware-security.md",
+      "sha256": "6962a0ec605bec2f9d9bb37a2566839af22a6bf38ce132161e36b9a9e1cf3c34"
+    },
+    {
+      "bytes": 16693,
+      "path": "reports/observed-subthemes/signal-processing-and-sensing.md",
+      "sha256": "247af94bd74a31b425e98fb86776f0162ff112a373cca3ef430bf7353724ff8b"
+    },
+    {
+      "bytes": 29716,
+      "path": "reports/observed-subthemes/simulation-and-emulation.md",
+      "sha256": "f99a41c84d84e3646f4d346a6135072bd6ac2253d1f9ae1799613e1adb5ffa25"
+    },
+    {
+      "bytes": 16939,
+      "path": "reports/observed-subthemes/simulation-and-numerical-methods.md",
+      "sha256": "732f806a94ffea9247ef82ce7efc2921932014bd785c72d4d8d37b9c55f9b691"
+    },
+    {
+      "bytes": 183268,
+      "path": "reports/observed-subthemes/simulation-emulation-and-testing.md",
+      "sha256": "e454daeb676b1faceefaaa15b950807e822b0d7e5096e49b38f818f3da34c20a"
+    },
+    {
+      "bytes": 161060,
+      "path": "reports/observed-subthemes/sparse-and-irregular-compute.md",
+      "sha256": "fc14cc8d6ddf8238303ab0075a06682c2e417eb0caffb219bffef9f64fb157ba"
+    },
+    {
+      "bytes": 401309,
+      "path": "reports/observed-subthemes/specialized-accelerators-and-dataflow.md",
+      "sha256": "caecb881c451bb8db3180ce215d1cb2d6830d744b161343ea63d2360bf0e8c16"
+    },
+    {
+      "bytes": 106746,
+      "path": "reports/observed-subthemes/specialized-ai-accelerators.md",
+      "sha256": "126b2253e98c6f4329cb61d3e51ac3e902357e139f52d49c15c4a26ffbd327b5"
+    },
+    {
+      "bytes": 144150,
+      "path": "reports/observed-subthemes/storage-and-data-movement.md",
+      "sha256": "ba0f5f901d9630b3b2c8f56214460859344f225ce4d50d3e54ebd703ab4bcd7b"
+    },
+    {
+      "bytes": 29550,
+      "path": "reports/observed-subthemes/storage-and-memory-systems.md",
+      "sha256": "deeb2f7c620aa9c4d48b0b8762acfac448f09275ba6d31d4ddfc2fb5ae6b3b39"
+    },
+    {
+      "bytes": 25917,
+      "path": "reports/observed-subthemes/synthesis-and-compilation.md",
+      "sha256": "c492cff915a7489863b5a3123f060914e1e69338dd3ddffa160ca9b9fa9eaaca"
+    },
+    {
+      "bytes": 43661,
+      "path": "reports/observed-subthemes/thermal-and-reliability-modeling.md",
+      "sha256": "224bfad86dc3dfd16009815547d5d4868a567d0a4440d87477bd4c4ff9c526fc"
+    },
+    {
+      "bytes": 36860,
+      "path": "reports/observed-subthemes/timing-analysis-and-optimization.md",
+      "sha256": "0df5b235317e67c6ed128f01903154446a7d5f4744cae505539d91d32db91ea2"
+    },
+    {
+      "bytes": 21584,
+      "path": "reports/observed-subthemes/verification-and-debugging-tools.md",
+      "sha256": "b2aa05f51773f0cfea7babee84ccef655ed47893ba341a13190bf82899addf96"
+    },
+    {
+      "bytes": 25303,
+      "path": "reports/observed-subthemes/wafer-scale-and-heterogeneous-integration.md",
+      "sha256": "13a3537323bac70fdad779495105b7132a0e31a7a9ae603fc01e84fdbe896ec6"
     },
     {
       "bytes": 2932,
@@ -938,12 +1713,32 @@
     {
       "bytes": 20066,
       "path": "reports/package-release-v1.md",
-      "sha256": "92907cb9ac7703cb7bf49bb1ebe427038168bf3ceb4d2f6f1cbbb3829f62a1d9"
+      "sha256": "6e241c67e40f95142304f09e95a76257f14553fc872377dc85cce1488c589e44"
     },
     {
-      "bytes": 2150,
+      "bytes": 1815,
+      "path": "reports/primary-condition-assessment-register-v1.md",
+      "sha256": "8c116f569416d1159af127f2867146b1266bf307cbcb0454e1ecc324b4d56af3"
+    },
+    {
+      "bytes": 4308,
+      "path": "reports/reading-guide-v1.md",
+      "sha256": "45b50e2e12eb5ea88700abf68dcb13830617dc84b222a02514811c157f234546"
+    },
+    {
+      "bytes": 2672,
       "path": "reports/release-readiness-v1.md",
-      "sha256": "78b42d5352e5e06479a12eb8d4c0344609fd626f76850c61292768276db2a979"
+      "sha256": "01523ef3198b9d5acb003d5238c1822394c6784ef7a16b825aafc8b54890aa5c"
+    },
+    {
+      "bytes": 7493,
+      "path": "reports/research-agenda-v1.md",
+      "sha256": "b3b3b9db8f287428e8f78f31035e7b07dec2cb9e1093dd97040ef7488f23fd72"
+    },
+    {
+      "bytes": 16710,
+      "path": "reports/research-atlas-index-v1.md",
+      "sha256": "42297dad67ce9f012bd6655458fad96429c1c119fbebdccec9ec13e95f0c8309"
     },
     {
       "bytes": 2356,
@@ -951,9 +1746,9 @@
       "sha256": "7dd478b3af3b4c58cd3c0620280d5130970d6b06fe84ae2766b62edae5f68fb2"
     },
     {
-      "bytes": 1606,
+      "bytes": 1646,
       "path": "reports/review-packet-coverage.json",
-      "sha256": "85b6769d85fc263982af9a1879dbfd567fe379dc4fa297e16b7e6f264f20a1a5"
+      "sha256": "0e64d7983d5cadd08a9d319a4d1ebe6961fd648cdaceb129619423a2747e668f"
     },
     {
       "bytes": 2109,
@@ -961,14 +1756,614 @@
       "sha256": "c0265eab229a95343dc5b7f256963831052cbf88a665c1d258e3c24723215bdf"
     },
     {
+      "bytes": 2485,
+      "path": "reports/source-condition-extraction-batch-v1.md",
+      "sha256": "a7ec7694f424ae4c5d9faa7c24a25f98c51a1694f91b8fd23285bd9fe9d3c8a8"
+    },
+    {
+      "bytes": 26844,
+      "path": "reports/subtheme-editorial/3d-integration-and-thermal-management.md",
+      "sha256": "81ab0a0c651f514d323422fc33defb52b32d2f38dfe0170e53bf820d55552620"
+    },
+    {
+      "bytes": 41063,
+      "path": "reports/subtheme-editorial/3d-stacking-and-thermal-management.md",
+      "sha256": "ededf8d6282ca9451e56b1c2292c53d127d71c55414842d5bf1f27fec583c0fd"
+    },
+    {
+      "bytes": 55154,
+      "path": "reports/subtheme-editorial/accelerator-reliability.md",
+      "sha256": "1b113ddf1bd7599d2705c1bf0a35bf802c010cca84d989b5fba47d381fc068ad"
+    },
+    {
+      "bytes": 11701,
+      "path": "reports/subtheme-editorial/advanced-packaging-and-interconnect.md",
+      "sha256": "fdbebffd221c28461e09d2d93637996ced82a1e08502ffabf7479447df9b4bdd"
+    },
+    {
+      "bytes": 27406,
+      "path": "reports/subtheme-editorial/ai-accelerator-microarchitecture.md",
+      "sha256": "b16e8470de6eae905b945950b309f1726b0250d519057d6cbaf9933ff7cd1289"
+    },
+    {
+      "bytes": 13814,
+      "path": "reports/subtheme-editorial/analog-and-mixed-signal-design.md",
+      "sha256": "bfe2c52d4e2d5e87db6b81604019dff6ecea1155b4950e734782a645dddd3b2f"
+    },
+    {
+      "bytes": 13690,
+      "path": "reports/subtheme-editorial/analog-and-mixed-signal-synthesis.md",
+      "sha256": "9c1c5ceeba31da0b11258407ea1ab3cec00122204fb0de86f70f3727f6bfc99c"
+    },
+    {
+      "bytes": 12116,
+      "path": "reports/subtheme-editorial/analog-calibration-and-modeling.md",
+      "sha256": "a34ca4d4c51cd1b2efa9f4595210c29e37fdfea4f7c1011532257043e123c932"
+    },
+    {
+      "bytes": 11644,
+      "path": "reports/subtheme-editorial/analog-circuit-learning.md",
+      "sha256": "9a163d18e781a046eac3de1bd7b9a8b11950b840f5fb9b0c6ce032b7cb4b552c"
+    },
+    {
+      "bytes": 17003,
+      "path": "reports/subtheme-editorial/analog-circuit-optimization.md",
+      "sha256": "0d1eb6678fd3f696aa1972f598ff3e50b7b872ba140ad2c54e81933f296ad9fc"
+    },
+    {
+      "bytes": 23018,
+      "path": "reports/subtheme-editorial/analog-compute-in-memory.md",
+      "sha256": "90e7b9d1073c05485f37897d36a2ac8af4bcd7f1df2cd9628c274b0a6fb4caa7"
+    },
+    {
+      "bytes": 18994,
+      "path": "reports/subtheme-editorial/analog-layout-and-circuit-automation.md",
+      "sha256": "2846af48e48a4e4781c093a4a498f2039d65bea9d4f5a06f0a99347eb532c3e1"
+    },
+    {
+      "bytes": 163169,
+      "path": "reports/subtheme-editorial/approximate-and-precision-aware-compute.md",
+      "sha256": "da75f7e62a01763f487e551f41f2b9b89976ad03811aef3263613d6a9175ef14"
+    },
+    {
+      "bytes": 12863,
+      "path": "reports/subtheme-editorial/architecture-modeling-and-exploration.md",
+      "sha256": "51ab60bd5bf5a456bf2c5b7c5d3aa721f3de3c4e5a5756cc3ecd8243024cb31a"
+    },
+    {
+      "bytes": 69447,
+      "path": "reports/subtheme-editorial/architecture-software-co-design.md",
+      "sha256": "a4506699efbc39795c90b051b09c0a9a02293215b57e8a9fbc2fe00c13dd8213"
+    },
+    {
+      "bytes": 12488,
+      "path": "reports/subtheme-editorial/biochips-and-specialized-systems.md",
+      "sha256": "47ebcfd91efbc80f202770bb1671e408cd7236f814d75b4ffa8d15fbb594eeba"
+    },
+    {
+      "bytes": 11856,
+      "path": "reports/subtheme-editorial/bioinformatics-and-scientific-computing.md",
+      "sha256": "ee448e8a2c941338161d400fc5be10187ac48f5d2dc4d2ca47f1a9cbfdd3d683"
+    },
+    {
+      "bytes": 12090,
+      "path": "reports/subtheme-editorial/cell-and-circuit-design.md",
+      "sha256": "7751bfe62b5e4ba36ceb79da6a66658a0f32372224204d39ef34926d0e065da9"
+    },
+    {
+      "bytes": 13160,
+      "path": "reports/subtheme-editorial/chiplet-and-on-chip-interconnect.md",
+      "sha256": "36c1ea3b233854aade07e3203856463f1030720bf89aa973d41d750927bb4b47"
+    },
+    {
+      "bytes": 10722,
+      "path": "reports/subtheme-editorial/chiplet-interconnects.md",
+      "sha256": "5aaf6d7fa6b4a8fa61577eea43c1bc88733f5ac243d8827af1440f877f3d844d"
+    },
+    {
+      "bytes": 10814,
+      "path": "reports/subtheme-editorial/chiplet-partitioning-and-integration.md",
+      "sha256": "7b10af71144189c49828a5cc8332bbd86ddcd737112175f35e7a88859de09ce7"
+    },
+    {
+      "bytes": 22589,
+      "path": "reports/subtheme-editorial/chiplet-system-architecture.md",
+      "sha256": "a27581b0bd36468993bf70081801d9e9a165de1917f9cec82b118e26c4cd2b55"
+    },
+    {
+      "bytes": 11244,
+      "path": "reports/subtheme-editorial/chiplets-and-heterogeneous-integration.md",
+      "sha256": "f55fa8271421a730a1c9c5553c37bf3e3069810911cb0ad235c35013cd1235c4"
+    },
+    {
+      "bytes": 9490,
+      "path": "reports/subtheme-editorial/compilation-and-mapping.md",
+      "sha256": "82eaff8447b154297a59ebe7d2271f634a6af2c1746553155a234f9811bdf8f3"
+    },
+    {
+      "bytes": 21601,
+      "path": "reports/subtheme-editorial/compiler-and-runtime-optimization.md",
+      "sha256": "2a908bea45f072af98acd8eccabc06add1dc08ba22621036ac2ce9ea6686d04c"
+    },
+    {
+      "bytes": 12988,
+      "path": "reports/subtheme-editorial/confidential-and-trusted-computing.md",
+      "sha256": "19b8f4731df9bc98ac2b69592b63752a21262ddf5e953740e483bd345f5d8eec"
+    },
+    {
+      "bytes": 9856,
+      "path": "reports/subtheme-editorial/cross-layer-design-automation.md",
+      "sha256": "a030a818b53a3be877dc7abd69d47424b6e2618c0217328046d5e700d48193ee"
+    },
+    {
+      "bytes": 104842,
+      "path": "reports/subtheme-editorial/data-movement-and-locality.md",
+      "sha256": "1787b3d98c201daea90d3d59ebf0f6c20e9a1bf55b7e9399009dfdc5b966811b"
+    },
+    {
+      "bytes": 41026,
+      "path": "reports/subtheme-editorial/datacenter-and-cloud-systems.md",
+      "sha256": "a64d8d3aaad9b54b832baa7443899ef70b8c9b39fb9ff304f18e8a929b845f4e"
+    },
+    {
+      "bytes": 9485,
+      "path": "reports/subtheme-editorial/device-and-process-modeling.md",
+      "sha256": "d0b2d8dc1a10a7ad6644a30aa8bdbb851bc5613ef482a767ad97e88ef6f69828"
+    },
+    {
+      "bytes": 13286,
+      "path": "reports/subtheme-editorial/device-modeling-and-simulation.md",
+      "sha256": "a76f165eed6386c04a9543295d6f0fce824b027fdeb3152bb95864574090bff7"
+    },
+    {
+      "bytes": 37107,
+      "path": "reports/subtheme-editorial/distributed-and-disaggregated-systems.md",
+      "sha256": "f347e728d750fb9d385af5dcb95a7729c329ad4646b1ac6f94bea2b31a85357f"
+    },
+    {
+      "bytes": 9658,
+      "path": "reports/subtheme-editorial/distributed-and-wafer-scale-inference.md",
+      "sha256": "2efa5f0bd8b936e55731fe48e2efca1888318f1be79004ca43435d55175163a1"
+    },
+    {
+      "bytes": 56055,
+      "path": "reports/subtheme-editorial/edge-ai-and-deployment.md",
+      "sha256": "3d2a4e57b01971541120d7744df9f94e50270b1c63f33ff27974af03d0f70423"
+    },
+    {
+      "bytes": 27424,
+      "path": "reports/subtheme-editorial/edge-embedded-and-mobile-systems.md",
+      "sha256": "d28ee398946dfe547a97485673dfb812303bae07b16c3710e7b113ae4ddbc3bf"
+    },
+    {
+      "bytes": 22285,
+      "path": "reports/subtheme-editorial/embedded-and-edge-systems.md",
+      "sha256": "571b895b6860c92e38521ddbb536b994f1cf409a590d3e3754deae753b6e2cd9"
+    },
+    {
+      "bytes": 12898,
+      "path": "reports/subtheme-editorial/emerging-and-nonvon-neumann-compute.md",
+      "sha256": "dae4a2cd810b01c76983abdff3751f33816cefa401361ef27509baf353579c69"
+    },
+    {
+      "bytes": 11605,
+      "path": "reports/subtheme-editorial/emerging-device-design.md",
+      "sha256": "46d24490509c265228d7270ee152d49518f9629b9895af51733336eec4000e94"
+    },
+    {
+      "bytes": 12577,
+      "path": "reports/subtheme-editorial/emerging-memory-and-devices.md",
+      "sha256": "ab6205da858efa38ecaa39dac6e13268639895630b0cf4ddb58c6e34d07634a6"
+    },
+    {
+      "bytes": 9415,
+      "path": "reports/subtheme-editorial/emulation-and-prototyping.md",
+      "sha256": "daf888c7a9da76634bff0c46d203d0ad2176d6bf0590c65b7bd481a3a8e681b3"
+    },
+    {
+      "bytes": 9270,
+      "path": "reports/subtheme-editorial/energy-and-thermal-efficiency.md",
+      "sha256": "29ff6885699cfc1e232079d312331de0894dfda2e336ad25807bd0568902d59c"
+    },
+    {
+      "bytes": 4730,
+      "path": "reports/subtheme-editorial/fault-tolerance-and-reliability.md",
+      "sha256": "8f714cd38bd450a137fa7d47bca84a8e85353cbcb91ff2c92f5fd342df7510ac"
+    },
+    {
+      "bytes": 119364,
+      "path": "reports/subtheme-editorial/formal-analysis-and-verification.md",
+      "sha256": "7c80bb1ed6febea7c9777be99424581aa5a54ba0bebe19ce08914f6a22c5d78f"
+    },
+    {
+      "bytes": 23169,
+      "path": "reports/subtheme-editorial/formal-and-equivalence-verification.md",
+      "sha256": "4a5f94cf4200d2c0ed4f5e599604b4ffb2290fe740025cb6ad1463114c7db8ec"
+    },
+    {
+      "bytes": 77889,
+      "path": "reports/subtheme-editorial/formal-and-functional-verification.md",
+      "sha256": "5cec49a8c81d6c7acf229dd2e3936868f3702f41a56e9e346338b58582ddfa6b"
+    },
+    {
+      "bytes": 9400,
+      "path": "reports/subtheme-editorial/fpga-and-reconfigurable-design.md",
+      "sha256": "f38d9020f490016e0f314162c306aff35e3e4f818fd702c17471daea176a9e6a"
+    },
+    {
+      "bytes": 38962,
+      "path": "reports/subtheme-editorial/generative-design-and-synthesis.md",
+      "sha256": "dce8331127048013f55330dfb91db4b82f701d70cd8a679ecdf38d9d50920b1b"
+    },
+    {
+      "bytes": 28201,
+      "path": "reports/subtheme-editorial/generative-design-automation.md",
+      "sha256": "da0be4aa3b5a61662fd8ba9821e6b55ffdd1db9b1f91b3dbae3f89189b1e9a37"
+    },
+    {
+      "bytes": 18262,
+      "path": "reports/subtheme-editorial/graph-and-hypergraph-optimization.md",
+      "sha256": "b13693a6ef34e7db206c6486abbaddf7a89e053c28fb7feb5a6c39148c7b1ae8"
+    },
+    {
+      "bytes": 23560,
+      "path": "reports/subtheme-editorial/graph-learning-for-eda.md",
+      "sha256": "0a8f060df91658238a91e9b479e23f6ad6ec95317603a7ac51afe6004f51a27a"
+    },
+    {
+      "bytes": 42115,
+      "path": "reports/subtheme-editorial/hardware-and-system-security.md",
+      "sha256": "63341a344befa5ead87ca2d2f35a5beeb3c6256f3ef7df75946b8f36e596b2b2"
+    },
+    {
+      "bytes": 16607,
+      "path": "reports/subtheme-editorial/hardware-generation-and-compilation.md",
+      "sha256": "37d00a7a9505a4b2fcc4b6393d85b5bf478d0f207cea6ff9b1aa72b047a3e3fa"
+    },
+    {
+      "bytes": 14941,
+      "path": "reports/subtheme-editorial/hardware-security-validation.md",
+      "sha256": "f7ce047d6923614ea1b36c92c505b4a8af55f85f8fca3a12ad8abcb312d4a601"
+    },
+    {
+      "bytes": 8713,
+      "path": "reports/subtheme-editorial/high-level-synthesis-and-compilers.md",
+      "sha256": "d8b9c600f10e91b2264ad8b696f53e83cc74c605ef170beb62993fc3e8a0e607"
+    },
+    {
+      "bytes": 5976,
+      "path": "reports/subtheme-editorial/interconnect-and-networking.md",
+      "sha256": "fb17de637148df16b070eb345c91e4604377a940a3f17b885552b20561b77854"
+    },
+    {
+      "bytes": 70839,
+      "path": "reports/subtheme-editorial/learned-design-space-exploration.md",
+      "sha256": "e2c6e1d33a30195ad45a245ea8ca96993ebb112a9e8b2a86f04ed8f47c7aa63c"
+    },
+    {
+      "bytes": 54137,
+      "path": "reports/subtheme-editorial/learned-eda-and-optimization.md",
+      "sha256": "9840f4f90ff27af473654f8018d10a909efd1d6a444db006a18274e1d530c804"
+    },
+    {
+      "bytes": 79802,
+      "path": "reports/subtheme-editorial/llm-assisted-design-flows.md",
+      "sha256": "2bc6a3e5dadd89bd19ebbe94924a0edced8a3edb796e19772223044ee7833650"
+    },
+    {
+      "bytes": 51586,
+      "path": "reports/subtheme-editorial/llm-systems-and-runtime.md",
+      "sha256": "46d4efba880599513e6d8e34f719f063594f86839a7eca78741353d925af766e"
+    },
+    {
+      "bytes": 13285,
+      "path": "reports/subtheme-editorial/logic-synthesis-and-optimization.md",
+      "sha256": "ca826701e9f9f82c03313de2b7fcd9384bd0d93989d119613704027a357f2329"
+    },
+    {
+      "bytes": 7916,
+      "path": "reports/subtheme-editorial/manufacturing-and-lithography.md",
+      "sha256": "6f26e61c57e5cd44d390fecd11d1bed31d23b7e01de1db8dd1264350d166991e"
+    },
+    {
+      "bytes": 24081,
+      "path": "reports/subtheme-editorial/manufacturing-and-yield.md",
+      "sha256": "44ca0eb6fd0126940a853a33ea6b088edc98a9dd65febffb1fd2fe97e4f37f42"
+    },
+    {
+      "bytes": 10458,
+      "path": "reports/subtheme-editorial/manufacturing-monitoring-and-yield.md",
+      "sha256": "97dbf99edbf8888bdfa2be418b31e28e2b8947d312108169869fa1c82154aeba"
+    },
+    {
+      "bytes": 15700,
+      "path": "reports/subtheme-editorial/memory-and-data-movement.md",
+      "sha256": "522b0e4187f53ac8b9db4857b4754dcea4f624b8399a0bcbfcc530514dab732f"
+    },
+    {
+      "bytes": 56194,
+      "path": "reports/subtheme-editorial/memory-compute-and-reliability.md",
+      "sha256": "7b6cf8cf329501642e8809acf098d254e2b664eee853ce25c975ede46bab3293"
+    },
+    {
+      "bytes": 148276,
+      "path": "reports/subtheme-editorial/memory-hierarchy-and-persistence.md",
+      "sha256": "76e73ef9c58e31d358acc5952a8216107c9757af18000d72da8bb02af914090f"
+    },
+    {
+      "bytes": 69850,
+      "path": "reports/subtheme-editorial/multimedia-and-edge-systems.md",
+      "sha256": "2229aeff2f753fd04d2f4a9286e35efc7f52a755d1baf3068d04fcc5b1bf9a98"
+    },
+    {
+      "bytes": 13856,
+      "path": "reports/subtheme-editorial/neuromorphic-and-emerging-architectures.md",
+      "sha256": "e8773e7d8e7d04022fa2feaa7ef58ecaac11e0b285a2c1840863f22ba001d8fa"
+    },
+    {
+      "bytes": 92349,
+      "path": "reports/subtheme-editorial/neuromorphic-quantum-and-non-von-neumann.md",
+      "sha256": "26f52d984d6f46c2138fb53a3babe63bd29b193d00010868cf3c0a7c723f6ca9"
+    },
+    {
+      "bytes": 21078,
+      "path": "reports/subtheme-editorial/optimization-and-search-methods.md",
+      "sha256": "d360ea5ad2f08ed334fa458ab80caa39aa0e3fe0fed0a1d31418d0489c453276"
+    },
+    {
+      "bytes": 8735,
+      "path": "reports/subtheme-editorial/package-system-co-design.md",
+      "sha256": "06f766098d6964ede66e93e56d12309d9118c4caa8b70f6b210bc48918361cd7"
+    },
+    {
+      "bytes": 4776,
+      "path": "reports/subtheme-editorial/parasitic-extraction-and-modeling.md",
+      "sha256": "d58f2fb2be9d90d178d2085e43fc158cc6e65ad79ec5c7f383655dbf06d9b9b1"
+    },
+    {
+      "bytes": 25343,
+      "path": "reports/subtheme-editorial/partitioning-and-placement.md",
+      "sha256": "8e8ca6ae795b4a87335d3167624ed9a17e45a9807e4257ddf477b0b44f78ece2"
+    },
+    {
+      "bytes": 16026,
+      "path": "reports/subtheme-editorial/photonic-and-optical-compute.md",
+      "sha256": "672fa5462ebc10b4870abf2437f77a984844198e949b552a7ea75b6fe1acfdeb"
+    },
+    {
+      "bytes": 10973,
+      "path": "reports/subtheme-editorial/physical-design-and-routing.md",
+      "sha256": "dd30e6014b3a66d35a2498da7ffdb693fa1129a10c6b75444f03ef7bdc93abc4"
+    },
+    {
+      "bytes": 9713,
+      "path": "reports/subtheme-editorial/physical-verification.md",
+      "sha256": "ff3e3f042d725e2e95d397fc476087fdf0985118601af1a8e9815f9a2833c737"
+    },
+    {
+      "bytes": 62998,
+      "path": "reports/subtheme-editorial/placement-routing-and-floorplanning.md",
+      "sha256": "627ab232af3cf611c9ed70634bdc3ac5279accc9472214615187f2be521313c8"
+    },
+    {
+      "bytes": 23889,
+      "path": "reports/subtheme-editorial/placement-routing-and-timing.md",
+      "sha256": "729d052194a68ff02081081c419f827b539df71b6f295b47ce116e5009cec25d"
+    },
+    {
+      "bytes": 9684,
+      "path": "reports/subtheme-editorial/power-and-thermal-design.md",
+      "sha256": "5820f8ef86223f331f1bd4b8c4ee093bd14ee6aed7d24bebd8ada6ec6ed95aa0"
+    },
+    {
+      "bytes": 7734,
+      "path": "reports/subtheme-editorial/power-integrity-and-reliability.md",
+      "sha256": "61ab0f938bb3a735bb16c210b63037fe31c231e752be9553ef7d8da0501ea3c6"
+    },
+    {
+      "bytes": 10726,
+      "path": "reports/subtheme-editorial/privacy-preserving-compute.md",
+      "sha256": "3ea159dc0d56ce5f0fbf9c0a89c3c6043089efe56189a3872202ac4fa5b45bb8"
+    },
+    {
+      "bytes": 15161,
+      "path": "reports/subtheme-editorial/privacy-preserving-computing.md",
+      "sha256": "76a8516b5765eaf84aa5b845e7ef60c1a66caab06373e6a9e75e8b2967b9ad4d"
+    },
+    {
+      "bytes": 26748,
+      "path": "reports/subtheme-editorial/process-aware-design.md",
+      "sha256": "8a7f7c7e6077341b02719c7cbfa131dd5ed99f58abe1c2cdbe46d5329dc80b08"
+    },
+    {
+      "bytes": 14572,
+      "path": "reports/subtheme-editorial/processing-in-memory-and-memory-centric-compute.md",
+      "sha256": "d1807b00bf70bdd892844bc9e84fd3ebd260326863693346a908aed4ab843896"
+    },
+    {
+      "bytes": 37986,
+      "path": "reports/subtheme-editorial/processor-and-rtl-verification.md",
+      "sha256": "8ec0ff84c10839050cee1150e2d1e98b20a192a2a58963479d41fd5a474713cf"
+    },
+    {
+      "bytes": 48662,
+      "path": "reports/subtheme-editorial/quantum-architectures-and-control.md",
+      "sha256": "21c89223b36ae93c34ef7f2180382557ba58c80fa5be79d89385057b5f1ae3e8"
+    },
+    {
+      "bytes": 26204,
+      "path": "reports/subtheme-editorial/quantum-hardware-and-control.md",
+      "sha256": "f2062e49fc5ee25289d30b53d418069d43b32e38efd9d69b5ecdacd8c95cc75b"
+    },
+    {
+      "bytes": 17959,
+      "path": "reports/subtheme-editorial/real-time-and-networked-systems.md",
+      "sha256": "696a0d1708d55b431a7ad54198cc0b753b2c185e5ea9b1a35c04084ff86a9aa1"
+    },
+    {
+      "bytes": 5037,
+      "path": "reports/subtheme-editorial/reliability-and-fault-tolerance.md",
+      "sha256": "24a0cf0ee572d4639b694b71876dfc3377dd3a130457f597c9ee2b74fde744ae"
+    },
+    {
+      "bytes": 7558,
+      "path": "reports/subtheme-editorial/reliable-and-efficient-compute.md",
+      "sha256": "f072f86aa12c19dac2856ae5079e004d0daee80e5f2564d594880cc286df84fb"
+    },
+    {
+      "bytes": 8424,
+      "path": "reports/subtheme-editorial/reliable-and-secure-ai-systems.md",
+      "sha256": "102607a7039867e467583b0aacfc4c7414bc5ed5bd635c112b0c6b4f07f70263"
+    },
+    {
+      "bytes": 6948,
+      "path": "reports/subtheme-editorial/reliable-and-secure-compute.md",
+      "sha256": "1859b3acb787908357e184b28b6dfd14971d20e6a26d8be0ea17247527a010b5"
+    },
+    {
+      "bytes": 13285,
+      "path": "reports/subtheme-editorial/reliable-and-secure-ml.md",
+      "sha256": "f1f2750bf2f0d1185b9b60bdc3f979a20476d4edbd60457578ee8bf468c6e248"
+    },
+    {
+      "bytes": 10285,
+      "path": "reports/subtheme-editorial/reproducibility-artifacts-and-benchmarks.md",
+      "sha256": "6d45862ca7ebb15978be9b3405cdd6115b8d24e06e5c20224ee54c751211af5b"
+    },
+    {
+      "bytes": 8215,
+      "path": "reports/subtheme-editorial/rf-and-mixed-signal-design.md",
+      "sha256": "2b234f899bdbd2bd7b08e706050c36c6c4b72f734a374c38d9c856013fdb1113"
+    },
+    {
+      "bytes": 16112,
+      "path": "reports/subtheme-editorial/robotics-and-edge-ai.md",
+      "sha256": "d4e65ffbc0ffcdbab2695fe6880e63d638942313a141105ed913cf3e64a88817"
+    },
+    {
+      "bytes": 8101,
+      "path": "reports/subtheme-editorial/scientific-and-engineering-computing.md",
+      "sha256": "0fb35cf3bc242c701ad25274b5b616ea75b0af6b8ee4a9abd96b8d790ec11d47"
+    },
+    {
+      "bytes": 24151,
+      "path": "reports/subtheme-editorial/secure-and-robust-ml.md",
+      "sha256": "7c621b9d95b97a2e6d1cbd6d964a8ab5e9072e83d399870ec5720b1d7d3d7a18"
+    },
+    {
+      "bytes": 210459,
+      "path": "reports/subtheme-editorial/side-channel-and-hardware-security.md",
+      "sha256": "f9d86fb4f76f78357b554b123334425f5a0200cee12eca80afb81cf07e87dc8a"
+    },
+    {
+      "bytes": 8936,
+      "path": "reports/subtheme-editorial/signal-processing-and-sensing.md",
+      "sha256": "2fd80153a05e7a3a75b29cfb8e93853207cdf7bac64f523ae2fe57f6546b613d"
+    },
+    {
+      "bytes": 13849,
+      "path": "reports/subtheme-editorial/simulation-and-emulation.md",
+      "sha256": "3da8650cb15f5287924383323d73029dc3d034b3a31aff72ebde6d8c78086fc4"
+    },
+    {
+      "bytes": 8419,
+      "path": "reports/subtheme-editorial/simulation-and-numerical-methods.md",
+      "sha256": "1b534638f540a66e3cd2a75f58c562fe63ce9c22ddc616cafe8f27da5d53dd0b"
+    },
+    {
+      "bytes": 68329,
+      "path": "reports/subtheme-editorial/simulation-emulation-and-testing.md",
+      "sha256": "69015e02e1afd0d4cf368a40a7f5e3f579cb79c4c9cd24c272ce96dcf4295a2a"
+    },
+    {
+      "bytes": 122253,
+      "path": "reports/subtheme-editorial/sparse-and-irregular-compute.md",
+      "sha256": "bad477e8a33ba61b1cb99b1ec29251c430c1325ce15558eaa693f7e2bc2438d7"
+    },
+    {
+      "bytes": 198184,
+      "path": "reports/subtheme-editorial/specialized-accelerators-and-dataflow.md",
+      "sha256": "757c0654c914fa83f72f8353104cae1f25c94004d6b4ee94e9b79e10168be2ce"
+    },
+    {
+      "bytes": 58903,
+      "path": "reports/subtheme-editorial/specialized-ai-accelerators.md",
+      "sha256": "0fb2e4a75eef84249eac787ecf19313e8f38644f3610bfff2587001a8b66a065"
+    },
+    {
+      "bytes": 54449,
+      "path": "reports/subtheme-editorial/storage-and-data-movement.md",
+      "sha256": "3c84b7018b5a6ee528b93fa669780f7c7e82ca097ada0f990d18c6eb6e209056"
+    },
+    {
+      "bytes": 8879,
+      "path": "reports/subtheme-editorial/storage-and-memory-systems.md",
+      "sha256": "6db5f6e8c83aea01eb42afdd29d6558e85232e223f1c11eb89312228d7b2f7a3"
+    },
+    {
+      "bytes": 10138,
+      "path": "reports/subtheme-editorial/synthesis-and-compilation.md",
+      "sha256": "1c6ad2b26eedf4cfabd2b784e2575b358346242df14ac88e5e9c4a4eda31ed01"
+    },
+    {
+      "bytes": 17030,
+      "path": "reports/subtheme-editorial/thermal-and-reliability-modeling.md",
+      "sha256": "0e1c4b169a5a50b49aeac54138e3ea70be0d3f216953031c4a396c26b7e440d7"
+    },
+    {
+      "bytes": 25196,
+      "path": "reports/subtheme-editorial/timing-analysis-and-optimization.md",
+      "sha256": "8c71e277aae5636d5f1e8f84f413ecbfc77b89b3286792f481da39682b748449"
+    },
+    {
+      "bytes": 10649,
+      "path": "reports/subtheme-editorial/verification-and-debugging-tools.md",
+      "sha256": "d53b22720935cb34b6b009b63e2b5d003beb8ee868cd476d4fda90c0e6dfb8fc"
+    },
+    {
+      "bytes": 10944,
+      "path": "reports/subtheme-editorial/wafer-scale-and-heterogeneous-integration.md",
+      "sha256": "0210c58729725afd4df20cfc65aff98943f33cd6292a6a3b9a618a1312ed3707"
+    },
+    {
+      "bytes": 1454,
+      "path": "reports/subthemes/README.md",
+      "sha256": "e3b98ae6189ee536530cccd41d842e783b2fcdb5b50e0ee096cd0698dc29868c"
+    },
+    {
+      "bytes": 5174,
+      "path": "reports/subthemes/evaluation-infrastructure.md",
+      "sha256": "72d417a88ffbe901a5fba21fc5073a2e41e284465a271fcb4a97559e8f4bbd80"
+    },
+    {
+      "bytes": 5341,
+      "path": "reports/subthemes/movement-aware-systems.md",
+      "sha256": "7558413349cdc9458b906a10fb5adbd26d8afa9fcf0fef59eef8e101af8c8045"
+    },
+    {
+      "bytes": 5222,
+      "path": "reports/subthemes/physical-aware-optimization.md",
+      "sha256": "b1d023ba25ae2d6ab28e8d05e66fd74e41eb6f5c100e4fc5f5ad29ec53dbe5dc"
+    },
+    {
+      "bytes": 5294,
+      "path": "reports/subthemes/reliability-security-loops.md",
+      "sha256": "5266c908d196816ddfbc8395cc2c23e421271a73ad8682948e8d1fe9f6703960"
+    },
+    {
+      "bytes": 5351,
+      "path": "reports/subthemes/tool-grounded-design.md",
+      "sha256": "21abe1391bc3ff33a229a8d32bbb8ed374cca76ef49f78d465bedf1581be1ba2"
+    },
+    {
       "bytes": 4872,
       "path": "reports/supplementary-assessment-index-v1.md",
       "sha256": "9582173b6733e106335bbcaf89d15f0c8f097c1c3c127fe4dc9b8469f6491f27"
     },
     {
-      "bytes": 43038,
+      "bytes": 43039,
       "path": "reports/technology-direction-synthesis-v1.md",
-      "sha256": "92e09395bbdae23ba609308c8904367be9fc83df328b5992db18558be4174224"
+      "sha256": "0f673ffd8471cf29ed785d3d614378e37089680882935c82f23df17abc507693"
     },
     {
       "bytes": 3907,
@@ -981,9 +2376,114 @@
       "sha256": "8ea320d045bb7b771caec6f48a5286045173165835c1b2a3684e32a078add13e"
     },
     {
+      "bytes": 10178,
+      "path": "reports/theme-editorial/ai-assisted-eda.md",
+      "sha256": "76b4242233a8bb7dc8f71cbf2dbfefaeab0fb9089b8fd29e9c91eb262498efb7"
+    },
+    {
+      "bytes": 10737,
+      "path": "reports/theme-editorial/analog-mixed-signal-and-emerging-devices.md",
+      "sha256": "4119dcb24a26e3c35bddae084c63bd767a289c2456383774c9f65cad9a2bb140"
+    },
+    {
+      "bytes": 11328,
+      "path": "reports/theme-editorial/architecture-and-accelerators.md",
+      "sha256": "242654ac8af418810c1cd33c83c30a5213c7f022c903ed0e8624278a7b3b092b"
+    },
+    {
+      "bytes": 11515,
+      "path": "reports/theme-editorial/chiplets-3d-and-packaging.md",
+      "sha256": "f40cbc8b8eec58bb22246dc37a783f72a1e07a172b76fa18538a9ed655ed6a21"
+    },
+    {
+      "bytes": 11796,
+      "path": "reports/theme-editorial/design-methodology-and-tooling.md",
+      "sha256": "8e94c4be5b00238844d57e7d7bfbeb31d9d20d0e0ffeb944ee3a62f90d6666db"
+    },
+    {
+      "bytes": 13413,
+      "path": "reports/theme-editorial/memory-interconnect-and-storage.md",
+      "sha256": "9b4620e4cd613eaa5c04fca16450f3e4df46e4d6af93bf15315c5068114a3995"
+    },
+    {
+      "bytes": 11829,
+      "path": "reports/theme-editorial/physical-design-and-manufacturing.md",
+      "sha256": "9baa061fc837b7262013f137e5534254e6f95b7b4ceae6877eacf8659864b992"
+    },
+    {
+      "bytes": 10818,
+      "path": "reports/theme-editorial/power-reliability-and-security.md",
+      "sha256": "d901887b10946dddc9cf8347e3bdddeb19a68664dd688d349274db2d6ed932d3"
+    },
+    {
+      "bytes": 12804,
+      "path": "reports/theme-editorial/systems-applications-and-workloads.md",
+      "sha256": "e1b85c50fef2019d2a410f411738d948e6a71003b816dc4ceb389ed8c0b151bc"
+    },
+    {
+      "bytes": 13479,
+      "path": "reports/theme-editorial/verification-and-validation.md",
+      "sha256": "a4d3cbd903944b50a3a002b42c333059d94f413196b1b0080b20bd1ac2c20560"
+    },
+    {
       "bytes": 1686,
       "path": "reports/theme-evidence-matrix-v1.md",
       "sha256": "923fe48b7fe28091e44275bfa9c5d46bdfdabd03a39213e03bc0986f12392c0e"
+    },
+    {
+      "bytes": 1791,
+      "path": "reports/themes/README.md",
+      "sha256": "77cd8cc6847a9c7c517d02fc28765e45398a40a430d0faaadc8002aa29634c24"
+    },
+    {
+      "bytes": 18671,
+      "path": "reports/themes/ai-assisted-eda.md",
+      "sha256": "5bfa00d51cf736d3feba1c73f92bc83f0ca73cf748271b87f34d524bf5480890"
+    },
+    {
+      "bytes": 21573,
+      "path": "reports/themes/analog-mixed-signal-and-emerging-devices.md",
+      "sha256": "ea1c4750f3a88a7be7e313173830b1bdba32e5696f07d4c4e640e675e95eb701"
+    },
+    {
+      "bytes": 21396,
+      "path": "reports/themes/architecture-and-accelerators.md",
+      "sha256": "782c848a1e9eeeeef796de18a2fdeb39f85796f66305d2b122240cb5686c7fa2"
+    },
+    {
+      "bytes": 20331,
+      "path": "reports/themes/chiplets-3d-and-packaging.md",
+      "sha256": "73e3ea6b9a65233c182388d2ea07b4ebb81293087c796a85c6617b6961c0a67c"
+    },
+    {
+      "bytes": 22356,
+      "path": "reports/themes/design-methodology-and-tooling.md",
+      "sha256": "7f3fb89c74a9442661d4322484cefc3edd9e544ee4949eb5a5591c4046dfdd49"
+    },
+    {
+      "bytes": 22214,
+      "path": "reports/themes/memory-interconnect-and-storage.md",
+      "sha256": "92392f21b1e928bbbf48fc1909acf684e0b42bd5ce803cd1795d0d9965c8ed5d"
+    },
+    {
+      "bytes": 21728,
+      "path": "reports/themes/physical-design-and-manufacturing.md",
+      "sha256": "0ecef6e73d65b7157be9d0627c19f946fda84a4ed086586b9ecb9fb3dc9bcef3"
+    },
+    {
+      "bytes": 21174,
+      "path": "reports/themes/power-reliability-and-security.md",
+      "sha256": "8becefbd6d9885649b8811b8bb05f3cf8bd26d15303e3c5debc2f9efec636389"
+    },
+    {
+      "bytes": 22838,
+      "path": "reports/themes/systems-applications-and-workloads.md",
+      "sha256": "17be2ab5112d5e8c2d833f067a73a21500cb56a8e1c5204b14821397b59134b7"
+    },
+    {
+      "bytes": 22143,
+      "path": "reports/themes/verification-and-validation.md",
+      "sha256": "a02b0ef3859ede98e1559e67f584bb7b79c1dcf9783ca7f0b69b13a70f2cf93b"
     },
     {
       "bytes": 208189,
@@ -991,9 +2491,79 @@
       "sha256": "7b520ee24ba5f5b26d74d85e1cb9e70b585034139250ed5f9d3b173b4037ef22"
     },
     {
+      "bytes": 1766,
+      "path": "scripts/audit_markdown_links.py",
+      "sha256": "1d1a3a18f67d58da58c591007def3f480fe031e91c6aedb0659a47521d0ae298"
+    },
+    {
+      "bytes": 6601,
+      "path": "scripts/build_claim_traceability.py",
+      "sha256": "a0905df601660cd5e85add2ca74918e0ad1d0482a15bef0b427958328e21ffc1"
+    },
+    {
+      "bytes": 8449,
+      "path": "scripts/build_cross_conference_atlas.py",
+      "sha256": "56eb9157f622e68c55370ed74e84605e766b58e78bfcb40a4b0ced1e1b7f3d08"
+    },
+    {
+      "bytes": 8541,
+      "path": "scripts/build_cross_conference_comparisons.py",
+      "sha256": "7ac78dc51d9c77c420472f03d566ba4d6dccc6716b0b4912a49ab9c5cdac595d"
+    },
+    {
       "bytes": 3878,
       "path": "scripts/build_deep_theme_profile.py",
       "sha256": "a85dab205ebca5d90c8b5d247c70b924aa35cc773653f82ce4c46df5ebbf3c20"
+    },
+    {
+      "bytes": 10238,
+      "path": "scripts/build_direction_atlas.py",
+      "sha256": "da33d1dcf34cbe45e8c9738a0ea8b8059831a3dcf387675d8415c3d59fca08d1"
+    },
+    {
+      "bytes": 12520,
+      "path": "scripts/build_direction_condition_register.py",
+      "sha256": "36a5caf56cb592e2bacd0392800e980202e1f9b7982ea35dea571a453fed816c"
+    },
+    {
+      "bytes": 8887,
+      "path": "scripts/build_direction_evidence_pages.py",
+      "sha256": "967ca49e3f313bddcaae9cca058a22119ed3f2f036d08faa8dec148fede5711f"
+    },
+    {
+      "bytes": 9678,
+      "path": "scripts/build_direction_review_gate.py",
+      "sha256": "9d41240d1660137d95c36af4a288f67e9509f0454e1cc1b80431bcc8457ddf84"
+    },
+    {
+      "bytes": 13123,
+      "path": "scripts/build_direction_writeups.py",
+      "sha256": "cf62b1260ff0c80ede17e9db386830d2fdddb504ac55639ccf1b9c13789d92ba"
+    },
+    {
+      "bytes": 7649,
+      "path": "scripts/build_expanded_taxonomy.py",
+      "sha256": "d469ab1cb909baa801e699276bfb36fed5f9c41596847e389078aaacb4726d87"
+    },
+    {
+      "bytes": 3781,
+      "path": "scripts/build_primary_condition_register.py",
+      "sha256": "6ae42a549a4317ca31094365bac07613922d6905e89d43a0adb9d47c5c209626"
+    },
+    {
+      "bytes": 9376,
+      "path": "scripts/build_research_agenda.py",
+      "sha256": "4eb87b6a5b04857936da37728997183c57ca702faa128b842827ec955456239a"
+    },
+    {
+      "bytes": 7447,
+      "path": "scripts/build_source_condition_extractions.py",
+      "sha256": "bc3208f515257c18d4410348f57ad231c26c78c165fbab928267862360c57bb2"
+    },
+    {
+      "bytes": 12773,
+      "path": "scripts/build_subtheme_pages.py",
+      "sha256": "acd3a3163b4922e7b8aaacc47f44e947732c68c77a69443458374e177ae70327"
     },
     {
       "bytes": 3618,
@@ -1006,14 +2576,59 @@
       "sha256": "c1f090d946356de11b8c00e7e8ce5a00042db838a97a0aa8d9c3d56b0cbde4e0"
     },
     {
+      "bytes": 22028,
+      "path": "scripts/build_theme_pages.py",
+      "sha256": "ebfd3f0a38e00d573fd1686b8013d82685bdcbb4d573acf91f3c2b9e31482157"
+    },
+    {
+      "bytes": 14574,
+      "path": "scripts/research_articles.py",
+      "sha256": "5fcbb89e6ee2417161156cb111326f9826431e6e5546056d5b51a63222c01986"
+    },
+    {
+      "bytes": 18751,
+      "path": "scripts/research_explanations.py",
+      "sha256": "28e3914777b20e29f158897621159830fdc298f534f07341ba3b49c7bbdb1432"
+    },
+    {
+      "bytes": 2182,
+      "path": "scripts/serve_atlas.py",
+      "sha256": "abeb3d58222e7d8072b7c0ba2adf91fa224aee1968ccb9ca8593ba2e60cc975b"
+    },
+    {
+      "bytes": 18031,
+      "path": "scripts/subtheme_explanations.py",
+      "sha256": "380bc8a7ed1aaa651d288d88fb8b995849fcec12b6c914e1c2f216b27413bdc5"
+    },
+    {
       "bytes": 24272,
       "path": "scripts/validate_project.py",
       "sha256": "61a2e833d983bbdb577e2100ade120036a2a9cd20543680cf9974f4521e6b316"
     },
     {
-      "bytes": 3533,
+      "bytes": 2695,
+      "path": "site/app.js",
+      "sha256": "23a9a69a0a064f1742e4fa69d002277e2e770c3d4636341b8588ba9275b814cc"
+    },
+    {
+      "bytes": 6499,
+      "path": "site/index.html",
+      "sha256": "6d861d64f7f85857780628a7cbef5fa47569b22680e965f6ae72a23a725b5655"
+    },
+    {
+      "bytes": 1685,
+      "path": "site/reader.css",
+      "sha256": "69cf7dedfd10ce86ed35f7c94d65f93cda8e2826190be30db904bf780d9aecce"
+    },
+    {
+      "bytes": 3866,
+      "path": "site/styles.css",
+      "sha256": "7389a58aec3fb4762e094d7fa3994b65a045b3b17c97e2a5f6cd2786a1c0f7ba"
+    },
+    {
+      "bytes": 4547,
       "path": "tests/test_review_packets.py",
-      "sha256": "67be75083501bbe9b8ad717a621f32f8f733f20d942f14e4c45a20aa0f082021"
+      "sha256": "7057f4ca30d8948463eb3400c686bf9e7335848d277a4285c3950d9e8e3dd8f0"
     },
     {
       "bytes": 2726,
@@ -1031,6 +2646,21 @@
     "PYTHONPATH=.:src python3 scripts/build_review_assignments.py",
     "PYTHONPATH=.:src python3 scripts/build_draft_review_packets.py",
     "PYTHONPATH=.:src python3 scripts/build_title_shift_candidates.py",
+    "PYTHONPATH=.:src python3 scripts/build_direction_atlas.py",
+    "PYTHONPATH=.:src python3 scripts/build_source_condition_extractions.py",
+    "PYTHONPATH=.:src python3 scripts/build_primary_condition_register.py",
+    "PYTHONPATH=.:src python3 scripts/build_direction_review_gate.py",
+    "PYTHONPATH=.:src python3 scripts/build_theme_pages.py",
+    "PYTHONPATH=.:src python3 scripts/build_direction_writeups.py",
+    "PYTHONPATH=.:src python3 scripts/build_expanded_taxonomy.py",
+    "PYTHONPATH=.:src python3 scripts/build_cross_conference_comparisons.py",
+    "PYTHONPATH=.:src python3 scripts/build_research_agenda.py",
+    "PYTHONPATH=.:src python3 scripts/build_claim_traceability.py",
+    "PYTHONPATH=.:src python3 scripts/audit_markdown_links.py",
+    "PYTHONPATH=.:src python3 scripts/build_subtheme_pages.py",
+    "PYTHONPATH=.:src python3 scripts/build_direction_condition_register.py",
+    "PYTHONPATH=.:src python3 scripts/build_direction_evidence_pages.py",
+    "PYTHONPATH=.:src python3 scripts/build_cross_conference_atlas.py",
     "PYTHONPATH=.:src python3 scripts/validate_project.py",
     "PYTHONPATH=.:src pytest -q"
   ],

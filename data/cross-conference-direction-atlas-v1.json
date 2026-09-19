@@ -1,0 +1,135 @@
+{
+  "as_of": "2026-09-06",
+  "directions": [
+    {
+      "conference_reference_counts": {
+        "dac": 3,
+        "iccad": 4,
+        "isca": 1
+      },
+      "direction_id": "constraints-become-executable",
+      "independent_review_count": 0,
+      "interpretation": "The venues support a shared mechanism of constraint-driven iteration, not one common benchmark or growth rate.",
+      "label": "Constraints Become Executable",
+      "next_comparison": "Match design suites, correctness oracle, synthesis budget, model/API cost, retries, and held-out transfer.",
+      "page": "reports/directions/01-constraints-become-executable.md",
+      "relation_type": "complementary_layering",
+      "status": "provisional_cross_conference_case_evidence",
+      "venue_roles": {
+        "dac": "Design-automation cases provide broad tool-grounded generation, search, and mapping candidates.",
+        "iccad": "Fallback cases expose verification, physical-flow, and design-method consequences.",
+        "isca": "Architecture/compiler cases expose executable dataflow and system constraints."
+      }
+    },
+    {
+      "conference_reference_counts": {
+        "dac": 4,
+        "iccad": 1,
+        "isca": 10
+      },
+      "direction_id": "data-movement-as-contract",
+      "independent_review_count": 0,
+      "interpretation": "The shared pressure is movement and contention; mechanisms and quality targets remain heterogeneous.",
+      "label": "Data Movement As Contract",
+      "next_comparison": "Match workload, recall/accuracy, resident set, capacity, bandwidth, topology, migration cost, and tail latency.",
+      "page": "reports/directions/02-data-movement-as-contract.md",
+      "relation_type": "same_pressure_different_layer",
+      "status": "provisional_cross_conference_case_evidence",
+      "venue_roles": {
+        "dac": "Memory and accelerator cases expose CXL, near-memory, PIM, buffering, and movement-aware execution mechanisms.",
+        "iccad": "Physical-integration cases connect bandwidth and placement to 3D thermal and package constraints.",
+        "isca": "Systems and architecture cases expose expert traffic, collectives, KV locality, PIM scheduling, and deployed memory context."
+      }
+    },
+    {
+      "conference_reference_counts": {
+        "dac": 3,
+        "iccad": 1,
+        "isca": 3
+      },
+      "direction_id": "reliability-security-upstream",
+      "independent_review_count": 0,
+      "interpretation": "The venues converge on explicit operating envelopes, but fault, thermal, and threat models cannot be collapsed into one robustness score.",
+      "label": "Reliability Security Upstream",
+      "next_comparison": "Match threat/fault model, coverage, false negatives, recovery cost, useful throughput, and availability impact.",
+      "page": "reports/directions/04-reliability-security-upstream.md",
+      "relation_type": "cross_layer_contract",
+      "status": "provisional_cross_conference_case_evidence",
+      "venue_roles": {
+        "dac": "Accelerator and design-flow cases expose fault mitigation, physical integrity, attacks, and protection overhead.",
+        "iccad": "Security and fallback design cases expose threat-model and validation boundaries, with broader physical-reliability scope.",
+        "isca": "Architecture and memory cases expose correction, interference, and thermal behavior during execution."
+      }
+    },
+    {
+      "conference_reference_counts": {
+        "dac": 1,
+        "iccad": 2,
+        "isca": 1
+      },
+      "direction_id": "physical-reality-in-the-loop",
+      "independent_review_count": 0,
+      "interpretation": "The layering suggests physical models are becoming decision inputs, but model transfer and manufacturability remain open.",
+      "label": "Physical Reality In The Loop",
+      "next_comparison": "Compare candidate ranking, constraint violations, held-out high-fidelity evaluation, and search cost across geometry/process changes.",
+      "page": "reports/directions/05-physical-reality-in-the-loop.md",
+      "relation_type": "upstream_physical_feedback",
+      "status": "provisional_cross_conference_case_evidence",
+      "venue_roles": {
+        "dac": "Design-automation cases expose fast thermal, package, process, and physical models for search.",
+        "iccad": "Physical-design fallback cases provide the deepest placement, process, device, and signoff-oriented evidence.",
+        "isca": "Selected runtime/system cases expose thermal imbalance and physical effects after mapping."
+      }
+    },
+    {
+      "conference_reference_counts": {
+        "dac": 4,
+        "iccad": 2,
+        "isca": 0
+      },
+      "direction_id": "closed-loop-design",
+      "independent_review_count": 0,
+      "interpretation": "This is a methodological bridge across venues, not evidence that the same adaptive loop dominates any venue.",
+      "label": "Closed Loop Design",
+      "next_comparison": "Match total wall-clock/evaluation budget, calibration cost, rejected candidates, misranking, and out-of-distribution error.",
+      "page": "reports/directions/03-closed-loop-design.md",
+      "relation_type": "methodological_bridge",
+      "status": "provisional_cross_conference_case_evidence",
+      "venue_roles": {
+        "dac": "Search, surrogate, Bayesian, and tool-feedback cases provide the broadest loop inventory.",
+        "iccad": "Design-space and physical-model cases expose fidelity, calibration, and downstream feasibility boundaries.",
+        "isca": "The current selected source map has no direct ISCA evidence reference for this direction; compiler/system cases remain adjacent evidence."
+      }
+    },
+    {
+      "conference_reference_counts": {
+        "dac": 7,
+        "iccad": 6,
+        "isca": 1
+      },
+      "direction_id": "evaluation-as-research",
+      "independent_review_count": 0,
+      "interpretation": "Evaluation is a cross-venue enabling layer; field direction cannot be inferred until evaluator populations and semantics are matched.",
+      "label": "Evaluation As Research",
+      "next_comparison": "Require task population, evaluator/tool version, timeout/error semantics, baseline, budget, and independent rerun status.",
+      "page": "reports/directions/06-evaluation-as-research.md",
+      "relation_type": "measurement_contract",
+      "status": "provisional_cross_conference_case_evidence",
+      "venue_roles": {
+        "dac": "Tool-grounded and benchmark cases expose task selection, search budget, and evaluator semantics.",
+        "iccad": "Verification and physical-design cases expose proof state, simulator fidelity, and implementation boundaries.",
+        "isca": "Artifact and system cases expose execution, workload, and reproducibility boundaries."
+      }
+    }
+  ],
+  "prohibited_inference": [
+    "market share",
+    "industrial adoption",
+    "commercial success",
+    "conference-wide ranking",
+    "rising or declining direction without comparable historical snapshots"
+  ],
+  "schema": "cross-conference-direction-atlas.v1",
+  "source_atlas": "data/long-term-direction-atlas-v1.json",
+  "status": "provisional_cross_conference_synthesis"
+}

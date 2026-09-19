@@ -7,6 +7,23 @@
   "capture_date": "2026-09-06",
   "source_tier": "author_linked_partial_artifact",
   "extraction_scope": "Read-only inspection of pinned repository tree, README, HLS script, top-level kernel and stored text/XML synthesis reports; no execution or full-paper recovery",
+  "current_source_recheck": {
+    "capture_date": "2026-09-08",
+    "official_program_url": "https://63dac.conference-program.com/presentation/?id=RESEARCH1110&sess=sess173",
+    "official_program_observations": [
+      "The official DAC description identifies HLS module partitioning, dataflow orchestration and throughput maximization as the problem and describes an LLM-powered framework for generating and optimizing system-level HLS architectures.",
+      "The description names modular dataflow generation, pattern-based optimization and synthesizable hardware implementations, and reports an average 11.78x performance improvement over current state-of-the-art approaches.",
+      "The official page does not define the benchmark suite, performance metric, baseline implementations, hardware measurements, synthesis budget, correctness gate or aggregation behind 11.78x."
+    ],
+    "repository_recheck_url": "https://github.com/Szzer1/HLSArchOpt/tree/999043ab132f984b5b88b26ab9e415221e1198f1",
+    "repository_observations": [
+      "The pinned public repository describes an HLS implementation of the Fire module and a Vivado hardware project, not the complete LLM optimization framework.",
+      "Its README names Vivado HLS/Vivado 2019.2, Xilinx ZCU102 and a 100 MHz target, and says additional modules, full-model integration, automation scripts and utilities are future work.",
+      "The repository provides a run command and stored design files, but the inspected release does not expose the paper's prompt/search loop, benchmark aggregation, baseline suite or independent functional validation."
+    ],
+    "full_text_status": "ResearchGate lists the paper but reports no full-text PDF; no manuscript pages were recovered.",
+    "interpretation": "The recheck strengthens the source boundary around the mechanism and released example while preserving the 11.78x result as a description-level claim withheld pending full-paper conditions."
+  },
   "identity": {
     "status": "exact_title_and_seven_authors_on_official_and_author_page",
     "author_page": "https://csee.hnu.edu.cn/people/hexu",
@@ -86,6 +103,14 @@
         "https://api.github.com/repos/Szzer1/HLSArchOpt/git/trees/2556cae508f7fdd50b95eefba61957fd31a199e0?recursive=1"
       ],
       "outcome": "Resolved immutable commit/tree; inspected README and selected source/script."
+    },
+    {
+      "method": "official_program_and_full_text_recheck",
+      "urls": [
+        "https://63dac.conference-program.com/presentation/?id=RESEARCH1110&sess=sess173",
+        "https://www.researchgate.net/publication/412338639_LLM-Based_Automatic_Architecture_Optimization_for_AI_Model_HLS_Implementation_on_FPGA"
+      ],
+      "outcome": "Reconfirmed the official mechanism and 11.78x description-level claim; full text remains unavailable. The pinned repository remains a partial Fire-module release with future full-integration work."
     }
   ],
   "unresolved_conditions": [

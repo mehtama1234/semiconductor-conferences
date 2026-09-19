@@ -14,7 +14,7 @@ It separates suggested research directions from measured temporal trends.
 The evidence is intentionally asymmetric:
 
 - DAC: 543 official 2026 research descriptions plus one technically coded 2025
-  recovery record; the selected DAC sample is 88 records and independent acceptance
+  recovery record; the selected DAC sample is 544 records and independent acceptance
   remains pending.
 - ISCA: 173 official 2026 program slots (172 titled); 17 technically coded
   records; 3 secondary-only papers pending primary verification (6 indexed

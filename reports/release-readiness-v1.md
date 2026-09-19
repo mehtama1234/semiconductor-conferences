@@ -4,6 +4,15 @@ This checklist is the final handoff view. A “ready” row means the repository
 contains the required artifact and verification; it does not imply scientific
 acceptance beyond the stated evidence tier.
 
+## Current verification checkpoint — 2026-09-09
+
+The post-release editorial and validation pass is internally consistent at the
+current worktree: 568 dated reading-card corrections are registered, 527
+manifest artifacts are recorded, `scripts/validate_project.py` passes, and the
+repository suite collects 745 tests. The focused Adder-DCIM theme-page
+test also passes. These checks are reproducibility and provenance checks; they do not
+convert the bounded release into an independently reviewed scientific result.
+
 | GOAL requirement | Evidence | Status | Gate to close |
 |---|---|---|---|
 | Recovered checkpoint reconciled | `GOAL.md`, `reports/completion-audit-v1.json`, validator | Ready | None for this checkpoint. |
@@ -13,7 +22,7 @@ acceptance beyond the stated evidence tier.
 | Shared taxonomy and deep explanations | taxonomy evidence, coding guide, direction pages | Provisional ready | Broaden coding and independent adjudication. |
 | Independent review | 582 packets, assignments, judge protocol | Prepared only | Obtain two independent verdicts per accepted record where a reviewer/model is available. Current verdict count is zero. |
 | Temporal comparison | temporal baseline and insufficiency reports | Ready as insufficiency finding | Matched populations/evidence tiers are required before directional claims. |
-| Reproducible dated package | manifest, release report, validator, 142 tests | Ready as bounded release | Do not label as a final field forecast or accepted-paper review. |
+| Reproducible dated package | manifest, release report, validator, 745 collected tests | Ready as bounded release | Do not label as a final field forecast or accepted-paper review. |
 
 ## Current release boundary
 
