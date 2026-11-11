@@ -41,63 +41,134 @@ Their shared question: can another designer or user get the claimed benefit by f
 
 ## Follow a design choice through its consequences
 
-A design process starts with required behavior and constraints, constructs candidate implementations, evaluates them, and selects a result. Each stage produces information another stage uses. A candidate that looks favorable in an early representation may become invalid or expensive once implementation exposes additional costs.
+A design is chosen in stages, and a candidate that looks best early can fail a later limit.
 
-Consider an arithmetic block that must return a result within ten nanoseconds and occupy at most 100 area units. Candidate A occupies 80 units but takes twelve nanoseconds. Candidate B occupies 95 units and takes nine. A is smaller, but it is not a valid solution to this problem. Reporting only minimum area would select the wrong outcome.
+A design process:
 
-This simple example separates three things that a paper must preserve: the required behavior, the limits that define acceptable candidates, and the objective used to choose among acceptable candidates. The numerical examples in this discussion are teaching calculations, not measurements from the linked papers.
+1. starts with required behavior and constraints;
+2. builds candidate implementations;
+3. evaluates them;
+4. selects a result.
+
+Each stage feeds the next. A candidate that looks good in an early representation may turn invalid or expensive once implementation exposes more costs.
+
+> **Worked example.** An arithmetic block must return a result within 10 nanoseconds and take at most 100 area units.
+>
+> | Candidate | Area units | Time (ns) | Valid? |
+> | --- | --- | --- | --- |
+> | A | 80 | 12 | No: too slow |
+> | B | 95 | 9 | Yes |
+>
+> A is smaller, but not a valid solution. Reporting only the smallest area would pick the wrong one.
+
+A paper must keep three things separate:
+
+- the **required behavior**;
+- the **limits** that define acceptable candidates;
+- the **objective** used to choose among acceptable candidates.
+
+**Be careful:** the numbers in this discussion are teaching calculations, not measurements from the linked papers.
 
 ## A representation enables some decisions and hides others
 
-A graph describes objects and pairwise relationships. A hypergraph allows one relationship to connect several objects. In a circuit, one signal can connect a driver to several receivers. Grouping these objects into partitions may reduce connections that cross partition boundaries while respecting capacity limits.
+How a problem is written down decides which costs a tool can see.
 
-The representation does not automatically price every implementation effect. One crossing signal driving ten distant receivers and another driving one nearby receiver may each contribute one unit to a simple cut-count objective. Their physical loading, communication traffic, and timing can differ. A lower cut count is evidence about that objective, not proof of a faster final system.
+- A **graph** describes objects and links between pairs of them.
+- A **hypergraph** lets one link connect several objects.
 
-The [optimization and search chapter](../observed-subthemes/optimization-and-search-methods.md) connects this issue to Impart's multilevel partitioning and the other captured search methods. Those current descriptions do not establish complete downstream implementation conditions. The useful question is which omitted costs can change the selected solution, not whether the representation is universally good or bad.
+In a circuit, one signal can connect a driver to several receivers. Grouping objects into partitions can cut the connections that cross partition boundaries, while respecting capacity limits.
 
-Coarsening combines several objects into fewer larger objects before searching. This can make a problem cheaper to solve, but temporarily removes choices about how the combined objects differ. Refinement restores detail and permits adjustments. A successful coarse solution is therefore a starting point whose quality depends on what the grouping retained and what refinement can recover.
+The representation does not price every implementation effect. One crossing signal driving ten distant receivers and another driving one nearby receiver may each count as one cut. Their physical load, traffic and timing can differ. A lower cut count is evidence about that objective, not proof of a faster final system.
+
+The [optimization and search chapter](../observed-subthemes/optimization-and-search-methods.md) links this to Impart's multilevel partitioning and the other captured search methods. Their current descriptions do not establish complete downstream conditions. The useful question is which left-out costs could change the selected solution.
+
+**Coarsening** merges several objects into fewer, larger ones before searching. It makes the problem cheaper, but temporarily hides choices about how the merged objects differ. **Refinement** restores the detail and allows adjustments. So a good coarse solution is a starting point. Its quality depends on what the grouping kept, and what refinement can recover.
 
 ## A transformation needs a validity condition before a cost estimate
 
-Two implementations can compute the same intended result while using different operation orders or storage. That equivalence depends on the arithmetic and execution rules. Reordering exact integer additions without overflow is not the same claim as reordering finite-precision floating-point additions, where rounding can change the result.
+Before asking whether a changed program is faster, show it still computes the right thing.
 
-Similarly, a kernel specialized for contiguous arrays needs a valid alternative or rejection path for an array whose elements are separated by a larger address stride. Identical dimensions alone do not establish interchangeable memory layouts. A cache key identifying a reusable implementation must capture the conditions that affect validity, not merely the most convenient label.
+Two implementations can compute the same intended result with different operation orders or storage. Whether they are equivalent depends on the arithmetic and execution rules:
 
-[DyTuner's expanded explanation](../observed-subthemes/compiler-and-runtime-optimization.md#explanation-dac-2026-research127) uses dynamic tensor shapes to explain this distinction. The official description supplies a proposed adaptive tuning method and named comparisons, but its exact adaptation and reuse rules remain unrecovered. The theme must not fill those gaps by treating a plausible specialization policy as the paper's implementation.
+- Reordering exact integer additions, without overflow, keeps the result.
+- Reordering finite-precision floating-point additions can change it, through rounding.
 
-Validation is therefore not a final decorative step. It constrains candidate construction and reuse. A cost model should rank candidates only after their required behavior and applicable conditions are established, or clearly record that its rankings include candidates awaiting validation.
+Likewise, a kernel built for contiguous arrays needs a valid alternative, or a rejection path, for an array whose elements are spaced further apart in memory (a larger **stride**). Matching dimensions do not make memory layouts interchangeable. A cache key for reusing an implementation must capture every condition that affects validity, not just the handiest label.
+
+[DyTuner's expanded explanation](../observed-subthemes/compiler-and-runtime-optimization.md#explanation-dac-2026-research127) uses changing tensor shapes to explain this. The official description gives a proposed adaptive tuning method and named comparisons. Its exact adaptation and reuse rules are not recovered.
+
+**Be careful:** this theme must not fill those gaps by treating a plausible specialization policy as the paper's implementation.
+
+So validation is not a final decorative step. It shapes how candidates are built and reused. A cost model should rank candidates only after their behavior and conditions are established, or clearly mark rankings that include candidates still awaiting validation.
 
 ## A fast estimate is useful only if it supports the right decision
 
-A cost model predicts an expensive quantity, such as execution time, area, energy, or circuit delay. Prediction error matters partly through its effect on the decision. Small errors near a hard limit can be more consequential than larger errors far from it.
+An estimate's error matters through the decision it changes, especially near a hard limit.
 
-Suppose a timing requirement is 100 picoseconds. A true arrival at 100.2 fails, but an estimate of 99.9 passes. The absolute error is only 0.3 picoseconds; its direction changes the accept/reject decision. For this maximum-delay requirement, an estimate that is too early is not interchangeable with one that is conservatively late.
+A **cost model** predicts an expensive quantity, such as run time, area, energy or circuit delay. Small errors near a hard limit can matter more than large errors far from it.
 
-The manuscript-backed [segment-level timing reuse explanation](../observed-subthemes/compiler-and-runtime-optimization.md#explanation-dac-2026-research2566) applies this reasoning to sharing timing calculations. Reuse must retain the appropriate electrical context, including the transition behavior that affects later stages. Its source-specific discussion preserves discrepancies between the stated checks and unresolved conditions on error propagation.
+> **Worked example.** Timing requirement: 100 picoseconds.
+>
+> - True arrival: 100.2, so the design fails.
+> - Estimate: 99.9, so the design passes.
+> - The error is only 0.3 picoseconds, but its direction flips accept to reject.
+>
+> For a maximum-delay limit, an estimate that is too early is not interchangeable with one that is safely late.
 
-A useful general bound follows from the triangle inequality. If a stored result differs from a predicted query result by at most a tolerance `τ`, and the predictor's error is bounded by `e` over that query domain, then the stored result can differ from the true query result by up to `τ + e`. Checking only `τ` does not establish that total bound. An average prediction error is not automatically the needed worst-case bound.
+The manuscript-backed [segment-level timing reuse explanation](../observed-subthemes/compiler-and-runtime-optimization.md#explanation-dac-2026-research2566) applies this to sharing timing calculations. Reuse must keep the right electrical context, including the transition behavior that affects later stages. Its discussion keeps discrepancies between the stated checks and unresolved conditions on how error spreads.
 
-This connects tooling to [verification](verification-and-validation.md): the claim must say what was checked, under which assumptions, and whether an unresolved case was rejected, re-evaluated exactly, or accepted without a guarantee.
+> **The general bound (triangle inequality).**
+>
+> - A stored result differs from a predicted query result by at most `τ`.
+> - The predictor's error is at most `e` over that query domain.
+> - Then the stored result can differ from the true result by up to `τ + e`.
+>
+> Checking only `τ` does not establish that total bound.
+
+An average prediction error is not automatically the needed worst-case bound.
+
+This links tooling to [verification](verification-and-validation.md). The claim must say what was checked, under which assumptions, and whether an unresolved case was rejected, re-checked exactly, or accepted without a guarantee.
 
 ## Tool runtime and output runtime are different costs
 
-A compiler can take longer to produce code that runs faster. A search can evaluate more candidates and deliver a better circuit. Neither tradeoff is good or bad without knowing how often the result will be used and what budget the user has.
+Time spent preparing a faster result pays off only if the result is reused enough.
 
-Suppose tuning costs ten seconds and reduces each later invocation from five to four milliseconds. The one-millisecond saving needs 10,000 compatible invocations to recover that cost. If the input or hardware changes after 100 invocations and the prepared result cannot be reused, only 0.1 second is saved. These are illustrative calculations, not DyTuner results.
+A compiler can take longer to produce code that runs faster. A search can try more candidates and deliver a better circuit. Whether that trade is worth it depends on how often the result is used, and on the user's budget.
 
-The same accounting applies to a design tool used once per product versus repeatedly during exploration. Record total preparation and validation costs as well as the final result's performance. Reuse assumptions must include what changes invalidate the work: shape, layout, target hardware, constraints, library versions, or model parameters may each matter.
+> **Worked example (illustrative, not DyTuner results).** Tuning costs 10 seconds. It cuts each later run from 5 to 4 milliseconds.
+>
+> - Break-even: 10 seconds ÷ 1 millisecond saved = **10,000 compatible runs**.
+> - If the input or hardware changes after 100 runs, and the result cannot be reused: only 100 × 1 ms = **0.1 second** saved.
+
+The same accounting applies to a design tool used once per product versus many times during exploration. Record total preparation and validation costs, as well as the final result's performance. Reuse assumptions must name what invalidates the work. Shape, layout, target hardware, constraints, library versions or model parameters may each matter.
 
 ## Search quality must include failed and expensive attempts
 
-An optimizer chooses which candidates to evaluate. A cheap predictor can screen many candidates before expensive implementation, while random variation or a learned policy can explore alternatives. A higher predicted score does not itself establish a better valid implementation.
+Compare search methods at a stated budget, counting every failed and invalid attempt.
 
-Suppose method A spends one minute on each of 100 candidates and method B spends ten minutes on each of twenty. B evaluates fewer candidates but consumes twice the serial evaluation time. If B uses ten machines concurrently, its elapsed time may improve while its resource consumption does not. Compare the output quality at stated time and resource budgets rather than choosing whichever denominator favors a method.
+An optimizer chooses which candidates to evaluate. A cheap predictor can screen many candidates before expensive implementation. Random variation or a learned policy can explore alternatives. A higher predicted score does not, by itself, show a better valid implementation.
 
-Invalid candidates and unsuccessful runs belong in the record. If nine runs fail and one obtains a good result, reporting only that survivor hides the probability and cost of obtaining a usable output. Distinct random seeds, failures, timeout rules, and the procedure for selecting a final result are necessary to interpret variability.
+> **Worked example.**
+>
+> - Method A: 100 candidates × 1 minute = **100 minutes** of serial evaluation.
+> - Method B: 20 candidates × 10 minutes = **200 minutes**.
+> - B tries fewer candidates but uses twice the serial time.
+> - On ten machines at once, B finishes sooner in elapsed time, but uses the same resources.
 
-Candidate selection also tests a predictor differently from random sampling. Search preferentially chooses unusually favorable predictions, which can include unusually optimistic errors. A held-out random test error does not automatically characterize the candidates the optimizer will select. Evaluate predicted winners with the intended higher-confidence method and retain cases where their ranking changes.
+So compare output quality at stated time and resource budgets, rather than picking whichever denominator favors a method.
+
+Invalid candidates and failed runs belong in the record. If nine runs fail and one gives a good result, reporting only the survivor hides the odds and cost of getting a usable output. To read the variability, record:
+
+- distinct random seeds;
+- failures;
+- timeout rules;
+- how the final result was selected.
+
+Search also tests a predictor differently from random sampling. Search prefers unusually good predictions, and those can include unusually optimistic errors. A random held-out test error does not describe the candidates the optimizer picks. Re-check predicted winners with the intended more trustworthy method, and keep cases where their ranking changes.
 
 ## Local improvements must survive the rest of the process
+
+Each stage gives something new, but leaves something still unproven.
 
 | Stage | What becomes available | What remains unproven |
 | --- | --- | --- |
@@ -106,21 +177,27 @@ Candidate selection also tests a predictor differently from random sampling. Sea
 | Implementation and validation | A result under stated tools, targets, and checks | Transfer to different configurations or untested conditions |
 | Deployment or repeated use | Measured benefit under the chosen workload | Broader generality, future workload stability, and independent reproduction |
 
-These stages can repeat: a failed implementation can guide a new candidate. The feedback must retain why the candidate failed. Treating a constraint violation as merely a poor score can allow the search to keep selecting invalid outputs if another score component compensates for it.
+These stages can loop: a failed implementation can guide a new candidate. The feedback must keep why it failed. If a constraint violation is treated as just a poor score, the search can keep picking invalid outputs whenever another score part makes up for it.
 
-The [architecture theme](architecture-and-accelerators.md) adds the downstream requirement: a compiler's improved operator or an accelerator generator's favorable model must still fit a complete application with data movement, numerical quality, and preparation costs. Improvements at several stages cannot be multiplied when they concern different baselines or overlapping work.
+The [architecture theme](architecture-and-accelerators.md) adds the next requirement. A compiler's improved operator, or an accelerator generator's favorable model, must still fit a complete application with data movement, numerical quality and preparation costs.
+
+**Be careful:** gains at several stages cannot be multiplied when they use different baselines or overlapping work.
 
 ## Three long-term hypotheses and their limits
 
-One hypothesis is that conditional reuse becomes more useful as design and execution contexts vary but repeatedly revisit related cases. Test it by recording reuse frequency, invalidations, lookup cost, preparation cost, and output validity. It weakens when contexts change too often, applicability checks dominate, or reuse compromises the required result.
+Three readings are worth testing; each names what would weaken it.
 
-A second hypothesis is that earlier estimates become more valuable when their uncertainty changes later decisions explicitly. Compare exact evaluation everywhere with screening plus exact fallback, keeping the accepted-result requirements fixed. It weakens when screening mistakes reject valuable candidates, admit invalid ones, or consume the saved evaluation budget in rework.
+| Hypothesis | Test | What would weaken it |
+| --- | --- | --- |
+| Conditional reuse helps more as contexts vary but keep revisiting related cases | Record reuse frequency, invalidations, lookup cost, preparation cost and output validity | Contexts change too often, applicability checks dominate, or reuse harms the required result |
+| Early estimates are worth more when their uncertainty explicitly changes later decisions | Compare exact evaluation everywhere with screening plus exact fallback, at fixed accepted-result requirements | Screening rejects valuable candidates, admits invalid ones, or spends the saved budget on rework |
+| Reusable tooling depends on keeping context across stages, not just exchanging files | Can an independent user reproduce a result from recorded versions, constraints, representations, seeds and validation steps? | An undocumented manual fix or unavailable component is still needed |
 
-A third hypothesis is that reusable tooling depends on preserving context across stages, not merely exchanging files. Test whether an independent user can reproduce a result with recorded versions, constraints, representations, seeds, and validation steps. It weakens where an undocumented manual correction or unavailable component remains necessary.
+These are mechanism-based interpretations, not established ISCA–DAC–ICCAD trends. A cross-conference comparison needs compatible problems, objectives, input populations, source depth and budgets.
 
-These are mechanism-based interpretations, not established ISCA–DAC–ICCAD trends. A cross-conference comparison needs compatible problems, objectives, input populations, source depth, and budgets. A compiler paper, partitioner paper, and physical implementation paper may contribute complementary evidence, but they do not establish an integrated process simply because their subjects are related.
+**Be careful:** a compiler paper, a partitioner paper and a physical implementation paper may add complementary evidence. They do not form an integrated process just because their subjects are related.
 
-The two [compiler/runtime explanations](../observed-subthemes/compiler-and-runtime-optimization.md) provide the deepest current individual reading path used here: timing reuse is manuscript-backed and DyTuner remains description-backed. The other tooling branches below still need fuller paper-level writing, evidence recovery, and independent review. This synthesis does not close those gaps or establish accepted temporal conclusions.
+The two [compiler/runtime explanations](../observed-subthemes/compiler-and-runtime-optimization.md) give the deepest current reading path used here: timing reuse is manuscript-backed and DyTuner remains description-backed. The other tooling branches below still need fuller paper-level writing, evidence recovery and independent review. This synthesis does not close those gaps or establish accepted conclusions over time.
 
 ## Subthemes and how to study them
 

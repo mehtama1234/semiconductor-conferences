@@ -75,37 +75,144 @@
 <li>If a method uses a cheaper approximation, check whether its errors change which design is chosen.</li>
 </ol>
 <h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="affiliate"></span>Follow a logical connection into a physical implementation</h2>
-<p>A logical circuit specifies which outputs depend on which inputs. A physical implementation assigns dimensions and locations to transistors, cells, wires, and connections between material layers.</p><p>The logical statement that two terminals are connected does not specify the resistance, capacitance, or travel time of the implemented connection.</p>
-<div class="worked"><p class="lm-k">Worked example</p><p>Consider two placed cells connected by a wire. Moving them closer can reduce one connection's length.</p></div><p>But each cell may also connect to other cells, and the shorter route may pass through a region already occupied by other wires. The task is not to minimize one distance independently.</p><p>It is to construct a legal geometry that implements the required circuit and meets timing, power, and other stated limits.</p>
-<p>The examples below are teaching constructions, not measurements from the linked papers. The current physical-design branches largely retain incomplete source conditions. A connected explanation of their mechanisms does not substitute for missing manuscripts or final implementation results.</p>
+<p>A logical connection says what links to what; the physical version decides how fast and how well it works.</p>
+<p>A <strong>logical circuit</strong> says which outputs depend on which inputs. A <strong>physical implementation</strong> gives sizes and locations to transistors, cells, wires, and connections between material layers. "These two terminals are connected" says nothing about the resistance, capacitance or travel time of the real connection.</p>
+<blockquote>
+<p><strong>Example.</strong> Two placed cells are joined by a wire.</p>
+<ul>
+<li>Moving them closer shortens that connection.</li>
+<li>But each cell also connects to others.</li>
+<li>The shorter route may pass through a region already full of other wires.</li>
+</ul>
+</blockquote>
+<p>So the task is not to shorten one distance on its own. It is to build legal geometry that implements the circuit and meets timing, power and other stated limits.</p>
+<p><strong>Be careful:</strong> the examples below are teaching constructions, not measurements from the linked papers. Most physical-design branches still have incomplete source conditions. Connecting their mechanisms does not replace missing manuscripts or final implementation results.</p>
 <h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>Placement creates demand; routing must find space for it</h2>
-<p>Placement assigns locations to components. Routing assigns actual wire paths and layers, including connections between layers. An early placement objective may estimate wire length using a simplified distance. Final routing may require detours around obstacles or congested areas, making that estimate optimistic.</p>
-<div class="worked"><p class="lm-k">Worked example</p><p>Imagine a corridor with room for eight parallel tracks while ten connections need to cross it under a simplified one-track-per-connection model. At least two cannot use that corridor simultaneously as assigned.</p></div><p>They need another route, another layer if available, or a placement change. A low average wire length does not remove this local capacity violation.</p>
-<p>Adding layers or changing spacing is not automatically available: the technology and design rules constrain both. A route that looks short in a drawing can violate minimum spacing, width, enclosure, or permitted layer-transition rules.</p><p>The final result must satisfy the applicable rule set, not merely the optimizer's simplified geometry.</p>
-<p>The <a href="../subthemes/placement-routing-and-floorplanning.html">placement and routing chapter</a> and <a href="../subthemes/physical-design-and-routing.html">routing chapter</a> organize proposals addressing these decisions. Their labels identify the stage being changed. They do not establish final routability or manufacturing acceptance for every proposed placement.</p>
+<p>Where parts are placed decides how many wires must squeeze through each region.</p>
+<ul>
+<li><strong>Placement</strong> gives each component a location.</li>
+<li><strong>Routing</strong> gives each wire a real path and layer, including jumps between layers.</li>
+</ul>
+<p>Early placement may estimate wire length with a simple distance. Final routing may need detours around obstacles or crowded areas, so that estimate is optimistic.</p>
+<blockquote>
+<p><strong>Worked example (simplified: one track per connection).</strong> A corridor has room for 8 parallel tracks. 10 connections need to cross it.</p>
+<ul>
+<li>At least 10 − 8 = <strong>2</strong> cannot use the corridor as assigned.</li>
+<li>They need another route, another layer if one exists, or a placement change.</li>
+<li>A low average wire length does not remove this local shortage.</li>
+</ul>
+</blockquote>
+<p>Extra layers or different spacing are not always available. The technology and design rules limit both.</p><p>A route that looks short in a drawing can break rules on minimum spacing, width, enclosure or allowed layer changes. The final result must meet the real rule set, not the optimizer's simplified geometry.</p>
+<p>The <a href="../subthemes/placement-routing-and-floorplanning.html">placement and routing chapter</a> and <a href="../subthemes/physical-design-and-routing.html">routing chapter</a> group proposals for these decisions. Their labels name the stage being changed.</p>
+<p><strong>Be careful:</strong> they do not show that every proposed placement can be fully routed, or accepted for manufacturing.</p>
 <h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="chart-bar"></span>Timing depends on both data and clock arrival</h2>
-<p>A synchronous circuit stores values at clock events. For a simplified maximum-delay check, data must arrive early enough before the receiving clock event.</p><p>Slack is the allowed arrival time minus the actual or estimated arrival time. A requirement of 100 picoseconds and arrival of 103 gives slack of −3 picoseconds, a violation under this simplified setup.</p>
-<p>Clock signals also travel through real wires and buffers. Their arrival times differ between locations.</p><p>That difference changes the time available for data to travel between storage elements. A change helping one maximum-delay condition can affect a minimum-delay condition, so improving a single path is not equivalent to complete timing closure.</p>
-<p>The <a href="../subthemes/placement-routing-and-timing.html#the-clock-also-has-to-arrive-on-time">DCTS discussion</a> connects clock topology and buffer sizing. The available record still lacks complete final wiring and comparison conditions.</p><p>The <a href="../subthemes/compiler-and-runtime-optimization.html#explanation-dac-2026-research2566">manuscript-backed timing-reuse explanation</a>, in the tooling theme, further shows why arrival estimates must retain electrical context and error direction. A faster timing calculation and a faster implemented circuit are different contributions.</p>
+<p>A signal is on time only relative to when the clock arrives, and the clock travels too.</p>
+<p>A synchronous circuit stores values at clock events. In a simplified maximum-delay check, data must arrive early enough before the receiving clock event.</p>
+<p><strong>Slack</strong> = allowed arrival time − actual (or estimated) arrival time.</p>
+<blockquote>
+<p><strong>Worked example.</strong> Required: 100 picoseconds. Arrival: 103.</p>
+<ul>
+<li>Slack = 100 − 103 = <strong>−3 picoseconds</strong>.</li>
+<li>Negative slack is a violation, under this simplified setup.</li>
+</ul>
+</blockquote>
+<p>Clock signals also travel through real wires and buffers, so they arrive at different places at different times. That difference changes how much time data has to travel between storage elements.</p><p>A change that helps one maximum-delay check can hurt a minimum-delay check. So fixing one path is not complete <strong>timing closure</strong> (meeting every timing check at once).</p>
+<ul>
+<li>The <a href="../subthemes/placement-routing-and-timing.html#the-clock-also-has-to-arrive-on-time">DCTS discussion</a> links clock layout and buffer sizing. Its record still lacks complete final wiring and comparison conditions.</li>
+<li>The <a href="../subthemes/compiler-and-runtime-optimization.html#explanation-dac-2026-research2566">manuscript-backed timing-reuse explanation</a>, in the tooling theme, shows why arrival estimates must keep their electrical context and error direction.</li>
+</ul>
+<p>A faster timing calculation and a faster built circuit are different contributions.</p>
 <h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="affiliate"></span>Cell sizing moves costs between connected components</h2>
-<p>A stronger driver may charge a given load more quickly. It can also occupy more area, consume more energy, and present a larger input load to its own predecessor. Replacing a small cell with a larger one therefore changes more than that cell's isolated delay.</p>
-<div class="worked"><p class="lm-k">Worked example</p><p>In an illustrative chain, suppose strengthening the second cell reduces its delay by four time units but increases the first cell's delay by three because of added load. The chain saves one unit, not four.</p></div><p>If placement displacement adds two more units of wiring delay, the total becomes one unit worse. These numbers explain the dependency; they are not a device model or a measured paper result.</p>
-<p><a href="../subthemes/placement-routing-and-timing.html#paper-dac-2026-research1317">HyPAS's recorded method</a> motivates considering placement and sizing together. Its current evidence does not establish complete prediction error, repair cost, or final gain.</p><p>Joint optimization enlarges the set of decisions, but it also makes attribution harder: an evaluation needs to distinguish the combined result from each component's contribution.</p>
+<p>Making one cell stronger can slow the cell that drives it.</p>
+<p>A stronger driver may charge its load faster. It can also take more area, use more energy, and present a bigger load to the cell before it. So swapping a small cell for a larger one changes more than that cell's own delay.</p>
+<blockquote>
+<p><strong>Worked example (illustrative chain, not a device model).</strong></p>
+<ul>
+<li>Strengthening the second cell cuts its delay by <strong>4</strong> time units.</li>
+<li>The extra load adds <strong>3</strong> units to the first cell's delay. Net saving: 4 − 3 = <strong>1</strong> unit, not 4.</li>
+<li>If the new size shifts placement and adds <strong>2</strong> units of wiring delay: −4 + 3 + 2 = <strong>1 unit worse</strong>.</li>
+</ul>
+</blockquote>
+<p><a href="../subthemes/placement-routing-and-timing.html#paper-dac-2026-research1317">HyPAS's recorded method</a> argues for choosing placement and sizing together. Its current evidence does not establish complete prediction error, repair cost or final gain.</p><p>Optimizing jointly opens up more choices, but makes credit harder to assign. An evaluation must separate the combined result from each part's contribution.</p>
 <h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>Power delivery changes the conditions used for timing</h2>
-<p>The supply network has electrical resistance. In a simple resistive model, a current of 0.1 ampere through 0.2 ohm produces a voltage drop of 0.02 volt.</p><p>A nominal 0.8-volt source then supplies 0.78 volt after that element, ignoring other effects. Real networks distribute current over many paths and change with switching activity; this calculation is only a basic illustration.</p>
-<p>Placing many simultaneously active cells in one area can concentrate demand. Enlarging drivers to improve timing can increase that demand. If delay analysis assumes a supply condition the network cannot provide, the apparent timing improvement may not survive the actual operating case.</p>
-<p>The <a href="../subthemes/placement-routing-and-timing.html#paper-dac-2026-research2297">IR-drop-aware placement record</a> links placement, supply-network changes, and voltage analysis. The current description does not establish all activity assumptions or final power-integrity checks. A useful comparison states which switching patterns and operating conditions were tested and which remain outside the model.</p>
+<p>Timing analysis assumes a supply voltage that the power network may not actually deliver.</p>
+<p>The supply network has electrical resistance.</p>
+<blockquote>
+<p><strong>Worked example (simple resistive model).</strong></p>
+<ul>
+<li>Current 0.1 ampere through 0.2 ohm: voltage drop = 0.1 × 0.2 = <strong>0.02 volt</strong>.</li>
+<li>A nominal 0.8-volt source then supplies 0.8 − 0.02 = <strong>0.78 volt</strong> past that element, ignoring other effects.</li>
+</ul>
+<p>Real networks spread current over many paths, and change with switching activity. This is only a basic illustration.</p>
+</blockquote>
+<p>Placing many cells that switch at once in one area concentrates demand. Enlarging drivers to fix timing can raise it further. If delay analysis assumes a supply the network cannot provide, the timing gain may not survive real operation.</p>
+<p>The <a href="../subthemes/placement-routing-and-timing.html#paper-dac-2026-research2297">IR-drop-aware placement record</a> links placement, supply-network changes and voltage analysis. Its description does not establish all activity assumptions or final power-integrity checks. A useful comparison says which switching patterns and operating conditions were tested, and which lie outside the model.</p>
 <h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="affiliate"></span>Extraction connects geometry back to electrical analysis</h2>
-<p>Extraction estimates electrical properties associated with the physical geometry, such as wire resistance and capacitance. These properties influence signal delay, coupling, and energy. Two geometries with the same logical connectivity need not have the same extracted behavior.</p>
-<p>A fast learned or simplified extractor can help evaluate more candidates. Its error should be judged where it changes decisions: selecting a different route, accepting an apparently valid path, or missing an interaction.</p><p>Small average error does not establish that the critical region is sufficiently accurate.</p>
-<p>This links physical design to the <a href="ai-assisted-eda.html">AI-assisted EDA theme</a> and <a href="design-methodology-and-tooling.html">tooling theme</a>. Prediction, search, and final checking need compatible definitions. A design selected using a cheap model still needs the appropriate higher-confidence evaluation; otherwise the process can preferentially select the model's optimistic mistakes.</p>
+<p>Two layouts with the same connections can behave differently, so geometry must be turned back into electrical numbers.</p>
+<p><strong>Extraction</strong> estimates electrical properties of the physical geometry, such as wire resistance and capacitance. These affect signal delay, coupling between wires, and energy.</p>
+<p>A fast learned or simplified extractor lets you evaluate more candidates. Judge its error where it changes decisions:</p>
+<ul>
+<li>choosing a different route;</li>
+<li>accepting a path that only looks valid;</li>
+<li>missing an interaction.</li>
+</ul>
+<p>A small average error does not show the critical region is accurate enough.</p>
+<p>This links physical design to the <a href="ai-assisted-eda.html">AI-assisted EDA theme</a> and <a href="design-methodology-and-tooling.html">tooling theme</a>. Prediction, search and final checking need compatible definitions. A design chosen with a cheap model still needs a more trustworthy evaluation. Otherwise the process tends to select the model's optimistic mistakes.</p>
 <h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="checklist"></span>Manufacturing checks and yield answer different questions</h2>
-<p>A design-rule check determines whether geometry satisfies specified rules. Pattern matching searches for arrangements represented by its query definitions.</p><p>Lithography simulation estimates aspects of how a pattern transfers through the modeled process. Inspection looks for observable deviations in manufactured material.</p><p>Functional testing evaluates specified behavior of produced devices. These stages are related, but none alone establishes every later outcome.</p>
-<p><a href="../subthemes/manufacturing-and-yield.html#searching-for-known-problematic-geometry">G-Matcher's explanation</a> separates faster pattern search from evidence that unknown patterns are safe. The <a href="../subthemes/manufacturing-and-yield.html#scheduling-the-computation-that-produces-a-mask">clip-wise optimization discussion</a> distinguishes allocating computation among regions from increasing simulator accuracy. Improvements within separate regions must also survive their boundaries when assembled.</p>
-<p>Yield is the fraction of manufactured devices meeting the specified acceptance requirements. A higher inspection-classifier score is not automatically higher yield. A subsequent process or design change needs evidence that more acceptable devices result, under comparable production conditions.</p>
-<p>Rare defects also change the meaning of a classifier result. Imagine 100 defective items among 10,000 inspected items.</p><p>Finding 90 defects gives 90% recall. If 99 good items are falsely flagged, only 90 of 189 flags concern real defects, about 47.6% precision.</p><p>A high defect-detection rate can therefore coexist with a substantial investigation burden. These are illustrative counts, not results for a captured inspection paper.</p>
-<p>The <a href="../subthemes/manufacturing-and-yield.html#rare-defects-and-incomplete-labels">inspection discussion</a> retains the difference between synthetic training examples and real evaluation defects, and between incomplete labels and established ground truth. Test splits need to reflect transfer across wafers, periods, or conditions rather than only nearby images from the same source.</p>
+<p>Each manufacturing check answers its own question, and none alone predicts yield.</p>
+<table>
+<thead>
+<tr>
+<th>Check</th>
+<th>What it determines</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Design-rule check</td>
+<td>Whether geometry meets the specified rules</td>
+</tr>
+<tr>
+<td>Pattern matching</td>
+<td>Whether arrangements matching its query definitions are present</td>
+</tr>
+<tr>
+<td>Lithography simulation</td>
+<td>How a pattern is likely to print through the modeled process</td>
+</tr>
+<tr>
+<td>Inspection</td>
+<td>Whether manufactured material shows observable deviations</td>
+</tr>
+<tr>
+<td>Functional testing</td>
+<td>Whether produced devices show the specified behavior</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><a href="../subthemes/manufacturing-and-yield.html#searching-for-known-problematic-geometry">G-Matcher's explanation</a> separates faster pattern search from evidence that unknown patterns are safe.</li>
+<li>The <a href="../subthemes/manufacturing-and-yield.html#scheduling-the-computation-that-produces-a-mask">clip-wise optimization discussion</a> separates sharing computation among regions from making the simulator more accurate. Improvements in separate regions must also hold at their boundaries when joined.</li>
+</ul>
+<p><strong>Yield</strong> is the fraction of manufactured devices that meet the acceptance requirements. A higher inspection-classifier score is not automatically higher yield. A process or design change needs evidence that more acceptable devices result, under comparable production conditions.</p>
+<p>Rare defects also change what a classifier result means.</p>
+<blockquote>
+<p><strong>Worked example (illustrative counts, not from a captured paper).</strong> 10,000 items are inspected; 100 are defective.</p>
+<ul>
+<li>The classifier finds 90 defects: <strong>recall</strong> = 90 ÷ 100 = <strong>90%</strong>.</li>
+<li>It also flags 99 good items. Flags total 90 + 99 = 189.</li>
+<li><strong>Precision</strong> = 90 ÷ 189 ≈ <strong>47.6%</strong> of flags are real defects.</li>
+</ul>
+<p>A high detection rate can still leave a large investigation burden.</p>
+</blockquote>
+<p>The <a href="../subthemes/manufacturing-and-yield.html#rare-defects-and-incomplete-labels">inspection discussion</a> keeps two differences visible:</p>
+<ul>
+<li>synthetic training examples versus real evaluation defects;</li>
+<li>incomplete labels versus established ground truth.</li>
+</ul>
+<p>Test splits should reflect transfer across wafers, time periods or conditions, not just nearby images from the same source.</p>
 <h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>What a complete physical result must preserve</h2>
+<p>Each claimed gain needs companion evidence before it counts as a finished result.</p>
 <table>
 <thead>
 <tr>
@@ -136,12 +243,37 @@
 </tr>
 </tbody>
 </table>
-<p>The total flow also includes unsuccessful candidates and repair. An optimizer taking ten minutes but requiring ninety minutes of cleanup is not a ten-minute path to an accepted layout.</p><p>Fixing geometry can alter electrical behavior, and improving electrical behavior can require new geometry. Completion means the selected result meets all applicable requirements together under stated conditions.</p>
+<p>The full flow also includes failed candidates and repair. An optimizer that takes ten minutes but needs ninety minutes of cleanup is not a ten-minute path to an accepted layout.</p><p>Fixing geometry can change electrical behavior, and fixing electrical behavior can need new geometry. Done means the chosen result meets every applicable requirement together, under stated conditions.</p>
 <h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="file-text"></span>Long-term hypotheses and disconfirming evidence</h2>
-<p>One hypothesis is that earlier joint consideration of placement, wiring, timing, and supply demand reduces downstream repair. Compare it with staged optimization using the same final checks and total budget.</p><p>It weakens when early models are inaccurate enough to cause additional rework or when staged methods reach equally good results more cheaply.</p>
-<p>A second hypothesis is that faster estimation is most useful when paired with decision-aware validation. Test ranking changes, false feasibility decisions, and final accepted outputs, not only average numerical error.</p><p>It weakens if the cheap model cannot safely filter candidates or exact fallback consumes the expected saving.</p>
-<p>A third hypothesis is that manufacturing learning requires evidence across the design-to-production boundary. Test whether predicted or detected patterns correspond to verified physical or electrical consequences under independent conditions.</p><p>It weakens as an established capability when gains remain confined to simulation or image scores without the claimed production outcome.</p>
-<p>These are bounded interpretations, not established ISCA–DAC–ICCAD time trends. Comparable processes, rule sets, circuits, operating assumptions, tool budgets, source depth, and editions remain necessary. This parent synthesis does not complete the deeper individual-paper writing, manufacturing validation, source recovery, or independent review still needed below.</p>
+<p>Three readings are worth testing; each names what would weaken it.</p>
+<table>
+<thead>
+<tr>
+<th>Hypothesis</th>
+<th>Test</th>
+<th>What would weaken it</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Considering placement, wiring, timing and supply demand together, early, reduces later repair</td>
+<td>Compare with step-by-step optimization, using the same final checks and total budget</td>
+<td>Early models are inaccurate enough to cause extra rework, or staged methods do as well more cheaply</td>
+</tr>
+<tr>
+<td>Faster estimation helps most when paired with decision-aware validation</td>
+<td>Measure ranking changes, false feasibility calls and final accepted outputs, not just average error</td>
+<td>The cheap model cannot safely filter candidates, or exact fallback eats the saving</td>
+</tr>
+<tr>
+<td>Manufacturing learning needs evidence across the design-to-production boundary</td>
+<td>Do predicted or detected patterns match verified physical or electrical effects, under independent conditions?</td>
+<td>Gains stay inside simulation or image scores, without the claimed production outcome</td>
+</tr>
+</tbody>
+</table>
+<p>These are bounded interpretations, not established ISCA–DAC–ICCAD time trends. Comparable processes, rule sets, circuits, operating assumptions, tool budgets, source depth and editions are still needed.</p>
+<p><strong>Be careful:</strong> this parent synthesis does not complete the deeper individual-paper writing, manufacturing validation, source recovery, or independent review still needed below.</p>
 <p class="lm-k h-label">Subthemes and how to study them</p><h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="books"></span>The subthemes in this theme, and how to read them</h2>
 <p>Each link opens the subtheme discussion and its captured paper records. Explanatory depth varies: some papers have expanded individual explanations; others still have only brief discussion or evidence cards. Source locations and unresolved conditions remain visible.</p>
 <h3><a href="../subthemes/placement-routing-and-floorplanning.html">Placement routing and floorplanning</a></h3>

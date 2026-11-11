@@ -74,42 +74,187 @@
 </ol>
 <p>More tests help only if they improve the relevant coverage or detection.</p>
 <h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="file-text"></span>Follow a claim from requirement to evidence</h2>
-<div class="worked"><p class="lm-k">Worked example</p><p>Consider a storage unit that accepts a write of value 7 to address A. A later read of A should return 7 under a specified set of conditions: the write completed, no intervening write changed A, the read was permitted, and no failure outside the contract occurred.</p></div><p>Without those conditions, a comparison with 7 may report an allowed behavior as a defect or accept behavior that should have been rejected.</p>
-<p>A verification method must make five things explicit: what object is under test, what behavior is required, what inputs and starting states are allowed, what execution is represented, and what observations decide the result. These are connected obligations.</p><p>Improving test generation does not repair a wrong expected result; a correct expected result cannot detect an error that the observation omits.</p>
-<p>The examples below are independent teaching constructions. The linked paper explanations retain their manuscript locations, reported results, and unresolved discrepancies. This parent discussion connects their mechanisms without claiming a reproduced combined system or exhaustive verification.</p>
+<p>A check can only be judged against conditions that say what the right answer is.</p>
+<blockquote>
+<p><strong>Example.</strong> A storage unit accepts a write of value 7 to address A. A later read of A should return 7, but only if:</p>
+<ul>
+<li>the write completed;</li>
+<li>no later write changed A;</li>
+<li>the read was allowed;</li>
+<li>no failure outside the contract occurred.</li>
+</ul>
+<p>Without those conditions, comparing with 7 may call allowed behavior a defect, or accept behavior that should be rejected.</p>
+</blockquote>
+<p>A verification method must make five things explicit:</p>
+<ol>
+<li>what object is under test;</li>
+<li>what behavior is required;</li>
+<li>which inputs and starting states are allowed;</li>
+<li>what execution is represented;</li>
+<li>which observations decide the result.</li>
+</ol>
+<p>These depend on each other. Better test generation does not fix a wrong expected result. A correct expected result cannot catch an error the observation leaves out.</p>
+<p><strong>Be careful:</strong> the examples below are independent teaching constructions. The linked paper explanations keep their manuscript locations, reported results and unresolved discrepancies. This discussion connects their mechanisms without claiming a reproduced combined system or exhaustive verification.</p>
 <h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="alert-triangle"></span>The object being checked determines what a failure means</h2>
-<p>A processor implementation executes instructions using a particular circuit. A reference instruction model computes the allowed software-visible behavior without necessarily representing that circuit's timing. Comparing them can reveal an architectural disagreement. It does not require their internal signals or clock-by-clock behavior to match.</p>
-<p>Firmware testing asks a different question: does software behave correctly when interacting with devices? A peripheral model may provide input bytes, status flags, and interrupts.</p><p>A software crash in that environment is not automatically a circuit defect, and a model reaching more software branches is not processor-state coverage.</p>
-<p><a href="../subthemes/processor-and-rtl-verification.html#explanation-dac-2026-research150">RISCSmith</a> and <a href="../subthemes/processor-and-rtl-verification.html#explanation-dac-2026-research2533">LiFU</a> examine processor testing. The <a href="../subthemes/processor-and-rtl-verification.html#explanation-dac-2026-research616">SystemC embedded-fuzzing explanation</a> concerns firmware interacting with peripheral models. Their placement in one chapter permits a comparison of testing mechanisms, not a merger of their bug counts or coverage denominators.</p>
+<p>A failure means different things for a processor circuit and for firmware running on device models.</p>
+<table>
+<thead>
+<tr>
+<th>What is checked</th>
+<th>Compared against</th>
+<th>What a mismatch means</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A processor implementation (a particular circuit)</td>
+<td>A reference instruction model of allowed software-visible behavior</td>
+<td>An architectural disagreement. Internal signals and clock-by-clock timing need not match.</td>
+</tr>
+<tr>
+<td>Firmware talking to devices</td>
+<td>Peripheral models that supply input bytes, status flags and interrupts</td>
+<td>A software problem in that environment, not automatically a circuit defect</td>
+</tr>
+</tbody>
+</table>
+<p>Reaching more software branches in a device model is not processor-state coverage.</p>
+<ul>
+<li><a href="../subthemes/processor-and-rtl-verification.html#explanation-dac-2026-research150">RISCSmith</a> and <a href="../subthemes/processor-and-rtl-verification.html#explanation-dac-2026-research2533">LiFU</a> test processors.</li>
+<li>The <a href="../subthemes/processor-and-rtl-verification.html#explanation-dac-2026-research616">SystemC embedded-fuzzing explanation</a> tests firmware against peripheral models.</li>
+</ul>
+<p><strong>Be careful:</strong> sharing a chapter lets us compare their testing mechanisms. It does not let us merge their bug counts or coverage denominators.</p>
 <h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="checklist"></span>A test needs both a path to the error and a way to observe it</h2>
-<div class="worked"><p class="lm-k">Worked example</p><p>Suppose an arithmetic operation should write 5 to a register but writes 6. A subsequent instruction clears the register to zero.</p></div><p>Comparing only the final register value sees agreement. Comparing after the arithmetic operation sees a disagreement.</p><p>More runs of the same final-state-only checker need not reveal this error.</p>
-<p>Observation must also occur at the right semantic boundary. A processor can execute work internally and later discard it. Treating every temporary internal write as a committed instruction result can create false alarms. Conversely, observing only registers can miss an incorrect memory write or exception.</p>
-<p>RISCSmith's recovered method explains why instruction dependencies and intermediate observations belong together: meaningful construction makes interactions reachable, and logging retains effects before later instructions erase them. Its <a href="../subthemes/processor-and-rtl-verification.html#explanation-dac-2026-research150">individual discussion</a> links the construction and logging method to manuscript Section 3 and distinguishes observed disagreement from confirmed responsibility for a defect.</p>
-<p>The broader lesson is conditional. More observation can expose errors, but it can also increase execution overhead and produce more traces to analyze. Compare the number of distinct, independently supported findings per complete campaign budget, not merely the number of logged events.</p>
+<p>A test finds an error only if it reaches it and looks at the right moment.</p>
+<blockquote>
+<p><strong>Worked example.</strong> An arithmetic operation should write 5 to a register, but writes 6. The next instruction clears the register to zero.</p>
+<ul>
+<li>Checking only the final value: 0 = 0, so the error is missed.</li>
+<li>Checking right after the arithmetic: 6 ≠ 5, so the error is caught.</li>
+</ul>
+<p>More runs of a final-state-only checker need not reveal it.</p>
+</blockquote>
+<p>The observation must also sit at the right boundary of meaning. A processor can do work internally and later throw it away. Treating every temporary internal write as a committed result causes false alarms. Watching only registers can miss a wrong memory write or exception.</p>
+<p>RISCSmith's recovered method shows why two things belong together:</p>
+<ul>
+<li>building programs whose instruction dependencies make interactions reachable;</li>
+<li>logging intermediate effects before later instructions erase them.</li>
+</ul>
+<p>Its <a href="../subthemes/processor-and-rtl-verification.html#explanation-dac-2026-research150">individual discussion</a> ties the construction and logging method to manuscript Section 3. It separates an observed disagreement from confirmed responsibility for a defect.</p>
+<p>More observation can expose errors, but it also adds run time and more traces to analyze. So compare distinct, independently supported findings per complete campaign budget, not the number of logged events.</p>
 <h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="checklist"></span>A reference is a checker, not unquestionable truth</h2>
-<p>Differential testing runs related inputs through two implementations and compares their observable behavior. A mismatch establishes that they differ under the comparison rule.</p><p>It does not by itself identify which implementation is wrong. The reference, event matching, initial state, supported features, or test generator may contain the mistake.</p>
-<p>Agreement is also limited evidence. Two implementations can share a mistaken interpretation or omit the same behavior. A third implementation helps only to the extent that its relevant assumptions and implementation are sufficiently independent. Counting agreeing tools cannot replace checking the requirement.</p>
-<p>A useful failure report therefore records input bytes, initial state, configurations, revisions, permitted behaviors, the first relevant difference, and a replay procedure. Reduction removes unnecessary input while preserving the same failure condition.</p><p>A shorter program that instead raises an unrelated exception has not preserved the finding.</p>
-<p>Several reduced programs may expose one underlying cause. Suppose 100 failing inputs reduce to three distinct causes, of which two are confirmed against the specification and one remains disputed.</p><p>The supported summary is two confirmed causes and one unresolved cause, not 100 newly discovered bugs. These counts are illustrative, not a result attributed to the linked papers.</p>
+<p>When two implementations disagree, that shows a difference, not which one is wrong.</p>
+<p><strong>Differential testing</strong> runs related inputs through two implementations and compares what they visibly do. A mismatch shows they differ under the comparison rule. The mistake may be in either one, or in:</p>
+<ul>
+<li>the reference;</li>
+<li>the event matching;</li>
+<li>the initial state;</li>
+<li>the supported features;</li>
+<li>the test generator.</li>
+</ul>
+<p>Agreement is limited evidence too. Two implementations can share a wrong interpretation, or both omit the same behavior. A third helps only if its relevant assumptions and code are independent enough. Counting agreeing tools cannot replace checking the requirement.</p>
+<p>A useful failure report records:</p>
+<ul>
+<li>input bytes and initial state;</li>
+<li>configurations and revisions;</li>
+<li>permitted behaviors;</li>
+<li>the first relevant difference;</li>
+<li>a replay procedure.</li>
+</ul>
+<p><strong>Reduction</strong> cuts unneeded input while keeping the same failure. A shorter program that raises an unrelated exception has not kept the finding.</p>
+<blockquote>
+<p><strong>Worked example (illustrative counts, not from the linked papers).</strong> 100 failing inputs reduce to 3 distinct causes. Two are confirmed against the specification; one is disputed.</p>
+<p>The supported summary is <strong>2 confirmed causes and 1 unresolved</strong>, not 100 new bugs.</p>
+</blockquote>
 <h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>Coverage measures exploration within a definition</h2>
-<p>Line coverage counts whether selected source lines executed. Branch coverage concerns selected alternatives through control flow.</p><p>State or transition coverage concerns defined states or changes between them. Each requires a denominator: what was counted, which points were excluded, and which points can actually be reached under the setup.</p>
-<p>Reaching 90 of 100 recorded points gives 90% coverage. Reaching 950 of a different 1,000-point set gives 95%.</p><p>Neither number alone says which campaign checked more meaningful behavior, whether either detected a fault, or whether their remaining points include the same critical case. A score becomes comparable only after matching its definition and target.</p>
-<p>The manuscript-backed processor chapter gives a concrete boundary: RISCSmith's inspected coverage experiment measures the Spike reference model, whereas LiFU reports RTL-tool coverage with formal assistance. Their percentages cannot be ranked as measurements of one common state space. The <a href="../subthemes/processor-and-rtl-verification.html#what-connects-the-three-proposals">cross-paper discussion</a> preserves that distinction.</p>
-<p>Coverage can still guide testing. A newly reached branch may justify retaining an input because it exposes behavior earlier tests missed.</p><p>But treating every unreachable point as a failure of the generator wastes resources, while removing merely difficult points can inflate the score. Exclusion rules need evidence and must remain visible.</p>
+<p>A coverage percentage means little unless you know what was being counted.</p>
+<ul class="idea-cards"><li><p class="lm-k">Line coverage</p><p> did selected source lines run?</p></li><li><p class="lm-k">Branch coverage</p><p> were selected alternatives in the control flow taken?</p></li><li><p class="lm-k">State or transition coverage</p><p> were defined states, or changes between them, reached?</p></li></ul>
+<p>Each needs a denominator: what was counted, which points were excluded, and which can actually be reached in the setup.</p>
+<blockquote>
+<p><strong>Worked example.</strong></p>
+<ul>
+<li>90 of 100 recorded points reached: <strong>90%</strong>.</li>
+<li>950 of a different 1,000-point set reached: <strong>95%</strong>.</li>
+</ul>
+<p>Neither number says which campaign checked more meaningful behavior, whether either found a fault, or whether their missed points include the same critical case.</p>
+</blockquote>
+<p>A score becomes comparable only after its definition and target are matched. The manuscript-backed processor chapter shows this: RISCSmith's inspected coverage experiment measures the Spike reference model, while LiFU reports RTL-tool coverage with formal assistance.</p><p>Their percentages cannot be ranked as measurements of one shared state space. The <a href="../subthemes/processor-and-rtl-verification.html#what-connects-the-three-proposals">cross-paper discussion</a> keeps that distinction.</p>
+<p>Coverage can still guide testing. A newly reached branch may justify keeping an input that exposes behavior earlier tests missed.</p>
+<p><strong>Be careful:</strong> blaming the generator for every unreachable point wastes resources, and quietly removing hard points inflates the score. Exclusion rules need evidence and must stay visible.</p>
 <h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>Formal proof is conditional on a model and assumptions</h2>
-<p>A formal check can reason about all behaviors represented by a stated model under stated assumptions. The result concerns the property actually expressed, not every intended property of the eventual system.</p><p>If the model excludes a relevant input or simplifies away a relevant interaction, a proof within that model does not cover the excluded case.</p>
-<p>For a simple implication, consider: whenever a request is accepted, a response arrives within four cycles. If assumptions accidentally prohibit every accepted request, the implication can hold without exercising the intended obligation.</p><p>A separate reachability check asking whether acceptance can occur helps expose this problem. It does not by itself establish that the remaining assumptions are realistic.</p>
-<p>A bounded search that finds no violation in ten cycles establishes less than an unbounded proof. A failure appearing at cycle eleven remains outside that search.</p><p>A solver timeout establishes neither correctness nor a counterexample; it is an unresolved check. The report must distinguish these outcomes rather than grouping them under a single success count.</p>
-<p>Formal and simulation evidence can complement each other. Simulation can exercise a concrete environment and produce an executable trace.</p><p>Formal reasoning can cover combinations within its model that random testing may miss. Their benefits depend on the relationship between models, assumptions, and properties, not on simply adding their coverage scores.</p>
+<p>A proof covers exactly the property it states, inside the model it assumes, and nothing more.</p>
+<p>A formal check reasons about every behavior in a stated model, under stated assumptions. If the model leaves out a relevant input or interaction, the proof does not cover that case.</p>
+<blockquote>
+<p><strong>Example.</strong> Property: whenever a request is accepted, a response arrives within four cycles.</p>
+<ul>
+<li>If the assumptions accidentally forbid every accepted request, the property "holds" without testing anything.</li>
+<li>A separate reachability check (can acceptance ever happen?) exposes this.</li>
+<li>It still does not show the remaining assumptions are realistic.</li>
+</ul>
+</blockquote>
+<p>Three outcomes must be reported separately:</p>
+<table>
+<thead>
+<tr>
+<th>Outcome</th>
+<th>What it establishes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Bounded search finds no violation in ten cycles</td>
+<td>Less than an unbounded proof; a failure at cycle eleven is outside the search</td>
+</tr>
+<tr>
+<td>Unbounded proof</td>
+<td>The stated property holds in the stated model, under its assumptions</td>
+</tr>
+<tr>
+<td>Solver timeout</td>
+<td>Nothing yet: an unresolved check</td>
+</tr>
+</tbody>
+</table>
+<p>A solver timeout establishes neither correctness nor a counterexample. So these outcomes must not be grouped under one success count.</p>
+<p>Formal and simulation evidence can work together. Simulation exercises a concrete environment and gives a trace you can run.</p><p>Formal reasoning can cover combinations within its model that random testing may miss. Their joint value depends on how their models, assumptions and properties relate, not on adding their coverage scores.</p>
 <h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="alert-triangle"></span>The environment can create or conceal a failure</h2>
-<div class="worked"><p class="lm-k">Worked example</p><p>Suppose firmware reads a ready flag and then receives bytes from a device queue. A simulator that changes the flag independently of the queue may permit a state that the intended peripheral cannot produce.</p></div><p>A reported crash from that state may indict the model rather than the firmware. A model that excludes a real unusual event can create the opposite problem: missed faults.</p>
-<p>The SystemC study's <a href="../subthemes/processor-and-rtl-verification.html#explanation-dac-2026-research616">expanded explanation</a> separates functional peripheral behavior from cycle-accurate hardware timing. It also preserves the difference between detecting deliberately inserted bugs and discovering new bugs in unchanged software. Neither kind of experiment should silently substitute for the other.</p>
-<p>False positives are reports that do not correspond to the relevant real fault; false negatives are faults the method misses. Fewer crash reports do not prove improvement in both. Determining either rate requires appropriate ground truth, including investigation beyond a favorable subset of outputs.</p>
+<p>A wrong device model can invent failures, or hide real ones.</p>
+<blockquote>
+<p><strong>Example.</strong> Firmware reads a ready flag, then receives bytes from a device queue.</p>
+<ul>
+<li>A simulator that changes the flag independently of the queue may allow a state the real peripheral cannot produce. A crash from that state may blame the model, not the firmware.</li>
+<li>A model that leaves out a real unusual event can cause the opposite problem: missed faults.</li>
+</ul>
+</blockquote>
+<p>The SystemC study's <a href="../subthemes/processor-and-rtl-verification.html#explanation-dac-2026-research616">expanded explanation</a> separates functional peripheral behavior from cycle-accurate hardware timing. It also separates finding deliberately inserted bugs from discovering new bugs in unchanged software. Neither experiment should silently stand in for the other.</p>
+<ul>
+<li>A <strong>false positive</strong> is a report that matches no relevant real fault.</li>
+<li>A <strong>false negative</strong> is a fault the method misses.</li>
+</ul>
+<p>Fewer crash reports do not prove both improved. Measuring either rate needs proper ground truth, including investigation beyond a favorable subset of outputs.</p>
 <h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="checklist"></span>Optimize the full investigation, not only test production</h2>
-<p>A campaign spends resources generating inputs, executing them, checking outputs, reducing failures, and resolving their causes. Faster generation can fill a queue without improving findings if execution or investigation is limiting.</p><p>Remote model calls, parallel simulator workers, and human review remain costs even when one headline reports only test count.</p>
-<p>As an illustrative comparison, 100 tests at one second each require 100 seconds of execution. Sixty tests at two seconds each require 120 seconds.</p><p>Forty percent fewer tests is therefore not automatically less elapsed time. Parallelism changes elapsed time but also changes resource use; both need reporting.</p>
-<p>LiFU's <a href="../subthemes/processor-and-rtl-verification.html#explanation-dac-2026-research2533">individual explanation</a> discusses selection, mutation, feedback, and execution overlap. A shared campaign can allocate effort more effectively, but an evaluation must separate the effect of coordination from extra methods, formal assistance, and additional compute.</p>
+<p>A campaign's cost runs from generating tests to explaining each failure, not just test count.</p>
+<p>A campaign spends resources on:</p>
+<ol>
+<li>generating inputs;</li>
+<li>running them;</li>
+<li>checking outputs;</li>
+<li>reducing failures;</li>
+<li>finding their causes.</li>
+</ol>
+<p>Faster generation just fills a queue if running or investigating is the bottleneck. Remote model calls, parallel simulator workers and human review are costs even when a headline reports only test count.</p>
+<blockquote>
+<p><strong>Worked example (illustrative).</strong></p>
+<ul>
+<li>100 tests × 1 second = <strong>100 seconds</strong> of execution.</li>
+<li>60 tests × 2 seconds = <strong>120 seconds</strong>.</li>
+</ul>
+<p>Forty percent fewer tests is not automatically less elapsed time.</p>
+</blockquote>
+<p>Parallelism changes elapsed time, and also resource use; report both.</p>
+<p>LiFU's <a href="../subthemes/processor-and-rtl-verification.html#explanation-dac-2026-research2533">individual explanation</a> covers selection, mutation, feedback and overlapping execution. A shared campaign can spend effort better. But an evaluation must separate the effect of coordination from extra methods, formal assistance and extra compute.</p>
 <h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>What each observation can support</h2>
+<p>Each observation supports one statement; a stronger claim needs more evidence.</p>
 <table>
 <thead>
 <tr>
@@ -147,11 +292,36 @@
 </tbody>
 </table>
 <h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>Long-term hypotheses that remain open</h2>
-<p>One hypothesis is that preserving useful information between verification stages can matter more than producing additional independent tests. Dependency-preserving mutation, intermediate observations, and feedback-directed allocation motivate it.</p><p>A matched evaluation should remove each information path while keeping tools and resources fixed. The hypothesis weakens if apparent gains disappear after equalizing compute or checker strength.</p>
-<p>A second hypothesis is that improved execution-environment fidelity can lower total investigation cost despite slower simulation. Test this using both simulator time and independently classified investigation effort. It weakens if modeling costs dominate or if the more restrictive environment hides meaningful failures.</p>
-<p>A third hypothesis is that claims become more transferable when they report a resolved failure and its assumptions rather than only a coverage percentage. Test whether independent users can replay, diagnose, and classify the reported finding under the declared setup.</p><p>A packet that omits necessary state, depends on unavailable components, or changes meaning under replay weakens the claim of transferability.</p>
-<p>These are testable interpretations, not observed ISCA–DAC–ICCAD time trends. Comparable editions, target classes, budgets, source depth, and confirmation rules are still needed. Conference labels alone do not establish that tools are converging or that one venue's verification methods outperform another's.</p>
-<p>The <a href="../subthemes/processor-and-rtl-verification.html">processor and RTL chapter</a> now contains three expanded manuscript-backed discussions. Other verification branches below still need deeper individual writing and source recovery. This parent synthesis does not resolve their evidence gaps, model-to-hardware correspondence, or independent scientific and comprehension review.</p>
+<p>Three readings are worth testing; each names what would weaken it.</p>
+<table>
+<thead>
+<tr>
+<th>Hypothesis</th>
+<th>Test</th>
+<th>What would weaken it</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Passing useful information between verification stages can matter more than producing more independent tests (motivated by dependency-preserving mutation, intermediate observations and feedback-directed allocation)</td>
+<td>Remove each information path, keeping tools and resources fixed</td>
+<td>Gains disappear once compute or checker strength is equalized</td>
+</tr>
+<tr>
+<td>A more faithful execution environment can lower total investigation cost, despite slower simulation</td>
+<td>Measure both simulator time and independently classified investigation effort</td>
+<td>Modeling costs dominate, or the stricter environment hides meaningful failures</td>
+</tr>
+<tr>
+<td>Claims transfer better when they report a resolved failure and its assumptions, not just a coverage percentage</td>
+<td>Can independent users replay, diagnose and classify the finding under the declared setup?</td>
+<td>The report omits needed state, depends on unavailable parts, or changes meaning on replay</td>
+</tr>
+</tbody>
+</table>
+<p>These are testable interpretations, not observed ISCA–DAC–ICCAD time trends. Comparable editions, target classes, budgets, source depth and confirmation rules are still needed.</p>
+<p><strong>Be careful:</strong> conference labels alone do not show that tools are converging, or that one venue's verification methods beat another's.</p>
+<p>The <a href="../subthemes/processor-and-rtl-verification.html">processor and RTL chapter</a> now has three expanded manuscript-backed discussions. Other verification branches below still need deeper writing and source recovery. This synthesis does not resolve their evidence gaps, model-to-hardware correspondence, or independent scientific and comprehension review.</p>
 <p class="lm-k h-label">Subthemes and how to study them</p><h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="books"></span>The subthemes in this theme, and how to read them</h2>
 <p>Each link opens the subtheme discussion and its captured paper records. Explanatory depth varies: some papers have expanded individual explanations; others still have only brief discussion or evidence cards. Source locations and unresolved conditions remain visible.</p>
 <h3><a href="../subthemes/simulation-emulation-and-testing.html">Simulation emulation and testing</a></h3>

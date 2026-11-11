@@ -1,70 +1,188 @@
 ## Follow a request from arrival to a usable result
 
-A request arrives, waits for resources, obtains its inputs, runs computation, and produces an output. Some applications then need another step: a robot must apply the command, a database must make an update recoverable, or a user must receive the answer over a network. Measuring only the arithmetic omits part of what the application needs completed.
+A request spends time in several stages, so speeding up one stage speeds up the whole far less.
 
-Suppose a request waits 20 milliseconds, transfers data for 10, computes for 30, and returns its result in 5. Its elapsed time is 65 milliseconds if these stages are sequential. Making computation three times faster reduces that total to 45 milliseconds, about 1.44× faster rather than 3×. Queueing may also change when service becomes faster, so the calculation is an illustrative fixed-wait example, not a prediction under arbitrary load.
+A request:
 
-The theme's current coded records are DAC records. Links to ISCA-backed explanations in neighboring themes below provide explicit cross-theme context; they do not change that sample into a balanced three-conference comparison. All numerical examples not identified as paper results are teaching calculations.
+1. arrives;
+2. waits for resources;
+3. gets its inputs;
+4. runs its computation;
+5. produces an output.
+
+Some applications need one more step. A robot must apply the command. A database must make an update recoverable. A user must receive the answer over a network. Measuring only the arithmetic leaves out part of what the application needs done.
+
+> **Worked example (illustrative fixed wait).** A request waits 20 milliseconds, transfers data for 10, computes for 30 and returns its result in 5.
+>
+> - Total, if the stages run one after another: 20 + 10 + 30 + 5 = **65 milliseconds**.
+> - Make computation three times faster: 20 + 10 + 10 + 5 = **45 milliseconds**.
+> - That is about **1.44×** faster overall, not 3×.
+
+Queueing may also change once service gets faster. So this is a teaching example, not a prediction under any load.
+
+**Be careful:** this theme's coded records are all DAC records. Links below to ISCA-backed explanations in neighboring themes give cross-theme context. They do not turn the sample into a balanced three-conference comparison. Numerical examples not marked as paper results are teaching calculations.
 
 ## Define the unit of useful work
 
-Requests are not necessarily equal-sized units. One language-model request may contain a short prompt and long answer; another may contain a long prompt and short answer. One image can require different processing from another. Two queues containing ten requests each can therefore contain very different amounts of remaining work.
+Requests differ in size, so every rate must say what it counts.
 
-A rate must name its unit: requests per second, input tokens per second, output tokens per second, processed frames per second, or successfully completed tasks. None can be substituted for another without the workload and conversion rule. Even equal output counts can conceal unequal output quality.
+Requests are not equal units:
 
-Offline processing begins with work available and often seeks minimum total completion time. Online service additionally faces arrival times, waiting, and response constraints. A fast offline batch does not establish good online service when requests arrive irregularly or require different amounts of work.
+- One language-model request may have a short prompt and a long answer; another the reverse.
+- One image may need different processing from another.
+
+So two queues of ten requests each can hold very different amounts of work.
+
+A rate must name its unit. Possible units include:
+
+- requests per second;
+- input tokens per second;
+- output tokens per second;
+- processed frames per second;
+- successfully completed tasks.
+
+None can stand in for another without the workload and a conversion rule. Even equal output counts can hide unequal output quality.
+
+**Offline processing** starts with all the work available, and usually aims for the shortest total completion time. **Online service** also faces arrival times, waiting and response limits. A fast offline batch does not show good online service when requests arrive irregularly or need different amounts of work.
 
 ## Throughput and response time can move in opposite directions
 
-Imagine a machine completes a batch of four requests every 40 milliseconds. Its steady completion rate is 100 requests per second, giving ten milliseconds per request when dividing total time by count. But a request that begins processing with the batch waits 40 milliseconds for its result, even before counting time spent waiting for the batch to form. The reciprocal rate is not its response time.
+Finishing more requests per second can still make each request wait longer.
 
-A larger batch can make hardware more efficient by sharing setup or reusing weights. It can also require more memory, delay admission, or lengthen the time until any one request completes. Report both completed work and the distribution of request elapsed times.
+> **Worked example.** A machine finishes a batch of four requests every 40 milliseconds.
+>
+> - Steady rate: 4 ÷ 0.04 s = **100 requests per second**, or 10 milliseconds per request on average.
+> - But a request that starts with the batch waits **40 milliseconds** for its result.
+> - That is before counting the wait for the batch to form.
+>
+> The reciprocal rate is not its response time.
 
-The neighboring memory chapter's [lossless-weight-compression explanation](../observed-subthemes/memory-hierarchy-and-persistence.md#explanation-isca-2026-program-008) preserves a concrete manuscript case where throughput improves while median time per output token increases. The [robotics discussion of ActionFlow](../observed-subthemes/robotics-and-edge-ai.md#pipelining-throughput-is-not-a-timestamp) likewise separates a frame rate from an observation-to-command timestamp and retains a source timing-unit discrepancy. These records motivate a shared measurement obligation, not a directly comparable speed ranking.
+A larger batch can make hardware more efficient, by sharing setup or reusing weights. It can also:
+
+- need more memory;
+- delay admission;
+- lengthen the time until any one request finishes.
+
+So report both completed work and the spread of request times.
+
+Two neighboring records show this:
+
+- The memory chapter's [lossless-weight-compression explanation](../observed-subthemes/memory-hierarchy-and-persistence.md#explanation-isca-2026-program-008) keeps a manuscript case where throughput improves while median time per output token rises.
+- The [robotics discussion of ActionFlow](../observed-subthemes/robotics-and-edge-ai.md#pipelining-throughput-is-not-a-timestamp) separates a frame rate from an observation-to-command timestamp. It also keeps a timing-unit discrepancy in the source.
+
+**Be careful:** these records set a shared measurement duty. They are not a directly comparable speed ranking.
 
 ## A deadline claim needs a population and a failure rule
 
-A service-level objective specifies a target for a defined population, such as at least 99% of admitted requests completing within 100 milliseconds. It should state whether rejected requests, canceled requests, retries, and requests remaining unfinished at the end of measurement are counted. Excluding difficult work can improve reported latency without improving the service.
+A service target means something only if it says which requests count and what counts as missing it.
 
-If 980 of 1,000 admitted requests finish within the target, attainment is 98%. That fails the illustrative 99% requirement even if the average response is fast. Reporting only completed requests can hide those still waiting. A percentile also needs a documented calculation and sufficient observations; a short run cannot establish behavior over every future burst.
+A **service-level objective** sets a target for a defined group. For example: at least 99% of admitted requests finish within 100 milliseconds. It should state whether these count:
 
-The manuscript-backed [eLLM discussion](../observed-subthemes/datacenter-and-cloud-systems.md#ellm-let-temporary-activations-and-saved-attention-data-share-capacity) explicitly records how its latency thresholds and goodput are defined. Its goodput uses a particular attainment criterion, not a universal definition applicable to every service. The same discussion separates online service from offline decode and total-throughput results.
+- rejected requests;
+- cancelled requests;
+- retries;
+- requests still unfinished when measurement ends.
+
+Leaving out difficult work can improve reported latency without improving the service.
+
+> **Worked example.** 980 of 1,000 admitted requests finish within the target.
+>
+> - Attainment: 980 ÷ 1,000 = **98%**.
+> - That fails the illustrative 99% requirement, even if the average response is fast.
+
+Reporting only completed requests can hide those still waiting. A percentile also needs a documented calculation and enough observations. A short run cannot show behavior over every future burst.
+
+The manuscript-backed [eLLM discussion](../observed-subthemes/datacenter-and-cloud-systems.md#ellm-let-temporary-activations-and-saved-attention-data-share-capacity) records how its latency thresholds and goodput are defined. Its **goodput** (useful completed work) uses one particular attainment rule, not a universal definition. The same discussion keeps online service apart from offline decode and total-throughput results.
 
 ## Load changes the value of an optimization
 
-Suppose a server can sustain 100 equal requests per second. At a continuing arrival rate of 110, pending work grows by roughly ten requests per second once sustained operation reaches capacity, assuming no rejection or cancellation. A tenfold faster routing decision cannot remove this service-capacity deficit if routing was not the limiting work.
+When requests arrive faster than the server can handle, no speed-up elsewhere stops the queue growing.
 
-Average arrivals below capacity do not prevent temporary queues. If 100 requests arrive together and each takes ten milliseconds on a serial server, their completion times range from ten to 1,000 milliseconds. The same 100 requests spread far enough apart can avoid that queue entirely. Arrival timing belongs in the workload definition alongside input size.
+> **Worked example.** A server can sustain 100 equal requests per second. Requests keep arriving at 110 per second.
+>
+> - Once the server is at capacity, waiting work grows by about 110 − 100 = **10 requests per second**, assuming no rejection or cancellation.
+> - A tenfold faster routing decision cannot fix this, if routing was not the limiting work.
 
-Routing and scaling act on this changing state. A router chooses a destination; a scaler changes available resources. Measurements can become stale before a decision takes effect. Starting a replica may involve allocation, loading, and initialization. The method must explain what happens during that delay and when no available choice can meet the target.
+Average arrivals below capacity still allow temporary queues.
 
-The [HW-Router discussion](../observed-subthemes/datacenter-and-cloud-systems.md#hw-router-choose-using-current-queues-as-well-as-model-capability) preserves its overload evaluation, quality definition, and differing timing boundaries. The [sMoE discussion](../observed-subthemes/datacenter-and-cloud-systems.md#smoe-scale-individual-experts-without-ignoring-the-rest-of-the-request) retains missing full-paper conditions. They address related allocation decisions without providing equivalent source depth or interchangeable service guarantees.
+> **Worked example.** 100 requests arrive together. Each takes 10 milliseconds on a server that handles one at a time.
+>
+> - Completion times range from **10** to 100 × 10 = **1,000 milliseconds**.
+> - The same 100 requests, spread far enough apart, avoid the queue entirely.
+
+So arrival timing belongs in the workload definition, next to input size.
+
+Routing and scaling act on this changing state:
+
+- A **router** chooses where a request goes.
+- A **scaler** changes the available resources.
+
+Measurements can go stale before a decision takes effect. Starting a new copy of a service (a replica) may need allocation, loading and start-up. The method must say what happens during that delay, and when no available choice can meet the target.
+
+- The [HW-Router discussion](../observed-subthemes/datacenter-and-cloud-systems.md#hw-router-choose-using-current-queues-as-well-as-model-capability) keeps its overload evaluation, quality definition and differing timing boundaries.
+- The [sMoE discussion](../observed-subthemes/datacenter-and-cloud-systems.md#smoe-scale-individual-experts-without-ignoring-the-rest-of-the-request) notes the full-paper conditions still missing.
+
+**Be careful:** they address related allocation decisions, but with different source depth. Their service guarantees are not interchangeable.
 
 ## Changing the model changes the comparison
 
-A system may reduce cost by choosing a smaller model, omitting selected work, returning an answer early, or reducing numerical precision. These actions can change output quality as well as runtime. Faster execution of a fixed computation and cheaper execution of a modified computation are different claims.
+Running a cheaper, changed computation is a different claim from running the same computation faster.
 
-If a benchmark score stays similar, examine what that score measures and which cases it averages. A small overall difference can coexist with a substantial regression on a difficult or important subset. A model-based judge supplies evidence under its judging procedure; it is not a universal correctness oracle.
+A system may cut cost by:
 
-The [SPADE explanation](../observed-subthemes/sparse-and-irregular-compute.md#explanation-dac-2026-research680) distinguishes similarity to a dense-generated output from perceptual quality. The [architecture theme](architecture-and-accelerators.md) explains the corresponding distinction between exact representation recovery and acceptable approximation. A systems result must attach its latency and cost to the output requirement actually evaluated.
+- choosing a smaller model;
+- skipping selected work;
+- returning an answer early;
+- lowering numerical precision.
+
+These can change output quality as well as run time.
+
+If a benchmark score stays similar, check what the score measures and which cases it averages. A small overall difference can hide a large regression on a hard or important subset. A model used as a judge gives evidence under its judging procedure. It is not a universal correctness test.
+
+The [SPADE explanation](../observed-subthemes/sparse-and-irregular-compute.md#explanation-dac-2026-research680) separates similarity to a dense-generated output from perceptual quality. The [architecture theme](architecture-and-accelerators.md) makes the matching split between exact recovery and acceptable approximation. A systems result must tie its latency and cost to the output requirement actually tested.
 
 ## In a control system, the age of information matters
 
-A robot's command depends on an observation made earlier. Even if a computation returns exactly the same numerical answer as a reference, additional delay can make that answer less appropriate for the current physical state. The relevant interval can include sensing, admission, processing, communication, and actuation.
+For a robot, a correct answer that arrives late can still be the wrong action.
 
-For an illustrative constant-speed calculation, an object moving at one meter per second changes position by ten centimeters during a 100-millisecond delay. That does not establish a general safe deadline: acceleration, uncertainty, obstacles, and the controller's compensation all matter. It shows why equivalent numerical outputs at different times are not automatically equivalent physical behavior.
+A robot's command depends on an earlier observation. Even an answer identical to a reference can suit the current physical state less if it comes later. The delay can include sensing, admission, processing, communication and actuation.
 
-The [robotics chapter](../observed-subthemes/robotics-and-edge-ai.md) separates numerical behavior, information timing, and physical outcome. It also distinguishes training experiments from deployed robot decisions. Its reported simulations, hardware measurements, and missing physical conditions remain separate evidence tiers; this synthesis does not turn them into validated robot safety claims.
+> **Worked example (illustrative, constant speed).** An object moves at 1 meter per second. During a 100-millisecond delay it moves 1 × 0.1 = **10 centimeters**.
+
+This does not set a general safe deadline. Acceleration, uncertainty, obstacles and the controller's compensation all matter. It shows only that the same numbers at different times are not automatically the same physical behavior.
+
+The [robotics chapter](../observed-subthemes/robotics-and-edge-ai.md) separates numerical behavior, information timing and physical outcome. It also separates training experiments from decisions on a deployed robot.
+
+**Be careful:** its simulations, hardware measurements and missing physical conditions stay separate evidence tiers. This synthesis does not turn them into validated robot safety claims.
 
 ## Resource efficiency requires an explicit denominator
 
-Power is energy consumed per unit time. Energy per completed task also depends on how long the task takes and what system components are included. A 100-watt device running for one second consumes 100 joules. A 60-watt device running for two seconds consumes 120 joules. Lower power does not necessarily mean less task energy.
+Efficiency needs a stated unit of useful work and a stated boundary of what is counted.
 
-Similarly, fewer servers can reduce cost while increasing interference between tenants. Better aggregate utilization can conceal worse response time for one application. The neighboring [Vistara explanation](../observed-subthemes/memory-hierarchy-and-persistence.md#explanation-isca-2026-program-045) links capacity-driven consolidation to per-container placement and service conditions. Additional capacity is valuable only if the resulting configuration still satisfies the required work and failure tolerance.
+**Power** is energy used per unit of time. Energy per completed task also depends on how long the task takes, and which parts of the system are included.
 
-Count preparation, transfers, retries, idle capacity retained for bursts, and any externally performed computation within the declared accounting boundary. If billing units differ from physical resource use, report both definitions rather than calling them the same efficiency metric.
+> **Worked example.**
+>
+> - 100 watts for 1 second: **100 joules**.
+> - 60 watts for 2 seconds: **120 joules**.
+>
+> Lower power does not necessarily mean less energy per task.
+
+Likewise, fewer servers can cut cost while raising interference between tenants. Better total utilization can hide worse response time for one application. The neighboring [Vistara explanation](../observed-subthemes/memory-hierarchy-and-persistence.md#explanation-isca-2026-program-045) links capacity-driven consolidation to per-container placement and service conditions. Extra capacity is worth something only if the result still does the required work and tolerates the required failures.
+
+Within the declared boundary, count:
+
+- preparation;
+- transfers;
+- retries;
+- idle capacity kept for bursts;
+- any computation done elsewhere.
+
+If billing units differ from physical resource use, report both, rather than calling them the same efficiency measure.
 
 ## Connect component evidence to application evidence
+
+A faster component still leaves an application question open.
 
 | Component observation | Application question still unanswered |
 | --- | --- |
@@ -74,16 +192,22 @@ Count preparation, transfers, retries, idle capacity retained for bursts, and an
 | A batch produces more outputs per second | How old is each input when its output becomes usable? |
 | A device draws fewer watts | What energy and complete-system cost are paid per acceptable result? |
 
-These questions connect to the [memory theme](memory-interconnect-and-storage.md), [tooling theme](design-methodology-and-tooling.md), and [verification theme](verification-and-validation.md). The system inherits capacity limits, preparation costs, and correctness assumptions from those components. The relationship is a checklist for compatible evidence, not proof that independently proposed methods have been integrated.
+These questions link to the [memory theme](memory-interconnect-and-storage.md), [tooling theme](design-methodology-and-tooling.md) and [verification theme](verification-and-validation.md). A system inherits capacity limits, preparation costs and correctness assumptions from its parts.
+
+**Be careful:** the table is a checklist for compatible evidence. It is not proof that separately proposed methods have been integrated.
 
 ## Long-term hypotheses and disconfirming tests
 
-One hypothesis is that workload-aware allocation becomes more useful when request sizes, arrival rates, or model choices vary substantially. Compare adaptive and fixed policies at equal hardware and output requirements, including transition periods and observation overhead. It weakens where a fixed policy already meets the targets or adaptation costs more than it saves.
+Three readings are worth testing; each names what would weaken it.
 
-A second hypothesis is that capacity-saving methods increasingly trade individual response pace for aggregate service capacity. Test across input lengths, admission policies, and latency thresholds, retaining cases where no tradeoff appears. It weakens as a broad claim if matched systems consistently improve both without shifting quality or excluding difficult requests.
+| Hypothesis | Test | What would weaken it |
+| --- | --- | --- |
+| Workload-aware allocation helps more when request sizes, arrival rates or model choices vary a lot | Compare adaptive and fixed policies at equal hardware and output requirements, including transitions and observation overhead | A fixed policy already meets the targets, or adapting costs more than it saves |
+| Capacity-saving methods increasingly trade each request's pace for total service capacity | Test across input lengths, admission policies and latency thresholds, keeping cases with no trade-off | Matched systems keep improving both, without shifting quality or excluding hard requests |
+| For interactive and physical applications, speed-ups must target when useful information is ready, not just execution rate | Test timestamped inputs and outputs together with task outcomes | Timing changes do not affect usefulness under the application's real constraints |
 
-A third hypothesis is that acceleration for interactive and physical applications must optimize the time at which useful information becomes available, not merely execution rate. Test timestamped inputs and outputs together with task outcomes. It weakens as a distinguishing concern where timing changes do not affect usefulness under the application's actual constraints.
+These are bounded interpretations, not demonstrated cross-edition trends. They still need equivalent collection across ISCA, DAC and ICCAD, matched evidence depth, and clearly defined workload populations.
 
-These are bounded interpretations, not demonstrated cross-edition trends. Equivalent collection across ISCA, DAC, and ICCAD, matched evidence depth, and clearly defined workload populations remain necessary. This theme's DAC-only coded sample cannot establish conference-wide prevalence or a three-conference direction by itself.
+**Be careful:** this theme's DAC-only coded sample cannot show conference-wide prevalence, or a three-conference direction, by itself.
 
-The cloud and robotics chapters provide substantive source-specific discussions, but many individual records and other systems branches remain shallow or condition-incomplete. This parent writeup does not complete their rewriting, source reconciliation, independent comprehension review, or scientific acceptance.
+The cloud and robotics chapters give substantive source-specific discussions. Many individual records and other systems branches are still shallow or missing conditions. This parent writeup does not complete their rewriting, source reconciliation, independent comprehension review, or scientific acceptance.

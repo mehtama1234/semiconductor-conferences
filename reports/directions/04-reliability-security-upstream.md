@@ -51,6 +51,13 @@ Confidentiality and integrity do not imply availability; security claims depend 
 
 ## Establishing a long-term trend
 
-To test change over time, select comparable editions, apply the same inclusion and coding rules, and measure source coverage in each edition. Distinguish the number of papers discussing a method from evidence that the method improves results. The current sample combines DAC and ISCA 2026 with ICCAD 2025 fallback material, and coverage is uneven. That supports comparison of cases with stated limits.
+A trend needs the same rules applied to comparable years:
+
+1. Select comparable editions.
+2. Apply the same inclusion and coding rules.
+3. Measure source coverage in each edition.
+4. Tell apart how many papers discuss a method from evidence that the method improves results.
+
+The current sample combines DAC and ISCA 2026 with ICCAD 2025 fallback material, and coverage is uneven. That supports comparing cases with stated limits.
 
 [Read the longitudinal protocol](../longitudinal-protocol-v1.md) · [Return to research directions](README.md)

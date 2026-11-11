@@ -158,7 +158,7 @@ def build(root=ROOT):
                  f'[Read the cross-conference comparison](../comparisons/{did}.md). Different conferences can examine different parts of the problem; their reported numbers are not automatically comparable.', '',
                  '[Check the condition register](../direction-condition-register-v1.md) for unresolved experimental details and [the review gate](../direction-review-gate-v1.md) for the current review status.', '',
                  '## Establishing a long-term trend', '',
-                 'To test change over time, select comparable editions, apply the same inclusion and coding rules, and measure source coverage in each edition. Distinguish the number of papers discussing a method from evidence that the method improves results. The current sample combines DAC and ISCA 2026 with ICCAD 2025 fallback material, and coverage is uneven. That supports comparison of cases with stated limits.', '',
+                 'A trend needs the same rules applied to comparable years:\n\n1. Select comparable editions.\n2. Apply the same inclusion and coding rules.\n3. Measure source coverage in each edition.\n4. Tell apart how many papers discuss a method from evidence that the method improves results.\n\nThe current sample combines DAC and ISCA 2026 with ICCAD 2025 fallback material, and coverage is uneven. That supports comparing cases with stated limits.', '',
                  '[Read the longitudinal protocol](../longitudinal-protocol-v1.md) · [Return to research directions](README.md)', '']
         path.write_text('\n'.join(lines))
 

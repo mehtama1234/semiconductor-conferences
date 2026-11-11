@@ -273,12 +273,13 @@ def course_data(kit):
 
 # ---------------------------------------------------------------- the story, in one place
 T1, T2, T3 = TOP3
+SHORT_THEME = {t['theme_id']: t['label'].lower().replace(', and', ' and') for t in TAX['themes']}
 SENTENCES = [
     ("1 · The direction", "Chip design is becoming a loop: propose, check, learn, try again.",
      f"Six directions recur across the {N_REC} papers. Most are about feeding checks, measurements and physical limits back into the next design choice.",
      "directions.html", "The six directions"),
     ("2 · The weight", "Accelerators, memory and reliability draw the most papers.",
-     f"{T1['label']} ({T1['record_count']}), {T2['label'].lower()} ({T2['record_count']}) and {T3['label'].lower()} ({T3['record_count']}) are the three largest of {N_THEME} themes.",
+     f"Largest of {N_THEME} themes: {SHORT_THEME[T1['theme_id']]} ({T1['record_count']}), {SHORT_THEME[T2['theme_id']]} ({T2['record_count']}), {SHORT_THEME[T3['theme_id']]} ({T3['record_count']}).",
      "themes.html", "All ten themes"),
     ("3 · The caution", "Most papers were read from short descriptions, so these are hypotheses.",
      f"{N_DESC} of {N_REC} records come from program descriptions; {N_FULL} from a full paper or preprint. DAC supplies {N_DAC} of the {N_REC}.",
@@ -315,7 +316,7 @@ def landing(kit):
         <div class="landing-hero-text">
           <p class="landing-kicker">ISCA 2026 · DAC 2026 · ICCAD 2025 · {N_REC} papers</p>
           <h1 id="home-title">{QUESTION}</h1>
-          <p class="landing-lede">Three conferences publish most new research on how chips and computers are designed, checked and built. This atlas sorts {N_REC} of their papers by the problem each one tackles, explains each problem in plain words, and asks what the papers together say about the next few years. <b>Here is the whole story in three sentences.</b></p>
+          <p class="landing-lede">Three conferences publish most new research on how chips and computers are designed, checked and built. This atlas sorts {N_REC} of their papers by the problem each one tackles. It explains each problem in plain words. Then it asks what the papers together say about the next few years. <b>Here is the whole story in three sentences.</b></p>
           <div class="landing-actions">
             <a class="button primary" href="#found">The three sentences <span aria-hidden="true">→</span></a>
             <a class="button secondary" href="themes.html">Start with the themes</a>
@@ -328,8 +329,8 @@ def landing(kit):
       <section class="landing-problems no-swipe" aria-labelledby="who-title">
         <h2 class="landing-subhead" id="who-title">Who this is for, and what you need before you start</h2>
         <div class="who-for">
-          <div><b>Who it is for</b><p>Engineers, researchers, students and technical leaders who want to know what chip and system design research is working on, without reading hundreds of papers.</p></div>
-          <div><b>What you need first</b><p>A rough idea of what a processor and memory are. Terms such as EDA (the software that turns a circuit description into a chip layout) are explained where they first appear.</p></div>
+          <div><b>Who it is for</b><p>Engineers, researchers, students and technical leaders. You want to know what chip and system design research is working on, without reading hundreds of papers.</p></div>
+          <div><b>What you need first</b><p>A rough idea of what a processor and memory are. Each term is explained where it first appears. For example, EDA is the software that turns a circuit description into a chip layout.</p></div>
           <div><b>What you will be able to do</b><p>Name the main research directions, find the papers behind each one, and say what evidence would confirm or disprove it.</p></div>
         </div>
       </section>
@@ -364,7 +365,7 @@ def landing(kit):
       </section>
 
       <h2 class="landing-subhead" id="depth-title">How deep the reading went: {N_FULL} of {N_REC} papers were read in full</h2>
-      {k.chart('depth', 'What each record was coded from', f'{N_DESC} records rest on the short official program description.', f'Those give the problem and the claimed method, but rarely the test conditions. {N_DEEP} papers were checked in depth against their full text or released files; see <a href="deep-reads.html">the deep reads</a>.', 'So every direction here is a hypothesis to test, not a measured trend.')}
+      {k.chart('depth', 'What each record was coded from', f'{N_DESC} records rest on the short official program description.', f'Those give the problem and the claimed method, but rarely the test conditions. {N_DEEP} papers were checked in depth against their full text or released files. See <a href="deep-reads.html">the deep reads</a>.', 'So every direction here is a hypothesis to test, not a measured trend.')}
 
       <section class="landing-more" id="doors" aria-labelledby="doors-title">
         {k.section_head('doors-title', 'Where do you want to go next?', 'Pick the question you have. Each page answers it in its headings.', 'trio:route,cpu,checklist')}
@@ -512,7 +513,7 @@ def slides(kit):
           f"First, where the papers come from. DAC, the Design Automation Conference, supplies {N_DAC} of the {N_REC}. ISCA, the main computer architecture conference, adds {N_ISCA} selected papers. ICCAD's 2026 papers were not public yet, so {N_ICCAD} come from 2025. So the atlas leans toward design software.")
     slide("themes", f"Accelerators, memory and reliability are the three largest of {N_THEME} themes.", f"{head('Where the attention goes', 'Accelerators, memory and reliability lead.')}{k.chart('themes', 'Papers per theme', f'{T1["label"]}: {T1["record_count"]} papers.', 'A count shows attention in this sample, not importance.', 'Each paper sits in one theme.')}",
           f"Here is where the attention goes. {T1['label']} is the largest theme, with {T1['record_count']} papers. {T2['label']} has {T2['record_count']}. {T3['label']} has {T3['record_count']}. A count shows where this sample spends its attention. It is not a ranking of importance.")
-    slide("loop", "Direction: design becomes a loop that checks every candidate and learns from what failed.", f"{head('The common thread', 'Design becomes a loop.', 'Requirements turn into checks that steer the next attempt, not just judge the last one.')}{flow('constraints-become-executable')}",
+    slide("loop", "Direction: design becomes a loop that checks every candidate and learns from what failed.", f"{head('The common thread', 'Design becomes a loop.')}{flow('constraints-become-executable', 'Checks steer the next attempt, not just judge the last one.')}",
           "The common thread is a loop. A model or a search proposes a design. Tools check it: does it compile, does it simulate correctly, does it meet timing? The check reports what failed, and the next attempt uses that. The hard question is cost: a fair test counts every model call, retry and check.")
     slide("data", "Direction: moving data often costs more than computing it.", f"{head('Data movement', 'Moving data is often the real cost.', 'More arithmetic units help only when the data arrives in time.')}{flow('data-movement-as-contract')}",
           f"The second direction is about data. A chip can have thousands of arithmetic units, but they wait if their inputs cannot arrive in time. So many papers decide where data sits, how far it moves, and whether to compute next to memory. The test is the end-to-end result, with every copy and wait counted.")
