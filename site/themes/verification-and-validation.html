@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#F3ECE1" />
+  <title>Verification and validation · Semiconductor conference atlas</title>
+  <meta name="description" content="The article explains the technical problem step by step first, then links to every subtheme and its papers. Worked numbers are illustrations, not paper results." />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Semiconductor conference atlas" />
+  <meta property="og:title" content="Verification and validation · Semiconductor conference atlas" />
+  <meta property="og:description" content="The article explains the technical problem step by step first, then links to every subtheme and its papers. Worked numbers are illustrations, not paper results." />
+  <meta property="og:url" content="https://mehtama1234.github.io/semiconductor-conferences/themes/verification-and-validation.html" />
+  <meta property="og:image" content="https://mehtama1234.github.io/semiconductor-conferences/presentation/slides/01-cover.jpg" />
+  <meta property="og:image:width" content="1920" />
+  <meta property="og:image:height" content="1080" />
+  <meta property="og:image:alt" content="Semiconductor conference atlas: 582 papers from ISCA, DAC and ICCAD, sorted into 10 themes and six directions to watch." />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="canonical" href="https://mehtama1234.github.io/semiconductor-conferences/themes/verification-and-validation.html" />
+  <link rel="icon" href="../assets/icon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="../assets/base.css" />
+  <link rel="stylesheet" href="../assets/experience.css" />
+  <link rel="stylesheet" href="../assets/theme-atlas.css" />
+  <link rel="stylesheet" href="../assets/styles.css" />
+  <link rel="stylesheet" href="../assets/charts.css" />
+  <link rel="stylesheet" href="../assets/course.css" />
+  
+</head>
+<body class="course-site " data-house="atlas">
+  <aside class="public-demo-banner" aria-label="About this course">A plain-language guide to what ISCA, DAC and ICCAD papers say about chip and computer design · Built from the repository’s own paper records · Not made by the conferences</aside>
+  <a class="skip-link" href="#app">Skip to the page</a>
+  <header>
+    <a class="brand" href="../index.html"><span class="mark" aria-hidden="true">Si</span> Semiconductor conference atlas</a>
+    <span class="header-status"><span class="badge">582 papers</span><span class="badge">10 themes</span><span class="badge">Plain words first</span></span>
+    <a class="header-link" href="../course-map.html">Course map</a>
+  </header>
+  <nav class="course-nav" aria-label="Main sections of the course"><a href="../index.html">The big picture</a><a href="../themes.html" aria-current="page">Themes</a><a href="../subthemes.html">Subthemes</a><a href="../deep-reads.html">Deep reads</a><a href="../directions.html">What to watch</a><a href="../presentation/index.html">Slides</a><a href="../video/index.html">Video</a><a href="../share/index.html">Share</a></nav>
+  <main id="app" tabindex="-1">
+    <section class="screen active landing legacy-page" aria-labelledby="page-title">
+<div class="lm-head"><div class="hj-heading"><nav class="crumbs" aria-label="You are here"><a href="../course-map.html">Course map</a><span aria-hidden="true">›</span><a href="../themes.html">Themes</a></nav><a class="back-button" href="../themes.html">← <span>Themes</span></a><p class="eyebrow">Theme · 52 papers · 9 subthemes</p><h1 id="page-title">Verification and validation: a check proves only what its stated property and tests cover</h1><p class="hj-sub">The article explains the technical problem step by step first, then links to every subtheme and its papers. Worked numbers are illustrations, not paper results.</p></div><div class="hj-art" data-art="trio:file-text,checklist,search"></div></div>
+<figure class="course-fig"><div class="loop-wide" data-art="flow:verification-and-validation"></div><div class="loop-tall" data-art="flowTall:verification-and-validation"></div><figcaption>A check proves only what its property and tests cover.</figcaption></figure><div class="chart-card"><div data-chart="theme-verification-and-validation"></div><div><p class="lm-k">In numbers</p><h3>9 subthemes, largest first</h3><p>52 papers: DAC 48, ICCAD 4.</p><p class="chart-note">A count shows attention in this sample, not importance.</p></div></div>
+      <article class="prose">
+
+<p>This article explains the subject and then connects it to 52 papers in the selected research sample.</p>
+<p>A subtheme groups related technical problems. A mechanism describes the particular change proposed by a paper. The discussion below explains the subject; the linked paper records state the available evidence.</p>
+<p><a href="../guide/reading-guide-v1.html">Definitions used in the paper records</a></p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>A design is correct only relative to a written requirement</h2>
+<p>A requirement can describe an output, a sequence of states, a timing limit, or information that must stay private.</p>
+<ul>
+<li><strong>Verification</strong> checks whether the design meets those statements.</li>
+<li><strong>Validation</strong> asks whether the statements and the design meet the intended use.</li>
+</ul>
+<p>The two questions can need different experiments.</p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="checklist"></span>Tests try some behaviors; proofs cover only what they assume</h2>
+<p>A circuit can have very many input combinations and internal states.</p>
+<ul>
+<li><strong>Simulation</strong> tries selected runs and compares them with the expected result. A test that never reaches a faulty state cannot expose that fault.</li>
+<li><strong>Formal verification</strong> reasons about a specified set of behaviors. Its conclusion depends on the model, the assumptions and the property proved.</li>
+</ul>
+<p>A timeout is an unresolved check, not a pass.</p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="checklist"></span>The subthemes run tests faster, prove properties, or choose better inputs</h2>
+<ul>
+<li><strong>Simulation</strong> methods run a model faster.</li>
+<li><strong>Emulation</strong> builds a version of the design on other hardware to run tests.</li>
+<li><strong>Formal</strong> methods search for violations or prove properties.</li>
+<li><strong>Test generation</strong> picks inputs likely to expose errors.</li>
+<li><strong>Coverage</strong> measures say which behaviors were exercised. They need a definition to mean anything.</li>
+</ul>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="checklist"></span>A fair test uses known faults and reports what was missed</h2>
+<ol>
+<li>Use known faults, or independently established reference behavior, to judge detection.</li>
+<li>State design sizes, properties, test budget, unresolved checks, false alarms and missed faults.</li>
+<li>When a generated test raises a score, check whether it finds new errors on designs outside the development set.</li>
+</ol>
+<p>More tests help only if they improve the relevant coverage or detection.</p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="file-text"></span>Follow a claim from requirement to evidence</h2>
+<div class="worked"><p class="lm-k">Worked example</p><p>Consider a storage unit that accepts a write of value 7 to address A. A later read of A should return 7 under a specified set of conditions: the write completed, no intervening write changed A, the read was permitted, and no failure outside the contract occurred.</p></div><p>Without those conditions, a comparison with 7 may report an allowed behavior as a defect or accept behavior that should have been rejected.</p>
+<p>A verification method must make five things explicit: what object is under test, what behavior is required, what inputs and starting states are allowed, what execution is represented, and what observations decide the result. These are connected obligations.</p><p>Improving test generation does not repair a wrong expected result; a correct expected result cannot detect an error that the observation omits.</p>
+<p>The examples below are independent teaching constructions. The linked paper explanations retain their manuscript locations, reported results, and unresolved discrepancies. This parent discussion connects their mechanisms without claiming a reproduced combined system or exhaustive verification.</p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="alert-triangle"></span>The object being checked determines what a failure means</h2>
+<p>A processor implementation executes instructions using a particular circuit. A reference instruction model computes the allowed software-visible behavior without necessarily representing that circuit's timing. Comparing them can reveal an architectural disagreement. It does not require their internal signals or clock-by-clock behavior to match.</p>
+<p>Firmware testing asks a different question: does software behave correctly when interacting with devices? A peripheral model may provide input bytes, status flags, and interrupts.</p><p>A software crash in that environment is not automatically a circuit defect, and a model reaching more software branches is not processor-state coverage.</p>
+<p><a href="../subthemes/processor-and-rtl-verification.html#explanation-dac-2026-research150">RISCSmith</a> and <a href="../subthemes/processor-and-rtl-verification.html#explanation-dac-2026-research2533">LiFU</a> examine processor testing. The <a href="../subthemes/processor-and-rtl-verification.html#explanation-dac-2026-research616">SystemC embedded-fuzzing explanation</a> concerns firmware interacting with peripheral models. Their placement in one chapter permits a comparison of testing mechanisms, not a merger of their bug counts or coverage denominators.</p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="checklist"></span>A test needs both a path to the error and a way to observe it</h2>
+<div class="worked"><p class="lm-k">Worked example</p><p>Suppose an arithmetic operation should write 5 to a register but writes 6. A subsequent instruction clears the register to zero.</p></div><p>Comparing only the final register value sees agreement. Comparing after the arithmetic operation sees a disagreement.</p><p>More runs of the same final-state-only checker need not reveal this error.</p>
+<p>Observation must also occur at the right semantic boundary. A processor can execute work internally and later discard it. Treating every temporary internal write as a committed instruction result can create false alarms. Conversely, observing only registers can miss an incorrect memory write or exception.</p>
+<p>RISCSmith's recovered method explains why instruction dependencies and intermediate observations belong together: meaningful construction makes interactions reachable, and logging retains effects before later instructions erase them. Its <a href="../subthemes/processor-and-rtl-verification.html#explanation-dac-2026-research150">individual discussion</a> links the construction and logging method to manuscript Section 3 and distinguishes observed disagreement from confirmed responsibility for a defect.</p>
+<p>The broader lesson is conditional. More observation can expose errors, but it can also increase execution overhead and produce more traces to analyze. Compare the number of distinct, independently supported findings per complete campaign budget, not merely the number of logged events.</p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="checklist"></span>A reference is a checker, not unquestionable truth</h2>
+<p>Differential testing runs related inputs through two implementations and compares their observable behavior. A mismatch establishes that they differ under the comparison rule.</p><p>It does not by itself identify which implementation is wrong. The reference, event matching, initial state, supported features, or test generator may contain the mistake.</p>
+<p>Agreement is also limited evidence. Two implementations can share a mistaken interpretation or omit the same behavior. A third implementation helps only to the extent that its relevant assumptions and implementation are sufficiently independent. Counting agreeing tools cannot replace checking the requirement.</p>
+<p>A useful failure report therefore records input bytes, initial state, configurations, revisions, permitted behaviors, the first relevant difference, and a replay procedure. Reduction removes unnecessary input while preserving the same failure condition.</p><p>A shorter program that instead raises an unrelated exception has not preserved the finding.</p>
+<p>Several reduced programs may expose one underlying cause. Suppose 100 failing inputs reduce to three distinct causes, of which two are confirmed against the specification and one remains disputed.</p><p>The supported summary is two confirmed causes and one unresolved cause, not 100 newly discovered bugs. These counts are illustrative, not a result attributed to the linked papers.</p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>Coverage measures exploration within a definition</h2>
+<p>Line coverage counts whether selected source lines executed. Branch coverage concerns selected alternatives through control flow.</p><p>State or transition coverage concerns defined states or changes between them. Each requires a denominator: what was counted, which points were excluded, and which points can actually be reached under the setup.</p>
+<p>Reaching 90 of 100 recorded points gives 90% coverage. Reaching 950 of a different 1,000-point set gives 95%.</p><p>Neither number alone says which campaign checked more meaningful behavior, whether either detected a fault, or whether their remaining points include the same critical case. A score becomes comparable only after matching its definition and target.</p>
+<p>The manuscript-backed processor chapter gives a concrete boundary: RISCSmith's inspected coverage experiment measures the Spike reference model, whereas LiFU reports RTL-tool coverage with formal assistance. Their percentages cannot be ranked as measurements of one common state space. The <a href="../subthemes/processor-and-rtl-verification.html#what-connects-the-three-proposals">cross-paper discussion</a> preserves that distinction.</p>
+<p>Coverage can still guide testing. A newly reached branch may justify retaining an input because it exposes behavior earlier tests missed.</p><p>But treating every unreachable point as a failure of the generator wastes resources, while removing merely difficult points can inflate the score. Exclusion rules need evidence and must remain visible.</p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>Formal proof is conditional on a model and assumptions</h2>
+<p>A formal check can reason about all behaviors represented by a stated model under stated assumptions. The result concerns the property actually expressed, not every intended property of the eventual system.</p><p>If the model excludes a relevant input or simplifies away a relevant interaction, a proof within that model does not cover the excluded case.</p>
+<p>For a simple implication, consider: whenever a request is accepted, a response arrives within four cycles. If assumptions accidentally prohibit every accepted request, the implication can hold without exercising the intended obligation.</p><p>A separate reachability check asking whether acceptance can occur helps expose this problem. It does not by itself establish that the remaining assumptions are realistic.</p>
+<p>A bounded search that finds no violation in ten cycles establishes less than an unbounded proof. A failure appearing at cycle eleven remains outside that search.</p><p>A solver timeout establishes neither correctness nor a counterexample; it is an unresolved check. The report must distinguish these outcomes rather than grouping them under a single success count.</p>
+<p>Formal and simulation evidence can complement each other. Simulation can exercise a concrete environment and produce an executable trace.</p><p>Formal reasoning can cover combinations within its model that random testing may miss. Their benefits depend on the relationship between models, assumptions, and properties, not on simply adding their coverage scores.</p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="alert-triangle"></span>The environment can create or conceal a failure</h2>
+<div class="worked"><p class="lm-k">Worked example</p><p>Suppose firmware reads a ready flag and then receives bytes from a device queue. A simulator that changes the flag independently of the queue may permit a state that the intended peripheral cannot produce.</p></div><p>A reported crash from that state may indict the model rather than the firmware. A model that excludes a real unusual event can create the opposite problem: missed faults.</p>
+<p>The SystemC study's <a href="../subthemes/processor-and-rtl-verification.html#explanation-dac-2026-research616">expanded explanation</a> separates functional peripheral behavior from cycle-accurate hardware timing. It also preserves the difference between detecting deliberately inserted bugs and discovering new bugs in unchanged software. Neither kind of experiment should silently substitute for the other.</p>
+<p>False positives are reports that do not correspond to the relevant real fault; false negatives are faults the method misses. Fewer crash reports do not prove improvement in both. Determining either rate requires appropriate ground truth, including investigation beyond a favorable subset of outputs.</p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="checklist"></span>Optimize the full investigation, not only test production</h2>
+<p>A campaign spends resources generating inputs, executing them, checking outputs, reducing failures, and resolving their causes. Faster generation can fill a queue without improving findings if execution or investigation is limiting.</p><p>Remote model calls, parallel simulator workers, and human review remain costs even when one headline reports only test count.</p>
+<p>As an illustrative comparison, 100 tests at one second each require 100 seconds of execution. Sixty tests at two seconds each require 120 seconds.</p><p>Forty percent fewer tests is therefore not automatically less elapsed time. Parallelism changes elapsed time but also changes resource use; both need reporting.</p>
+<p>LiFU's <a href="../subthemes/processor-and-rtl-verification.html#explanation-dac-2026-research2533">individual explanation</a> discusses selection, mutation, feedback, and execution overlap. A shared campaign can allocate effort more effectively, but an evaluation must separate the effect of coordination from extra methods, formal assistance, and additional compute.</p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>What each observation can support</h2>
+<table>
+<thead>
+<tr>
+<th>Observation</th>
+<th>Supported statement</th>
+<th>Additional evidence needed for a stronger claim</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A repeatable mismatch</td>
+<td>The compared executions disagree under the recorded setup</td>
+<td>Requirement-based diagnosis identifying the faulty component</td>
+</tr>
+<tr>
+<td>More covered points</td>
+<td>More of a defined observation set was reached</td>
+<td>Matched definitions, meaningful behavior, and independently confirmed findings</td>
+</tr>
+<tr>
+<td>No violation within a bound</td>
+<td>The specified search found none within that scope</td>
+<td>Coverage beyond the bound or an appropriate unbounded proof</td>
+</tr>
+<tr>
+<td>A formal proof</td>
+<td>The stated property holds in the stated model under its assumptions</td>
+<td>Assumption validation and correspondence to the implemented system</td>
+</tr>
+<tr>
+<td>Fewer reports to inspect</td>
+<td>The investigation queue is smaller</td>
+<td>Evidence about missed faults and the validity of removed reports</td>
+</tr>
+</tbody>
+</table>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>Long-term hypotheses that remain open</h2>
+<p>One hypothesis is that preserving useful information between verification stages can matter more than producing additional independent tests. Dependency-preserving mutation, intermediate observations, and feedback-directed allocation motivate it.</p><p>A matched evaluation should remove each information path while keeping tools and resources fixed. The hypothesis weakens if apparent gains disappear after equalizing compute or checker strength.</p>
+<p>A second hypothesis is that improved execution-environment fidelity can lower total investigation cost despite slower simulation. Test this using both simulator time and independently classified investigation effort. It weakens if modeling costs dominate or if the more restrictive environment hides meaningful failures.</p>
+<p>A third hypothesis is that claims become more transferable when they report a resolved failure and its assumptions rather than only a coverage percentage. Test whether independent users can replay, diagnose, and classify the reported finding under the declared setup.</p><p>A packet that omits necessary state, depends on unavailable components, or changes meaning under replay weakens the claim of transferability.</p>
+<p>These are testable interpretations, not observed ISCA–DAC–ICCAD time trends. Comparable editions, target classes, budgets, source depth, and confirmation rules are still needed. Conference labels alone do not establish that tools are converging or that one venue's verification methods outperform another's.</p>
+<p>The <a href="../subthemes/processor-and-rtl-verification.html">processor and RTL chapter</a> now contains three expanded manuscript-backed discussions. Other verification branches below still need deeper individual writing and source recovery. This parent synthesis does not resolve their evidence gaps, model-to-hardware correspondence, or independent scientific and comprehension review.</p>
+<p class="lm-k h-label">Subthemes and how to study them</p><h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="books"></span>The subthemes in this theme, and how to read them</h2>
+<p>Each link opens the subtheme discussion and its captured paper records. Explanatory depth varies: some papers have expanded individual explanations; others still have only brief discussion or evidence cards. Source locations and unresolved conditions remain visible.</p>
+<h3><a href="../subthemes/simulation-emulation-and-testing.html">Simulation emulation and testing</a></h3>
+<p>20 selected records in this theme. Start with <a href="../subthemes/simulation-emulation-and-testing.html">GPU-Fuzz: Finding Memory Errors in Deep Learning Frameworks</a>.</p>
+<h3><a href="../subthemes/formal-analysis-and-verification.html">Formal analysis and verification</a></h3>
+<p>10 selected records in this theme. Start with <a href="../subthemes/formal-analysis-and-verification.html">Beyond Exact: Tight WCET Analysis of GPU Kernels with Branch Divergence</a>.</p>
+<h3><a href="../subthemes/formal-and-functional-verification.html">Formal and functional verification</a></h3>
+<p>7 selected records in this theme. Start with <a href="../subthemes/formal-and-functional-verification.html">PRO-V-R1: Reasoning Enhanced Programming Agent for RTL Verification</a>.</p>
+<h3><a href="../subthemes/formal-and-equivalence-verification.html">Formal and equivalence verification</a></h3>
+<p>4 selected records in this theme. Start with <a href="../subthemes/formal-and-equivalence-verification.html">Miter-Aware LUT Mapping: Aligning Structure and Solvability for Efficient Logic Equivalence Checking</a>.</p>
+<h3><a href="../subthemes/hardware-security-validation.html">Hardware security validation</a></h3>
+<p>3 selected records in this theme. Start with <a href="../subthemes/hardware-security-validation.html">Automated Discovery, Classification, and Systematic Security Verification Methodology for Undocumented Instructions</a>.</p>
+<h3><a href="../subthemes/processor-and-rtl-verification.html">Processor and RTL verification</a></h3>
+<p>3 selected records in this theme. Start with <a href="../subthemes/processor-and-rtl-verification.html">RISCSmith: Finding RISC-V CPU Bugs via Rich Instruction Construction and On-the-Fly Differential Analysis</a>.</p>
+<h3><a href="../subthemes/simulation-and-emulation.html">Simulation and emulation</a></h3>
+<p>3 selected records in this theme. Start with <a href="../subthemes/simulation-and-emulation.html">Activity-Aware Partitioning for Effective Multi-Threaded Event-Driven RTL Simulation</a>.</p>
+<h3><a href="../subthemes/emulation-and-prototyping.html">Emulation and prototyping</a></h3>
+<p>1 selected records in this theme. Start with <a href="../subthemes/emulation-and-prototyping.html">A Boolean Processor-Based Hardware Emulation System with Reconfigurable Interconnects</a>.</p>
+<h3><a href="../subthemes/physical-verification.html">Physical verification</a></h3>
+<p>1 selected records in this theme. Start with <a href="../subthemes/physical-verification.html">DRCGen: A Controllable DRC Violation Case Generator with Cross-PDK Transferability for Rule-Deck and Tool Validation</a>.</p>
+<p class="lm-k h-label">Representative source-backed records</p><h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="route"></span>Papers that show the theme well</h2>
+<p>The following reading set spans the available conferences and uses dated corrections where registered. These corrections improve the current reading view but do not change historical adjudication or establish independent acceptance. Each paper link opens its exact evidence card.</p>
+<p class="lm-k h-label">Paper cards: what changes and where it stops</p><h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>Paper cards: what each paper changes, and where it stops</h2>
+<ul>
+<li><a href="../subthemes/physical-verification.html#paper-dac-2026-research907">DRCGen: A Controllable DRC Violation Case Generator with Cross-PDK Transferability for Rule-Deck and Tool Validation</a> — DAC 2026.</li>
+<li><a href="../subthemes/formal-and-equivalence-verification.html#paper-dac-2026-research896">Parallelizing Complementary Approximate Reachability</a> — DAC 2026.</li>
+<li><a href="../subthemes/simulation-and-emulation.html#paper-dac-2026-research874">RTL-Benchmt: Dynamic Maintenance of RTL Generation Benchmark Through Agent-Assisted Analysis and Revision</a> — DAC 2026.</li>
+<li><a href="../subthemes/formal-analysis-and-verification.html#paper-dac-2026-research720">Provably Probabilistic Safe Controller Synthesis for Vision-Based Neural Network Control Systems</a> — DAC 2026.</li>
+<li><a href="../subthemes/simulation-emulation-and-testing.html#paper-iccad-2025-1027">HLSDebugger: Identification and Correction of Logic Bugs in HLS Code with LLM Solutions</a> — ICCAD 2025.</li>
+<li><a href="../subthemes/simulation-emulation-and-testing.html#paper-iccad-2025-114">RIROS: A Parallel RTL Fault SImulation FRamework with TwO-Dimensional Parallelism and Unified Schedule</a> — ICCAD 2025.</li>
+<li><a href="../subthemes/simulation-emulation-and-testing.html#paper-iccad-2025-1137">Software-Style Hardware Debugging: A Hardware Generation, Simulation and Debugging Framework</a> — ICCAD 2025.</li>
+<li><a href="../subthemes/simulation-emulation-and-testing.html#paper-iccad-2025-1117">Uncertainty-Guided Live Measurement Sequencing for Fast SAR ADC Linearity Testing</a> — ICCAD 2025.</li>
+<li><a href="../subthemes/processor-and-rtl-verification.html#paper-dac-2026-research616">Stateful Embedded Fuzzing Using Peripheral-Accurate SystemC Virtual Prototypes</a> — DAC 2026.</li>
+<li><a href="../subthemes/simulation-and-emulation.html#paper-dac-2026-research514">The Phantom of PCIe: Constraining Generative Artificial Intelligences for Practical Peripherals Trace Synthesizing</a> — DAC 2026.</li>
+<li><a href="../subthemes/simulation-and-emulation.html#paper-dac-2026-research440">Activity-Aware Partitioning for Effective Multi-Threaded Event-Driven RTL Simulation</a> — DAC 2026.</li>
+<li><a href="../subthemes/simulation-emulation-and-testing.html#paper-dac-2026-research358">Lyra: A Hardware-Accelerated RISC-V Verification Framework with Generative Model-Based Processor Fuzzing</a> — DAC 2026.</li>
+</ul>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="file-text"></span>What the evidence supports</h2>
+<p>These records identify proposed methods and the conditions recorded for them. A reported improvement should be interpreted with its comparison method, input size, hardware, and result-quality requirement. Missing fields are evidence gaps; a populated field can also state that a detail is unspecified.</p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="file-text"></span>Limits and next evidence</h2>
+<p>The selected sample is uneven across conferences and source types. It cannot establish how fast a subject is growing. Repeated observations across comparable years, with the same inclusion rules and source depth, are needed for a time trend.</p>
+<p>Every linked evidence article preserves the Problem: and Mechanism / artifact: fields, baseline, unshortened limitations, source URL, and recorded location. Primary text and independent review remain necessary where the record says those checks are open.</p>
+<p><a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/reports/directions/README.md">Research directions</a> · <a href="../guide/expanded-taxonomy-v1.html">All observed subthemes</a></p><p class="meta">Written as <a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/reports/themes/verification-and-validation.md">reports/themes/verification-and-validation.md</a> in the course repository.</p>
+      </article>
+      <nav class="pager" aria-label="Previous and next"><a class="prev" href="systems-applications-and-workloads.html"><span class="pg-k">← Previous</span><span class="pg-t">Systems, applications, and workloads</span></a><a class="map" href="../themes.html"><span class="pg-k">Back to</span><span class="pg-t">Themes</span></a><span class="next empty"></span></nav>
+    </section>
+  </main>
+  <footer class="course-foot">
+    <p>Built from 582 paper records coded from ISCA 2026, DAC 2026 and ICCAD 2025 (ICCAD 2026 papers were not yet public). Most records come from official program descriptions; see “How deep the reading went”. The papers belong to their authors.</p>
+    <p class="foot-links"><a href="https://github.com/mehtama1234/course-concept-library">All courses</a><a href="../index.html">This course</a><a href="../course-map.html">Course map</a><a href="../presentation/index.html">Slides</a><a href="../video/index.html">Video</a><a href="../share/index.html">Share</a></p>
+  </footer>
+  <script src="../assets/course-data.js"></script><script src="../assets/icons.js"></script><script src="../assets/icons-extra.js"></script><script src="../assets/icons-course.js"></script><script src="../assets/art.js"></script><script src="../assets/course-art.js"></script><script src="../assets/charts.js"></script><script src="../assets/course-charts.js"></script><script src="../assets/course-site.js"></script>
+</body>
+</html>

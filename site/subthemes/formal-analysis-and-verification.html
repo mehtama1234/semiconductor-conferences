@@ -1,0 +1,1122 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#F3ECE1" />
+  <title>Formal analysis and verification · Semiconductor conference atlas</title>
+  <meta name="description" content="Papers: DAC 10. Read from: 10 program descriptions, 0 abstracts or reports, 0 full papers or preprints. The explanations come first; every paper’s record follows at the end." />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Semiconductor conference atlas" />
+  <meta property="og:title" content="Formal analysis and verification · Semiconductor conference atlas" />
+  <meta property="og:description" content="Papers: DAC 10. Read from: 10 program descriptions, 0 abstracts or reports, 0 full papers or preprints. The explanations come first; every paper’s record follows at the end." />
+  <meta property="og:url" content="https://mehtama1234.github.io/semiconductor-conferences/subthemes/formal-analysis-and-verification.html" />
+  <meta property="og:image" content="https://mehtama1234.github.io/semiconductor-conferences/presentation/slides/01-cover.jpg" />
+  <meta property="og:image:width" content="1920" />
+  <meta property="og:image:height" content="1080" />
+  <meta property="og:image:alt" content="Semiconductor conference atlas: 582 papers from ISCA, DAC and ICCAD, sorted into 10 themes and six directions to watch." />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="canonical" href="https://mehtama1234.github.io/semiconductor-conferences/subthemes/formal-analysis-and-verification.html" />
+  <link rel="icon" href="../assets/icon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="../assets/base.css" />
+  <link rel="stylesheet" href="../assets/experience.css" />
+  <link rel="stylesheet" href="../assets/theme-atlas.css" />
+  <link rel="stylesheet" href="../assets/styles.css" />
+  <link rel="stylesheet" href="../assets/charts.css" />
+  <link rel="stylesheet" href="../assets/course.css" />
+  
+</head>
+<body class="course-site " data-house="atlas">
+  <aside class="public-demo-banner" aria-label="About this course">A plain-language guide to what ISCA, DAC and ICCAD papers say about chip and computer design · Built from the repository’s own paper records · Not made by the conferences</aside>
+  <a class="skip-link" href="#app">Skip to the page</a>
+  <header>
+    <a class="brand" href="../index.html"><span class="mark" aria-hidden="true">Si</span> Semiconductor conference atlas</a>
+    <span class="header-status"><span class="badge">582 papers</span><span class="badge">10 themes</span><span class="badge">Plain words first</span></span>
+    <a class="header-link" href="../course-map.html">Course map</a>
+  </header>
+  <nav class="course-nav" aria-label="Main sections of the course"><a href="../index.html">The big picture</a><a href="../themes.html">Themes</a><a href="../subthemes.html" aria-current="page">Subthemes</a><a href="../deep-reads.html">Deep reads</a><a href="../directions.html">What to watch</a><a href="../presentation/index.html">Slides</a><a href="../video/index.html">Video</a><a href="../share/index.html">Share</a></nav>
+  <main id="app" tabindex="-1">
+    <section class="screen active landing legacy-page" aria-labelledby="page-title">
+<div class="lm-head"><div class="hj-heading"><nav class="crumbs" aria-label="You are here"><a href="../course-map.html">Course map</a><span aria-hidden="true">›</span><a href="../subthemes.html">Subthemes</a></nav><a class="back-button" href="../subthemes.html">← <span>Subthemes</span></a><p class="eyebrow">Subtheme · 10 papers · Verification and validation</p><h1 id="page-title">Formal analysis and verification</h1><p class="hj-sub">Papers: DAC 10. Read from: 10 program descriptions, 0 abstracts or reports, 0 full papers or preprints. The explanations come first; every paper’s record follows at the end.</p></div><div class="hj-art" data-art="trio:file-text,checklist,search"></div></div>
+<figure class="course-fig"><div class="loop-wide" data-art="flow:verification-and-validation"></div><div class="loop-tall" data-art="flowTall:verification-and-validation"></div><figcaption>The parent theme in one picture: a check proves only what its property and tests cover.</figcaption></figure>
+      <article class="prose">
+
+<p>This subject has 10 records in the selected sample. This page explains where it fits, then presents all captured paper evidence without shortening the measurements or limitations.</p>
+<p><a href="../guide/reading-guide-v1.html">Definitions used in the paper records</a></p>
+<p class="lm-k h-label">Understand the parent subject first</p><h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>The bigger theme this belongs to</h2>
+<ul>
+<li><a href="../themes/verification-and-validation.html">Verification and validation</a></li>
+</ul>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="help-circle"></span>Start with the question, not the inherited category name</h2>
+<p>This page contains ten captured paper records. The inherited subtheme name does not mean that every paper proves a formal property.</p><p>Some construct proof tasks, some accelerate checking, some generate code or assertions, and others help locate faults. The earlier overview discussed only three records.</p><p>The map below now exposes all ten; all ten papers have received an individual comprehension pass in this chapter.</p>
+<p>This is a reading map based on the captured records, not a new source assessment or an accepted taxonomy reassignment. Original classifications remain unchanged pending mechanism-level review. The paper cards retain their evidence limits.</p>
+<table>
+<thead>
+<tr>
+<th>Start with this question</th>
+<th>Captured papers to inspect</th>
+<th>Distinction that controls the conclusion</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Do two combinational implementations agree?</td>
+<td><a href="#paper-dac-2026-research1388">Factored-form sharing</a>; <a href="#paper-dac-2026-research285">sweeping-based task scheduling</a></td>
+<td>Faster search is useful only for the same equivalence obligation</td>
+</tr>
+<tr>
+<td>What property should be checked?</td>
+<td><a href="#paper-dac-2026-research2886">ATLAS</a>; <a href="#paper-dac-2026-research2361">Svacoder</a></td>
+<td>Generating an assertion is not proving that it captures the intended requirement</td>
+</tr>
+<tr>
+<td>Can training produce better RTL candidates?</td>
+<td><a href="#paper-dac-2026-research2737">Insights from Verification</a>; <a href="#paper-dac-2026-research1612">EARL</a></td>
+<td>Training feedback is not independent acceptance of the generated circuit</td>
+</tr>
+<tr>
+<td>What structure or fault should be examined?</td>
+<td><a href="#paper-dac-2026-research1638">Hierarchical Boundary Recovery</a>; <a href="#paper-dac-2026-research1355">Debug Like a Human</a></td>
+<td>Recovered structure and suspected causes need validation against behavior</td>
+</tr>
+<tr>
+<td>What execution or safety bound holds?</td>
+<td><a href="#paper-dac-2026-research1552">Beyond Exact</a>; <a href="#paper-dac-2026-research720">probabilistic safe controller synthesis</a></td>
+<td>The bound depends on the modeled machine, environment and uncertainty</td>
+</tr>
+</tbody>
+</table>
+<h3>A useful property can still be too weak</h3>
+<div class="worked"><p class="lm-k">Worked example</p><p>Consider an illustrative interface that must acknowledge every accepted request within two cycles. A property saying that every acknowledgment has a preceding request checks a different direction: it forbids unsolicited acknowledgments but does not require any acknowledgment to occur.</p></div><p>A circuit that never acknowledges can satisfy that property while failing the intended service requirement.</p>
+<p>Even the right implication can pass for an unhelpful reason. If the model assumes requests never occur, a request-to-acknowledgment property has no triggering case.</p><p>This is vacuity: the condition is satisfied without exercising the behavior the reader intended to examine. The check needs both a valid requirement and an environment that permits relevant events.</p>
+<p>That is why assertion generation belongs next to proof methods but is not interchangeable with them. Read <a href="formal-and-functional-verification.html">formal and functional verification</a> for adjacent assertion and verification records. Neither category label establishes that the generated properties are sufficient, nonvacuous or independently reviewed.</p>
+<h3>A reduced representation must preserve the relevant behavior</h3>
+<p>Synthesis can combine or remove logic that was separate in the source description. Recovering recognizable modules can make inspection easier, but the recovered boundary need not be the unique original design boundary.</p><p>Multiple decompositions can represent the same function. Matching an expected label is therefore different from proving a valid correspondence.</p>
+<p>Similarly, a debugging slice keeps selected parts of a trace or design for inspection. Suppose a wrong output is produced in block B because an earlier control signal from block A selected the wrong operand.</p><p>A slice containing only B's arithmetic may omit the cause even if it includes the visibly incorrect result. The important evaluation is whether the reduced context preserves evidence needed to identify and confirm the fault.</p>
+<p>These are independent examples, not observed failures of the named papers. They explain why structure-recovery accuracy, fault-localization accuracy and proof validity need separate measures.</p><p>A ranked suspect is not a confirmed bug; confirmation requires a reproducible failing behavior and an explanation tied to the intended requirement.</p>
+<h3>Bounds need a stated population of behaviors</h3>
+<p>The longest runtime observed in a finite test set is a measurement, not automatically an upper bound over all allowed executions. A worst-case argument must cover the allowed branches, data-dependent work and machine behavior within its scope.</p><p>Excluding interference can yield a valid bound for an isolated kernel without establishing the same bound under shared execution.</p>
+<p>A probabilistic safety statement has another boundary: it describes risk under a model and distribution. A one-step violation bound does not automatically become an unchanged bound over an arbitrarily long run.</p><p>For an illustrative sequence of one hundred events, each with violation probability at most 0.001 under the relevant model, the union bound permits a total violation probability as large as 0.1. Independence is not needed for that upper bound.</p><p>Stronger conclusions require additional evidence or assumptions.</p>
+<h3>Follow the connection without collapsing the tasks</h3>
+<p>For proof representation, generalization and parallel solver work, continue to <a href="formal-and-equivalence-verification.html">formal and equivalence verification</a>. For training reward versus functional acceptance, the expanded <a href="llm-assisted-design-flows.html#explanation-iccad-2025-110">VERIRL explanation</a> supplies a conceptual connection, not evidence about EARL or Insights from Verification.</p><p>Related papers must not fill missing target-specific methods or results.</p>
+<p>Beyond Exact, ATLAS, the factored-form sharing paper, Insights from Verification, EARL, Hierarchical Boundary Recovery, Debug Like a Human, Svacoder, HydraCEC, and probabilistic safe controller synthesis now have individual paper explanations in this chapter. All ten records have received the same paper-level pass.</p><p>The explanations are based on accepted manuscripts, preprints, or—where explicitly marked—the official conference description. The cards retain their evidence limits.</p><p>This is still not a longitudinal trend: the records span different verification questions and are not a matched time series.</p>
+<p><span id="explanation-dac-2026-research1552"></span></p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="route"></span>Beyond Exact: what the bound means and how it is constructed</h2>
+<h3>The question is an upper bound over allowed GPU executions</h3>
+<p>The paper asks for the worst-case execution time (WCET) of one GPU thread block. WCET is not the longest runtime seen in a test run.</p><p>It is an upper bound over every execution that the timing model permits. The distinction matters because a GPU can make different timing choices even when the source kernel is unchanged: threads inside one warp can take different branch outcomes, and warps can contend for the same execution resources in different orders.</p>
+<p>The target is a thread block made of (M) warps running on one sub-core. A sub-core contains functional units such as floating-point and special-function units.</p><p>An instruction may need one of these resources for a period of time. While that resource is occupied, another instruction needing the same resource cannot start.</p><p>The model also assumes one instruction issue per cycle, program-order issue within a warp, dependency-respecting issue, and no memory-related contention. Loop bounds are assumed to have already been obtained by static analysis or supplied by an engineer.</p><p>These are not incidental implementation details: the resulting bound is only a bound for executions inside this model.</p>
+<h3>Why branch divergence defeats the obvious longest-path argument</h3>
+<p>GPU warps execute threads in a lockstep-style SIMT model. When all threads take the same branch, the warp executes one branch path.</p><p>When different threads take different branches, the paths are executed serially with lane masks: the warp executes the work for one group of lanes and then the work for the other group. Thus a warp may execute more basic blocks than any one thread's individual path suggests.</p>
+<p>The paper's small control-flow example makes the issue concrete. If every thread takes the first branch, the warp executes three unit-time blocks.</p><p>If some threads take the first branch and the rest take the second, both branch bodies are executed and the warp takes four units. That extra work alone is not the difficult part.</p><p>The difficult part is interaction between warps. A shorter warp can release or request a shared resource at a different time, changing which warp blocks another warp.</p><p>Therefore “make every warp follow its longest individual path” does not necessarily produce the longest thread-block completion time.</p>
+<p>The paper calls this a timing anomaly: a scenario containing shorter warp paths can finish later than the scenario in which every warp follows the longest path. The reason is global scheduling, not a claim that a shorter path is locally slower.</p><p>A local reduction in work can change resource contention and increase idle or blocked time elsewhere. This is why a finite set of measured executions, or a single assumed path per warp, cannot establish the WCET claimed by the paper.</p>
+<h3>The paper's first model: instructions become resource intervals</h3>
+<p>The method starts from a control-flow graph and an instruction model. For each instruction, static analysis identifies data dependencies and the resource it needs.</p><p>The model separates three events: issue, resource start, and completion. An instruction can be issued only after its dependencies complete; it starts when its resource is available; and it holds that resource for the modeled access duration while continuing for its modeled execution duration.</p>
+<p>The paper then abstracts a warp's instruction sequence into alternating intervals:</p>
+<ul>
+<li>A critical section is an interval in which the warp exclusively occupies a modeled execution resource.</li>
+<li>A non-critical section is an interval in which the warp occupies none of those modeled resources.</li>
+</ul>
+<p>For each possible branch-divergence path, the paper constructs a sequence of these intervals. The set of all possible sequences is written as (Lambda).</p><p>A concrete scenario chooses one path from (Lambda) for each of the (M) warps and chooses an admissible interleaving under the scheduler. The block response time is the finish time of the last warp.</p>
+<p>This reduction is useful because it exposes the two quantities that determine the bound. Critical intervals consume mutually exclusive resource time.</p><p>Non-critical intervals can overlap across warps, but there can also be a period in which all unfinished warps are simultaneously non-critical. The paper calls this latter quantity the global non-critical time.</p>
+<h3>The exact bound under a deliberately weak scheduler model</h3>
+<p>For any concrete scenario, the response time is exactly the sum of its critical-section duration and its global non-critical-section duration. The paper then bounds those two parts separately.</p><p>The critical contribution is bounded by the longest critical duration of any possible warp path multiplied by (M). The global non-critical contribution is bounded by the largest non-critical duration of any possible path, because it cannot exceed the non-critical time of the warp that finishes last.</p>
+<p>This gives the paper's work-conserving bound:</p>
+<p>[
+R = C(Z^*<em>{\lambda^\dagger}) \times M + C(Z</em>{\lambda^\dagger})
+]</p>
+<p>Here (\lambda^\dagger) is the path with the largest critical and non-critical totals under the paper's model, (C(Z^*)) is total critical duration, and (C(Z)) is total non-critical duration. The important point is not merely the equation.</p><p>The paper proves exactness under its scheduling assumption: if the scheduler is only required to be work-conserving, there exists an admissible execution scenario that reaches this bound. “Exact” therefore means exact relative to the modeled instruction/resource behavior and the set of work-conserving schedules.</p><p>It does not mean that every GPU scheduler will realize the scenario or that the model includes every hardware effect.</p>
+<p>The proof constructs one warp using the longest path and arranges the other warps so that they keep the longest-path warp blocked while preserving equal critical duration. This is possible because the work-conserving assumption leaves many execution orders admissible.</p><p>The same freedom that permits the exact worst-case construction also makes the result conservative for a real implementation whose scheduler follows more structure than the model records.</p>
+<h3>The tighter bound adds a scheduling constraint, then solves a longest path</h3>
+<p>The second contribution narrows the set of allowed execution orders. The paper represents critical and non-critical sections as graph nodes.</p><p>Edges preserve the order inside each warp. Between different warps, the work-conserving model permits many relative orders of critical sections, represented by bidirectional edges.</p><p>The paper replaces those choices with directed edges that impose a topological order and thereby produce a directed acyclic graph (DAG).</p>
+<p>The tighter bound is the sum of node durations on the longest path of that DAG:</p>
+<p>[
+\widetilde{R} = \sum_{v \in V} C(v)
+]</p>
+<p>This works in the paper's model because warps can execute in parallel, and each node's finish time is determined by its predecessors and its own duration. The longest path therefore bounds the makespan.</p><p>The imposed ordering removes schedules that were technically allowed by the weak work-conserving model but are not intended to occur under the proposed constrained execution policy.</p>
+<p>The constraint is a substantive assumption, not a free mathematical improvement. The paper discusses realizing it through scheduler support, semaphores, synchronization, or compiler/code instrumentation.</p><p>Such mechanisms can add overhead and may not be available on a given GPU. The manuscript does not implement them or measure that overhead; it evaluates the benefit analytically.</p><p>Consequently, the tighter number is useful as a design target for a predictable execution policy, but it is not by itself evidence that an unmodified commercial GPU will obey the required order.</p>
+<h3>What the evaluation actually establishes</h3>
+<p>The authors evaluate the two bounds with a lightweight synthetic simulator and a static model of 22 Rodinia kernels. The hardware parameters for the benchmark study come from an NVIDIA Quadro K620 with Maxwell GM107 architecture at 1072 MHz.</p><p>Arithmetic and memory latencies are measured with microbenchmarks. Each kernel is modeled as one block on a sub-core.</p><p>The synthetic study generates 1,000 thread blocks per configuration, fixes the longest path's total duration at 1,000, and reports the relative reduction ((R-\widetilde{R})/R).</p>
+<p>The synthetic results show why the constraint helps most when non-critical sections are substantial: more of that work can overlap under the DAG ordering. With more warps, the gap first grows and can then shrink when critical sections dominate and reduce parallelism.</p><p>Increasing the number of path nodes increases the gap in the tested low-critical-section setting. These are trends in the paper's generated model, not universal laws for all GPU kernels.</p>
+<p>In the Rodinia study, the critical-section share averages 7.60%. The constrained analysis is lower than the work-conserving exact bound for all 22 listed kernels, with an average reduction of 19.13% and a maximum of 39.39% for <code>particle_kernel</code>. The table also reports large variation: <code>kmeans_kernel_c</code> improves by 2.45%, while <code>particle_kernel</code> improves by 39.39%. The paper reports bound values, not measured end-to-end deadlines, energy, area, or a deployed safety case.</p>
+<h3>Acceptance conditions and unresolved boundary</h3>
+<p>To accept the result for a real system, a reader must establish at least four links that the paper itself does not complete. First, the instruction and resource abstraction must cover the target GPU's relevant timing behavior, including any omitted memory or interference effects.</p><p>Second, the branch-path and loop-bound inputs must be sound for the actual kernel inputs. Third, the proposed warp-order constraint must be enforced by the hardware, compiler, or inserted synchronization without invalidating the timing model through its own overhead.</p><p>Fourth, the thread-block bound must be composed with other blocks, sub-cores, memory traffic, preemption, and the system deadline if the intended claim is system-level predictability.</p>
+<p>The paper is therefore a rigorous model-level result with a clear trade: removing path assumptions requires considering divergent scenarios; tightening the bound requires adding an execution-order assumption. Its central contribution is not simply the reported 19.13% reduction.</p><p>It is the explicit separation between a bound that is exact under a broad scheduler model and a smaller bound that becomes available only after the admissible scheduler behavior is restricted.</p>
+<div class="worked"><p class="lm-k">Worked example</p><p><strong>Primary source read:</strong> <a href="https://eprints.whiterose.ac.uk/id/eprint/242555/1/DAC26_GPU_Kernel_WCET_2_.pdf">accepted manuscript at White Rose Research Online</a>, especially the abstract and Sections 1–5 (PDF pages 2–7), including Figure 1, Lemmas 1–2, Theorem 1, Figure 4, and Table 1. The paper record is <a href="https://eprints.whiterose.ac.uk/id/eprint/242555/">White Rose record 242555</a>, DOI <code>10.1145/3770743.3804186</code>.</p></div>
+<p><span id="explanation-dac-2026-research2886"></span></p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="checklist"></span>ATLAS: how a security concern becomes a checkable property</h2>
+<h3>The paper addresses a missing translation step</h3>
+<p>Security verification has a different starting problem from ordinary functional verification. For a functional feature, the design team can often state an expected input/output behavior and write a test or property against it.</p><p>For security, the question begins earlier: what must be protected, who may interact with it, through which interface, under what privilege, and what sequence would constitute a violation? If those decisions are not made explicitly, a formal tool can prove a property that is precise but irrelevant.</p>
+<p>ATLAS is a framework for making that translation more systematic. Its input is not only RTL.</p><p>It combines vulnerability knowledge, an SoC-specific asset inventory, a threat model, and three kinds of design context. Its output is a set of design-specific SystemVerilog Assertions and a JasperGold script that runs those properties on the RTL.</p><p>The paper's claimed contribution is therefore a pipeline from a known weakness category to a candidate formal obligation, not a new formal decision procedure for proving arbitrary security requirements.</p>
+<h3>The basic security terms must remain separate</h3>
+<p>ATLAS uses five distinct elements in its threat-model template:</p>
+<ul>
+<li>An adversary describes who can act and what access or capability that actor has.</li>
+<li>An asset is the data, state, control, or logic whose confidentiality, integrity, or correct operation must be protected.</li>
+<li>An attack surface is the interface through which the adversary can reach or influence the asset.</li>
+<li>A vulnerability is a weakness in the design, such as an incorrect access-control condition or an invalid state transition.</li>
+<li>A threat is the harmful exploitation of that weakness by an adversary.</li>
+</ul>
+<p>The separation is operational. A debug register is not itself a threat.</p><p>It may be an asset or attack surface. An improper privilege check is a vulnerability.</p><p>An unauthorized debug operation is a threat outcome. If these are collapsed into one label, the generated assertion can lose the condition that makes the security claim meaningful.</p>
+<p>The paper illustrates the template with CWE-1245, improper finite-state-machine logic. Its example records a simple hardware adversary, hardware state and logic integrity as the asset, interfaces and state-machine logic as attack surfaces, an insecure FSM as the vulnerability, and exploitation of undefined or insecure transitions as the threat.</p><p>This template gives the LLM a fixed place to state each part instead of asking it to infer an entire security argument from a short RTL fragment.</p>
+<h3>The threat-model database turns general weakness knowledge into reusable structure</h3>
+<p>CWE describes classes of weaknesses, CVE records concrete vulnerability instances, and CAPEC describes attack patterns. These sources are useful but do not directly tell a checker which signal, state, privilege mode, or reset condition in a particular SoC must be constrained.</p><p>ATLAS builds a threat-model database (TMDB) to supply that missing intermediate representation.</p>
+<p>The authors first manually create high-quality examples using the template. GPT-5 then generates additional hardware-CWE threat models using the examples, CWE entries, related CVEs and CAPEC links.</p><p>Human feedback reviews and refines the outputs. The resulting JSON dataset stores the template fields, adversary descriptions, instructions, and example input/output mappings.</p><p>The paper says the database covers the known hardware-design CWE set and makes it available through a public repository.</p>
+<p>This construction has two separate quality dependencies. The database can improve consistency only if its CWE-to-threat interpretations are correct.</p><p>It can improve coverage only if the mapping from a CWE to an SoC asset and attack surface is appropriate. A large database is not evidence that every stored threat model is complete, and a generated threat model is not yet a proof obligation.</p>
+<h3>Asset-centric analysis narrows the search before property generation</h3>
+<p>ATLAS defines seven broad asset types: sensitive data; boot integrity; attestation data and measurements; parametric data; privileged system resources; shared resources; and runtime integrity and state resources. It associates definitions and signal-name cues with each type. For example, <code>key_</code>, <code>secret_</code>, and <code>protected_</code> can suggest sensitive data, while <code>debug_</code>, <code>mode</code>, <code>valid_</code>, <code>dma_</code>, <code>grant_</code>, and <code>crossbar_</code> can suggest privileged or shared resources.</p>
+<p>The LLM examines the buggy RTL with the generic definitions and the TMDB. It identifies concrete signals, explains their role, and then searches the threat models for relevant weaknesses.</p><p>In the DMA example, the output identifies control-state registers, progress vectors, physical-memory-protection gates, and handshake or abort controls. It then maps the relevant asset and keywords to candidate CWEs such as improper FSM logic, incorrect defaults, or improper access control on aliased regions.</p>
+<p>This is a pruning and hypothesis-building step. It reduces the set of properties worth attempting, but it does not prove that an asset was found, that no asset was missed, or that every matched CWE applies.</p><p>A keyword match can be useful evidence for a review queue while still being an insufficient security argument.</p>
+<h3>Three context sources provide different facts</h3>
+<p>ATLAS then generates properties using three complementary views of the SoC:</p>
+<ol>
+<li>Design documents state intended architecture, register maps, interface semantics, privilege rules, trust boundaries, modes, and lifecycle behavior. They supply facts that may not appear in RTL, such as why a signal is security-sensitive or which actor is allowed to drive it.</li>
+<li>An abstract syntax tree (AST) extracted with Yosys or PyVerilog/Slang exposes the implemented structure: signals, drivers, dependencies, state encodings, fan-in, fan-out, and control/data paths. It helps bind a general weakness to actual RTL objects.</li>
+<li>A security-focused RTL summary describes assets, guards, policies, critical registers, and code-level conditions. It is itself LLM-generated, so it is a useful additional view but not an independent human specification.</li>
+</ol>
+<p>The paper's central claim is that these views answer different questions. The AST helps identify where a state or control path exists.</p><p>Documentation helps determine what the path is supposed to mean and who may use it. The RTL summary highlights security-relevant implementation details that a general document may omit.</p><p>The framework intersects these cues to form a concrete property hypothesis rather than asking an LLM to guess from raw code alone.</p>
+<p>The Figure 5 DMA example shows the failure mode without this context. Given RTL and a threat model alone, the LLM produces a property that does not correctly represent the FSM security condition. With AST, design documentation, and RTL summary, it recognizes the relevant states, the abort signal, the intended escape behavior, and the trust boundary, then produces an assertion checking that an abort state does not persist when <code>done_i</code> is low. The example demonstrates contextual improvement for that case; it does not show that every generated property is correct.</p>
+<h3>Assertion generation and formal checking are different gates</h3>
+<p>ATLAS emits SystemVerilog Assertions bound to real signal names, state values, reset behavior, and interface conditions. It also emits a Tcl harness for Cadence JasperGold.</p><p>The harness compiles the design, applies assumptions and constraints, and runs formal checks. The result may be a proof, a counterexample, or an inconclusive outcome.</p><p>The framework allows up to three refinement iterations for a bug; persistent inconclusive cases are sent for manual review.</p>
+<p>The paper adds non-vacuity cover properties as guideposts for assertion generation. This matters because an implication can pass without checking the intended behavior if its antecedent never occurs.</p><p>A cover demonstrates that the triggering situation can be exercised in the formal model, but it does not by itself prove that the antecedent represents every relevant attack condition. Likewise, a counterexample shows that the generated property is violated; it still requires interpretation to decide whether the violation is the intended security bug or an invalid assumption.</p>
+<p>The acceptance chain is therefore:</p>
+<ol>
+<li>The threat model must identify the correct asset, adversary, attack surface, and weakness.</li>
+<li>The generated assertion must express the intended security condition without omitting required modes, resets, privileges, or temporal behavior.</li>
+<li>The formal environment must permit the relevant attack sequence and constrain only behavior that is genuinely unavailable.</li>
+<li>A proof, counterexample, or inconclusive result must be interpreted against the intended design contract.</li>
+</ol>
+<p>Formal completion at step four cannot repair an incorrect decision at step one. This is the central limit on reading the paper's accuracy numbers.</p>
+<h3>What the evaluation measures</h3>
+<p>The evaluation uses three OpenTitan-based HACK@DAC benchmark suites from 2018, 2019, and 2021. The paper describes 48 relevant CWEs across the suites.</p><p>ATLAS identifies 39 of them. For those detected cases, it generates correct security properties for 33, which is more than 82% of the 39 detected cases.</p><p>The denominator is not all possible SoC vulnerabilities, and “correct property” is the paper's benchmark assessment rather than an independently reproduced judgment here.</p>
+<p>The paper also reports that ATLAS can identify multiple relevant CWEs for one bug. This is not automatically an error: access control and privilege enforcement can describe overlapping aspects of one weakness.</p><p>But it means that CWE count, bug count, property count, and successful proof count are different quantities and should not be added together.</p>
+<div class="worked"><p class="lm-k">Worked example</p><p>The ablation study separates the TMDB from the three SoC contexts. Without the TMDB, the LLM detects 6/20, 3/11, and 4/17 cases on the three benchmarks.</p><p>With the TMDB, ATLAS detects 17/20, 11/11, and 11/17. The paper then reports that using only one context yields at most five accurate properties, while the full context combination adds 10, 4, and 6 correct properties for the three benchmarks, described as roughly 3×, 2.3×, and 2.5× improvements.</p><p>These comparisons support the paper's claim that structured threat knowledge and combined context both matter; they do not isolate every prompt, model, token, review, or formal-runtime cost.</p></div>
+<h3>Boundary of the result</h3>
+<p>The paper's strongest evidence is an end-to-end benchmark demonstration: known benchmark bugs, a structured threat database, contextual property generation, and JasperGold checking. Its weakest implied interpretation would be that ATLAS has solved SoC security verification.</p><p>It has not established that the TMDB is complete, that asset detection has high recall on unseen designs, that generated properties are free of false positives or vacuity, or that the reported benchmark properties transfer to proprietary SoCs.</p>
+<p>The use of GPT-5 and human feedback in TMDB construction also creates a provenance question. The evaluation tests the resulting pipeline, but it does not make every knowledge-base entry independently auditable from the benchmark table.</p><p>The three benchmark suites are valuable because they contain real design bugs and golden references, but they are not a representative sample of all SoC architectures, adversary capabilities, or security requirements.</p>
+<p>ATLAS is best understood as a structured front end to formal security verification. It addresses the costly translation from general vulnerability knowledge to candidate design-specific properties.</p><p>It improves that translation by forcing explicit security roles and by combining specification context with implemented structure. The formal tool still proves only the resulting property under its assumptions.</p><p>The paper's durable idea is this separation of responsibilities: threat knowledge chooses what to ask, design context determines how to state it, and formal analysis checks the stated question.</p>
+<div class="worked"><p class="lm-k">Worked example</p><p><strong>Primary source read:</strong> <a href="https://arxiv.org/pdf/2603.01170">ATLAS arXiv version 2</a>, especially Sections 1–5 (PDF pages 1–6), Tables 1–4 and Figures 2–6. The DAC DOI is <code>10.1145/3770743.3804400</code>; the source record is <a href="https://arxiv.org/abs/2603.01170">arXiv:2603.01170</a>. The public TMDB is linked by the paper as <a href="https://github.com/KimiaTasnia/Threat-Model-Database-for-Hardware-Security">Threat-Model-Database-for-Hardware-Security</a>; it was not independently executed or audited here.</p></div>
+<p><span id="explanation-dac-2026-research1388"></span></p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="checklist"></span>Factored-form sharing: what is being parallelized in equivalence checking</h2>
+<h3>The obligation comes before the speedup</h3>
+<p>Combinational equivalence checking asks whether two combinational logic networks produce the same outputs for every allowed input assignment. “Combinational” means that the output at a time depends on the current inputs and internal logic, not on stored state from an earlier clock cycle.</p><p>The two networks may have very different internal structure after synthesis or technology mapping, but the acceptance question remains behavioral: for each input vector, do the corresponding outputs agree?</p>
+<p>A common way to turn that question into a satisfiability problem is to build a miter. Corresponding outputs are compared, and the comparisons are combined into a condition that is true when at least one output differs.</p><p>The checker asks whether there exists an input assignment that makes the miter true. If the formula is satisfiable, the assignment is a counterexample to equivalence.</p><p>If the formula is unsatisfiable, the modeled circuits agree for the outputs and input assumptions encoded in that formula.</p>
+<p>This logical direction is important. A faster solver does not establish a stronger equivalence property.</p><p>The result is useful only if the same two networks, output correspondence, input constraints, black-box treatment, and timeout interpretation are preserved. The paper's contribution is about reducing the time needed to solve the equivalence workload; the official description does not establish a change to the equivalence semantics.</p>
+<h3>Why a large equivalence problem has two different costs</h3>
+<p>SAT-based checking represents logic as a Boolean formula, commonly in conjunctive normal form (CNF). A formula has two separate sources of cost.</p><p>First, encoding a circuit into clauses creates literals and relationships that consume memory and construction time. Second, the SAT solver must choose variable assignments and propagate consequences.</p><p>Some choices quickly force a contradiction; others create a large search tree before the solver can decide whether a counterexample exists.</p>
+<p>Parallelizing this workload is not just a matter of splitting the gates evenly. Two partitions with the same number of gates can have different numbers of repeated signals, clauses, and difficult branching points.</p><p>If each worker independently rebuilds the same logic encoding, parallel workers may duplicate the largest cost. If a partition contains an unusually hard SAT subproblem, other workers can finish early while one worker determines the total runtime.</p>
+<p>The paper proposes factored form literal count (FFLC) as a structural estimate of both shareable literal/CNF encoding and branching complexity. A factored representation expresses Boolean logic while retaining common subexpressions instead of expanding every repeated term separately.</p><p>The official description says FFLC is combined with a lightweight branching-complexity proxy. Together, these estimates guide partitioning so that the method seeks two goals at once: reuse repeated encoding work and balance estimated SAT difficulty.</p>
+<p>The exact FFLC definition, the branching proxy formula, the conditions under which the estimate tracks solver time, and the encoding-reuse implementation are not available in the public conference description. They must not be reconstructed as if they were established by the paper record.</p><p>What is established is the design intent: the partitioner uses a representation-sensitive cost rather than only circuit size.</p>
+<h3>Seed-and-grow partitioning has a specific role</h3>
+<p>The method uses a sharing-aware seed-and-grow algorithm. A seed is an initial unit of logic assigned to a partition.</p><p>The algorithm then grows that partition by adding related logic, choosing additions according to the estimated benefit of sharing and the estimated effect on SAT difficulty. The goal is not merely to make contiguous chunks.</p><p>It is to preserve common factored structure where reuse is valuable while preventing one worker from accumulating a disproportionate branching burden.</p>
+<p>This creates a three-way constraint. A partition must contain enough related logic to make reuse worthwhile.</p><p>It must remain small enough to execute concurrently with other partitions. It must also preserve the global equivalence obligation: a local check must be connected to the original miter in a way that makes all local results sufficient for the full result.</p><p>The official description names the partitioning strategy and its cost signals but does not provide the formal condition proving that every partitioned result is equivalent to checking the original problem.</p>
+<p>The phrase “sharing” therefore needs careful reading. It can refer to sharing factored literals, reusing CNF encoding, or avoiding repeated derivation across parallel tasks.</p><p>It does not mean that the circuits being compared are allowed to share behaviorally unequal outputs. Any implementation that changes the formula without preserving the miter's satisfiability result would be a different verification problem.</p>
+<h3>What a correct parallel decomposition must preserve</h3>
+<p>For a partitioned CEC flow to be sound, the decomposition needs at least these properties:</p>
+<ul>
+<li>Every output-difference condition in the original miter must remain represented.</li>
+<li>Shared intermediate logic must retain the same Boolean meaning in every worker that uses it.</li>
+<li>A local satisfiable result must map back to a valid global counterexample, or the method must explain how local counterexamples are combined.</li>
+<li>An unsatisfiable collection of local checks must imply unsatisfiability of the original miter, rather than only prove several weakened formulas.</li>
+<li>Input assumptions and treatment of unmatched or cut signals must be identical across the compared methods.</li>
+</ul>
+<p>These are acceptance conditions for the task, not claims that the available description proves each one. The current source record does not expose the paper's formal soundness argument, handling of cross-partition dependencies, or behavior when a partition times out.</p><p>Those gaps matter more than a headline speedup because equivalence checking is a correctness gate: an acceleration that silently weakens the obligation is not an equivalent improvement.</p>
+<h3>How to read the reported comparisons</h3>
+<p>The official DAC description reports an implementation in ABC evaluated on large-scale benchmarks using 40 physical CPU cores. It reports geometric-mean speedups of 45.57× over single-threaded ABC, a maximum of 6,595×, 1.53× over a state-of-the-art CPU-parallel method with a maximum of 17×, and 5.52× over a state-of-the-art GPU-parallel method with a maximum of 382×.</p>
+<p>Geometric-mean speedup summarizes multiplicative ratios across cases; it is not the same as an arithmetic average and does not reveal whether every case improved. The maximum values identify the most favorable case, not a typical case.</p><p>The description does not report absolute runtimes, solved and timed-out counts, memory consumption, benchmark names, core utilization, GPU hardware, or whether all baselines used equivalent preprocessing and resource budgets. Therefore the strongest supported statement is that the authors report substantial benchmark speedups under their stated comparison setup, not that the method universally reduces verification time by 45.57×.</p>
+<p>The CPU comparison also needs resource accounting. “40 physical CPU cores” identifies the proposed implementation's CPU capacity, but the public description does not give the exact core count, memory, or parallel settings for each baseline.</p><p>A fair comparison requires matched circuit instances, preprocessing, timeout, number of workers, memory limit, and whether a baseline's encoding cost is included. Without those details, the result is a promising performance claim with unresolved reproducibility conditions.</p>
+<h3>The paper's place in the formal-verification map</h3>
+<p>Factored-form sharing addresses solver throughput after the equivalence obligation has been formed. It does not replace miter construction, output correspondence, input modeling, or proof interpretation.</p><p>It is complementary to the other equivalence paper in this chapter, which targets sweeping-task scheduling; that paper and this one should not be combined into one speedup because they may alter different stages of the checking flow.</p>
+<p>The paper's conceptual contribution is to treat structural representation as part of parallel scheduling. Circuit size alone is too weak a predictor of SAT work because repeated structure and branching behavior affect both encoding and search.</p><p>A useful implementation must exploit that structure without changing the Boolean question. The central unresolved evidence is exactly the bridge between those two claims: the public description reports the cost model and benchmark speedups, but not the formal decomposition proof or enough experimental detail to reproduce the comparison.</p>
+<p><strong>Primary source read:</strong> <a href="https://63dac.conference-program.com/presentation/?id=RESEARCH1388&amp;sess=sess163">official DAC 2026 paper description</a>. It states the CEC problem, FFLC and branching proxy, sharing-aware seed-and-grow partitioning, ABC implementation, 40 physical CPU cores, and the reported geometric-mean and maximum speedups.</p><p>No public manuscript, equation-level method description, benchmark list, absolute runtime table, or reproducible artifact was recovered in this pass; the explanation therefore keeps those boundaries explicit. The DAC session places the paper in the “From SAT to IC3: Modern Proof Techniques for Hardware Correctness” session.</p>
+<p><span id="explanation-dac-2026-research2737"></span></p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="file-text"></span>Insights from Verification: how testbench evidence changes RTL generation</h2>
+<h3>The target is executable behavior, not token similarity</h3>
+<p>The paper starts from a mismatch in ordinary language-model training. Supervised fine-tuning (SFT) teaches a model to predict the next Verilog token from a specification and previous tokens.</p><p>That objective rewards similarity to the training code. It does not directly ask whether the complete generated module compiles, responds correctly over time, handles reset and control sequencing, or satisfies the testbench's expected outputs.</p>
+<p>For hardware, those distinctions matter. Two Verilog descriptions can use different names, structures, and coding styles while implementing the same behavior.</p><p>Conversely, a generated description can look close to a reference and still fail because one state transition, width, reset value, or clock relationship is wrong. The paper therefore uses executable testbench outcomes as a training signal.</p><p>Its system is called VeriPrefer: it first trains a model to generate Verilog, then uses testbench feedback to construct preference pairs, and finally applies direct preference optimization (DPO).</p>
+<p>The goal is not to prove generated RTL equivalent to the reference design. The goal is to increase the probability that generated RTL passes the available functional tests. That is a meaningful engineering objective, but its scope is bounded by the testbench and its assumptions.</p>
+<h3>Stage one creates the initial generator</h3>
+<p>The first training stage uses specifications paired with Verilog code. The specification format is deliberately more detailed than a short one-line prompt: it includes module purpose, ports and widths, internal working principles, timing behavior, signal relationships, implementation logic, and important internal signals.</p><p>The paper constructs this dataset from PyraNet, filters out empty descriptions, and retains the top two quality levels, leaving 86,672 entries from an original 692,238.</p>
+<p>The model minimizes token-level maximum-likelihood loss. In plain terms, it is rewarded for assigning high probability to the reference code token by token.</p><p>This stage is necessary because the later preference stage assumes the model can already produce compilable and reasonably structured candidates. It is not sufficient for functional correctness, because no complete behavior score appears in the SFT objective.</p>
+<h3>The paper's main artifact is the testbench-generation pipeline</h3>
+<p>The authors identify a data problem: public Verilog datasets often contain specifications and code without a usable testbench. Without testbenches, there is no executable signal for ranking generated candidates. They therefore generate testbenches in four stages: Analyze, Draft, Improve, and Rectify.</p>
+<p>In Analyze, an LLM reads the specification and extracts the most important functional points and test cases. The pipeline limits the output to the top three functional points and top five test cases to avoid repetitive generation.</p><p>In Draft, another prompt creates a testbench that instantiates the design, applies clocks, resets and stimuli, and prints expected and actual values for every case. Compilation is checked with Synopsys VCS; compiler errors are returned to the generator for another attempt.</p>
+<p>In Improve, VCS coverage reports identify lines not exercised by the draft. The testbench generator adds cases aimed at uncovered lines until the coverage threshold is met or the attempt limit is reached.</p><p>The paper's example uses a 90% line-coverage threshold. Line coverage is a structural measure: it indicates that statements executed, not that all input combinations, temporal sequences, protocol interleavings, or security conditions were checked.</p>
+<p>In Rectify, the generated testbench is run against the original Verilog implementation. The pipeline compares the expected values written by the LLM with the actual simulation outputs.</p><p>If they disagree, the mismatch is sent back to the LLM so it can correct the testbench. The loop ends when all test cases pass against the original code or after three failed correction iterations, in which case the instance is discarded.</p>
+<p>This last step prevents obvious self-inconsistent testbenches from becoming training data, but it creates a precise boundary. The original code is treated as the reference while the testbench is corrected.</p><p>A testbench can therefore be internally consistent with the original code and still omit an untested requirement, encode a mistaken specification, or fail to exercise a rare behavior. Passing Rectify means the generated testbench agrees with the selected reference executions; it does not establish that the reference implementation is fully correct.</p>
+<h3>Preference pairs convert test results into a training signal</h3>
+<p>After testbench generation, the SFT model produces two candidate Verilog programs for the same specification. Both candidates are compiled and run under the generated testbench.</p><p>If one passes more test cases, it becomes the preferred output (y^+); the other becomes the less-preferred output (y^-). Pairs in which either candidate fails to compile are discarded.</p><p>The resulting record contains one specification and an ordered pair of generated programs.</p>
+<p>DPO trains the model to increase the relative probability of (y^+) against (y^-), while keeping the updated model near a fixed reference model. It does not require a separate reward model.</p><p>This matters because a numeric reward such as “fraction of test cases passed” can be optimized through shortcuts that do not improve the intended behavior. The paper compares DPO with explicit-reward approaches and argues that pairwise preference avoids some reward-hacking pressure.</p>
+<p>The preference signal still inherits the testbench's blind spots. If both candidates pass the same incomplete tests, the pair contains little information about the omitted behavior.</p><p>If a testbench is biased toward the reference code's structure, the model may learn implementation-specific patterns rather than the general specification. If a candidate passes more tests because it exploits an unmodeled assumption, DPO can reinforce that behavior.</p><p>The paper's method improves alignment to the measured executable signal; it does not turn that signal into a complete correctness specification.</p>
+<h3>The paper measures syntax and function separately</h3>
+<p>The evaluation uses pass@k with 20 sampled programs per specification. Syntax pass means the generated code compiles.</p><p>Function pass means it passes the benchmark testbench. pass@1 estimates the fraction of tasks solved by the first sample; pass@5 estimates whether at least one of five samples succeeds. A higher pass@5 can coexist with a lower pass@1 because the metric rewards the chance of finding one successful sample.</p>
+<p>The paper evaluates VerilogEval-Machine (143 GPT-created tasks), VerilogEval-Human (156 manually crafted tasks), RTLLM v1.1 (29 designs), RTLLM v2 (50 designs across arithmetic, memory, control and miscellaneous categories), and VerilogEval v2. It trains several foundation families, including CodeLlama, DeepSeek-Coder, CodeQwen, Mistral and Qwen2.5-Coder.</p>
+<div class="worked"><p class="lm-k">Worked example</p><p>For a concrete result, on RTLLM v2 the Qwen2.5-Coder-14B VeriPreferRL model reaches function pass@1/pass@5 of 55.2/67.5, compared with 53.8/67.5 for its VeriPreferSFT version. On VerilogEval v2, the same model reaches 58.6/72.1 versus 57.9/71.1 after SFT.</p><p>The gains are not uniform across every model and benchmark: some syntax or pass@5 values decrease, and the paper itself notes weaker performance on VerilogEval-Machine because the preference-training specifications are more human-like than that benchmark's prompts.</p></div>
+<p>The broader headline is therefore not “DPO always improves every number.” It is that testbench-based preference training often improves functional pass rates across model families and benchmark formats, with the largest reported gains depending on the model and task distribution.</p>
+<h3>Dataset and compute conditions determine what transfers</h3>
+<p>The RL-stage source pool filters SFT examples longer than 50 lines, leaving 8,291 instances. The automatic pipeline produces 6,704 valid testbenches.</p><p>The final preference-pair counts range from 1,782 for the Mistral variant to 2,267 for Qwen2.5-Coder-14B. Training uses eight NVIDIA A100 80 GB GPUs.</p><p>Fine-tuning runs for three epochs at a learning rate of (10^{-5}); DPO runs for ten epochs at (5\times10^{-6}), with (eta=0.1).</p>
+<p>These conditions separate data generation from model inference. At inference time, only the natural-language specification is provided; the testbench is used during training and evaluation, not as an additional input to the deployed generator.</p><p>The reported improvements therefore test whether the model has absorbed a relation between specification patterns and behavior that was measured by the training testbenches. They do not measure the cost of generating a testbench for each future user request or guarantee that a new design's unseen behavior will be covered.</p>
+<h3>The ablations test the source of the improvement</h3>
+<div class="worked"><p class="lm-k">Worked example</p><p>The paper compares several ways of constructing preference pairs. BLEU measures token overlap with reference code.</p><p>AST and data-flow-graph similarity measure structural similarity. A testbench-based pair instead uses the number of functional cases passed.</p><p>In Table VII, the Qwen2.5-Coder experiment obtains RTLLM v2 function pass@1/pass@5/pass@10 of 52.4/66.4/69.0 with VeriPreferRL, compared with 49.3/58.4/62.1 for a DPO variant using testbench rewards and 49.2/60.5/63.1 for AST-based preferences. On VerilogEval v2, VeriPreferRL obtains 49.3/64.7/69.5, while the testbench-reward DPO variant obtains 45.4/59.4/62.1.</p><p>The table also shows that SFT on verified data alone does not reproduce the full result: its RTLLM v2 function pass@1/pass@5/pass@10 is 49.7/61.9/65.4, close to the 49.8/62.5/66.1 VeriPreferSFT baseline. This supports the paper's claim that the preference objective, not just filtering or adding successful samples, changes the training signal.</p></div>
+<p>The ablation is informative but not a complete causal isolation. The pair-construction methods have different numbers of usable pairs, different failure handling, and potentially different data distributions.</p><p>The authors report that dataset size alone does not explain the result, but independent reproduction would need the released data, exact sampling, training settings, testbench versions and evaluator behavior.</p>
+<h3>Why lower perplexity is not the same as better RTL</h3>
+<p>The paper compares language-model perplexity with testbench performance and finds that only 52.3% of code pairs have the expected ordering: the candidate that passes more tests also has lower perplexity. This is a direct demonstration of the objective mismatch.</p><p>Perplexity evaluates token likelihood under a distribution; functional testing evaluates selected executions of a hardware module. Neither metric subsumes the other.</p>
+<p>The result should not be overextended. A low testbench pass rate does not prove that a module is wrong under every input, and a high pass rate does not prove full correctness.</p><p>A strong evaluation needs held-out specifications, independently constructed testbenches, coverage beyond lines, multiple seeds or sampling budgets, and—when the design is safety-critical—formal properties or equivalence checks that are not generated solely from the same candidate and testbench loop.</p>
+<h3>What this paper establishes</h3>
+<p>The paper establishes a concrete way to feed executable verification outcomes into RTL-generator training. It contributes a decomposed testbench-generation pipeline, a filtered preference-pair construction procedure, DPO alignment, and benchmark results showing improved functional pass rates in many settings.</p><p>It also supplies a public implementation and data/model release for reproduction.</p>
+<p>It does not establish that the generated Verilog is formally correct, that the generated testbenches are complete, that line-coverage thresholds imply behavioral coverage, or that the model understands hardware intent independently of the training distribution. Its first-principles lesson is narrower and useful: if the desired output property is behavioral correctness, token imitation is an indirect objective; executable feedback can make the training signal closer to that property, but the feedback mechanism becomes part of the correctness boundary.</p>
+<p><strong>Primary source read:</strong> <a href="https://arxiv.org/pdf/2504.15804">arXiv:2504.15804 v1</a>, especially Sections I–V and VII (PDF pages 1–9), Figures 1–7 and Tables I–VII. The official implementation is <a href="https://github.com/CatIIIIIIII/VeriPrefer">CatIIIIIIII/VeriPrefer</a>.</p><p>The paper's DAC 2026 record is listed by <a href="https://scholars.cityu.edu.hk/en/publications/insights-from-verification-training-a-verilog-generation-llm-usin/">CityUHK Scholars</a>. The source was read but the released training pipeline was not executed here.</p>
+<p><span id="explanation-dac-2026-research1612"></span></p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="help-circle"></span>EARL: why update only the uncertain parts of an RTL sequence</h2>
+<h3>The training problem is credit assignment in structured code</h3>
+<p>An RTL generator produces a long sequence of tokens, but those tokens do not all make equally important decisions. Module declarations, punctuation, repeated keywords and fixed port syntax are often predictable once the surrounding specification is known.</p><p>A sensitivity list, conditional guard, state transition or data-path operation can determine how the circuit reacts over time. If a generated module fails a compiler or functional check, a reward attached to the complete sequence does not directly say which positions caused the failure.</p>
+<p>Standard reinforcement learning with verifiable rewards can propagate the same sequence-level learning signal through every generated token. EARL argues that this spends update capacity on predictable tokens and weakens credit assignment at structural decisions.</p><p>Its proposed answer is to measure the model's uncertainty at each generation position and selectively update the high-uncertainty positions.</p>
+<p>This is a claim about training efficiency and where the gradient is applied. It is not a claim that high entropy is itself a correctness proof or that every high-entropy token is functionally important.</p>
+<h3>Entropy is measured at a position, not assigned to a word</h3>
+<p>For generation position <code>t</code>, the paper defines entropy as the sum below. <code>p[t,v]</code> is the probability assigned to vocabulary item <code>v</code> at position <code>t</code>.</p>
+<pre><code class="language-text">H[t] = - sum over v of p[t,v] * log(p[t,v])
+</code></pre>
+<p>The value describes how spread out the model's next-token distribution is in that particular context. The same lexical token can have low entropy in one context and high entropy in another.</p><p>For example, the word begin may be nearly forced after one syntax pattern but ambiguous at a structural junction.</p>
+<p>The paper studies entropy with a fine-tuned DeepSeek-Coder model at temperature 1.0. Across more than 210,000 generated tokens, over 80% have entropy below 0.15 and only a small tail exceeds 0.6.</p><p>The high-entropy positions in the examples cluster around sensitivity triggers, conditional branches and data-path operations, while module headers, port lists, whitespace and closing syntax tend to be low entropy. The paper interprets this as evidence that uncertainty is concentrated near choices that can alter control flow or module structure.</p>
+<p>The observation is descriptive. It shows correlation between model uncertainty and certain RTL locations in the studied corpus. It does not by itself establish that changing those positions causes the measured functional improvement. The training experiment is needed to test that hypothesis.</p>
+<h3>EARL has four connected stages</h3>
+<p>First, the authors construct synthetic specification–Verilog–testbench triples. GPT-4 generates problems across arithmetic operators, sequential logic, control modules and algorithmic circuits, varying difficulty, circuit type and specification style.</p><p>Each sample is filtered by three checks: compilation with iverilog, functional execution of the paired testbench, and an additional grading-LLM assessment of functional behavior. Only samples that pass all three are retained.</p>
+<p>Second, a pre-trained code model receives supervised fine-tuning on those verified triples. This supplies syntax and interface structure before reinforcement learning begins. In the reported experiment, the base model is DeepSeek-Coder-7B; SFT runs for three epochs with a peak learning rate of 0.00005.</p>
+<p>Third, the model generates RTL rollouts and receives a cascaded verifiable reward. Candidates that fail syntax receive zero reward.</p><p>Candidates that compile are checked for interface consistency, including module name and port declarations. Candidates with aligned interfaces proceed to functional equivalence checking using the Yosys eqy engine against a reference implementation.</p><p>Passing candidates receive the highest reward; near-misses receive lower graded credit.</p>
+<p>Fourth, EARL applies the entropy mask inside policy optimization. For each response, it computes the entropy of every generated position and chooses a response-level quantile threshold.</p><p>A token receives a policy-gradient update only when its entropy is at or above that threshold. Low-entropy tokens are left at zero update weight, preserving the stable distributions learned during SFT.</p><p>The method is optimizer-agnostic in formulation; the paper instantiates it with PPO and DAPO, and the main experiment uses DAPO.</p>
+<p>The threshold is relative to each response rather than a single global entropy number. This controls for different prompts having different entropy scales.</p><p>The paper also imposes a group condition requiring both positive and non-positive rewards so group-normalized advantages remain meaningful. EARL is therefore not simply “train on tokens with a fixed entropy greater than X”; it is a response-relative selective policy update combined with multi-stage verification rewards.</p>
+<h3>Why the reward hierarchy matters</h3>
+<p>Syntax, interface and functional equivalence are different gates. Syntax validity says the candidate can be parsed and compiled.</p><p>Interface consistency says it exposes the expected module and ports. Functional equivalence says its outputs match a reference under the equivalence engine's modeling assumptions.</p><p>A candidate can pass the first two and fail the third. The cascade prevents the system from spending expensive functional-checking work on malformed candidates and gives the optimizer intermediate information when a candidate is close.</p>
+<p>The hierarchy also defines the reliability boundary. The eqy result is only as strong as the reference design, equivalence setup, black-box treatment, input assumptions and tool semantics.</p><p>A passing check is not automatically a synthesis-quality, timing, power or security result. The dataset filtering has a similar limitation: a sample passes the paired testbench and grading step, not every possible input sequence.</p>
+<h3>What the benchmark numbers mean</h3>
+<p>EARL evaluates VerilogEval-Machine (143 machine-generated prompts), VerilogEval-Human (156 expert-written prompts), and RTLLM v1.1 (29 diverse RTL prompts). It reports pass@1 and pass@5, with five completions per prompt in this paper's evaluation formula.</p><p>“Functional” means the benchmark's functional checker accepts the output; “syntax” means it compiles. A pass@5 increase does not mean every generated module is correct, because it asks whether at least one of up to five samples succeeds.</p>
+<div class="worked"><p class="lm-k">Worked example</p><p>Table 1 reports EARL with a 7B model at 72.9/83.9 pass@1/pass@5 on VerilogEval-Machine, 49.6/60.2 on VerilogEval-Human, and 68.9 functional pass@5 on RTLLM. On RTLLM, the paper compares 68.9 with 54.2 for the best listed RL baseline and 51.7 for the best listed SFT baseline, describing the corresponding differences as 14.7 and 17.2 percentage points.</p><p>It also reports 100% syntax pass@5 on RTLLM.</p></div>
+<p>The paper reports improvements across its listed table, but the comparison is not a single model-versus-model experiment for every baseline: some baselines have different parameter counts, training data, prompting procedures, and evaluation provenance. The numbers support a benchmark improvement under the paper's setup.</p><p>They do not establish a universal 14.7-point gain for all RTL generators or a guarantee of one-pass correctness.</p>
+<h3>The entropy ablations test whether selection is doing work</h3>
+<p>The paper compares plain PPO and DAPO, entropy weighting, and EARL's binary entropy mask. It reports that DAPO is stronger than PPO without entropy masking, and that entropy-aware variants improve over their unmasked counterparts.</p><p>The best DAPO-EARL configuration improves pass@1 over the SFT baseline by 5.2 percentage points in the cited analysis.</p>
+<div class="worked"><p class="lm-k">Worked example</p><p>The quantile study is more direct. At quantile 0.0, the model obtains VerilogEval-Machine pass@1/pass@5 of 72.7/83.2 and RTLLM functional pass@5 of 62.0.</p><p>At 0.8, the corresponding values are 72.9/83.9 and 68.9. At 0.9, they fall to 71.0/79.7 and 65.5.</p><p>The authors interpret the peak near 0.8 as a balance: lower thresholds admit too many low-value updates, while higher thresholds exclude useful decision positions.</p></div>
+<p>This ablation supports the value of choosing a minority of positions in the tested setting. It does not prove that 80% is a universal threshold.</p><p>The optimal quantile can depend on tokenizer, model size, prompt style, code length, reward sparsity and training stage. Entropy is also model-dependent: a well-calibrated model and an overconfident model can assign different entropy to the same structural uncertainty.</p>
+<h3>Acceptance conditions and unresolved questions</h3>
+<p>To accept EARL as a reliable RTL-generation method for a new flow, a reader must verify several boundaries. The synthetic triples must represent the target design styles and must not leak reference implementations or evaluator-specific patterns into training.</p><p>The reward's equivalence check must use an independent and correctly configured reference. The entropy mask must improve learning rather than merely change sampling or preserve syntax at the cost of diversity.</p><p>Benchmark prompts and testbenches must be held out from data generation. Finally, generated RTL must pass downstream synthesis, timing, power, lint, formal properties and human design review if those are part of the intended acceptance process.</p>
+<p>The paper does not establish all of those conditions. It reports functional benchmark results and training stability, not physical implementation quality or independent formal acceptance of every output.</p><p>Its central conceptual contribution is narrower: in structured RTL sequences, applying the same policy-gradient update to every token may waste learning signal; uncertainty-guided selection can focus optimization on structural choices, provided the verifiable reward is itself sound and the selective update does not hide errors in low-entropy regions.</p>
+<p><strong>Primary source read:</strong> <a href="https://arxiv.org/pdf/2511.12033">EARL arXiv version 2</a>, especially Sections 1–5 (PDF pages 1–6), Figures 1–5 and Tables 1–2. The source gives the entropy definition, quantile mask, reward cascade, dataset checks, 4× NVIDIA A100 80GB setup, benchmark tasks and ablations.</p><p>The anonymized implementation link in the preprint was not executed here; the DAC page and later author materials identify the work as a DAC 2026 paper.</p>
+<p><span id="explanation-dac-2026-research1638"></span></p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>Hierarchical Boundary Recovery: what synthesis removes and what recovery must reconstruct</h2>
+<h3>The problem is lost organization, not missing logic</h3>
+<p>An RTL design usually has named modules and explicit instance boundaries. Synthesis transforms that description into a gate-level netlist to optimize area, timing, power or other implementation objectives.</p><p>During this process, it can flatten module instances, merge equivalent signals, duplicate logic, remove buffers, propagate constants and rewrite Boolean expressions. The resulting netlist can implement the same input/output function while no longer containing the signal that marked the original boundary.</p>
+<p>This creates a practical problem. A flat netlist still contains the logic, but it no longer tells an engineer which gates belong to a high-level component.</p><p>Debugging becomes harder because a failing signal cannot be mapped cleanly to a specification block. Engineering-change-order work becomes harder because a local change has no obvious implementation region.</p><p>Cross-abstraction training and verification also lose the correspondence between the specification and its synthesized implementation.</p>
+<p>Hierarchical Boundary Recovery addresses this organizational loss. It attempts to recover a boundary for a high-level component in a gate-level netlist, including cases where synthesis has completely removed the original boundary signals.</p><p>The target is not to recreate the exact historical RTL text. It is to find implementation nodes whose external behavior and position in the surrounding logic correspond to the specification component's boundary.</p>
+<h3>A boundary has inputs, outputs and a behavioral cut</h3>
+<p>A useful boundary separates the logic inside a component from the logic around it. Boundary inputs are signals entering the component; boundary outputs are signals leaving it.</p><p>If the component is replaced or inspected independently, the boundary must expose enough information for the outside logic to continue behaving as before.</p>
+<p>The important word is enough. A recovered set of gates that merely looks spatially compact is not necessarily a valid boundary.</p><p>It must form a cut through the relevant logic cones: paths from primary inputs toward the component and paths from the component toward its outputs should cross the proposed boundary in a controlled way. The recovered implementation boundary may contain nodes that never existed as named signals in the original hierarchy.</p>
+<p>This is why the task is different from naming or graph clustering. Naming can suggest that two signals correspond.</p><p>Structural clustering can group nearby nodes. Boundary recovery needs a relation between the specification boundary and the implementation's Boolean behavior.</p><p>It must also cope with optimization that changes the shape of the logic, so exact graph isomorphism is too strong a requirement.</p>
+<h3>SAT sweeping supplies behavioral correspondences</h3>
+<p>SAT sweeping is a method for finding nodes in a Boolean network that compute equivalent functions. The tool represents the networks as logic graphs and proposes candidate pairs using structural information.</p><p>For a candidate pair, it asks a SAT solver whether there exists an input assignment that makes the two node values differ. If no such assignment exists under the modeled inputs, the nodes are equivalent.</p><p>If a satisfying assignment exists, the pair is rejected and the assignment is a counterexample to that node equivalence.</p>
+<p>Boundary recovery uses these equivalent-node pairs as correspondence evidence. It can compare nodes in the hierarchical specification netlist with nodes in the flattened implementation even when the nodes have different names or occur at different structural locations.</p><p>A node may have more than one equivalent counterpart, for example after logic sharing or duplication. That ambiguity is part of the recovery problem; selecting one match does not make the mapping unique.</p>
+<p>The method then combines the behavioral correspondence with structural analysis. For each specification boundary output, it searches for implementation nodes that form an appropriate cut through the relevant fanout cone.</p><p>It performs an analogous analysis for boundary inputs. The candidate implementation nodes whose corresponding specification nodes create the required cut become the extended recovered boundary.</p>
+<p>The phrase “extended boundary” matters. Synthesis may remove the exact original signal, so the method can move the boundary toward surrounding logic until it finds a set of nodes for which the required cut and equivalence relationships are available.</p><p>That can produce a usable region for debugging or ECO work even when the result is not the smallest or most historically faithful boundary.</p>
+<h3>Why equivalence alone is not enough</h3>
+<div class="worked"><p class="lm-k">Worked example</p><p>Suppose a specification boundary signal and an implementation node are functionally equivalent at one point in the design. That correspondence does not automatically define a valid component boundary.</p></div><p>The node may be downstream of logic that should belong outside the component, or it may fail to separate all paths entering and leaving the intended region. Conversely, a structurally plausible cut may contain nodes whose Boolean functions do not match the specification boundary.</p>
+<p>The method therefore has two obligations:</p>
+<ul>
+<li>Behavioral correspondence: matched nodes must agree for all modeled input assignments.</li>
+<li>Cut validity: the selected nodes must separate the target component's relevant transitive fan-in and fan-out paths.</li>
+</ul>
+<p>The first obligation is a SAT question. The second is a graph and cone-structure question.</p><p>Passing one does not imply passing the other. This separation explains why a method can recover a useful boundary without claiming that the recovered gates are an exact copy of the source module.</p>
+<h3>What the method can and cannot preserve</h3>
+<p>The method is strongest when the logic outside the target instance remains equivalent between the specification and implementation. In that case, a change or replacement inside the recovered boundary can be related to the original hierarchical component through the surrounding logic.</p><p>The method becomes more difficult when synthesis uses transformations that rely on the component's context.</p>
+<p>Two important cases are logic sharing and satisfiability don't-cares. Logic sharing can cause one implementation node to correspond to several specification nodes.</p><p>Replacing one region may then affect another use of the shared logic. A satisfiability don't-care can let the synthesis tool change a function on input assignments that never occur at a boundary output.</p><p>A local comparison may appear valid under the reachable context while a proposed replacement changes behavior under assignments that the original context excluded. These cases require the boundary to be extended or the surrounding assumptions to be analyzed.</p>
+<p>The practical consequence is that “recovered boundary” is not synonymous with “original module recovered.” It is a behavioral and structural interface candidate under the equivalence and reachability assumptions used by the method. A downstream ECO or debug tool must recheck the modified netlist, especially when logic is shared or the synthesis flow exploits don't-care conditions.</p>
+<h3>Why this helps downstream work</h3>
+<p>Debugging needs a way to move from a failing gate-level signal back to a meaningful specification block. A recovered boundary can limit the search region and restore the unit of reasoning that synthesis removed.</p><p>ECO flows can use it to identify which implementation nodes correspond to a requested high-level change. Cross-abstraction model training can use recovered pairs to associate specification-level concepts with gate-level structures.</p><p>Verification can use the boundary to define a smaller region while retaining connections to the surrounding netlist.</p>
+<p>These are applications of the recovered correspondence, not evaluations of the recovery itself. A boundary that is useful for debugging may be too broad for a low-cost ECO.</p><p>A boundary that is behaviorally valid may not match the labels expected by a training dataset. Each application needs its own acceptance criterion.</p>
+<h3>Evidence and evaluation boundary</h3>
+<p>The DAC description states that the approach is automated, handles cases where synthesis removes original boundary signals, is implemented as an open-source tool, and shows robust experimental recovery of hierarchical boundaries. The authors' Berkeley publication page identifies the work as a DAC 2026 paper.</p><p>Those sources establish the problem, intended mechanism and existence of an implementation.</p>
+<p>The accessible record does not provide the target paper's benchmark names, synthesis scripts, recovered-boundary precision or recall, SAT runtime, timeout policy, scale limits, number of ambiguous matches, or cross-tool validation. It also does not establish whether “robust” means high recovery accuracy, stability across synthesis settings, runtime scalability, or all three.</p><p>The numerical quality of the target paper therefore remains unverified in this reading pass.</p>
+<p>The related boundary-recovery problem has a natural evaluation structure: compare recovered implementation boundaries with known specification boundaries, measure behavioral equivalence of matched cuts, report failures under increasingly aggressive synthesis, and measure SAT and structural-analysis cost. The target paper must be judged by its own experiments and definitions; these are the conditions a reader should look for, not results attributed to this paper without its manuscript.</p>
+<h3>What this paper establishes at the current evidence level</h3>
+<p>Hierarchical Boundary Recovery addresses a real gap created by synthesis: behavior can survive while design organization disappears. Its method combines SAT-based functional correspondence with structural cut analysis to infer an implementation boundary, including one whose original signal was removed.</p><p>That is a technically coherent bridge between equivalence checking and hierarchy recovery.</p>
+<p>The current evidence does not establish that every recovered boundary is unique, minimal, semantically complete, or safe for an ECO. It does not establish the target's recovery accuracy or runtime from the available pages.</p><p>The correct reading is therefore: the paper presents an automated boundary-recovery approach and an open-source implementation with claimed robust experiments; the mechanism is plausible and well-defined at the conceptual level, while quantitative acceptance and corner-case behavior require the manuscript, artifact and independent checks.</p>
+<p><strong>Primary sources read:</strong> <a href="https://63dac.conference-program.com/presentation/?id=RESEARCH1638&amp;sess=sess312">DAC 2026 official description</a>, which states the synthesis-obscurity problem, removed-boundary case, automation, open-source implementation and robustness claim; <a href="https://people.eecs.berkeley.edu/~alanmi/publications/">Alan Mishchenko's publication list</a>, which identifies the paper and authors. The target manuscript, benchmark tables and artifact execution were not recovered in this pass.</p><p>The related prior boundary-recovery literature was not substituted for target-paper measurements.</p>
+<p><span id="explanation-dac-2026-research1355"></span></p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="help-circle"></span>Debug Like a Human: why processor fault localization needs an instruction-time slice</h2>
+<h3>The task is to rank code blocks, not to prove the bug</h3>
+<p>Fault localization starts after a verification run has found a failure. The result is a failed instruction, a signal whose architectural value is wrong, a simulation time, and an expected value or behavior.</p><p>The task is to rank source regions that may contain the cause so that an engineer can inspect and repair them. This is different from bug detection: the failing test establishes that some observed behavior disagrees with the reference, but it does not identify which source statement caused the disagreement.</p>
+<p>The distinction matters in a processor because one instruction is implemented across multiple modules and clock cycles. A wrong committed value may be produced by a combinational expression, selected by a control signal from another block, or held in a register because a write-enable was wrong one cycle earlier.</p><p>A source-only search sees code text but not which values were active for the failing instruction. A waveform-only search sees values but not a compact, semantically grouped source context.</p><p>BluesFL is designed to connect these two views.</p>
+<h3>Why ordinary slicing and full-file prompting lose information</h3>
+<p>Static slicing follows data dependencies from a suspicious signal and returns statements that could influence it. This can be useful for a small module, but a processor contains many connected modules, so the resulting set can remain too large for careful inspection.</p><p>Transition-based methods can remove statements that were not active in a cycle, but a pipelined instruction spans cycles and modules. A range-based coverage interval can therefore mix the failing instruction with other instructions that are in flight.</p>
+<p>The other failure mode is excessive context. Giving an LLM a whole processor project or a long module file does not make the model understand the design.</p><p>It increases the number of unrelated declarations and possible causes it must consider, while the relevant signal may be separated from the failure by both module boundaries and clock cycles. The paper's design response is to restrict the model's view using two kinds of information: local dataflow and the dynamic path of the failing instruction.</p>
+<h3>Code blockization preserves local dataflow</h3>
+<p>BluesFL first partitions the SystemVerilog project into disjoint code blocks. A block is a set of source lines, and a line belongs to one block.</p><p>The method records an input-signal set and an output-signal set for each block. This gives the later analysis a concrete rule for moving from a signal to the source block that computes it.</p>
+<p>The block types reflect synthesizable SystemVerilog structure:</p>
+<ul>
+<li>A module-input block represents an input port and the connected signals at its instantiation.</li>
+<li>A module-output block represents the signals connected to an output port.</li>
+<li>An <code>always</code> block groups the signals assigned on its left-hand sides and the signals used on right-hand sides or conditions.</li>
+<li>An assignment block begins with one continuous assignment. Assignment blocks are merged when their input and output sets have a dataflow dependency.</li>
+</ul>
+<p>The merge rule is important. Arbitrarily splitting every assignment would produce small pieces that omit the local expression needed to interpret a value.</p><p>Grouping dependent assignments keeps related computation together while retaining a mapping from signals to source regions. It does not claim that each block is a hardware module or a true bug boundary; it is an analysis unit chosen for context control.</p>
+<h3>Blues reconstructs an instruction execution path</h3>
+<p>The central object is a directed graph whose node is <code>(block, time)</code>. The timestamp is a clock-cycle count from the simulation start. A block may occur more than once at different times because a sequential block can be covered repeatedly. The graph is therefore not just a static dependency graph: it records when a value for the failing instruction can have been produced.</p>
+<p>The algorithm starts with the failing signal and its time. It finds the block that drives that signal, identifies the signals inside that block that drive the current value, finds the blocks that produce those signals, and adds predecessor nodes.</p><p>It repeats this backward traversal until no earlier state can be added. The edges represent data dependence for the particular instruction and time under analysis.</p>
+<p>The time rule distinguishes combinational and sequential behavior. For combinational logic, a signal at time <code>t</code> is driven by its inputs at <code>t</code>. For a clocked block, the value at <code>t</code> is normally computed from inputs at <code>t-1</code> when the assignment was active at the preceding edge. If the assignment was not active, the register retains its earlier value; the prior value of the register becomes the predecessor rather than an unrelated input. This retained-value case is necessary because “no write” is itself a state transition rule.</p>
+<h3>The LLM receives a constrained debugging interface</h3>
+<p>At each <code>(block, time)</code> state, the model receives the current code block, the failing test report, and the driven signals identified by the slice. It can mark a block as suspicious, request the blocks that drive selected signals, or read waveform values at relevant times. The allowed signal queries are restricted to the execution path, so the model cannot expand arbitrarily through every signal in the project. The final output is a ranked list of suspicious blocks with confidence scores.</p>
+<p>This arrangement separates deterministic preprocessing from probabilistic reasoning. The parser, blockizer and slice decide which source and runtime states are eligible for inspection.</p><p>The LLM decides which eligible signals deserve attention and whether a block appears causally suspicious. The ranked result is a localization hypothesis, not a proof that the highest-ranked block is defective.</p><p>Confirmation still requires inspecting the source, reproducing the failure, and checking the repair against the intended processor behavior.</p>
+<h3>What the experiment measures</h3>
+<p>The evaluation uses the open-source Ibex RISC-V core, approximately 19 thousand lines of SystemVerilog. The authors inject 119 bugs using mutation rules and run CoreMark in a co-simulation flow.</p><p>A failing architectural-state comparison supplies the instruction, signal and time used by the localization process. The paper evaluates how many injected bugs have at least one buggy block within the top 1, top 5 or top 10 ranked positions.</p>
+<p>BluesFL localizes 24 bugs at Top-1, 28 at Top-5 and 28 at Top-10. The comparison table reports 7, 7 and 7 for LiK, the strongest listed LLM-specific baseline, and 13, 16 and 16 for the adapted Agentless baseline.</p><p>The reported Top-1 improvement over LiK is 242.9 percent relative to the baseline count; it is not a 242.9-percentage-point accuracy guarantee. The table also reports 0 Top-1 for Cirfix, Strider and Tarsel-Jaccard, 3 for Tarsel-Tarantula, and 2 Top-10 for Tarsel-Ochiai.</p>
+<p>The ablations test the two dynamic inputs separately. Removing waveform signal values reduces the result to 13 Top-1, 24 Top-5 and 26 Top-10.</p><p>Removing the instruction execution path reduces it to 5, 6 and 6. The paper also reports that 99 percent of the generated Ibex blocks contain no more than 200 lines, and that the default setup checks an average of 15.4 blocks per bug.</p><p>Without signal values it checks 88.3 blocks, raising reported average cost from $0.257 to $1.821, a 609 percent increase.</p>
+<div class="worked"><p class="lm-k">Worked example</p><p>The backend comparison changes the result and cost: GPT-4o-mini reports 17/25/26 at Top-1/5/10 for $0.015 per bug, GPT-4o reports 24/28/28 for $0.257, and Claude-3.5-Sonnet reports 30/33/33 for $0.263. These figures are conditional on the paper's injected-bug set, prompt/tool protocol, model versions and scoring rule.</p><p>They do not establish performance on naturally occurring processor bugs or on another ISA.</p></div>
+<h3>Limits that control the conclusion</h3>
+<p>The benchmark is mutation-based and concentrated on one RISC-V implementation. Mutation rules determine which bug mechanisms are represented; 119 injected failures are not a sample of all processor defects.</p><p>The comparison also uses block-level ranking conventions: slicing methods receive an expected rank derived from set size, while LiK emits a single line. Those conversions affect cross-method comparability and should be reproduced with the released artifact.</p>
+<p>The method depends on a test report, a co-simulation reference, signal coverage, waveform values and a parser that correctly maps SystemVerilog dataflow. If the reference model or test does not expose the failure, the method has no initial state to trace.</p><p>If a bug depends on a signal omitted from the recorded waveform, a wrong path classification, or a cross-instruction interaction, the slice can exclude relevant evidence. The paper reports that for approximately 70 percent of bugs not localized within Top-10, the buggy block was never checked because the LLM terminated too early.</p><p>That is a limitation of the search policy, not evidence that the bug was absent from the execution path.</p>
+<p>The paper also identifies possible data exposure to pretrained models. It injects bugs to reduce the chance that the model has memorized the exact test cases, but this does not prove no training contamination.</p><p>Finally, cost is an API/model-use estimate under the reported setup; it is not a complete engineering cost including waveform generation, parser construction, simulation, human confirmation or repair.</p>
+<h3>What this paper establishes</h3>
+<p>Debug Like a Human gives an LLM a structured, time-indexed view of a processor failure. Its technical contribution is the combination of dataflow-based source blocks, instruction-oriented backward slicing, waveform values and tool-constrained LLM reasoning.</p><p>The reported Ibex experiment supports the narrower conclusion that this combination improved the paper's injected-bug Top-N localization counts and reduced reported model-query cost relative to its listed baselines under the stated setup.</p>
+<p>It does not establish a general fault-localization guarantee, causal correctness of the top-ranked block, superiority on natural bugs, or independence from the quality of the co-simulation trace and mutation benchmark. A strong follow-up evaluation would need naturally occurring bugs, multiple processor designs or ISAs, matched model and budget settings, per-bug failure analysis, and independent confirmation that the proposed block is the repair-relevant cause.</p>
+<p><strong>Primary source read:</strong> <a href="https://arxiv.org/abs/2605.17290">arXiv:2605.17290</a>, version 1 PDF, Sections 1–6 and Tables 1–2, including the blockization definitions, Blues algorithm, Ibex benchmark, ablations, model comparison, limitations and threat-to-validity discussion. The public artifact is linked by the paper at <a href="https://github.com/pointerliu/bluesfl">github.com/pointerliu/bluesfl</a>; it was not executed in this pass.</p>
+<p><span id="explanation-dac-2026-research2361"></span></p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="help-circle"></span>Svacoder: why assertion generation needs both RTL grounding and semantic filtering</h2>
+<h3>An assertion is a temporal requirement, not just legal syntax</h3>
+<p>SystemVerilog Assertions describe conditions over signals and clock cycles. An assertion can require a relationship in the same cycle, a relationship on a later cycle, a response after a request, a reset condition, or a value to remain stable while an enable is inactive.</p><p>Small changes in implication direction, delay, grouping or operator precedence can change the property being checked.</p>
+<p>The NL2SVA task takes a natural-language property and RTL context and produces an SVA. A generated assertion may compile and may even pass formal verification against the design while failing to express the requested property. The simplest example is a tautology such as <code>assert property (1'b1)</code>: it passes for every RTL implementation but checks nothing useful. A second failure is a weaker property that the RTL happens to satisfy. Thus three questions must be separated: is the SVA syntactically valid, does it hold for the design under the tool's model, and does it mean what the natural-language requirement says?</p>
+<p>Svacoder, named CodeV-SVA in the manuscript, addresses the data problem behind this translation. The paper does not propose a new SVA logic.</p><p>It constructs training pairs and fine-tunes open models so that they have more exposure to RTL structure, temporal properties and the syntax needed to express them.</p>
+<h3>RTL provides a large source of candidate verification situations</h3>
+<p>Human-written SVA corpora are small. The paper starts instead with open-source RTL and specifications from the CodeV dataset.</p><p>It uses Yosys to retain designs with clock and reset signals, because these signals create temporal behavior that can support nontrivial assertions. From 165,000 RTL examples, 42,000 are retained after this filtering.</p>
+<p>DeepSeek-V3.1 decomposes each design specification into independent natural-language verification properties. This produces 324,000 candidate properties.</p><p>The same model receives each candidate property and its RTL implementation and generates an SVA. Cadence JasperGold then checks whether the generated assertion holds under the RTL.</p><p>The first formal screen leaves 159,000 SVA instances.</p>
+<p>That screen answers only one question: whether the RTL satisfies the candidate assertion. It does not prove that the SVA is the intended translation of the natural-language property.</p><p>A design can satisfy an assertion that is too weak, vacuous or unrelated. The paper's central data-quality contribution is therefore a second semantic-alignment check.</p>
+<h3>Bidirectional translation tests whether meaning survives two conversions</h3>
+<p>For a screened SVA, the pipeline asks an LLM to translate SVA back into natural language. It then asks the LLM to translate that natural-language description back into a new SVA.</p><p>The original and regenerated SVAs are compared with formal equivalence under the same RTL context. Only pairs whose assertions are logically equivalent are retained.</p><p>This produces 105,000 NL-SVA pairs with corresponding RTL code before later refinement.</p>
+<p>The logic is conditional. If the round trip changes the assertion, some information was likely lost in one of the translations.</p><p>If it preserves the assertion, the natural-language intermediate was at least sufficient for the LLM to reconstruct an equivalent property under the checked model. That is stronger than checking only that the first SVA passes, but it is not a proof that the natural-language sentence is complete for every human interpretation.</p><p>Equivalence is checked between formal assertions, not between the sentence and an independently formalized specification.</p>
+<p>The paper's precedence example shows why this filter matters. An original SVA can appear to express two conditional requirements while operator precedence makes the conjunction bind differently, producing a tautology that passes formal verification.</p><p>The back-translated SVA expresses the intended grouped conditions; formal equivalence fails, so the pair is rejected. The filter detects a mismatch between the original assertion and its recovered meaning.</p><p>It does not by itself repair the original assertion or establish which wording a domain expert intended.</p>
+<h3>Refinement removes easy or ambiguous training examples</h3>
+<div class="worked"><p class="lm-k">Worked example</p><p>After bidirectional selection, the pipeline applies three further operations. First, DeepSeek-V3.1 uses expert-derived error categories—logical misalignment, signal inconsistency, RTL misunderstanding and mapping a property to the wrong SVA object—to select cleaner pairs.</p><p>Second, Qwen3-8B generates five candidate SVAs for each natural-language property; examples for which all candidates are equivalent to the reference are removed as too easy. Third, DeepSeek-R1 generates a reasoning trajectory and a final SVA, retaining cases whose final SVA is equivalent to the selected assertion.</p><p>The resulting 83,000 examples contain RTL, a natural-language property, reasoning text and an SVA. Qwen3-8B and Qwen3-14B are fine-tuned for two epochs, with a learning rate of 2e-5, batch size 128 and 32,768-token context.</p><p>Training is reported as 8 and 12 hours on eight H800 80GB GPUs for the two model sizes. The deployed model is still a generator: formal tools remain necessary to test each assertion against its design context.</p></div>
+<h3>What Func.@k measures</h3>
+<p>The paper evaluates on FVEval's NL2SVA-Human and NL2SVA-Machine sets. The Human set contains expert-written ground-truth SVAs and natural-language descriptions.</p><p>The Machine set starts from randomly generated SVAs and uses LLMs to create descriptions; human experts recheck, correct or remove erroneous cases. The paper applies 13-gram decontamination to reduce training/test overlap.</p>
+<p>The metric is functional pass@k. For each problem, the model produces samples, and a sample is counted correct only when the generated SVA is formally equivalent to the ground-truth SVA under the benchmark setup.</p><p>Func.@1 is the probability that one attempt is correct; Func.@16 and Func.@32 measure the chance that at least one correct assertion appears among 16 or 32 samples. A high pass@32 can therefore coexist with a lower first-attempt reliability and does not mean that every generated assertion is correct.</p>
+<div class="worked"><p class="lm-k">Worked example</p><p>CodeV-SVA-14B reports NL2SVA-Human Func.@1/16/32 of 75.8/89.4/90.4 and NL2SVA-Machine of 84.0/94.9/95.8. CodeV-SVA-8B reports 72.0/88.8/90.4 and 83.5/96.3/97.2.</p><p>The table compares these results with GPT-5, DeepSeek-R1, GPT-4o, specialized RTL-generation models and Qwen3 base models. The reported numbers use temperature 0.8, top-p 0.95 and 32 samples for pass@k estimation.</p><p>They measure formal equivalence to benchmark assertions, not coverage of all design requirements.</p></div>
+<p>The data ablations support the pipeline's internal claims. With 5,000 examples, the paper reports synthesized data at 55.4 Func.@1 on Human and 75.7 on Machine, compared with 22.3 and 39.2 for DeepCircuitX data and 1.9 and 6.4 for VERT data under the same comparison.</p><p>Removing reasoning trajectories lowers CodeV-SVA-8B Human Func.@1 from 72.0 to 63.9. Removing bidirectional selection as well as later refinement gives 51.2, while removing formal verification too gives 44.1.</p><p>These are ablations of a single training pipeline; they do not isolate every source of data quality from model or prompt effects.</p>
+<h3>End-to-end results add a different denominator</h3>
+<p>The paper also modifies AssertionForge for five RTL designs. A specification-analysis stage produces natural-language properties, and the NL2SVA stage generates assertions.</p><p>Table 5 reports the number generated, the number syntactically correct and the number that pass formal verification. On OPENMSP430 with GPT-4o as the specification stage, GPT-4o NL2SVA produces 1,013 generated, 777 syntax-correct and 196 proven assertions, while CodeV-SVA-8B produces 1,044, 859 and 484.</p><p>With DeepSeek-R1 as the specification stage, the corresponding CodeV-SVA-8B row is 1,215 generated, 917 syntax-correct and 502 proven.</p>
+<p>These counts should not be read as a percentage of all required properties. The specification stage may omit requirements; syntactic validity does not imply semantic alignment; and “proven” means the assertion passes the formal check used by the framework.</p><p>The table is evidence that the specialized generator produced more accepted assertions under that pipeline, not evidence that the five designs' full verification plans were covered.</p>
+<h3>Limits that determine the conclusion</h3>
+<p>The synthetic data inherits the source RTL, generated specifications and teacher-model judgments. The initial formal screen can admit weak assertions, and bidirectional equivalence can preserve a wrong but internally consistent assertion if the round-trip translation reproduces it.</p><p>LLM-as-a-judge and difficulty filtering introduce additional model decisions. The benchmark's ground-truth SVA is the acceptance reference, so the metric does not independently judge whether that reference is complete or whether a different correct assertion should also be accepted.</p>
+<p>The RTL context also constrains what is visible. A property about an external protocol, an environment assumption, reset sequencing or an unmodeled interaction may not be expressible from the selected code and prompt.</p><p>Passing JasperGold depends on clock, reset, assumptions, property syntax and tool semantics. The paper reports models and aggregate benchmark results but does not establish hardware implementation quality, synthesis impact, assertion runtime at deployment scale, or the cost of expert review.</p>
+<h3>What this paper establishes</h3>
+<p>Svacoder shows that RTL-grounded synthetic data plus round-trip assertion equivalence can train smaller open models that perform strongly on the paper's NL2SVA benchmarks. The strongest technical point is the separation of “the design satisfies this SVA” from “this SVA remains equivalent after its meaning is translated out and back.” The method reduces a particular class of weak or misaligned training pairs and the ablations show that this filtering is associated with better benchmark scores.</p>
+<p>It does not establish that generated assertions cover the full design intent, that a formally passing assertion is nonvacuous, or that the model can replace verification engineers. The appropriate acceptance test for deployment remains: review the requirement, inspect the generated temporal semantics, check assumptions and vacuity, run the formal tool on the intended RTL, and measure whether the assertion suite detects relevant injected and real bugs.</p>
+<p><strong>Primary sources read:</strong> <a href="https://arxiv.org/abs/2603.14239">arXiv:2603.14239</a>, version 1 PDF, Sections 1–5 and Tables 1–5; <a href="https://63dac.conference-program.com/presentation/?id=RESEARCH2361&amp;sess=sess166">DAC 2026 official description</a>; <a href="https://github.com/wyt2000/CodeV-SVA">public CodeV-SVA artifact and evaluation instructions</a>. The repository was inspected through its public README but the JasperGold evaluation and model training were not executed here.</p>
+<p><span id="explanation-dac-2026-research285"></span></p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="checklist"></span>HydraCEC: why parallel equivalence checking must parallelize the sweep itself</h2>
+<h3>The proof obligation is unchanged; the work schedule changes</h3>
+<p>Combinational equivalence checking asks whether two combinational circuits produce the same outputs for every allowed input valuation. A solver can encode the comparison as a miter: corresponding outputs are compared, and a SAT solver searches for an input that makes any comparison differ.</p><p>If the miter is unsatisfiable, the circuits are equivalent under the modeled inputs; if it is satisfiable, the assignment is a counterexample.</p>
+<p>Modern equivalence tools often simplify this problem through SAT sweeping. The circuits are represented as Boolean graphs.</p><p>The tool proposes pairs of nodes that may compute the same function, asks a SAT query to distinguish them, and merges or records equivalent nodes when the query proves no difference. Every successful merge can simplify later queries, so the order in which tasks run changes the structure and cost of the remaining work.</p>
+<p>This creates a distinction between two forms of parallelism. A solver may run several SAT searches for one candidate pair in parallel, while the outer sweep remains serial.</p><p>HydraCEC targets the outer sweep: it executes multiple verification tasks concurrently and lets completed tasks share equivalence information asynchronously. The equivalence requirement remains the same; only the order and concurrency of proof work change.</p>
+<h3>A sweep task has benefit as well as cost</h3>
+<p>Not every available candidate pair is equally valuable. A task can be cheap but produce little simplification, or expensive but merge nodes that remove a large amount of later work.</p><p>A useful scheduler therefore needs to estimate the benefit of completing a task, not only its local runtime.</p>
+<p>The paper introduces a Task Benefit Graph (TBG) to guide dynamic scheduling. At a conceptual level, the graph represents candidate verification tasks, their dependencies and the simplification benefit expected from their results.</p><p>The scheduler chooses tasks whose predicted equivalence information is likely to reduce downstream work while respecting dependencies and available workers. Because the accessible conference description does not provide the graph's exact vertex/edge definition, benefit estimator, update equations or dependency rules, those implementation details must not be inferred from the name alone.</p>
+<p>The benefit estimate is important because sweeping is state-changing search. Running tasks in parallel can consume resources on pairs that would have become unnecessary after another merge.</p><p>A scheduler that ignores this interaction can increase contention or duplicate work. A benefit-aware scheduler attempts to spend concurrency where the result will simplify the shared problem.</p>
+<h3>Asynchronous sharing removes a global barrier</h3>
+<p>If workers wait for every task in a round to finish before sharing equivalences, fast workers sit idle and newly discovered simplifications cannot affect tasks already waiting in the next round. A global barrier also makes the schedule sensitive to the slowest task in each batch.</p>
+<p>HydraCEC uses asynchronous equivalence sharing. A worker can publish a newly established equivalence without waiting for all other workers, and other workers can incorporate that information while continuing their own tasks. The intended effect is cooperative simplification without global synchronization at every step.</p>
+<p>Asynchronous sharing has a correctness condition: a shared equivalence must be sound under the same Boolean model and must be applied consistently. It also has a scheduling condition: tasks that were generated before a merge may become stale, so the implementation must decide whether to cancel, revalidate or tolerate them.</p><p>The official description establishes the presence of asynchronous sharing but does not expose these stale-task policies or their overhead.</p>
+<h3>What the paper claims to improve</h3>
+<p>The reported framework is HydraCEC, described as a general-purpose parallel CEC framework for SAT-sweeping flows. Its stated contribution is to parallelize the sweeping process itself, add dynamic benefit-aware scheduling through TBG, and share equivalences asynchronously.</p><p>The intended target is larger circuits where a serial sweep is the bottleneck and where sharing can make later proof tasks easier.</p>
+<p>The official DAC description reports experiments on ISCAS/ITC, Datapath and Large-Scale benchmark groups. It says HydraCEC consistently outperforms existing parallel CEC solvers, reports a 10.5× speedup over the best competitor on large-scale instances, and reports scalability reaching 72.3× speedup with 128 cores.</p><p>These are reported speedup claims, not proof-strength changes: the circuits, solved/timeout counts, baseline configurations, core model, wall-clock definition, preprocessing, memory use and per-benchmark distribution are not available in the accessible description.</p>
+<p>The 72.3× figure also needs its denominator before it can be interpreted. It could be relative to a serial baseline, a particular parallel solver or another reference defined by the full paper.</p><p>The description says the framework reaches that scalability with 128 cores but does not provide the exact reference or whether all benchmark instances contribute equally. A reader should preserve the number as a bounded conference claim rather than convert it into a universal 72.3× improvement.</p>
+<h3>Correctness and performance are separate obligations</h3>
+<p>Parallel scheduling does not change what it means for two circuits to be equivalent. Each node-equivalence result must still be justified by a valid SAT outcome under the modeled inputs.</p><p>The framework also needs to preserve completeness of the sweep: a task skipped, canceled or made stale must not remove a necessary candidate without a sound reason.</p>
+<p>Performance evaluation must therefore report more than a single speedup. It should show whether all instances reached the same equivalence or counterexample outcome, how many timed out, whether preprocessing is included, how memory and core count scale, and whether the scheduler's extra bookkeeping offsets its savings on small cases.</p><p>A solver that completes faster by changing timeouts or stopping before unresolved tasks is not a faster equivalent checker.</p>
+<h3>Limits at the current evidence level</h3>
+<p>The accessible source establishes the problem, HydraCEC's named components, benchmark families, and headline speedup claims. It does not establish the exact TBG construction, the equivalence-sharing data structure, SAT solver and circuit representation, timeout policy, hardware platform, competitor settings, individual benchmark results, memory scaling, counterexample handling or artifact reproducibility.</p>
+<p>The framework's likely benefit is largest when successful merges expose substantial downstream simplification and enough independent tasks exist to occupy workers. Small circuits, highly dependent task graphs, memory pressure, weak benefit estimates or few useful equivalences can reduce or reverse the benefit.</p><p>These are mechanism-derived evaluation conditions, not results attributed to the target paper.</p>
+<h3>What this paper establishes</h3>
+<p>HydraCEC presents a coherent way to attack the serial portion of SAT sweeping: schedule candidate equivalence tasks concurrently, prioritize tasks by expected simplification benefit, and share results without a global barrier. The DAC description reports large-scale benchmark speedups and 128-core scalability for this design.</p>
+<p>It does not, from the accessible pages, establish the detailed correctness argument, task-benefit model, runtime distribution, memory cost or reproducible comparison needed to accept the headline as a general CEC performance law. A complete reading requires the manuscript and artifact, followed by matched runs that preserve the same equivalence obligations, solver limits and outcome accounting.</p>
+<p><strong>Primary source read:</strong> <a href="https://63dac.conference-program.com/presentation/?id=RESEARCH285&amp;sess=sess163">DAC 2026 official description</a>, which states the SAT-sweeping bottleneck, HydraCEC, Task Benefit Graph scheduling, asynchronous equivalence sharing, benchmark families, 10.5× competitor comparison and 72.3×/128-core claim. No target manuscript, benchmark tables or artifact execution was recovered in this pass.</p>
+<p><span id="explanation-dac-2026-research720"></span></p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>Probabilistic safe controller synthesis: what a stochastic safety certificate actually covers</h2>
+<h3>The controller acts on a model, not directly on an image</h3>
+<p>A vision-based controller receives an image or other visual observation, but the physical system evolves through hidden or partially observed state. The state may include position, velocity, orientation and other variables that determine whether the next action is safe.</p><p>An image is a measurement of that state, not the state itself. Camera noise, lighting, environmental changes and observation-model error can make similar states produce different images, or make different states look similar.</p>
+<p>The paper's target is a closed-loop controller whose neural policy uses visual observations while the safety claim is stated over the underlying dynamical system. The key verification question is therefore not merely whether the neural network chooses a reasonable action on sampled images.</p><p>It is whether, under a stated uncertainty model, the closed loop remains inside a safe state set with a stated probability bound over the modeled horizon.</p>
+<h3>A probability statement needs a horizon and a distribution</h3>
+<p>Let the system state evolve from an initial set through dynamics affected by environmental perturbations. A finite-horizon safety claim has the form: starting from the allowed initial states and under the controller, the probability that the state remains in the safe set for every step up to horizon <code>N</code> is at least a specified bound. This probability is taken over the uncertainty model, not over arbitrary disturbances outside that model.</p>
+<p>That scope is essential. A certificate for one time step is not automatically a certificate for a hundred-step trajectory.</p><p>A bound for a finite horizon is not automatically an infinite-horizon claim. A high probability under the data distribution is not a worst-case guarantee for every possible image or environmental change.</p><p>The paper's use of “probabilistic” should therefore be read as a quantitative guarantee under explicit stochastic assumptions, not as deterministic safety against all disturbances.</p>
+<h3>The cGAN supplies a verifiable observation model</h3>
+<p>The first component uses a conditional generative adversarial network to approximate the mapping from system states to visual observations. The condition is the system state; the generated image represents what the controller may observe at that state.</p><p>This provides a closed-loop model in which the physical dynamics, observation generation and visual policy can be analyzed together.</p>
+<p>The cGAN is not itself a proof that the real camera or environment follows the learned mapping. It is a learned approximation.</p><p>If its uncertainty model omits lighting, occlusion, sensor corruption or state regions absent from training data, the certificate applies to the approximated observation process rather than automatically to the real deployment process. The safety result therefore depends on how uncertainty is quantified and how the learned observation model is validated.</p>
+<h3>Reinforcement learning supplies a starting controller, not the certificate</h3>
+<p>The method combines the visual model with reinforcement-learning pretraining to construct an initial controller. Pretraining can provide task behavior and a useful policy before formal refinement, but reward optimization does not by itself establish safety.</p><p>A policy can achieve high task reward while entering a low-probability unsafe region, especially when the training distribution does not expose the relevant perturbation.</p>
+<p>The formal stage adds a stochastic barrier certificate. A stochastic barrier certificate is a learned function whose values and expected evolution constrain the probability of reaching an unsafe set.</p><p>The training objective seeks a function and controller satisfying conditions that imply a safety bound. The certificate is the proof object: the neural policy is safe only to the extent that the certificate inequalities hold for the modeled dynamics, observation process, action limits and uncertainty.</p>
+<h3>Martingale reasoning connects local inequalities to a trajectory bound</h3>
+<p>The method uses martingale theory to turn a one-step conditional expectation condition into a bound on the probability of violating safety over the chosen horizon. In outline, the certificate process is constructed so that its conditional evolution does not grow in the forbidden way.</p><p>A maximal-inequality argument then limits the probability that the process reaches the unsafe threshold.</p>
+<p>The important conceptual step is the bridge from local dynamics to a multi-step statement. The certificate does not enumerate every image and trajectory.</p><p>It establishes an inequality that must hold at every modeled state and action, and the martingale argument aggregates those inequalities over time. If the inequality is checked only on sampled points, or if the learned dynamics do not cover the actual state distribution, the mathematical implication is weakened.</p><p>A reader must distinguish a theorem conditioned on certificate conditions from empirical agreement on simulation traces.</p>
+<h3>Counterexamples close the loop between learning and verification</h3>
+<p>The method alternates controller and certificate refinement. A verification procedure searches for states or observations that violate the certificate or safety condition.</p><p>These counterexamples are added to the training process so that the controller and certificate networks are updated on failures found by the verifier. The process repeats until the resulting pair satisfies the verification checks or the procedure stops without a certificate.</p>
+<p>This is a counterexample-guided synthesis loop. A discovered counterexample is evidence that the current candidate is unsafe or that its certificate is insufficient at that point.</p><p>It is not evidence that the updated candidate is safe everywhere. The final probabilistic claim requires the certificate conditions to be verified over the relevant domain, with approximation and solver tolerances accounted for.</p><p>If the verification search is incomplete, the result may be an empirical refinement process rather than a complete certificate.</p>
+<h3>What the official evaluation establishes</h3>
+<p>The DAC description states that the method was tested on widely studied benchmarks and reports efficiency and effectiveness. It identifies the architecture-level components—cGAN observation modeling, RL pretraining, data-driven uncertainty quantification, stochastic barrier certificates guided by martingale theory, and alternating counterexample refinement—but it does not expose benchmark names, dynamics, controller architectures, horizon lengths, probability thresholds, baselines, safety-violation counts, computation times or certificate margins.</p>
+<p>Those missing quantities control interpretation. “Safe” could mean a high empirical success rate, a formal probability lower bound, or both; “efficient” could refer to training, verification, inference or the number of refinement rounds.</p><p>Without the manuscript, the official description cannot establish the numerical safety probability, the size of the uncertainty set, the independent test distribution or whether the reported certificates transfer from the learned observation model to a physical camera.</p>
+<h3>Limits that determine the certificate's scope</h3>
+<p>The guarantee is conditional on the closed-loop model. It depends on the system dynamics, observation generator, uncertainty distribution, initial-state set, safe set, action constraints, time horizon and certificate inequalities.</p><p>Changing any of these can change the probability bound. A model trained on environmental perturbations cannot automatically cover perturbations outside its data or support.</p>
+<p>The controller may also exploit visual features that are not stable under deployment changes. A cGAN can make the formal problem tractable while introducing model bias.</p><p>Counterexample refinement can improve the sampled or searched regions but does not alone prove that unsearched regions are safe. The paper's use of a neural certificate also raises numerical and optimization questions: failure to find a certificate may mean the controller is unsafe, the parameterization is insufficient, or the optimization stopped early.</p>
+<h3>What this paper establishes at the current evidence level</h3>
+<p>The paper presents a technically coherent synthesis architecture for visual control under modeled uncertainty: learn an observation model, pretrain a policy, learn a stochastic barrier certificate, use martingale reasoning for a finite-horizon probability statement, and refine both networks with verification counterexamples. The official description supports that mechanism-level reading and claims formal probabilistic safety guarantees.</p>
+<p>The accessible record does not establish the actual probability numbers, benchmark conditions, completeness of verification, physical-camera transfer, long-horizon behavior or computational cost. The correct acceptance standard is to inspect the theorem assumptions and certificate checks, then reproduce the stated benchmarks with independent perturbations and compare empirical trajectories with the certified bound.</p>
+<p><strong>Primary source read:</strong> <a href="https://63dac.conference-program.com/presentation/?id=RESEARCH720&amp;sess=sess158">DAC 2026 official description</a>, which states the cGAN observation model, RL pretraining, data-driven uncertainty, stochastic barrier certificate, martingale reasoning, counterexample refinement and benchmark claim. No target manuscript, quantitative tables or artifact execution was recovered in this pass.</p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>What a formal result establishes</h2>
+<p>Formal analysis represents a design, its environment, and a requirement mathematically. A procedure then reasons about the behaviors allowed by that model.</p><p>A successful result applies to the stated model and assumptions. If an important behavior was excluded, the proof does not establish anything about that omitted behavior.</p>
+<p>The requirement itself must be explicit. Two circuits may be required to produce the same outputs, a state may be required to remain unreachable, or execution may need to finish before a deadline. These are different properties and can require different representations and proof procedures.</p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="help-circle"></span>Why a proof can become expensive</h2>
+<p>A stateful circuit stores information. Each allowed combination of stored values contributes to its possible states, and inputs determine how those states change. Directly enumerating all behavior can become impractical. Formal methods use structure, simplification, decomposition, and mathematical reasoning to avoid unnecessary enumeration.</p>
+<p>Simplification needs a justification. If a design is split into parts, the assumptions used for each part must hold when the parts interact.</p><p>A smaller proof task is useful when solving it contributes to the original requirement, rather than silently replacing that requirement with an easier one.</p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="checklist"></span>Equivalence checking compares behavior</h2>
+<p>The factored-form-sharing paper concerns checking that two combinational circuits implement equivalent behavior. A combinational circuit's outputs depend on its current inputs rather than a sequence of stored states. Its captured method partitions work using shared structure and estimates of proof difficulty. <a href="formal-analysis-and-verification.html#paper-dac-2026-research1388">Recorded evidence</a></p>
+<p>Sharing repeated expressions can reduce redundant reasoning. Splitting the task can permit parallel execution, but partition sizes and overhead determine whether this helps.</p><p>The comparison needs the same circuit pairs, proof obligation, computing resources, and timeout policy. Solved cases, unfinished cases, memory, and absolute runtime matter alongside a speedup.</p><p>Those details remain unresolved in the current description.</p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>A timing bound depends on execution assumptions</h2>
+<p>The worst-case-execution-time paper concerns an upper bound on GPU-kernel duration when threads take different branches. An upper bound must cover every execution allowed by its assumptions. It differs from the longest time observed in a finite experiment, which may miss a slower execution. <a href="formal-analysis-and-verification.html#paper-dac-2026-research1552">Recorded evidence</a></p>
+<p>The captured method combines analysis with a constraint on thread-group execution. A tighter bound can be useful, but the constraint must be enforceable on the intended machine.</p><p>Memory behavior, scheduling, and interference also need an explicit scope. The current record does not establish the full proof boundary or enforcement cost.</p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>Generating a property is different from proving it</h2>
+<p>ATLAS's captured description maps security concerns to assertion properties and verification scripts. An assertion is a condition the checker evaluates.</p><p>A generated assertion can be valid syntax yet omit the intended security requirement. Even a completed proof of that assertion would then answer an incomplete question. <a href="formal-analysis-and-verification.html#paper-dac-2026-research2886">Recorded evidence</a></p>
+<p>Evaluate the quality of the generated requirement separately from the checker's result. Record missing threat cases, unsound assumptions, script failures, unfinished proofs, and human review. The description does not establish those quantities across unseen designs.</p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="books"></span>Reading proof outcomes honestly</h2>
+<p>A completed proof, a counterexample, an unsupported property, and a timeout are distinct outcomes. A counterexample is a behavior that violates the stated property; it still needs interpretation against the intended design and environment. A timeout leaves the property unresolved.</p>
+<p>Compare methods on matched obligations and resource budgets. Preserve assumptions with each result and check whether a claimed improvement changes those assumptions.</p><p>For deployment, connect the mathematical model to the implemented hardware and software. That connection is part of establishing usefulness, not a consequence of the proof procedure finishing successfully.</p>
+<p class="lm-k h-label">Compare the results carefully</p><h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="route"></span>How to compare these papers’ results fairly</h2>
+<p>First identify the inputs and required output quality. Then identify the limited resource: time, memory, communication, energy, circuit area, or correctness coverage.</p><p>Ask which part of the method reduces that cost and which new cost it adds. Compare numbers only when the experiments hold these conditions sufficiently similar.</p>
+<p>A conference description may explain the proposal while omitting the full experiment. An author preprint link may have been coded from its abstract. The source classification does not by itself establish that every table was read. Missing locations remain visible below.</p>
+<p class="lm-k h-label">Complete captured evidence</p><h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="file-text"></span>Every paper in this subtheme, with what its source shows</h2>
+<p>These are evidence records, not substitutes for the explanations above. Each record preserves its problem, proposed method, measurements, comparison conditions, and source limits. A populated record does not establish that its mechanism has been fully explained or independently verified.</p>
+<p><span id="paper-dac-2026-research1552"></span></p>
+<h3>Beyond Exact: Tight WCET Analysis of GPU Kernels with Branch Divergence</h3>
+<p>DAC 2026 · Record: <code>dac-2026-research1552</code></p>
+<p><a href="#explanation-dac-2026-research1552">Read the step-by-step explanation</a></p>
+<p><strong>Updated source-backed reading card</strong></p>
+<div class="worked"><p class="lm-k">Worked example</p><p>Reviewed 2026-09-08. Reconciles the abstract-backed card with the accepted DAC manuscript; distinguishes the exact work-conserving bound from the tighter bound that requires an imposed warp-order constraint.</p></div>
+<p>This editorial correction updates the current reading view and connected dossiers, not the historical adjudication or scientific acceptance status. The original captured fields are preserved below.</p>
+<p><a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/data/editorial-paper-corrections-v1.json">Correction register</a></p>
+<p><strong>Problem:</strong></p>
+<p>GPU thread-block WCET becomes difficult to bound when branch divergence creates multiple warp paths and opaque scheduling permits resource-contention anomalies.</p>
+<p><strong>Mechanism / artifact:</strong></p>
+<p>Instruction/resource timing model; warp abstraction into critical and non-critical sections; exact bound over divergent paths under work-conserving scheduling; tighter longest-path DAG bound after imposing a topological warp-execution order.</p>
+<p><strong>Workload — the work tested:</strong></p>
+<p>Synthetic thread blocks with 1,000 generated blocks per configuration; 22 kernels from the Rodinia benchmark suite, including particle_kernel, findK and BFS variants.</p>
+<p><strong>Hardware and manufacturing assumptions:</strong></p>
+<p>Single thread block on one sub-core; one instruction issue per cycle; program-order and dependency-respecting issue; memory contention excluded; loop bounds supplied by analysis or engineers. Rodinia parameters taken from NVIDIA Quadro K620, Maxwell GM107, 1072 MHz; proposed warp-order constraint is analyzed but not implemented or overhead-measured.</p>
+<p><strong>Baseline — the comparison method:</strong></p>
+<p>Exact bound under any work-conserving schedule</p>
+<p>Prior analysis using deterministic warp paths</p>
+<p><strong>Reported measurements:</strong></p>
+<p>Constrained bound reduces the work-conserving exact bound by 19.13% on average across the 22 Rodinia kernels and by up to 39.39% for particle_kernel.</p>
+<p>Critical-section share averages 7.60% in the Rodinia set; per-kernel reductions range from 2.45% for kmeans_kernel_c to 39.39% for particle_kernel.</p>
+<p><strong>Limits on the conclusion:</strong></p>
+<p>Exactness is relative to the stated instruction/resource model and work-conserving schedule; it is not a guarantee for every physical GPU behavior.</p>
+<p>The tighter bound depends on enforcing a topological order through scheduler support, synchronization, semaphores or instrumentation; the paper does not implement or measure that overhead.</p>
+<p>The study is a thread-block bound and does not establish multi-block interference, full memory behavior, preemption, system-level deadline composition or independent reproduction.</p>
+<p><strong>Source and location</strong></p>
+<p>Evidence tier: Accepted DAC manuscript; selected method and evaluation reading, not reproduction. This is the stored source classification; the location and limits below determine what was actually read.</p>
+<p><a href="https://eprints.whiterose.ac.uk/id/eprint/242555/1/DAC26_GPU_Kernel_WCET_2_.pdf">Open the recorded source</a></p>
+<div class="worked"><p class="lm-k">Worked example</p><p>Accepted manuscript: abstract and Sections 1–5, PDF pages 2–7; Figure 1 page 2; instruction/warp model and assumptions pages 3–4; Lemmas 1–2 and Theorem 1 pages 4–5; DAG construction pages 5–6; Table 1 and evaluation page 7. DOI 10.1145/3770743.3804186.</p></div>
+<details markdown="1">
+<summary>Original captured fields — superseded for this reading card</summary>
+
+** page source tier:** medium_official_description
+
+**Baselines:** existing GPU WCET analyses assuming deterministic warp paths
+
+relaxed scheduling bounds without the practical warp constraint
+
+**Evidence locators:** DAC 2026 official description
+
+**Evidence url:** https://63dac.conference-program.com/?post_type=page&amp;p=16&amp;id=RESEARCH1552&amp;sess=sess171
+
+**Hardware or process assumptions:** GPU warps, thread blocks, and a scheduler treated as a black box under relaxed assumptions; vendor architecture, frequency, memory behavior, and preemption are unspecified.
+
+**Limits:** The description omits schedulability impact, exactness proof scope, kernel/memory coverage, and hardware validation.
+
+Tighter bounds rely on a practical warp-execution constraint whose deployability and enforcement cost are unspecified.
+
+Official description only; real-time guarantees require paper-level proof and platform verification.
+
+**Method or artifact:** Static exact WCET analysis for divergent GPU thread blocks plus a practical warp-execution constraint yielding tighter bounds.
+
+**Metrics:** 19.13% average reduction in WCET estimates
+
+Up to 39.39% WCET-estimate reduction
+
+**Problem:** Branch divergence and black-box warp scheduling make GPU worst-case execution-time bounds either unrealistic or overly pessimistic for real-time systems.
+
+**Workload or benchmark:** GPU kernels and thread-block timing analyses with divergent control flow; GPU architecture, kernel suite, scheduler model, and comparison bounds are unspecified.
+
+</details>
+<p><span id="paper-dac-2026-research2886"></span></p>
+<h3>ATLAS: AI-Assisted Threat-to-Assertion Learning for System-on-Chip Security Verification</h3>
+<p>DAC 2026 · Record: <code>dac-2026-research2886</code></p>
+<p><a href="#explanation-dac-2026-research2886">Read the step-by-step explanation</a></p>
+<p><strong>Updated source-backed reading card</strong></p>
+<div class="worked"><p class="lm-k">Worked example</p><p>Reviewed 2026-09-08. Reconciles the official-description card with the accepted DAC preprint; separates threat-model coverage, property-generation correctness, and formal-proof outcomes.</p></div>
+<p>This editorial correction updates the current reading view and connected dossiers, not the historical adjudication or scientific acceptance status. The original captured fields are preserved below.</p>
+<p><a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/data/editorial-paper-corrections-v1.json">Correction register</a></p>
+<p><strong>Problem:</strong></p>
+<p>SoC security verification requires translating general vulnerability knowledge into design-specific properties, but manual threat modeling and assertion writing are difficult to scale and can omit the design context needed for a meaningful proof.</p>
+<p><strong>Mechanism / artifact:</strong></p>
+<p>CWE-driven threat-model database; asset-centric RTL analysis; contextual LLM property generation using design documents, RTL AST and security-focused RTL summary; SystemVerilog assertions and JasperGold Tcl harness.</p>
+<p><strong>Workload — the work tested:</strong></p>
+<p>Three OpenTitan-based HACK@DAC benchmark suites from 2018, 2019 and 2021; 48 relevant CWEs described by the paper. GPT-5-assisted database generation with manually created examples and human feedback.</p>
+<p><strong>Hardware and manufacturing assumptions:</strong></p>
+<p>RTL-level RISC-V SoCs; ASTs from Yosys or PyVerilog with Slang; Cadence JasperGold for formal checking; at most three refinement iterations per bug, with unresolved cases sent for manual review. Design-document availability and formal assumptions affect results.</p>
+<p><strong>Baseline — the comparison method:</strong></p>
+<div class="worked"><p class="lm-k">Worked example</p><p>LLM without the threat-model database: 6/20, 3/11 and 4/17 CWE detections on the three benchmark suites.</p></div>
+<p>Single-context ablations versus the full combination of design document, AST and RTL summary.</p>
+<p>Manual threat-to-property translation is discussed as the motivating baseline; exact matched manual cost is not reported.</p>
+<p><strong>Reported measurements:</strong></p>
+<div class="worked"><p class="lm-k">Worked example</p><p>ATLAS identifies 39/48 benchmark CWEs; it generates correct properties for 33 of those 39 detected cases (&gt;82% of detected cases).</p><p>With the TMDB, detection is 17/20, 11/11 and 11/17 versus 6/20, 3/11 and 4/17 without it.</p></div>
+<p>Using all three SoC contexts adds 10, 4 and 6 accurate properties over the reported one-context settings, described as roughly 3×, 2.3× and 2.5× improvements.</p>
+<p><strong>Limits on the conclusion:</strong></p>
+<p>A formal proof establishes the generated property under its assumptions, not that the threat model found every asset or that the property captures the intended security requirement.</p>
+<p>The paper's benchmark correctness judgments, TMDB completeness, human-review process, prompt/model costs, false positives, vacuity coverage and transfer to unseen proprietary SoCs were not independently audited.</p>
+<p>CWE counts, bugs, generated properties and formal outcomes are different denominators; inconclusive or context-masked cases can remain actionable warnings rather than completed proofs.</p>
+<p><strong>Source and location</strong></p>
+<p>Evidence tier: Primary DAC preprint v2; selected method and evaluation reading, not reproduction. This is the stored source classification; the location and limits below determine what was actually read.</p>
+<p><a href="https://arxiv.org/pdf/2603.01170">Open the recorded source</a></p>
+<div class="worked"><p class="lm-k">Worked example</p><p>Version 2: Sections 1–5, PDF pages 1–6; threat-model template and adversaries Table 1–2 page 2; asset types Table 3 page 4; contextual property example Figure 5 page 5; benchmark Table 4 page 6; TMDB/context ablation Figure 6 and Section 5.2.2 page 6. DOI 10.1145/3770743.3804400.</p></div>
+<details markdown="1">
+<summary>Original captured fields — superseded for this reading card</summary>
+
+** page source tier:** medium_official_description
+
+**Baselines:** manual threat-to-property translation
+
+existing security-property generation workflows
+
+**Evidence locators:** DAC 2026 official description
+
+**Evidence url:** https://63dac.conference-program.com/?post_type=page&amp;p=16&amp;id=RESEARCH2886&amp;sess=sess108
+
+**Hardware or process assumptions:** System-on-Chip designs evaluated with formal property verification and JasperGold; RTL scale, threat model, solver settings, and human review process are unspecified.
+
+**Limits:** The description omits false negatives by CWE, proof completion, assertion soundness, generated-script failures, and human adjudication effort.
+
+Benchmark results may not generalize to unseen SoC architectures, CWE variants, or proprietary threat models.
+
+Official description only; LLM-generated verification claims require artifact and formal-proof inspection.
+
+**Method or artifact:** LLM-driven asset-centric threat mapping and automatic generation of assertion properties and JasperGold verification scripts.
+
+**Metrics:** 39/48 CWEs detected
+
+33/39 detected bugs receive correct generated properties
+
+**Problem:** Translating standardized threat reasoning into SoC-specific formal security properties is labor-intensive and blocks secure-by-design verification.
+
+**Workload or benchmark:** Three HACK@DAC security-verification benchmarks containing 48 CWE instances; benchmark composition, property correctness rubric, proof status, and comparison tools are unspecified.
+
+</details>
+<p><span id="paper-dac-2026-research1388"></span></p>
+<h3>Parallel Combinational Equivalence Checking Through Factored Form Sharing</h3>
+<p>DAC 2026 · Record: <code>dac-2026-research1388</code></p>
+<p><a href="#explanation-dac-2026-research1388">Read the step-by-step explanation</a></p>
+<p><strong>Updated source-backed reading card</strong></p>
+<div class="worked"><p class="lm-k">Worked example</p><p>Reviewed 2026-09-08. Reconciles the official-description card with the available DAC mechanism description; distinguishes the equivalence obligation from parallel throughput and records the missing manuscript-level proof and benchmark details.</p></div>
+<p>This editorial correction updates the current reading view and connected dossiers, not the historical adjudication or scientific acceptance status. The original captured fields are preserved below.</p>
+<p><a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/data/editorial-paper-corrections-v1.json">Correction register</a></p>
+<p><strong>Problem:</strong></p>
+<p>Large combinational equivalence checks become time-critical because SAT encoding can duplicate structure and SAT search can contain uneven branching difficulty.</p>
+<p><strong>Mechanism / artifact:</strong></p>
+<p>Factored-form literal count plus a lightweight branching-complexity proxy guide sharing-aware seed-and-grow partitioning; implemented in ABC for parallel combinational equivalence checking.</p>
+<p><strong>Workload — the work tested:</strong></p>
+<p>Large-scale combinational-equivalence benchmarks; exact benchmark names, circuit population, timeout policy and solved/timeout counts are not in the accessible official description.</p>
+<p><strong>Hardware and manufacturing assumptions:</strong></p>
+<p>Evaluation reports 40 physical CPU cores for the implementation. Exact CPU model, memory, worker settings, GPU baseline hardware, preprocessing and resource matching are unspecified.</p>
+<p><strong>Baseline — the comparison method:</strong></p>
+<p>Single-threaded ABC</p>
+<p>State-of-the-art CPU-parallel method</p>
+<p>State-of-the-art GPU-parallel method</p>
+<p><strong>Reported measurements:</strong></p>
+<p>Official description reports 45.57× geometric-mean speedup over single-threaded ABC, maximum 6,595×; 1.53× over CPU-parallel baseline, maximum 17×; and 5.52× over GPU-parallel baseline, maximum 382×.</p>
+<p><strong>Limits on the conclusion:</strong></p>
+<p>No public manuscript or equation-level description was recovered in this pass, so FFLC definition, branching proxy, partition soundness proof, cross-partition dependency handling and timeout behavior remain unverified.</p>
+<p>Absolute runtimes, memory use, solved/timeout counts, benchmark identities and matched baseline resource conditions are unavailable. Geometric-mean and maximum speedups do not establish universal improvement or equivalent proof coverage.</p>
+<p>Equivalence semantics, output correspondence, input assumptions and miter preservation must remain unchanged; a faster weakened check would not be an equivalent-checking improvement.</p>
+<p><strong>Source and location</strong></p>
+<p>Evidence tier: Official conference description; mechanism and headline evaluation only. This is the stored source classification; the location and limits below determine what was actually read.</p>
+<p><a href="https://63dac.conference-program.com/presentation/?id=RESEARCH1388&amp;sess=sess163">Open the recorded source</a></p>
+<p>DAC 2026 official description: mechanism paragraph and final evaluation paragraph; session placement in From SAT to IC3: Modern Proof Techniques for Hardware Correctness. No manuscript pagination available.</p>
+<details markdown="1">
+<summary>Original captured fields — superseded for this reading card</summary>
+
+** page source tier:** medium_official_description
+
+**Baselines:** single-threaded ABC
+
+state-of-the-art CPU-parallel method
+
+state-of-the-art GPU-parallel method
+
+**Evidence locators:** DAC 2026 official description
+
+**Evidence url:** https://63dac.conference-program.com/?post_type=page&amp;p=16&amp;id=RESEARCH1388&amp;sess=sess163
+
+**Hardware or process assumptions:** ABC-based SAT/CNF equivalence checking on multicore CPU and GPU baselines; solver configuration and memory system are unspecified.
+
+**Limits:** The description omits absolute runtimes, solved/timeout counts, memory use, benchmark composition, and fairness of core/GPU comparisons.
+
+Sharing benefits may depend on structural regularity and SAT encoding choices.
+
+Official description only; equivalence and scalability claims require reproducible benchmarks.
+
+**Method or artifact:** Sharing-aware seed-and-grow partitioning guided by factored-form literal count and branching proxies.
+
+**Metrics:** 45.57x geometric-mean speedup over single-threaded ABC
+
+Up to 6,595x speedup
+
+1.53x over CPU-parallel baseline
+
+5.52x over GPU-parallel baseline
+
+**Problem:** Combinational equivalence checking becomes time-critical as designs scale, and parallel SAT solving suffers from duplicated literals and unbalanced branching complexity.
+
+**Workload or benchmark:** Large-scale combinational-equivalence benchmarks on 40 physical CPU cores; benchmark suite, timeout policy, hardware, and competing tool versions are unspecified.
+
+</details>
+<p><span id="paper-dac-2026-research2737"></span></p>
+<h3>Insights from Verification: Training a Verilog Generation LLM Using Reinforcement Learning with Testbench Feedback</h3>
+<p>DAC 2026 · Record: <code>dac-2026-research2737</code></p>
+<p><a href="#explanation-dac-2026-research2737">Read the step-by-step explanation</a></p>
+<p><strong>Updated source-backed reading card</strong></p>
+<div class="worked"><p class="lm-k">Worked example</p><p>Reviewed 2026-09-08. Reconciles the official-description card with the arXiv preprint and public implementation; distinguishes testbench-driven functional pass rates from complete hardware correctness.</p></div>
+<p>This editorial correction updates the current reading view and connected dossiers, not the historical adjudication or scientific acceptance status. The original captured fields are preserved below.</p>
+<p><a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/data/editorial-paper-corrections-v1.json">Correction register</a></p>
+<p><strong>Problem:</strong></p>
+<p>Token-level supervised training does not directly optimize whether generated Verilog compiles and implements the requested temporal behavior; usable specification–testbench–code data is scarce.</p>
+<p><strong>Mechanism / artifact:</strong></p>
+<p>VeriPrefer: supervised fine-tuning followed by an Analyze/Draft/Improve/Rectify testbench-generation pipeline, testbench-ranked preference pairs, and direct preference optimization (DPO) using VCS simulation feedback.</p>
+<p><strong>Workload — the work tested:</strong></p>
+<p>PyraNet-derived SFT data (86,672 retained entries); 8,291 longer RL-stage instances; 6,704 valid generated testbenches; VerilogEval-Machine (143 tasks), VerilogEval-Human (156), RTLLM v1.1 (29), RTLLM v2 (50), and VerilogEval v2. Preference-pair counts range from 1,782 to 2,267 by model variant.</p>
+<p><strong>Hardware and manufacturing assumptions:</strong></p>
+<p>CodeLlama, DeepSeek-Coder, CodeQwen, Mistral and Qwen2.5-Coder foundation families; eight NVIDIA A100 80GB GPUs for training; Synopsys VCS for compile, coverage and simulation feedback; inference uses bf16, four-device tensor parallelism and 4,096 maximum tokens. Testbench correctness is rectified against the original reference Verilog.</p>
+<p><strong>Baseline — the comparison method:</strong></p>
+<p>VeriPreferSFT without preference alignment</p>
+<p>Verilog-generation and coding LLM baselines including RTLCoder, CodeV, HaVen and OriGen</p>
+<p>DPO preference construction from BLEU, AST, data-flow similarity, and testbench reward; SFT on verified data</p>
+<p><strong>Reported measurements:</strong></p>
+<p>pass@k uses 20 samples per specification; syntax means compilation and function means passing the testbench.</p>
+<div class="worked"><p class="lm-k">Worked example</p><p>Qwen2.5-Coder-14B: RTLLM v2 function pass@1/pass@5 55.2/67.5 after DPO versus 53.8/67.5 after SFT; VerilogEval v2 58.6/72.1 versus 57.9/71.1.</p><p>VeriPreferRL Qwen2.5-Coder on Table VII: RTLLM v2 function pass@1/pass@5/pass@10 52.4/66.4/69.0; VerilogEval v2 49.3/64.7/69.5.</p></div>
+<p>Only 52.3% of generated code pairs show the lower-perplexity candidate also passing more tests.</p>
+<p><strong>Limits on the conclusion:</strong></p>
+<p>Testbench pass is not formal equivalence or complete functional correctness. Generated testbenches use line coverage and are rectified against the original code, so omitted requirements, low-probability sequences and specification errors can remain undetected.</p>
+<p>The released pipeline was not independently executed here; exact data split, sampling, testbench quality, training cost, evaluator independence and held-out coverage require reproduction.</p>
+<p>Results vary by model and benchmark; testbench-based preferences can inherit testbench bias and cannot establish transfer to unseen hardware protocols, synthesis quality, timing, power or security properties.</p>
+<p><strong>Source and location</strong></p>
+<p>Evidence tier: Primary preprint v1 and public implementation link; selected method/evaluation reading, not reproduction. This is the stored source classification; the location and limits below determine what was actually read.</p>
+<p><a href="https://arxiv.org/pdf/2504.15804">Open the recorded source</a></p>
+<p>Version 1: Sections I–V and VII, PDF pages 1–9; testbench pipeline Figures 1–5 pages 1–4; datasets/training Section IV pages 4–5; Tables II–VII pages 5–8; PPL comparison Figure 7/page 8. Public implementation: https://github.com/CatIIIIIIII/VeriPrefer.</p>
+<details markdown="1">
+<summary>Original captured fields — superseded for this reading card</summary>
+
+** page source tier:** medium_official_description
+
+**Baselines:** supervised Verilog LLM
+
+syntax- or code-rewarded generation
+
+**Evidence locators:** DAC 2026 official description
+
+**Evidence url:** https://63dac.conference-program.com/?post_type=page&amp;p=16&amp;id=RESEARCH2737
+
+**Hardware or process assumptions:** RTL generation and simulation flow; synthesis, formal equivalence, and target technology assumptions are unspecified.
+
+**Limits:** No pass rate, coverage, compile rate, synthesis quality, or holdout results are reported.
+
+Testbench feedback can overfit incomplete specifications.
+
+Official description only; generated RTL requires independent verification.
+
+**Method or artifact:** Reinforcement learning using simulation/testbench feedback for Verilog generation.
+
+**Metrics:** Functional pass rate and generation quality are claimed qualitatively
+
+**Problem:** Generated RTL often fails functional tests, and static code-quality rewards do not fully capture hardware behavior.
+
+**Workload or benchmark:** Verilog modules and testbenches; model, testbench coverage, baselines, and synthesis checks are unspecified.
+
+</details>
+<p><span id="paper-dac-2026-research1612"></span></p>
+<h3>EARL: Entropy-Aware RL Alignment of LLMs for Reliable RTL Code Generation</h3>
+<p>DAC 2026 · Record: <code>dac-2026-research1612</code></p>
+<p><a href="#explanation-dac-2026-research1612">Read the step-by-step explanation</a></p>
+<p><strong>Updated source-backed reading card</strong></p>
+<div class="worked"><p class="lm-k">Worked example</p><p>Reviewed 2026-09-08. Reconciles the official-description card with arXiv version 2; distinguishes entropy-guided policy-gradient selection from functional correctness and records the reward, benchmark and ablation conditions.</p></div>
+<p>This editorial correction updates the current reading view and connected dossiers, not the historical adjudication or scientific acceptance status. The original captured fields are preserved below.</p>
+<p><a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/data/editorial-paper-corrections-v1.json">Correction register</a></p>
+<p><strong>Problem:</strong></p>
+<p>Uniform reinforcement-learning updates dilute sparse compiler and functional signals across long RTL sequences even though a small number of uncertain structural tokens can determine control flow and timing behavior.</p>
+<p><strong>Mechanism / artifact:</strong></p>
+<p>EARL: entropy analysis at each generation position, response-level quantile masking of policy gradients, supervised initialization, and cascaded syntax/interface/equivalence rewards; instantiated with DAPO and compared with PPO.</p>
+<p><strong>Workload — the work tested:</strong></p>
+<div class="worked"><p class="lm-k">Worked example</p><p>Synthetic specification–Verilog–testbench triples generated across arithmetic, sequential, control and algorithmic circuits; VerilogEval-Machine (143), VerilogEval-Human (156), and RTLLM v1.1 (29). Entropy study covers more than 2.1×10^5 generated tokens.</p></div>
+<p><strong>Hardware and manufacturing assumptions:</strong></p>
+<p>DeepSeek-Coder-7B base model; 4 NVIDIA A100 80GB GPUs; SFT for 3 epochs and DAPO group sampling with 6 rollouts/prompt; iverilog syntax checks, Yosys eqy equivalence checking and paired-testbench filtering. Training inference temperature is 1.0.</p>
+<p><strong>Baseline — the comparison method:</strong></p>
+<p>Base and supervised RTL-generation models including RTLCoder, OriGen, HaVen, BetterV and AutoVCoder</p>
+<p>RL baselines VeriReason and VeriSeek</p>
+<p>PPO/DAPO without entropy masking and entropy-weighting alternatives</p>
+<p><strong>Reported measurements:</strong></p>
+<div class="worked"><p class="lm-k">Worked example</p><p>EARL 7B: VerilogEval-Machine pass@1/pass@5 72.9/83.9; VerilogEval-Human 49.6/60.2; RTLLM syntax pass@5 100 and functional pass@5 68.9.</p></div>
+<p>On RTLLM, the paper reports 68.9 versus 54.2 for the best listed RL baseline and 51.7 for the best listed SFT baseline, corresponding to 14.7 and 17.2 percentage points.</p>
+<div class="worked"><p class="lm-k">Worked example</p><p>Entropy quantile 0.8 reports VerilogEval-Machine 72.9/83.9 and RTLLM functional pass@5 68.9; quantile 0.9 reports 71.0/79.7 and 65.5.</p></div>
+<p><strong>Limits on the conclusion:</strong></p>
+<p>High entropy is a model- and context-dependent uncertainty measure, not a correctness proof; correlation with structural tokens does not establish causal importance for every task.</p>
+<p>Functional reward depends on the reference RTL, testbench, equivalence setup, input assumptions and tool semantics. Passing the cascade does not establish synthesis, timing, power, security or complete behavioral correctness.</p>
+<p>Benchmark gains and the 14.7-point comparison are reported under the paper's setup; data leakage, independent holdout construction, baseline resource matching, training cost and downstream implementation quality remain unverified. The anonymized code was not executed here.</p>
+<p><strong>Source and location</strong></p>
+<p>Evidence tier: Primary preprint v2; selected method and evaluation reading, not reproduction. This is the stored source classification; the location and limits below determine what was actually read.</p>
+<p><a href="https://arxiv.org/pdf/2511.12033">Open the recorded source</a></p>
+<div class="worked"><p class="lm-k">Worked example</p><p>Version 2: Sections 1–5, PDF pages 1–6; entropy definition and 2.1×10^5-token analysis Section 3/page 3; entropy mask and objective Section 4.2/page 4; reward and dataset Section 4.3–4.4 page 5; Table 1 and experiments pages 5–6; quantile Table 2 and ablation Section 5.3 page 6. DOI/record arXiv:2511.12033.</p></div>
+<details markdown="1">
+<summary>Original captured fields — superseded for this reading card</summary>
+
+** page source tier:** medium_official_description
+
+**Baselines:** supervised RTL LLM
+
+standard RL-aligned code model
+
+**Evidence locators:** DAC 2026 official description
+
+**Evidence url:** https://63dac.conference-program.com/?post_type=page&amp;p=16&amp;id=RESEARCH1612
+
+**Hardware or process assumptions:** RTL generation and simulation/synthesis flow; target architectures and verification assumptions are unspecified.
+
+**Limits:** No functional pass rate, coverage, synthesis quality, or calibration results are reported.
+
+Entropy shaping may trade diversity for conservatism.
+
+Official description only; generated RTL needs independent verification.
+
+**Method or artifact:** Entropy-aware RL alignment objective for RTL-generating language models.
+
+**Metrics:** RTL reliability and generation quality are claimed qualitatively
+
+**Problem:** LLM RTL generators can be syntactically valid but functionally unreliable or overconfident on difficult specifications.
+
+**Workload or benchmark:** Verilog/RTL generation tasks; specifications, testbenches, model, and baselines are unspecified.
+
+</details>
+<p><span id="paper-dac-2026-research1638"></span></p>
+<h3>Hierarchical Boundary Recovery: Overcoming Synthesis Obscurity via SAT Sweeping</h3>
+<p>DAC 2026 · Record: <code>dac-2026-research1638</code></p>
+<p><a href="#explanation-dac-2026-research1638">Read the step-by-step explanation</a></p>
+<p><strong>Updated source-backed reading card</strong></p>
+<div class="worked"><p class="lm-k">Worked example</p><p>Reviewed 2026-09-08. Reconciles the official DAC description and author publication record with a mechanism-level explanation; keeps target-paper measurements separate because the manuscript and artifact evaluation were not recovered.</p></div>
+<p>This editorial correction updates the current reading view and connected dossiers, not the historical adjudication or scientific acceptance status. The original captured fields are preserved below.</p>
+<p><a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/data/editorial-paper-corrections-v1.json">Correction register</a></p>
+<p><strong>Problem:</strong></p>
+<p>Synthesis can preserve gate-level behavior while removing the named hierarchy and boundary signals that connect a high-level component to its implementation, making debugging, ECOs and cross-abstraction analysis difficult.</p>
+<p><strong>Mechanism / artifact:</strong></p>
+<p>Automated hierarchical-boundary recovery that combines SAT-sweeping node equivalence between specification and implementation with structural fan-in/fan-out cut analysis; an open-source tool is claimed by the official description.</p>
+<p><strong>Workload — the work tested:</strong></p>
+<p>High-level component specifications and synthesized gate-level netlists, including cases where synthesis removes the original boundary signals. Target benchmark names, synthesis scripts, netlist sizes and ambiguity cases are not in the accessible record.</p>
+<p><strong>Hardware and manufacturing assumptions:</strong></p>
+<p>Logic-netlist and Boolean-equivalence flow; SAT solver and structural cone analysis; exact AIG representation, timeout policy, synthesis libraries, tool versions and cross-tool setup are unspecified.</p>
+<p><strong>Baseline — the comparison method:</strong></p>
+<p>Flat netlist analysis</p>
+<p>Name- or structure-based boundary recovery</p>
+<p>The accessible description does not identify matched baseline tools or settings.</p>
+<p><strong>Reported measurements:</strong></p>
+<p>Official description claims robust experimental recovery and an open-source implementation, but provides no recovery precision/recall, boundary-size error, SAT runtime, scale, timeout, ambiguity or cross-tool numbers.</p>
+<p><strong>Limits on the conclusion:</strong></p>
+<p>A matched equivalent node is not automatically a valid hierarchical boundary; behavioral correspondence and fan-in/fan-out cut validity are separate obligations.</p>
+<p>Logic sharing and satisfiability don't-care transformations can create multiple matches or context-dependent behavior, so a recovered boundary is not necessarily the original or a safe ECO region.</p>
+<p>Target manuscript, benchmark tables, artifact execution and quantitative acceptance criteria were not recovered; related prior literature was not substituted for target-paper results.</p>
+<p><strong>Source and location</strong></p>
+<p>Evidence tier: Official DAC description and author publication record; mechanism level reading, target evaluation unverified. This is the stored source classification; the location and limits below determine what was actually read.</p>
+<p><a href="https://63dac.conference-program.com/presentation/?id=RESEARCH1638&amp;sess=sess312">Open the recorded source</a></p>
+<p>DAC 2026 official description: problem, removed-boundary case, automation, open-source tool and robustness claim; author publication list identifies the DAC 2026 paper. No target-manuscript pagination available.</p>
+<details markdown="1">
+<summary>Original captured fields — superseded for this reading card</summary>
+
+** page source tier:** medium_official_description
+
+**Baselines:** flat netlist analysis
+
+name- or structure-based boundary recovery
+
+**Evidence locators:** DAC 2026 official description
+
+**Evidence url:** https://63dac.conference-program.com/?post_type=page&amp;p=16&amp;id=RESEARCH1638
+
+**Hardware or process assumptions:** Logic synthesis and formal-equivalence flow; netlist scale and libraries are unspecified.
+
+**Limits:** No recovery precision, recall, SAT runtime, or scale results are reported.
+
+Ambiguous boundaries may admit multiple explanations.
+
+Official description only; cross-tool validation is required.
+
+**Method or artifact:** Hierarchical boundary-recovery method based on SAT sweeping.
+
+**Metrics:** Boundary-recovery quality is claimed qualitatively
+
+**Problem:** Synthesis transformations obscure module boundaries needed for debugging, verification, and downstream analysis.
+
+**Workload or benchmark:** Synthesized RTL/netlists; hierarchy transformations, SAT limits, and baselines are unspecified.
+
+</details>
+<p><span id="paper-dac-2026-research1355"></span></p>
+<h3>Debug Like a Human: Scaling LLM-Based Fault Localization to Processor Design via Block-Level Instruction-Oriented Slicing</h3>
+<p>DAC 2026 · Record: <code>dac-2026-research1355</code></p>
+<p><a href="#explanation-dac-2026-research1355">Read the step-by-step explanation</a></p>
+<p><strong>Updated source-backed reading card</strong></p>
+<div class="worked"><p class="lm-k">Worked example</p><p>Reviewed 2026-09-08. Reconciles the description-backed card with arXiv version 1; distinguishes injected-bug Top-N localization from causal bug proof and records the instruction-path, waveform and model-cost conditions.</p></div>
+<p>This editorial correction updates the current reading view and connected dossiers, not the historical adjudication or scientific acceptance status. The original captured fields are preserved below.</p>
+<p><a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/data/editorial-paper-corrections-v1.json">Correction register</a></p>
+<p><strong>Problem:</strong></p>
+<p>Processor failures produce signals and traces spread across modules and clock cycles, while static slices and whole-project LLM prompts either retain too much unrelated context or lose the failing instruction's dynamic path.</p>
+<p><strong>Mechanism / artifact:</strong></p>
+<p>BluesFL: dataflow-based disjoint SystemVerilog blocks, Block-Level Instruction-Oriented Slicing that creates timestamped <code>(block, time)</code> execution-path nodes, and tool-driven LLM reasoning over driven signals and waveform values before ranking suspicious blocks.</p>
+<p><strong>Workload — the work tested:</strong></p>
+<p>Open-source Ibex RISC-V core of approximately 19 KLoC; 119 mutation-injected bugs triggered by CoreMark in co-simulation. Top-1/Top-5/Top-10 count whether at least one buggy block appears in the ranked list.</p>
+<p><strong>Hardware and manufacturing assumptions:</strong></p>
+<p>SystemVerilog parsed with sv-parser; Verilator supplies simulation, waveform and coverage data; co-simulation compares architectural state at instruction commit. Default LLM is GPT-4o; implementation is reported as approximately 12 KLoC of Rust.</p>
+<p><strong>Baseline — the comparison method:</strong></p>
+<p>Cirfix static slicing, Strider transition-based localization and Tarsel spectrum-based localization</p>
+<p>LiK module-level LLM localization and an adapted Agentless project-level LLM baseline</p>
+<p>Ablations removing waveform signal values or the instruction execution path; model comparison across GPT-4o-mini, GPT-4o and Claude-3.5-Sonnet</p>
+<p><strong>Reported measurements:</strong></p>
+<div class="worked"><p class="lm-k">Worked example</p><p>BluesFL localizes 24/28/28 bugs at Top-1/5/10 versus LiK 7/7/7 and Agentless 13/16/16; the reported 242.9% is relative improvement in the Top-1 count over LiK.</p><p>Without signal values: 13/24/26; without the instruction path: 5/6/6. Average checked blocks are 15.4 for BluesFL and 88.3 without signal values; reported cost rises from $0.257 to $1.821 per bug, a 609% increase.</p><p>Backend results: GPT-4o-mini 17/25/26 at $0.015, GPT-4o 24/28/28 at $0.257, and Claude-3.5-Sonnet 30/33/33 at $0.263. The paper reports 99% of Ibex blocks at no more than 200 lines.</p></div>
+<p><strong>Limits on the conclusion:</strong></p>
+<p>Top-N localization is a ranked hypothesis, not proof that the top block caused the failure or that a proposed repair is correct; confirmation requires source inspection, reproduction and repair validation.</p>
+<p>The benchmark is one Ibex implementation with mutation-injected bugs and a CoreMark/co-simulation setup. Mutation coverage, natural-bug transfer, ISA transfer, reference-model quality and matched baseline budgets remain open.</p>
+<p>The paper reports that approximately 70% of bugs missed within Top-10 had buggy blocks never checked because the LLM terminated early. Waveform availability, parser/dataflow correctness, model exposure to the code and full engineering cost remain limitations. The public artifact was not executed here.</p>
+<p><strong>Source and location</strong></p>
+<p>Evidence tier: Primary arxiv preprint v1 and linked public artifact; selected method/evaluation reading, not reproduction. This is the stored source classification; the location and limits below determine what was actually read.</p>
+<p><a href="https://arxiv.org/pdf/2605.17290v1">Open the recorded source</a></p>
+<p>Version 1: Sections 1–6, PDF pages 1–7; blockization and Blues Algorithm 1 pages 2–4; Ibex benchmark and implementation Section 4.1 page 4; Tables 1–2 and ablations pages 4–5; limitations and threats Section 5 pages 5–6. Public artifact: https://github.com/pointerliu/bluesfl.</p>
+<details markdown="1">
+<summary>Original captured fields — superseded for this reading card</summary>
+
+** page source tier:** medium_official_description
+
+**Baselines:** trace-wide LLM localization
+
+traditional spectrum-based localization
+
+**Evidence locators:** DAC 2026 official description
+
+**Evidence url:** https://63dac.conference-program.com/?post_type=page&amp;p=16&amp;id=RESEARCH1355
+
+**Hardware or process assumptions:** Processor verification flow with RTL traces and block-level abstractions; ISA and simulator assumptions are unspecified.
+
+**Limits:** No top-k accuracy, debugging time, bug diversity, or hallucination results are reported.
+
+Slicing can omit cross-block causal evidence.
+
+Official description only; independent bug-set validation is required.
+
+**Method or artifact:** LLM-based fault localization with block-level instruction-oriented trace slicing.
+
+**Metrics:** Fault-localization quality is claimed qualitatively
+
+**Problem:** Processor bugs produce large traces and complex RTL contexts that hinder automated fault localization.
+
+**Workload or benchmark:** Processor RTL bugs and execution traces; bug sets, models, and baselines are unspecified.
+
+</details>
+<p><span id="paper-dac-2026-research2361"></span></p>
+<h3>Svacoder: Training Specialized LLMs for Hardware Assertion Generation via RTL-Grounded Bidirectional Data Synthesis</h3>
+<p>DAC 2026 · Record: <code>dac-2026-research2361</code></p>
+<p><a href="#explanation-dac-2026-research2361">Read the step-by-step explanation</a></p>
+<p><strong>Updated source-backed reading card</strong></p>
+<div class="worked"><p class="lm-k">Worked example</p><p>Reviewed 2026-09-08. Reconciles the official-description card with arXiv version 1 and the public CodeV-SVA artifact; separates assertion validity under RTL from natural-language semantic alignment and records the data-selection, benchmark and end-to-end conditions.</p></div>
+<p>This editorial correction updates the current reading view and connected dossiers, not the historical adjudication or scientific acceptance status. The original captured fields are preserved below.</p>
+<p><a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/data/editorial-paper-corrections-v1.json">Correction register</a></p>
+<p><strong>Problem:</strong></p>
+<p>Natural-language-to-SVA generation lacks large, reliable training pairs, and an assertion can pass formal verification under RTL while being weaker, vacuous or semantically unrelated to the natural-language requirement.</p>
+<p><strong>Mechanism / artifact:</strong></p>
+<p>Svacoder/CodeV-SVA: synthesize SVA candidates from open-source RTL, screen them with JasperGold, translate SVA to natural language and back, retain formally equivalent round trips, refine with expert-prior LLM selection, difficulty filtering and reasoning trajectories, then supervised-fine-tune Qwen3 8B/14B.</p>
+<p><strong>Workload — the work tested:</strong></p>
+<p>CodeV-derived RTL: 165K source examples, 42K clock/reset-filtered designs, 324K generated properties, 159K formally screened SVA instances, 105K bidirectionally selected NL-SVA pairs and 83K final training examples. Evaluation uses FVEval NL2SVA-Human and NL2SVA-Machine plus five AssertionForge RTL designs.</p>
+<p><strong>Hardware and manufacturing assumptions:</strong></p>
+<div class="worked"><p class="lm-k">Worked example</p><p>Yosys signal filtering; DeepSeek-V3.1 for property/SVA and round-trip generation; DeepSeek-R1 for reasoning augmentation; Qwen3-8B/14B fine-tuned for two epochs on eight H800-80G GPUs; Cadence JasperGold 2023.12 for formal validity/equivalence. Evaluation uses temperature 0.8 and top-p 0.95 with 32 samples for pass@k estimation.</p></div>
+<p><strong>Baseline — the comparison method:</strong></p>
+<p>DeepSeek-R1, GPT-5, DeepSeek-V3.1 and GPT-4o general-purpose models</p>
+<div class="worked"><p class="lm-k">Worked example</p><p>RTLCoder-DS-v1.1, CodeV-R1-Qwen-7B and Qwen3-8B/14B</p></div>
+<p>Ablations removing reasoning, difficulty filtering, LLM-as-judge, bidirectional selection and formal verification; DeepCircuitX and VERT data-source comparisons</p>
+<p><strong>Reported measurements:</strong></p>
+<div class="worked"><p class="lm-k">Worked example</p><p>CodeV-SVA-14B NL2SVA-Human Func.@1/16/32: 75.8/89.4/90.4; NL2SVA-Machine: 84.0/94.9/95.8. CodeV-SVA-8B: 72.0/88.8/90.4 and 83.5/96.3/97.2.</p></div>
+<p>The bidirectional selection pilot reports human-rated accuracy improving from 68% to 96% on 50 sampled NL-SVA pairs; the final 83K dataset follows additional filtering and reasoning stages.</p>
+<div class="worked"><p class="lm-k">Worked example</p><p>On OPENMSP430 in AssertionForge with GPT-4o as Spec2NL, CodeV-SVA-8B produces 1,044/859/484 generated/syntax-correct/proven assertions versus GPT-4o NL2SVA 1,013/777/196; with DeepSeek-R1 Spec2NL, CodeV-SVA-8B produces 1,215/917/502.</p></div>
+<p><strong>Limits on the conclusion:</strong></p>
+<p>Formal validity under the RTL is not proof that the assertion expresses the natural-language requirement; round-trip equivalence tests assertion preservation, not completeness or independent human semantics.</p>
+<p>Func.@k is equivalence to the benchmark ground-truth SVA and can hide lower first-attempt reliability at larger k. Benchmark references, generated specifications, RTL context, assumptions and JasperGold semantics define what counts as correct.</p>
+<p>The public artifact and README were inspected but training, JasperGold evaluation and AssertionForge reproduction were not executed here. Results do not establish complete requirement coverage, nonvacuity, bug-detection quality, synthesis/timing impact, deployment cost or replacement of expert review.</p>
+<p><strong>Source and location</strong></p>
+<p>Evidence tier: Primary arxiv preprint v1, official DAC description and public artifact; selected method/evaluation reading, not reproduction. This is the stored source classification; the location and limits below determine what was actually read.</p>
+<p><a href="https://arxiv.org/pdf/2603.14239v1">Open the recorded source</a></p>
+<p>Version 1: Sections 1–5, PDF pages 1–8; bidirectional example Figure 2/page 2; synthesis and selection Sections 3.1–3.3 pages 3–5; training/evaluation Section 4 pages 5–6; Tables 2–5 pages 6–8. Public artifact: https://github.com/wyt2000/CodeV-SVA; official DAC description: https://63dac.conference-program.com/presentation/?id=RESEARCH2361&amp;sess=sess166.</p>
+<details markdown="1">
+<summary>Original captured fields — superseded for this reading card</summary>
+
+** page source tier:** medium_official_description
+
+**Baselines:** general code LLM
+
+template-based assertion generation
+
+**Evidence locators:** DAC 2026 official description
+
+**Evidence url:** https://63dac.conference-program.com/?post_type=page&amp;p=16&amp;id=RESEARCH2361
+
+**Hardware or process assumptions:** RTL formal-verification flow with assertion checking; language/model and property assumptions are unspecified.
+
+**Limits:** No syntax rate, proof coverage, vacuity, bug detection, or model results are reported.
+
+Generated assertions can be syntactically valid but weak or vacuous.
+
+Official description only; formal and human review are required.
+
+**Method or artifact:** RTL-grounded bidirectional data synthesis for specialized assertion-generation LLMs.
+
+**Metrics:** Assertion quality and verification utility are claimed qualitatively
+
+**Problem:** Hardware assertion generation needs semantic alignment with RTL rather than generic code completion.
+
+**Workload or benchmark:** RTL modules and temporal assertions; datasets, formal tools, and baselines are unspecified.
+
+</details>
+<p><span id="paper-dac-2026-research285"></span></p>
+<h3>Parallel Combinational Equivalence Checking via Sweeping-Based Task Scheduling</h3>
+<p>DAC 2026 · Record: <code>dac-2026-research285</code></p>
+<p><a href="#explanation-dac-2026-research285">Read the step-by-step explanation</a></p>
+<p><strong>Updated source-backed reading card</strong></p>
+<div class="worked"><p class="lm-k">Worked example</p><p>Reviewed 2026-09-08. Reconciles the description-backed card with the official DAC mechanism and headline evaluation; explains SAT-sweeping task scheduling while keeping the inaccessible task model, benchmark tables and reproduction limits explicit.</p></div>
+<p>This editorial correction updates the current reading view and connected dossiers, not the historical adjudication or scientific acceptance status. The original captured fields are preserved below.</p>
+<p><a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/data/editorial-paper-corrections-v1.json">Correction register</a></p>
+<p><strong>Problem:</strong></p>
+<p>Serial SAT sweeping becomes a bottleneck in large combinational equivalence checks, while parallel methods that accelerate individual candidate proofs leave the sweep's task-generation and equivalence-sharing process mostly serial.</p>
+<p><strong>Mechanism / artifact:</strong></p>
+<p>HydraCEC: parallel execution of SAT-sweeping verification tasks, dynamic benefit-aware scheduling guided by a Task Benefit Graph, and asynchronous sharing of newly established equivalences without global synchronization.</p>
+<p><strong>Workload — the work tested:</strong></p>
+<p>Combinational equivalence checking on ISCAS/ITC, Datapath and Large-Scale benchmark groups; exact circuit list, miter construction, solved/timeout counts and per-instance distributions are not in the accessible description.</p>
+<p><strong>Hardware and manufacturing assumptions:</strong></p>
+<p>Parallel CEC/SAT-sweeping flow with up to 128 cores; SAT solver, Boolean representation, core model, memory configuration, timeout policy and preprocessing inclusion are unspecified.</p>
+<p><strong>Baseline — the comparison method:</strong></p>
+<p>Existing parallel CEC solvers; the description reports a best competitor but does not identify its exact configuration</p>
+<p>Serial SAT-sweeping execution as the conceptual bottleneck</p>
+<p>Matched task-scheduling and equivalence-sharing ablations are not reported in the accessible record</p>
+<p><strong>Reported measurements:</strong></p>
+<p>Official description claims 10.5× speedup over the best competitor on large-scale instances and scalability reaching 72.3× speedup with 128 cores.</p>
+<p>The accessible source does not define the speedup denominator, report wall-clock tables, timeout/solved counts, memory, preprocessing cost, variance or per-benchmark results.</p>
+<p><strong>Limits on the conclusion:</strong></p>
+<p>A parallel schedule must preserve sound node equivalence and completeness of the sweep; the accessible description does not provide stale-task handling, TBG equations, sharing data structures or the detailed correctness argument.</p>
+<p>The 10.5× and 72.3× claims are bounded conference-description measurements, not universal speedups; benchmark composition, core hardware, baseline settings and denominator remain unverified.</p>
+<p>Target manuscript, artifact execution, solver configuration and matched reproduction were not recovered. Small or dependency-heavy instances, memory pressure and scheduling overhead may change the benefit.</p>
+<p><strong>Source and location</strong></p>
+<p>Evidence tier: Official DAC description; mechanism and headline evaluation only, target manuscript and reproduction unavailable. This is the stored source classification; the location and limits below determine what was actually read.</p>
+<p><a href="https://63dac.conference-program.com/presentation/?id=RESEARCH285&amp;sess=sess163">Open the recorded source</a></p>
+<p>DAC 2026 official description: SAT-sweeping bottleneck, HydraCEC, Task Benefit Graph, asynchronous equivalence sharing, benchmark families, 10.5× comparison and 72.3×/128-core claim. No target-manuscript pagination available.</p>
+<details markdown="1">
+<summary>Original captured fields — superseded for this reading card</summary>
+
+** page source tier:** medium_official_description
+
+**Baselines:** serial sweeping
+
+generic parallel equivalence checking
+
+**Evidence locators:** DAC 2026 official description
+
+**Evidence url:** https://63dac.conference-program.com/?post_type=page&amp;p=16&amp;id=RESEARCH285
+
+**Hardware or process assumptions:** Parallel formal-verification compute with shared task state; hardware and proof settings are unspecified.
+
+**Limits:** No proof time, scalability, memory, timeout, or correctness results are reported.
+
+Parallel scheduling may increase synchronization and memory overhead.
+
+Official description only; benchmark and timeout analysis is required.
+
+**Method or artifact:** Parallel sweeping-based task scheduler for combinational equivalence checking.
+
+**Metrics:** Equivalence-checking throughput is claimed qualitatively
+
+**Problem:** Large combinational equivalence checks are expensive and contain exploitable independent subproblems.
+
+**Workload or benchmark:** RTL/netlist equivalence instances; solver, partitioning, and baselines are unspecified.
+
+</details>
+<p><span id="paper-dac-2026-research720"></span></p>
+<h3>Provably Probabilistic Safe Controller Synthesis for Vision-Based Neural Network Control Systems</h3>
+<p>DAC 2026 · Record: <code>dac-2026-research720</code></p>
+<p><a href="#explanation-dac-2026-research720">Read the step-by-step explanation</a></p>
+<p><strong>Updated source-backed reading card</strong></p>
+<div class="worked"><p class="lm-k">Worked example</p><p>Reviewed 2026-09-08. Reconciles the description-backed card with the official DAC mechanism; explains the conditional scope of probabilistic safety claims and keeps theorem, benchmark and physical-transfer evidence limits explicit.</p></div>
+<p>This editorial correction updates the current reading view and connected dossiers, not the historical adjudication or scientific acceptance status. The original captured fields are preserved below.</p>
+<p><a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/data/editorial-paper-corrections-v1.json">Correction register</a></p>
+<p><strong>Problem:</strong></p>
+<p>Vision-based neural controllers act from high-dimensional, uncertain observations while safety must be stated over physical system states and trajectories rather than only sampled image behavior.</p>
+<p><strong>Mechanism / artifact:</strong></p>
+<p>A conditional GAN models state-to-visual observation generation, RL pretraining initializes the controller, a data-driven uncertainty model is used with a stochastic barrier certificate guided by martingale theory, and verification counterexamples alternately refine controller and certificate networks.</p>
+<p><strong>Workload — the work tested:</strong></p>
+<p>Vision-based neural-network control systems on widely studied benchmarks; benchmark names, dynamics, initial/safe sets, horizons, probability thresholds, baselines and numerical tables are not in the accessible description.</p>
+<p><strong>Hardware and manufacturing assumptions:</strong></p>
+<p>Closed-loop stochastic dynamical-system model with learned visual observation process, RL controller, stochastic barrier certificate and counterexample-guided verification; uncertainty distribution, solver, network sizes and compute settings are unspecified.</p>
+<p><strong>Baseline — the comparison method:</strong></p>
+<p>The official description does not identify matched controller, certificate, robust-control or vision-policy baselines.</p>
+<p>A valid evaluation should compare task performance, empirical violations, certificate probability bounds, refinement cost and transfer conditions under the same uncertainty model.</p>
+<p><strong>Reported measurements:</strong></p>
+<p>Official description claims efficiency and effectiveness on widely studied benchmarks and states formally provable probabilistic safety guarantees, but reports no probability values, violation counts, horizon, certificate margin, runtime or benchmark-specific result.</p>
+<p><strong>Limits on the conclusion:</strong></p>
+<p>A stochastic safety bound is conditional on the learned dynamics/observation model, uncertainty distribution, initial set, safe set, action limits, horizon and certificate inequalities; it is not deterministic safety for disturbances outside that model.</p>
+<p>A learned cGAN can omit deployment conditions such as occlusion, lighting or sensor corruption; counterexample refinement improves searched regions but does not alone prove unsearched states safe.</p>
+<p>Target manuscript, theorem assumptions, quantitative tables, completeness of verification, physical-camera transfer and artifact execution were not recovered; independent reproduction is required.</p>
+<p><strong>Source and location</strong></p>
+<p>Evidence tier: Official DAC description; mechanism level reading and guarantee boundary, target evaluation unverified. This is the stored source classification; the location and limits below determine what was actually read.</p>
+<p><a href="https://63dac.conference-program.com/presentation/?id=RESEARCH720&amp;sess=sess158">Open the recorded source</a></p>
+<p>DAC 2026 official description: cGAN state-to-image mapping, RL pretraining, data-driven uncertainty, stochastic barrier certificate, martingale reasoning, counterexample refinement and benchmark claim. No target-manuscript pagination available.</p>
+<details markdown="1">
+<summary>Original captured fields — superseded for this reading card</summary>
+
+** page source tier:** medium_official_description
+
+**Baselines:** unconstrained neural controller
+
+deterministic safe controller
+
+**Evidence locators:** DAC 2026 official description
+
+**Evidence url:** https://63dac.conference-program.com/?post_type=page&amp;p=16&amp;id=RESEARCH720
+
+**Hardware or process assumptions:** Robotic or cyber-physical controller with neural perception; sensing, timing, and uncertainty assumptions are unspecified.
+
+**Limits:** No violation probability, task reward, latency, robustness, or physical results are reported.
+
+Guarantees depend on calibrated uncertainty and dynamics.
+
+Official description only; closed-loop validation is required.
+
+**Method or artifact:** Probabilistic safety-aware controller synthesis.
+
+**Metrics:** Probabilistic safety is claimed qualitatively
+
+**Problem:** Vision-based neural controllers must provide safety guarantees despite perception and model uncertainty.
+
+**Workload or benchmark:** Vision-based control tasks; dynamics, safety sets, probability bounds, and baselines are unspecified.
+
+</details>
+<p class="lm-k h-label">What remains to establish</p><h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>What is still unproven here</h2>
+<p>Resolve unspecified workloads, comparison methods, resource budgets, and source locations before generalizing a reported gain. Multiple papers in this selected sample permit comparison of mechanisms, but do not by themselves establish recurrence across years or a long-term trend.</p>
+<p><a href="../guide/expanded-taxonomy-v1.html">All subthemes</a> · <a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/reports/directions/README.md">Research directions</a></p><p class="meta">Written as <a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/reports/observed-subthemes/formal-analysis-and-verification.md">reports/observed-subthemes/formal-analysis-and-verification.md</a> in the course repository.</p>
+      </article>
+      <nav class="pager" aria-label="Previous and next"><a class="prev" href="simulation-emulation-and-testing.html"><span class="pg-k">← Previous</span><span class="pg-t">Simulation emulation and testing</span></a><a class="map" href="../subthemes.html"><span class="pg-k">Back to</span><span class="pg-t">Subthemes</span></a><a class="next" href="formal-and-functional-verification.html"><span class="pg-k">Next →</span><span class="pg-t">Formal and functional verification</span></a></nav>
+    </section>
+  </main>
+  <footer class="course-foot">
+    <p>Built from 582 paper records coded from ISCA 2026, DAC 2026 and ICCAD 2025 (ICCAD 2026 papers were not yet public). Most records come from official program descriptions; see “How deep the reading went”. The papers belong to their authors.</p>
+    <p class="foot-links"><a href="https://github.com/mehtama1234/course-concept-library">All courses</a><a href="../index.html">This course</a><a href="../course-map.html">Course map</a><a href="../presentation/index.html">Slides</a><a href="../video/index.html">Video</a><a href="../share/index.html">Share</a></p>
+  </footer>
+  <script src="../assets/course-data.js"></script><script src="../assets/icons.js"></script><script src="../assets/icons-extra.js"></script><script src="../assets/icons-course.js"></script><script src="../assets/art.js"></script><script src="../assets/course-art.js"></script><script src="../assets/charts.js"></script><script src="../assets/course-charts.js"></script><script src="../assets/course-site.js"></script>
+</body>
+</html>

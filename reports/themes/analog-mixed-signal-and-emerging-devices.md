@@ -6,21 +6,39 @@ A subtheme groups related technical problems. A mechanism describes the particul
 
 [Definitions used in the paper records](../reading-guide-v1.md)
 
-## What changes when physics performs part of the computation
+## Here physics itself does part of the computing
 
-Digital circuits represent values with discrete bit patterns. Analog computation uses continuously varying quantities such as voltage or current. Optical computation uses properties of light. Quantum computation uses quantum states and operations. These approaches differ substantially, but each requires a precise account of how the physical state represents the input and how the output is read.
+- **Digital** circuits hold values as discrete bit patterns.
+- **Analog** computation uses continuously varying quantities such as voltage or current.
+- **Optical** computation uses properties of light.
+- **Quantum** computation uses quantum states and operations.
 
-## Why device behavior is only part of the system
+These differ greatly. But each needs a precise account of how the physical state stands for the input, and how the output is read.
 
-Inputs may require conversion from digital values, and outputs may require measurement and conversion back. Noise, temperature, variation between devices, and measurement precision can change the result. Calibration adjusts operation using measured device behavior and also consumes time or hardware. Any claimed saving must include the surrounding conversion, control, and correction work.
+## The device is only part of the cost: conversion and correction count too
 
-## What separates the subthemes
+Inputs may need converting from digital values. Outputs may need measuring and converting back.
 
-Analog circuit automation designs continuous-signal circuits. Compute-in-memory methods perform operations in or near storage structures. Photonic work uses optical components. Quantum hardware and control work concerns preparing, manipulating, and measuring quantum states. Emerging-memory work studies storage technologies with different physical properties. The umbrella grouping does not imply these methods have interchangeable accuracy or performance measures.
+Noise, temperature, differences between devices, and measurement precision can all change the result. **Calibration** adjusts operation using measured device behavior, and it also costs time or hardware.
 
-## A comparison that answers the question
+Any claimed saving must include the conversion, control and correction work around the device.
 
-Identify whether the evidence comes from equations, simulation, a fabricated device, or a complete system. Report precision, error, calibration, conversion cost, temperature, and device variation under the intended workload. A device operation with low energy establishes one component cost; an application claim requires the full path from inputs to usable outputs.
+## The subthemes use very different physics, with different accuracy measures
+
+- **Analog circuit automation** designs continuous-signal circuits.
+- **Compute-in-memory** performs operations in or near storage.
+- **Photonic** work uses optical components.
+- **Quantum hardware and control** prepares, manipulates and measures quantum states.
+- **Emerging memory** studies storage technologies with different physical properties.
+
+Grouping them does not make their accuracy or performance measures interchangeable.
+
+## A fair test says where the evidence comes from and counts the full path
+
+1. Say whether the evidence comes from equations, simulation, a fabricated device, or a complete system.
+2. Report precision, error, calibration, conversion cost, temperature and device variation, under the intended workload.
+
+A low-energy device operation shows one component cost. An application claim needs the full path from inputs to usable outputs.
 
 ## Follow a number through its physical representation
 

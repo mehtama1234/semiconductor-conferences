@@ -1,0 +1,795 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#F3ECE1" />
+  <title>LLM systems and runtime · Semiconductor conference atlas</title>
+  <meta name="description" content="Papers: DAC 10. Read from: 10 program descriptions, 0 abstracts or reports, 0 full papers or preprints. The explanations come first; every paper’s record follows at the end." />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Semiconductor conference atlas" />
+  <meta property="og:title" content="LLM systems and runtime · Semiconductor conference atlas" />
+  <meta property="og:description" content="Papers: DAC 10. Read from: 10 program descriptions, 0 abstracts or reports, 0 full papers or preprints. The explanations come first; every paper’s record follows at the end." />
+  <meta property="og:url" content="https://mehtama1234.github.io/semiconductor-conferences/subthemes/llm-systems-and-runtime.html" />
+  <meta property="og:image" content="https://mehtama1234.github.io/semiconductor-conferences/presentation/slides/01-cover.jpg" />
+  <meta property="og:image:width" content="1920" />
+  <meta property="og:image:height" content="1080" />
+  <meta property="og:image:alt" content="Semiconductor conference atlas: 582 papers from ISCA, DAC and ICCAD, sorted into 10 themes and six directions to watch." />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="canonical" href="https://mehtama1234.github.io/semiconductor-conferences/subthemes/llm-systems-and-runtime.html" />
+  <link rel="icon" href="../assets/icon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="../assets/base.css" />
+  <link rel="stylesheet" href="../assets/experience.css" />
+  <link rel="stylesheet" href="../assets/theme-atlas.css" />
+  <link rel="stylesheet" href="../assets/styles.css" />
+  <link rel="stylesheet" href="../assets/charts.css" />
+  <link rel="stylesheet" href="../assets/course.css" />
+  
+</head>
+<body class="course-site " data-house="atlas">
+  <aside class="public-demo-banner" aria-label="About this course">A plain-language guide to what ISCA, DAC and ICCAD papers say about chip and computer design · Built from the repository’s own paper records · Not made by the conferences</aside>
+  <a class="skip-link" href="#app">Skip to the page</a>
+  <header>
+    <a class="brand" href="../index.html"><span class="mark" aria-hidden="true">Si</span> Semiconductor conference atlas</a>
+    <span class="header-status"><span class="badge">582 papers</span><span class="badge">10 themes</span><span class="badge">Plain words first</span></span>
+    <a class="header-link" href="../course-map.html">Course map</a>
+  </header>
+  <nav class="course-nav" aria-label="Main sections of the course"><a href="../index.html">The big picture</a><a href="../themes.html">Themes</a><a href="../subthemes.html" aria-current="page">Subthemes</a><a href="../deep-reads.html">Deep reads</a><a href="../directions.html">What to watch</a><a href="../presentation/index.html">Slides</a><a href="../video/index.html">Video</a><a href="../share/index.html">Share</a></nav>
+  <main id="app" tabindex="-1">
+    <section class="screen active landing legacy-page" aria-labelledby="page-title">
+<div class="lm-head"><div class="hj-heading"><nav class="crumbs" aria-label="You are here"><a href="../course-map.html">Course map</a><span aria-hidden="true">›</span><a href="../subthemes.html">Subthemes</a></nav><a class="back-button" href="../subthemes.html">← <span>Subthemes</span></a><p class="eyebrow">Subtheme · 10 papers · Systems, applications, and workloads</p><h1 id="page-title">LLM systems and runtime</h1><p class="hj-sub">Papers: DAC 10. Read from: 10 program descriptions, 0 abstracts or reports, 0 full papers or preprints. The explanations come first; every paper’s record follows at the end.</p></div><div class="hj-art" data-art="trio:users,activity,server"></div></div>
+<figure class="course-fig"><div class="loop-wide" data-art="flow:systems-applications-and-workloads"></div><div class="loop-tall" data-art="flowTall:systems-applications-and-workloads"></div><figcaption>The parent theme in one picture: judge a system by the useful work its users get done.</figcaption></figure>
+      <article class="prose">
+
+<p>This subject has 10 records in the selected sample. This page explains where it fits, then presents all captured paper evidence without shortening the measurements or limitations.</p>
+<p><a href="../guide/reading-guide-v1.html">Definitions used in the paper records</a></p>
+<p class="lm-k h-label">Understand the parent subject first</p><h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>The bigger theme this belongs to</h2>
+<ul>
+<li><a href="../themes/systems-applications-and-workloads.html">Systems applications and workloads</a></li>
+</ul>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>A model needs a process that manages its execution</h2>
+<p>A trained language model specifies a computation, but a running system must load its parameters, allocate memory, schedule operations, and manage requests or training steps. Runtime software performs decisions during execution rather than fixing every choice in advance.</p>
+<p>Training, fine-tuning, and inference create different requirements. Training updates model parameters. Fine-tuning adapts an existing model using further training. Inference executes a trained model to produce outputs. A result for one phase does not automatically establish an improvement in another.</p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>Look at complete work and its dependencies</h2>
+<p>Execution consists of operations that read and produce values. Some operations can run together; others must wait for earlier outputs. Hardware can be idle because inputs are unavailable, memory is full, or another activity owns a shared resource.</p>
+<p>A runtime changes when work happens and where its state resides. It can reduce idle time or memory use while adding scheduling, transfer, or bookkeeping costs. The evaluation must include the work moved elsewhere rather than measuring only the accelerated portion.</p>
+<p><span id="explanation-dac-2026-research1286"></span></p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="file-text"></span>Single-GPU fine-tuning can still use other resources</h2>
+<p>The heterogeneous fine-tuning record proposes coordinated algorithm and hardware choices around one GPU. “Single GPU” specifies the number of those accelerators; it does not establish the total CPU, memory, storage, or communication resources used. <a href="llm-systems-and-runtime.html#paper-dac-2026-research1286">Recorded evidence</a></p>
+<p>Moving state or computation away from the GPU can make a larger task possible but also add transfers. The meaningful comparison includes time to achieve the required model quality, all resource consumption, and the conditions of the comparison method.</p><p>The captured description leaves those quantities unresolved.</p>
+<p>Fine-tuning changes model parameters using examples. A training step usually reads parameters, computes activations, stores or recomputes intermediate values, computes gradients, and updates parameters.</p><p>Depending on the optimizer, the system may also keep optimizer states such as momentum or second-moment estimates. These objects can consume more memory than the model weights alone.</p><p>A “single-GPU” method may therefore place some state in CPU memory, another device, storage, or a custom processing path while retaining one GPU for the main computation.</p>
+<p>The first design question is which state moves across which boundary. In a single GPU system, moving a layer’s weights before every use has a different cost from moving optimizer states once per update or checkpointing activations for later recomputation.</p><p>The evaluation should identify the bytes transferred, transfer direction, frequency, link bandwidth, overlap with computation, synchronization points, pinned-memory or storage requirements, and whether page faults or allocation overhead are included. A method can fit the model in nominal capacity while failing to meet useful throughput because transfers serialize the critical path.</p>
+<p>Algorithm and hardware co-design can also change the amount of work, not merely where it runs. Parameter-efficient fine-tuning may update adapters or low-rank components instead of all weights.</p><p>Quantization, activation recomputation, optimizer changes, layer scheduling, microbatching and offload policy can each alter memory and computation. A comparison must state which of these changes are part of the proposed method and whether the baseline reaches the same final quality with the same trainable parameter set.</p>
+<p>Memory capacity is not the same as trainable-task feasibility. The method must preserve the optimizer state, gradient precision, numerical stability, checkpoint/restart state, data pipeline and validation behavior required by the training objective.</p><p>If some tensors are compressed or recomputed, report the numerical effect and the extra computation. If state is evicted to host memory, report CPU contention and memory pressure.</p><p>If storage is used, report I/O bandwidth, endurance assumptions and failure behavior.</p>
+<p>The correct performance denominator is time-to-quality, not only tokens per second or one kernel’s latency. Define the target loss, evaluation metric, dataset, number of epochs or update steps, convergence rule, random seeds and acceptable quality variance.</p><p>A method that processes tokens faster but converges more slowly, or reaches a lower final quality, has not shown a training improvement. Report preparation, loading, transfers, validation, checkpointing, failures and recovery when they are required for a fair run.</p>
+<p>The baselines should include standard single-GPU fine-tuning using the same model and quality target, a named multi-GPU configuration, and relevant offload or parameter-efficient methods. “Multi-GPU” is not automatically a fair lower-bound comparison: it may use a different parallelism strategy, memory capacity, interconnect, batch size or quality target.</p><p>Report GPU memory, host memory, storage, CPU utilization, interconnect traffic, total energy, wall-clock time, throughput, time-to-quality and cost per completed run.</p>
+<p>The captured description supports a heterogeneous algorithm-hardware direction for making large-model fine-tuning possible around one GPU. It does not specify models, datasets, parameter-efficient versus full fine-tuning, quality criteria, GPU/interconnect, time-to-quality, memory, throughput, energy or accuracy.</p><p>The evidence supports a capacity-and-runtime co-design direction, not demonstrated single-GPU training efficiency across model families.</p>
+<p><span id="explanation-dac-2026-research2300"></span></p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="alert-triangle"></span>Hero: mobile RAG orchestration must preserve retrieval and answer quality while respecting device limits</h2>
+<p>Retrieval-augmented generation (RAG) combines two stages. In a retrieval-augmented generation pipeline, a retriever selects documents or passages from an index using a query.</p><p>A generator uses the query and retrieved context to produce an answer. The system can improve factual grounding, but retrieval errors and generation errors are different.</p><p>A runtime that reduces latency by retrieving fewer or less relevant passages may lower answer quality even if the language model runs faster.</p>
+<p>Hero is described as adaptive orchestration across a heterogeneous mobile system-on-chip (SoC). A mobile SoC may contain CPU, GPU and NPU resources with different throughput, memory access, power, thermal and software characteristics.</p><p>The orchestration policy may decide where retrieval, embedding, reranking, prompt construction and generation run, how data moves between memories, and when to use local or cloud resources. Each decision changes both performance and the evidence available for judging the answer.</p>
+<p>The first requirement is to define the query path. Record query encoding, index access, candidate count, reranking, context length, prompt assembly, generation model, output length, cache state, and any network round trip.</p><p>Report retrieval recall or precision, context relevance, answer correctness, citation or grounding quality, refusal behavior, and hallucination or unsupported-answer rate separately from latency. End-to-end answer quality cannot be inferred from retrieval speed or token throughput alone.</p>
+<p>Adaptive placement needs an observable state and a decision cost. The policy may use query length, expected retrieval difficulty, model confidence, battery level, temperature, queue state, memory pressure, network quality or historical workload.</p><p>It must state how these signals are measured, how often the policy changes placement, and how much computation and data movement the decision adds. A policy trained or tuned on one query distribution may choose poorly for a different language, topic, index size, user mix or connectivity condition.</p>
+<p>Heterogeneous execution has multiple boundaries. Moving an embedding or retrieved context between CPU, GPU, NPU and shared memory consumes bandwidth and may require format conversion or synchronization.</p><p>Sending a query or context to the cloud adds network latency, energy, privacy exposure and availability dependence. A local-versus-cloud comparison must use the same quality target, privacy policy, network condition, model version and output length; cloud latency alone is not a complete baseline.</p>
+<p>Mobile constraints are dynamic. Battery state, thermal throttling, background applications, memory pressure and user-visible latency can change during one session.</p><p>Report cold and warm cache behavior, sustained execution, thermal steady state, battery energy, peak and average power, memory footprint, throttling, queueing, first-token latency, total response latency and tail percentiles. An average speedup under a short benchmark does not establish sustained mobile efficiency.</p>
+<p>The comparison should include static local placement, a fixed heterogeneous placement, cloud RAG, and the adaptive policy. Hold the index, retriever, generator, prompt, output quality, context limit, quantization and query set constant.</p><p>Use workload splits that hold out queries, topics, index updates, devices and network states. Report policy errors: cases where the chosen placement misses a quality target, exceeds a latency service-level objective, or consumes more energy than the available budget.</p>
+<p>The captured description identifies adaptive RAG orchestration on a heterogeneous mobile SoC, but reports no answer quality, retrieval quality, latency, energy, memory, thermal or workload-diverse results. Adaptive choices may depend on query distribution.</p><p>The evidence supports a mobile RAG runtime direction, not demonstrated quality-preserving orchestration across devices and workloads.</p>
+<p><span id="explanation-dac-2026-research235"></span></p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>Sandwich: hot-switching can adapt CPU serving only if switch cost and tail behavior remain inside the service objective</h2>
+<p>CPU LLM serving is a sequence of requests competing for cores, memory bandwidth, caches, power and thermal headroom. A serving configuration may include thread count, core affinity, vectorization, batch size, quantization, kernel choice, frequency policy, context handling, KV-cache policy and request admission.</p><p>A configuration that is best for one request mix can be poor for another because long prompts, short prompts, concurrent requests and output lengths stress different resources.</p>
+<p>Sandwich is described as joint configuration search and runtime hot-switching. Configuration search chooses candidate settings and measures or predicts their behavior.</p><p>Hot-switching changes the active setting while the service is running. These are separate mechanisms.</p><p>Offline search can find a good configuration under its training workload; runtime switching must decide when the workload has changed enough to justify a switch and must pay the cost of changing state.</p>
+<p>The switching path must be defined. A change may drain requests, alter thread placement, rebuild kernels, resize a batch, invalidate or reduce cache locality, change KV-cache layout, adjust frequency, or wait for an in-flight operation.</p><p>Measure switch duration, requests stalled, tokens lost, cache warm-up, queue growth, temporary memory, frequency transition and the configuration’s first-request behavior. A lower steady-state latency does not compensate for repeated switch penalties unless the workload intervals are long enough.</p>
+<p>Serving quality is usually expressed through service-level objectives (SLOs), not only average throughput. Define time to first token, inter-token latency, total response latency, deadline violation, throughput, admission behavior and tail percentiles such as p95 or p99.</p><p>A configuration that improves average tokens per second while creating deadline misses or long pauses during switching may be worse for the service. Report quality or output-equivalence changes from quantization, batching, truncation and other configuration choices separately from runtime metrics.</p>
+<p>Joint search also has an exploration cost. Testing configurations consumes requests, warm-up time, CPU cycles and possibly user-visible capacity.</p><p>The search should state whether it uses an offline trace, a simulator, a model, safe canary traffic or live exploration. If it learns from observed workload, separate search requests from production requests and report how quickly it adapts, how often it selects a poor configuration, and what prevents oscillation between configurations.</p>
+<p>The workload must include changing conditions: request arrival rate, prompt length, generated length, concurrency, model, quantization, cache state, background CPU activity, thermal state and power limit. Configuration quality can be workload-specific.</p><p>A policy trained on a stable trace may fail under a burst or a mixture of long and short requests. Evaluate held-out traces and workload transitions, not only stationary averages.</p>
+<p>The baselines should include a static configuration selected offline, the best fixed configuration for each known workload, and offline tuning without runtime switching. Compare equal model quality, request distribution, CPU platform, thread/core budget, memory limit, frequency policy, warm-up, cache state and measurement boundary.</p><p>Report switch frequency, switch cost, SLO attainment, tail latency, throughput, energy, CPU utilization, memory, configuration-search time and quality.</p>
+<p>The captured record identifies joint configuration search and runtime hot-switching for CPU LLM serving, but reports no latency, throughput, quality, switch time, energy or workload results. Switching may disrupt cache state and tail latency.</p><p>The evidence supports an adaptive CPU-serving direction, not demonstrated SLO-safe hot-switching across models and workload changes.</p>
+<p><span id="explanation-dac-2026-research256"></span></p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>PREBA: multi-instance GPU serving must control interference, memory pressure and tail latency across tenants</h2>
+<p>Multi-instance GPU inference means that more than one inference workload uses one physical GPU at the same time. The instances may receive separate partitions, streams, memory regions, scheduling shares or combinations of these.</p><p>The physical GPU still has shared resources: execution units, on-chip caches, memory bandwidth, memory capacity, copy engines, power, thermal headroom, driver state and sometimes scheduling queues. A tenant can therefore affect another tenant even when the software presents the instances as separate services.</p>
+<p>PREBA is described as hardware/software co-design for multi-instance GPU-based AI inference servers. “Co-design” should identify the hardware mechanism, the software policy, the control loop between them, and the resource that each mechanism changes.</p><p>A hardware partition, a memory controller, a request scheduler, a model-placement policy and a batching policy solve different problems. Combining them in one system does not by itself show that their interaction is necessary or that the combined design is better than well-tuned software on the same GPU.</p>
+<p>The first system question is the isolation boundary. State whether an instance receives a fixed slice of compute, memory, cache, bandwidth, power or time; whether it can borrow unused capacity; and what happens when it exceeds its allocation.</p><p>A logical partition is not the same as performance isolation. If two instances share memory bandwidth or cache, measure how one tenant's request rate, model, sequence length or batch size changes the other's latency.</p><p>If the design claims security or fault isolation, define the information or failure channel and test it separately from performance interference.</p>
+<p>Inference serving has more than one resource demand. A request may need model weights, activations, key-value cache, temporary workspace, input processing, output sampling and host-device transfers.</p><p>Large or long-context requests can consume memory for a long time. Admission control must say whether a request is rejected, queued, preempted, migrated or allowed to cause eviction when the memory budget is full.</p><p>A throughput result without memory occupancy and request-level behavior can hide failures caused by cache growth or allocation stalls.</p>
+<p>The serving objective must be stated per tenant and for the system as a whole. Measure time to first token, inter-token latency, complete response latency, throughput, queueing delay, deadline or service-level-objective violations, and p95/p99 or worse tail percentiles.</p><p>Report each tenant's result, not only the aggregate. A policy that raises total throughput by starving a small tenant, or that improves the mean while producing long pauses for one model, is not a fair multi-instance result.</p><p>Define fairness explicitly, such as minimum guaranteed throughput, weighted service share, slowdown relative to isolation, or a bounded latency increase.</p>
+<p>Scheduling decisions also have costs. The policy may choose instance size, core share, memory placement, batch formation, request order, preemption, model migration, precision, clock state or power allocation.</p><p>Each decision can require synchronization, context changes, kernel completion, cache effects, data movement or model reload. Measure decision frequency, reconfiguration time, work lost, queue growth, memory fragmentation, warm-up and the effect on in-flight requests.</p><p>A hardware/software policy that is effective only after long stable intervals may not handle bursty tenants; a policy that changes too often may spend its gain on control overhead.</p>
+<p>The workload must represent the sharing problem. Include multiple models, model sizes, input and output lengths, batch sizes, arrival rates, concurrency, burst patterns, memory footprints, accelerator kernels and tenant priorities.</p><p>Evaluate balanced tenants, a heavy tenant beside light tenants, synchronized bursts, long-context requests, changing mixes and failures or restarts. A single model at a fixed rate tests GPU execution, not multi-tenant interference.</p><p>If the method targets a particular GPU-generation feature, state the supported partition sizes, driver/runtime versions and portability boundary.</p>
+<p>Energy and cost need the same boundary as performance. Report total server energy, energy per request or token, power limit, clock state, cooling or thermal condition, host CPU and memory use, and the cost of reserved versus borrowed capacity.</p><p>A design can improve GPU utilization while increasing host work, memory traffic, cooling demand or failed requests. Compare the same model quality, precision, output length, request mix, admission policy and end-to-end measurement boundary.</p>
+<p>The baselines should include one instance per GPU, conventional multi-instance GPU partitioning, and default multi-instance scheduling. Add an oracle or offline allocation when possible to show the gap between the policy and a workload-specific upper bound.</p><p>Hold the physical GPU, driver, model versions, quantization, request traces, tenant priorities, memory limit, power limit, warm-up, cache state and quality target constant. Report an ablation for hardware changes and for software policy so the source of each gain is visible.</p>
+<p>The captured record identifies hardware/software co-design for multi-instance GPU inference and qualitatively claims server efficiency. It reports no GPU generation, partition mechanism, tenant mix, tail latency, throughput, fairness, energy, isolation, memory behavior or workload-diverse result.</p><p>The evidence supports a multi-tenant GPU serving direction, not demonstrated QoS-safe, fair or portable inference-server efficiency.</p>
+<p><span id="explanation-dac-2026-research2620"></span></p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>Deinfer: decomposed-model parallelism is useful only when dependency and communication costs stay below the saved inference time</h2>
+<p>A decomposed language model is a model whose computation or parameters have been split into parts that can be placed or executed separately. Decomposition can expose parallel work, allow a model larger than one device, or map different components to different resources.</p><p>It also creates boundaries. Values must cross those boundaries, workers must synchronize, and the system must preserve the order and numerical meaning required by the model.</p>
+<p>Deinfer is described as an inference system for parallel inference of decomposed large language models, with multiple optimizations intended to improve performance and remain compatible with other inference optimizations. The description does not identify the decomposition.</p><p>It could separate layers, tensor dimensions, experts, attention and feed-forward parts, pipeline stages, or another model representation. Those choices have different dependency graphs, communication volumes, memory needs and failure behavior, so the system must state the exact graph and placement before its speed claim can be interpreted.</p>
+<p>The first principle is to expose the critical path. For each generated token or batch, identify which operations can run concurrently, which values they read, which values they produce, and which operations must wait.</p><p>Measure compute time, communication time, synchronization time, queueing, scheduling overhead, memory movement, kernel launch or runtime overhead, and idle time at every device. Parallelism helps only when useful work overlaps and the saved computation is greater than the cost of moving data and coordinating workers.</p>
+<p>Autoregressive generation makes this especially important. A new token often depends on the state produced for the previous token.</p><p>Some work can be batched across requests or split across model components, but a fine-grained cross-device boundary may add a synchronization to every token. Report prefill and decode separately, because long prompt processing and one-token-at-a-time generation stress the system differently.</p><p>Include time to first token, inter-token latency, complete response latency, throughput, batch/concurrency and tail percentiles.</p>
+<p>Communication must be described in bytes and timing, not only as an implementation detail. State what crosses each boundary: activations, weights, key-value cache, logits, metadata or control messages.</p><p>Report message size, frequency, direction, link, bandwidth, latency, serialization, overlap with compute, synchronization points and copies through host memory. A topology that works for a large batch may fail for small requests if fixed message latency dominates.</p><p>A method that fits model weights across devices may still be limited by activation or KV-cache traffic during decoding.</p>
+<p>Compatibility with existing optimizations is a claim that needs a defined composition. Quantization changes bytes and numerical error.</p><p>Batching changes available parallel work and queueing. Kernel fusion changes boundaries.</p><p>Speculative decoding changes the number of tokens proposed and verified. Caching changes reuse and memory occupancy.</p><p>The evaluation should show whether each optimization is applied before or after decomposition, whether it changes the dependency graph, and whether the proposed scheduler still preserves output quality and acceptance behavior.</p>
+<p>Model quality must remain comparable. Parallel execution should produce the same result within a stated numerical tolerance, or the paper must report the quality change from quantization, approximation, partitioning, or reordered operations.</p><p>Compare perplexity or task accuracy for the same model and decoding rule, and report output differences if floating-point order changes. A faster system that silently changes the model or stopping rule is not an isolated systems improvement.</p>
+<p>The baselines should include monolithic inference on the largest feasible device, sequential execution of the same decomposition, and a standard distributed or tensor/pipeline-parallel implementation when applicable. Hold model weights, decomposition, precision, prompt/output lengths, decoding parameters, batch, concurrency, warm-up, cache state, device count, interconnect and end-to-end timing boundary constant.</p><p>Include a scaling study as devices increase and an ablation of communication overlap, scheduling, memory placement and other claimed optimizations.</p>
+<p>Small requests and low concurrency are a critical boundary condition. Their compute is short, so fixed coordination and transfer costs can dominate.</p><p>Large batches may hide those costs while increasing queueing and latency. Evaluate short and long prompts, short and long generations, low and high concurrency, balanced and imbalanced partitions, cold and warm state, and changing request mixes.</p><p>Report scaling efficiency, device utilization, communication fraction, memory use, energy per token or response and cost per completed request.</p>
+<p>The captured record says that DeInfer targets parallel inference of decomposed LLMs and claims extensive experiments, but the captured evidence reports no model decomposition, device topology, quality, latency, throughput, communication, energy or scaling result. Decomposition overhead may dominate small requests.</p><p>The evidence supports a distributed LLM inference-system direction, not demonstrated efficient and quality-preserving parallel inference across model sizes, request regimes and hardware topologies.</p>
+<p><span id="explanation-dac-2026-research292"></span></p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="file-text"></span>SmoothSpec: speculative decoding gains throughput only when draft quality, verification work and asymmetric resource allocation are measured together</h2>
+<p>Autoregressive language-model decoding normally generates one next token, appends it to the sequence, and repeats. Speculative decoding adds a draft model or draft procedure.</p><p>The draft proposes several tokens; a target model verifies them in parallel; accepted tokens advance the sequence and rejected tokens require a correction. The method can reduce the number of expensive target-model steps, but its benefit depends on how many proposed tokens are accepted and how much draft and verification work is added.</p>
+<p>The paper record describes SmoothSpec as an intra-device parallel speculative-decoding system. It uses the same parallelism configurations for draft and target models, allocates compute asymmetrically at runtime, and adjusts draft parameters and the resource-allocation ratio using draft-token generation quality.</p><p>These are separate mechanisms: the draft parameter policy changes proposal quality and cost; the resource policy changes contention between draft and target work; the scheduler decides when and how those choices change. A fair reading must measure each mechanism and their interaction.</p>
+<p>The basic accounting is accepted useful tokens per unit of end-to-end time. Let the draft produce a proposal, let the target verify it, and count accepted tokens plus the corrected token that advances generation under the exact algorithm.</p><p>Report proposal length, acceptance rate by position, rejected-token frequency, target evaluations, draft evaluations, generated tokens, and time for draft, verification, synchronization, scheduling and output handling. A higher acceptance rate is not sufficient if the draft becomes expensive or if target verification occupies the device while the draft is being prepared.</p>
+<p>Intra-device parallelism means the draft and target share one accelerator's compute units, memory system, caches, queues, power and thermal limit. Asymmetric allocation can improve overlap, but changing the ratio can also create starvation, preemption, cache disruption or memory pressure.</p><p>Define the allocation unit, whether resources are partitioned or time-shared, how in-flight kernels are handled, and the cost and frequency of changing the ratio. Measure achieved utilization for each model, contention, memory traffic, queueing, clock state and reconfiguration overhead rather than inferring utilization from an allocation percentage.</p>
+<p>The control signal needs a precise definition. “Generation quality of draft tokens” could mean acceptance probability, accepted-prefix length, target-model score, confidence, entropy, a learned predictor or a recent moving average.</p><p>State the observation window, warm-up, decision interval, parameters changed, exploration rule, hysteresis and protection against oscillation. A controller trained on one model or request mix may react too slowly to bursts or overreact to noise.</p><p>Evaluate transitions between low and high acceptance, changing prompt domains, concurrency and request lengths.</p>
+<p>Quality and speed are coupled. Draft parameters may change sampling temperature, number of draft steps, vocabulary filtering, quantization, layer usage or another approximation.</p><p>The target verification algorithm must preserve the intended output distribution if exact speculative decoding is claimed. If the system changes the distribution, compare perplexity, task quality, output agreement, acceptance behavior and stopping semantics under the same decoding settings.</p><p>Do not treat accepted-token count as model quality.</p>
+<p>Serving evaluation must separate prefill from decode and report time to first token, inter-token latency, total response latency, throughput in useful output tokens per second, p50/p95/p99 tails, batch size, concurrency, queueing and deadline violations. Include cold and warm starts, model loading, memory allocation, KV-cache behavior, output streaming and scheduler overhead.</p><p>Throughput improvements at high batch size can coexist with worse interactive latency; both are relevant for a serving claim.</p>
+<p>The baselines should include ordinary autoregressive decoding, standard speculative decoding with a fixed draft and fixed resource split, and an oracle or offline resource split when feasible. Hold target model, draft model or draft quality, precision, decoding rule, prompt/output distributions, batch, concurrency, device, clock/power state, warm-up and measurement boundary constant.</p><p>Ablate dynamic draft-parameter selection and dynamic resource allocation independently. Report memory, energy per generated token, device generation, software stack and scaling across models or model pairs.</p>
+<p>The captured description identifies a single-node system that dynamically adjusts draft parameters and the resource allocation ratio, but the stored evidence reports no acceptance rate, latency, throughput, memory, energy or model result. Parallelism may be device-generation specific.</p><p>The evidence supports adaptive intra-device speculative decoding, not demonstrated quality-preserving throughput or tail-latency improvement across model pairs and serving workloads.</p>
+<p><span id="explanation-dac-2026-research538"></span></p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>Amoeba: changing tensor parallelism at runtime requires state migration and SLO-safe reconfiguration</h2>
+<p>Tensor parallelism splits a model operation across multiple devices. Each device holds or computes part of a tensor, and the devices exchange partial results so that the next operation sees the complete value.</p><p>The degree of tensor parallelism is the number of participating devices or partitions. A larger degree can provide more aggregate memory and compute for a large request, but it also adds communication and may reduce the number of independent instances that can run concurrently.</p>
+<p>Amoeba is described as a runtime transformation that changes tensor parallelism for running LLM inference instances as incoming request context lengths change. The underlying tension is concrete: long-context requests need memory for a growing key-value (KV) cache and may benefit from more parallel resources; short-context requests may use fewer resources and allow more concurrent instances.</p><p>Changing the layout while a service is running is not the same as selecting a layout at startup. The system must preserve model state, request state and numerical correctness while moving from one execution arrangement to another.</p>
+<p>The transformation protocol is the central artifact. State whether the system drains requests, pauses them, migrates them at a safe boundary, or transforms an active instance in place.</p><p>Identify what moves: model weights, activations, KV-cache blocks, scheduler metadata, sequence position, requests, communication groups and allocator state. Report bytes moved, links used, synchronization, temporary capacity, memory fragmentation, kernel rebuilding, cache warm-up, failed or retried requests, and the time during which the instance cannot make progress.</p><p>A higher-throughput steady state does not justify a policy if repeated transformations create queueing or deadline violations.</p>
+<p>KV-cache behavior needs separate accounting. During autoregressive generation, the cache stores key and value tensors for prior tokens so the model does not recompute the complete prefix.</p><p>Its size grows with context length, layers, heads, precision and batch or sequence count. A change in tensor-parallel degree may require repartitioning those tensors, changing their layout, copying them between devices, or temporarily keeping both old and new representations.</p><p>Measure cache bytes, partitioning cost, reuse after migration, fragmentation, eviction, recomputation and the effect on time to first token and inter-token latency.</p>
+<p>The policy needs an observable state and a decision rule. It may use incoming context length, expected output length, queue length, current KV-cache occupancy, arrival rate, device availability, model size or predicted service-level-objective risk.</p><p>Define how far ahead the system predicts, what threshold triggers a change, how it avoids oscillation, and how it behaves when a long request arrives during migration. A request’s context length is not the whole workload: generated length, concurrency, prompt reuse, cache state and other tenants affect the required capacity.</p>
+<p>Serving quality must be measured end to end. Report time to first token, inter-token latency, total response latency, throughput, queueing delay and p50/p95/p99 tail latency, with SLO or deadline violations during and after transformation.</p><p>Separate prefill from decode and include short-context and long-context requests. Report per-request and aggregate results because a throughput average can hide long pauses for the request being migrated.</p><p>Include cold and warm cache behavior, model loading, admission, cancellation, failures and recovery.</p>
+<p>The comparison should include static tensor parallelism at each relevant degree, data-parallel serving, and a policy that routes new requests without transforming running instances. The static configurations should be measured on the same model, precision, devices, interconnect, request traces, context/output lengths, concurrency, power state and quality target.</p><p>Add an oracle or offline assignment where possible. Report the claimed throughput range only with the exact workloads, baseline, timing boundary and confidence or variation; the captured description states a 1.75×–6.57× throughput improvement over state-of-the-art solutions but does not expose the conditions needed to reproduce or interpret that range.</p>
+<p>Resource accounting must include the devices used by idle and active instances, communication traffic, host CPU, memory, storage, energy and cooling or power limits. More tensor-parallel resources per long request can increase single-request capacity while reducing system-wide concurrency.</p><p>The objective must say whether it optimizes aggregate throughput, latency, tail SLO attainment, cost, energy, or a constrained combination. Model quality and output behavior must remain constant across transformations.</p>
+<p>The captured description supports runtime tensor-parallel transformation for context-varying LLM inference and reports a claimed 1.75×–6.57× throughput range on real-world traces. It does not report migration time, latency, KV-cache movement, quality, energy, SLO behavior or model/device-diverse validation.</p><p>The evidence supports adaptive parallelism as a serving direction, not demonstrated SLO-safe reconfiguration or general throughput improvement.</p>
+<p><span id="explanation-dac-2026-research628"></span></p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="file-text"></span>Faster-MoA: reducing agent connections changes both the computation graph and the answer evidence</h2>
+<p>Mixture-of-Agents (MoA) serving runs several language-model agents and combines their outputs. The agents may propose answers, critique one another, specialize by task, or feed results into later agents.</p><p>An all-to-all design allows many agent-to-agent connections, but those connections create communication, scheduling and inference work. A tree structure, early exit and overlapping prefill with decode can reduce work, but each change also changes which agents contribute and when.</p>
+<p>Faster-MoA is described as a unified algorithm-system co-design with three parts: a hierarchical tree instead of all-to-all connectivity, runtime early exit based on output semantic similarity and answer confidence, and agent-dependency-aware incremental prefilling that overlaps prefill and decode. These are not interchangeable optimizations.</p><p>The tree changes the dependency graph; early exit removes computation and evidence; overlap changes scheduling without necessarily removing model work. The evaluation must isolate them and explain how the resulting system still implements the intended MoA behavior.</p>
+<p>The tree needs a precise execution graph. Define the agents, edges, parent/child dependencies, message contents, ordering, fan-in/fan-out, synchronization and failure behavior.</p><p>An all-to-all graph may produce multiple independent views before aggregation; a tree can make early decisions influence later agents and can amplify one weak intermediate answer. Report messages, bytes, communication time, agent idle time, and the critical path for each stage.</p><p>A lower edge count is not automatically lower latency if the tree creates serial depth or load imbalance.</p>
+<p>Early exit is a quality-changing decision. Semantic similarity can indicate that two outputs are close without showing that either is correct.</p><p>Confidence can be poorly calibrated, task-dependent or correlated with agreement rather than truth. Define the similarity representation, confidence estimator, threshold, calibration data, exit point, minimum agent coverage and fallback behavior.</p><p>Measure exit rate by task and input difficulty, agents skipped, answer changes, uncertainty, correctness, factuality, groundedness, refusal/safety behavior and disagreement cases. Compare to running all agents under the same prompt and decoding settings.</p>
+<p>Prefill and decode have different dependencies. Prefill processes the prompt and creates attention state; decode generates tokens sequentially while reading the key-value (KV) cache.</p><p>Overlap is valid only when the consumer does not read a value before its producer has completed and when KV-cache updates are consistent. Specify which agent phases overlap, what data is ready at each boundary, how partial outputs are represented, and how cancellation or a late parent result is handled.</p><p>Measure overlap achieved, synchronization stalls, KV-cache memory, queueing, speculative or discarded work, and output equivalence.</p>
+<p>“Similar accuracy” must identify the task metric and denominator. The captured description claims up to 90% lower end-to-end serving latency with similar accuracy, described as only ±1% variation, or sometimes higher task accuracy, relative to all-to-all MoA baselines.</p><p>That claim does not establish equal answer quality across tasks, seeds, prompts, agent models, output lengths or exit rates. Report per-task results, confidence intervals or repeated trials, answer correctness, calibration, latency percentiles, throughput and the full distribution of quality changes.</p>
+<p>End-to-end latency must include all agent inference, prompt construction, communication, scheduling, synchronization, prefill, decode, early-exit decisions, output aggregation, model loading and queuing. Report time to first token, total response latency, p50/p95/p99, throughput, concurrency, token counts and resource use.</p><p>If the user sees a final answer only after all agents complete, streaming or internal overlap must be measured to the final answer boundary rather than only to an intermediate token.</p>
+<p>The baselines should include all-to-all MoA, the same MoA with tree connectivity only, tree plus early exit only, tree plus overlap only, sequential agent execution, and a strong single-model or standard serving baseline where the quality target permits. Hold agent models, prompts, task set, output budget, decoding, hardware, interconnect, batch/concurrency, warm-up and measurement boundary constant.</p><p>Ablations are necessary because a claimed co-design gain may come mainly from skipping agents, changing the answer procedure, or changing the hardware allocation.</p>
+<p>The captured description supports a tree-structured, early-exit and overlap-aware MoA serving runtime and reports a claimed up-to-90% latency reduction with approximately ±1% accuracy variation in the described comparison. It does not report task-level quality, exit behavior, communication, throughput, energy, tail latency, agent models or hardware conditions.</p><p>Early exit may alter agent consensus and answer evidence. The evidence supports a conditional low-latency MoA direction, not demonstrated quality-preserving serving across tasks, models and workloads.</p>
+<p><span id="explanation-dac-2026-research1414"></span></p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="checklist"></span>Checkpointing trades ordinary execution cost against recovery</h2>
+<p>A checkpoint preserves enough state to resume work after a failure. Producing it consumes transfer and storage resources. An incomplete or inconsistent saved state can fail to reproduce the intended continuation, even if writing the checkpoint was fast.</p>
+<p>Expcheck's captured method adapts checkpointing to expert activity in mixture-of-experts models. Experts are model components selected for particular inputs. The design question is which state must be saved to preserve a valid recovery point when activity differs among components. <a href="llm-systems-and-runtime.html#paper-dac-2026-research1414">Recorded evidence</a></p>
+<p>The record does not establish saved-state volume, normal-execution overhead, failure timing, or recovery behavior. A smaller checkpoint is useful only after the required recovery semantics are established. Tests should interrupt execution at relevant points and compare the resumed state with the intended behavior.</p>
+<p>In mixture-of-experts (MoE) training, a router selects a subset of expert networks for each token. Expert activity is therefore uneven across batches and time.</p><p>A checkpoint must preserve enough state to resume the same training computation, not merely the experts that were active in the most recent batch. That may include shared parameters, expert parameters, optimizer states, gradients or accumulation state, router state, random-number state, data position, scheduler state, loss-scaling state, expert placement, communication state, and metadata that determines which values are valid.</p>
+<p>An activity-aware checkpoint can reduce storage or transfer by exploiting the fact that some experts did not change or were not used in a given interval. The safety question is whether an omitted value is guaranteed to be reconstructible or unchanged when it is needed after restart.</p><p>“Inactive” is not the same as “irrelevant”: a previously inactive expert may be selected by the next batch, and an optimizer state can matter even when a parameter received no current gradient. The method must define its dependency rule and the point at which a state becomes safe to omit.</p>
+<p>Checkpoint consistency is a distributed-systems problem as well as a storage problem. All workers need a compatible view of shared parameters, expert parameters, optimizer updates, router decisions, data ordering and communication progress.</p><p>A checkpoint taken while some workers have advanced and others have not can produce a state that cannot be resumed deterministically. The design should specify barriers, version numbers, write ordering, metadata, partial-write handling, replicas, checksums, and how a failed checkpoint is detected and discarded.</p>
+<p>The recovery point is the exact training state represented by the checkpoint. Test failures during forward computation, backward computation, optimizer update, expert communication, checkpoint writing, storage transfer and data loading.</p><p>After restart, compare the resumed state and subsequent update against an uninterrupted reference under deterministic conditions. If nondeterminism is allowed, report an acceptable divergence in loss, parameters, router decisions and final quality rather than treating any completed run as recovery success.</p>
+<p>Storage reduction and training speed are separate outcomes. A smaller checkpoint may reduce write time and storage capacity while requiring reconstruction, extra metadata, more frequent checkpoints, or a longer recovery path.</p><p>Report checkpoint interval, bytes written, write bandwidth, normal-training slowdown, memory pressure, storage cost, recovery time, lost work after a failure, failure-detection time and final quality. Include the cost of saving inactive-state metadata and any replication or erasure coding.</p>
+<p>The baseline should include periodic full checkpointing and an expert-agnostic policy under the same MoE model, expert count, optimizer, batch schedule, failure distribution and recovery target. Compare activity-aware storage with an explicitly defined exact-recovery baseline.</p><p>If the method provides approximate recovery, state the divergence criterion and do not call it exact restoration. Activity distributions can depend on the dataset and router training, so evaluate balanced, skewed and changing workloads.</p>
+<p>The captured record supports activity-aware checkpointing as a way to reduce the cost of MoE training recovery. It does not report saved-state volume, normal-execution overhead, failure timing, recovery point, restart correctness, storage system, or recovery results.</p><p>The evidence supports a checkpoint-policy direction, not demonstrated exact recovery or general checkpoint efficiency across MoE systems.</p>
+<p><span id="explanation-dac-2026-research2169"></span></p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="file-text"></span>Arithmetic intensity can help identify a limiting resource</h2>
+<p>Arithmetic intensity is the amount of computation performed per quantity of data moved across a specified boundary. Low intensity can indicate that transfers limit progress; higher intensity can shift the limit toward arithmetic capacity.</p><p>The value depends on the operation, input, representation, and memory boundary being measured.</p>
+<p>The diffusion-language-model record uses this idea to organize execution stages. Diffusion-style generation has its own sequence of iterative computation, so a scheduling improvement must be evaluated on the actual model procedure.</p><p>The description does not establish stage definitions, output quality, timing, or memory results. <a href="llm-systems-and-runtime.html#paper-dac-2026-research2169">Recorded evidence</a></p>
+<p>Arithmetic intensity is a ratio: the number of arithmetic operations performed divided by the bytes moved across a named memory boundary. The boundary matters.</p><p>Operations per byte moved from high-bandwidth memory to a compute unit is not the same quantity as operations per byte moved from host memory to an accelerator or from storage into host memory. A runtime can improve one ratio while leaving the actual bottleneck unchanged.</p>
+<p>Diffusion language models generate a result through repeated refinement steps. Each step may read a current token or latent representation, apply model layers, update an intermediate state, and decide how much uncertainty remains.</p><p>The cost and data reuse can change across early and late steps, sequence lengths, batch sizes, denoising iterations, and model configurations. A framework that chooses different execution or scheduling policies by arithmetic intensity must define the stage, its operation count, its byte count, the memory boundary, and the policy transition condition.</p>
+<p>Operation counts also require a definition. A multiply-add may count as one operation or two.</p><p>Sparse operations, attention, routing, normalization, sampling, communication and control work may be included or excluded. Byte counts must state whether a value is counted once per transfer, once per request, or once per cache level, and whether reads, writes, metadata, intermediate materialization and recomputation are included.</p><p>Without those conventions, arithmetic intensity cannot be compared across stages or systems.</p>
+<p>The ratio is a diagnostic, not a performance result. Low intensity may indicate that data movement limits progress, but latency can also be limited by synchronization, kernel launch, network communication, memory contention, insufficient parallelism, serial decoding or an irregular access pattern.</p><p>High intensity does not guarantee that a processor reaches its peak arithmetic rate. Measure achieved operations per second, bandwidth, utilization, queueing, synchronization, memory traffic, latency and energy in addition to the modeled ratio.</p>
+<p>Stage orchestration can introduce transition costs. Moving a stage between devices may require copying weights or activations, changing precision, rebuilding a kernel plan, synchronizing workers or waiting for a queue.</p><p>If the policy changes frequently, the decision and movement overhead can exceed the saved compute time. Report steady-state and transition costs separately, and test workloads whose stage characteristics change during one request rather than only using a fixed average.</p>
+<p>The baseline must preserve the generation task. Compare against standard diffusion decoding using the same model, number of refinement steps, input/output lengths, numerical representation, batch/concurrency, sampling procedure and quality target.</p><p>The autoregressive comparison needs its own model, token budget, stopping rule and quality criterion; a difference in generation procedure is not a pure runtime improvement. Report time to first useful output, total response latency, tokens or sequences per second, quality, memory, energy and variance.</p>
+<p>Generalization requires multiple models and sequences. Arithmetic intensity changes with hidden size, sequence length, attention pattern, vocabulary, batch size, number of refinement steps and hardware.</p><p>A stage boundary tuned for one model or sequence distribution may be wrong for another. Evaluate short and long sequences, low and high concurrency, changing batch sizes, cache states, memory pressure and device configurations.</p><p>The captured description does not provide these conditions or numerical results.</p>
+<p>The evidence supports using arithmetic intensity to organize stage-aware scheduling for diffusion language models. It does not establish the stage definitions, quality preservation, latency, throughput, memory, energy, transition overhead, or model-diverse acceleration needed to claim a general acceleration framework.</p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>What the comparison must hold constant</h2>
+<p>Specify the model, input and output lengths, numerical representation, batch or concurrency settings, hardware, and output-quality requirement. For training, report progress toward the same quality target. For inference, report complete response behavior and useful output rate. For recovery, report the preserved state and resumed execution.</p>
+<p>Include preparation, transfers, allocation, coordination, and failures relevant to the proposed method. Measure where time and memory are spent before and after the change. This establishes whether the runtime removed a cost, overlapped independent work, or merely moved the cost outside the reported measurement.</p>
+<p class="lm-k h-label">Compare the results carefully</p><h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="route"></span>How to compare these papers’ results fairly</h2>
+<p>First identify the inputs and required output quality. Then identify the limited resource: time, memory, communication, energy, circuit area, or correctness coverage.</p><p>Ask which part of the method reduces that cost and which new cost it adds. Compare numbers only when the experiments hold these conditions sufficiently similar.</p>
+<p>A conference description may explain the proposal while omitting the full experiment. An author preprint link may have been coded from its abstract. The source classification does not by itself establish that every table was read. Missing locations remain visible below.</p>
+<p class="lm-k h-label">Complete captured evidence</p><h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="file-text"></span>Every paper in this subtheme, with what its source shows</h2>
+<p>These are evidence records, not substitutes for the explanations above. Each record preserves its problem, proposed method, measurements, comparison conditions, and source limits. A populated record does not establish that its mechanism has been fully explained or independently verified.</p>
+<p><span id="paper-dac-2026-research1286"></span></p>
+<h3>An Efficient Heterogeneous Co-Design for Fine-Tuning on a Single GPU</h3>
+<p>DAC 2026 · Record: <code>dac-2026-research1286</code></p>
+<p><a href="#explanation-dac-2026-research1286">Read the step-by-step explanation</a></p>
+<p><strong>Updated source-backed reading card</strong></p>
+<div class="worked"><p class="lm-k">Worked example</p><p>Reviewed 2026-09-08. Deepens the existing heterogeneous fine-tuning treatment into a paper-level reading; separates model/gradient/optimizer memory, offload and transfer boundaries, algorithmic changes, time-to-quality, baseline fairness and total resource accounting.</p></div>
+<p>This editorial correction updates the current reading view and connected dossiers, not the historical adjudication or scientific acceptance status. The original captured fields are preserved below.</p>
+<p><a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/data/editorial-paper-corrections-v1.json">Correction register</a></p>
+<p><strong>Problem:</strong></p>
+<p>Fine-tuning large models on one GPU is constrained by memory capacity and throughput.</p>
+<p><strong>Mechanism / artifact:</strong></p>
+<p>Heterogeneous algorithm-hardware co-design for single-GPU fine-tuning; parameter state, optimizer/gradient placement, offload boundary, numerical transformations, scheduler and hardware path are unspecified.</p>
+<p><strong>Workload — the work tested:</strong></p>
+<p>Parameter-efficient or full-model fine-tuning; models, datasets, trainable parameter set, optimizer, quality target, steps/epochs, batch/microbatch, convergence rule and random seeds are unspecified.</p>
+<p><strong>Hardware and manufacturing assumptions:</strong></p>
+<p>Single GPU plus host or heterogeneous memory/compute; GPU model, CPU/host memory, storage, interconnect, bandwidth, overlap, precision, allocation, I/O, energy and failure/recovery assumptions are unspecified.</p>
+<p><strong>Baseline — the comparison method:</strong></p>
+<p>Standard single-GPU fine-tuning</p>
+<p>Multi-GPU fine-tuning</p>
+<p>Same model, trainable parameters, quality target, batch, precision, hardware/resource accounting, preparation/transfer boundary and time-to-quality condition are unspecified</p>
+<p><strong>Reported measurements:</strong></p>
+<p>Fine-tuning efficiency is claimed qualitatively; no time-to-quality, wall-clock time, memory, throughput, energy, accuracy/loss, transfer volume, CPU/storage cost, convergence or complete-run result is reported.</p>
+<p><strong>Limits on the conclusion:</strong></p>
+<p>A single GPU does not imply a single-resource system. Weights, gradients, activations and optimizer states may use host memory, storage or other compute, and transfer/synchronization can dominate the critical path.</p>
+<p>Time-to-quality must use the same model, trainable parameter set, quality target, data, optimizer semantics and convergence rule. Faster token processing, lower GPU memory or parameter-efficient training alone does not establish an equal fine-tuning result.</p>
+<p>No time-to-quality, memory, throughput, energy, or accuracy results are reported. Heterogeneous offload may add transfer overhead; the evidence supports a capacity-and-runtime co-design direction, not demonstrated single-GPU training efficiency across model families.</p>
+<p><strong>Source and location</strong></p>
+<p>Evidence tier: Primary captured official DAC description plus existing chapter level fine tuning discussion; no full paper extraction, reproduced runtime, model diverse benchmark or end to end resource accounting. This is the stored source classification; the location and limits below determine what was actually read.</p>
+<p><a href="https://63dac.conference-program.com/?post_type=page&amp;p=16&amp;id=RESEARCH1286">Open the recorded source</a></p>
+<p>DAC 2026 official description; existing chapter-level heterogeneous fine-tuning discussion; captured Problem, Mechanism / artifact, Workload, Hardware, Baseline, Measurements and Limits fields; no manuscript pages.</p>
+<details markdown="1">
+<summary>Original captured fields — superseded for this reading card</summary>
+
+** page source tier:** medium_official_description
+
+**Baselines:** standard single-GPU fine-tuning
+
+multi-GPU fine-tuning
+
+**Evidence locators:** DAC 2026 official description
+
+**Evidence url:** https://63dac.conference-program.com/?post_type=page&amp;p=16&amp;id=RESEARCH1286
+
+**Hardware or process assumptions:** Single GPU plus host or heterogeneous memory/compute; GPU model and interconnect are unspecified.
+
+**Limits:** No time-to-quality, memory, throughput, energy, or accuracy results are reported.
+
+Heterogeneous offload may add transfer overhead.
+
+Official description only; model-diverse training validation is required.
+
+**Method or artifact:** Heterogeneous algorithm-hardware co-design for single-GPU fine-tuning.
+
+**Metrics:** Fine-tuning efficiency is claimed qualitatively
+
+**Problem:** Fine-tuning large models on one GPU is constrained by memory capacity and throughput.
+
+**Workload or benchmark:** Parameter-efficient or full-model fine-tuning; models, datasets, and quality criteria are unspecified.
+
+</details>
+<p><span id="paper-dac-2026-research1414"></span></p>
+<h3>Expcheck: Dynamic Expert-Aware Checkpointing for Mixture-of-Experts Based Models</h3>
+<p>DAC 2026 · Record: <code>dac-2026-research1414</code></p>
+<p><a href="#explanation-dac-2026-research1414">Read the step-by-step explanation</a></p>
+<p><strong>Updated source-backed reading card</strong></p>
+<div class="worked"><p class="lm-k">Worked example</p><p>Reviewed 2026-09-08. Deepens the existing Expcheck treatment into a paper-level reading; separates activity-aware state selection from exact recovery, defines MoE/router/optimizer dependencies and distributed consistency, and makes failure injection, storage, training overhead and baseline requirements explicit.</p></div>
+<p>This editorial correction updates the current reading view and connected dossiers, not the historical adjudication or scientific acceptance status. The original captured fields are preserved below.</p>
+<p><a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/data/editorial-paper-corrections-v1.json">Correction register</a></p>
+<p><strong>Problem:</strong></p>
+<p>Mixture-of-experts training has uneven expert activity and expensive checkpoint storage or recovery.</p>
+<p><strong>Mechanism / artifact:</strong></p>
+<p>Checkpointing policy that adapts to expert activity; dependency rule, omitted-state reconstruction, optimizer/router/data state, consistency protocol, storage format and recovery semantics are unspecified.</p>
+<p><strong>Workload — the work tested:</strong></p>
+<p>MoE model training; expert count, router, dataset/activity distribution, optimizer, checkpoint interval, failure locations/timing, storage system, recovery target and repeated trials are unspecified.</p>
+<p><strong>Hardware and manufacturing assumptions:</strong></p>
+<p>Distributed accelerator training with checkpoint storage; worker synchronization, network, filesystem, storage bandwidth/replication, memory, failure detection and restart environment are unspecified.</p>
+<p><strong>Baseline — the comparison method:</strong></p>
+<p>Periodic full checkpointing</p>
+<p>Expert-agnostic checkpointing</p>
+<p>Same MoE model, expert count, optimizer, batch schedule, failure distribution, exact/approximate recovery criterion, storage and timing boundary are unspecified</p>
+<p><strong>Reported measurements:</strong></p>
+<p>Checkpoint efficiency is claimed qualitatively; no recovery point, saved-state volume, bytes written, normal-training overhead, storage cost, failure-recovery time, lost work, restart correctness or final-quality result is reported.</p>
+<p><strong>Limits on the conclusion:</strong></p>
+<p>Inactive expert state is not automatically irrelevant: future routing, optimizer state, router state, data position and distributed updates may depend on it. An activity-aware checkpoint must prove omitted values are unchanged or reconstructible at restart.</p>
+<p>Exact recovery requires a consistent distributed state across parameters, optimizer, router, RNG, data and communication progress. Failure-injection tests must interrupt checkpointing and training at relevant points and compare resumed state and subsequent behavior with an uninterrupted reference.</p>
+<p>No recovery point, storage volume, training overhead, or failure-recovery results are reported. Activity-aware state may complicate exact recovery; the evidence supports a checkpoint-policy direction, not demonstrated exact recovery or general MoE checkpoint efficiency.</p>
+<p><strong>Source and location</strong></p>
+<p>Evidence tier: Primary captured official DAC description plus existing chapter level expcheck discussion; no full paper extraction, reproduced checkpoint format, failure campaign or restart validation. This is the stored source classification; the location and limits below determine what was actually read.</p>
+<p><a href="https://63dac.conference-program.com/?post_type=page&amp;p=16&amp;id=RESEARCH1414">Open the recorded source</a></p>
+<p>DAC 2026 official description; existing chapter-level Expcheck discussion; captured Problem, Mechanism / artifact, Workload, Hardware, Baseline, Measurements and Limits fields; no manuscript pages.</p>
+<details markdown="1">
+<summary>Original captured fields — superseded for this reading card</summary>
+
+** page source tier:** medium_official_description
+
+**Baselines:** periodic full checkpointing
+
+expert-agnostic checkpointing
+
+**Evidence locators:** DAC 2026 official description
+
+**Evidence url:** https://63dac.conference-program.com/?post_type=page&amp;p=16&amp;id=RESEARCH1414
+
+**Hardware or process assumptions:** Distributed accelerator training with checkpoint storage; network and filesystem assumptions are unspecified.
+
+**Limits:** No recovery point, storage volume, training overhead, or failure-recovery results are reported.
+
+Activity-aware state may complicate exact recovery.
+
+Official description only; failure-injection validation is required.
+
+**Method or artifact:** Checkpointing policy that adapts to expert activity.
+
+**Metrics:** Checkpoint efficiency is claimed qualitatively
+
+**Problem:** Mixture-of-experts training has uneven expert activity and expensive checkpoint storage or recovery.
+
+**Workload or benchmark:** MoE model training; expert counts, failure model, and storage system are unspecified.
+
+</details>
+<p><span id="paper-dac-2026-research2169"></span></p>
+<h3>Orchestrating Dual-Boundaries: An Arithmetic Intensity Inspired Acceleration Framework for Diffusion Language Models</h3>
+<p>DAC 2026 · Record: <code>dac-2026-research2169</code></p>
+<p><a href="#explanation-dac-2026-research2169">Read the step-by-step explanation</a></p>
+<p><strong>Updated source-backed reading card</strong></p>
+<div class="worked"><p class="lm-k">Worked example</p><p>Reviewed 2026-09-08. Deepens the existing arithmetic-intensity treatment into a paper-level reading; defines operation/byte boundaries, diffusion-stage behavior, transition overhead, baseline fairness, achieved performance and model/sequence generalization requirements.</p></div>
+<p>This editorial correction updates the current reading view and connected dossiers, not the historical adjudication or scientific acceptance status. The original captured fields are preserved below.</p>
+<p><a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/data/editorial-paper-corrections-v1.json">Correction register</a></p>
+<p><strong>Problem:</strong></p>
+<p>Diffusion language models have changing compute and memory bottlenecks across generation stages.</p>
+<p><strong>Mechanism / artifact:</strong></p>
+<p>Acceleration framework orchestrating arithmetic-intensity-driven stage boundaries; operation/byte definitions, memory boundary, stage policy, transition mechanism and hardware mapping are unspecified.</p>
+<p><strong>Workload — the work tested:</strong></p>
+<p>Diffusion language-model inference; models, refinement steps, input/output lengths, batch/concurrency, sampling procedure, quality target, stage definitions and workload distribution are unspecified.</p>
+<p><strong>Hardware and manufacturing assumptions:</strong></p>
+<p>AI accelerator or heterogeneous inference system; processor, memory hierarchy, interconnect, bandwidth, cache, synchronization, kernel/runtime, precision and energy measurement boundary are unspecified.</p>
+<p><strong>Baseline — the comparison method:</strong></p>
+<p>Standard diffusion decoding</p>
+<p>Autoregressive language-model serving</p>
+<p>Same model/procedure, steps, token or sequence budget, quality target, batch/concurrency, precision, transition/preparation and end-to-end timing boundaries are unspecified</p>
+<p><strong>Reported measurements:</strong></p>
+<p>Diffusion-model efficiency is claimed qualitatively; no quality, latency, throughput, memory, energy, stage-boundary, transition, achieved-arithmetic or model-diverse result is reported.</p>
+<p><strong>Limits on the conclusion:</strong></p>
+<p>Arithmetic intensity is operations per bytes moved across a specified boundary, not a universal speed score. Operation counting, byte counting, cache level, reads/writes, metadata, recomputation and communication must be defined before stages can be compared.</p>
+<p>Stage policy can incur transfer, synchronization, kernel, precision and planning costs. Low intensity does not prove bandwidth limitation and high intensity does not prove peak compute; report achieved performance, latency, bandwidth, queueing, memory traffic and energy.</p>
+<p>No quality, latency, throughput, memory, energy, or stage-boundary results are reported. Arithmetic intensity may vary by model and sequence; the evidence supports a stage-aware scheduling direction, not demonstrated model-diverse acceleration.</p>
+<p><strong>Source and location</strong></p>
+<p>Evidence tier: Primary captured official DAC description plus existing chapter level arithmetic intensity discussion; no full paper extraction, reproduced scheduler, stage measurements or model diverse validation. This is the stored source classification; the location and limits below determine what was actually read.</p>
+<p><a href="https://63dac.conference-program.com/?post_type=page&amp;p=16&amp;id=RESEARCH2169">Open the recorded source</a></p>
+<p>DAC 2026 official description; existing chapter-level arithmetic-intensity discussion; captured Problem, Mechanism / artifact, Workload, Hardware, Baseline, Measurements and Limits fields; no manuscript pages.</p>
+<details markdown="1">
+<summary>Original captured fields — superseded for this reading card</summary>
+
+** page source tier:** medium_official_description
+
+**Baselines:** standard diffusion decoding
+
+autoregressive language-model serving
+
+**Evidence locators:** DAC 2026 official description
+
+**Evidence url:** https://63dac.conference-program.com/?post_type=page&amp;p=16&amp;id=RESEARCH2169
+
+**Hardware or process assumptions:** AI accelerator or heterogeneous inference system; memory and interconnect assumptions are unspecified.
+
+**Limits:** No quality, latency, throughput, memory, energy, or stage-boundary results are reported.
+
+Arithmetic intensity may vary by model and sequence.
+
+Official description only; model-diverse validation is required.
+
+**Method or artifact:** Acceleration framework orchestrating arithmetic-intensity-driven stage boundaries.
+
+**Metrics:** Diffusion-model efficiency is claimed qualitatively
+
+**Problem:** Diffusion language models have changing compute and memory bottlenecks across generation stages.
+
+**Workload or benchmark:** Diffusion language-model inference; models, steps, quality, and hardware are unspecified.
+
+</details>
+<p><span id="paper-dac-2026-research2300"></span></p>
+<h3>Hero: Adaptive Orchestration of Retrieval-Augmented Generation on Heterogeneous Mobile SoC</h3>
+<p>DAC 2026 · Record: <code>dac-2026-research2300</code></p>
+<p><a href="#explanation-dac-2026-research2300">Read the step-by-step explanation</a></p>
+<p><strong>Updated source-backed reading card</strong></p>
+<div class="worked"><p class="lm-k">Worked example</p><p>Reviewed 2026-09-08. Deepens the existing Hero treatment into a paper-level reading; separates retrieval quality, generation quality, adaptive placement, CPU/GPU/NPU transfer, local/cloud privacy and mobile thermal/energy behavior, and makes workload-diverse validation explicit.</p></div>
+<p>This editorial correction updates the current reading view and connected dossiers, not the historical adjudication or scientific acceptance status. The original captured fields are preserved below.</p>
+<p><a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/data/editorial-paper-corrections-v1.json">Correction register</a></p>
+<p><strong>Problem:</strong></p>
+<p>Mobile RAG systems must coordinate retrieval and generation across heterogeneous compute and memory under tight energy budgets.</p>
+<p><strong>Mechanism / artifact:</strong></p>
+<p>Adaptive RAG orchestration across a heterogeneous mobile SoC; retrieval/generation placement, policy signals, decision cost, transfer path, local/cloud boundary and adaptation rule are unspecified.</p>
+<p><strong>Workload — the work tested:</strong></p>
+<p>Retrieval-augmented generation queries; models, indexes, languages/topics, query distribution, candidate/context lengths, output quality, cache state, network state, devices and workload split are unspecified.</p>
+<p><strong>Hardware and manufacturing assumptions:</strong></p>
+<p>Mobile CPU/GPU/NPU and memory hierarchy; SoC/device, thermal and battery conditions, shared memory, accelerators, network, model precision, OS scheduling and privacy assumptions are unspecified.</p>
+<p><strong>Baseline — the comparison method:</strong></p>
+<p>Static RAG placement</p>
+<p>Cloud RAG</p>
+<p>Fixed heterogeneous placement, same index/retriever/generator/query/output quality/context/precision, network, thermal, privacy and end-to-end timing boundary are unspecified</p>
+<p><strong>Reported measurements:</strong></p>
+<p>Mobile RAG efficiency is claimed qualitatively; no retrieval quality, answer quality, grounding, latency, throughput, energy, memory, thermal, throttling, tail latency, policy error or workload-diverse result is reported.</p>
+<p><strong>Limits on the conclusion:</strong></p>
+<p>RAG has separate retrieval and generation quality requirements. Faster retrieval or generation does not establish answer correctness, grounding or hallucination behavior, and adaptive placement can trade quality for latency or energy.</p>
+<p>CPU/GPU/NPU and local/cloud movement adds transfer, conversion, synchronization, network, privacy, battery and thermal costs. The policy state, decision overhead, query distribution and sustained mobile conditions must be measured.</p>
+<p>No answer quality, latency, energy, memory, thermal, or workload results are reported. Adaptive choices may depend on query distribution; the evidence supports a mobile RAG orchestration direction, not demonstrated quality-preserving orchestration across devices and workloads.</p>
+<p><strong>Source and location</strong></p>
+<p>Evidence tier: Primary captured official DAC description plus existing chapter level hero discussion; no full paper extraction, reproduced policy, device/workload matrix or sustained thermal validation. This is the stored source classification; the location and limits below determine what was actually read.</p>
+<p><a href="https://63dac.conference-program.com/?post_type=page&amp;p=16&amp;id=RESEARCH2300">Open the recorded source</a></p>
+<p>DAC 2026 official description; existing chapter-level Hero/RAG discussion; captured Problem, Mechanism / artifact, Workload, Hardware, Baseline, Measurements and Limits fields; no manuscript pages.</p>
+<details markdown="1">
+<summary>Original captured fields — superseded for this reading card</summary>
+
+** page source tier:** medium_official_description
+
+**Baselines:** static RAG placement
+
+cloud RAG
+
+**Evidence locators:** DAC 2026 official description
+
+**Evidence url:** https://63dac.conference-program.com/?post_type=page&amp;p=16&amp;id=RESEARCH2300
+
+**Hardware or process assumptions:** Mobile CPU/GPU/NPU and memory hierarchy; thermal and battery assumptions are unspecified.
+
+**Limits:** No answer quality, latency, energy, memory, thermal, or workload results are reported.
+
+Adaptive choices may depend on query distribution.
+
+Official description only; device and workload-diverse validation is required.
+
+**Method or artifact:** Adaptive RAG orchestration across a heterogeneous mobile SoC.
+
+**Metrics:** Mobile RAG efficiency is claimed qualitatively
+
+**Problem:** Mobile RAG systems must coordinate retrieval and generation across heterogeneous compute and memory under tight energy budgets.
+
+**Workload or benchmark:** Retrieval-augmented generation queries; models, indexes, devices, and quality metrics are unspecified.
+
+</details>
+<p><span id="paper-dac-2026-research235"></span></p>
+<h3>Sandwich: Joint Configuration Search and Hot-Switching for Efficient CPU LLM Serving</h3>
+<p>DAC 2026 · Record: <code>dac-2026-research235</code></p>
+<p><a href="#explanation-dac-2026-research235">Read the step-by-step explanation</a></p>
+<p><strong>Updated source-backed reading card</strong></p>
+<div class="worked"><p class="lm-k">Worked example</p><p>Reviewed 2026-09-08. Deepens the existing Sandwich treatment into a paper-level reading; separates offline configuration search from runtime hot-switching and makes switch cost, cache disruption, SLO/tail latency, exploration, workload drift and CPU resource accounting explicit.</p></div>
+<p>This editorial correction updates the current reading view and connected dossiers, not the historical adjudication or scientific acceptance status. The original captured fields are preserved below.</p>
+<p><a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/data/editorial-paper-corrections-v1.json">Correction register</a></p>
+<p><strong>Problem:</strong></p>
+<p>CPU LLM services need to adapt configurations as workload and latency demand change.</p>
+<p><strong>Mechanism / artifact:</strong></p>
+<p>Joint configuration search and runtime hot-switching for CPU serving; configuration dimensions, search source, switch protocol, state/cache effects, policy trigger and oscillation control are unspecified.</p>
+<p><strong>Workload — the work tested:</strong></p>
+<p>CPU LLM serving workloads; models, request arrival/prompt/output lengths, concurrency, SLOs, quality, CPU platform, thermal/power states, workload traces and transitions are unspecified.</p>
+<p><strong>Hardware and manufacturing assumptions:</strong></p>
+<p>Multi-configuration CPU inference runtime; cores/threads, affinity, caches, memory bandwidth, quantization, kernels, frequency, KV cache, OS scheduling and switch implementation are unspecified.</p>
+<p><strong>Baseline — the comparison method:</strong></p>
+<p>Static serving configuration</p>
+<p>Offline tuning</p>
+<p>Best fixed per-workload configuration, same model/quality, warm-up/cache state, CPU/thread/memory/frequency budget, request mix and end-to-end timing boundary are unspecified</p>
+<p><strong>Reported measurements:</strong></p>
+<p>Serving efficiency is claimed qualitatively; no latency, throughput, quality, switch time, energy, SLO attainment, tail latency, search cost, switch frequency, cache warm-up or workload-transition result is reported.</p>
+<p><strong>Limits on the conclusion:</strong></p>
+<p>Offline configuration search and runtime hot-switching are distinct. A switch can drain requests, disrupt caches/KV state, rebuild kernels, change thread placement or create queue growth; steady-state speed does not establish safe service behavior.</p>
+<p>Serving evaluation must report TTFT, inter-token/total latency, p95/p99, deadline violations, throughput, quality, switch duration, warm-up, oscillation, exploration cost and changing workload conditions on held-out traces.</p>
+<p>No latency, throughput, quality, switch time, energy, or workload results are reported. Switching may disrupt cache state and tail latency; the evidence supports an adaptive CPU-serving direction, not demonstrated SLO-safe hot-switching across models and workload changes.</p>
+<p><strong>Source and location</strong></p>
+<p>Evidence tier: Primary captured official DAC description plus existing chapter level sandwich discussion; no full paper extraction, reproduced search policy, switch trace or model/workload diverse slo validation. This is the stored source classification; the location and limits below determine what was actually read.</p>
+<p><a href="https://63dac.conference-program.com/?post_type=page&amp;p=16&amp;id=RESEARCH235">Open the recorded source</a></p>
+<p>DAC 2026 official description; existing chapter-level Sandwich discussion; captured Problem, Mechanism / artifact, Workload, Hardware, Baseline, Measurements and Limits fields; no manuscript pages.</p>
+<details markdown="1">
+<summary>Original captured fields — superseded for this reading card</summary>
+
+** page source tier:** medium_official_description
+
+**Baselines:** static serving configuration
+
+offline tuning
+
+**Evidence locators:** DAC 2026 official description
+
+**Evidence url:** https://63dac.conference-program.com/?post_type=page&amp;p=16&amp;id=RESEARCH235
+
+**Hardware or process assumptions:** Multi-configuration CPU inference runtime; memory and thread assumptions are unspecified.
+
+**Limits:** No latency, throughput, quality, switch time, energy, or workload results are reported.
+
+Switching may disrupt cache state and tail latency.
+
+Official description only; SLO and model-diverse validation is required.
+
+**Method or artifact:** Joint configuration search and runtime hot-switching for CPU serving.
+
+**Metrics:** Serving efficiency is claimed qualitatively
+
+**Problem:** CPU LLM services need to adapt configurations as workload and latency demand change.
+
+**Workload or benchmark:** CPU LLM serving workloads; models, requests, SLOs, and CPU platform are unspecified.
+
+</details>
+<p><span id="paper-dac-2026-research256"></span></p>
+<h3>PREBA: A Hardware/software Co-Design for Multi-Instance GPU Based AI Inference Servers</h3>
+<p>DAC 2026 · Record: <code>dac-2026-research256</code></p>
+<p><a href="#explanation-dac-2026-research256">Read the step-by-step explanation</a></p>
+<p><strong>Updated source-backed reading card</strong></p>
+<div class="worked"><p class="lm-k">Worked example</p><p>Reviewed 2026-09-08. Deepens the existing PREBA treatment into a paper-level reading; separates hardware/software co-design from ordinary multi-instance scheduling and makes partitioning, tenant interference, memory pressure, QoS, fairness, isolation, energy, workload diversity and component ablations explicit.</p></div>
+<p>This editorial correction updates the current reading view and connected dossiers, not the historical adjudication or scientific acceptance status. The original captured fields are preserved below.</p>
+<p><a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/data/editorial-paper-corrections-v1.json">Correction register</a></p>
+<p><strong>Problem:</strong></p>
+<p>Multi-instance GPU inference servers must share one physical GPU across tenants while meeting per-tenant latency, throughput and resource objectives.</p>
+<p><strong>Mechanism / artifact:</strong></p>
+<p>Hardware/software co-design for multi-instance GPU inference serving; partition mechanism, shared-resource controls, scheduler, memory policy, admission/reconfiguration path and hardware-generation boundary are unspecified.</p>
+<p><strong>Workload — the work tested:</strong></p>
+<p>Multi-tenant AI inference; models, model sizes, input/output lengths, arrival rates, concurrency, burst patterns, tenant priorities, memory footprints, quality targets, GPU generation and workload splits are unspecified.</p>
+<p><strong>Hardware and manufacturing assumptions:</strong></p>
+<p>One physical multi-instance GPU with shared compute, cache, memory bandwidth/capacity, copy engines, power, thermal, driver and scheduling resources; partition sizes, interconnect, host resources, driver/runtime and isolation mechanism are unspecified.</p>
+<p><strong>Baseline — the comparison method:</strong></p>
+<p>One instance per GPU</p>
+<p>Conventional multi-instance GPU partitioning</p>
+<p>Default multi-instance scheduling</p>
+<p>Same physical GPU, driver, models, precision, request traces, tenant priorities, memory/power limits, warm-up/cache state, quality and end-to-end timing boundary are unspecified</p>
+<p><strong>Reported measurements:</strong></p>
+<p>Server efficiency is claimed qualitatively; no per-tenant or aggregate latency, TTFT, inter-token latency, throughput, p95/p99, SLO violations, fairness, isolation, memory occupancy, energy, power, thermal, reconfiguration, migration or workload-diverse result is reported.</p>
+<p><strong>Limits on the conclusion:</strong></p>
+<p>Logical instance separation does not establish performance isolation: tenants can contend for execution units, caches, memory bandwidth/capacity, copy engines, power, thermal headroom and queues. The design must state fixed versus borrowed resources and measure cross-tenant slowdown and tail behavior.</p>
+<p>QoS requires per-tenant objectives, admission behavior, memory/KV-cache accounting, scheduling and reconfiguration cost. Aggregate throughput can improve while one tenant is starved or tail latency violates its service objective.</p>
+<p>No tail latency, throughput, fairness, energy, isolation, memory or tenant results are reported. The evidence supports a multi-tenant GPU serving direction, not demonstrated QoS-safe, fair or portable inference-server efficiency.</p>
+<p><strong>Source and location</strong></p>
+<p>Evidence tier: Primary captured official DAC description plus existing chapter level preba discussion; no full paper extraction, reproduced partition/scheduling design or multi tenant qos validation. This is the stored source classification; the location and limits below determine what was actually read.</p>
+<p><a href="https://63dac.conference-program.com/?post_type=page&amp;p=16&amp;id=RESEARCH256">Open the recorded source</a></p>
+<p>DAC 2026 official description; existing chapter-level PREBA discussion; captured Problem, Mechanism / artifact, Workload, Hardware, Baseline, Measurements and Limits fields; no manuscript pages.</p>
+<details markdown="1">
+<summary>Original captured fields — superseded for this reading card</summary>
+
+** page source tier:** medium_official_description
+
+**Baselines:** single-tenant GPU
+
+default multi-instance scheduling
+
+**Evidence locators:** DAC 2026 official description
+
+**Evidence url:** https://63dac.conference-program.com/?post_type=page&amp;p=16&amp;id=RESEARCH256
+
+**Hardware or process assumptions:** Multi-instance GPU with shared memory and scheduling; isolation and interconnect assumptions are unspecified.
+
+**Limits:** No tail latency, throughput, fairness, energy, isolation, or tenant results are reported.
+
+Co-design may be GPU-generation specific.
+
+Official description only; multi-tenant validation is required.
+
+**Method or artifact:** Hardware-software co-design for multi-instance GPU inference serving.
+
+**Metrics:** Server efficiency is claimed qualitatively
+
+**Problem:** Multi-instance GPU inference must share resources while meeting latency and throughput targets.
+
+**Workload or benchmark:** AI inference services; models, tenant mixes, SLOs, and GPU partitioning are unspecified.
+
+</details>
+<p><span id="paper-dac-2026-research2620"></span></p>
+<h3>Deinfer: Efficient Parallel Inferencing for Decomposed Large Language Models</h3>
+<p>DAC 2026 · Record: <code>dac-2026-research2620</code></p>
+<p><a href="#explanation-dac-2026-research2620">Read the step-by-step explanation</a></p>
+<p><strong>Updated source-backed reading card</strong></p>
+<div class="worked"><p class="lm-k">Worked example</p><p>Reviewed 2026-09-08. Deepens the existing DeInfer treatment into a paper-level reading; makes decomposition choice, dependency graph, communication boundaries, autoregressive prefill/decode behavior, optimization compatibility, quality preservation, scaling and small-request overhead explicit.</p></div>
+<p>This editorial correction updates the current reading view and connected dossiers, not the historical adjudication or scientific acceptance status. The original captured fields are preserved below.</p>
+<p><a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/data/editorial-paper-corrections-v1.json">Correction register</a></p>
+<p><strong>Problem:</strong></p>
+<p>Decomposed LLMs can expose parallel subcomputations but incur dependency, scheduling, communication and synchronization overhead during inference.</p>
+<p><strong>Mechanism / artifact:</strong></p>
+<p>Parallel inference system for decomposed LLMs with multiple performance optimizations; decomposition type, graph partition, placement, scheduler, communication path and optimization composition are unspecified.</p>
+<p><strong>Workload — the work tested:</strong></p>
+<p>Decomposed LLM inference; models, decomposition, prompt/output lengths, prefill/decode split, batch/concurrency, decoding rule, quality criterion, device count/topology and scaling conditions are unspecified.</p>
+<p><strong>Hardware and manufacturing assumptions:</strong></p>
+<p>Multi-device or heterogeneous inference system; device types, interconnect, host-memory path, bandwidth/latency, memory hierarchy, precision, runtime, synchronization and energy boundary are unspecified.</p>
+<p><strong>Baseline — the comparison method:</strong></p>
+<p>Monolithic LLM inference</p>
+<p>Sequential execution of the same decomposition</p>
+<p>Standard distributed/tensor/pipeline parallel inference where applicable</p>
+<p>Same model, decomposition, precision, prompt/output lengths, decoding, batch/concurrency, devices, interconnect, warm-up/cache state and end-to-end timing boundary are unspecified</p>
+<p><strong>Reported measurements:</strong></p>
+<p>Parallel inference efficiency is claimed qualitatively; no model quality, TTFT, inter-token or total latency, throughput, tail latency, communication volume/time, synchronization, scaling efficiency, utilization, memory, energy or cost result is reported.</p>
+<p><strong>Limits on the conclusion:</strong></p>
+<p>Decomposition exposes parallel work only when dependencies permit overlap. Activation, weight, KV-cache and control traffic, synchronization, scheduling and host copies can dominate, especially for one-token-at-a-time decode and small requests.</p>
+<p>Compatibility with quantization, batching, fusion, caching or speculative decoding must preserve the dependency graph, numerical behavior and model-quality target; a faster result with changed precision or decoding is not a controlled systems comparison.</p>
+<p>No quality, latency, throughput, communication, energy or scaling results are reported. Decomposition overhead may dominate small requests; the evidence supports a distributed LLM inference-system direction, not demonstrated efficient and quality-preserving parallel inference across model sizes, request regimes and hardware topologies.</p>
+<p><strong>Source and location</strong></p>
+<p>Evidence tier: Primary captured official DAC description plus existing chapter level deinfer discussion; no full paper extraction, reproduced decomposition graph, communication trace or model/topology diverse validation. This is the stored source classification; the location and limits below determine what was actually read.</p>
+<p><a href="https://63dac.conference-program.com/?post_type=page&amp;p=16&amp;id=RESEARCH2620">Open the recorded source</a></p>
+<p>DAC 2026 official description; existing chapter-level DeInfer discussion; captured Problem, Mechanism / artifact, Workload, Hardware, Baseline, Measurements and Limits fields; no manuscript pages.</p>
+<details markdown="1">
+<summary>Original captured fields — superseded for this reading card</summary>
+
+** page source tier:** medium_official_description
+
+**Baselines:** monolithic LLM inference
+
+sequential decomposed inference
+
+**Evidence locators:** DAC 2026 official description
+
+**Evidence url:** https://63dac.conference-program.com/?post_type=page&amp;p=16&amp;id=RESEARCH2620
+
+**Hardware or process assumptions:** Multi-device or heterogeneous inference system; interconnect and memory assumptions are unspecified.
+
+**Limits:** No quality, latency, throughput, communication, energy, or scaling results are reported.
+
+Decomposition overhead may dominate for small requests.
+
+Official description only; model and system validation is required.
+
+**Method or artifact:** Parallel inference method for decomposed language models.
+
+**Metrics:** Parallel inference efficiency is claimed qualitatively
+
+**Problem:** Decomposed LLMs can expose parallel subcomputations but incur scheduling and communication overhead.
+
+**Workload or benchmark:** Decomposed LLM inference; models, decomposition, devices, and quality targets are unspecified.
+
+</details>
+<p><span id="paper-dac-2026-research292"></span></p>
+<h3>Throughput-Oriented Speculative Decoding via Intra-Device Parallelism</h3>
+<p>DAC 2026 · Record: <code>dac-2026-research292</code></p>
+<p><a href="#explanation-dac-2026-research292">Read the step-by-step explanation</a></p>
+<p><strong>Updated source-backed reading card</strong></p>
+<div class="worked"><p class="lm-k">Worked example</p><p>Reviewed 2026-09-08. Deepens the existing SmoothSpec treatment into a paper-level reading; explains speculative decoding accounting, draft acceptance, asymmetric intra-device allocation, controller behavior, quality preservation, latency/tail metrics, baselines and device-specific limits.</p></div>
+<p>This editorial correction updates the current reading view and connected dossiers, not the historical adjudication or scientific acceptance status. The original captured fields are preserved below.</p>
+<p><a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/data/editorial-paper-corrections-v1.json">Correction register</a></p>
+<p><strong>Problem:</strong></p>
+<p>Speculative decoding can leave intra-device compute underused while draft and target models compete for shared accelerator resources.</p>
+<p><strong>Mechanism / artifact:</strong></p>
+<p>Intra-device speculative-decoding schedule that dynamically adjusts draft parameters and the resource-allocation ratio between draft and target models; allocation unit, control signal, update interval and reconfiguration mechanism are unspecified.</p>
+<p><strong>Workload — the work tested:</strong></p>
+<p>LLM generation on a single-node serving system; target/draft models, prompt/output lengths, acceptance distribution, batch/concurrency, decoding rule, workload transitions and model/device coverage are unspecified.</p>
+<p><strong>Hardware and manufacturing assumptions:</strong></p>
+<p>Single-device accelerator with shared compute, memory, cache, queues, power and thermal resources; device generation, parallelism configuration, precision, clock/power state, runtime and memory/KV-cache assumptions are unspecified.</p>
+<p><strong>Baseline — the comparison method:</strong></p>
+<p>Autoregressive decoding</p>
+<p>Standard speculative decoding</p>
+<p>Fixed draft and resource split</p>
+<p>Same target/draft models, decoding rule, precision, prompts, output lengths, batch/concurrency, device, warm-up/cache state, power state and end-to-end timing boundary are unspecified</p>
+<p><strong>Reported measurements:</strong></p>
+<p>Generation throughput is claimed qualitatively; no acceptance rate, accepted tokens, target/draft work, TTFT, inter-token or total latency, p95/p99, memory, energy, utilization, reconfiguration cost, model quality or workload-transition result is reported.</p>
+<p><strong>Limits on the conclusion:</strong></p>
+<p>Speculative decoding trades draft cost and target verification against accepted useful tokens. Acceptance rate alone is insufficient; proposal length, accepted-prefix distribution, target evaluations, synchronization and end-to-end time must be reported.</p>
+<p>Asymmetric intra-device allocation can contend for compute, memory, cache, queues, power and thermal headroom. Dynamic draft parameters and allocation ratio need a defined control signal, decision cost, hysteresis and ablations to show which mechanism creates the gain.</p>
+<p>No acceptance rate, latency, throughput, memory, energy or model results are reported. Parallelism may be device-generation specific; the evidence supports adaptive intra-device speculative decoding, not demonstrated quality-preserving throughput or tail-latency improvement across model pairs and serving workloads.</p>
+<p><strong>Source and location</strong></p>
+<p>Evidence tier: Primary captured official DAC description plus existing chapter level speculative decoding discussion; no full paper extraction, reproduced controller, acceptance trace or model/device diverse validation. This is the stored source classification; the location and limits below determine what was actually read.</p>
+<p><a href="https://63dac.conference-program.com/?post_type=page&amp;p=16&amp;id=RESEARCH292">Open the recorded source</a></p>
+<p>DAC 2026 official description; existing chapter-level SmoothSpec discussion; captured Problem, Mechanism / artifact, Workload, Hardware, Baseline, Measurements and Limits fields; no manuscript pages.</p>
+<details markdown="1">
+<summary>Original captured fields — superseded for this reading card</summary>
+
+** page source tier:** medium_official_description
+
+**Baselines:** autoregressive decoding
+
+standard speculative decoding
+
+**Evidence locators:** DAC 2026 official description
+
+**Evidence url:** https://63dac.conference-program.com/?post_type=page&amp;p=16&amp;id=RESEARCH292
+
+**Hardware or process assumptions:** Single-device accelerator with parallel compute and memory; scheduling assumptions are unspecified.
+
+**Limits:** No acceptance rate, latency, throughput, memory, energy, or model results are reported.
+
+Parallelism may be device-generation specific.
+
+Official description only; model and hardware validation is required.
+
+**Method or artifact:** Intra-device parallel speculative-decoding schedule.
+
+**Metrics:** Generation throughput is claimed qualitatively
+
+**Problem:** Speculative decoding can leave intra-device compute underutilized during draft and verification phases.
+
+**Workload or benchmark:** LLM generation; models, draft strategy, acceptance rates, and device are unspecified.
+
+</details>
+<p><span id="paper-dac-2026-research538"></span></p>
+<h3>Amoeba: Runtime Tensor Parallel Transformation for LLM Inference Services</h3>
+<p>DAC 2026 · Record: <code>dac-2026-research538</code></p>
+<p><a href="#explanation-dac-2026-research538">Read the step-by-step explanation</a></p>
+<p><strong>Updated source-backed reading card</strong></p>
+<div class="worked"><p class="lm-k">Worked example</p><p>Reviewed 2026-09-08. Deepens the existing Amoeba treatment into a paper-level reading; defines tensor-parallel state and KV-cache migration, transformation protocol, runtime policy, SLO/tail behavior, comparison fairness, resource accounting and the bounded meaning of the reported throughput range.</p></div>
+<p>This editorial correction updates the current reading view and connected dossiers, not the historical adjudication or scientific acceptance status. The original captured fields are preserved below.</p>
+<p><a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/data/editorial-paper-corrections-v1.json">Correction register</a></p>
+<p><strong>Problem:</strong></p>
+<p>Changing LLM request context lengths make a fixed tensor-parallel layout inefficient: long contexts need KV-cache capacity while short contexts benefit from lower parallelism and higher concurrency.</p>
+<p><strong>Mechanism / artifact:</strong></p>
+<p>Runtime transformation of tensor parallelism for running LLM inference services; transformation protocol, state migration, tensor/KV-cache layout, trigger policy, synchronization and rollback behavior are unspecified.</p>
+<p><strong>Workload — the work tested:</strong></p>
+<p>LLM inference requests with variable context lengths; models, prompt/output lengths, concurrency, arrival patterns, KV-cache state, SLOs, real-world traces and device/model diversity are unspecified.</p>
+<p><strong>Hardware and manufacturing assumptions:</strong></p>
+<p>Multi-device accelerator serving with tensor-parallel communication; devices, interconnect, bandwidth/latency, memory capacity, host path, precision, allocator, runtime, power state and migration support are unspecified.</p>
+<p><strong>Baseline — the comparison method:</strong></p>
+<p>Static tensor parallelism</p>
+<p>Data-parallel serving</p>
+<p>Routing new requests without transforming running instances</p>
+<p>Same model, precision, devices, interconnect, request traces, context/output lengths, concurrency, warm-up/cache state, quality target and end-to-end timing boundary are unspecified</p>
+<p><strong>Reported measurements:</strong></p>
+<p>Runtime serving efficiency is claimed qualitatively; the description states a 1.75×–6.57× throughput range, but no migration time, latency, TTFT, inter-token latency, tail/SLO result, KV-cache movement, quality, energy, memory or model/device-diverse condition is reported.</p>
+<p><strong>Limits on the conclusion:</strong></p>
+<p>A tensor-parallel transformation must preserve active model/request state while changing device groups and layouts. Weights, activations, KV cache, scheduler metadata and allocator state may move or be duplicated; migration bytes, synchronization, temporary capacity and progress loss must be measured.</p>
+<p>Long-context capacity and short-context concurrency are distinct objectives. Aggregate throughput can improve while migration creates tail latency, queueing or SLO violations; report per-request TTFT, inter-token/total latency and p95/p99 during workload transitions.</p>
+<p>The captured description reports 1.75×–6.57× throughput over state-of-the-art solutions but gives no migration time, latency, KV-cache movement, quality, energy or SLO conditions. The evidence supports adaptive parallelism as a serving direction, not demonstrated SLO-safe reconfiguration or general throughput improvement.</p>
+<p><strong>Source and location</strong></p>
+<p>Evidence tier: Primary captured official DAC description plus existing chapter level amoeba discussion; no full paper extraction, reproduced migration protocol, kv cache trace or model/device diverse slo validation. This is the stored source classification; the location and limits below determine what was actually read.</p>
+<p><a href="https://63dac.conference-program.com/?post_type=page&amp;p=16&amp;id=RESEARCH538">Open the recorded source</a></p>
+<p>DAC 2026 official description; existing chapter-level Amoeba discussion; captured Problem, Mechanism / artifact, Workload, Hardware, Baseline, Measurements and Limits fields; no manuscript pages.</p>
+<details markdown="1">
+<summary>Original captured fields — superseded for this reading card</summary>
+
+** page source tier:** medium_official_description
+
+**Baselines:** static tensor parallelism
+
+data parallel serving
+
+**Evidence locators:** DAC 2026 official description
+
+**Evidence url:** https://63dac.conference-program.com/?post_type=page&amp;p=16&amp;id=RESEARCH538
+
+**Hardware or process assumptions:** Multi-device accelerator serving; interconnect and state-migration assumptions are unspecified.
+
+**Limits:** No latency, throughput, migration time, quality, energy, or workload results are reported.
+
+Transformation may disrupt cached state.
+
+Official description only; SLO and model-diverse validation is required.
+
+**Method or artifact:** Runtime transformation of tensor parallelism for inference services.
+
+**Metrics:** Runtime serving efficiency is claimed qualitatively
+
+**Problem:** LLM serving demand changes over time, making fixed tensor-parallel layouts inefficient.
+
+**Workload or benchmark:** LLM inference requests; models, devices, SLOs, and reconfiguration costs are unspecified.
+
+</details>
+<p><span id="paper-dac-2026-research628"></span></p>
+<h3>Faster-MoA: Low-Latency Tree-Structured MoA Serving with Early Exit and Agent-Aware Prefill-Decode Overlap</h3>
+<p>DAC 2026 · Record: <code>dac-2026-research628</code></p>
+<p><a href="#explanation-dac-2026-research628">Read the step-by-step explanation</a></p>
+<p><strong>Updated source-backed reading card</strong></p>
+<div class="worked"><p class="lm-k">Worked example</p><p>Reviewed 2026-09-08. Deepens the existing Faster-MoA treatment into a paper-level reading; separates tree topology, early-exit quality decisions and prefill/decode overlap, and makes dependency correctness, task-level quality, tail latency, ablations and the bounded reported claims explicit.</p></div>
+<p>This editorial correction updates the current reading view and connected dossiers, not the historical adjudication or scientific acceptance status. The original captured fields are preserved below.</p>
+<p><a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/data/editorial-paper-corrections-v1.json">Correction register</a></p>
+<p><strong>Problem:</strong></p>
+<p>Mixture-of-Agents serving incurs agent-to-agent communication, routing and prefill/decode latency under an all-to-all connectivity pattern.</p>
+<p><strong>Mechanism / artifact:</strong></p>
+<p>Early-exit and overlap-aware MoA serving runtime with hierarchical tree connectivity, dynamic agent early exit using semantic similarity/confidence, and dependency-aware incremental prefill/decode overlap; graph, thresholds, scheduler and synchronization are unspecified.</p>
+<p><strong>Workload — the work tested:</strong></p>
+<p>MoA agent workloads; agent models, tasks, prompts, output budgets, quality metrics, exit distributions, concurrency, hardware, interconnect and workload diversity are unspecified.</p>
+<p><strong>Hardware and manufacturing assumptions:</strong></p>
+<p>Multi-device or heterogeneous LLM serving system; devices, accelerator/memory, interconnect, batching, model placement, precision, runtime, power and energy boundary are unspecified.</p>
+<p><strong>Baseline — the comparison method:</strong></p>
+<p>All-to-all MoA</p>
+<p>Sequential agent execution</p>
+<p>Tree-only, early-exit-only and overlap-only ablations</p>
+<p>Standard/single-model serving where quality permits</p>
+<p>Same agents, prompts, tasks, decoding, output budget, hardware, interconnect, warm-up, concurrency and end-to-end timing boundary are unspecified</p>
+<p><strong>Reported measurements:</strong></p>
+<p>MoA serving latency is claimed qualitatively; the captured description claims up to 90% lower end-to-end latency and approximately ±1% accuracy variation, but no task-level quality distribution, exit rate, communication, throughput, energy, TTFT, p95/p99, memory or hardware condition is reported.</p>
+<p><strong>Limits on the conclusion:</strong></p>
+<p>A tree changes the MoA dependency graph and may add serial depth or amplify an early error. Early exit removes agents and evidence; semantic similarity or confidence does not establish correctness, calibration, factuality or safety. Both need task-level quality and exit-case analysis.</p>
+<p>Prefill/decode overlap is valid only when producer-consumer dependencies and KV-cache updates remain consistent. Measure synchronization, discarded work, cache state, queueing, communication, agent idle time and the final-answer timing boundary.</p>
+<p>The captured description claims up to 90% lower latency with approximately ±1% accuracy variation, but gives no task-level quality, exit, communication, throughput, energy or tail results. The evidence supports a conditional low-latency MoA direction, not demonstrated quality-preserving serving across tasks, models and workloads.</p>
+<p><strong>Source and location</strong></p>
+<p>Evidence tier: Primary captured official DAC description plus existing chapter level faster moa discussion; no full paper extraction, reproduced dependency graph, exit calibration, task level quality distribution or hardware diverse validation. This is the stored source classification; the location and limits below determine what was actually read.</p>
+<p><a href="https://63dac.conference-program.com/?post_type=page&amp;p=16&amp;id=RESEARCH628">Open the recorded source</a></p>
+<p>DAC 2026 official description; existing chapter-level Faster-MoA discussion; captured Problem, Mechanism / artifact, Workload, Hardware, Baseline, Measurements and Limits fields; no manuscript pages.</p>
+<details markdown="1">
+<summary>Original captured fields — superseded for this reading card</summary>
+
+** page source tier:** medium_official_description
+
+**Baselines:** sequential MoA serving
+
+standard LLM serving
+
+**Evidence locators:** DAC 2026 official description
+
+**Evidence url:** https://63dac.conference-program.com/?post_type=page&amp;p=16&amp;id=RESEARCH628
+
+**Hardware or process assumptions:** Multi-device or heterogeneous inference system; interconnect and memory assumptions are unspecified.
+
+**Limits:** No answer quality, latency, throughput, energy, communication, or model results are reported.
+
+Early exit may alter agent consensus.
+
+Official description only; task and system validation is required.
+
+**Method or artifact:** Early-exit and overlap-aware MoA serving runtime.
+
+**Metrics:** MoA serving latency is claimed qualitatively
+
+**Problem:** Mixture-of-agents serving incurs tree traversal, agent routing, and prefill/decode latency.
+
+**Workload or benchmark:** LLM or agent workloads; agents, models, acceptance criteria, and hardware are unspecified.
+
+</details>
+<p class="lm-k h-label">What remains to establish</p><h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>What is still unproven here</h2>
+<p>Resolve unspecified workloads, comparison methods, resource budgets, and source locations before generalizing a reported gain. Multiple papers in this selected sample permit comparison of mechanisms, but do not by themselves establish recurrence across years or a long-term trend.</p>
+<p><a href="../guide/expanded-taxonomy-v1.html">All subthemes</a> · <a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/reports/directions/README.md">Research directions</a></p><p class="meta">Written as <a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/reports/observed-subthemes/llm-systems-and-runtime.md">reports/observed-subthemes/llm-systems-and-runtime.md</a> in the course repository.</p>
+      </article>
+      <nav class="pager" aria-label="Previous and next"><a class="prev" href="reliable-and-secure-compute.html"><span class="pg-k">← Previous</span><span class="pg-t">Reliable and secure compute</span></a><a class="map" href="../subthemes.html"><span class="pg-k">Back to</span><span class="pg-t">Subthemes</span></a><a class="next" href="multimedia-and-edge-systems.html"><span class="pg-k">Next →</span><span class="pg-t">Multimedia and edge systems</span></a></nav>
+    </section>
+  </main>
+  <footer class="course-foot">
+    <p>Built from 582 paper records coded from ISCA 2026, DAC 2026 and ICCAD 2025 (ICCAD 2026 papers were not yet public). Most records come from official program descriptions; see “How deep the reading went”. The papers belong to their authors.</p>
+    <p class="foot-links"><a href="https://github.com/mehtama1234/course-concept-library">All courses</a><a href="../index.html">This course</a><a href="../course-map.html">Course map</a><a href="../presentation/index.html">Slides</a><a href="../video/index.html">Video</a><a href="../share/index.html">Share</a></p>
+  </footer>
+  <script src="../assets/course-data.js"></script><script src="../assets/icons.js"></script><script src="../assets/icons-extra.js"></script><script src="../assets/icons-course.js"></script><script src="../assets/art.js"></script><script src="../assets/course-art.js"></script><script src="../assets/charts.js"></script><script src="../assets/course-charts.js"></script><script src="../assets/course-site.js"></script>
+</body>
+</html>

@@ -1,0 +1,230 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#F3ECE1" />
+  <title>Fault tolerance and reliability · Semiconductor conference atlas</title>
+  <meta name="description" content="Papers: ICCAD 1. Read from: 0 program descriptions, 0 abstracts or reports, 1 full papers or preprints. The explanations come first; every paper’s record follows at the end." />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Semiconductor conference atlas" />
+  <meta property="og:title" content="Fault tolerance and reliability · Semiconductor conference atlas" />
+  <meta property="og:description" content="Papers: ICCAD 1. Read from: 0 program descriptions, 0 abstracts or reports, 1 full papers or preprints. The explanations come first; every paper’s record follows at the end." />
+  <meta property="og:url" content="https://mehtama1234.github.io/semiconductor-conferences/subthemes/fault-tolerance-and-reliability.html" />
+  <meta property="og:image" content="https://mehtama1234.github.io/semiconductor-conferences/presentation/slides/01-cover.jpg" />
+  <meta property="og:image:width" content="1920" />
+  <meta property="og:image:height" content="1080" />
+  <meta property="og:image:alt" content="Semiconductor conference atlas: 582 papers from ISCA, DAC and ICCAD, sorted into 10 themes and six directions to watch." />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="canonical" href="https://mehtama1234.github.io/semiconductor-conferences/subthemes/fault-tolerance-and-reliability.html" />
+  <link rel="icon" href="../assets/icon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="../assets/base.css" />
+  <link rel="stylesheet" href="../assets/experience.css" />
+  <link rel="stylesheet" href="../assets/theme-atlas.css" />
+  <link rel="stylesheet" href="../assets/styles.css" />
+  <link rel="stylesheet" href="../assets/charts.css" />
+  <link rel="stylesheet" href="../assets/course.css" />
+  
+</head>
+<body class="course-site " data-house="atlas">
+  <aside class="public-demo-banner" aria-label="About this course">A plain-language guide to what ISCA, DAC and ICCAD papers say about chip and computer design · Built from the repository’s own paper records · Not made by the conferences</aside>
+  <a class="skip-link" href="#app">Skip to the page</a>
+  <header>
+    <a class="brand" href="../index.html"><span class="mark" aria-hidden="true">Si</span> Semiconductor conference atlas</a>
+    <span class="header-status"><span class="badge">582 papers</span><span class="badge">10 themes</span><span class="badge">Plain words first</span></span>
+    <a class="header-link" href="../course-map.html">Course map</a>
+  </header>
+  <nav class="course-nav" aria-label="Main sections of the course"><a href="../index.html">The big picture</a><a href="../themes.html">Themes</a><a href="../subthemes.html" aria-current="page">Subthemes</a><a href="../deep-reads.html">Deep reads</a><a href="../directions.html">What to watch</a><a href="../presentation/index.html">Slides</a><a href="../video/index.html">Video</a><a href="../share/index.html">Share</a></nav>
+  <main id="app" tabindex="-1">
+    <section class="screen active landing legacy-page" aria-labelledby="page-title">
+<div class="lm-head"><div class="hj-heading"><nav class="crumbs" aria-label="You are here"><a href="../course-map.html">Course map</a><span aria-hidden="true">›</span><a href="../subthemes.html">Subthemes</a></nav><a class="back-button" href="../subthemes.html">← <span>Subthemes</span></a><p class="eyebrow">Subtheme · 1 papers · Power, reliability, and security</p><h1 id="page-title">Fault tolerance and reliability</h1><p class="hj-sub">Papers: ICCAD 1. Read from: 0 program descriptions, 0 abstracts or reports, 1 full papers or preprints. The explanations come first; every paper’s record follows at the end.</p></div><div class="hj-art" data-art="trio:alert-triangle,shield-check,bolt"></div></div>
+<figure class="course-fig"><div class="loop-wide" data-art="flow:power-reliability-and-security"></div><div class="loop-tall" data-art="flowTall:power-reliability-and-security"></div><figcaption>The parent theme in one picture: name the fault or attack first, then pay for the protection.</figcaption></figure>
+      <article class="prose">
+
+<p>This subject has 1 record in the selected sample. This page explains where it fits, then presents all captured paper evidence without shortening the measurements or limitations.</p>
+<p><a href="../guide/reading-guide-v1.html">Definitions used in the paper records</a></p>
+<p class="lm-k h-label">Understand the parent subject first</p><h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>The bigger theme this belongs to</h2>
+<ul>
+<li><a href="../themes/power-reliability-and-security.html">Power reliability and security</a></li>
+</ul>
+<p><span id="explanation-iccad-2025-1109"></span></p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>Spend representation bits on precision or protection</h2>
+<p>A floating-point representation divides its bits among fields controlling sign, numerical scale, and precision. An error in a scale field can have a very different numerical effect from an error in a low-significance precision bit.</p><p>A reliability-oriented representation can therefore allocate protection unevenly, but must state what accuracy is sacrificed and which faults remain possible.</p>
+<p><a href="fault-tolerance-and-reliability.html#paper-iccad-2025-1109">SERA-Float</a> makes this tradeoff within a 32-bit word. The recovered manuscript describes an eight-bit compressed mantissa and additional protected exponent/control information. The word remains 32 bits: this is not a claim of reducing stored width below FP32.</p>
+<p>The <a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/iccad/data/sera-float-primary-recovery-v1.json">primary-source recovery assessment</a> preserves the inspected manuscript version, page numbering, conditions, and unresolved issues. Its extraction covers PDF pages 4–9 including the HAL cover in the page count; it is not an experimental reproduction.</p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>The correction guarantee has a precise boundary</h2>
+<p>Section III.B and Figure 2, on PDF pages 4–5, describe two separate Hamming codewords protecting exponent information. The stated two-flip correction condition requires one flip in each protected half. It does not cover arbitrary two flips within one codeword.</p>
+<p>The mantissa has parity for detection rather than correction. Detecting that a value is suspect does not by itself recover the original value; the larger computation needs an appropriate response.</p><p>Consequently, the format should not be described as correcting every two-bit fault or making approximate arithmetic immune to corruption.</p>
+<p>The important conceptual distinction is between reducing fault impact through representation and proving a complete recovery mechanism. Both can be useful, but they support different claims about correct operation.</p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="checklist"></span>Injection experiments define the tested exposure</h2>
+<p>Table IV and Section IV.A describe modeled storage faults. The captured conditions use single-bit event percentages from 1% to 4%, with additional spatial double-bit events from 0.02% to 0.08%. These are injected experimental settings, not measured device failure rates.</p>
+<p>An equal injection percentage across formats also needs a clear denominator and sampling procedure before it can be interpreted as equal physical exposure. Different stored widths and field layouts can change which bits are affected.</p><p>The record does not establish the injection implementation or its physical calibration.</p>
+<p>The application set includes image processing and classification, with ResNet-50 and CIFAR-100 stated in the manuscript. Table VIII on PDF page 8 reports 98.85% FP32 baseline accuracy, 97.90% SERA accuracy without faults, and 88.05% for SERA under the F2E4 setting.</p><p>These imply a 0.95-percentage-point no-fault loss and a further 9.85-point loss under that fault setting. They are author-reported values; dataset split and checkpoint provenance remain unverified.</p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>Hardware savings are not complete-system savings</h2>
+<p>Section IV.C and Table IX, on PDF pages 8–9, describe synthesized multiplication hardware using Synopsys Design Compiler and a NanGate 45nm library at 1.10 V and 25°C. This is synthesis evidence, not measured silicon.</p>
+<p>The displayed delays are 3.60 ns for the baseline and 1.18 ns for SERA, both longer than the stated 1 ns constraint. Setting that constraint does not demonstrate meeting it. It would be incorrect to infer 1 GHz operation from the constraint alone.</p>
+<p>The recovery also records an accounting distinction: the headline energy saving is consistent with multiplying displayed power and delay, but differs from the ratio of the rounded energy-column values. Unrounded values and complete conversion/protection-module accounting are not established.</p><p>No full-inference or system-memory energy result follows from the per-multiplication comparison.</p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="help-circle"></span>What this paper establishes as a research question</h2>
+<p>SERA-Float provides a concrete representation-level approach to combining approximation and selective protection. Its limits are equally concrete: unchanged stored width, conditional exponent correction, mantissa detection without correction, and application degradation under faults.</p><p>The next decisive evaluation would reproduce the injection procedure, resolve hardware accounting, and measure complete application quality and cost under a calibrated fault model. The current manuscript recovery supports a detailed mechanism explanation, not independent acceptance of its headline savings or a general reliability guarantee.</p>
+<p class="lm-k h-label">Compare the results carefully</p><h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="route"></span>How to compare these papers’ results fairly</h2>
+<p>First identify the inputs and required output quality. Then identify the limited resource: time, memory, communication, energy, circuit area, or correctness coverage.</p><p>Ask which part of the method reduces that cost and which new cost it adds. Compare numbers only when the experiments hold these conditions sufficiently similar.</p>
+<p>A conference description may explain the proposal while omitting the full experiment. An author preprint link may have been coded from its abstract. The source classification does not by itself establish that every table was read. Missing locations remain visible below.</p>
+<p class="lm-k h-label">Complete captured evidence</p><h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="file-text"></span>Every paper in this subtheme, with what its source shows</h2>
+<p>These are evidence records, not substitutes for the explanations above. Each record preserves its problem, proposed method, measurements, comparison conditions, and source limits. A populated record does not establish that its mechanism has been fully explained or independently verified.</p>
+<p><span id="paper-iccad-2025-1109"></span></p>
+<h3>SERA-Float: A Soft Error Resilient Approximate Floating-Point Computing Format</h3>
+<p>ICCAD 2025 · Record: <code>iccad-2025-1109</code></p>
+<p><a href="#explanation-iccad-2025-1109">Read the step-by-step explanation</a></p>
+<p><strong>Updated source-backed reading card</strong></p>
+<div class="worked"><p class="lm-k">Worked example</p><p>Reviewed 2026-09-08. Reconciles the SERA-Float card with the recovered HAL manuscript and page-level assessment; separates selective exponent correction from mantissa detection, injected storage faults from physical failure rates, approximate-format quality from faulted quality, and synthesized multiplier cost from complete-system energy or timing closure.</p></div>
+<p>This editorial correction updates the current reading view and connected dossiers, not the historical adjudication or scientific acceptance status. The original captured fields are preserved below.</p>
+<p><a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/data/editorial-paper-corrections-v1.json">Correction register</a></p>
+<p><strong>Problem:</strong></p>
+<p>Approximate floating-point representations can reduce numerical precision while storage bit flips can corrupt exponent, control or mantissa fields; the design question is which bits to protect and what accuracy and recovery guarantees remain.</p>
+<p><strong>Mechanism / artifact:</strong></p>
+<p>SERA-Float keeps a 32-bit word, compresses the mantissa to eight bits, and uses protected exponent/control information. Two separate (7,4) Hamming codewords protect exponent information; the stated two-flip correction condition is one flip in each protected half.</p><p>Mantissa parity detects an error but does not reconstruct the original mantissa.</p>
+<p><strong>Workload — the work tested:</strong></p>
+<p>Image sharpening, Gaussian smoothing, KNN, ResNet-50 and linear SVM; CIFAR-100 is stated for classification. Storage faults are injected as F1 single-bit events at 1%, 2%, 3% and 4%, with F2 adding spatial double-bit events at 0.02%, 0.04%, 0.06% and 0.08%.</p>
+<p><strong>Hardware and manufacturing assumptions:</strong></p>
+<p>Verilog multiplier synthesis with Synopsys Design Compiler, NanGate 45nm, 1.10 V, 25 C and a stated 1 ns constraint. The captured Table IX delays are 3.60 ns for the baseline and 1.18 ns for SERA, so the constraint is not demonstrated timing closure.</p><p>No measured silicon or full-memory/inference implementation is established.</p>
+<p><strong>Baseline — the comparison method:</strong></p>
+<p>FP32 multiplication hardware</p>
+<p>FP32 application-quality reference</p>
+<p>FP16</p>
+<p>BF16</p>
+<p>FP8</p>
+<p>INT8</p>
+<p><strong>Reported measurements:</strong></p>
+<p>Table VIII reports FP32 baseline accuracy 98.85%, SERA accuracy without faults 97.90%, and SERA under F2E4 88.05%; this is a 0.95-point no-fault loss and a further 9.85-point faulted loss in the displayed setting.</p>
+<p>Table IX reports synthesized per-multiplication delay of 3.60 ns for baseline and 1.18 ns for SERA under the stated library and voltage/temperature conditions.</p>
+<p>The paper reports multiplier-level power/energy comparisons; the recovered assessment finds that the headline energy calculation and rounded energy-column ratio are not identical, so unrounded values and complete protection/conversion accounting are required before accepting a system-energy claim.</p>
+<p><strong>Limits on the conclusion:</strong></p>
+<p>The exponent guarantee is conditional: arbitrary two flips in one Hamming codeword are outside the stated correction condition. Mantissa parity detects rather than corrects, so detection is not recovery.</p>
+<p>The percentages are injected experiment settings, not measured device failure rates. The denominator, spatial/temporal distribution, injection implementation and physical calibration are not established in the recovered evidence.</p>
+<p>The 32-bit word is not storage-width compression below FP32. SERA has a no-fault accuracy cost and a larger reported degradation under the fault setting; protection does not make approximate computation immune to corruption.</p>
+<p>A 1 ns synthesis constraint does not prove 1 GHz operation when displayed delays exceed 1 ns. Per-multiplier synthesized cost is not complete inference, memory, conversion, protection or system energy. Dataset split, checkpoint provenance, raw unrounded tables and independent execution remain open.</p>
+<p><strong>Source and location</strong></p>
+<p>Evidence tier: Recovered primary hal manuscript and page level assessment; selected source reading, not experimental reproduction or independent silicon validation. This is the stored source classification; the location and limits below determine what was actually read.</p>
+<p><a href="https://hal.science/hal-05333255/document">Open the recorded source</a></p>
+<p>Recovered HAL manuscript, Sections III.B and Figure 2 PDF pages 4–5 for the 32-bit fields, two Hamming codewords and mantissa parity; Table IV PDF page 4 and Section IV.A PDF page 6 for injected F1/F2 settings; Table VIII PDF page 8 for FP32/SERA/F2E4 accuracy; Section IV.C and Table IX PDF pages 8–9 for synthesis conditions, delay and energy accounting; saved assessment iccad/data/sera-float-primary-recovery-v1.json records page numbering, hash and unresolved issues.</p>
+<details markdown="1">
+<summary>Original captured fields — superseded for this reading card</summary>
+
+** page source tier:** medium_primary_full_text
+
+**Baselines:** FP32 multiplication hardware baseline
+
+FP32 application-quality reference; FP16, BF16, FP8 and INT8 format comparisons, with FP8 configuration labeling unresolved
+
+**Evidence locators:** **Fields:** problem
+
+method_or_artifact
+
+limits
+
+**Location:** Section III.B and Figure 2, PDF pages 4–5 including HAL cover
+
+**Fields:** workload_or_benchmark
+
+hardware_or_process_assumptions
+
+baselines
+
+limits
+
+**Location:** Table IV PDF page 4; Sections IV.A–C PDF pages 6–9; visually checked Tables VIII and IX PDF pages 8–9; iccad/data/sera-float-primary-recovery-v1.json preserves values and hash
+
+**Evidence url:** https://hal.science/hal-05333255/document
+
+**Hardware or process assumptions:** Verilog synthesis with Synopsys Design Compiler and NanGate 45nm library at 1.10 V and 25 C; stated 1 ns constraint is not demonstrated timing closure. No measured silicon.
+
+**Limits:** Two exponent flips are corrected only across separate protected halves; mantissa parity detects rather than corrects. Stored word remains 32 bits. Accuracy degrades under faults. Headline metrics withheld pending unrounded energy/per-module accounting, injection and evaluation provenance, and independent review. Synthesized per-multiplication energy is not full-inference energy.
+
+**Method or artifact:** 32-bit approximate floating-point format reallocating mantissa bits to protected exponent/control fields, eight-bit compressed mantissa, parity and number-type identifiers.
+
+**Metrics:** Not established in the captured evidence.
+
+**Problem:** Approximation error and storage bit flips jointly threaten floating-point accuracy and exception behavior.
+
+**Workload or benchmark:** Image sharpening, Gaussian smoothing, KNN, ResNet-50 DNN and linear SVM; CIFAR-100 stated for classification; modeled single-bit and spatial double-bit storage faults.
+
+</details>
+<h4>Additional source assessment</h4>
+<div class="worked"><p class="lm-k">Worked example</p><p>This separately recorded check is dated 2026-09-06. It supplements the original record above and retains its own scope and uncertainty.</p></div>
+<p><a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/iccad/data/sera-float-primary-recovery-v1.json">Assessment record</a></p>
+<p><a href="https://hal.science/hal-05333255/document">Assessed source</a></p>
+<p><strong>Extraction scope</strong></p>
+<p>HAL manuscript PDF pages 4–9: format, split-code correction condition, injected faults, applications and synthesized hardware; Tables VIII and IX visually checked. Not experimental reproduction.</p>
+<p><strong>Conditions</strong></p>
+<p><strong>Format:</strong> <strong>Storage bits:</strong> 32</p>
+<p><strong>Exponent encoded bits:</strong> 14</p>
+<p><strong>Control bits:</strong> 7</p>
+<p><strong>Mantissa bits:</strong> 8</p>
+<p><strong>Identifier bits:</strong> 2</p>
+<p><strong>Mantissa parity bits:</strong> 1</p>
+<p><strong>Locator:</strong> Section III.B, PDF pages 4–5</p>
+<p><strong>Limit:</strong> Mantissa compression frees protection bits inside a 32-bit representation; not a reduction of stored word width below FP32.</p>
+<p><strong>Correction:</strong> <strong>Exponent code:</strong> Two separate (7,4) Hamming codewords</p>
+<p><strong>Two bit condition:</strong> One flip in each protected half; arbitrary two flips in one codeword are not covered by the stated correction guarantee.</p>
+<p><strong>Mantissa:</strong> Single-bit parity detection, not mantissa error correction</p>
+<p><strong>Locator:</strong> Section III.B and Figure 2, PDF pages 4–5</p>
+<p><strong>Faults:</strong> <strong>Single bit percent:</strong> 1</p>
+<p>2</p>
+<p>3</p>
+<p>4</p>
+<p><strong>Additional spatial double bit percent:</strong> 0.02</p>
+<p>0.04</p>
+<p>0.06</p>
+<p>0.08</p>
+<p><strong>Scope:</strong> F1 single-bit events; F2 adds spatial double-bit events. Section IV.A injects storage faults at any location across the representation.</p>
+<p><strong>Locator:</strong> Table IV PDF page 4; Section IV.A PDF page 6</p>
+<p><strong>Limit:</strong> Injected model; not a measured device fault distribution or proof for arbitrary spatial/temporal faults. Equal injection percentages do not by themselves establish equal physical failure exposure across word widths.</p>
+<p><strong>Dnn:</strong> <strong>Model:</strong> ResNet-50</p>
+<p><strong>Dataset as stated:</strong> CIFAR-100</p>
+<p><strong>Locator:</strong> Section IV.B and Table VIII, PDF page 8</p>
+<p><strong>Accuracy percent:</strong> <strong>Fp32 baseline:</strong> 98.85</p>
+<p><strong>Sera no fault:</strong> 97.9</p>
+<p><strong>Sera f2e4:</strong> 88.05</p>
+<p><strong>Fp16 f2e4:</strong> 72.9</p>
+<p><strong>Bf16 f2e4:</strong> 57.68</p>
+<p><strong>Calculated no fault loss percentage points:</strong> 0.95</p>
+<p><strong>Calculated f2e4 loss from sera no fault percentage points:</strong> 9.85</p>
+<p><strong>Limit:</strong> Author-reported accuracy, not reproduced; held-out split, training/checkpoint provenance and injection implementation require verification. Text's 0.9% loss does not specify the percentage-point convention.</p>
+<p><strong>Hardware:</strong> <strong>Locator:</strong> Section IV.C PDF pages 8–9; Figure 4(c) PDF page 6; Table IX PDF page 9</p>
+<p><strong>Evidence type:</strong> Verilog synthesis, not measured silicon</p>
+<p><strong>Tool:</strong> Synopsys Design Compiler</p>
+<p><strong>Library:</strong> NanGate 45nm Open Cell Library</p>
+<p><strong>Clock constraint ns:</strong> 1.0</p>
+<p><strong>Voltage v:</strong> 1.1</p>
+<p><strong>Temperature c:</strong> 25.0</p>
+<p><strong>Baseline:</strong> Conventional FP32 multiplier</p>
+<p><strong>Candidate:</strong> Multiplication framework enabled by SERA-Float conversion, Figure 4(c)</p>
+<p><strong>Table ix:</strong> <strong>Baseline:</strong> <strong>Area um2:</strong> 7690</p>
+<p><strong>Power mw:</strong> 0.15</p>
+<p><strong>Delay ns:</strong> 3.6</p>
+<p><strong>Energy pj:</strong> 0.54</p>
+<p><strong>Sera:</strong> <strong>Area um2:</strong> 7386</p>
+<p><strong>Power mw:</strong> 0.09</p>
+<p><strong>Delay ns:</strong> 1.18</p>
+<p><strong>Energy pj:</strong> 0.1</p>
+<p><strong>Calculated saving from displayed energy percent:</strong> 81.48</p>
+<p><strong>Calculated saving from displayed power times delay percent:</strong> 80.33</p>
+<p><strong>Limit:</strong> Headline 80.3% is consistent with displayed power-times-delay arithmetic, not the rounded energy-column ratio. Unrounded values and per-module conversion/inverse/ECC accounting are not established.</p><p>Reported delays exceed the stated 1 ns synthesis constraint; do not infer timing closure or 1 GHz throughput. No system-memory or whole-inference energy result.</p>
+<p><strong>Headline metric status</strong></p>
+<p>withheld_pending_accounting_and_independent_review</p>
+<p><strong>Independent review status</strong></p>
+<p>pending</p>
+<p class="lm-k h-label">What remains to establish</p><h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>What is still unproven here</h2>
+<p>Resolve unspecified workloads, comparison methods, resource budgets, and source locations before generalizing a reported gain. This subject is represented by one paper and supports a case study, not evidence of recurrence or a long-term trend.</p>
+<p><a href="../guide/expanded-taxonomy-v1.html">All subthemes</a> · <a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/reports/directions/README.md">Research directions</a></p><p class="meta">Written as <a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/reports/observed-subthemes/fault-tolerance-and-reliability.md">reports/observed-subthemes/fault-tolerance-and-reliability.md</a> in the course repository.</p>
+      </article>
+      <nav class="pager" aria-label="Previous and next"><a class="prev" href="reliability-and-fault-tolerance.html"><span class="pg-k">← Previous</span><span class="pg-t">Reliability and fault tolerance</span></a><a class="map" href="../subthemes.html"><span class="pg-k">Back to</span><span class="pg-t">Subthemes</span></a><a class="next" href="power-integrity-and-reliability.html"><span class="pg-k">Next →</span><span class="pg-t">Power integrity and reliability</span></a></nav>
+    </section>
+  </main>
+  <footer class="course-foot">
+    <p>Built from 582 paper records coded from ISCA 2026, DAC 2026 and ICCAD 2025 (ICCAD 2026 papers were not yet public). Most records come from official program descriptions; see “How deep the reading went”. The papers belong to their authors.</p>
+    <p class="foot-links"><a href="https://github.com/mehtama1234/course-concept-library">All courses</a><a href="../index.html">This course</a><a href="../course-map.html">Course map</a><a href="../presentation/index.html">Slides</a><a href="../video/index.html">Video</a><a href="../share/index.html">Share</a></p>
+  </footer>
+  <script src="../assets/course-data.js"></script><script src="../assets/icons.js"></script><script src="../assets/icons-extra.js"></script><script src="../assets/icons-course.js"></script><script src="../assets/art.js"></script><script src="../assets/course-art.js"></script><script src="../assets/charts.js"></script><script src="../assets/course-charts.js"></script><script src="../assets/course-site.js"></script>
+</body>
+</html>

@@ -2,21 +2,38 @@
 
 Status: a research hypothesis supported by selected cases. A measured increase across comparable years has not been established.
 
-## The basic technical problem
+## The problem: detailed checks are too slow to run on every candidate
 
-Choosing a design requires estimating what it will do. A detailed simulation can take too long to run for every candidate. A simpler model can be faster but less accurate. The design problem is therefore partly a measurement problem: how much evaluation effort should be spent before choosing the next candidate?
+Choosing a design means estimating what it will do.
 
-## What would change in the design process
+- A detailed simulation can take too long to run on every candidate.
+- A simpler model is faster but less accurate.
 
-A feedback process evaluates a candidate, updates its estimate, and uses the revised estimate to choose another candidate. Some methods use many inexpensive predictions and a smaller number of detailed checks. This can reduce search time when the inexpensive predictions identify useful candidates. It can also exclude the best candidates if the prediction error is systematic.
+So design is partly a measurement problem: how much evaluation effort to spend before choosing the next candidate?
 
-## Why the details matter
+## The change: evaluate, update the estimate, choose again
 
-The essential issue is the decision caused by the prediction. A model with a low average error can still rank the best candidates incorrectly. Errors near a hard limit are especially consequential: a small error in predicted timing or temperature can turn an apparently valid design into a failing one. The search should record rejected candidates and test whether its confidence matches later measurements.
+1. Evaluate a candidate.
+2. Update the estimate.
+3. Use the new estimate to choose the next candidate.
 
-## What would support or weaken the claim
+Some methods use many cheap predictions and fewer detailed checks. That saves search time when the cheap predictions find good candidates. It can also exclude the best candidates if the prediction error is systematic.
 
-Compare the final valid designs under equal total evaluation time. Include model training, calibration, failed simulations, and final checks. Evaluate unfamiliar designs or operating conditions to see whether the model remains useful. An improvement that disappears after charging these costs does not establish a more efficient design process. A longitudinal claim requires comparable descriptions of feedback and evaluation budgets across editions.
+## What matters is the decision a prediction causes, not its average error
+
+A model with low average error can still rank the best candidates wrongly.
+
+Errors near a hard limit matter most. A small error in predicted timing or temperature can turn an apparently valid design into a failing one.
+
+So the search should record rejected candidates, and check whether its confidence matches later measurements.
+
+## The test: equal total evaluation time, with every hidden cost charged
+
+1. Compare the final valid designs under equal total evaluation time.
+2. Include model training, calibration, failed simulations and final checks.
+3. Try unfamiliar designs or operating conditions, to see whether the model stays useful.
+
+A gain that disappears once these costs are charged does not show a more efficient design process. A claim about change over time needs comparable descriptions of feedback and evaluation budgets across editions.
 
 ## Counterpressure and falsification boundary
 

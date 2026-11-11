@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#F3ECE1" />
+  <title>Reliability and fault tolerance · Semiconductor conference atlas</title>
+  <meta name="description" content="Papers: ISCA 2. Read from: 0 program descriptions, 1 abstracts or reports, 1 full papers or preprints. The explanations come first; every paper’s record follows at the end." />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Semiconductor conference atlas" />
+  <meta property="og:title" content="Reliability and fault tolerance · Semiconductor conference atlas" />
+  <meta property="og:description" content="Papers: ISCA 2. Read from: 0 program descriptions, 1 abstracts or reports, 1 full papers or preprints. The explanations come first; every paper’s record follows at the end." />
+  <meta property="og:url" content="https://mehtama1234.github.io/semiconductor-conferences/subthemes/reliability-and-fault-tolerance.html" />
+  <meta property="og:image" content="https://mehtama1234.github.io/semiconductor-conferences/presentation/slides/01-cover.jpg" />
+  <meta property="og:image:width" content="1920" />
+  <meta property="og:image:height" content="1080" />
+  <meta property="og:image:alt" content="Semiconductor conference atlas: 582 papers from ISCA, DAC and ICCAD, sorted into 10 themes and six directions to watch." />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="canonical" href="https://mehtama1234.github.io/semiconductor-conferences/subthemes/reliability-and-fault-tolerance.html" />
+  <link rel="icon" href="../assets/icon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="../assets/base.css" />
+  <link rel="stylesheet" href="../assets/experience.css" />
+  <link rel="stylesheet" href="../assets/theme-atlas.css" />
+  <link rel="stylesheet" href="../assets/styles.css" />
+  <link rel="stylesheet" href="../assets/charts.css" />
+  <link rel="stylesheet" href="../assets/course.css" />
+  
+</head>
+<body class="course-site " data-house="atlas">
+  <aside class="public-demo-banner" aria-label="About this course">A plain-language guide to what ISCA, DAC and ICCAD papers say about chip and computer design · Built from the repository’s own paper records · Not made by the conferences</aside>
+  <a class="skip-link" href="#app">Skip to the page</a>
+  <header>
+    <a class="brand" href="../index.html"><span class="mark" aria-hidden="true">Si</span> Semiconductor conference atlas</a>
+    <span class="header-status"><span class="badge">582 papers</span><span class="badge">10 themes</span><span class="badge">Plain words first</span></span>
+    <a class="header-link" href="../course-map.html">Course map</a>
+  </header>
+  <nav class="course-nav" aria-label="Main sections of the course"><a href="../index.html">The big picture</a><a href="../themes.html">Themes</a><a href="../subthemes.html" aria-current="page">Subthemes</a><a href="../deep-reads.html">Deep reads</a><a href="../directions.html">What to watch</a><a href="../presentation/index.html">Slides</a><a href="../video/index.html">Video</a><a href="../share/index.html">Share</a></nav>
+  <main id="app" tabindex="-1">
+    <section class="screen active landing legacy-page" aria-labelledby="page-title">
+<div class="lm-head"><div class="hj-heading"><nav class="crumbs" aria-label="You are here"><a href="../course-map.html">Course map</a><span aria-hidden="true">›</span><a href="../subthemes.html">Subthemes</a></nav><a class="back-button" href="../subthemes.html">← <span>Subthemes</span></a><p class="eyebrow">Subtheme · 2 papers · Power, reliability, and security</p><h1 id="page-title">Reliability and fault tolerance</h1><p class="hj-sub">Papers: ISCA 2. Read from: 0 program descriptions, 1 abstracts or reports, 1 full papers or preprints. The explanations come first; every paper’s record follows at the end.</p></div><div class="hj-art" data-art="trio:alert-triangle,shield-check,bolt"></div></div>
+<figure class="course-fig"><div class="loop-wide" data-art="flow:power-reliability-and-security"></div><div class="loop-tall" data-art="flowTall:power-reliability-and-security"></div><figcaption>The parent theme in one picture: name the fault or attack first, then pay for the protection.</figcaption></figure>
+      <article class="prose">
+
+<p>This subject has 2 records in the selected sample. This page explains where it fits, then presents all captured paper evidence without shortening the measurements or limitations.</p>
+<p><a href="../guide/reading-guide-v1.html">Definitions used in the paper records</a></p>
+<p class="lm-k h-label">Understand the parent subject first</p><h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>The bigger theme this belongs to</h2>
+<ul>
+<li><a href="../themes/power-reliability-and-security.html">Power reliability and security</a></li>
+</ul>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="chart-bar"></span>Correct data storage does not automatically imply correct in-memory computation</h2>
+<p>Memory-centered computation moves some operations closer to stored data. This can reduce transfers, but it changes which components participate in producing a result. A reliability argument must cover that computation path, not merely the ability to read back a stored value under ordinary memory operations.</p>
+<p>The two records in this group address different mechanisms. PuDGhost studies interference during processing-using-DRAM operations on physical chips. The ECC-enabled PIM paper proposes an architecture combining error handling with computation scheduling. Their fault models and experimental evidence are not interchangeable.</p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="chart-bar"></span>PuDGhost: neighboring data can affect a computed result</h2>
+<p><a href="reliability-and-fault-tolerance.html#paper-isca-2026-program-024">PuDGhost</a> examines operations based on activating multiple DRAM rows simultaneously. The assumed computation depends on the intended operands within a column. The study reports that data in adjacent non-activated rows and in other concurrently computing columns can affect that result.</p>
+<p>This matters because a computation can be wrong even when the assumed local operands appear correct. Testing only an isolated operation or a favorable surrounding pattern would miss the relevant interaction.</p><p>Evaluation must vary both the intended input and the surrounding data that the implementation assumed irrelevant.</p>
+<p>The author abstract reports experiments on 96 DDR4 chips from 12 modules. It reports up to 10% output impact from adjacent non-activated rows and up to 48% from concurrently computing columns for random inputs.</p><p>These are maximum reported effects under the abstract's conditions, not universal failure probabilities for DRAM or for all memory-compute architectures.</p>
+<p>The proposed countermeasures include screening unreliable columns and separating computation rows with dedicated rows. Screening can restrict usable resources; row separation can consume capacity.</p><p>Those consequences need measurement alongside improved computation accuracy. The captured abstract does not provide screening time, reserved capacity, detailed operating-condition sweeps, or full application results.</p>
+<p>The study supplies real-chip evidence for its examined mechanism. It does not establish that every DRAM generation or unrelated PIM design has the same vulnerability. Exact devices, operation sequences, input distributions, voltage, and temperature remain necessary conditions for interpreting transfer.</p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="file-text"></span>ECC-enabled PIM: error handling shares resources with computation</h2>
+<p><a href="reliability-and-fault-tolerance.html#paper-isca-2026-program-009">ECC Enabled Reliable and Performant Processing-in-Memory</a> proposes tailored error-correcting codes for bank-level PIM. An error-correcting code stores additional structure that enables specified error patterns to be detected or corrected. Detection identifies a problem; correction recovers the intended information within the code's supported conditions.</p>
+<p>The institutional abstract describes multi-bit detection and rank-level correction, a Codeword Flip method for weak-cell errors associated with variable retention time, and odd-even bank pipelining. A bank is a memory subdivision that can participate in operations; a rank groups devices operated together.</p><p>Moving correction work to a broader level can affect availability and scheduling of computation resources.</p>
+<p>The abstract reports 90% PIM-unit utilization, up to 400 times lower silent-data-corruption likelihood over five years, and potential fourfold performance improvement over rankPIM in selected microbenchmarks. Silent corruption means an incorrect result escapes detection.</p><p>Its estimated likelihood depends on the assumed fault process and observation horizon; the five-year wording must not be interpreted as five years of measured operation without supporting evidence.</p>
+<p>Likewise, utilization is not application speedup, and selected microbenchmark performance is not a universal language-model inference result. Exact code layouts, fault probabilities, correction latency, area, energy, and application configurations are absent from the captured abstract.</p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="affiliate"></span>What connects the findings</h2>
+<p>One paper shows why physical computation behavior must be characterized; the other shows why protection overhead belongs in the architecture and schedule. The records do not demonstrate that the proposed ECC architecture addresses PuDGhost's particular interference.</p><p>That connection would require matching error patterns, where they occur, and what the checker can observe.</p>
+<p>A useful end-to-end study would report correct useful outputs under stated fault exposure, detection failures, recovery costs, lost capacity, and sustained throughput. It would distinguish measured device phenomena from modeled long-term probabilities.</p><p>These papers motivate that evaluation but do not collectively prove fault-tolerant operation across all memory-compute systems.</p>
+<p class="lm-k h-label">Compare the results carefully</p><h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="route"></span>How to compare these papers’ results fairly</h2>
+<p>First identify the inputs and required output quality. Then identify the limited resource: time, memory, communication, energy, circuit area, or correctness coverage.</p><p>Ask which part of the method reduces that cost and which new cost it adds. Compare numbers only when the experiments hold these conditions sufficiently similar.</p>
+<p>A conference description may explain the proposal while omitting the full experiment. An author preprint link may have been coded from its abstract. The source classification does not by itself establish that every table was read. Missing locations remain visible below.</p>
+<p class="lm-k h-label">Complete captured evidence</p><h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="file-text"></span>Every paper in this subtheme, with what its source shows</h2>
+<p>These are evidence records, not substitutes for the explanations above. Each record preserves its problem, proposed method, measurements, comparison conditions, and source limits. A populated record does not establish that its mechanism has been fully explained or independently verified.</p>
+<p><span id="paper-isca-2026-program-024"></span></p>
+<h3>PuDGhost: Experimental Analysis of Computation Result Corruption in Processing-using-DRAM Operations on Real DRAM Chips and Implications for Future Systems</h3>
+<p>ISCA 2026 · Record: <code>isca-2026-program-024</code></p>
+<p><strong>Problem:</strong></p>
+<p>Processing-using-DRAM assumes that each column's computation depends only on its own operands, but density scaling and neighboring-cell interference may violate that isolation and corrupt results.</p>
+<p><strong>Mechanism / artifact:</strong></p>
+<p>Empirical characterization of PuDGhost under simultaneous multiple-row activation, followed by cross-layer countermeasures including unreliable-column screening and compute-row layouts that separate active computation rows.</p>
+<p><strong>Workload — the work tested:</strong></p>
+<p>Processing-using-DRAM operations on real DDR4 chips, including random-input experiments and computation-accuracy evaluation; the abstract identifies matrix-vector multiplication as a target workload context.</p>
+<p><strong>Hardware and manufacturing assumptions:</strong></p>
+<p>Real DDR4 DRAM using simultaneous multiple-row activation; results depend on chip organization, density, row layout, input patterns, and operating conditions.</p>
+<p><strong>Baseline — the comparison method:</strong></p>
+<p>ideal column-isolated processing-using-DRAM behavior</p>
+<p>uncorrected PuD operation without PuDGhost countermeasures</p>
+<p><strong>Reported measurements:</strong></p>
+<p>96 real DDR4 DRAM chips</p>
+<p>12 DRAM modules</p>
+<p>up to 10% output impact from adjacent non-activated rows</p>
+<p>up to 48% output impact from concurrently computing columns</p>
+<p>computation accuracy after countermeasures</p>
+<p><strong>Limits on the conclusion:</strong></p>
+<p>The evidence is an author preprint abstract; exact chip part numbers, voltage and temperature sweeps, full workload accuracy tables, screening cost, row-layout capacity cost, and transfer to other DRAM generations or PIM mechanisms require full-paper verification.</p>
+<p><strong>Source and location</strong></p>
+<p>Evidence tier: High primary preprint. This is the stored source classification; the location and limits below determine what was actually read.</p>
+<p><a href="https://arxiv.org/abs/2606.19119">Open the recorded source</a></p>
+<p>An exact page, section, or table location has not been recorded. Page-level verification remains open.</p>
+<p><span id="paper-isca-2026-program-009"></span></p>
+<h3>ECC Enabled Reliable and Performant Processing-in-Memory</h3>
+<p>ISCA 2026 · Record: <code>isca-2026-program-009</code></p>
+<p><strong>Problem:</strong></p>
+<p>Processing-in-memory improves data locality but introduces reliability risks from variable-retention-time scaling errors, physical faults, and multi-bit errors that can cause silent data corruption or repeated rank-level correction overhead.</p>
+<p><strong>Mechanism / artifact:</strong></p>
+<p>A reliable bank-PIM architecture with tailored rank-level ECC, Codeword Flip masking for VRT weak cells, and odd-even bank pipelining to preserve utilization while limiting correction interference.</p>
+<p><strong>Workload — the work tested:</strong></p>
+<p>PIM microbenchmarks and end-to-end LLM application evaluation; the institutional abstract reports comparisons with rankPIM and traditional bank-PIM.</p>
+<p><strong>Hardware and manufacturing assumptions:</strong></p>
+<p>Bank-level PIM integrated with modern DRAM, variable-retention-time weak cells, rank-level correction, and an odd-even bank pipeline; exact DRAM generation, fault distributions, and implementation cost require full-paper verification.</p>
+<p><strong>Baseline — the comparison method:</strong></p>
+<p>traditional bank-PIM configuration</p>
+<p>rankPIM</p>
+<p><strong>Reported measurements:</strong></p>
+<p>90% PIM-unit utilization</p>
+<p>up to 400x lower five-year silent-data-corruption likelihood</p>
+<p>potential 4x performance enhancement over rankPIM in selected microbenchmarks</p>
+<p>end-to-end LLM performance improvement</p>
+<p><strong>Limits on the conclusion:</strong></p>
+<p>The evidence is an institutional publication record containing the abstract and DOI metadata, not a captured full paper. Exact ECC layouts, fault probabilities, correction latency, area/energy overhead, LLM configurations, and the meaning of the reported likelihood horizon require full-paper verification.</p>
+<p><strong>Source and location</strong></p>
+<p>Evidence tier: Medium institutional abstract. This is the stored source classification; the location and limits below determine what was actually read.</p>
+<p><a href="https://cris.technion.ac.il/en/publications/ecc-enabled-reliable-and-performant-processing-in-memory/">Open the recorded source</a></p>
+<p>An exact page, section, or table location has not been recorded. Page-level verification remains open.</p>
+<p class="lm-k h-label">What remains to establish</p><h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>What is still unproven here</h2>
+<p>Resolve unspecified workloads, comparison methods, resource budgets, and source locations before generalizing a reported gain. Multiple papers in this selected sample permit comparison of mechanisms, but do not by themselves establish recurrence across years or a long-term trend.</p>
+<p><a href="../guide/expanded-taxonomy-v1.html">All subthemes</a> · <a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/reports/directions/README.md">Research directions</a></p><p class="meta">Written as <a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/reports/observed-subthemes/reliability-and-fault-tolerance.md">reports/observed-subthemes/reliability-and-fault-tolerance.md</a> in the course repository.</p>
+      </article>
+      <nav class="pager" aria-label="Previous and next"><a class="prev" href="energy-and-thermal-efficiency.html"><span class="pg-k">← Previous</span><span class="pg-t">Energy and thermal efficiency</span></a><a class="map" href="../subthemes.html"><span class="pg-k">Back to</span><span class="pg-t">Subthemes</span></a><a class="next" href="fault-tolerance-and-reliability.html"><span class="pg-k">Next →</span><span class="pg-t">Fault tolerance and reliability</span></a></nav>
+    </section>
+  </main>
+  <footer class="course-foot">
+    <p>Built from 582 paper records coded from ISCA 2026, DAC 2026 and ICCAD 2025 (ICCAD 2026 papers were not yet public). Most records come from official program descriptions; see “How deep the reading went”. The papers belong to their authors.</p>
+    <p class="foot-links"><a href="https://github.com/mehtama1234/course-concept-library">All courses</a><a href="../index.html">This course</a><a href="../course-map.html">Course map</a><a href="../presentation/index.html">Slides</a><a href="../video/index.html">Video</a><a href="../share/index.html">Share</a></p>
+  </footer>
+  <script src="../assets/course-data.js"></script><script src="../assets/icons.js"></script><script src="../assets/icons-extra.js"></script><script src="../assets/icons-course.js"></script><script src="../assets/art.js"></script><script src="../assets/course-art.js"></script><script src="../assets/charts.js"></script><script src="../assets/course-charts.js"></script><script src="../assets/course-site.js"></script>
+</body>
+</html>

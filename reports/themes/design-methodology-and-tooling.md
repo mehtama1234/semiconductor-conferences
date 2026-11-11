@@ -6,21 +6,38 @@ A subtheme groups related technical problems. A mechanism describes the particul
 
 [Definitions used in the paper records](../reading-guide-v1.md)
 
-## What a design tool transforms
+## Design tools make many small choices that add up
 
-A compiler transforms a program from one representation into another while preserving its intended behavior. A synthesis tool constructs a circuit implementation. An optimizer chooses among implementations according to a stated objective. These tools make many small choices that collectively determine execution time, memory use, circuit size, and the effort required to obtain a result.
+- A **compiler** turns a program from one form into another while keeping its intended behavior.
+- A **synthesis tool** builds a circuit implementation.
+- An **optimizer** picks among implementations by a stated goal.
 
-## Why representation matters
+Together these choices decide run time, memory use, circuit size, and the effort needed to get a result.
 
-A representation makes some properties explicit and hides others. A graph can expose dependencies between operations; a schedule assigns operations to times or resources. A transformation that removes redundant work can also change memory traffic or available parallelism. The tool needs a rule for which transformations preserve correctness and a cost model for selecting useful ones.
+## How a design is written down decides what a tool can see and change
 
-## What separates the subthemes
+A representation makes some properties visible and hides others.
 
-Compilation and synthesis methods change the sequence of transformations. Search methods choose configurations or implementations. Graph and partitioning methods organize connected work. Benchmark and artifact methods make inputs, expected outputs, and execution steps available for comparison. Their common question is whether another design or user can obtain the claimed benefit through a defined process.
+- A **graph** can show which operations depend on which.
+- A **schedule** assigns operations to times or resources.
 
-## A comparison that answers the question
+Removing redundant work can also change memory traffic or available parallelism. So a tool needs two things: a rule for which changes keep the design correct, and a cost model for picking useful ones.
 
-State inputs, versions, settings, hardware, and the total time to produce a valid output. Separate time spent running the tool from time saved by the output it produces. Compare correctness and output quality as well as runtime. Transfer to unfamiliar inputs is a stronger test of a reusable method than repeated optimization of its development examples.
+## The subthemes change the steps, the search, the structure, or the benchmarks
+
+- **Compilation and synthesis** methods change the sequence of transformations.
+- **Search** methods choose configurations or implementations.
+- **Graph and partitioning** methods organize connected work.
+- **Benchmark and artifact** methods publish inputs, expected outputs and steps so others can compare.
+
+Their shared question: can another designer or user get the claimed benefit by following a defined process?
+
+## A fair test separates tool time from the time the output saves
+
+1. State inputs, versions, settings, hardware, and the total time to get a valid output.
+2. Separate time spent running the tool from time saved by its output.
+3. Compare correctness and output quality, not only run time.
+4. Test on unfamiliar inputs. That is a stronger test than re-tuning on the development examples.
 
 ## Follow a design choice through its consequences
 

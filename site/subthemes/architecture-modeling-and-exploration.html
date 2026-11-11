@@ -1,0 +1,232 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#F3ECE1" />
+  <title>Architecture modeling and exploration · Semiconductor conference atlas</title>
+  <meta name="description" content="Papers: DAC 2. Read from: 2 program descriptions, 0 abstracts or reports, 0 full papers or preprints. The explanations come first; every paper’s record follows at the end." />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Semiconductor conference atlas" />
+  <meta property="og:title" content="Architecture modeling and exploration · Semiconductor conference atlas" />
+  <meta property="og:description" content="Papers: DAC 2. Read from: 2 program descriptions, 0 abstracts or reports, 0 full papers or preprints. The explanations come first; every paper’s record follows at the end." />
+  <meta property="og:url" content="https://mehtama1234.github.io/semiconductor-conferences/subthemes/architecture-modeling-and-exploration.html" />
+  <meta property="og:image" content="https://mehtama1234.github.io/semiconductor-conferences/presentation/slides/01-cover.jpg" />
+  <meta property="og:image:width" content="1920" />
+  <meta property="og:image:height" content="1080" />
+  <meta property="og:image:alt" content="Semiconductor conference atlas: 582 papers from ISCA, DAC and ICCAD, sorted into 10 themes and six directions to watch." />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="canonical" href="https://mehtama1234.github.io/semiconductor-conferences/subthemes/architecture-modeling-and-exploration.html" />
+  <link rel="icon" href="../assets/icon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="../assets/base.css" />
+  <link rel="stylesheet" href="../assets/experience.css" />
+  <link rel="stylesheet" href="../assets/theme-atlas.css" />
+  <link rel="stylesheet" href="../assets/styles.css" />
+  <link rel="stylesheet" href="../assets/charts.css" />
+  <link rel="stylesheet" href="../assets/course.css" />
+  
+</head>
+<body class="course-site " data-house="atlas">
+  <aside class="public-demo-banner" aria-label="About this course">A plain-language guide to what ISCA, DAC and ICCAD papers say about chip and computer design · Built from the repository’s own paper records · Not made by the conferences</aside>
+  <a class="skip-link" href="#app">Skip to the page</a>
+  <header>
+    <a class="brand" href="../index.html"><span class="mark" aria-hidden="true">Si</span> Semiconductor conference atlas</a>
+    <span class="header-status"><span class="badge">582 papers</span><span class="badge">10 themes</span><span class="badge">Plain words first</span></span>
+    <a class="header-link" href="../course-map.html">Course map</a>
+  </header>
+  <nav class="course-nav" aria-label="Main sections of the course"><a href="../index.html">The big picture</a><a href="../themes.html">Themes</a><a href="../subthemes.html" aria-current="page">Subthemes</a><a href="../deep-reads.html">Deep reads</a><a href="../directions.html">What to watch</a><a href="../presentation/index.html">Slides</a><a href="../video/index.html">Video</a><a href="../share/index.html">Share</a></nav>
+  <main id="app" tabindex="-1">
+    <section class="screen active landing legacy-page" aria-labelledby="page-title">
+<div class="lm-head"><div class="hj-heading"><nav class="crumbs" aria-label="You are here"><a href="../course-map.html">Course map</a><span aria-hidden="true">›</span><a href="../subthemes.html">Subthemes</a></nav><a class="back-button" href="../subthemes.html">← <span>Subthemes</span></a><p class="eyebrow">Subtheme · 2 papers · AI-assisted EDA</p><h1 id="page-title">Architecture modeling and exploration</h1><p class="hj-sub">Papers: DAC 2. Read from: 2 program descriptions, 0 abstracts or reports, 0 full papers or preprints. The explanations come first; every paper’s record follows at the end.</p></div><div class="hj-art" data-art="trio:file-text,sparkles,checklist"></div></div>
+<figure class="course-fig"><div class="loop-wide" data-art="flow:ai-assisted-eda"></div><div class="loop-tall" data-art="flowTall:ai-assisted-eda"></div><figcaption>The parent theme in one picture: a model proposes a design; tools decide whether it counts.</figcaption></figure>
+      <article class="prose">
+
+<p>This subject has 2 records in the selected sample. This page explains where it fits, then presents all captured paper evidence without shortening the measurements or limitations.</p>
+<p><a href="../guide/reading-guide-v1.html">Definitions used in the paper records</a></p>
+<p class="lm-k h-label">Understand the parent subject first</p><h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>The bigger theme this belongs to</h2>
+<ul>
+<li><a href="../themes/ai-assisted-eda.html">AI assisted EDA</a></li>
+<li><a href="../themes/design-methodology-and-tooling.html">Design methodology and tooling</a></li>
+</ul>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="help-circle"></span>A model answers a question under assumptions</h2>
+<p>Architecture exploration compares organizations of computation, storage, and communication before committing to an implementation. A model makes that comparison affordable by representing selected behavior and omitting other details. Its usefulness depends on whether the omitted details could change the decision being made.</p>
+<p>An upper-bound model and a candidate-design estimator answer different questions. The first asks how much performance might remain if specified constraints were removed.</p><p>The second asks how a particular implementable design is expected to behave. An optimistic limit is not a forecast of an actual processor, and a favorable design estimate is not a measured result.</p>
+<p>The two records here cover ideal processor modeling and automated design of encrypted-computation accelerators. Neither captured description contains quantitative validation.</p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>IdealSim: identify the remaining opportunity</h2>
+<p><a href="architecture-modeling-and-exploration.html#paper-dac-2026-research690">IdealSim</a> proposes ideal-scenario modeling for processor upper-bound analysis. Idealization might remove or relax a resource constraint, allowing an architect to ask whether that constraint is worth addressing.</p><p>The source does not identify its particular idealizations, so unlimited memory bandwidth, perfect prediction, or any other specific assumption must not be attributed to it.</p>
+<p>The word “bound” needs a defined scope. A model that omits a delay may produce an optimistic estimate under its remaining assumptions.</p><p>Establishing a mathematical upper bound on achievable performance requires showing why no allowed implementation can exceed it. The short record does not expose such an argument or the class of implementations to which it would apply.</p>
+<p>Bound tightness matters even when validity is established. A very loose limit can rule out little and provide weak guidance among designs. A useful evaluation would compare ideal estimates with progressively more detailed models on common workloads, explaining which constraints account for the gap.</p>
+<p>The architect also needs to know whether a resource improvement is practical. Removing a modeled bottleneck can shift work elsewhere or require area, power, and communication that the ideal scenario does not charge.</p><p>IdealSim's captured description supplies no bound-tightness, runtime, workload, or calibration results. It supports identifying the analysis purpose, not accepting its estimates as realizable performance.</p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>Hades: search for an application-specific encrypted-compute design</h2>
+<p><a href="architecture-modeling-and-exploration.html#paper-dac-2026-research912">Hades</a> automates architecture design for fully homomorphic encryption, or FHE, accelerators. FHE permits supported computation on encrypted values. Its implementation has arithmetic and memory requirements determined by the encryption scheme, parameters, and application computation.</p>
+<p>Application specialization can focus resources on frequently used operations and their data movement. That also narrows the conditions under which the resulting architecture is useful.</p><p>A design chosen for one computation or parameter set may behave differently when intermediate representations, operation frequencies, or memory requirements change.</p>
+<p>The captured source does not expose the search space, cost model, encryption scheme, security parameters, or generated hardware. It should not be assumed to synthesize a complete chip, use a particular optimization algorithm, or support every FHE application.</p><p>The phrase “design automation” identifies the task, not the completeness of the delivered implementation.</p>
+<p>A fair comparison must hold the required computation, numerical accuracy, and cryptographic protection fixed before comparing latency, area, power, or throughput. Otherwise an apparently cheaper architecture may simply perform a different task or meet weaker requirements.</p><p>The source supplies none of those numerical results or the conditions needed to interpret them.</p>
+<p><span id="explanation-dac-2026-research690"></span></p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>IdealSim: an upper-bound model is useful only when its idealization is named</h2>
+<h3>What an upper-bound question asks</h3>
+<p>A processor executes a workload through a sequence of dependent operations. Some operations wait for data, some wait for a shared resource, and some cannot be overlapped because a later result depends on an earlier one.</p><p>An upper-bound model removes or relaxes selected constraints to ask how much performance could remain if those constraints were no longer limiting. This is a diagnostic question: it can indicate where further design effort might help.</p>
+<p>It is not the same as predicting a processor that can be built. A prediction must include finite storage, finite bandwidth, arbitration, pipeline state, control work, and the physical cost of the chosen resources.</p><p>If an ideal model removes one of these, its result can exceed every design that obeys the omitted constraint. The result is meaningful only after the model states what was removed and what remained.</p>
+<h3>The comparison has two layers</h3>
+<p>IdealSim is described as a methodology for efficient ideal-scenario processor upper-bound analysis. The first layer is the ideal scenario: alter a resource or execution assumption and measure the resulting limit.</p><p>The second layer is the comparison method: the captured card names cycle-accurate simulation and an analytical roofline model as baselines. These baselines do not answer the same question.</p><p>Cycle-accurate simulation represents a particular modeled machine over time. A roofline model relates arithmetic work and data movement to resource ceilings.</p><p>An ideal-scenario result must state which of those details it changes before their numbers can be compared.</p>
+<div class="worked"><p class="lm-k">Worked example</p><p>For example, if the idealization changes memory supply, the result can reveal whether the modeled workload is limited by data movement under the remaining assumptions. It does not show that supplying that memory bandwidth is affordable, that the interface can sustain it for all requests, or that computation and transfer can overlap as assumed.</p></div><p>The specific idealizations are not exposed in the captured source, so no particular resource can be attributed to IdealSim.</p>
+<h3>A limit must be checked for usefulness and tightness</h3>
+<p>An upper bound can be valid but too loose to guide a decision. If the limit is far above all feasible designs, it does not distinguish whether memory, execution width, control, or communication is the next useful target.</p><p>A useful evaluation would compare the ideal result with progressively more detailed models and show how each restored constraint reduces the gap. It would also test whether the ranking of candidate interventions changes when omitted costs are restored.</p>
+<p>The reported record supplies no workload traces, runtime, bound-tightness result, error measure, or calibrated comparison. Its evidence supports the purpose of ideal-scenario analysis, not a numeric claim about processor performance.</p><p>The phrase “upper-bound performance” must therefore remain a scoped modeling claim until the resource assumptions and validation procedure are available.</p>
+<h3>What IdealSim establishes and what remains open</h3>
+<p>IdealSim establishes an intended analysis function: use idealized processor scenarios to identify remaining performance opportunity before detailed design. It does not establish a mathematical upper bound over all implementations, a realizable processor forecast, or a measured improvement in a completed workload.</p><p>A stronger paper-level evaluation would list each relaxed constraint, define the workload and output metric, compare against cycle-accurate and analytical references under matched inputs, report the cost of the modeling procedure, and test whether its recommendations survive detailed simulation or implementation.</p>
+<p><a href="https://63dac.conference-program.com/presentation/?id=RESEARCH690&amp;sess=sess109">Official DAC description, record RESEARCH690</a></p>
+<p><span id="explanation-dac-2026-research912"></span></p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>Hades: application-specific FHE hardware must preserve the cryptographic task</h2>
+<h3>Encrypted computation changes the cost of an operation</h3>
+<p>Fully homomorphic encryption, or FHE, lets a computation operate on encrypted values so that an untrusted executor need not receive the plaintext inputs. The ciphertext is not usually a compact copy of the plaintext.</p><p>Its operations carry extra algebraic structure and may produce intermediate state that grows or becomes noisier as the circuit proceeds. Some schemes require a refresh or bootstrapping operation to continue computation within the allowed error conditions.</p>
+<p>An FHE accelerator therefore handles more than the application’s visible arithmetic. It must represent ciphertext components, move them through memory, perform scheme-specific polynomial or modular operations, manage intermediate storage, and preserve the cryptographic parameters that define the security and correctness target.</p><p>A hardware design that reduces one arithmetic kernel can still lose at memory movement, bootstrapping, control, or result recovery.</p>
+<h3>The design flow begins with the application circuit</h3>
+<p>Hades is described as architecture design automation for application-specific FHE accelerators. The natural decision sequence is: identify the application circuit; determine the encryption scheme and parameters; count the resulting operation types and intermediate values; choose arithmetic units and storage; then check whether the generated organization meets the required computation and protection level.</p><p>Specialization can remove hardware for operations that never occur or allocate more resources to operations that dominate the selected circuit.</p>
+<p>That specialization creates a validity boundary. A design optimized for one circuit, ciphertext size, modulus, security parameter, or bootstrapping frequency may not remain efficient when any of those change.</p><p>The search must therefore expose which application and cryptographic parameter set it used, and the evaluation must include the cost of generating and checking the design. The captured source does not identify the search space, cost model, scheme, security parameters, or generated hardware.</p>
+<h3>Security is a fixed constraint, not a quality score to trade away silently</h3>
+<p>Latency, area, power, and throughput can be compared only after the encrypted computation has the same required output and security conditions. Lowering a modulus, reducing ciphertext precision, changing the number of operations, or using a weaker parameter set may reduce hardware work while changing the cryptographic task.</p><p>Such a result cannot be called a faster implementation of the original task without showing equivalence of the protection and correctness requirements.</p>
+<p>The source names general-purpose FHE accelerators and CPU/GPU FHE as comparison categories, but it supplies no numeric PPA, latency, throughput, circuit, security-parameter, or application results. These baselines therefore identify the intended comparison boundary, not measured reference values.</p>
+<h3>What Hades establishes and what remains open</h3>
+<p>Hades establishes the design-automation problem of specializing an accelerator around an FHE application and its encrypted arithmetic. It does not establish a completed chip, a universal FHE architecture, a specific search algorithm, or a performance/security improvement.</p><p>A stronger evaluation would publish the scheme and parameters, application circuits, generated architecture, memory and bootstrapping accounting, search budget, baseline implementations, cryptographic correctness checks, PPA and latency measurements, and transfer results on circuits not used to specialize the design.</p>
+<p><a href="https://63dac.conference-program.com/presentation/?id=RESEARCH912&amp;sess=sess109">Official DAC description, record RESEARCH912</a></p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>Validate the decision, not only the prediction</h2>
+<p>For IdealSim, validation should establish what the claimed limit means and whether it helps identify worthwhile design changes. For Hades, validation should show that selected designs remain preferable when checked with a more detailed implementation model.</p><p>Low average prediction error alone would not prove good design selection if errors reverse the ranking of the best candidates.</p>
+<p>Both evaluations should count model construction, search, failed candidates, and final checking. Reuse can spread preparation cost over many decisions, but that reuse must be demonstrated for the intended workloads.</p><p>These records motivate a shared research question: how can inexpensive models guide decisions whose benefits survive physical and application constraints? They do not yet establish that either modeling approach yields better completed hardware, or that the two approaches have been integrated.</p>
+<p class="lm-k h-label">Compare the results carefully</p><h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="route"></span>How to compare these papers’ results fairly</h2>
+<p>First identify the inputs and required output quality. Then identify the limited resource: time, memory, communication, energy, circuit area, or correctness coverage.</p><p>Ask which part of the method reduces that cost and which new cost it adds. Compare numbers only when the experiments hold these conditions sufficiently similar.</p>
+<p>A conference description may explain the proposal while omitting the full experiment. An author preprint link may have been coded from its abstract. The source classification does not by itself establish that every table was read. Missing locations remain visible below.</p>
+<p class="lm-k h-label">Complete captured evidence</p><h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="file-text"></span>Every paper in this subtheme, with what its source shows</h2>
+<p>These are evidence records, not substitutes for the explanations above. Each record preserves its problem, proposed method, measurements, comparison conditions, and source limits. A populated record does not establish that its mechanism has been fully explained or independently verified.</p>
+<p><span id="paper-dac-2026-research690"></span></p>
+<h3>Idealsim: Efficient Ideal Scenario Modeling for Processor Upper-Bound Performance Analysis</h3>
+<p>DAC 2026 · Record: <code>dac-2026-research690</code></p>
+<p><a href="#explanation-dac-2026-research690">Read the step-by-step explanation</a></p>
+<p><strong>Updated source-backed reading card</strong></p>
+<div class="worked"><p class="lm-k">Worked example</p><p>Reviewed 2026-09-08. Deepens the official-description reading; separates ideal upper-bound analysis from realizable processor prediction and preserves the absence of numeric validation.</p></div>
+<p>This editorial correction updates the current reading view and connected dossiers, not the historical adjudication or scientific acceptance status. The original captured fields are preserved below.</p>
+<p><a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/data/editorial-paper-corrections-v1.json">Correction register</a></p>
+<p><strong>Problem:</strong></p>
+<p>Processor architects need fast upper-bound estimates before detailed simulation or implementation, while idealized assumptions can remove the very constraints that determine realizability.</p>
+<p><strong>Mechanism / artifact:</strong></p>
+<p>Ideal-scenario performance-modeling methodology for processor upper-bound analysis.</p>
+<p><strong>Workload — the work tested:</strong></p>
+<p>Processor workloads and microarchitectural scenarios; traces, assumptions, and reference models are unspecified.</p>
+<p><strong>Hardware and manufacturing assumptions:</strong></p>
+<p>Abstract processor model with idealized resources; memory, instruction, physical, and process assumptions are unspecified.</p>
+<p><strong>Baseline — the comparison method:</strong></p>
+<p>Cycle-accurate simulation</p>
+<p>Analytical roofline model</p>
+<p><strong>Reported measurements:</strong></p>
+<p>Upper-bound analysis efficiency is claimed qualitatively; no runtime, error, bound-tightness, or design-selection result is reported.</p>
+<p><strong>Limits on the conclusion:</strong></p>
+<p>The specific relaxed constraints are not exposed, so no particular memory, prediction, bandwidth, or execution assumption is attributed to IdealSim.</p>
+<p>A modeling limit is not a realizable processor forecast or a mathematical bound over all implementations without a defined class of allowed designs.</p>
+<p>Official description only; calibrated simulation comparison and detailed implementation validation were not performed.</p>
+<p><strong>Source and location</strong></p>
+<p>Evidence tier: Official DAC description; full manuscript and reproduction not performed. This is the stored source classification; the location and limits below determine what was actually read.</p>
+<p><a href="https://63dac.conference-program.com/?post_type=page&amp;p=16&amp;id=RESEARCH690&amp;sess=sess109">Open the recorded source</a></p>
+<p>DAC official description, Captured Description and Authors fields; record RESEARCH690; no manuscript pages.</p>
+<details markdown="1">
+<summary>Original captured fields — superseded for this reading card</summary>
+
+** page source tier:** medium_official_description
+
+**Baselines:** cycle-accurate simulation
+
+analytical roofline model
+
+**Evidence locators:** DAC 2026 official description
+
+**Evidence url:** https://63dac.conference-program.com/?post_type=page&amp;p=16&amp;id=RESEARCH690
+
+**Hardware or process assumptions:** Abstract processor model with idealized resources; memory and instruction assumptions are unspecified.
+
+**Limits:** No bound tightness, runtime, error, workload, or design-space results are reported.
+
+Ideal assumptions may not reflect bottlenecks.
+
+Official description only; calibrated simulation comparison is required.
+
+**Method or artifact:** Ideal-scenario performance-modeling methodology.
+
+**Metrics:** Upper-bound analysis efficiency is claimed qualitatively
+
+**Problem:** Processor architects need fast upper-bound estimates before detailed simulation or implementation.
+
+**Workload or benchmark:** Processor workloads and microarchitectural scenarios; traces, assumptions, and reference models are unspecified.
+
+</details>
+<p><span id="paper-dac-2026-research912"></span></p>
+<h3>Hades: Harnessing Architecture Design Automation for Application-Specific FHE Accelerators</h3>
+<p>DAC 2026 · Record: <code>dac-2026-research912</code></p>
+<p><a href="#explanation-dac-2026-research912">Read the step-by-step explanation</a></p>
+<p><strong>Updated source-backed reading card</strong></p>
+<div class="worked"><p class="lm-k">Worked example</p><p>Reviewed 2026-09-08. Deepens the official-description reading; explains the FHE-specific computation boundary, application specialization and security-preserving comparison requirements.</p></div>
+<p>This editorial correction updates the current reading view and connected dossiers, not the historical adjudication or scientific acceptance status. The original captured fields are preserved below.</p>
+<p><a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/data/editorial-paper-corrections-v1.json">Correction register</a></p>
+<p><strong>Problem:</strong></p>
+<p>FHE accelerators need application-specific architectures to control encrypted arithmetic, bootstrapping and intermediate-memory costs.</p>
+<p><strong>Mechanism / artifact:</strong></p>
+<p>Architecture design-automation flow for application-specific FHE accelerators.</p>
+<p><strong>Workload — the work tested:</strong></p>
+<p>FHE applications and circuits; schemes, ciphertext parameters, security levels, circuits and hardware targets are unspecified.</p>
+<p><strong>Hardware and manufacturing assumptions:</strong></p>
+<p>Specialized FHE arithmetic and memory; process, generated hardware, frequency, storage capacity and security assumptions are unspecified.</p>
+<p><strong>Baseline — the comparison method:</strong></p>
+<p>General-purpose FHE accelerator</p>
+<p>CPU/GPU FHE</p>
+<p><strong>Reported measurements:</strong></p>
+<p>FHE design efficiency is claimed qualitatively; no PPA, latency, throughput, circuit, cryptographic-correctness or transfer result is reported.</p>
+<p><strong>Limits on the conclusion:</strong></p>
+<p>Application and scheme specialization may not transfer to other circuits, ciphertext sizes, moduli, security parameters or bootstrapping frequencies.</p>
+<p>The source does not establish a particular search algorithm, complete chip, universal FHE support, or a performance gain at matched cryptographic protection.</p>
+<p>Official description only; cryptographic and silicon validation were not performed.</p>
+<p><strong>Source and location</strong></p>
+<p>Evidence tier: Official DAC description; full manuscript and reproduction not performed. This is the stored source classification; the location and limits below determine what was actually read.</p>
+<p><a href="https://63dac.conference-program.com/?post_type=page&amp;p=16&amp;id=RESEARCH912&amp;sess=sess109">Open the recorded source</a></p>
+<p>DAC official description, Captured Description and Authors fields; record RESEARCH912; no manuscript pages.</p>
+<details markdown="1">
+<summary>Original captured fields — superseded for this reading card</summary>
+
+** page source tier:** medium_official_description
+
+**Baselines:** general-purpose FHE accelerator
+
+CPU/GPU FHE
+
+**Evidence locators:** DAC 2026 official description
+
+**Evidence url:** https://63dac.conference-program.com/?post_type=page&amp;p=16&amp;id=RESEARCH912
+
+**Hardware or process assumptions:** Specialized FHE arithmetic and memory; security and process assumptions are unspecified.
+
+**Limits:** No security parameters, PPA, latency, throughput, or circuit results are reported.
+
+Automation may be application- or scheme-specific.
+
+Official description only; cryptographic and silicon validation is required.
+
+**Method or artifact:** Architecture design-automation flow for FHE accelerators.
+
+**Metrics:** FHE design efficiency is claimed qualitatively
+
+**Problem:** FHE accelerators need application-specific architectures to control bootstrapping and memory costs.
+
+**Workload or benchmark:** FHE applications and circuits; schemes, parameters, and hardware are unspecified.
+
+</details>
+<p class="lm-k h-label">What remains to establish</p><h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>What is still unproven here</h2>
+<p>Resolve unspecified workloads, comparison methods, resource budgets, and source locations before generalizing a reported gain. Multiple papers in this selected sample permit comparison of mechanisms, but do not by themselves establish recurrence across years or a long-term trend.</p>
+<p><a href="../guide/expanded-taxonomy-v1.html">All subthemes</a> · <a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/reports/directions/README.md">Research directions</a></p><p class="meta">Written as <a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/reports/observed-subthemes/architecture-modeling-and-exploration.md">reports/observed-subthemes/architecture-modeling-and-exploration.md</a> in the course repository.</p>
+      </article>
+      <nav class="pager" aria-label="Previous and next"><a class="prev" href="graph-learning-for-eda.html"><span class="pg-k">← Previous</span><span class="pg-t">Graph learning for EDA</span></a><a class="map" href="../subthemes.html"><span class="pg-k">Back to</span><span class="pg-t">Subthemes</span></a><a class="next" href="verification-and-debugging-tools.html"><span class="pg-k">Next →</span><span class="pg-t">Verification and debugging tools</span></a></nav>
+    </section>
+  </main>
+  <footer class="course-foot">
+    <p>Built from 582 paper records coded from ISCA 2026, DAC 2026 and ICCAD 2025 (ICCAD 2026 papers were not yet public). Most records come from official program descriptions; see “How deep the reading went”. The papers belong to their authors.</p>
+    <p class="foot-links"><a href="https://github.com/mehtama1234/course-concept-library">All courses</a><a href="../index.html">This course</a><a href="../course-map.html">Course map</a><a href="../presentation/index.html">Slides</a><a href="../video/index.html">Video</a><a href="../share/index.html">Share</a></p>
+  </footer>
+  <script src="../assets/course-data.js"></script><script src="../assets/icons.js"></script><script src="../assets/icons-extra.js"></script><script src="../assets/icons-course.js"></script><script src="../assets/art.js"></script><script src="../assets/course-art.js"></script><script src="../assets/charts.js"></script><script src="../assets/course-charts.js"></script><script src="../assets/course-site.js"></script>
+</body>
+</html>

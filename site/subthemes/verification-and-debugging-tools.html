@@ -1,0 +1,227 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#F3ECE1" />
+  <title>Verification and debugging tools · Semiconductor conference atlas</title>
+  <meta name="description" content="Papers: DAC 2. Read from: 2 program descriptions, 0 abstracts or reports, 0 full papers or preprints. The explanations come first; every paper’s record follows at the end." />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Semiconductor conference atlas" />
+  <meta property="og:title" content="Verification and debugging tools · Semiconductor conference atlas" />
+  <meta property="og:description" content="Papers: DAC 2. Read from: 2 program descriptions, 0 abstracts or reports, 0 full papers or preprints. The explanations come first; every paper’s record follows at the end." />
+  <meta property="og:url" content="https://mehtama1234.github.io/semiconductor-conferences/subthemes/verification-and-debugging-tools.html" />
+  <meta property="og:image" content="https://mehtama1234.github.io/semiconductor-conferences/presentation/slides/01-cover.jpg" />
+  <meta property="og:image:width" content="1920" />
+  <meta property="og:image:height" content="1080" />
+  <meta property="og:image:alt" content="Semiconductor conference atlas: 582 papers from ISCA, DAC and ICCAD, sorted into 10 themes and six directions to watch." />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="canonical" href="https://mehtama1234.github.io/semiconductor-conferences/subthemes/verification-and-debugging-tools.html" />
+  <link rel="icon" href="../assets/icon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="../assets/base.css" />
+  <link rel="stylesheet" href="../assets/experience.css" />
+  <link rel="stylesheet" href="../assets/theme-atlas.css" />
+  <link rel="stylesheet" href="../assets/styles.css" />
+  <link rel="stylesheet" href="../assets/charts.css" />
+  <link rel="stylesheet" href="../assets/course.css" />
+  
+</head>
+<body class="course-site " data-house="atlas">
+  <aside class="public-demo-banner" aria-label="About this course">A plain-language guide to what ISCA, DAC and ICCAD papers say about chip and computer design · Built from the repository’s own paper records · Not made by the conferences</aside>
+  <a class="skip-link" href="#app">Skip to the page</a>
+  <header>
+    <a class="brand" href="../index.html"><span class="mark" aria-hidden="true">Si</span> Semiconductor conference atlas</a>
+    <span class="header-status"><span class="badge">582 papers</span><span class="badge">10 themes</span><span class="badge">Plain words first</span></span>
+    <a class="header-link" href="../course-map.html">Course map</a>
+  </header>
+  <nav class="course-nav" aria-label="Main sections of the course"><a href="../index.html">The big picture</a><a href="../themes.html">Themes</a><a href="../subthemes.html" aria-current="page">Subthemes</a><a href="../deep-reads.html">Deep reads</a><a href="../directions.html">What to watch</a><a href="../presentation/index.html">Slides</a><a href="../video/index.html">Video</a><a href="../share/index.html">Share</a></nav>
+  <main id="app" tabindex="-1">
+    <section class="screen active landing legacy-page" aria-labelledby="page-title">
+<div class="lm-head"><div class="hj-heading"><nav class="crumbs" aria-label="You are here"><a href="../course-map.html">Course map</a><span aria-hidden="true">›</span><a href="../subthemes.html">Subthemes</a></nav><a class="back-button" href="../subthemes.html">← <span>Subthemes</span></a><p class="eyebrow">Subtheme · 2 papers · AI-assisted EDA</p><h1 id="page-title">Verification and debugging tools</h1><p class="hj-sub">Papers: DAC 2. Read from: 2 program descriptions, 0 abstracts or reports, 0 full papers or preprints. The explanations come first; every paper’s record follows at the end.</p></div><div class="hj-art" data-art="trio:file-text,sparkles,checklist"></div></div>
+<figure class="course-fig"><div class="loop-wide" data-art="flow:ai-assisted-eda"></div><div class="loop-tall" data-art="flowTall:ai-assisted-eda"></div><figcaption>The parent theme in one picture: a model proposes a design; tools decide whether it counts.</figcaption></figure>
+      <article class="prose">
+
+<p>This subject has 2 records in the selected sample. This page explains where it fits, then presents all captured paper evidence without shortening the measurements or limitations.</p>
+<p><a href="../guide/reading-guide-v1.html">Definitions used in the paper records</a></p>
+<p class="lm-k h-label">Understand the parent subject first</p><h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>The bigger theme this belongs to</h2>
+<ul>
+<li><a href="../themes/ai-assisted-eda.html">AI assisted EDA</a></li>
+<li><a href="../themes/design-methodology-and-tooling.html">Design methodology and tooling</a></li>
+</ul>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>Organizing observations and changing code are different tasks</h2>
+<p>Debugging starts with evidence about a mismatch between intended and actual behavior. Tools can help organize that evidence or propose a change, but these are separate steps.</p><p>A well-parsed log does not establish the cause of a failure. A patch that compiles does not establish that the intended behavior has been restored.</p>
+<p>The two records in this subject cover log-schema extraction and language-model-assisted Rust repair. They are retained together as debugging tools, not presented as two implementations of the same method. The captured descriptions provide no quantitative evaluation for either.</p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>Schemacoder: recover structure from heterogeneous logs</h2>
+<p><a href="verification-and-debugging-tools.html#paper-dac-2026-research1841">Schemacoder</a> automatically extracts log schemas using a method named residual Q-tree boosting. A schema identifies the structure of a record: which parts are fields, how they are represented, and which records share a format. This can make otherwise inconsistent messages searchable and comparable.</p>
+<p>The difficult distinction is between variation in data and variation in meaning. Two messages may differ only in a timestamp or identifier and belong to one schema.</p><p>Two superficially similar messages may describe different events and need different treatment. Merging them incorrectly can hide evidence; separating every minor textual variation can make the extracted structure unusable.</p>
+<p>The source does not explain the Q-tree construction or residual update rule. Those mathematical details should not be inferred from the name.</p><p>The available evidence supports the task and proposed model family, but not a claim about how it handles nested records, multiline messages, or streaming input.</p>
+<p>Evaluation would need independently labeled schemas and explicit scoring of incorrect merges, incorrect splits, and field extraction. Testing later software versions matters because log formats change.</p><p>It should also preserve the original messages so that a derived schema does not erase the evidence needed to audit a diagnosis. Accuracy, memory, latency, datasets, and robustness to format changes are all unspecified in the captured record.</p>
+<p><span id="explanation-dac-2026-research1841"></span></p>
+<h3>Schemacoder: schema extraction must preserve event meaning while compressing textual variation</h3>
+<h4>What a log schema represents</h4>
+<p>A log record is a text or structured message emitted by a system. Some parts describe the event type and fixed wording; other parts are fields whose values change, such as timestamps, identifiers, addresses, counts or error details.</p><p>A schema groups records that share the same structural meaning and identifies the fields and their representations.</p>
+<p>The task is not simple text matching. A timestamp can vary while the record remains one event type.</p><p>A number can instead be part of a message variant whose meaning changes. Two messages can have similar punctuation but represent different events, while one event can be printed in multiple formats across software versions.</p><p>A useful extractor must distinguish variation in value from variation in structure and meaning.</p>
+<h4>What residual Q-tree boosting establishes—and does not establish</h4>
+<p>The captured description names residual Q-tree boosting as the extraction method. “Residual,” “Q-tree” and “boosting” identify a method label, but they do not specify the tree representation, feature construction, residual update, objective, stopping rule or handling of nested and multiline records.</p><p>Those details determine whether the method merges equivalent records, splits distinct records and extracts fields correctly.</p>
+<p>An incorrect merge hides meaningful differences by assigning different events to one schema. An incorrect split fragments one event into many schemas, increasing maintenance and reducing searchability.</p><p>Field errors can also alter the evidence: a value classified as a fixed token may be discarded, or a fixed event marker classified as a variable field may make unrelated records appear similar. The raw log must remain available beside the derived schema.</p>
+<h4>What a complete evaluation needs</h4>
+<p>Create independently labeled logs with known schemas, field boundaries, nested records, multiline messages, malformed entries, missing fields and version changes. Compare residual Q-tree boosting with regular-expression extraction and generic tree boosting under the same data and compute budget.</p><p>Report schema precision and recall, merge and split error, field-boundary accuracy, unknown-format detection, memory, latency, streaming behavior and maintenance cost after a software update.</p>
+<p>Split by system, version and time rather than randomly splitting near-duplicate messages. Test whether the extractor preserves the raw record, explains its assignment and flags uncertainty.</p><p>Then measure downstream value: can an investigator search and correlate events more accurately, and does a schema error change a diagnosis? The captured official description reports no schema accuracy, drift robustness, latency, memory or dataset result.</p><p>The evidence supports automated log-structure extraction, not demonstrated cross-system diagnostic reliability.</p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>Akirarust: feedback guides a proposed repair</h2>
+<p><a href="verification-and-debugging-tools.html#paper-dac-2026-research2871">Akirarust</a> uses a feedback-guided switch in a language-model-assisted Rust repair process. Its proposed control decision is how the repair process responds to compiler or test feedback.</p><p>The source does not identify the language model, switching rule, repositories, or repair benchmark, so no particular reasoning strategy can be attributed to it beyond that description.</p>
+<p>Compiler feedback checks properties enforced by the language and compilation process. Tests check the behaviors they actually exercise and assert; the <a href="https://doc.rust-lang.org/stable/book/ch11-01-writing-tests.html">Rust book's testing chapter</a> describes tests as functions checking expected behavior.</p><p>Neither compilation nor a finite test suite alone establishes that an arbitrary patch satisfies the full intended specification.</p>
+<p>A repair might remove an error while accidentally changing valid behavior elsewhere. Evaluation therefore needs tests or review independent of the feedback used to generate the patch.</p><p>It should distinguish compilation success, visible-test success, additional-test success, and independently assessed correctness. A single aggregated “repair rate” would hide those different evidentiary levels.</p>
+<p>The complete cost includes failed candidates, model calls, compilation, test execution, and any human review. Repeated trials may also matter when generation is variable.</p><p>The captured description supplies no patch-correctness, test-pass, runtime, or cost results, so it does not establish that adaptive feedback yields better repairs than a fixed process.</p>
+<p><span id="explanation-dac-2026-research2871"></span></p>
+<h3>Akirarust: feedback can steer repair search, but passing feedback is not the full specification</h3>
+<h4>What the repair loop is doing</h4>
+<p>An automated Rust repair loop proposes a patch, compiles it and runs some tests. The compiler can report syntax, type, borrow, trait or build errors.</p><p>Tests can report failures for the input cases and assertions they cover. The loop uses that feedback to decide what to do next, such as change its reasoning mode, generate another patch or stop.</p>
+<p>The “thinking switch” is therefore a control policy for search. It does not itself define what a correct patch is.</p><p>The source does not specify the language model, switch condition, modes, prompts, context retained between attempts, candidate limit or stopping rule. Those details determine whether the switch reduces wasted attempts or simply changes how the same incomplete search behaves.</p>
+<h4>What compiler and test feedback can prove</h4>
+<p>Compilation success establishes that the submitted code satisfies the compiler's checked rules for that build configuration. A visible-test pass establishes only that those tests passed.</p><p>It does not prove behavior for untested inputs, error paths, concurrency, performance, security properties, public API compatibility or the intended behavior that was never encoded in a test.</p>
+<p>A patch can fix the reported failure while changing valid behavior elsewhere. The evaluation must separate compiler success, visible-test success, additional hidden or held-out-test success, differential behavior against a reference and independent human or formal correctness assessment.</p><p>The repair benchmark must prevent the model from seeing the target patch or tests in a way that makes the score incomparable; otherwise benchmark leakage can make the measured repair rate meaningless.</p>
+<h4>What a complete repair evaluation needs</h4>
+<p>Define repositories, bug classes, initial failures, compiler versions, test suites, time and model budgets, patch acceptance rule and baseline. Compare the feedback-guided switch with unguided LLM repair and traditional program repair under the same starting state.</p><p>Report plausible patches, compile rate, visible-test pass, held-out-test pass, independently judged correctness, regression rate, attempts, model calls, compile/test time, total wall-clock time and cost.</p>
+<p>Run repeat trials because generation can vary. Include bugs where compiler feedback is weak, tests are incomplete, failures are flaky and a patch can overfit the visible test.</p><p>Preserve every candidate and feedback trace so that a result can be audited. The captured official description reports no patch correctness, test-pass rate, runtime, cost or repository result.</p><p>The evidence supports feedback-guided repair as a search direction, not demonstrated better repair correctness or lower end-to-end repair cost.</p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="affiliate"></span>A useful connection without claiming an integration</h2>
+<p>Structured logs could help present failure evidence to a repair process, but these records do not demonstrate that combination. Incorrect schema extraction could also distort the very feedback used to choose a patch.</p><p>A combined study would need to retain raw observations, trace the derived diagnosis to those observations, and independently validate the resulting code change.</p>
+<p>The longer-term question is whether automation can reduce time from a reproducible failure to a validated repair without weakening the evidence at either end. That is a proposed research direction inferred from these tasks.</p><p>Faster parsing or more passing patches would be intermediate results, not proof that the entire debugging process became more reliable.</p>
+<p class="lm-k h-label">Compare the results carefully</p><h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="route"></span>How to compare these papers’ results fairly</h2>
+<p>First identify the inputs and required output quality. Then identify the limited resource: time, memory, communication, energy, circuit area, or correctness coverage.</p><p>Ask which part of the method reduces that cost and which new cost it adds. Compare numbers only when the experiments hold these conditions sufficiently similar.</p>
+<p>A conference description may explain the proposal while omitting the full experiment. An author preprint link may have been coded from its abstract. The source classification does not by itself establish that every table was read. Missing locations remain visible below.</p>
+<p class="lm-k h-label">Complete captured evidence</p><h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="file-text"></span>Every paper in this subtheme, with what its source shows</h2>
+<p>These are evidence records, not substitutes for the explanations above. Each record preserves its problem, proposed method, measurements, comparison conditions, and source limits. A populated record does not establish that its mechanism has been fully explained or independently verified.</p>
+<p><span id="paper-dac-2026-research1841"></span></p>
+<h3>Schemacoder: Automatic Log Schema Extraction Coder with Residual Q-Tree Boosting</h3>
+<p>DAC 2026 · Record: <code>dac-2026-research1841</code></p>
+<p><a href="#explanation-dac-2026-research1841">Read the step-by-step explanation</a></p>
+<p><strong>Updated source-backed reading card</strong></p>
+<div class="worked"><p class="lm-k">Worked example</p><p>Reviewed 2026-09-08. Deepens the existing Schemacoder treatment into a paper-level reading; defines log-schema structure, separates value variation from semantic variation and merge/split errors, and makes method-semantics, drift, raw-record preservation and downstream diagnostic validation explicit.</p></div>
+<p>This editorial correction updates the current reading view and connected dossiers, not the historical adjudication or scientific acceptance status. The original captured fields are preserved below.</p>
+<p><a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/data/editorial-paper-corrections-v1.json">Correction register</a></p>
+<p><strong>Problem:</strong></p>
+<p>Large systems produce heterogeneous logs whose schemas are costly to extract and maintain.</p>
+<p><strong>Mechanism / artifact:</strong></p>
+<p>Automatic schema-extraction coder with residual Q-tree boosting; tree representation, features, residual update, objective, stopping rule and nested/multiline handling are unspecified.</p>
+<p><strong>Workload — the work tested:</strong></p>
+<p>System and hardware logs; formats, event types, field boundaries, nested/multiline records, malformed entries, missing fields, versions, labeled datasets and streaming conditions are unspecified.</p>
+<p><strong>Hardware and manufacturing assumptions:</strong></p>
+<p>Log-processing software or accelerator; memory, streaming, version-drift, storage, raw-record retention and downstream investigation assumptions are unspecified.</p>
+<p><strong>Baseline — the comparison method:</strong></p>
+<p>Regular-expression extraction</p>
+<p>Generic tree boosting</p>
+<p>System/version split, labels, compute budget, schema definition and downstream task are unspecified</p>
+<p><strong>Reported measurements:</strong></p>
+<p>Schema extraction efficiency is claimed qualitatively; no schema precision/recall, merge error, split error, field-boundary accuracy, drift robustness, unknown-format detection, latency, memory or dataset result is reported.</p>
+<p><strong>Limits on the conclusion:</strong></p>
+<p>A schema must separate changing field values from changes in event structure and meaning. Incorrect merges hide evidence; incorrect splits fragment one event; field errors can alter the evidence used for diagnosis. Raw records should remain available beside derived structure.</p>
+<p>The method name does not specify the Q-tree representation, feature construction, residual update, objective or stopping rule. It is not justified to infer handling of nested, multiline, malformed, streaming or versioned logs from the name alone.</p>
+<p>The official description reports no schema accuracy, drift robustness, latency, memory or dataset result. The record supports automated log-structure extraction, not demonstrated cross-system diagnostic reliability or safe evidence compression.</p>
+<p><strong>Source and location</strong></p>
+<p>Evidence tier: Primary captured official DAC description plus existing chapter level schemacoder discussion; no full paper extraction, labeled schema reconstruction or cross system validation. This is the stored source classification; the location and limits below determine what was actually read.</p>
+<p><a href="https://63dac.conference-program.com/?post_type=page&amp;p=16&amp;id=RESEARCH1841">Open the recorded source</a></p>
+<p>DAC 2026 official description; captured Problem, Mechanism / artifact, Workload, Hardware, Baseline, Measurements and Limits fields; record RESEARCH1841; no manuscript pages.</p>
+<details markdown="1">
+<summary>Original captured fields — superseded for this reading card</summary>
+
+** page source tier:** medium_official_description
+
+**Baselines:** regular-expression extraction
+
+generic tree boosting
+
+**Evidence locators:** DAC 2026 official description
+
+**Evidence url:** https://63dac.conference-program.com/?post_type=page&amp;p=16&amp;id=RESEARCH1841
+
+**Hardware or process assumptions:** Log-processing software or accelerator; memory and streaming assumptions are unspecified.
+
+**Limits:** No schema accuracy, drift robustness, latency, memory, or dataset results are reported.
+
+Residual Q-tree behavior may depend on log format.
+
+Official description only; cross-system validation is required.
+
+**Method or artifact:** Automatic schema-extraction coder with residual Q-tree boosting.
+
+**Metrics:** Schema extraction efficiency is claimed qualitatively
+
+**Problem:** Large systems produce heterogeneous logs whose schemas are costly to extract and maintain.
+
+**Workload or benchmark:** System and hardware logs; languages, formats, and labeled datasets are unspecified.
+
+</details>
+<p><span id="paper-dac-2026-research2871"></span></p>
+<h3>Akirarust: Re-Thinking LLM-Aided Rust Repair Using a Feedback-Guided Thinking Switch</h3>
+<p>DAC 2026 · Record: <code>dac-2026-research2871</code></p>
+<p><a href="#explanation-dac-2026-research2871">Read the step-by-step explanation</a></p>
+<p><strong>Updated source-backed reading card</strong></p>
+<div class="worked"><p class="lm-k">Worked example</p><p>Reviewed 2026-09-08. Deepens the existing Akirarust treatment into a paper-level reading; defines the feedback-guided repair loop, separates compiler/test success from specification-level correctness, and makes switch semantics, benchmark leakage, regression, cost and repeatability explicit.</p></div>
+<p>This editorial correction updates the current reading view and connected dossiers, not the historical adjudication or scientific acceptance status. The original captured fields are preserved below.</p>
+<p><a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/data/editorial-paper-corrections-v1.json">Correction register</a></p>
+<p><strong>Problem:</strong></p>
+<p>LLM code repair can oscillate or overthink when compiler and test feedback varies.</p>
+<p><strong>Mechanism / artifact:</strong></p>
+<p>Feedback-guided LLM Rust-repair workflow with adaptive reasoning mode; model, switch condition, modes, prompt/context policy, candidate limit and stopping rule are unspecified.</p>
+<p><strong>Workload — the work tested:</strong></p>
+<p>Rust repositories and bug-fix tasks; bug classes, initial failures, compiler versions, visible/held-out tests, repositories, target patches and repair split are unspecified.</p>
+<p><strong>Hardware and manufacturing assumptions:</strong></p>
+<p>LLM coding and compiler/test loop; model, compute, tool versions, time budget, test environment and human/formal review assumptions are unspecified.</p>
+<p><strong>Baseline — the comparison method:</strong></p>
+<p>Unguided LLM repair</p>
+<p>Traditional program repair</p>
+<p>Repository, starting state, model budget, test coverage, patch acceptance and evaluation conditions are unspecified</p>
+<p><strong>Reported measurements:</strong></p>
+<p>Repair effectiveness is claimed qualitatively; no plausible-patch rate, compile rate, visible/held-out-test pass, independent correctness, regression rate, attempts, model calls, runtime, wall-clock time or cost result is reported.</p>
+<p><strong>Limits on the conclusion:</strong></p>
+<p>Compiler feedback establishes only the rules checked by a build configuration; test feedback establishes only the cases and assertions exercised. A passing patch can change untested behavior, overfit visible tests or fix one failure while introducing a regression.</p>
+<p>The thinking switch is a search-control policy, not a definition of correctness. Its value depends on the unspecified switch rule, modes, context, candidate limit and stopping condition, and on whether the benchmark prevents exposure to target patches or held-out tests.</p>
+<p>The official description reports no patch correctness, test-pass rate, runtime, cost or repository result. The record supports feedback-guided repair as a search direction, not demonstrated better correctness or lower end-to-end repair cost.</p>
+<p><strong>Source and location</strong></p>
+<p>Evidence tier: Primary captured official DAC description plus existing chapter level akirarust discussion; no full paper extraction, independent repair benchmark or correctness validation. This is the stored source classification; the location and limits below determine what was actually read.</p>
+<p><a href="https://63dac.conference-program.com/?post_type=page&amp;p=16&amp;id=RESEARCH2871">Open the recorded source</a></p>
+<p>DAC 2026 official description; captured Problem, Mechanism / artifact, Workload, Hardware, Baseline, Measurements and Limits fields; record RESEARCH2871; no manuscript pages.</p>
+<details markdown="1">
+<summary>Original captured fields — superseded for this reading card</summary>
+
+** page source tier:** medium_official_description
+
+**Baselines:** unguided LLM repair
+
+traditional program repair
+
+**Evidence locators:** DAC 2026 official description
+
+**Evidence url:** https://63dac.conference-program.com/?post_type=page&amp;p=16&amp;id=RESEARCH2871
+
+**Hardware or process assumptions:** LLM coding and compiler/test loop; model and compute assumptions are unspecified.
+
+**Limits:** No patch correctness, test pass rate, time, cost, or repository results are reported.
+
+Feedback quality depends on test coverage.
+
+Official description only; independent benchmark validation is required.
+
+**Method or artifact:** Feedback-guided LLM Rust-repair workflow with adaptive reasoning mode.
+
+**Metrics:** Repair effectiveness is claimed qualitatively
+
+**Problem:** LLM code repair can oscillate or overthink when compiler and test feedback varies.
+
+**Workload or benchmark:** Rust repositories and bug-fix tasks; tests, compilers, and repair set are unspecified.
+
+</details>
+<p class="lm-k h-label">What remains to establish</p><h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>What is still unproven here</h2>
+<p>Resolve unspecified workloads, comparison methods, resource budgets, and source locations before generalizing a reported gain. Multiple papers in this selected sample permit comparison of mechanisms, but do not by themselves establish recurrence across years or a long-term trend.</p>
+<p><a href="../guide/expanded-taxonomy-v1.html">All subthemes</a> · <a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/reports/directions/README.md">Research directions</a></p><p class="meta">Written as <a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/reports/observed-subthemes/verification-and-debugging-tools.md">reports/observed-subthemes/verification-and-debugging-tools.md</a> in the course repository.</p>
+      </article>
+      <nav class="pager" aria-label="Previous and next"><a class="prev" href="architecture-modeling-and-exploration.html"><span class="pg-k">← Previous</span><span class="pg-t">Architecture modeling and exploration</span></a><a class="map" href="../subthemes.html"><span class="pg-k">Back to</span><span class="pg-t">Subthemes</span></a><a class="next" href="simulation-emulation-and-testing.html"><span class="pg-k">Next →</span><span class="pg-t">Simulation emulation and testing</span></a></nav>
+    </section>
+  </main>
+  <footer class="course-foot">
+    <p>Built from 582 paper records coded from ISCA 2026, DAC 2026 and ICCAD 2025 (ICCAD 2026 papers were not yet public). Most records come from official program descriptions; see “How deep the reading went”. The papers belong to their authors.</p>
+    <p class="foot-links"><a href="https://github.com/mehtama1234/course-concept-library">All courses</a><a href="../index.html">This course</a><a href="../course-map.html">Course map</a><a href="../presentation/index.html">Slides</a><a href="../video/index.html">Video</a><a href="../share/index.html">Share</a></p>
+  </footer>
+  <script src="../assets/course-data.js"></script><script src="../assets/icons.js"></script><script src="../assets/icons-extra.js"></script><script src="../assets/icons-course.js"></script><script src="../assets/art.js"></script><script src="../assets/course-art.js"></script><script src="../assets/charts.js"></script><script src="../assets/course-charts.js"></script><script src="../assets/course-site.js"></script>
+</body>
+</html>

@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#F3ECE1" />
+  <title>Chiplets, 3D integration, and packaging · Semiconductor conference atlas</title>
+  <meta name="description" content="The article explains the technical problem step by step first, then links to every subtheme and its papers. Worked numbers are illustrations, not paper results." />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Semiconductor conference atlas" />
+  <meta property="og:title" content="Chiplets, 3D integration, and packaging · Semiconductor conference atlas" />
+  <meta property="og:description" content="The article explains the technical problem step by step first, then links to every subtheme and its papers. Worked numbers are illustrations, not paper results." />
+  <meta property="og:url" content="https://mehtama1234.github.io/semiconductor-conferences/themes/chiplets-3d-and-packaging.html" />
+  <meta property="og:image" content="https://mehtama1234.github.io/semiconductor-conferences/presentation/slides/01-cover.jpg" />
+  <meta property="og:image:width" content="1920" />
+  <meta property="og:image:height" content="1080" />
+  <meta property="og:image:alt" content="Semiconductor conference atlas: 582 papers from ISCA, DAC and ICCAD, sorted into 10 themes and six directions to watch." />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="canonical" href="https://mehtama1234.github.io/semiconductor-conferences/themes/chiplets-3d-and-packaging.html" />
+  <link rel="icon" href="../assets/icon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="../assets/base.css" />
+  <link rel="stylesheet" href="../assets/experience.css" />
+  <link rel="stylesheet" href="../assets/theme-atlas.css" />
+  <link rel="stylesheet" href="../assets/styles.css" />
+  <link rel="stylesheet" href="../assets/charts.css" />
+  <link rel="stylesheet" href="../assets/course.css" />
+  
+</head>
+<body class="course-site " data-house="atlas">
+  <aside class="public-demo-banner" aria-label="About this course">A plain-language guide to what ISCA, DAC and ICCAD papers say about chip and computer design · Built from the repository’s own paper records · Not made by the conferences</aside>
+  <a class="skip-link" href="#app">Skip to the page</a>
+  <header>
+    <a class="brand" href="../index.html"><span class="mark" aria-hidden="true">Si</span> Semiconductor conference atlas</a>
+    <span class="header-status"><span class="badge">582 papers</span><span class="badge">10 themes</span><span class="badge">Plain words first</span></span>
+    <a class="header-link" href="../course-map.html">Course map</a>
+  </header>
+  <nav class="course-nav" aria-label="Main sections of the course"><a href="../index.html">The big picture</a><a href="../themes.html" aria-current="page">Themes</a><a href="../subthemes.html">Subthemes</a><a href="../deep-reads.html">Deep reads</a><a href="../directions.html">What to watch</a><a href="../presentation/index.html">Slides</a><a href="../video/index.html">Video</a><a href="../share/index.html">Share</a></nav>
+  <main id="app" tabindex="-1">
+    <section class="screen active landing legacy-page" aria-labelledby="page-title">
+<div class="lm-head"><div class="hj-heading"><nav class="crumbs" aria-label="You are here"><a href="../course-map.html">Course map</a><span aria-hidden="true">›</span><a href="../themes.html">Themes</a></nav><a class="back-button" href="../themes.html">← <span>Themes</span></a><p class="eyebrow">Theme · 25 papers · 9 subthemes</p><h1 id="page-title">Chiplets, 3D integration, and packaging: splitting a chip into pieces trades cost for heat and wiring between dies</h1><p class="hj-sub">The article explains the technical problem step by step first, then links to every subtheme and its papers. Worked numbers are illustrations, not paper results.</p></div><div class="hj-art" data-art="trio:cpu,stack-2,arrows-exchange"></div></div>
+<figure class="course-fig"><div class="loop-wide" data-art="flow:chiplets-3d-and-packaging"></div><div class="loop-tall" data-art="flowTall:chiplets-3d-and-packaging"></div><figcaption>Splitting a chip into dies trades cost for wiring and heat.</figcaption></figure><div class="chart-card"><div data-chart="theme-chiplets-3d-and-packaging"></div><div><p class="lm-k">In numbers</p><h3>9 subthemes, largest first</h3><p>25 papers: DAC 23, ICCAD 2.</p><p class="chart-note">A count shows attention in this sample, not importance.</p></div></div>
+      <article class="prose">
+
+<p>This article explains the subject and then connects it to 25 papers in the selected research sample.</p>
+<p>A subtheme groups related technical problems. A mechanism describes the particular change proposed by a paper. The discussion below explains the subject; the linked paper records state the available evidence.</p>
+<p><a href="../guide/reading-guide-v1.html">Definitions used in the paper records</a></p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="chart-bar"></span>Splitting a system into several dies adds boundaries data must cross</h2>
+<p>A <strong>die</strong> is a piece of semiconductor carrying circuits. A package can connect several dies. When they are designed as parts of one larger system they are often called <strong>chiplets</strong>. A <strong>three-dimensional (3D)</strong> design stacks active layers or dies on top of each other.</p>
+<p>Splitting lets different functions use different manufacturing processes. The cost is that communication must cross extra physical boundaries.</p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>Each boundary costs area, energy, time and heat</h2>
+<ul>
+<li>A link between dies uses area, energy and time.</li>
+<li>The package must deliver current to, and remove heat from, every active part.</li>
+<li>Stacked parts can sit far from a good cooling path.</li>
+</ul>
+<p>So moving computation between dies changes communication and temperature together. A system choice cannot be judged from the speed of one die alone.</p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="affiliate"></span>The subthemes split, connect, cool, or design the package</h2>
+<ul>
+<li><strong>Partitioning</strong> decides which functions belong together.</li>
+<li><strong>Interconnect</strong> designs the communication between the parts.</li>
+<li><strong>Thermal</strong> methods estimate temperatures and choose placement or operation to stay within limits.</li>
+<li><strong>Package co-design</strong> studies these choices together with power delivery and physical assembly.</li>
+</ul>
+<p>One paper may address several of these.</p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="checklist"></span>A fair test states the physical setup and compares whole systems</h2>
+<ol>
+<li>State die sizes, link rates, cooling, power assumptions, workload placement and the manufacturing assumptions used for cost.</li>
+<li>Compare the full system under the same temperature and performance limits.</li>
+</ol>
+<p>A thermal simulation supports a temperature prediction under its model. Reliability and yield of manufactured parts need their own evidence.</p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>Follow the information crossing a die boundary</h2>
+<p>Partitioning a computation assigns operations and storage to different physical components. A producer on one die may need to send its result to a consumer on another.</p><p>The consumer cannot use that result until the required bytes arrive. The connection also occupies physical space and consumes energy, while both endpoints require power delivery and cooling.</p>
+<div class="worked"><p class="lm-k">Worked example</p><p>Suppose two sequential computation stages take three milliseconds each on one implementation. A partitioned design reduces each stage to two milliseconds but adds a three-millisecond transfer between them.</p></div><p>Completion takes seven milliseconds rather than six. Overlapping different requests may improve throughput, but it does not erase the dependency within this request.</p><p>These are illustrative numbers, not a result attributed to a paper.</p>
+<p>This is the starting point for evaluating chiplets: which costs are reduced inside each part, and which costs appear at the boundaries? The examples below explain that question. Linked articles retain their source-specific conditions and gaps; this parent synthesis does not establish a manufactured system.</p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="affiliate"></span>A physical boundary needs more than a logical connection</h2>
+<p>A circuit connection describes the intended relationship between signals. Its implementation needs transmitters, receivers, wiring, timing rules, and a way to match requests with responses where appropriate.</p><p>A package may connect dies side by side through an interconnection structure, or place active dies or layers above one another. These arrangements expose different distances, connection densities, assembly requirements, and heat paths.</p>
+<p>Shorter distance alone does not establish lower application latency. A link can require buffering, conversion between interfaces, or coordination across clock domains. More available bandwidth helps only when the workload exposes sufficient independent transfers and the endpoints can supply and consume them.</p>
+<p>The <a href="../subthemes/chiplet-interconnects.html">interconnect chapter</a> groups representation and network-design proposals. The <a href="../subthemes/advanced-packaging-and-interconnect.html">advanced-packaging chapter</a> addresses physical connection structures. Their results concern different parts of the path and cannot be ranked by a shared word such as bandwidth without matching the transferred work and measurement boundary.</p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>Partition according to communication, not component count alone</h2>
+<p>Two partitions can cut the same number of logical connections while transferring different amounts of data. One cut may carry a control bit infrequently; another may carry a large tensor every step.</p><p>They also may lie on different dependency paths. Counting crossings can guide design, but traffic volume, burst timing, and criticality determine additional costs.</p>
+<p>For a simple lower bound, transferring 100 million bytes over an interface sustaining 50 billion bytes per second requires two milliseconds. That excludes request setup, contention, protocol overhead not included in the stated useful bandwidth, and any waiting before the transfer starts.</p><p>A peak physical signaling rate is not automatically the sustained useful byte rate.</p>
+<p><a href="../subthemes/chiplet-system-architecture.html#chiplanner-partition-with-an-estimate-of-the-physical-consequences">ChiPlanner's discussion</a> connects partitioning to approximate placement and timing. Its description-level evidence leaves absolute timing and cost-model conditions unresolved. The question is whether early estimates choose partitions that remain favorable after physical implementation, not merely whether the partitioner produces a better internal score.</p>
+<p>This connects directly to the <a href="physical-design-and-manufacturing.html">physical-design theme</a>: geometric legality, extracted effects, clock behavior, and power delivery must survive the partition decision. A favorable early partition remains a candidate until those checks apply to the resulting assembly.</p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>Phase-specific hardware adds a scheduling obligation</h2>
+<p>Language-model prompt processing and subsequent token generation can expose different amounts of parallel work and data reuse. Specializing different resources for those phases may improve their local efficiency. The design then needs to transfer the necessary state and balance demand between the resources.</p>
+<div class="worked"><p class="lm-k">Worked example</p><p>Imagine one phase can supply 100 requests per second while the next can complete only 60 under the same request distribution. Sustainable end-to-end throughput cannot exceed 60 without changing that distribution or adding capacity.</p></div><p>The first phase's idle time or growing intermediate queue is part of the system behavior. Different prompt and output lengths can change which phase is limiting.</p>
+<p>The manuscript-backed <a href="../subthemes/chiplet-system-architecture.html#duet-give-different-inference-phases-different-hardware">DUET explanation</a> preserves that boundary: the study assumes matched phase throughput without an explicit multi-request scheduler, uses simulation and synthesis, and models its baseline rather than measuring a complete baseline service. Its chiplet area scaling is not fabricated-package evidence.</p>
+<p>This DUET is the phase-specific hybrid-model architecture, not the bit-sparsity Duet in the architecture chapter. Similar names must not merge their mechanisms or results. The <a href="systems-applications-and-workloads.html">systems theme</a> supplies the further requirement to evaluate queueing, admission, initial response, and generation pace together.</p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>Thermal feasibility is spatial and time-dependent</h2>
+<p>Power describes the rate at which energy is used; temperature depends on where heat is produced and how it moves through materials to the surroundings. Two designs with the same total power can have different hottest locations.</p><p>Placing power-dense components together can change local temperature even when total power stays fixed.</p>
+<p>In a simplified steady-state model, temperature rise equals power multiplied by thermal resistance. Twenty watts through a two-kelvin-per-watt path gives a 40-kelvin rise.</p><p>This calculation does not describe a complete stacked package: real temperature fields depend on multiple interacting paths, geometry, materials, and boundary conditions. A temperature difference of one kelvin has the same magnitude as one degree Celsius; absolute temperature scales differ.</p>
+<p>Steady-state analysis describes settled conditions. A changing workload additionally requires a transient model describing how temperatures evolve. A predictor accurate for one cooling arrangement or power map is not thereby validated for a different stack or sudden power change.</p>
+<p>The <a href="../subthemes/3d-stacking-and-thermal-management.html">thermal chapter</a> explicitly separates prediction, reconstruction from observations, and control. LegoTherm's reduced models, learned predictors, and analytical solvers there have different recorded scopes and error definitions.</p><p>A low average temperature error does not bound the error at the hottest location, and a faster prediction does not prove safe control.</p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>Cooling and throttling belong in performance accounting</h2>
+<p>A design may reduce operating frequency to keep temperatures within a limit. This can preserve operation while reducing sustained work per second. Reporting performance before the thermal response settles can conceal that tradeoff.</p>
+<div class="worked"><p class="lm-k">Worked example</p><p>For an illustrative ten-second run, suppose execution completes 100 work units per second for two seconds, then 50 for the remaining eight. Total work is 600 units, or 60 per second on average, not the initial rate of 100.</p></div><p>A fair comparison states startup conditions, cooling, workload duration, and the temperature rule that changes operation.</p>
+<p>Moving work to a cooler region can also move its data, disrupt reuse, or overload another connection. The thermal benefit must be evaluated with those costs. Temperature simulation supports a prediction under its model; it does not alone establish long-term manufactured reliability.</p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="checklist"></span>Assembly and testing change the cost denominator</h2>
+<p>Smaller separately manufactured parts can be tested and selected before assembly, but the package introduces its own cost and possible failures. Cost per attempted package differs from cost per accepted working package.</p><p>A useful model must state die cost, screening, assembly, rework where supported, and final acceptance criteria.</p>
+<p>As a deliberately simplified example, if an attempt consumes 100 cost units and final acceptance is 80%, long-run cost per accepted output is 125 units when failed attempts are unrecoverable and all attempts cost the same. This is not a chiplet cost forecast.</p><p>Recovery, correlated failures, different die populations, and test coverage alter the calculation.</p>
+<p>Do not multiply generic die-yield numbers to predict package yield without justified independence and assembly assumptions. Passing a test also establishes only the properties covered under its conditions. Connectivity testing, functional testing, thermal behavior, and lifetime qualification address different failure mechanisms.</p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>Keep the comparison at the complete-system boundary</h2>
+<table>
+<thead>
+<tr>
+<th>Local claim</th>
+<th>Additional condition needed</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A specialized die executes faster</td>
+<td>Transfer and phase scheduling preserve the end-to-end benefit</td>
+</tr>
+<tr>
+<td>A package offers more link bandwidth</td>
+<td>Useful traffic can exploit it without endpoint or queue limits</td>
+</tr>
+<tr>
+<td>An early partition has better timing</td>
+<td>Physical implementation and extracted analysis retain the result</td>
+</tr>
+<tr>
+<td>A thermal estimator is faster</td>
+<td>Critical-location and transient errors are acceptable for its use</td>
+</tr>
+<tr>
+<td>Smaller parts reduce one manufacturing cost</td>
+<td>Assembly, testing, failures, and accepted-system cost remain favorable</td>
+</tr>
+</tbody>
+</table>
+<p>These conditions connect the papers without pretending they are already integrated. The <a href="design-methodology-and-tooling.html">tooling theme</a> explains preparation and search budgets; the <a href="memory-interconnect-and-storage.html">memory theme</a> explains data availability and progress. Both remain relevant when resources are reorganized inside a package rather than across servers.</p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="checklist"></span>Long-term hypotheses with explicit tests</h2>
+<p>One hypothesis is that partitioning increasingly needs workload and physical estimates together. Compare early joint planning with staged planning under the same final implementation checks. It weakens when estimate errors cause extra repair or staged methods reach equivalent outcomes more cheaply.</p>
+<p>A second hypothesis is that phase specialization helps only when communication and phase demand remain compatible with resource allocation. Vary request distributions, handoff sizes, and concurrency, including imbalance. It weakens when idle capacity, transfers, or scheduling consume the local gain.</p>
+<p>A third hypothesis is that thermal constraints change the ranking of high-density designs. Compare sustained useful work under equal declared cooling and temperature limits, not only initial performance. It weakens as a distinguishing factor where candidate rankings remain unchanged over realistic power maps and durations.</p>
+<p>These are bounded interpretations, not established ISCA–DAC–ICCAD time trends or evidence of commercial adoption. Matched editions, workloads, technology assumptions, cooling, cost models, and source depth remain needed.</p><p>This expanded parent discussion does not complete individual-paper source recovery, deeper writing, manufactured validation, or independent scientific and comprehension review.</p>
+<p class="lm-k h-label">Subthemes and how to study them</p><h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="books"></span>The subthemes in this theme, and how to read them</h2>
+<p>Each link opens the subtheme discussion and its captured paper records. Explanatory depth varies: some papers have expanded individual explanations; others still have only brief discussion or evidence cards. Source locations and unresolved conditions remain visible.</p>
+<h3><a href="../subthemes/3d-stacking-and-thermal-management.html">3d stacking and thermal management</a></h3>
+<p>7 selected records in this theme. Start with <a href="../subthemes/3d-stacking-and-thermal-management.html">COOL: A Cooling-Aware Point Transformer Framework for Thermal Prediction in Advanced 3D/3.5D IC Packaging</a>.</p>
+<h3><a href="../subthemes/3d-integration-and-thermal-management.html">3d integration and thermal management</a></h3>
+<p>6 selected records in this theme. Start with <a href="../subthemes/3d-integration-and-thermal-management.html">Thermal Stability Strategy for a 12nm/28nm Hybrid-Bonding Wafer-on-Wafer 3D-Integrated Eflash In-Memory Computing SoC</a>.</p>
+<h3><a href="../subthemes/chiplet-system-architecture.html">Chiplet system architecture</a></h3>
+<p>3 selected records in this theme. Start with <a href="../subthemes/chiplet-system-architecture.html">DUET: Disaggregated Hybrid Mamba-Transformer LLMs with Prefill and Decode-Specific Packages</a>.</p>
+<h3><a href="../subthemes/advanced-packaging-and-interconnect.html">Advanced packaging and interconnect</a></h3>
+<p>2 selected records in this theme. Start with <a href="../subthemes/advanced-packaging-and-interconnect.html">Mixed-Structure Double-Sided Redistribution Layer Routing for Glass Interposer-Based 5.5D ICs</a>.</p>
+<h3><a href="../subthemes/chiplet-interconnects.html">Chiplet interconnects</a></h3>
+<p>2 selected records in this theme. Start with <a href="../subthemes/chiplet-interconnects.html">LEXI: Lossless Exponent Coding for Efficient Inter-Chiplet Communication in Hybrid LLMs</a>.</p>
+<h3><a href="../subthemes/wafer-scale-and-heterogeneous-integration.html">Wafer scale and heterogeneous integration</a></h3>
+<p>2 selected records in this theme. Start with <a href="../subthemes/wafer-scale-and-heterogeneous-integration.html">Hyperwafer: Communication-Aware Sparse Matrix Multiplication on Wafer-Scale Chips</a>.</p>
+<h3><a href="../subthemes/chiplet-partitioning-and-integration.html">Chiplet partitioning and integration</a></h3>
+<p>1 selected records in this theme. Start with <a href="../subthemes/chiplet-partitioning-and-integration.html">MAHL: Multi-Agent LLM-Guided Hierarchical Chiplet Design with Adaptive Debugging</a>.</p>
+<h3><a href="../subthemes/chiplets-and-heterogeneous-integration.html">Chiplets and heterogeneous integration</a></h3>
+<p>1 selected records in this theme. Start with <a href="../subthemes/chiplets-and-heterogeneous-integration.html">Hbspec: A Hybrid-Bonding-Based Heterogeneous Accelerator for Efficient Tree-Structured Speculative Decoding</a>.</p>
+<h3><a href="../subthemes/package-system-co-design.html">Package system co design</a></h3>
+<p>1 selected records in this theme. Start with <a href="../subthemes/package-system-co-design.html">BLADE: Bi-Level Bayesian Optimization for Metal-Density-Constrained Multi-Layer Package Power/ground Plane Synthesis</a>.</p>
+<p class="lm-k h-label">Representative source-backed records</p><h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="route"></span>Papers that show the theme well</h2>
+<p>The following reading set spans the available conferences and uses dated corrections where registered. These corrections improve the current reading view but do not change historical adjudication or establish independent acceptance. Each paper link opens its exact evidence card.</p>
+<p class="lm-k h-label">Paper cards: what changes and where it stops</p><h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>Paper cards: what each paper changes, and where it stops</h2>
+<ul>
+<li><a href="../subthemes/3d-integration-and-thermal-management.html#paper-dac-2026-research900">Integrated Timing-Driven Placement for Hybrid-Bonding-Based Face-to-Face 3D ICs</a> — DAC 2026.</li>
+<li><a href="../subthemes/advanced-packaging-and-interconnect.html#paper-dac-2026-research799">Mixed-Structure Double-Sided Redistribution Layer Routing for Glass Interposer-Based 5.5D ICs</a> — DAC 2026.</li>
+<li><a href="../subthemes/3d-integration-and-thermal-management.html#paper-dac-2026-research793">RTL-3D: Timing-Aware Tier Partitioning for 3D ICs Using Pre-Synthesis Timing Analysis</a> — DAC 2026.</li>
+<li><a href="../subthemes/3d-stacking-and-thermal-management.html#paper-dac-2026-research553">From Fluid Dynamics to Chip Design: PDE Foundation Model Address Data Bottleneck in 3D-ICs Thermal Simulation</a> — DAC 2026.</li>
+<li><a href="../subthemes/chiplet-partitioning-and-integration.html#paper-iccad-2025-1207">MAHL: Multi-Agent LLM-Guided Hierarchical Chiplet Design with Adaptive Debugging</a> — ICCAD 2025.</li>
+<li><a href="../subthemes/3d-stacking-and-thermal-management.html#paper-iccad-2025-1103">Tasa: Thermal-aware 3D-Stacked Architecture Design with Bandwidth Sharing for LLM Inference</a> — ICCAD 2025.</li>
+<li><a href="../subthemes/3d-integration-and-thermal-management.html#paper-dac-2026-research518">Flexicts: CPPR-Aware 3D Clock Tree Synthesis for Face-to-Face Bonded ICs</a> — DAC 2026.</li>
+<li><a href="../subthemes/chiplet-system-architecture.html#paper-dac-2026-research399">ChiSER: Surrogate-Enhanced Resource-Aware Exploration of Chiplet-Based Deep Neural Network Accelerators</a> — DAC 2026.</li>
+<li><a href="../subthemes/chiplet-system-architecture.html#paper-dac-2026-research380">Chiplanner: Physically-Aware and Timing-Driven Design Planner for 2.5D Multi-Chiplet Systems</a> — DAC 2026.</li>
+<li><a href="../subthemes/chiplet-interconnects.html#paper-dac-2026-research363">Network Design for Wafer-Scale Systems with Wafer-on-Wafer Hybrid Bonding</a> — DAC 2026.</li>
+<li><a href="../subthemes/chiplet-interconnects.html#paper-dac-2026-research3121">LEXI: Lossless Exponent Coding for Efficient Inter-Chiplet Communication in Hybrid LLMs</a> — DAC 2026.</li>
+<li><a href="../subthemes/chiplet-system-architecture.html#paper-dac-2026-research3120">DUET: Disaggregated Hybrid Mamba-Transformer LLMs with Prefill and Decode-Specific Packages</a> — DAC 2026.</li>
+</ul>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="file-text"></span>What the evidence supports</h2>
+<p>These records identify proposed methods and the conditions recorded for them. A reported improvement should be interpreted with its comparison method, input size, hardware, and result-quality requirement. Missing fields are evidence gaps; a populated field can also state that a detail is unspecified.</p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="file-text"></span>Limits and next evidence</h2>
+<p>The selected sample is uneven across conferences and source types. It cannot establish how fast a subject is growing. Repeated observations across comparable years, with the same inclusion rules and source depth, are needed for a time trend.</p>
+<p>Every linked evidence article preserves the Problem: and Mechanism / artifact: fields, baseline, unshortened limitations, source URL, and recorded location. Primary text and independent review remain necessary where the record says those checks are open.</p>
+<p><a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/reports/directions/README.md">Research directions</a> · <a href="../guide/expanded-taxonomy-v1.html">All observed subthemes</a></p><p class="meta">Written as <a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/reports/themes/chiplets-3d-and-packaging.md">reports/themes/chiplets-3d-and-packaging.md</a> in the course repository.</p>
+      </article>
+      <nav class="pager" aria-label="Previous and next"><a class="prev" href="architecture-and-accelerators.html"><span class="pg-k">← Previous</span><span class="pg-t">Architecture and accelerators</span></a><a class="map" href="../themes.html"><span class="pg-k">Back to</span><span class="pg-t">Themes</span></a><a class="next" href="design-methodology-and-tooling.html"><span class="pg-k">Next →</span><span class="pg-t">Design methodology and tooling</span></a></nav>
+    </section>
+  </main>
+  <footer class="course-foot">
+    <p>Built from 582 paper records coded from ISCA 2026, DAC 2026 and ICCAD 2025 (ICCAD 2026 papers were not yet public). Most records come from official program descriptions; see “How deep the reading went”. The papers belong to their authors.</p>
+    <p class="foot-links"><a href="https://github.com/mehtama1234/course-concept-library">All courses</a><a href="../index.html">This course</a><a href="../course-map.html">Course map</a><a href="../presentation/index.html">Slides</a><a href="../video/index.html">Video</a><a href="../share/index.html">Share</a></p>
+  </footer>
+  <script src="../assets/course-data.js"></script><script src="../assets/icons.js"></script><script src="../assets/icons-extra.js"></script><script src="../assets/icons-course.js"></script><script src="../assets/art.js"></script><script src="../assets/course-art.js"></script><script src="../assets/charts.js"></script><script src="../assets/course-charts.js"></script><script src="../assets/course-site.js"></script>
+</body>
+</html>

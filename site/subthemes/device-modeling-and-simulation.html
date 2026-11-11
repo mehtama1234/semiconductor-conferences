@@ -1,0 +1,223 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#F3ECE1" />
+  <title>Device modeling and simulation · Semiconductor conference atlas</title>
+  <meta name="description" content="Papers: DAC 2. Read from: 2 program descriptions, 0 abstracts or reports, 0 full papers or preprints. The explanations come first; every paper’s record follows at the end." />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Semiconductor conference atlas" />
+  <meta property="og:title" content="Device modeling and simulation · Semiconductor conference atlas" />
+  <meta property="og:description" content="Papers: DAC 2. Read from: 2 program descriptions, 0 abstracts or reports, 0 full papers or preprints. The explanations come first; every paper’s record follows at the end." />
+  <meta property="og:url" content="https://mehtama1234.github.io/semiconductor-conferences/subthemes/device-modeling-and-simulation.html" />
+  <meta property="og:image" content="https://mehtama1234.github.io/semiconductor-conferences/presentation/slides/01-cover.jpg" />
+  <meta property="og:image:width" content="1920" />
+  <meta property="og:image:height" content="1080" />
+  <meta property="og:image:alt" content="Semiconductor conference atlas: 582 papers from ISCA, DAC and ICCAD, sorted into 10 themes and six directions to watch." />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="canonical" href="https://mehtama1234.github.io/semiconductor-conferences/subthemes/device-modeling-and-simulation.html" />
+  <link rel="icon" href="../assets/icon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="../assets/base.css" />
+  <link rel="stylesheet" href="../assets/experience.css" />
+  <link rel="stylesheet" href="../assets/theme-atlas.css" />
+  <link rel="stylesheet" href="../assets/styles.css" />
+  <link rel="stylesheet" href="../assets/charts.css" />
+  <link rel="stylesheet" href="../assets/course.css" />
+  
+</head>
+<body class="course-site " data-house="atlas">
+  <aside class="public-demo-banner" aria-label="About this course">A plain-language guide to what ISCA, DAC and ICCAD papers say about chip and computer design · Built from the repository’s own paper records · Not made by the conferences</aside>
+  <a class="skip-link" href="#app">Skip to the page</a>
+  <header>
+    <a class="brand" href="../index.html"><span class="mark" aria-hidden="true">Si</span> Semiconductor conference atlas</a>
+    <span class="header-status"><span class="badge">582 papers</span><span class="badge">10 themes</span><span class="badge">Plain words first</span></span>
+    <a class="header-link" href="../course-map.html">Course map</a>
+  </header>
+  <nav class="course-nav" aria-label="Main sections of the course"><a href="../index.html">The big picture</a><a href="../themes.html">Themes</a><a href="../subthemes.html" aria-current="page">Subthemes</a><a href="../deep-reads.html">Deep reads</a><a href="../directions.html">What to watch</a><a href="../presentation/index.html">Slides</a><a href="../video/index.html">Video</a><a href="../share/index.html">Share</a></nav>
+  <main id="app" tabindex="-1">
+    <section class="screen active landing legacy-page" aria-labelledby="page-title">
+<div class="lm-head"><div class="hj-heading"><nav class="crumbs" aria-label="You are here"><a href="../course-map.html">Course map</a><span aria-hidden="true">›</span><a href="../subthemes.html">Subthemes</a></nav><a class="back-button" href="../subthemes.html">← <span>Subthemes</span></a><p class="eyebrow">Subtheme · 2 papers · Analog, mixed-signal, and emerging devices</p><h1 id="page-title">Device modeling and simulation</h1><p class="hj-sub">Papers: DAC 2. Read from: 2 program descriptions, 0 abstracts or reports, 0 full papers or preprints. The explanations come first; every paper’s record follows at the end.</p></div><div class="hj-art" data-art="trio:math-function,wave-sine,alert-triangle"></div></div>
+<figure class="course-fig"><div class="loop-wide" data-art="flow:analog-mixed-signal-and-emerging-devices"></div><div class="loop-tall" data-art="flowTall:analog-mixed-signal-and-emerging-devices"></div><figcaption>The parent theme in one picture: when a device does the arithmetic, its physics sets the accuracy.</figcaption></figure>
+      <article class="prose">
+
+<p>This subject has 2 records in the selected sample. This page explains where it fits, then presents all captured paper evidence without shortening the measurements or limitations.</p>
+<p><a href="../guide/reading-guide-v1.html">Definitions used in the paper records</a></p>
+<p class="lm-k h-label">Understand the parent subject first</p><h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>The bigger theme this belongs to</h2>
+<ul>
+<li><a href="../themes/analog-mixed-signal-and-emerging-devices.html">Analog mixed signal and emerging devices</a></li>
+</ul>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="math-function"></span>Device equations and circuit behavior are different levels</h2>
+<p>A device model describes electrical behavior within or at the terminals of a component. A circuit model connects components and determines how their voltages and currents interact.</p><p>This grouping contains one learned semiconductor-device solver and one learned circuit simulator. Their input variables, outputs, and acceptable errors should not be assumed identical.</p>
+<p>Conventional numerical simulation approximates equations on a finite representation and solves them to a chosen tolerance. A learned surrogate instead represents a solution or input-output relationship with a trained model.</p><p>A surrogate can be fast to evaluate, but its preparation and validation are part of the method's cost.</p>
+<p>Accuracy also has several meanings. A small equation residual means that a candidate approximately satisfies the equations where or how they were checked.</p><p>A small prediction error means agreement with selected reference outputs. Agreement with a physical device requires calibrated equations or measurements.</p><p>These are related checks, not substitutes for each other.</p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="math-function"></span>Weak-form learning: enforce equations through integrals</h2>
+<p>A strong-form equation states a local relationship involving a field and its derivatives. A weak form expresses the relationship through integrals against selected test functions.</p><p>This can change which derivatives must be evaluated and how errors are penalized. The test functions and numerical integration determine which violations the training process can detect.</p>
+<p>An integral constraint is not simply a claim that the average answer is correct. With appropriate mathematical conditions and a sufficiently rich set of tests, weak and strong formulations can describe the same problem.</p><p>A finite trained implementation still needs checks: a small collection of integral tests can miss localized error or fail to resolve a sharp change.</p>
+<div class="worked"><p class="lm-k">Worked example</p><p><a href="device-modeling-and-simulation.html#paper-dac-2026-research2346">WF-PINN</a> trains from physical laws and Dirichlet boundary conditions without internal labeled solution data. Dirichlet conditions prescribe the value of the solution at specified boundaries.</p><p>The official description reports FinFET simulation with solution errors below 5.36×10⁻² and inference 2.16×10⁴ times faster than TCAD. It does not define the error normalization or expose training cost, solver settings, hardware, or tested geometries.</p><p>The error must not be rewritten as 5.36% without that definition, and inference speed must not become total workflow speed. <a href="https://63dac.conference-program.com/presentation/?id=RESEARCH2346&amp;sess=sess312">Official WF-PINN description</a>.</p></div>
+<p>Self-supervision removes a particular labeling requirement; it does not remove the need for correct material parameters, boundary conditions, or independent evaluation. A useful test would compare terminal currents and relevant internal fields across operating points, including regions where the numerical solution changes rapidly.</p><p>It should state whether each new geometry or bias condition requires retraining.</p>
+<p><span id="explanation-dac-2026-research2346"></span></p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>WF-PINN: removing interior labels is not the same as validating a device solver</h2>
+<p>TCAD solves coupled semiconductor equations over a device geometry and operating condition. Depending on the device and regime, the relevant fields can include electrostatic potential, carrier concentrations, current density and temperature.</p><p>A surrogate is useful only if it preserves the quantities needed for a device decision, not merely an aggregate residual or a visually plausible field.</p>
+<p>WF-PINN is described as a self-supervised weak-form physics-informed neural network for FinFET simulation. Instead of requiring labeled solution values at interior mesh points, it trains against integral forms of the physical laws and Dirichlet boundary conditions.</p><p>This removes one expensive source of training labels; it does not remove the need to specify material parameters, geometry, contacts, interface conditions, bias conditions, test functions, quadrature and solver tolerances. Weak-form averaging can also hide a localized violation near a junction, interface or high-field region.</p>
+<div class="worked"><p class="lm-k">Worked example</p><p>The first gate is equation and boundary fidelity. State the coupled equations, variables, units, material and mobility models, contact conditions, fixed-value boundaries, test-function family, integration mesh and loss weights.</p><p>Check residuals locally and by integral region, conservation, boundary mismatch, interface continuity and convergence against a trusted TCAD solver. Report terminal current, charge, potential, field and other decision-relevant quantities across bias, geometry, temperature and process conditions; do not translate an undefined solution error of 5.36×10⁻² into 5.36%.</p><p>The second gate is transfer and total cost. Hold out device geometries, mesh resolutions, doping/material parameters and operating regimes rather than only sampling nearby points.</p><p>Report failed or unstable rollouts, training time, data preparation, retraining for a new geometry or bias range, inference hardware and precision. Compare with TCAD and strong-form PINNs under the same accuracy boundary and include the cost of independently checking selected predictions.</p><p>A 2.16×10⁴ inference-speed ratio is a statement about one inference boundary versus one TCAD solve; it is not automatically end-to-end simulation speed or design-flow speedup.</p><p>The official description reports FinFET solution errors below 5.36×10⁻² and inference 2.16×10⁴ times faster than TCAD. It does not expose the error normalization, equation set, geometry and bias matrix, mesh, material/process calibration, convergence behavior, training cost, hardware or downstream device-design result.</p><p>The evidence supports a weak-form self-supervised device-simulation direction that may reduce reliance on interior labels, not demonstrated calibrated device-model accuracy, universal geometry transfer or a TCAD-replacing workflow.</p></div>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="pencil-check"></span>IGNITE: use a few examples to condition a pretrained predictor</h2>
+<p>In-context adaptation supplies examples as inputs to an already trained model. It differs from updating the model's stored parameters through another training run. It can reduce adaptation work, but the examples still need to be obtained, and the model can still fail on unfamiliar circuits.</p>
+<p><a href="device-modeling-and-simulation.html#paper-dac-2026-research1420">IGNITE</a> combines a self-supervised circuit-topology encoder with a Prior-data Fitted Network decoder. Its official description uses a small context set for a forward prediction pass and an information-based strategy for selecting samples.</p><p>It reports R² above 0.9 with 95 samples on average, calling this a 15.8× improvement over the comparator. It separately reports 2–30× faster transistor sizing and more than 5× faster yield optimization.</p><p>These are distinct sample-efficiency and application results, not factors to multiply. <a href="https://63dac.conference-program.com/presentation/?id=RESEARCH1420&amp;sess=sess117">Official IGNITE description</a>.</p>
+<p>R² compares squared prediction error with the variation in reference outputs around their mean. A value above 0.9 is not a guarantee that every output has less than 10% error.</p><p>It can coexist with a large error on a rare but important condition. For a design optimizer, those conditions can determine whether a circuit meets a specification.</p>
+<p>The description does not identify the complete output set, pretraining data, topology split, reference simulator tolerances, or accounting for context acquisition. Its cross-topology and cross-technology claims need checks that related circuits or evaluation conditions were not already available during training.</p><p>The older captured card mentions transient analysis, but the refreshed description does not establish waveform-level prediction; that scope remains unresolved.</p>
+<p><span id="explanation-dac-2026-research1420"></span></p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="refresh"></span>IGNITE: conditioning a pretrained circuit surrogate is not the same as replacing SPICE</h2>
+<p>Circuit simulation evaluates a circuit's equations under a topology, device model, parameter set and operating condition. A neural simulator tries to approximate some of those outputs so that an optimizer can explore more candidates per unit time.</p><p>For the approximation to be useful, it must preserve the outputs and constraints that drive the design decision—not merely achieve a high average fit score.</p>
+<p>IGNITE is described as a pretrained model with a self-supervised circuit-topology encoder and a Prior-data Fitted Network decoder. Its two-stage in-context learning supplies a small context set to a single forward pass for a new circuit, while an information-theoretic active-learning strategy chooses which simulator samples to obtain.</p><p>This attacks three costs separately: topology representation, per-circuit adaptation and context-data efficiency. It does not remove the cost of generating the context, guarantee behavior outside the topology families seen in pretraining, or establish that the predicted waveform/operating point satisfies circuit equations.</p>
+<p>The first gate is simulator fidelity. Define the predicted quantities, units, time or frequency domain, device/process models, parameter and bias ranges, precision, reference-solver tolerances and convergence policy.</p><p>Compare voltage, current, waveform, operating-point and derived-specification errors against a trusted SPICE-like solver on held-out circuits and operating conditions. Report absolute and worst-case errors, phase/timing behavior, corner cases, unstable predictions, physical-constraint violations and uncertainty.</p><p>R2 above 0.9 can coexist with a large error on a rare but specification-critical condition.</p>
+<p>The second gate is transfer and context accounting. A new circuit may require context simulations, topology encoding, sample selection and model inference before it can be used by an optimizer.</p><p>Separate pretraining and reusable preparation from per-circuit work, count every reference simulation selected by active learning, and hold out topology families and technology nodes—not merely random parameter points. Test unseen device combinations, operating regimes and circuit scales, and report where the model refuses, extrapolates or needs more context.</p>
+<p>The third gate is design-flow validity. Transistor sizing and yield optimization consume surrogate predictions to choose candidate designs.</p><p>Re-simulate selected solutions with the reference solver and report specification success, yield definition, invalid-candidate rate, constraint violations, Pareto tradeoffs and total campaign cost. A fast surrogate can accelerate the wrong search if its error changes ranking near a constraint boundary; the optimization speedup must include context construction, candidate verification and any repair or retraining.</p>
+<p>The reported quantities must remain separate: R2 &gt; 0.9 with 95 samples on average is a fit/sample-efficiency claim, 15.8x is reported relative sample efficiency, 2–30x is transistor-sizing speedup, and more than 5x is yield-optimization speedup. They are not factors to multiply, and none is automatically a SPICE-equivalent accuracy or end-to-end design-flow result.</p><p>The official description does not expose waveform error, topology/node split, solver settings, absolute runtime, context cost, uncertainty, energy or independently re-simulated optimization quality. The evidence supports an in-context graph-aware circuit-surrogate direction, not demonstrated calibrated circuit-simulation replacement or universally valid design optimization.</p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="checklist"></span>Check the decision made with the model</h2>
+<p>A predictor used for optimization should be judged on the resulting design as well as its average fit. An optimizer may select a point precisely because the model is overly optimistic there.</p><p>Re-evaluate selected candidates with the reference method and compare both successful and rejected designs. For yield optimization, inspect how uncertainty and rare failures are represented, rather than treating high average prediction quality as sufficient.</p>
+<p>Runtime comparisons need a common start and finish. Include required data generation, training or pretraining, context selection, adaptation, model evaluation, and independent final checks.</p><p>Reusable preparation can be amortized over many queries, but the number of queries must be stated. One fast prediction and a complete device or circuit design campaign are different workloads.</p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="file-text"></span>Shared direction and source limits</h2>
+<p>My synthesis is that the two studies reduce different dependencies: WF-PINN reduces reliance on interior labeled solutions, while IGNITE reduces per-circuit online retraining. Neither establishes a universal replacement for calibrated device or circuit simulation.</p>
+<div class="worked"><p class="lm-k">Worked example</p><p>The official descriptions were refreshed on 2026-09-07 and provide results absent from the older cards below. No full manuscript was recovered here, so equation choices, per-case errors, and complete cost comparisons still lack page-level verification.</p><p>The explanations identify those missing conditions rather than supplying imagined ones. Broader adoption over time also remains a hypothesis until comparable editions are analyzed.</p></div>
+<p class="lm-k h-label">Compare the results carefully</p><h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="route"></span>How to compare these papers’ results fairly</h2>
+<p>First identify the inputs and required output quality. Then identify the limited resource: time, memory, communication, energy, circuit area, or correctness coverage.</p><p>Ask which part of the method reduces that cost and which new cost it adds. Compare numbers only when the experiments hold these conditions sufficiently similar.</p>
+<p>A conference description may explain the proposal while omitting the full experiment. An author preprint link may have been coded from its abstract. The source classification does not by itself establish that every table was read. Missing locations remain visible below.</p>
+<p class="lm-k h-label">Complete captured evidence</p><h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="file-text"></span>Every paper in this subtheme, with what its source shows</h2>
+<p>These are evidence records, not substitutes for the explanations above. Each record preserves its problem, proposed method, measurements, comparison conditions, and source limits. A populated record does not establish that its mechanism has been fully explained or independently verified.</p>
+<p><span id="paper-dac-2026-research2346"></span></p>
+<h3>Weak-Form Physics-Informed Neural Network for Self-Supervised Learning in Semiconductor Device Simulation</h3>
+<p>DAC 2026 · Record: <code>dac-2026-research2346</code></p>
+<p><a href="#explanation-dac-2026-research2346">Read the step-by-step explanation</a></p>
+<p><strong>Updated source-backed reading card</strong></p>
+<div class="worked"><p class="lm-k">Worked example</p><p>Reviewed 2026-09-09. Deepens the WF-PINN treatment into a paper-level reading; separates weak-form self-supervised residual fitting from equation and boundary fidelity, local solution error, TCAD calibration, geometry/regime transfer and total simulation cost, while preserving the reported FinFET error and inference-speed claims without converting an undefined error into a percentage.</p></div>
+<p>This editorial correction updates the current reading view and connected dossiers, not the historical adjudication or scientific acceptance status. The original captured fields are preserved below.</p>
+<p><a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/data/editorial-paper-corrections-v1.json">Correction register</a></p>
+<p><strong>Problem:</strong></p>
+<p>TCAD simulation of semiconductor devices is expensive, and supervised surrogate models require many labeled interior solution fields from those slow numerical solves.</p>
+<p><strong>Mechanism / artifact:</strong></p>
+<p>Weak-form PINN with self-supervised physical residual training for FinFET simulation, using integral-form equations and Dirichlet boundary conditions rather than internal labeled solution data; equation set, test functions, quadrature, loss weights, material models and training procedure are unspecified.</p>
+<p><strong>Workload — the work tested:</strong></p>
+<p>FinFET semiconductor-device simulations and physical characteristics; geometry, mesh, contacts, doping/material parameters, bias and temperature ranges, outputs, TCAD solver, train/test conditions and held-out geometries are unspecified.</p>
+<p><strong>Hardware and manufacturing assumptions:</strong></p>
+<p>Technology computer-aided design flow for semiconductor devices with process- and material-dependent equations; device node, PDK/material calibration, mobility/recombination models, numerical solver, mesh, compute hardware, precision and operating conditions are unspecified.</p>
+<p><strong>Baseline — the comparison method:</strong></p>
+<p>TCAD numerical solver</p>
+<p>Strong-form PINN</p>
+<p>Labeled neural surrogate</p>
+<p>Same device geometries, equations, material/process parameters, mesh, boundary/bias conditions, tolerances, hardware, precision and total training/inference/checking boundary are unspecified</p>
+<p><strong>Reported measurements:</strong></p>
+<div class="worked"><p class="lm-k">Worked example</p><p>The official description reports all solution errors below 5.36×10^(−2) for FinFET simulation and inference 2.16×10^4 times faster than TCAD; it does not define the error normalization, error locations/fields, convergence, training cost, geometry/regime split or end-to-end workflow boundary.</p></div>
+<p><strong>Limits on the conclusion:</strong></p>
+<p>Weak-form integral agreement can hide local violations near junctions, interfaces, contacts or high-field regions. State the coupled equations, variables, units, material and mobility models, Dirichlet conditions, test functions, integration mesh and loss weights; check local and regional residuals, conservation, boundary mismatch, interface continuity and convergence against trusted TCAD.</p>
+<div class="worked"><p class="lm-k">Worked example</p><p>Validate terminal current, charge, potential, electric field and other decision-relevant outputs across bias, temperature, geometry, mesh, doping/material and process conditions. Hold out geometries and operating regimes, report unstable or failed cases, and state whether each new device or bias range requires retraining.</p><p>An undefined solution error of 5.36×10^(−2) must not be rewritten as 5.36%.</p><p>The official description reports FinFET errors below 5.36×10^(−2) and 2.16×10^4 inference speedup, but omits error definition, equation/material calibration, geometry and bias matrix, convergence, training cost, hardware and downstream design result. The evidence supports weak-form self-supervised device simulation that may reduce reliance on interior labels, not demonstrated calibrated device-model accuracy, universal geometry transfer or a TCAD-replacing workflow.</p></div>
+<p><strong>Source and location</strong></p>
+<p>Evidence tier: Primary captured official DAC description plus existing authored chapter discussion; no full paper extraction, calibrated equation audit, held out geometry/regime matrix or reproduced tcad workflow. This is the stored source classification; the location and limits below determine what was actually read.</p>
+<p><a href="https://63dac.conference-program.com/?post_type=page&amp;p=16&amp;id=RESEARCH2346&amp;sess=sess167">Open the recorded source</a></p>
+<p>DAC 2026 official description; existing device-modeling-and-simulation chapter discussion; captured Problem, Mechanism / artifact, Workload, Hardware, Baseline, Measurements and Limits fields; no manuscript pages, mesh/material matrix, reproduced TCAD comparison or independent device validation.</p>
+<details markdown="1">
+<summary>Original captured fields — superseded for this reading card</summary>
+
+** page source tier:** medium_official_description
+
+**Baselines:** TCAD numerical solver
+
+strong-form PINN
+
+**Evidence locators:** DAC 2026 official description
+
+**Evidence url:** https://63dac.conference-program.com/?post_type=page&amp;p=16&amp;id=RESEARCH2346
+
+**Hardware or process assumptions:** Semiconductor device simulation with material and boundary models; device types and process parameters are unspecified.
+
+**Limits:** No residual error, runtime, convergence, geometry transfer, or device results are reported.
+
+Weak-form choices can hide local violations.
+
+Official description only; calibrated TCAD comparison is required.
+
+**Method or artifact:** Weak-form PINN with self-supervised physical residual training.
+
+**Metrics:** Simulation speed and physical fidelity are claimed qualitatively
+
+**Problem:** Device simulation requires costly labeled solutions and can be difficult across geometries and operating regimes.
+
+**Workload or benchmark:** Semiconductor device equations and geometries; solver, mesh, and calibration baselines are unspecified.
+
+</details>
+<p><span id="paper-dac-2026-research1420"></span></p>
+<h3>IGNITE: An Inquisitive and Graph-Aware Neural Circuit Simulator with Two-Stage Enhanced In-Context Learning</h3>
+<p>DAC 2026 · Record: <code>dac-2026-research1420</code></p>
+<p><a href="#explanation-dac-2026-research1420">Read the step-by-step explanation</a></p>
+<p><strong>Updated source-backed reading card</strong></p>
+<div class="worked"><p class="lm-k">Worked example</p><p>Reviewed 2026-09-09. Deepens the IGNITE treatment into a paper-level reading; separates topology encoding, prior-data fitted decoding, in-context adaptation and active sampling from SPICE-equivalent waveform correctness, extrapolation, numerical stability, context cost and optimizer/design validity, while preserving the R2, 95-sample, 15.8x, 2-30x and &gt;5x claims.</p></div>
+<p>This editorial correction updates the current reading view and connected dossiers, not the historical adjudication or scientific acceptance status. The original captured fields are preserved below.</p>
+<p><a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/data/editorial-paper-corrections-v1.json">Correction register</a></p>
+<p><strong>Problem:</strong></p>
+<p>Neural circuit simulators seek to reduce the cost of repeated SPICE analyses, but per-circuit tuning, cold starts across circuit topologies and online retraining can erase the benefit; a useful surrogate must represent graph structure and adapt to a new circuit from a small, informative context set.</p>
+<p><strong>Mechanism / artifact:</strong></p>
+<p>IGNITE: a pretrained neural circuit simulator with a self-supervised circuit-topology encoder and Prior-data Fitted Network decoder; two-stage in-context learning conditions a single forward pass on a small context set, and information-theoretic active learning selects samples. Output representation, circuit equations, context/adaptation protocol, uncertainty, numerical constraints, solver coupling and optimizer interface are unspecified.</p>
+<p><strong>Workload — the work tested:</strong></p>
+<p>Analog circuit simulation and optimization across circuit topologies and technology nodes, including transistor sizing and yield optimization; device types, topology families, netlist/parameter distributions, waveform or operating-point outputs, SPICE settings, sample budgets, train/context/test split, yield definition and optimization objectives are unspecified.</p>
+<p><strong>Hardware and manufacturing assumptions:</strong></p>
+<p>Neural circuit-simulation workflow coupled to a SPICE-like reference and analog design optimization; process technology, device models, simulator/version/tolerances, numerical precision, inference hardware, data-generation cost, context acquisition and design-rule/yield evaluation flow are unspecified.</p>
+<p><strong>Baseline — the comparison method:</strong></p>
+<p>SPICE-like numerical simulation</p>
+<p>Per-circuit tuned neural surrogate</p>
+<p>Topology-agnostic neural surrogate</p>
+<p>Existing state-of-the-art context/sample-efficient method</p>
+<p>Same circuits, technology nodes, reference-solver tolerances, output targets, context/sample budget, optimization objective, hardware and end-to-end timing boundary are unspecified</p>
+<p><strong>Reported measurements:</strong></p>
+<p>The official description reports R2 &gt; 0.9 with 95 samples on average, described as a 15.8x improvement over SOTA, 2–30x speedup for transistor sizing and more than 5x speedup for yield optimization; it reports no voltage/current/waveform error, convergence, worst-case error, uncertainty, topology/node-transfer result, absolute runtime, context cost, energy or yield-quality outcome.</p>
+<p><strong>Limits on the conclusion:</strong></p>
+<p>R2 is an aggregate fit statistic and does not establish SPICE-equivalent behavior for every voltage, current, transient, corner or topology. Define the predicted outputs and units, compare waveforms/operating points and derived specifications with a trusted solver, report absolute and worst-case error, convergence failures, physical constraints, uncertainty and rare operating conditions.</p><p>A fast forward pass can still produce a wrong design decision.</p>
+<p>In-context learning moves adaptation into the context set rather than eliminating its cost. Count context generation, information-based selection, simulator evaluations, preprocessing, model inference and any independent verification; test unseen topology families and technology nodes with strict train/context/test separation.</p><p>A cross-topology claim is not established if related circuits or process conditions were present during pretraining.</p>
+<p>Optimization speedups require the optimizer to receive sufficiently accurate, stable and constraint-respecting predictions. Re-run selected transistor-sizing and yield-optimization solutions with the reference solver, report specification success, yield definition, invalid-candidate rate, constraint violations, Pareto tradeoffs and total campaign cost.</p><p>The source reports R2 &gt; 0.9, 95 samples, 15.8x sample efficiency, 2–30x sizing speedup and &gt;5x yield-optimization speedup, but the evidence supports an in-context neural surrogate direction, not demonstrated calibrated circuit-simulation replacement or universally valid design optimization.</p>
+<p><strong>Source and location</strong></p>
+<p>Evidence tier: Primary captured official DAC description plus existing authored circuit simulation discussion; no full paper extraction, reproduced reference solver comparison, cross topology/technology audit or independent design flow validation. This is the stored source classification; the location and limits below determine what was actually read.</p>
+<p><a href="https://63dac.conference-program.com/?post_type=page&amp;p=16&amp;id=RESEARCH1420&amp;sess=sess117">Open the recorded source</a></p>
+<p>DAC 2026 official description; existing device-modeling-and-simulation chapter discussion; captured Problem, Mechanism / artifact, Workload, Hardware, Baseline, Measurements and Limits fields; no manuscript pages, waveform comparison, topology/node split, context trace or independently re-simulated optimization result.</p>
+<details markdown="1">
+<summary>Original captured fields — superseded for this reading card</summary>
+
+** page source tier:** medium_official_description
+
+**Baselines:** SPICE-like numerical simulation
+
+topology-agnostic neural surrogate
+
+**Evidence locators:** DAC 2026 official description
+
+**Evidence url:** https://63dac.conference-program.com/?post_type=page&amp;p=16&amp;id=RESEARCH1420
+
+**Hardware or process assumptions:** Circuit simulation with topology and parameter features; process and solver assumptions are unspecified.
+
+**Limits:** No voltage/current error, convergence, runtime, transfer, or circuit-scale results are reported.
+
+In-context adaptation may fail outside training topology families.
+
+Official description only; calibrated circuit simulation is required.
+
+**Method or artifact:** Graph-aware neural circuit simulator with enhanced in-context learning.
+
+**Metrics:** Simulation speed and fidelity are claimed qualitatively
+
+**Problem:** Circuit simulation is expensive, and learned surrogates must reason over topology and extrapolate across circuits.
+
+**Workload or benchmark:** Analog/digital circuit graphs and transient analyses; devices, datasets, and baselines are unspecified.
+
+</details>
+<p class="lm-k h-label">What remains to establish</p><h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>What is still unproven here</h2>
+<p>Resolve unspecified workloads, comparison methods, resource budgets, and source locations before generalizing a reported gain. Multiple papers in this selected sample permit comparison of mechanisms, but do not by themselves establish recurrence across years or a long-term trend.</p>
+<p><a href="../guide/expanded-taxonomy-v1.html">All subthemes</a> · <a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/reports/directions/README.md">Research directions</a></p><p class="meta">Written as <a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/reports/observed-subthemes/device-modeling-and-simulation.md">reports/observed-subthemes/device-modeling-and-simulation.md</a> in the course repository.</p>
+      </article>
+      <nav class="pager" aria-label="Previous and next"><a class="prev" href="analog-calibration-and-modeling.html"><span class="pg-k">← Previous</span><span class="pg-t">Analog calibration and modeling</span></a><a class="map" href="../subthemes.html"><span class="pg-k">Back to</span><span class="pg-t">Subthemes</span></a><a class="next" href="emerging-device-design.html"><span class="pg-k">Next →</span><span class="pg-t">Emerging device design</span></a></nav>
+    </section>
+  </main>
+  <footer class="course-foot">
+    <p>Built from 582 paper records coded from ISCA 2026, DAC 2026 and ICCAD 2025 (ICCAD 2026 papers were not yet public). Most records come from official program descriptions; see “How deep the reading went”. The papers belong to their authors.</p>
+    <p class="foot-links"><a href="https://github.com/mehtama1234/course-concept-library">All courses</a><a href="../index.html">This course</a><a href="../course-map.html">Course map</a><a href="../presentation/index.html">Slides</a><a href="../video/index.html">Video</a><a href="../share/index.html">Share</a></p>
+  </footer>
+  <script src="../assets/course-data.js"></script><script src="../assets/icons.js"></script><script src="../assets/icons-extra.js"></script><script src="../assets/icons-course.js"></script><script src="../assets/art.js"></script><script src="../assets/course-art.js"></script><script src="../assets/charts.js"></script><script src="../assets/course-charts.js"></script><script src="../assets/course-site.js"></script>
+</body>
+</html>

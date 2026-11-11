@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#F3ECE1" />
+  <title>Chiplet partitioning and integration · Semiconductor conference atlas</title>
+  <meta name="description" content="Papers: ICCAD 1. Read from: 0 program descriptions, 0 abstracts or reports, 1 full papers or preprints. The explanations come first; every paper’s record follows at the end." />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Semiconductor conference atlas" />
+  <meta property="og:title" content="Chiplet partitioning and integration · Semiconductor conference atlas" />
+  <meta property="og:description" content="Papers: ICCAD 1. Read from: 0 program descriptions, 0 abstracts or reports, 1 full papers or preprints. The explanations come first; every paper’s record follows at the end." />
+  <meta property="og:url" content="https://mehtama1234.github.io/semiconductor-conferences/subthemes/chiplet-partitioning-and-integration.html" />
+  <meta property="og:image" content="https://mehtama1234.github.io/semiconductor-conferences/presentation/slides/01-cover.jpg" />
+  <meta property="og:image:width" content="1920" />
+  <meta property="og:image:height" content="1080" />
+  <meta property="og:image:alt" content="Semiconductor conference atlas: 582 papers from ISCA, DAC and ICCAD, sorted into 10 themes and six directions to watch." />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="canonical" href="https://mehtama1234.github.io/semiconductor-conferences/subthemes/chiplet-partitioning-and-integration.html" />
+  <link rel="icon" href="../assets/icon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="../assets/base.css" />
+  <link rel="stylesheet" href="../assets/experience.css" />
+  <link rel="stylesheet" href="../assets/theme-atlas.css" />
+  <link rel="stylesheet" href="../assets/styles.css" />
+  <link rel="stylesheet" href="../assets/charts.css" />
+  <link rel="stylesheet" href="../assets/course.css" />
+  
+</head>
+<body class="course-site " data-house="atlas">
+  <aside class="public-demo-banner" aria-label="About this course">A plain-language guide to what ISCA, DAC and ICCAD papers say about chip and computer design · Built from the repository’s own paper records · Not made by the conferences</aside>
+  <a class="skip-link" href="#app">Skip to the page</a>
+  <header>
+    <a class="brand" href="../index.html"><span class="mark" aria-hidden="true">Si</span> Semiconductor conference atlas</a>
+    <span class="header-status"><span class="badge">582 papers</span><span class="badge">10 themes</span><span class="badge">Plain words first</span></span>
+    <a class="header-link" href="../course-map.html">Course map</a>
+  </header>
+  <nav class="course-nav" aria-label="Main sections of the course"><a href="../index.html">The big picture</a><a href="../themes.html">Themes</a><a href="../subthemes.html" aria-current="page">Subthemes</a><a href="../deep-reads.html">Deep reads</a><a href="../directions.html">What to watch</a><a href="../presentation/index.html">Slides</a><a href="../video/index.html">Video</a><a href="../share/index.html">Share</a></nav>
+  <main id="app" tabindex="-1">
+    <section class="screen active landing legacy-page" aria-labelledby="page-title">
+<div class="lm-head"><div class="hj-heading"><nav class="crumbs" aria-label="You are here"><a href="../course-map.html">Course map</a><span aria-hidden="true">›</span><a href="../subthemes.html">Subthemes</a></nav><a class="back-button" href="../subthemes.html">← <span>Subthemes</span></a><p class="eyebrow">Subtheme · 1 papers · Chiplets, 3D integration, and packaging</p><h1 id="page-title">Chiplet partitioning and integration</h1><p class="hj-sub">Papers: ICCAD 1. Read from: 0 program descriptions, 0 abstracts or reports, 1 full papers or preprints. The explanations come first; every paper’s record follows at the end.</p></div><div class="hj-art" data-art="trio:cpu,stack-2,arrows-exchange"></div></div>
+<figure class="course-fig"><div class="loop-wide" data-art="flow:chiplets-3d-and-packaging"></div><div class="loop-tall" data-art="flowTall:chiplets-3d-and-packaging"></div><figcaption>The parent theme in one picture: splitting a chip into dies trades cost for wiring and heat.</figcaption></figure>
+      <article class="prose">
+
+<p>This subject has 1 record in the selected sample. This page explains where it fits, then presents all captured paper evidence without shortening the measurements or limitations.</p>
+<p><a href="../guide/reading-guide-v1.html">Definitions used in the paper records</a></p>
+<p class="lm-k h-label">Understand the parent subject first</p><h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>The bigger theme this belongs to</h2>
+<ul>
+<li><a href="../themes/chiplets-3d-and-packaging.html">Chiplets 3d and packaging</a></li>
+</ul>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>Dividing a design creates interfaces that must work together</h2>
+<p>A chiplet system divides functions among multiple dies connected within a package. Partitioning chooses what each die does.</p><p>Integration makes those choices work together through compatible interfaces, data transfers, timing, and physical connections. A successful individual module is therefore not sufficient evidence for a successful complete system.</p>
+<p>The selected record, <a href="chiplet-partitioning-and-integration.html#paper-iccad-2025-1207">MAHL</a>, proposes a hierarchical, language-model-assisted design workflow. The evidence belongs to the 2025 fallback corpus even though the atlas's target edition is 2026. Its presence should not be counted as an independent 2026 publication or a year-over-year trend observation.</p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="help-circle"></span>Why hierarchy helps organize a complex design</h2>
+<p>A hierarchy describes a system as components with defined responsibilities and interfaces, then describes the internal structure of those components. This can make a large generation task more manageable: a module description can specify what must be implemented without repeating every detail of the whole design.</p>
+<p>However, local descriptions must remain consistent. Two modules can each pass isolated tests while disagreeing about data width, transfer ordering, or when an output is valid.</p><p>Hierarchical generation therefore needs checks of both module behavior and composed behavior. Dividing the work does not remove the integration problem.</p>
+<p>MAHL's captured preprint description identifies six collaborating agents covering AI-to-hardware mapping, hierarchical descriptions, retrieval-assisted code generation, validation, debugging, and design-space exploration. These are software workflow roles, not six independent human reviews or six separate sources of evidence.</p><p>Agreement among generated outputs is not a substitute for tool-based and specification-based checking.</p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>Generated RTL is an intermediate artifact</h2>
+<p>RTL describes circuit state updates and the logic connecting them. Producing RTL that parses or compiles establishes only an early requirement. Functional tests, synthesis, timing, physical constraints, and interface checks examine different properties.</p>
+<p>The record describes retrieval-assisted RTL generation and Diverseflow validation with adaptive debugging. Retrieval supplies existing information to the generation process; debugging uses feedback to revise candidates.</p><p>The available evidence does not specify every validation gate, so “passes validation” must remain tied to the paper's actual procedure rather than being expanded into full physical acceptance.</p>
+<p>A debugging loop also has costs and risks. Repeated revisions consume model calls and tool execution, and a fix can satisfy a visible test without preserving behavior outside that test.</p><p>A complete evaluation should retain failed attempts and assess the final candidate with checks not used merely as generation feedback.</p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>What Pass@5 does and does not measure</h2>
+<p>The captured record reports a best-case real-world chiplet-design comparison in which Pass@5 rises from 0 to 0.72. Pass@5 concerns obtaining a passing result within five candidates under the stated evaluation.</p><p>It is not a single-attempt success rate, and the best-case comparison is not an established average across all tasks and models.</p>
+<p>Its practical interpretation requires the definition of passing, the task set, candidate-generation procedure, and resources spent per candidate. A workflow with more extensive validation or more generation effort can differ substantially from another even when both report five attempts.</p><p>The captured preprint evidence does not establish those cost and comparability details.</p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>Compare complete physical designs under the same objective</h2>
+<p>MAHL also reports comparable or superior power, performance, and area to CLARIE under selected objectives. These quantities can trade against one another.</p><p>A lower-area design is not automatically preferable if it misses a timing requirement, and a faster design may consume more power or package resources.</p>
+<p>The comparison therefore needs common workloads, design constraints, process assumptions, and physical-analysis settings. The record does not establish the full reproducible flow or fairness of the CLARIE comparison. It also does not provide enough information to infer fabricated chiplet operation from the generated designs.</p>
+<p><span id="explanation-iccad-2025-1207"></span></p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>MAHL: hierarchy and validation must cover the composed chiplet system</h2>
+<h3>Partitioning creates a contract between dies</h3>
+<p>A chiplet design divides a system into dies, but the division does not eliminate the behavior that crosses the boundary. Each module has to state its inputs, outputs, data widths, timing, protocol and resource assumptions.</p><p>The package then has to provide the physical connections, power delivery, clocking and thermal conditions needed for those contracts to hold.</p>
+<p>MAHL is described as a multi-agent, language-model-guided workflow for hierarchical chiplet design. Its hierarchy is useful only if a local module specification can be composed into a system specification.</p><p>A generated accelerator block may pass its own tests while using a different interface width or transaction order from the block that consumes it. The workflow therefore has to validate both local behavior and the assembled design.</p>
+<h3>The six roles divide work, not responsibility</h3>
+<p>The captured preprint description identifies six collaborating roles: AI-to-hardware mapping, hierarchical description, retrieval-assisted RTL generation, validation, debugging, and design-space exploration. These roles form a sequence of transformations.</p><p>A workload or system objective is mapped to hardware structure; the structure is expressed as module descriptions; RTL is generated using retrieved information; tools test the candidate; debugging revises it; and exploration chooses among design configurations.</p>
+<p>The separation can make feedback more specific, but it also creates information-transfer requirements. Retrieval can provide relevant examples without proving that the new design matches the target specification.</p><p>A debugger can repair a failing test without finding behaviors that the test suite never exercises. A design-space search can optimize a predicted PPA score while changing the interface or validation assumptions.</p><p>The workflow must carry requirements and failure causes between roles, not merely pass text from one agent to the next.</p>
+<h3>RTL generation is only an intermediate checkpoint</h3>
+<p>RTL is a description of state updates and combinational logic. Parsing or compiling the generated RTL establishes syntax and some tool compatibility.</p><p>Functional simulation checks selected behavior. Synthesis checks whether the design can be mapped to a target library.</p><p>Timing, power, area, routing and package checks examine different constraints. A passing result at one level does not imply that the next level will pass.</p>
+<p>MAHL's retrieval-assisted generation and Diverseflow validation with adaptive debugging are therefore best read as a closed generation-and-repair loop whose exact gates need to be specified. Each repair may consume model calls, synthesis or simulation time, and additional candidate evaluations.</p><p>The evaluation should preserve failed candidates, retry counts, tool versions, stopping rules, and checks withheld from generation feedback. Otherwise “validation” may measure the workflow's ability to satisfy a familiar test rather than the design's general correctness.</p>
+<h3>Pass@5 is a budgeted success probability</h3>
+<p>Pass@5 asks whether at least one of five generated candidates passes the stated criterion. It is not the probability that the first candidate works, and it does not show that all five candidates have equal cost.</p><p>A workflow can increase Pass@5 by generating more diverse candidates, using more validation per candidate, or spending more repair effort. Those choices are useful only if the added cost is included.</p>
+<p>The captured record reports a best-case real-world comparison in which Pass@5 rises from 0 to 0.72. The task population, passing criterion, model and prompt configuration, candidate-generation cost, and whether the number is an average or selected best case are not fully exposed in the stored paper reading.</p><p>The number therefore cannot be generalized to autonomous chiplet design or compared fairly with CLARIE without those conditions.</p>
+<h3>PPA comparison needs the same physical problem</h3>
+<p>Power, performance and area are not one objective. Improving one can worsen another, and a candidate that does not meet timing or interface requirements is not comparable merely because its area is smaller.</p><p>MAHL's reported comparable or superior PPA to CLARIE must remain attached to the selected objectives, design constraints, process/library assumptions, physical-flow settings and workload.</p>
+<p>The paper is in the ICCAD 2025 fallback corpus, not the target 2026 corpus. Its evidence is a primary preprint, but exact page, section and table locations were not recorded in this atlas pass.</p><p>The record therefore supports a technically meaningful workflow explanation and a bounded report of the captured claims, not a page-verified conclusion about fabricated chiplet operation or broad year-over-year change.</p>
+<h3>What MAHL establishes and what remains open</h3>
+<p>MAHL establishes a proposed hierarchical workflow that combines LLM-generated descriptions and RTL with tool feedback, debugging and design-space exploration. It does not establish end-to-end autonomous chiplet correctness, average-case Pass@5, equal-cost comparison with conventional LLMs or CLARIE, complete physical closure, or fabricated hardware.</p><p>A stronger evaluation would publish the task suite, module/system specifications, agent prompts and models, retrieval corpus, validation gates, retries and costs, OpenROAD/library/process settings, PPA denominators, held-out designs, and independent final checks.</p>
+<p><a href="https://arxiv.org/abs/2508.14053">Primary preprint</a></p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="help-circle"></span>The longer-term question</h2>
+<p>MAHL motivates organizing automated hardware design around explicit hierarchy and repeated validation. The decisive research question is whether that organization reduces total effort to obtain an integrated design meeting fixed requirements, rather than only increasing the number of generated candidates that pass a limited test suite.</p>
+<p>Evidence would need to connect each requirement to its module and system checks, preserve generation and repair costs, and verify the final physical configuration. The current preprint record supports explaining the proposed workflow and its reported results, but not claiming autonomous end-to-end chiplet correctness, general superiority, or an established long-term adoption trend.</p>
+<p class="lm-k h-label">Compare the results carefully</p><h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="route"></span>How to compare these papers’ results fairly</h2>
+<p>First identify the inputs and required output quality. Then identify the limited resource: time, memory, communication, energy, circuit area, or correctness coverage.</p><p>Ask which part of the method reduces that cost and which new cost it adds. Compare numbers only when the experiments hold these conditions sufficiently similar.</p>
+<p>A conference description may explain the proposal while omitting the full experiment. An author preprint link may have been coded from its abstract. The source classification does not by itself establish that every table was read. Missing locations remain visible below.</p>
+<p class="lm-k h-label">Complete captured evidence</p><h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="file-text"></span>Every paper in this subtheme, with what its source shows</h2>
+<p>These are evidence records, not substitutes for the explanations above. Each record preserves its problem, proposed method, measurements, comparison conditions, and source limits. A populated record does not establish that its mechanism has been fully explained or independently verified.</p>
+<p><span id="paper-iccad-2025-1207"></span></p>
+<h3>MAHL: Multi-Agent LLM-Guided Hierarchical Chiplet Design with Adaptive Debugging</h3>
+<p>ICCAD 2025 · Record: <code>iccad-2025-1207</code></p>
+<p><a href="#explanation-iccad-2025-1207">Read the step-by-step explanation</a></p>
+<p><strong>Updated source-backed reading card</strong></p>
+<div class="worked"><p class="lm-k">Worked example</p><p>Reviewed 2026-09-08. Deepens the primary-preprint reading; separates hierarchical module contracts, six software workflow roles, RTL/tool validation, Pass@5 budgeting and PPA comparison conditions.</p></div>
+<p>This editorial correction updates the current reading view and connected dossiers, not the historical adjudication or scientific acceptance status. The original captured fields are preserved below.</p>
+<p><a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/data/editorial-paper-corrections-v1.json">Correction register</a></p>
+<p><strong>Problem:</strong></p>
+<p>Flat language-model-driven chiplet design has high validation cost and weak coordination between module generation, integration and physical objectives.</p>
+<p><strong>Mechanism / artifact:</strong></p>
+<p>Six-role hierarchical workflow combining AI-to-hardware mapping, structured module descriptions, retrieval-assisted RTL generation, tool-based validation/debugging, multi-granularity design-space exploration and physical-layout configuration.</p>
+<p><strong>Workload — the work tested:</strong></p>
+<p>Simple RTL and real-world AI chiplet-design tasks; exact task suite, module/system specifications and held-out designs require the primary paper reading.</p>
+<p><strong>Hardware and manufacturing assumptions:</strong></p>
+<p>2.5D chiplet designs with AI workloads, RTL generation, synthesis/validation and OpenROAD-like physical configuration; exact chiplet architectures, PPA flow, libraries and design constraints require full-paper review.</p>
+<p><strong>Baseline — the comparison method:</strong></p>
+<p>Conventional LLMs</p>
+<p>CLARIE expert-based chiplet design framework</p>
+<p><strong>Reported measurements:</strong></p>
+<p>Reported best-case real-world chiplet-design Pass@5 rises from 0 to 0.72; the task population, average/best-case convention and candidate cost require verification.</p>
+<p>Comparable or superior PPA to CLARIE is reported under selected objectives; exact denominators and physical-flow conditions are not fully recorded.</p>
+<p><strong>Limits on the conclusion:</strong></p>
+<p>Pass@5 is success within five candidates, not first-attempt success, equal-cost success or complete design correctness.</p>
+<p>Local RTL compilation, functional validation, synthesis, timing, routing and package/system closure answer different questions; the captured record does not establish all gates or independent checks.</p>
+<p>The ICCAD 2025 fallback paper is not an independent 2026 publication or year-over-year trend observation. Exact page/section/table locations were not recorded in this pass; no fabricated chiplet operation is established.</p>
+<p><strong>Source and location</strong></p>
+<p>Evidence tier: Primary preprint; selected reading and execution/independent acceptance not performed. This is the stored source classification; the location and limits below determine what was actually read.</p>
+<p><a href="https://arxiv.org/abs/2508.14053">Open the recorded source</a></p>
+<p>Primary preprint identity and selected method/evaluation reading; exact page, section and table locators require follow-up.</p>
+<details markdown="1">
+<summary>Original captured fields — superseded for this reading card</summary>
+
+** page source tier:** high_primary_preprint
+
+**Baselines:** conventional LLMs
+
+CLARIE expert-based chiplet design framework
+
+**Evidence locators:** Not established in the captured evidence.
+
+**Evidence url:** https://arxiv.org/abs/2508.14053
+
+**Hardware or process assumptions:** 2.5D chiplet designs with AI workloads, RTL generation, synthesis/validation, and OpenROAD-like physical configuration; exact chiplet architectures, PPA flow, and design constraints require full-paper review.
+
+**Limits:** The preprint evidence does not establish average-case Pass@5, design-suite breadth, prompt/model costs, physical-flow reproducibility, or fairness of the CLARIE comparison; target edition remains 2026 while paper analysis uses the 2025 fallback corpus.
+
+**Method or artifact:** Six-agent hierarchical workflow combining AI-hardware parsing, structured module descriptions, retrieval-augmented RTL generation, tool-based validation/debugging, multi-granularity design-space exploration, and physical-layout configuration.
+
+**Metrics:** real-world chiplet-design Pass@5 from 0 to 0.72 in reported best-case comparison
+
+comparable or superior PPA to CLARIE under selected objectives
+
+RTL generation accuracy
+
+**Problem:** Flat LLM-driven chiplet design has high validation cost and imprecise parameter optimization for complex hierarchical 2.5D systems.
+
+**Workload or benchmark:** Simple RTL and real-world AI chiplet-design tasks; PPA objectives and Pass@5 generation accuracy are evaluated against conventional LLMs and CLARIE.
+
+</details>
+<p class="lm-k h-label">What remains to establish</p><h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>What is still unproven here</h2>
+<p>Resolve unspecified workloads, comparison methods, resource budgets, and source locations before generalizing a reported gain. This subject is represented by one paper and supports a case study, not evidence of recurrence or a long-term trend.</p>
+<p><a href="../guide/expanded-taxonomy-v1.html">All subthemes</a> · <a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/reports/directions/README.md">Research directions</a></p><p class="meta">Written as <a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/reports/observed-subthemes/chiplet-partitioning-and-integration.md">reports/observed-subthemes/chiplet-partitioning-and-integration.md</a> in the course repository.</p>
+      </article>
+      <nav class="pager" aria-label="Previous and next"><a class="prev" href="wafer-scale-and-heterogeneous-integration.html"><span class="pg-k">← Previous</span><span class="pg-t">Wafer scale and heterogeneous integration</span></a><a class="map" href="../subthemes.html"><span class="pg-k">Back to</span><span class="pg-t">Subthemes</span></a><a class="next" href="chiplets-and-heterogeneous-integration.html"><span class="pg-k">Next →</span><span class="pg-t">Chiplets and heterogeneous integration</span></a></nav>
+    </section>
+  </main>
+  <footer class="course-foot">
+    <p>Built from 582 paper records coded from ISCA 2026, DAC 2026 and ICCAD 2025 (ICCAD 2026 papers were not yet public). Most records come from official program descriptions; see “How deep the reading went”. The papers belong to their authors.</p>
+    <p class="foot-links"><a href="https://github.com/mehtama1234/course-concept-library">All courses</a><a href="../index.html">This course</a><a href="../course-map.html">Course map</a><a href="../presentation/index.html">Slides</a><a href="../video/index.html">Video</a><a href="../share/index.html">Share</a></p>
+  </footer>
+  <script src="../assets/course-data.js"></script><script src="../assets/icons.js"></script><script src="../assets/icons-extra.js"></script><script src="../assets/icons-course.js"></script><script src="../assets/art.js"></script><script src="../assets/course-art.js"></script><script src="../assets/charts.js"></script><script src="../assets/course-charts.js"></script><script src="../assets/course-site.js"></script>
+</body>
+</html>

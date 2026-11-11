@@ -1,0 +1,300 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#F3ECE1" />
+  <title>Real time and networked systems · Semiconductor conference atlas</title>
+  <meta name="description" content="Papers: DAC 3. Read from: 3 program descriptions, 0 abstracts or reports, 0 full papers or preprints. The explanations come first; every paper’s record follows at the end." />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Semiconductor conference atlas" />
+  <meta property="og:title" content="Real time and networked systems · Semiconductor conference atlas" />
+  <meta property="og:description" content="Papers: DAC 3. Read from: 3 program descriptions, 0 abstracts or reports, 0 full papers or preprints. The explanations come first; every paper’s record follows at the end." />
+  <meta property="og:url" content="https://mehtama1234.github.io/semiconductor-conferences/subthemes/real-time-and-networked-systems.html" />
+  <meta property="og:image" content="https://mehtama1234.github.io/semiconductor-conferences/presentation/slides/01-cover.jpg" />
+  <meta property="og:image:width" content="1920" />
+  <meta property="og:image:height" content="1080" />
+  <meta property="og:image:alt" content="Semiconductor conference atlas: 582 papers from ISCA, DAC and ICCAD, sorted into 10 themes and six directions to watch." />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="canonical" href="https://mehtama1234.github.io/semiconductor-conferences/subthemes/real-time-and-networked-systems.html" />
+  <link rel="icon" href="../assets/icon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="../assets/base.css" />
+  <link rel="stylesheet" href="../assets/experience.css" />
+  <link rel="stylesheet" href="../assets/theme-atlas.css" />
+  <link rel="stylesheet" href="../assets/styles.css" />
+  <link rel="stylesheet" href="../assets/charts.css" />
+  <link rel="stylesheet" href="../assets/course.css" />
+  
+</head>
+<body class="course-site " data-house="atlas">
+  <aside class="public-demo-banner" aria-label="About this course">A plain-language guide to what ISCA, DAC and ICCAD papers say about chip and computer design · Built from the repository’s own paper records · Not made by the conferences</aside>
+  <a class="skip-link" href="#app">Skip to the page</a>
+  <header>
+    <a class="brand" href="../index.html"><span class="mark" aria-hidden="true">Si</span> Semiconductor conference atlas</a>
+    <span class="header-status"><span class="badge">582 papers</span><span class="badge">10 themes</span><span class="badge">Plain words first</span></span>
+    <a class="header-link" href="../course-map.html">Course map</a>
+  </header>
+  <nav class="course-nav" aria-label="Main sections of the course"><a href="../index.html">The big picture</a><a href="../themes.html">Themes</a><a href="../subthemes.html" aria-current="page">Subthemes</a><a href="../deep-reads.html">Deep reads</a><a href="../directions.html">What to watch</a><a href="../presentation/index.html">Slides</a><a href="../video/index.html">Video</a><a href="../share/index.html">Share</a></nav>
+  <main id="app" tabindex="-1">
+    <section class="screen active landing legacy-page" aria-labelledby="page-title">
+<div class="lm-head"><div class="hj-heading"><nav class="crumbs" aria-label="You are here"><a href="../course-map.html">Course map</a><span aria-hidden="true">›</span><a href="../subthemes.html">Subthemes</a></nav><a class="back-button" href="../subthemes.html">← <span>Subthemes</span></a><p class="eyebrow">Subtheme · 3 papers · Systems, applications, and workloads</p><h1 id="page-title">Real time and networked systems</h1><p class="hj-sub">Papers: DAC 3. Read from: 3 program descriptions, 0 abstracts or reports, 0 full papers or preprints. The explanations come first; every paper’s record follows at the end.</p></div><div class="hj-art" data-art="trio:users,activity,server"></div></div>
+<figure class="course-fig"><div class="loop-wide" data-art="flow:systems-applications-and-workloads"></div><div class="loop-tall" data-art="flowTall:systems-applications-and-workloads"></div><figcaption>The parent theme in one picture: judge a system by the useful work its users get done.</figcaption></figure>
+      <article class="prose">
+
+<p>This subject has 3 records in the selected sample. This page explains where it fits, then presents all captured paper evidence without shortening the measurements or limitations.</p>
+<p><a href="../guide/reading-guide-v1.html">Definitions used in the paper records</a></p>
+<p class="lm-k h-label">Understand the parent subject first</p><h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>The bigger theme this belongs to</h2>
+<ul>
+<li><a href="../themes/systems-applications-and-workloads.html">Systems applications and workloads</a></li>
+</ul>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>A deadline is about a complete response</h2>
+<p>A system can compute correct values and still respond too late. Real-time analysis therefore asks when the result becomes available, not only whether the computation is correct.</p><p>The interval of interest may start with a sensor event and end with an actuator command, passing through several tasks and network transfers.</p>
+<p>Execution time is the time a task spends running. Response time can also include waiting for a processor, input, or resource.</p><p>End-to-end latency includes the relevant stages between the selected starting event and final response. Adding isolated execution times can miss these waits and the effects of how tasks exchange data.</p>
+<p>A mean describes an average. A percentile describes a threshold in an observed or modeled distribution.</p><p>A worst-case bound claims that the delay cannot exceed a value under stated assumptions. Jitter describes variation in delay, but its definition must also be specified.</p><p>None of these measures can replace the others without additional reasoning.</p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>PFATS: separate traffic before shared queues create interference</h2>
+<p>A network flow is a stream of related packets. Traffic shaping delays transmission when necessary to control that stream's output pattern.</p><p>Although it can add waiting locally, it can reduce bursts that would otherwise create larger queues downstream. The result depends on the permitted input traffic and the service available along the path.</p>
+<p><a href="real-time-and-networked-systems.html#paper-dac-2026-research163">Per Flow Asynchronous Traffic Shaping</a> proposes PFATS: per-flow eligibility-time calculation, separate flow queues, and a shift-register-matrix scheduler. Eligibility time determines when a frame is allowed to proceed. The refreshed description identifies interference in grouped queues as the target, not elimination of all network contention.</p>
+<p>The authors report an FPGA-based switch supporting 192 flows, with 7.14% additional on-chip memory over conventional asynchronous shaping. They report microsecond-scale end-to-end delay and jitter within 5 microseconds in their scenarios.</p><p>The source does not expose the topology, load envelope, packet sizes, link rates, or derivation of that jitter bound. It must remain a scenario-qualified claim, not a guarantee for any network of these switches. <a href="https://63dac.conference-program.com/presentation/?id=RESEARCH163&amp;sess=sess171">Official PFATS description</a>.</p>
+<p>Separate queues still share physical links and scheduler resources. A deployment check must establish admission limits, buffer requirements, and behavior when traffic exceeds its contract. Supporting a stated number of flows does not specify how much traffic each may send.</p>
+<p><span id="explanation-dac-2026-research163"></span></p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>PFATS: isolating queues improves a traffic-shaping mechanism, not automatically the network-wide deadline guarantee</h2>
+<p>Time-Sensitive Networking (TSN) carries flows with timing contracts over shared links and switches. A shaper may delay a frame at one point so that bursts are controlled, but the end-to-end result also includes serialization, propagation, arbitration, queueing and downstream interference.</p><p>An asynchronous design avoids requiring one global clock, which makes its local eligibility rules and clock assumptions part of the timing model.</p>
+<p>PFATS is described as a per-flow asynchronous shaper with three coupled pieces: a frame eligibility-time calculator, a separate queue for each flow, and a Synchronous Shift Register Matrix (SSRM) scheduler. Eligibility time determines when a frame becomes serviceable; the scheduler then needs a defined arbitration rule to choose among eligible frames while respecting ports, priorities and available buffer.</p><p>Per-flow queues target the interference introduced when several flows share one queue. They do not create extra link bandwidth or remove contention downstream.</p>
+<p>The first gate is protocol semantics. Define the arrival and service curves or other contracts, eligibility-time update, timestamp precision, clock domains, synchronization assumptions, priority/arbitration, frame ordering, queue admission, buffer overflow and behavior when a flow exceeds its contract.</p><p>Map those rules onto the FPGA pipeline and switch fabric, including serialization, propagation, processing and downstream queues. A local scheduler trace is not a proof that every admissible flow set meets its end-to-end deadline.</p>
+<p>The second gate is a meaningful latency bound. Define jitter—maximum-minus-minimum, deviation from a reference, percentile or worst case—and state timestamp locations and the packet population.</p><p>Evaluate latency distributions and deadline misses under controlled flow periods, packet sizes, bursts, priorities, hop counts, link rates, competing traffic and clock offsets. Include queue occupancy, drops, throughput, link utilization, head-of-line behavior and overload response.</p><p>Test both admissible traffic and contract violations; a design that behaves well only below an unstated load envelope cannot support a general deterministic claim.</p>
+<p>The third gate is hardware accounting. Report FPGA family and clock, port/link rates, pipeline stages, on-chip memory organization, per-flow state, SSRM size, timestamp/eligibility precision, configuration cost and testbed instrumentation.</p><p>Compare conventional grouped-queue ATS and synchronous shaping with the same traffic contracts, topology, buffers and measurement boundary. Separate added memory from total switch area, power and timing closure; “192 flows” is a state-capacity result, not a statement that 192 arbitrary-rate flows are schedulable.</p>
+<p>The official description reports an FPGA-based switch supporting 192 flows with 7.14% additional on-chip memory versus conventional ATS, microsecond-level end-to-end delay, jitter within 5 μs in realistic TSN scenarios and high throughput. It does not expose the topology, traffic envelope, packet/link conditions, absolute latency distribution, clock/testbed details, formal schedulability proof or overload behavior.</p><p>The evidence supports per-flow asynchronous TSN shaping, not demonstrated deterministic end-to-end guarantees across networks.</p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>Pareto-guided scheduling: choose placement and timing together</h2>
+<p>A directed acyclic graph describes tasks and their dependencies without a dependency cycle. Shared tasks can contribute to several output paths.</p><p>Moving one task to a different processor or changing when it starts may improve one path while delaying another. Mapping chooses the execution resource; an offset shifts the scheduled release time relative to a reference.</p>
+<p><a href="real-time-and-networked-systems.html#paper-dac-2026-research2360">Hierarchical Pareto-Prompted Optimization</a> searches task mappings and then refines offsets for probabilistic automotive workloads. Pareto dominance means that one candidate is at least as good on every selected objective and better on at least one.</p><p>A nondominated candidate is not beaten in that way by another candidate in the compared set; it need not be globally optimal.</p>
+<p>The official description identifies a metaheuristic, not language-model prompting. It reports production navigation-on-autopilot workloads on NVIDIA Orin-N-based vehicles, with up to 12% lower mean latency and 15% lower 99th-percentile latency than an industrial static baseline.</p><p>The actual constraints, distribution estimation, trial counts, and search cost are absent. Its statement that all constraints were met cannot be expanded into a universal deadline guarantee. <a href="https://63dac.conference-program.com/presentation/?id=RESEARCH2360&amp;sess=sess115">Official scheduling description</a>.</p>
+<p>Probabilistic evaluation requires checking the slow cases and changes in execution conditions. A distribution learned under one interference pattern may be inaccurate under another.</p><p>Separate the expense of finding a schedule from the overhead of executing it, and state whether adaptation occurs before deployment or during operation.</p>
+<p><span id="explanation-dac-2026-research2360"></span></p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>Hierarchical Pareto scheduling: a non-dominated DAG schedule is not automatically deadline-safe</h2>
+<p>An automotive sensor-to-actuator pipeline can be represented as a directed acyclic graph (DAG). Nodes are tasks, edges carry precedence or data dependencies, and shared tasks can lie on multiple end-to-end paths.</p><p>Mapping chooses which processor or accelerator runs each task; an offset chooses when that task is released relative to other work. A choice that improves one path can delay another, and variable execution times make the slow tail more important than the average alone.</p>
+<p>The paper is described as a Pareto-prompted metaheuristic with hierarchical mapping-then-offset refinement. Here “prompted” identifies the search strategy; the captured description does not establish an LLM component.</p><p>Pareto dominance retains a candidate that is no worse on the selected objectives and better on at least one, but a candidate can be non-dominated only within the explored population and still miss a feasible or globally better schedule. The method must specify task/resource representation, precedence, resource and memory constraints, interference, priority, offset legality, objective normalization, repair, search budget and whether adaptation is offline or online.</p>
+<p>The first gate is schedule feasibility. Verify every dependency, resource assignment, release/offset, synchronization point, buffer, priority and deadline on the deployed runtime.</p><p>Report rejected and repaired candidates, resource conflicts, deadline misses, path completion times and whether all shared sensor-to-actuator paths—not only a selected objective—meet their constraints. “All constraints satisfied” is meaningful only when the constraints and the execution boundary are explicit and independently checked.</p>
+<p>The second gate is probabilistic timing validity. Calibrate execution-time distributions on held-out traces and test temperature, DVFS, memory/interconnect contention, sensor load, software versions and workload shifts.</p><p>State whether p99 means an empirical quantile, a confidence bound or a modeled percentile, and report p50/p95/p99/p99.9 latency, worst observed response, deadline-miss probability, calibration error and per-DAG/path results. A lower 99th percentile can coexist with rare but unacceptable misses or with a changed denominator.</p>
+<p>Search and runtime costs must be separated. Include mapping search, offset refinement, Pareto filtering, trace collection, schedule deployment, runtime monitoring, rescheduling, synchronization and fallback.</p><p>Compare the industrial static baseline, deterministic scheduling and single-objective optimization with identical DAGs, execution traces, deadlines, hardware, priority policy, interference, warm-up and end-to-end latency boundary. Report the distribution of outcomes and the cost of maintaining the schedule, not only the best improvement.</p>
+<p>The official description reports production navigation-on-autopilot workloads on NVIDIA Orin-N-based vehicles, says the constraints were satisfied, and reports up to 12% lower mean latency and 15% lower 99th-percentile latency than an industrial static baseline. It does not expose absolute latency, deadline misses, execution-time calibration, search cost, energy, resource configuration, per-DAG results or robustness conditions.</p><p>The evidence supports hierarchical Pareto scheduling exploration, not demonstrated probabilistic deadline guarantees or portable automotive real-time safety.</p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="chart-bar"></span>Cause-effect chains: faster tasks can change which data gets used</h2>
+<p>Periodic tasks may exchange data by reading a stored value when they run. Changing a task's timing can change which producer output a consumer reads.</p><p>A local speed improvement can therefore alter the sequence of task instances carrying an event through the system, rather than merely shortening an unchanged sequence.</p>
+<p><a href="real-time-and-networked-systems.html#paper-dac-2026-research378">Scheduling Cause-Effect Chains Without Timing Anomalies</a> has a recovered manuscript. Section 2.1 assumes periodic tasks on one core with fixed-priority scheduling and bounded execution times.</p><p>Section 4 fixes producer-consumer relations using deterministic data flow: offline scheduling identifies the intended relations, modified task attributes preserve execution order, and multiple buffers preserve the intended input versions.</p>
+<p>Section 5.3, Theorem 5.4, derives the maximum reaction time from the all-worst-case-execution schedule under this treatment. The result depends on the model and the implemented communication rules; it is not a theorem for arbitrary multicore or networked systems.</p><p>Section 6 evaluates synthetic task sets and chains derived from automotive benchmark configurations, rather than establishing vehicle-level validation. <a href="https://arxiv.org/html/2604.09102v1">Manuscript, Sections 2.1, 4, 5.3, and 6</a>.</p>
+<p>The implementation question is whether buffer use, task overhead, and execution-time bounds match the analyzed model. A mathematically valid bound does not survive an unmodeled cost merely because that cost is usually small.</p>
+<p><span id="explanation-dac-2026-research378"></span></p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>Cause-effect scheduling: eliminating timing anomalies is a model-bound causality result, not a universal deadline guarantee</h2>
+<p>In a reactive system, a cause-effect chain follows a particular producer output through one or more consumers to an observed response. Periodic tasks may read whichever producer value is available when they execute.</p><p>If one task becomes faster, the consumer can read a different producer instance; the measured chain has changed even if each individual execution took less time. This is a timing anomaly: local progress does not necessarily shorten the end-to-end reaction time.</p>
+<p>The paper is described as identifying two basic causes of these anomalies and using Deterministic Data Flow (DDF) to eliminate them with small average-latency loss. The recovered manuscript describes offline scheduling that fixes intended producer-consumer relations, modified task attributes that preserve execution order, and multiple buffers that preserve the intended input versions.</p><p>This is a causality and data-flow contract, not merely a priority tweak. It must define release/finish semantics, overwrites, buffer ownership, chain boundaries, preemption and what happens when a task misses a period.</p>
+<p>The first gate is event-level correctness. Trace task instances, not only task durations, under faster and slower executions, preemption, simultaneous chains, missed periods and buffer pressure.</p><p>Verify that each consumer reads the intended producer version, that DDF does not drop or duplicate events, and that the measured reaction time refers to the same cause-effect relation before and after scheduling. A shorter local task or lower average latency is not evidence if the system is answering from a different input instance.</p>
+<p>The second gate is the timing-model boundary. The recovered manuscript assumes periodic tasks on one core with fixed-priority scheduling and bounded execution times, and derives a maximum reaction time from the all-worst-case-execution schedule under the DDF treatment.</p><p>State whether bounds are WCET, measured values or estimates, and include context switches, buffer access, communication, synchronization, scheduler work and instrumentation. The result should not be generalized to arbitrary multicore or networked systems without accounting for shared resources, clock synchronization, migration and a new proof.</p>
+<p>Evaluate synthetic and automotive-derived chains outside the design set with all-worst-case and mixed traces, priority/utilization changes, buffer sizes and deadlines. Report maximum and quantile reaction time, jitter, deadline-miss rate, utilization, average-latency cost and buffer/memory overhead.</p><p>Compare priority scheduling, anomaly-oblivious chains and methods that remove anomalies by sacrificing average latency under the same causality and deadline contract; report failed and infeasible cases rather than only a derived upper bound.</p>
+<p>The official description claims lower maximum end-to-end latency, average latency and jitter than the state-of-the-art method. The recovered manuscript provides a formal TA-free property and Theorem 5.4 under its single-core/fixed-priority/bounded-execution/DDF assumptions, with synthetic and automotive-derived evaluation, but the captured evidence does not provide complete numerical bounds, deadline-miss tables, implementation overhead, multicore/network results or vehicle-level validation.</p><p>The evidence supports a model-bounded DDF cause-effect scheduling direction, not demonstrated vehicle-level real-time safety or universal deadline guarantees.</p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>What the three studies establish together</h2>
+<p>My synthesis is that predictable timing requires control over both competition for resources and the exact movement of data. The studies address queues, task placement and offsets, and producer-consumer relations respectively. Their results cannot be ranked by comparing the smallest reported latency percentage.</p>
+<p>For an end-to-end assessment, define the starting event, final response, accepted inputs, resource interference, timing model, and deadline. Then distinguish observed behavior from guarantees and verify that implementation overhead is included.</p><p>A long-term trend would additionally require comparable evidence across editions, not just three current proposals.</p>
+<div class="worked"><p class="lm-k">Worked example</p><p>Sources were refreshed on 2026-09-07. The manuscript supplies section-backed reasoning for cause-effect chains; PFATS and Pareto scheduling remain official-description evidence.</p><p>The older cards below preserve the original capture and may still state that results were missing then. The refreshed explanation supersedes those omissions where explicitly cited, without claiming independent reproduction or a complete proof audit.</p></div>
+<p class="lm-k h-label">Compare the results carefully</p><h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="route"></span>How to compare these papers’ results fairly</h2>
+<p>First identify the inputs and required output quality. Then identify the limited resource: time, memory, communication, energy, circuit area, or correctness coverage.</p><p>Ask which part of the method reduces that cost and which new cost it adds. Compare numbers only when the experiments hold these conditions sufficiently similar.</p>
+<p>A conference description may explain the proposal while omitting the full experiment. An author preprint link may have been coded from its abstract. The source classification does not by itself establish that every table was read. Missing locations remain visible below.</p>
+<p class="lm-k h-label">Complete captured evidence</p><h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="file-text"></span>Every paper in this subtheme, with what its source shows</h2>
+<p>These are evidence records, not substitutes for the explanations above. Each record preserves its problem, proposed method, measurements, comparison conditions, and source limits. A populated record does not establish that its mechanism has been fully explained or independently verified.</p>
+<p><span id="paper-dac-2026-research163"></span></p>
+<h3>Per Flow Asynchronous Traffic Shaping in Time Sensitive Networking</h3>
+<p>DAC 2026 · Record: <code>dac-2026-research163</code></p>
+<p><a href="#explanation-dac-2026-research163">Read the step-by-step explanation</a></p>
+<p><strong>Updated source-backed reading card</strong></p>
+<div class="worked"><p class="lm-k">Worked example</p><p>Reviewed 2026-09-09. Deepens the PFATS treatment into a paper-level reading; separates per-flow eligibility, queue isolation and SSRM scheduling from admission contracts, link contention, schedulability, buffer behavior, clock assumptions and hardware/testbed guarantees, while preserving the 192-flow, 7.14%, microsecond and 5 μs claims.</p></div>
+<p>This editorial correction updates the current reading view and connected dossiers, not the historical adjudication or scientific acceptance status. The original captured fields are preserved below.</p>
+<p><a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/data/editorial-paper-corrections-v1.json">Correction register</a></p>
+<p><strong>Problem:</strong></p>
+<p>Asynchronous traffic shaping can bound delay without global synchronization, but grouping flows in shared queues creates inter-flow interference and delay jitter for time-critical traffic; the design must control eligibility and service without assuming a globally synchronized clock.</p>
+<p><strong>Mechanism / artifact:</strong></p>
+<p>PFATS: per-flow asynchronous traffic shaping with a per-flow frame eligibility-time calculator, per-flow queues and a Synchronous Shift Register Matrix (SSRM) scheduler implemented on an FPGA-based TSN switch; eligibility semantics, queue admission, clock model, arbitration, buffer sizing, link scheduling and packet-drop behavior are unspecified.</p>
+<p><strong>Workload — the work tested:</strong></p>
+<p>Time-Sensitive Networking scenarios with asynchronous flows; flow count, packet sizes, periods/bursts, arrival contract, priorities, deadlines, topology/hops, link rates, competing traffic, queue occupancy, traffic traces, offered load and scenario duration are unspecified.</p>
+<p><strong>Hardware and manufacturing assumptions:</strong></p>
+<p>FPGA-based TSN switch with per-flow queues and SSRM scheduling; FPGA family/frequency, pipeline latency, on-chip memory organization, port count, PHY/link rates, clock domains, timestamp/eligibility precision, switch fabric, host configuration, buffering and testbed instrumentation are unspecified.</p>
+<p><strong>Baseline — the comparison method:</strong></p>
+<p>Conventional grouped-queue asynchronous traffic shaping (ATS)</p>
+<p>Synchronous traffic shaping</p>
+<p>Best-effort Ethernet</p>
+<p>Same flow contracts, topology, packet sizes, link rates, clock assumptions, buffer budget, traffic traces, scheduler implementation and end-to-end measurement boundary are unspecified</p>
+<p><strong>Reported measurements:</strong></p>
+<p>The official description reports support for 192 flows with 7.14% additional on-chip memory versus conventional ATS, microsecond-level end-to-end delay, delay jitter bounded within 5 μs in realistic TSN scenarios and high throughput; it reports no absolute latency distribution, formal bound, utilization, throughput value, drops, buffer occupancy, schedulability or hardware-condition matrix.</p>
+<p><strong>Limits on the conclusion:</strong></p>
+<p>Per-flow queues remove one source of inter-flow interference but do not remove contention on physical links, switch resources or downstream queues. Define flow arrival/service contracts, eligibility-time computation, arbitration, priority, clock domains, synchronization assumptions, propagation and serialization delay; derive a worst-case end-to-end bound and test deadline misses under admissible and overload traffic.</p>
+<p>A 5 μs jitter bound must define jitter, observation window, percentile versus worst case, timestamp points, packet population and traffic envelope. Report latency distributions, queue occupancy, drops, throughput, link utilization, head-of-line behavior, buffer requirements and behavior when a flow exceeds its contract; supporting 192 flows does not establish 192 arbitrary-rate flows.</p>
+<p>The official description reports an FPGA switch, 192 flows, 7.14% additional memory, microsecond-level delay, 5 μs jitter and high throughput, but omits topology, load, packet/link conditions, absolute results, clock/testbed details, formal schedulability and overload validation. The evidence supports per-flow asynchronous TSN shaping, not demonstrated deterministic end-to-end guarantees across networks.</p>
+<p><strong>Source and location</strong></p>
+<p>Evidence tier: Primary captured official DAC description plus existing authored tsn discussion; no full paper extraction, schedulability proof, traffic condition matrix or independent hardware validation. This is the stored source classification; the location and limits below determine what was actually read.</p>
+<p><a href="https://63dac.conference-program.com/?post_type=page&amp;p=16&amp;id=RESEARCH163&amp;sess=sess171">Open the recorded source</a></p>
+<p>DAC 2026 official description; existing real-time-and-networked-systems chapter discussion; captured Problem, Mechanism / artifact, Workload, Hardware, Baseline, Measurements and Limits fields; no manuscript pages, formal bound, traffic trace, queue trace or independent FPGA testbed report.</p>
+<details markdown="1">
+<summary>Original captured fields — superseded for this reading card</summary>
+
+** page source tier:** medium_official_description
+
+**Baselines:** synchronous traffic shaping
+
+best-effort Ethernet
+
+**Evidence locators:** DAC 2026 official description
+
+**Evidence url:** https://63dac.conference-program.com/?post_type=page&amp;p=16&amp;id=RESEARCH163
+
+**Hardware or process assumptions:** TSN switches and links with per-flow shaping; protocol and clock assumptions are unspecified.
+
+**Limits:** No latency bounds, jitter, utilization, drops, or hardware results are reported.
+
+Asynchrony can complicate global guarantees.
+
+Official description only; schedulability analysis and testbed validation are required.
+
+**Method or artifact:** Per-flow asynchronous traffic-shaping mechanism.
+
+**Metrics:** Latency determinism and traffic efficiency are claimed qualitatively
+
+**Problem:** Time-sensitive networks must meet deterministic latency while handling asynchronous flows and changing traffic.
+
+**Workload or benchmark:** Time-sensitive networking flows; topology, deadlines, traffic, and baselines are unspecified.
+
+</details>
+<p><span id="paper-dac-2026-research2360"></span></p>
+<h3>Hierarchical Pareto-Prompted Optimization for Probabilistic DAG Scheduling on Real-Time Systems</h3>
+<p>DAC 2026 · Record: <code>dac-2026-research2360</code></p>
+<p><a href="#explanation-dac-2026-research2360">Read the step-by-step explanation</a></p>
+<p><strong>Updated source-backed reading card</strong></p>
+<div class="worked"><p class="lm-k">Worked example</p><p>Reviewed 2026-09-09. Deepens the hierarchical Pareto DAG-scheduling treatment into a paper-level reading; separates joint task mapping/offset refinement and Pareto metaheuristic search from execution-time calibration, deadline-miss probability, WCET/tail semantics, resource/interference constraints, search/runtime overhead and automotive deployment robustness, while preserving the Orin-N, 12% and 15% claims.</p></div>
+<p>This editorial correction updates the current reading view and connected dossiers, not the historical adjudication or scientific acceptance status. The original captured fields are preserved below.</p>
+<p><a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/data/editorial-paper-corrections-v1.json">Correction register</a></p>
+<p><strong>Problem:</strong></p>
+<p>Automotive navigation-on-autopilot workloads form DAGs whose shared tasks can couple multiple sensor-to-actuator paths; probabilistic execution times make a mapping and offset that looks good on average vulnerable to tail latency and deadline violations.</p>
+<p><strong>Mechanism / artifact:</strong></p>
+<p>Hierarchical Pareto-prompted metaheuristic that first searches task-to-resource mappings and then refines task offsets, using Pareto dominance to retain non-dominated schedules for probabilistic real-time DAG objectives; the term prompted describes the search strategy rather than an established LLM component. Objective definitions, constraint handling, execution-time model, interference model, search budget, feasibility repair and online/offline adaptation are unspecified.</p>
+<p><strong>Workload — the work tested:</strong></p>
+<p>Production navigation-on-autopilot workloads modeled as real-time DAGs and evaluated on NVIDIA Orin-N-based vehicles; DAG count/structure, shared-task paths, task periods/deadlines, execution-time distributions, sensor/actuator rates, processor resources, workload traces, interference and deployment duration are unspecified.</p>
+<p><strong>Hardware and manufacturing assumptions:</strong></p>
+<p>Heterogeneous NVIDIA Orin-N automotive platform with mapped real-time tasks and probabilistic execution durations; CPU/GPU/accelerator partition, cores/clocks, DVFS, memory/interconnect contention, OS/runtime, scheduler, thermal state, fault model, time synchronization and timing instrumentation are unspecified.</p>
+<p><strong>Baseline — the comparison method:</strong></p>
+<p>Industrial static baseline</p>
+<p>Deterministic DAG scheduling</p>
+<p>Single-objective mapping or offset optimization</p>
+<p>Same DAGs, execution-time traces/distributions, deadlines, resource assignment, interference, warm-up, priority policy, hardware/runtime, objective constraints and end-to-end latency boundary are unspecified</p>
+<p><strong>Reported measurements:</strong></p>
+<p>The official description reports that all stated constraints were satisfied and that the method reduces mean latency by up to 12% and 99th-percentile latency by up to 15% relative to an industrial static baseline on Orin-N-based vehicles; it does not report absolute latency, deadline-miss probability, worst-case response time, energy, search/runtime cost, distribution calibration, per-DAG results, robustness or deployment duration.</p>
+<p><strong>Limits on the conclusion:</strong></p>
+<p>A Pareto schedule is non-dominated only relative to the candidates and objectives searched; it is not automatically globally optimal or deadline-safe. Define every objective, deadline, precedence, resource, memory, priority, synchronization and interference constraint, and report feasibility repairs, rejected candidates and deadline misses.</p><p>Validate the selected mapping and offsets with cycle-level or trace-based execution rather than only the optimizer's model.</p>
+<p>Probabilistic execution times must be calibrated on held-out traces and checked under temperature, DVFS, contention, software version, sensor load and workload shifts. Report the distribution, quantile/confidence semantics, calibration error, p50/p95/p99/p99.9 latency, worst observed response, deadline-miss rate and tail across each sensor-to-actuator path.</p><p>A 99th-percentile reduction can coexist with unacceptable rare misses or a changed deadline denominator.</p>
+<p>Separate offline search cost from online scheduler overhead and execution benefit. Include hierarchical mapping search, offset refinement, Pareto filtering, model/traces collection, schedule deployment, runtime monitoring, rescheduling, synchronization and fallback.</p><p>Compare static and single-objective baselines with equal hardware, task priority, interference, deadline, trace, warm-up and measurement boundaries; report per-DAG outcomes rather than only a best improvement.</p>
+<p>The official description reports production navigation-on-autopilot workloads on Orin-N-based vehicles, all constraints satisfied, up to 12% lower mean latency and 15% lower 99th-percentile latency, but omits constraints, absolute values, deadline misses, execution-time calibration, search cost, energy, resource configuration and robustness. The evidence supports hierarchical Pareto scheduling exploration, not demonstrated probabilistic deadline guarantees or portable automotive real-time safety.</p>
+<p><strong>Source and location</strong></p>
+<p>Evidence tier: Primary captured official DAC description plus existing authored real time scheduling discussion; no full paper extraction, reproduced pareto search, deadline miss trace or safety case validation. This is the stored source classification; the location and limits below determine what was actually read.</p>
+<p><a href="https://63dac.conference-program.com/?post_type=page&amp;p=16&amp;id=RESEARCH2360&amp;sess=sess115">Open the recorded source</a></p>
+<p>DAC 2026 official description; existing real-time-and-networked-systems chapter framing; captured Problem, Mechanism / artifact, Workload, Hardware, Baseline, Measurements and Limits fields; no manuscript pages, execution-trace distribution, schedulability proof or independent Orin-N run.</p>
+<details markdown="1">
+<summary>Original captured fields — superseded for this reading card</summary>
+
+** page source tier:** medium_official_description
+
+**Baselines:** deterministic DAG scheduling
+
+single-objective optimization
+
+**Evidence locators:** DAC 2026 official description
+
+**Evidence url:** https://63dac.conference-program.com/?post_type=page&amp;p=16&amp;id=RESEARCH2360
+
+**Hardware or process assumptions:** Heterogeneous real-time platform with probabilistic task durations; timing and fault assumptions are unspecified.
+
+**Limits:** No deadline miss, energy, robustness, runtime, or Pareto-front results are reported.
+
+Probabilistic models may be miscalibrated in deployment.
+
+Official description only; trace-based validation is required.
+
+**Method or artifact:** Hierarchical Pareto-prompted scheduling optimization.
+
+**Metrics:** Schedulability and Pareto quality are claimed qualitatively
+
+**Problem:** Real-time DAG schedules must trade latency, energy, and reliability under probabilistic execution times.
+
+**Workload or benchmark:** Probabilistic real-time task DAGs; processors, deadlines, and baselines are unspecified.
+
+</details>
+<p><span id="paper-dac-2026-research378"></span></p>
+<h3>Scheduling Cause-Effect Chains Without Timing Anomalies in End to End Latency</h3>
+<p>DAC 2026 · Record: <code>dac-2026-research378</code></p>
+<p><a href="#explanation-dac-2026-research378">Read the step-by-step explanation</a></p>
+<p><strong>Updated source-backed reading card</strong></p>
+<div class="worked"><p class="lm-k">Worked example</p><p>Reviewed 2026-09-09. Deepens the cause-effect scheduling treatment into a paper-level reading; separates timing-anomaly causes, deterministic data flow, buffer/order preservation and the worst-case reaction-time theorem from single-core/fixed-priority assumptions, execution-time validity, multicore/network generalization, implementation overhead and vehicle-level validation.</p></div>
+<p>This editorial correction updates the current reading view and connected dossiers, not the historical adjudication or scientific acceptance status. The original captured fields are preserved below.</p>
+<p><a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/data/editorial-paper-corrections-v1.json">Correction register</a></p>
+<p><strong>Problem:</strong></p>
+<p>Reactive systems must preserve producer-consumer causality while meeting end-to-end timing constraints; a local reduction in task execution time can change which periodic producer instance a consumer reads and paradoxically increase the observed cause-effect latency or its upper bound.</p>
+<p><strong>Mechanism / artifact:</strong></p>
+<p>Timing-anomaly-aware cause-effect chain scheduling using two identified anomaly causes and Deterministic Data Flow (DDF); the recovered manuscript describes offline scheduling that fixes producer-consumer relations, modified task attributes that preserve execution order and multiple buffers that preserve intended input versions, with a formal timing-anomaly-free property and worst-case reaction-time derivation. Platform, communication, implementation overhead and extensions beyond the stated model are bounded by the manuscript assumptions.</p>
+<p><strong>Workload — the work tested:</strong></p>
+<p>Periodic cause-effect task chains evaluated on synthetic task sets and chains derived from automotive benchmark configurations; task periods/priorities, chain topology, core/platform, execution-time bounds/distributions, deadlines, buffer sizes, workload scale, communication and baseline configurations are partly unspecified in the captured record.</p>
+<p><strong>Hardware and manufacturing assumptions:</strong></p>
+<p>Recovered manuscript Section 2.1 assumes periodic tasks on one core with fixed-priority scheduling and bounded execution times; communication is implemented with deterministic data-flow rules and multiple buffers. Multicore, network, cache, clock, preemption, OS/runtime, synchronization, buffer-memory and instrumentation assumptions are not established by the captured evidence.</p>
+<p><strong>Baseline — the comparison method:</strong></p>
+<p>Priority scheduling</p>
+<p>Timing-anomaly-oblivious cause-effect chain scheduling</p>
+<p>Methods that eliminate anomalies by sacrificing average latency</p>
+<p>Same task sets, producer-consumer relations, execution-time bounds, priorities, core/platform, buffer/memory budget, deadline definition, implementation overhead and measurement boundary are unspecified</p>
+<p><strong>Reported measurements:</strong></p>
+<p>The official description claims lower maximum end-to-end latency, average latency and latency jitter than the state-of-the-art method, and the recovered manuscript's Theorem 5.4 derives a maximum reaction time from an all-worst-case-execution schedule under the stated DDF treatment; the record does not report numerical bounds, deadline misses, utilization, jitter distribution, overhead, multicore/network results or vehicle-level validation.</p>
+<p><strong>Limits on the conclusion:</strong></p>
+<p>A cause-effect latency is a relation between task instances, not merely the sum of task runtimes. Define which producer version each consumer may read, release/finish semantics, periodic sampling, buffers, overwrites, priorities and chain boundaries.</p><p>Verify DDF with traces under faster/slower tasks, preemption, missed periods, buffer pressure and simultaneous chains; a local speedup must not silently change the event being measured.</p>
+<p>The formal upper-bound result is conditional on the recovered model: periodic tasks, one core, fixed priorities, bounded execution times and the implemented deterministic communication/buffer rules. State whether execution times are WCET bounds, measured values or estimates, and include scheduling, buffer access, context-switch, communication, synchronization and instrumentation costs.</p><p>The theorem should not be generalized to arbitrary multicore, networked or dynamic systems without a new proof.</p>
+<p>Validate anomaly elimination on task sets and chains outside the design set, with all-worst-case and mixed execution traces, priority/utilization changes, buffer sizes and deadlines. Report maximum/quantile/average reaction time, jitter, deadline-miss rate, utilization and the cost in average latency or memory.</p><p>Compare anomaly-oblivious and anomaly-sacrificing baselines at the same causality and deadline contract.</p>
+<p>The evidence supports a formally reasoned DDF treatment under stated single-core timing assumptions and synthetic/automotive-derived experiments, not demonstrated vehicle-level real-time safety, multicore/network portability or independently measured deadline guarantees. The official record provides no numerical latency bounds or schedulability table.</p>
+<p><strong>Source and location</strong></p>
+<p>Evidence tier: Primary captured official DAC description plus recovered manuscript backed chapter extraction; theorem and experiments are bounded to the stated single core/fixed priority/ddf model, with no independent multicore/network or vehicle validation. This is the stored source classification; the location and limits below determine what was actually read.</p>
+<p><a href="https://63dac.conference-program.com/?post_type=page&amp;p=16&amp;id=RESEARCH378&amp;sess=sess171">Open the recorded source</a></p>
+<p>DAC 2026 official description plus recovered manuscript Sections 2.1, 4, 5.3/Theorem 5.4 and 6; existing real-time-and-networked-systems chapter; no independent trace run, vehicle deployment or complete numerical schedulability table.</p>
+<details markdown="1">
+<summary>Original captured fields — superseded for this reading card</summary>
+
+** page source tier:** medium_official_description
+
+**Baselines:** priority scheduling
+
+timing-anomaly-oblivious chain scheduling
+
+**Evidence locators:** DAC 2026 official description
+
+**Evidence url:** https://63dac.conference-program.com/?post_type=page&amp;p=16&amp;id=RESEARCH378
+
+**Hardware or process assumptions:** Networked or embedded real-time system; clocks, priorities, and execution-time assumptions are unspecified.
+
+**Limits:** No latency bounds, jitter, deadline misses, utilization, or platform results are reported.
+
+Guarantees depend on timing-model assumptions.
+
+Official description only; trace-based real-time validation is required.
+
+**Method or artifact:** Timing-anomaly-aware cause-effect chain scheduler.
+
+**Metrics:** End-to-end latency predictability is claimed qualitatively
+
+**Problem:** Reactive systems must schedule cause-effect chains without hidden timing anomalies that violate end-to-end deadlines.
+
+**Workload or benchmark:** Real-time cause-effect chains; platform, deadlines, and baselines are unspecified.
+
+</details>
+<p class="lm-k h-label">What remains to establish</p><h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>What is still unproven here</h2>
+<p>Resolve unspecified workloads, comparison methods, resource budgets, and source locations before generalizing a reported gain. Multiple papers in this selected sample permit comparison of mechanisms, but do not by themselves establish recurrence across years or a long-term trend.</p>
+<p><a href="../guide/expanded-taxonomy-v1.html">All subthemes</a> · <a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/reports/directions/README.md">Research directions</a></p><p class="meta">Written as <a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/reports/observed-subthemes/real-time-and-networked-systems.md">reports/observed-subthemes/real-time-and-networked-systems.md</a> in the course repository.</p>
+      </article>
+      <nav class="pager" aria-label="Previous and next"><a class="prev" href="embedded-and-edge-systems.html"><span class="pg-k">← Previous</span><span class="pg-t">Embedded and edge systems</span></a><a class="map" href="../subthemes.html"><span class="pg-k">Back to</span><span class="pg-t">Subthemes</span></a><a class="next" href="biochips-and-specialized-systems.html"><span class="pg-k">Next →</span><span class="pg-t">Biochips and specialized systems</span></a></nav>
+    </section>
+  </main>
+  <footer class="course-foot">
+    <p>Built from 582 paper records coded from ISCA 2026, DAC 2026 and ICCAD 2025 (ICCAD 2026 papers were not yet public). Most records come from official program descriptions; see “How deep the reading went”. The papers belong to their authors.</p>
+    <p class="foot-links"><a href="https://github.com/mehtama1234/course-concept-library">All courses</a><a href="../index.html">This course</a><a href="../course-map.html">Course map</a><a href="../presentation/index.html">Slides</a><a href="../video/index.html">Video</a><a href="../share/index.html">Share</a></p>
+  </footer>
+  <script src="../assets/course-data.js"></script><script src="../assets/icons.js"></script><script src="../assets/icons-extra.js"></script><script src="../assets/icons-course.js"></script><script src="../assets/art.js"></script><script src="../assets/course-art.js"></script><script src="../assets/charts.js"></script><script src="../assets/course-charts.js"></script><script src="../assets/course-site.js"></script>
+</body>
+</html>

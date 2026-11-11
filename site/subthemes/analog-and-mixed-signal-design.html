@@ -1,0 +1,233 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#F3ECE1" />
+  <title>Analog and mixed signal design · Semiconductor conference atlas</title>
+  <meta name="description" content="Papers: DAC 2. Read from: 2 program descriptions, 0 abstracts or reports, 0 full papers or preprints. The explanations come first; every paper’s record follows at the end." />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Semiconductor conference atlas" />
+  <meta property="og:title" content="Analog and mixed signal design · Semiconductor conference atlas" />
+  <meta property="og:description" content="Papers: DAC 2. Read from: 2 program descriptions, 0 abstracts or reports, 0 full papers or preprints. The explanations come first; every paper’s record follows at the end." />
+  <meta property="og:url" content="https://mehtama1234.github.io/semiconductor-conferences/subthemes/analog-and-mixed-signal-design.html" />
+  <meta property="og:image" content="https://mehtama1234.github.io/semiconductor-conferences/presentation/slides/01-cover.jpg" />
+  <meta property="og:image:width" content="1920" />
+  <meta property="og:image:height" content="1080" />
+  <meta property="og:image:alt" content="Semiconductor conference atlas: 582 papers from ISCA, DAC and ICCAD, sorted into 10 themes and six directions to watch." />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="canonical" href="https://mehtama1234.github.io/semiconductor-conferences/subthemes/analog-and-mixed-signal-design.html" />
+  <link rel="icon" href="../assets/icon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="../assets/base.css" />
+  <link rel="stylesheet" href="../assets/experience.css" />
+  <link rel="stylesheet" href="../assets/theme-atlas.css" />
+  <link rel="stylesheet" href="../assets/styles.css" />
+  <link rel="stylesheet" href="../assets/charts.css" />
+  <link rel="stylesheet" href="../assets/course.css" />
+  
+</head>
+<body class="course-site " data-house="atlas">
+  <aside class="public-demo-banner" aria-label="About this course">A plain-language guide to what ISCA, DAC and ICCAD papers say about chip and computer design · Built from the repository’s own paper records · Not made by the conferences</aside>
+  <a class="skip-link" href="#app">Skip to the page</a>
+  <header>
+    <a class="brand" href="../index.html"><span class="mark" aria-hidden="true">Si</span> Semiconductor conference atlas</a>
+    <span class="header-status"><span class="badge">582 papers</span><span class="badge">10 themes</span><span class="badge">Plain words first</span></span>
+    <a class="header-link" href="../course-map.html">Course map</a>
+  </header>
+  <nav class="course-nav" aria-label="Main sections of the course"><a href="../index.html">The big picture</a><a href="../themes.html">Themes</a><a href="../subthemes.html" aria-current="page">Subthemes</a><a href="../deep-reads.html">Deep reads</a><a href="../directions.html">What to watch</a><a href="../presentation/index.html">Slides</a><a href="../video/index.html">Video</a><a href="../share/index.html">Share</a></nav>
+  <main id="app" tabindex="-1">
+    <section class="screen active landing legacy-page" aria-labelledby="page-title">
+<div class="lm-head"><div class="hj-heading"><nav class="crumbs" aria-label="You are here"><a href="../course-map.html">Course map</a><span aria-hidden="true">›</span><a href="../subthemes.html">Subthemes</a></nav><a class="back-button" href="../subthemes.html">← <span>Subthemes</span></a><p class="eyebrow">Subtheme · 2 papers · Analog, mixed-signal, and emerging devices</p><h1 id="page-title">Analog and mixed signal design</h1><p class="hj-sub">Papers: DAC 2. Read from: 2 program descriptions, 0 abstracts or reports, 0 full papers or preprints. The explanations come first; every paper’s record follows at the end.</p></div><div class="hj-art" data-art="trio:math-function,wave-sine,alert-triangle"></div></div>
+<figure class="course-fig"><div class="loop-wide" data-art="flow:analog-mixed-signal-and-emerging-devices"></div><div class="loop-tall" data-art="flowTall:analog-mixed-signal-and-emerging-devices"></div><figcaption>The parent theme in one picture: when a device does the arithmetic, its physics sets the accuracy.</figcaption></figure>
+      <article class="prose">
+
+<p>This subject has 2 records in the selected sample. This page explains where it fits, then presents all captured paper evidence without shortening the measurements or limitations.</p>
+<p><a href="../guide/reading-guide-v1.html">Definitions used in the paper records</a></p>
+<p class="lm-k h-label">Understand the parent subject first</p><h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>The bigger theme this belongs to</h2>
+<ul>
+<li><a href="../themes/analog-mixed-signal-and-emerging-devices.html">Analog mixed signal and emerging devices</a></li>
+</ul>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>Two different kinds of uncertainty</h2>
+<p>This group contains an oscillator-analysis method and an analog-to-digital converter test method. Both help characterize circuit behavior, but they answer different questions.</p><p>The first computes sensitivity in a circuit model. The second selects measurements to estimate properties of a converter.</p><p>A numerical solver's accuracy and a test procedure's measurement accuracy are not interchangeable.</p>
+<p>An oscillator produces a repeating waveform. Its phase describes position within that repeating cycle.</p><p>A disturbance can change the waveform's amplitude, shift when its next cycle occurs, or do both. An amplitude disturbance may decay while a timing shift remains.</p><p>Phase-noise analysis studies the unwanted variation in that timing relationship.</p>
+<p>An analog-to-digital converter, or ADC, maps a continuous input range to discrete output codes. Ideally, successive code transitions have the intended spacing.</p><p>Real transitions depart from that pattern. Differential nonlinearity measures a code interval's width error relative to the ideal interval.</p><p>Integral nonlinearity measures deviation from a chosen ideal transfer line, with the reference-line convention needing specification. Neither is the same as random sample noise.</p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>Floquet projection: separate the persistent response from slow decay</h2>
+<p>To analyze small disturbances around an oscillation, a solver can linearize the circuit around its periodic waveform. The resulting coefficients repeat over the cycle.</p><p>Floquet analysis characterizes how disturbance components change from one cycle to the next. A component that decays slowly can remain numerically significant long after a faster component has disappeared.</p>
+<p><a href="analog-and-mixed-signal-design.html#paper-dac-2026-research2838">The Floquet-based subspace projection paper</a> targets computation of the perturbation projection vector, or PPV, used in oscillator phase-noise analysis. Its official description identifies slow-decaying modes as an obstacle to recovering the desired steady-state solution.</p><p>It restricts the calculation to a smaller space containing the PPV and slow-decaying solutions, then uses a mathematical orthogonality condition to isolate the PPV through a small linear system. A subspace here means a restricted set of combinations of selected solution components.</p>
+<p>The description claims numerical accuracy and efficiency improvements but supplies no circuit list, error values, timing results, or convergence thresholds. It therefore supports explaining the proposed separation, not a quantified speedup or universal convergence guarantee. <a href="https://63dac.conference-program.com/presentation/?id=RESEARCH2838&amp;sess=sess117">Official description, method paragraph</a>.</p>
+<p>An evaluation should include the cost of finding the periodic waveform and constructing the smaller space, not just solving its final equations. It should also check whether a close numerical PPV produces sufficiently accurate phase-noise predictions under the intended conditions.</p><p>Small-disturbance analysis should not silently become a claim about arbitrary large disturbances.</p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>UGLMS-uSMILE: let measurements determine the next measurement</h2>
+<p>A fixed sweep measures a predetermined sequence of inputs. An adaptive test can instead update an error model after each measurement and choose where to measure next.</p><p>The intended benefit is to spend effort where uncertainty remains. That benefit depends on whether the model's reported uncertainty reflects its actual errors.</p>
+<p><a href="analog-and-mixed-signal-design.html#paper-dac-2026-research3082">UGLMS-uSMILE</a> combines uncertainty-guided stimulus selection with segmented identification of linearity error. The indexed official description says it estimates errors at most-, intermediate-, and least-significant-bit levels during measurement, using covariance-based uncertainty.</p><p>Covariance describes how estimated parameter errors vary together; it is not, by itself, proof of accurate estimates. <a href="https://63dac.conference-program.com/presentation/?id=RESEARCH3082&amp;sess=sess117">Official description</a>.</p>
+<p>The University of Stuttgart lists this as a seven-page DAC 2026 paper, separately from the authors' ICCAD 2025 work on live measurement sequencing for SAR ADC testing. That establishes an important identity boundary: results from the earlier paper must not be assigned to this combined method without checking the new manuscript. <a href="https://www.gs-imtr.uni-stuttgart.de/publications/">University publication register</a>.</p>
+<p>A useful test comparison would fix converter resolution, input source quality, noise, settling requirements, and the reference measurement. Count stimulus changes, acquisition time, online computation, and any remaining reconstruction.</p><p>Fewer samples do not necessarily mean a shorter test if changing and settling the stimulus dominates time.</p>
+<p>Also inspect errors the segmented model cannot express. A confident fit within a restricted model can still miss a real defect.</p><p>Test completion should therefore depend on independently checked accuracy or coverage, not only a small internal uncertainty estimate. These are proposed validation requirements; they are not reported results of the captured record.</p>
+<p><span id="explanation-dac-2026-research2838"></span></p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>Floquet projection: reduce oscillator analysis without discarding the slow response</h2>
+<h3>The analysis starts from a periodic operating state</h3>
+<p>An oscillator is not at a fixed point. Its circuit state repeats after a period, so the nominal solution is a trajectory <code>x(t)</code> with <code>x(t+T) = x(t)</code>. To study a small disturbance, the circuit equations are linearized around that trajectory. The coefficients of the resulting linear system also repeat every period. This makes the problem different from ordinary small-signal analysis around a constant voltage or current.</p>
+<p>The disturbance can contain components that decay at different rates. Fast components disappear after a few cycles; a slow component remains and can dominate the numerical error of an iterative solver.</p><p>The phase direction is especially important because shifting an oscillator in time produces another point on the same periodic orbit. The phase perturbation projection vector, or PPV, extracts how a disturbance changes the oscillator's timing rather than only its instantaneous amplitude.</p>
+<h3>The proposed reduction targets the slow subspace</h3>
+<p>The official description identifies slow-decaying modes as an obstacle to computing the PPV. Floquet analysis describes how perturbation components transform over one period.</p><p>Floquet multipliers or related modal quantities indicate which components persist. A subspace projection then represents the perturbation using selected modes rather than the full circuit state.</p>
+<p>The reported method restricts the computation to a space containing the PPV and the slow-decaying solutions, then uses an orthogonality condition to isolate the PPV through a smaller linear system. The computational idea is specific: preserve the directions that can still affect the desired phase response while avoiding repeated work on rapidly decaying directions.</p><p>The description does not specify the exact basis construction, inner product, convergence test, or circuit equations, so those details are not inferred here.</p>
+<h3>A smaller solve does not mean a free solve</h3>
+<p>The total cost includes finding the periodic orbit, identifying the relevant modes, constructing the reduced basis, projecting the equations, solving the reduced system, and checking the reconstructed PPV. If mode extraction or basis construction is expensive, reducing the final linear system may not reduce total runtime.</p><p>The evaluation must therefore report preparation and repeated-use cost separately.</p>
+<p>Accuracy also has two levels. The projected vector may be close to a reference PPV under a chosen numerical norm, while the resulting phase-noise prediction can still differ at the frequencies or disturbances that matter to the circuit.</p><p>Small-disturbance linearization limits the claim to perturbations within its validity range; it does not establish behavior under arbitrary large disturbances or nonlinear startup transients.</p>
+<h3>What the record establishes and what remains open</h3>
+<p>The accessible description establishes a PPV computation strategy that keeps the PPV and slow-decaying Floquet components in a smaller subspace and uses orthogonality to solve for the desired response. It does not provide circuit identities, mode counts, convergence thresholds, error values, runtime, phase-noise prediction accuracy, or fabricated measurement results.</p><p>A stronger evaluation would report those conditions, compare full and projected solves, include basis-construction cost, test multiple oscillator topologies and operating points, and compare the final phase-noise output rather than only an intermediate vector.</p>
+<p><a href="https://63dac.conference-program.com/presentation/?id=RESEARCH2838&amp;sess=sess117">Official DAC description, record RESEARCH2838</a></p>
+<p><span id="explanation-dac-2026-research3082"></span></p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="checklist"></span>UGLMS-uSMILE: adaptive ADC testing spends measurements where uncertainty matters</h2>
+<h3>An ADC's transfer curve is a set of transition decisions</h3>
+<p>An analog-to-digital converter maps an input voltage to a digital code. As the input changes, the output changes at code transitions.</p><p>The width of one code interval determines local differential behavior. Differential nonlinearity, or DNL, measures how a transition interval differs from the ideal interval.</p><p>Integral nonlinearity, or INL, measures how the accumulated transfer curve differs from a chosen reference line. The reference convention and code range are part of the measurement definition.</p>
+<p>A test procedure estimates these errors by applying input stimuli and observing output codes. A fixed sweep spends measurements according to a predetermined grid.</p><p>If some regions are already well characterized and others remain uncertain, an adaptive procedure can use earlier observations to select the next stimulus. That changes the measurement schedule; it does not automatically improve the converter itself.</p>
+<h3>The method uses an uncertainty model to choose stimuli</h3>
+<p>UGLMS-uSMILE is described as combining uncertainty-guided stimulus selection with segmented identification of linearity error. The indexed description says it estimates error at most-significant-bit, intermediate-bit, and least-significant-bit levels while measuring, using covariance-based uncertainty.</p><p>A segmented model represents different contributions separately so that the next measurement can target a parameter or code region whose estimate remains uncertain.</p>
+<p>Covariance describes how estimation errors vary together. It can guide a selection rule, but a small modeled covariance is not proof that the model captures every physical error.</p><p>Missing terms, source distortion, settling error, noise, reference drift, or an incorrect segmentation can make the estimate confidently wrong. The procedure therefore needs an independently checked transfer curve or reference measurement.</p>
+<h3>Sample count is not the same as test time</h3>
+<p>An adaptive method may use fewer stimulus points and still take longer if each selected point requires a large input change, settling interval, acquisition window, or online update. The complete cost includes stimulus generation, switching, settling, conversion, code collection, covariance update, model evaluation, and final verification.</p><p>The comparison must hold converter resolution, input-source quality, noise, settling requirement, and accepted error fixed.</p>
+<p>The available source provides no sample count, acquisition time, DNL/INL error, resolution, stimulus conditions, runtime, or independent reference result. It therefore supports the mechanism and evaluation questions, not a numerical efficiency or accuracy claim.</p><p>The University of Stuttgart publication register also lists an earlier ICCAD 2025 paper on live SAR-ADC measurement sequencing. That identity is useful context, but its results are not imported into UGLMS-uSMILE without the DAC manuscript.</p>
+<h3>What the record establishes and what remains open</h3>
+<p>UGLMS-uSMILE establishes an adaptive testing direction: estimate segmented linearity behavior and use uncertainty to select subsequent ADC stimuli. It does not establish fewer total test resources, accurate uncertainty calibration, or better DNL/INL measurement than a fixed sweep.</p><p>A stronger evaluation would report the adaptive policy, model terms, converter and instrument conditions, sample and wall-clock budgets, independent transfer-curve reference, error distributions, and comparison with the earlier or contemporaneous test methods under matched conditions.</p>
+<p><a href="https://63dac.conference-program.com/presentation/?id=RESEARCH3082&amp;sess=sess117">Official DAC description</a> · <a href="https://www.gs-imtr.uni-stuttgart.de/publications/">University publication register</a></p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>What is established and what still needs recovery</h2>
+<p>The common idea is selective effort: isolate the response needed by a numerical analysis, or select measurements that improve an estimate. The former depends on the validity of the circuit model and mathematical reduction; the latter also depends on instruments and the chosen error model.</p><p>Their outcomes should remain separate.</p>
+<div class="worked"><p class="lm-k">Worked example</p><p>The source check on 2026-09-07 recovered a fuller oscillator description and an indexed ADC description plus publication identity. Direct retrieval of the ADC presentation timed out, and neither full manuscript was recovered here.</p><p>Consequently, there are no verified page-level numerical comparisons in this article yet. The older evidence cards below preserve their original capture; newly explained mechanisms above are attributed to the refreshed descriptions rather than presented as reproduced results.</p></div>
+<p class="lm-k h-label">Compare the results carefully</p><h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="route"></span>How to compare these papers’ results fairly</h2>
+<p>First identify the inputs and required output quality. Then identify the limited resource: time, memory, communication, energy, circuit area, or correctness coverage.</p><p>Ask which part of the method reduces that cost and which new cost it adds. Compare numbers only when the experiments hold these conditions sufficiently similar.</p>
+<p>A conference description may explain the proposal while omitting the full experiment. An author preprint link may have been coded from its abstract. The source classification does not by itself establish that every table was read. Missing locations remain visible below.</p>
+<p class="lm-k h-label">Complete captured evidence</p><h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="file-text"></span>Every paper in this subtheme, with what its source shows</h2>
+<p>These are evidence records, not substitutes for the explanations above. Each record preserves its problem, proposed method, measurements, comparison conditions, and source limits. A populated record does not establish that its mechanism has been fully explained or independently verified.</p>
+<p><span id="paper-dac-2026-research2838"></span></p>
+<h3>Floquet-Based Subspace Projection Method for Time-Domain PPV Computation</h3>
+<p>DAC 2026 · Record: <code>dac-2026-research2838</code></p>
+<p><a href="#explanation-dac-2026-research2838">Read the step-by-step explanation</a></p>
+<p><strong>Updated source-backed reading card</strong></p>
+<div class="worked"><p class="lm-k">Worked example</p><p>Reviewed 2026-09-08. Deepens the refreshed official-description reading; explains periodic-orbit linearization, slow Floquet modes, PPV projection and the missing numerical conditions.</p></div>
+<p>This editorial correction updates the current reading view and connected dossiers, not the historical adjudication or scientific acceptance status. The original captured fields are preserved below.</p>
+<p><a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/data/editorial-paper-corrections-v1.json">Correction register</a></p>
+<p><strong>Problem:</strong></p>
+<p>Slow-decaying perturbation modes make oscillator phase-noise PPV computation expensive or difficult to converge.</p>
+<p><strong>Mechanism / artifact:</strong></p>
+<p>Floquet-based subspace projection that retains the PPV and slow-decaying solutions, then isolates the PPV through an orthogonality condition and smaller linear system.</p>
+<p><strong>Workload — the work tested:</strong></p>
+<p>Oscillator phase-noise analysis; circuit topologies, periodic-waveform conditions, mode counts and reference solves are unspecified.</p>
+<p><strong>Hardware and manufacturing assumptions:</strong></p>
+<p>Numerical circuit-analysis models; solver, device/process, timestep and convergence assumptions are unspecified.</p>
+<p><strong>Baseline — the comparison method:</strong></p>
+<p>Full-space numerical PPV/Floquet solve</p>
+<p>Other oscillator phase-noise analysis methods; identities unspecified</p>
+<p><strong>Reported measurements:</strong></p>
+<p>Numerical accuracy and efficiency improvements are claimed qualitatively; no circuit list, error, runtime, convergence threshold or phase-noise result is reported.</p>
+<p><strong>Limits on the conclusion:</strong></p>
+<p>The exact basis construction, inner product, mode-selection rule, convergence test and circuit equations are not exposed.</p>
+<p>Reducing the final solve does not establish lower total cost if periodic-orbit, mode-extraction and projection preparation costs dominate.</p>
+<p>Small-disturbance linearization and an intermediate PPV error do not establish arbitrary nonlinear transient or final phase-noise accuracy.</p>
+<p>Refreshed official description only; full manuscript and independent reproduction were not performed.</p>
+<p><strong>Source and location</strong></p>
+<p>Evidence tier: Refreshed official DAC description; full manuscript and reproduction not performed. This is the stored source classification; the location and limits below determine what was actually read.</p>
+<p><a href="https://63dac.conference-program.com/?post_type=page&amp;p=16&amp;id=RESEARCH2838&amp;sess=sess117">Open the recorded source</a></p>
+<p>DAC official description, method paragraph; record RESEARCH2838; no manuscript pages.</p>
+<details markdown="1">
+<summary>Original captured fields — superseded for this reading card</summary>
+
+** page source tier:** medium_official_description
+
+**Baselines:** full time-domain simulation
+
+standard PPV solver
+
+**Evidence locators:** DAC 2026 official description
+
+**Evidence url:** https://63dac.conference-program.com/?post_type=page&amp;p=16&amp;id=RESEARCH2838
+
+**Hardware or process assumptions:** Analog simulation flow; device models and numerical integration assumptions are unspecified.
+
+**Limits:** No numerical error, runtime, memory, convergence, or circuit results are reported.
+
+Subspace assumptions may fail for nonlinear or multi-tone behavior.
+
+Official description only; circuit-diverse validation is required.
+
+**Method or artifact:** Floquet-based subspace projection for PPV computation.
+
+**Metrics:** PPV computation efficiency is claimed qualitatively
+
+**Problem:** Time-domain perturbation or phase-response computation can be expensive for oscillatory circuits.
+
+**Workload or benchmark:** Oscillator or analog circuit models; circuits, tolerances, and reference solvers are unspecified.
+
+</details>
+<p><span id="paper-dac-2026-research3082"></span></p>
+<h3>UGLMS-uSMILE: Live Measurement Sequencing for Segmented Linearity Identification in ADCs</h3>
+<p>DAC 2026 · Record: <code>dac-2026-research3082</code></p>
+<p><a href="#explanation-dac-2026-research3082">Read the step-by-step explanation</a></p>
+<p><strong>Updated source-backed reading card</strong></p>
+<div class="worked"><p class="lm-k">Worked example</p><p>Reviewed 2026-09-08. Deepens the refreshed indexed description; explains adaptive stimulus selection, segmented ADC linearity estimation and the difference between sample count and total test time.</p></div>
+<p>This editorial correction updates the current reading view and connected dossiers, not the historical adjudication or scientific acceptance status. The original captured fields are preserved below.</p>
+<p><a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/data/editorial-paper-corrections-v1.json">Correction register</a></p>
+<p><strong>Problem:</strong></p>
+<p>ADC linearity testing spends measurement effort over code transitions even when uncertainty is uneven across the transfer curve.</p>
+<p><strong>Mechanism / artifact:</strong></p>
+<p>Uncertainty-guided stimulus selection with segmented identification of ADC linearity error at most-, intermediate- and least-significant-bit levels using covariance-based uncertainty.</p>
+<p><strong>Workload — the work tested:</strong></p>
+<p>ADC linearity measurement; converter resolution, input source, noise, settling, stimulus count and reference measurement are unspecified.</p>
+<p><strong>Hardware and manufacturing assumptions:</strong></p>
+<p>ADC test instrumentation and converter under measurement; instrument accuracy, acquisition path, timing and device conditions are unspecified.</p>
+<p><strong>Baseline — the comparison method:</strong></p>
+<p>Fixed stimulus sweep</p>
+<p>Earlier live SAR-ADC measurement-sequencing work is identity context, not imported quantitative evidence</p>
+<p><strong>Reported measurements:</strong></p>
+<p>Adaptive linearity-testing benefit is described qualitatively; no DNL/INL error, sample count, wall-clock time, resolution or uncertainty-calibration result is reported.</p>
+<p><strong>Limits on the conclusion:</strong></p>
+<p>Covariance is a model quantity and does not prove that unmodeled source, settling, noise, drift or segmentation errors are absent.</p>
+<p>Fewer samples do not imply shorter testing when stimulus changes, settling, acquisition and online updates dominate.</p>
+<p>Direct retrieval of the ADC presentation timed out and no full manuscript was recovered; the indexed description and publication identity do not provide page-level numerical comparisons.</p>
+<p><strong>Source and location</strong></p>
+<p>Evidence tier: Refreshed indexed description plus institutional identity source; full manuscript and reproduction not performed. This is the stored source classification; the location and limits below determine what was actually read.</p>
+<p><a href="https://63dac.conference-program.com/?post_type=page&amp;p=16&amp;id=RESEARCH3082&amp;sess=sess117">Open the recorded source</a></p>
+<p>Indexed DAC official description and University of Stuttgart publication register; record RESEARCH3082; no manuscript pages.</p>
+<details markdown="1">
+<summary>Original captured fields — superseded for this reading card</summary>
+
+** page source tier:** medium_official_description
+
+**Baselines:** fixed measurement sweep
+
+offline linearity fitting
+
+**Evidence locators:** DAC 2026 official description
+
+**Evidence url:** https://63dac.conference-program.com/?post_type=page&amp;p=16&amp;id=RESEARCH3082
+
+**Hardware or process assumptions:** Mixed-signal test setup and ADC; sampling and calibration assumptions are unspecified.
+
+**Limits:** No INL/DNL error, measurement count, time, noise, or silicon results are reported.
+
+Sequencing may depend on ADC architecture.
+
+Official description only; instrumented validation is required.
+
+**Method or artifact:** Live adaptive measurement sequencing for segmented linearity identification.
+
+**Metrics:** Measurement efficiency is claimed qualitatively
+
+**Problem:** ADC linearity characterization can require many measurements and may be affected by changing conditions.
+
+**Workload or benchmark:** ADC measurements; resolution, segments, test equipment, and noise are unspecified.
+
+</details>
+<p class="lm-k h-label">What remains to establish</p><h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>What is still unproven here</h2>
+<p>Resolve unspecified workloads, comparison methods, resource budgets, and source locations before generalizing a reported gain. Multiple papers in this selected sample permit comparison of mechanisms, but do not by themselves establish recurrence across years or a long-term trend.</p>
+<p><a href="../guide/expanded-taxonomy-v1.html">All subthemes</a> · <a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/reports/directions/README.md">Research directions</a></p><p class="meta">Written as <a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/reports/observed-subthemes/analog-and-mixed-signal-design.md">reports/observed-subthemes/analog-and-mixed-signal-design.md</a> in the course repository.</p>
+      </article>
+      <nav class="pager" aria-label="Previous and next"><a class="prev" href="emerging-and-nonvon-neumann-compute.html"><span class="pg-k">← Previous</span><span class="pg-t">Emerging and nonvon neumann compute</span></a><a class="map" href="../subthemes.html"><span class="pg-k">Back to</span><span class="pg-t">Subthemes</span></a><a class="next" href="analog-calibration-and-modeling.html"><span class="pg-k">Next →</span><span class="pg-t">Analog calibration and modeling</span></a></nav>
+    </section>
+  </main>
+  <footer class="course-foot">
+    <p>Built from 582 paper records coded from ISCA 2026, DAC 2026 and ICCAD 2025 (ICCAD 2026 papers were not yet public). Most records come from official program descriptions; see “How deep the reading went”. The papers belong to their authors.</p>
+    <p class="foot-links"><a href="https://github.com/mehtama1234/course-concept-library">All courses</a><a href="../index.html">This course</a><a href="../course-map.html">Course map</a><a href="../presentation/index.html">Slides</a><a href="../video/index.html">Video</a><a href="../share/index.html">Share</a></p>
+  </footer>
+  <script src="../assets/course-data.js"></script><script src="../assets/icons.js"></script><script src="../assets/icons-extra.js"></script><script src="../assets/icons-course.js"></script><script src="../assets/art.js"></script><script src="../assets/course-art.js"></script><script src="../assets/charts.js"></script><script src="../assets/course-charts.js"></script><script src="../assets/course-site.js"></script>
+</body>
+</html>

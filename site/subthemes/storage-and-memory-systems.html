@@ -1,0 +1,278 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#F3ECE1" />
+  <title>Storage and memory systems · Semiconductor conference atlas</title>
+  <meta name="description" content="Papers: DAC 3. Read from: 3 program descriptions, 0 abstracts or reports, 0 full papers or preprints. The explanations come first; every paper’s record follows at the end." />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Semiconductor conference atlas" />
+  <meta property="og:title" content="Storage and memory systems · Semiconductor conference atlas" />
+  <meta property="og:description" content="Papers: DAC 3. Read from: 3 program descriptions, 0 abstracts or reports, 0 full papers or preprints. The explanations come first; every paper’s record follows at the end." />
+  <meta property="og:url" content="https://mehtama1234.github.io/semiconductor-conferences/subthemes/storage-and-memory-systems.html" />
+  <meta property="og:image" content="https://mehtama1234.github.io/semiconductor-conferences/presentation/slides/01-cover.jpg" />
+  <meta property="og:image:width" content="1920" />
+  <meta property="og:image:height" content="1080" />
+  <meta property="og:image:alt" content="Semiconductor conference atlas: 582 papers from ISCA, DAC and ICCAD, sorted into 10 themes and six directions to watch." />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="canonical" href="https://mehtama1234.github.io/semiconductor-conferences/subthemes/storage-and-memory-systems.html" />
+  <link rel="icon" href="../assets/icon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="../assets/base.css" />
+  <link rel="stylesheet" href="../assets/experience.css" />
+  <link rel="stylesheet" href="../assets/theme-atlas.css" />
+  <link rel="stylesheet" href="../assets/styles.css" />
+  <link rel="stylesheet" href="../assets/charts.css" />
+  <link rel="stylesheet" href="../assets/course.css" />
+  
+</head>
+<body class="course-site " data-house="atlas">
+  <aside class="public-demo-banner" aria-label="About this course">A plain-language guide to what ISCA, DAC and ICCAD papers say about chip and computer design · Built from the repository’s own paper records · Not made by the conferences</aside>
+  <a class="skip-link" href="#app">Skip to the page</a>
+  <header>
+    <a class="brand" href="../index.html"><span class="mark" aria-hidden="true">Si</span> Semiconductor conference atlas</a>
+    <span class="header-status"><span class="badge">582 papers</span><span class="badge">10 themes</span><span class="badge">Plain words first</span></span>
+    <a class="header-link" href="../course-map.html">Course map</a>
+  </header>
+  <nav class="course-nav" aria-label="Main sections of the course"><a href="../index.html">The big picture</a><a href="../themes.html">Themes</a><a href="../subthemes.html" aria-current="page">Subthemes</a><a href="../deep-reads.html">Deep reads</a><a href="../directions.html">What to watch</a><a href="../presentation/index.html">Slides</a><a href="../video/index.html">Video</a><a href="../share/index.html">Share</a></nav>
+  <main id="app" tabindex="-1">
+    <section class="screen active landing legacy-page" aria-labelledby="page-title">
+<div class="lm-head"><div class="hj-heading"><nav class="crumbs" aria-label="You are here"><a href="../course-map.html">Course map</a><span aria-hidden="true">›</span><a href="../subthemes.html">Subthemes</a></nav><a class="back-button" href="../subthemes.html">← <span>Subthemes</span></a><p class="eyebrow">Subtheme · 3 papers · Memory, interconnect, and storage</p><h1 id="page-title">Storage and memory systems</h1><p class="hj-sub">Papers: DAC 3. Read from: 3 program descriptions, 0 abstracts or reports, 0 full papers or preprints. The explanations come first; every paper’s record follows at the end.</p></div><div class="hj-art" data-art="trio:server,arrows-exchange,cpu"></div></div>
+<figure class="course-fig"><div class="loop-wide" data-art="flow:memory-interconnect-and-storage"></div><div class="loop-tall" data-art="flowTall:memory-interconnect-and-storage"></div><figcaption>The parent theme in one picture: moving data often costs more time and energy than computing it.</figcaption></figure>
+      <article class="prose">
+
+<p>This subject has 3 records in the selected sample. This page explains where it fits, then presents all captured paper evidence without shortening the measurements or limitations.</p>
+<p><a href="../guide/reading-guide-v1.html">Definitions used in the paper records</a></p>
+<p class="lm-k h-label">Understand the parent subject first</p><h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>The bigger theme this belongs to</h2>
+<ul>
+<li><a href="../themes/memory-interconnect-and-storage.html">Memory interconnect and storage</a></li>
+</ul>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>Follow the request through the storage system</h2>
+<p>An application reads and writes file contents. A file system translates a file offset into stored locations and maintains the metadata needed to find those contents later.</p><p>An SSD controller then manages the flash operations that store or retrieve the encoded data. An improvement at one of these stages need not improve every other stage.</p>
+<p>Flash updates also involve more than writing new application bytes. Data can be moved during space reclamation, protected by error-correction information, and read more than once when decoding fails.</p><p>Write amplification compares the amount written at a specified lower layer with the application's written amount. Always name that lower layer: host-issued device writes and internal flash programming are not identical measurements.</p>
+<p>The three papers here address different units of work. RangeLFS changes how file segments are represented and written.</p><p>COLA changes the unit over which error correction operates. WILL changes how pages are grouped for programming.</p><p>Their common subject is avoiding unnecessary work while preserving the required data, not a single interchangeable optimization.</p>
+<p><span id="explanation-dac-2026-research2637"></span></p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="file-text"></span>RangeLFS: an application update need not fill a file-system block</h2>
+<div class="worked"><p class="lm-k">Worked example</p><p>Suppose an application changes only part of the unit a file system normally writes. If the rest of that unit must be preserved, the system may have to obtain the unchanged data, combine it with the update, and write the combined result.</p></div><p>This read-modify-write work can exceed what the application requested. The example explains the general alignment problem; it is not a benchmark result.</p>
+<p><a href="storage-and-memory-systems.html#paper-dac-2026-research2637">From Block to Range</a> proposes RangeLFS for zoned storage. The refreshed official description identifies two coordinated changes: ranges mapping file segments to device addresses, indexed by an enhanced B+ tree, and a page cache supporting partial-page updates and range-based writeback.</p><p>A B+ tree is an ordered index for finding records without checking them all; the page cache holds file data in memory before or between device accesses.</p>
+<p>The abstract reports up to 6.95× write bandwidth over block-based log-structured file systems on a production ZNS SSD, with comparable reads. It does not expose the winning workload, device configuration, exact permitted write sizes, or persistence conditions.</p><p>Its claim about arbitrary-sized segments should not be generalized into universal byte-addressable writes on every ZNS device. <a href="https://63dac.conference-program.com/presentation/?id=RESEARCH2637&amp;sess=sess162">Official RangeLFS description</a>.</p>
+<p>Recovery needs separate evaluation. Faster ordinary writes do not prove that metadata and data remain consistent after power loss.</p><p>Test interruption between the data write and the mapping update, and verify which acknowledged operations must survive. Those are proposed checks, not reported outcomes of this capture.</p>
+<p>The captured evidence supports range-oriented ZNS filesystem design and a bounded write-bandwidth claim, not demonstrated durable end-to-end filesystem improvement across devices and workloads.</p>
+<p><span id="explanation-dac-2026-research607"></span></p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>COLA: distinguish code length from storage overhead</h2>
+<p>Error correction stores user data together with additional check bits. A codeword is the combined protected unit.</p><p>Code rate is the fraction occupied by user data; code length is the total number of bits in that unit. Holding the rate fixed while changing length is different from adding a larger fraction of check bits.</p>
+<p><a href="storage-and-memory-systems.html#paper-dac-2026-research607">COLA</a> selects code length per write using a read-latency model and the current raw bit-error rate (RBER). Its failure-aware read path selectively transfers and decodes failed codewords.</p><p>The official description frames this as reducing read latency while retaining reliability and constant storage overhead, and explicitly identifies MQSim simulation as the evaluation method. It does not establish measured performance of a manufactured COLA controller. <a href="https://63dac.conference-program.com/presentation/?id=RESEARCH607&amp;sess=sess171">Official COLA description</a>.</p>
+<p>The authors' laboratory reports Alibaba Cloud workloads and a default 4 KiB code-length baseline, with maximum reductions of 68.69% in average read latency and 71% in the 99.9th-percentile latency. These are maximum reported reductions across the evaluated conditions, not a guarantee for every workload. <a href="https://stlab.wnlo.hust.edu.cn/nr.jsp?urltype=news.NewsContentUrl&amp;wbnewsid=2024&amp;wbtreeid=1046">HUST laboratory report</a>.</p>
+<p>The 99.9th percentile is a threshold below which 99.9% of the observed latencies fall. It describes slow requests more directly than the mean, but depends on the workload and number of observations.</p><p>Reliability comparisons additionally need the uncorrectable-error criterion, wear, retention and read-disturb conditions, and response when a page's error rate changes after writing. The recovered summaries do not resolve these conditions.</p>
+<p>The captured evidence supports adaptive ECC code length, not demonstrated device-measured reliable low-latency SSD reads across NAND states.</p>
+<p><span id="explanation-dac-2026-research931"></span></p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="chart-bar"></span>WILL: skip obsolete QLC programming without weakening data validity or endurance</h2>
+<p>An update can make an older stored version invalid because the new version now supplies the logical contents. Invalid does not mean a corrupted live value: it means that version is no longer needed for the current mapping.</p><p>Skipping work on obsolete versions must still preserve every live version and the metadata identifying it.</p>
+<p><a href="storage-and-memory-systems.html#paper-dac-2026-research931">WILL</a> addresses two-step programming in QLC NAND, which stores four bits per cell. It predicts page invalidation time, groups similarly short- or long-lived pages onto the same wordline, skips programming when a wordline is fully invalid, and places short-lifespan data on locations requiring expensive fine-step programming.</p><p>It excludes read-hot data from the mapping to preserve read parallelism. The source does not specify predictor inputs, mapping granularity, remapping cost, controller policy or retention safeguards.</p>
+<p>The description reports 10.0% lower programming execution time against an unnamed state-of-the-art comparator, 5.03% additional fully invalid wordlines skipped, 15.9% lower partially invalid ratio on average and a 2.59% read-performance cost. It does not define the baseline, denominator, absolute latency, NAND program count, workload trace or whether the percentage changes are relative or percentage-point changes.</p><p>These outcomes must not become a claimed endurance gain or whole-application speedup.</p>
+<p>The prediction tradeoff is important: grouping by expected lifetime is useful only if prediction errors do not erase the saved work or excessively restrict parallel access. Skipping is safe only if every live page and mapping record remain programmed and readable through remapping, garbage collection and power-loss recovery.</p><p>Validate ECC margin, read-after-write correctness, retention, wear, temperature and changing update patterns.</p>
+<p>Report host writes separately from internal NAND programming, plus write amplification, program/erase counts, GC work, p50/p95/p99 read/write latency, throughput, tail QoS, energy and controller overhead. Include prediction cost, read-hot exclusions and the full mapping/GC path.</p><p>Compare under the same capacity, overprovisioning, queue depth, read/write QoS, traces and NAND states; test lifespan-distribution shift and prediction error rather than only stable workloads.</p>
+<p>The evidence supports lifespan- and latency-aware QLC wordline mapping, not demonstrated durable end-to-end SSD improvement, retention safety, endurance gain or manufactured-device behavior.</p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="file-text"></span>The longer-term question and current evidence boundary</h2>
+<p>My synthesis is that the storage stack benefits when its work units match both the request and the physical device behavior. However, reducing work at one layer can add metadata, prediction, or decoding cost elsewhere.</p><p>Compare total request completion under the same durability and reliability requirements before making an end-to-end claim.</p>
+<div class="worked"><p class="lm-k">Worked example</p><p>The sources were refreshed on 2026-09-07. They provide substantially more mechanism than the older cards below, whose missing-result statements refer to the earlier capture.</p><p>No full manuscript was recovered in this pass. The result claims remain official-description or author-laboratory evidence, not page-backed experimental audits or independently reproduced measurements.</p><p>Comparable studies across editions are also still required to establish a historical trend.</p></div>
+<p class="lm-k h-label">Compare the results carefully</p><h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="route"></span>How to compare these papers’ results fairly</h2>
+<p>First identify the inputs and required output quality. Then identify the limited resource: time, memory, communication, energy, circuit area, or correctness coverage.</p><p>Ask which part of the method reduces that cost and which new cost it adds. Compare numbers only when the experiments hold these conditions sufficiently similar.</p>
+<p>A conference description may explain the proposal while omitting the full experiment. An author preprint link may have been coded from its abstract. The source classification does not by itself establish that every table was read. Missing locations remain visible below.</p>
+<p class="lm-k h-label">Complete captured evidence</p><h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="file-text"></span>Every paper in this subtheme, with what its source shows</h2>
+<p>These are evidence records, not substitutes for the explanations above. Each record preserves its problem, proposed method, measurements, comparison conditions, and source limits. A populated record does not establish that its mechanism has been fully explained or independently verified.</p>
+<p><span id="paper-dac-2026-research2637"></span></p>
+<h3>From Block to Range: Rethinking the Fundamental Unit of Log-Structured File Systems for ZNS SSDs</h3>
+<p>DAC 2026 · Record: <code>dac-2026-research2637</code></p>
+<p><a href="#explanation-dac-2026-research2637">Read the step-by-step explanation</a></p>
+<p><strong>Updated source-backed reading card</strong></p>
+<div class="worked"><p class="lm-k">Worked example</p><p>Reviewed 2026-09-09. Reconciles the refreshed RangeLFS description with the sparse historical card; separates range-level file mapping, B+ tree metadata and partial-page writeback from ZNS ordering, metadata consistency, durability, write amplification and end-to-end storage performance, while preserving the reported 6.95x write-bandwidth and comparable-read claims.</p></div>
+<p>This editorial correction updates the current reading view and connected dossiers, not the historical adjudication or scientific acceptance status. The original captured fields are preserved below.</p>
+<p><a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/data/editorial-paper-corrections-v1.json">Correction register</a></p>
+<p><strong>Problem:</strong></p>
+<p>Block-based log-structured filesystems impose alignment on ZNS SSD writes, so an unaligned file update can trigger read-modify-write work even though the device accepts arbitrary-sized host writes.</p>
+<p><strong>Mechanism / artifact:</strong></p>
+<p>RangeLFS replaces fixed-size block mapping with flexible ranges that map arbitrary-sized file segments to device addresses, maintains the ranges in an enhanced B+ tree, and adds a range-augmented page cache for partial-page writes and range-based writeback; range allocation, zone sequencing, metadata update ordering and recovery protocol are unspecified.</p>
+<p><strong>Workload — the work tested:</strong></p>
+<p>File-system workloads on a production ZNS SSD with block-based log-structured filesystems as the comparison; workload mix, file and update-size distribution, locality, concurrency, queue depth, cache capacity, device geometry, zone utilization, read/write ratio and persistence/crash protocol are unspecified.</p>
+<p><strong>Hardware and manufacturing assumptions:</strong></p>
+<p>Host-managed Zoned Namespace SSD with host-visible zone/write constraints and a filesystem/page-cache stack; SSD controller and firmware, NAND generation, channels, zone size and limits, kernel/filesystem integration, interface, power-loss behavior, garbage collection and internal write accounting are unspecified.</p>
+<p><strong>Baseline — the comparison method:</strong></p>
+<p>Block-based log-structured filesystem on ZNS</p>
+<p>Conventional ZNS filesystem</p>
+<p>Same files, update trace, cache capacity, queue depth, SSD, zone allocation, kernel, durability mode and end-to-end timing boundary are unspecified</p>
+<p><strong>Reported measurements:</strong></p>
+<p>The refreshed description reports up to 6.95× higher write bandwidth than block-based log-structured filesystems on a production ZNS SSD and comparable read performance across diverse workloads; it does not expose absolute throughput, latency, write amplification, metadata/cache overhead, endurance, recovery time or the winning workload and device conditions.</p>
+<p><strong>Limits on the conclusion:</strong></p>
+<p>A range mapping can reduce alignment-induced read-modify-write work while adding range metadata, B+ tree lookup/update, fragmentation, garbage collection and cache-management costs. Measure application bytes, host writes, device writes and internal flash programming separately, and include metadata, cache, zone-management and reclamation work in the end-to-end boundary.</p>
+<p>Arbitrary-sized host writes do not remove ZNS zone capacity, write-pointer, ordering or reset rules. Evaluate range splitting/merging, partial-page updates, zone exhaustion, hot/cold data, concurrent writers, crash interruption between data and mapping updates, replay and power-loss recovery; verify which acknowledged writes and metadata must survive.</p>
+<p>The up-to-6.95× write-bandwidth claim and comparable reads are bounded description-level results. Report absolute throughput and latency, workload/update-size distributions, cache and queue settings, SSD geometry and firmware, read performance tails, write amplification, endurance, space utilization and recovery behavior under matched baselines.</p><p>The evidence supports range-oriented ZNS filesystem design, not demonstrated durable end-to-end filesystem improvement across devices and workloads.</p>
+<p><strong>Source and location</strong></p>
+<p>Evidence tier: Primary captured official DAC description plus refreshed official abstract; no full paper extraction, device condition matrix, durability test or independent reproduction. This is the stored source classification; the location and limits below determine what was actually read.</p>
+<p><a href="https://63dac.conference-program.com/presentation/?id=RESEARCH2637&amp;sess=sess162">Open the recorded source</a></p>
+<p>Refreshed DAC 2026 RangeLFS description/abstract; existing storage-and-memory-systems editorial explanation; captured Problem, Mechanism / artifact, Workload, Hardware, Baseline, Measurements and Limits fields; no full manuscript, benchmark table or crash-recovery trace.</p>
+<details markdown="1">
+<summary>Original captured fields — superseded for this reading card</summary>
+
+** page source tier:** medium_official_description
+
+**Baselines:** block-based LFS
+
+conventional ZNS filesystem
+
+**Evidence locators:** DAC 2026 official description
+
+**Evidence url:** https://63dac.conference-program.com/?post_type=page&amp;p=16&amp;id=RESEARCH2637
+
+**Hardware or process assumptions:** Zoned namespace SSD with host-managed writes; zone size, flash controller, and persistence assumptions are unspecified.
+
+**Limits:** No throughput, write amplification, latency, endurance, recovery, or workload results are reported.
+
+Range policies may depend on update locality.
+
+Official description only; device and crash-consistency validation is required.
+
+**Method or artifact:** Range-level filesystem organization for ZNS SSDs.
+
+**Metrics:** ZNS filesystem efficiency is claimed qualitatively
+
+**Problem:** Block-granular log-structured filesystems can create write amplification and inefficiency on zoned namespace SSDs.
+
+**Workload or benchmark:** ZNS storage workloads; SSD geometry, durability, and filesystem baseline are unspecified.
+
+</details>
+<p><span id="paper-dac-2026-research607"></span></p>
+<h3>COLA: Enabling Low-Latency Reads for Flash-Based SSDs via Code Length Adaptation</h3>
+<p>DAC 2026 · Record: <code>dac-2026-research607</code></p>
+<p><a href="#explanation-dac-2026-research607">Read the step-by-step explanation</a></p>
+<p><strong>Updated source-backed reading card</strong></p>
+<div class="worked"><p class="lm-k">Worked example</p><p>Reviewed 2026-09-09. Deepens the COLA treatment into a paper-level reading; separates per-write ECC code-length selection, failure-aware transfer/decoding and RBER-based latency modeling from code-rate/storage accounting, uncorrectable-error guarantees, NAND aging, retention, endurance and manufactured-controller validation, while preserving the 68.69% average and 71% 99.9th-percentile latency reductions with their evaluated conditions.</p></div>
+<p>This editorial correction updates the current reading view and connected dossiers, not the historical adjudication or scientific acceptance status. The original captured fields are preserved below.</p>
+<p><a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/data/editorial-paper-corrections-v1.json">Correction register</a></p>
+<p><strong>Problem:</strong></p>
+<p>Flash SSD raw bit-error rate changes with device state, while longer ECC codewords can improve correction reliability and shorter codewords can reduce read latency; a fixed code length cannot optimize both as pages age or differ.</p>
+<p><strong>Mechanism / artifact:</strong></p>
+<p>COLA selects the ECC code length for each write using current RBER and a failure-aware read-latency model, while maintaining fixed code rate and constant storage overhead. Its failure-aware read path selectively transfers and decodes failed codewords instead of processing every codeword identically; RBER estimation, codeword metadata, decoder scheduling, retry policy and controller integration are incompletely specified.</p>
+<p><strong>Workload — the work tested:</strong></p>
+<p>Flash SSD reads evaluated in MQSim and an author-laboratory report using Alibaba Cloud workloads, with a default 4 KiB code-length baseline; NAND type, page/block geometry, workload mix, queue depth, read/write ratio, retention age, wear state, raw-error distribution, latency sample count and tail protocol are unspecified.</p>
+<p><strong>Hardware and manufacturing assumptions:</strong></p>
+<p>Flash SSD controller with configurable ECC code length and selective failed-codeword transfer/decoding; MQSim is explicitly identified for the simulation evaluation. NAND generation, SLC/MLC/TLC/QLC mode, ECC family/decoder, controller firmware, interface, voltage/temperature, program/erase history, retention, read disturb, overprovisioning, endurance and manufactured-device measurement are unspecified.</p>
+<p><strong>Baseline — the comparison method:</strong></p>
+<p>Default fixed-code-length ECC</p>
+<p>Standard SSD controller/read path</p>
+<p>Fixed 4 KiB code-length baseline in the reported laboratory comparison</p>
+<p>Same code rate, user-visible capacity, NAND geometry, ECC correction target, workload, queue depth, wear/retention state, controller, decoder, latency percentile and background activity are unspecified</p>
+<p><strong>Reported measurements:</strong></p>
+<p>The author-laboratory report gives maximum reductions of 68.69% in average read latency and 71% in 99.9th-percentile read latency relative to the fixed-code-length baseline across evaluated conditions; the official description identifies MQSim simulation and reduced average/tail latency but does not expose absolute latency, error rates, throughput, energy, endurance, capacity overhead, uncorrectable-error rate or per-workload results.</p>
+<p><strong>Limits on the conclusion:</strong></p>
+<p>Code length and code rate are different quantities. Holding code rate constant while changing codeword length does not by itself prove constant user capacity, parity overhead, decoder work or correction margin.</p><p>Report user bits, parity bits, codeword count, metadata, transfer volume, decoder cycles and the exact uncorrectable-error criterion for every selected length.</p>
+<p>RBER is state-dependent and must be calibrated against held-out NAND measurements across wear, retention, read disturb, temperature and voltage. A latency model can choose a short code under an incorrectly estimated error tail, causing retries or uncorrectable data; measure error distributions, failed-codeword selection, recovery success, tail latency and controller/decoder overhead rather than only modeled means.</p>
+<div class="worked"><p class="lm-k">Worked example</p><p>The 68.69% average and 71% 99.9th-percentile reductions are maximum reported results from simulation/laboratory evaluation, not proof of a manufactured SSD controller's reliability or endurance. Include program/erase lifetime, retention, read/write interference, throughput, energy, capacity, garbage collection and firmware cost at matched quality and workload.</p><p>The evidence supports adaptive ECC code length, not demonstrated device-measured reliable low-latency SSD reads across NAND states.</p></div>
+<p><strong>Source and location</strong></p>
+<p>Evidence tier: Primary captured official DAC description plus author laboratory summary; mqsim/laboratory latency claims without full paper extraction, manufactured controller measurement or independent nand validation. This is the stored source classification; the location and limits below determine what was actually read.</p>
+<p><a href="https://63dac.conference-program.com/presentation/?id=RESEARCH607&amp;sess=sess171">Open the recorded source</a></p>
+<p>Refreshed DAC 2026 official COLA description identifying MQSim; author-laboratory report on Alibaba Cloud workloads and 4 KiB baseline; existing storage-and-memory-systems editorial explanation; no full manuscript, NAND-condition matrix, decoder trace or independent device reproduction.</p>
+<details markdown="1">
+<summary>Original captured fields — superseded for this reading card</summary>
+
+** page source tier:** medium_official_description
+
+**Baselines:** fixed-length ECC
+
+standard SSD controller
+
+**Evidence locators:** DAC 2026 official description
+
+**Evidence url:** https://63dac.conference-program.com/?post_type=page&amp;p=16&amp;id=RESEARCH607
+
+**Hardware or process assumptions:** Flash SSD with configurable ECC; endurance and reliability assumptions are unspecified.
+
+**Limits:** No latency, error rate, endurance, throughput, energy, or NAND results are reported.
+
+Shorter codes may reduce reliability margin.
+
+Official description only; device and workload validation is required.
+
+**Method or artifact:** Adaptive code-length mechanism for flash SSD reads.
+
+**Metrics:** Read latency efficiency is claimed qualitatively
+
+**Problem:** Flash SSD read latency is affected by error-correction code length and device conditions.
+
+**Workload or benchmark:** Flash SSD read workloads; NAND type, retention, error rates, and controller are unspecified.
+
+</details>
+<p><span id="paper-dac-2026-research931"></span></p>
+<h3>WILL: Write Invalidation Skipping for QLC NAND by Leveraging Data Lifespan and Latency Awareness</h3>
+<p>DAC 2026 · Record: <code>dac-2026-research931</code></p>
+<p><a href="#explanation-dac-2026-research931">Read the step-by-step explanation</a></p>
+<p><strong>Updated source-backed reading card</strong></p>
+<div class="worked"><p class="lm-k">Worked example</p><p>Reviewed 2026-09-09. Deepens the WILL treatment into a paper-level reading; separates lifespan prediction, wordline grouping and latency-aware fine-step scheduling from NAND validity, retention, garbage collection, write amplification and endurance, while preserving the 10.0%, 5.03%, 15.9% and 2.59% source claims with their bounded conditions.</p></div>
+<p>This editorial correction updates the current reading view and connected dossiers, not the historical adjudication or scientific acceptance status. The original captured fields are preserved below.</p>
+<p><a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/data/editorial-paper-corrections-v1.json">Correction register</a></p>
+<p><strong>Problem:</strong></p>
+<p>QLC NAND uses a slow two-step programming process, and updating pages on a wordline between those steps can invalidate prior pages and waste programming effort. Misaligned invalidation times leave partially invalid wordlines that still incur programming work.</p>
+<p><strong>Mechanism / artifact:</strong></p>
+<p>WILL predicts page invalidation time, groups pages with similar lifespans into wordlines so partially invalid wordlines become fully valid or fully invalid, skips programming on fully invalid wordlines, assigns short-lifespan data to high-latency fine-step locations, and excludes read-hot data to preserve read parallelism. Predictor features, mapping granularity, remapping cost, controller policy and retention safeguards are unspecified.</p>
+<p><strong>Workload — the work tested:</strong></p>
+<p>3D QLC NAND programming with data-lifespan variation and read-hot data; the source reports comparison against a state-of-the-art method but does not identify the SSD/controller, NAND geometry, traces, write/read mix, queue depth, update rate, lifespan distribution, prediction accuracy, overprovisioning, garbage-collection policy or test duration.</p>
+<p><strong>Hardware and manufacturing assumptions:</strong></p>
+<p>QLC NAND SSD with two-step programming, wordline/page mapping, garbage collection and read parallelism; NAND generation, cell geometry, program voltage/timing, controller firmware, channel/die/plane organization, buffer capacity, wear state, retention age, temperature, interface, compute overhead and manufactured-device status are unspecified.</p>
+<p><strong>Baseline — the comparison method:</strong></p>
+<p>State-of-the-art QLC invalidation/programming policy</p>
+<p>Standard invalidation or lifespan-oblivious SSD controller</p>
+<p>Same NAND, logical capacity, overprovisioning, workload trace, queue depth, read/write QoS, garbage collection, mapping budget, simulator/device and measurement boundary are unspecified</p>
+<p><strong>Reported measurements:</strong></p>
+<p>The official description reports 10.0% lower programming execution time, 5.03% additional fully-invalid wordlines skipped, 15.9% lower partially-invalid ratio on average and a 2.59% read-performance cost; it does not define the baseline, denominator, absolute latency, write amplification, NAND program count, throughput, tail latency, endurance, retention/error rate, energy, controller overhead or device validation.</p>
+<p><strong>Limits on the conclusion:</strong></p>
+<p>Skipping programming is safe only if every live page and its mapping metadata remain programmed and readable. Validate invalidation prediction errors, remapping races, power-loss recovery, garbage-collection relocation, read-after-write correctness, ECC margin and behavior under retention, wear, temperature and changing update patterns.</p>
+<p>A lower partially-invalid ratio or programming time does not automatically mean lower host latency, write amplification or longer endurance. Report host and internal NAND writes separately, program/erase counts, GC work, queueing, p50/p95/p99 read/write latency, throughput, tail QoS, energy and controller CPU/memory overhead, with read-hot exclusions and prediction cost included.</p>
+<p>The 10.0%, 5.03%, 15.9% and 2.59% claims do not establish general QLC SSD performance, retention safety, endurance or manufactured-device behavior. Define whether percentage changes are relative or percentage-point, hold capacity and QoS constant, test lifespan-distribution shift and prediction error, and compare across NAND states and traces.</p><p>The evidence supports lifespan- and latency-aware QLC wordline mapping, not demonstrated durable end-to-end SSD improvement.</p>
+<p><strong>Source and location</strong></p>
+<p>Evidence tier: Primary captured official DAC description plus existing authored storage and memory systems discussion; no full paper extraction, reproduced controller trace, manufactured device validation or endurance study. This is the stored source classification; the location and limits below determine what was actually read.</p>
+<p><a href="https://63dac.conference-program.com/?post_type=page&amp;p=16&amp;id=RESEARCH931">Open the recorded source</a></p>
+<p>DAC 2026 official description; existing storage-and-memory-systems editorial explanation; captured Problem, Mechanism / artifact, Workload, Hardware, Baseline, Measurements and Limits fields; no manuscript pages, prediction trace, NAND-state matrix, endurance/retention result or device reproduction.</p>
+<details markdown="1">
+<summary>Original captured fields — superseded for this reading card</summary>
+
+** page source tier:** medium_official_description
+
+**Baselines:** standard invalidation
+
+lifespan-oblivious SSD controller
+
+**Evidence locators:** DAC 2026 official description
+
+**Evidence url:** https://63dac.conference-program.com/?post_type=page&amp;p=16&amp;id=RESEARCH931
+
+**Hardware or process assumptions:** QLC flash SSD with garbage collection and wear management; device assumptions are unspecified.
+
+**Limits:** No latency, write amplification, endurance, throughput, energy, or NAND results are reported.
+
+Skipping decisions may affect retention and garbage collection.
+
+Official description only; device and trace validation is required.
+
+**Method or artifact:** Write invalidation skipping based on data lifespan and latency.
+
+**Metrics:** QLC efficiency is claimed qualitatively
+
+**Problem:** QLC NAND incurs write and garbage-collection cost when invalid data is invalidated or moved unnecessarily.
+
+**Workload or benchmark:** QLC NAND storage workloads; controller, retention, and workload locality are unspecified.
+
+</details>
+<p class="lm-k h-label">What remains to establish</p><h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>What is still unproven here</h2>
+<p>Resolve unspecified workloads, comparison methods, resource budgets, and source locations before generalizing a reported gain. Multiple papers in this selected sample permit comparison of mechanisms, but do not by themselves establish recurrence across years or a long-term trend.</p>
+<p><a href="../guide/expanded-taxonomy-v1.html">All subthemes</a> · <a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/reports/directions/README.md">Research directions</a></p><p class="meta">Written as <a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/reports/observed-subthemes/storage-and-memory-systems.md">reports/observed-subthemes/storage-and-memory-systems.md</a> in the course repository.</p>
+      </article>
+      <nav class="pager" aria-label="Previous and next"><a class="prev" href="processing-in-memory-and-memory-centric-compute.html"><span class="pg-k">← Previous</span><span class="pg-t">Processing in memory and memory centric compute</span></a><a class="map" href="../subthemes.html"><span class="pg-k">Back to</span><span class="pg-t">Subthemes</span></a><a class="next" href="chiplet-and-on-chip-interconnect.html"><span class="pg-k">Next →</span><span class="pg-t">Chiplet and on chip interconnect</span></a></nav>
+    </section>
+  </main>
+  <footer class="course-foot">
+    <p>Built from 582 paper records coded from ISCA 2026, DAC 2026 and ICCAD 2025 (ICCAD 2026 papers were not yet public). Most records come from official program descriptions; see “How deep the reading went”. The papers belong to their authors.</p>
+    <p class="foot-links"><a href="https://github.com/mehtama1234/course-concept-library">All courses</a><a href="../index.html">This course</a><a href="../course-map.html">Course map</a><a href="../presentation/index.html">Slides</a><a href="../video/index.html">Video</a><a href="../share/index.html">Share</a></p>
+  </footer>
+  <script src="../assets/course-data.js"></script><script src="../assets/icons.js"></script><script src="../assets/icons-extra.js"></script><script src="../assets/icons-course.js"></script><script src="../assets/art.js"></script><script src="../assets/course-art.js"></script><script src="../assets/charts.js"></script><script src="../assets/course-charts.js"></script><script src="../assets/course-site.js"></script>
+</body>
+</html>

@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#F3ECE1" />
+  <title>AI-assisted EDA · Semiconductor conference atlas</title>
+  <meta name="description" content="The article explains the technical problem step by step first, then links to every subtheme and its papers. Worked numbers are illustrations, not paper results." />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Semiconductor conference atlas" />
+  <meta property="og:title" content="AI-assisted EDA · Semiconductor conference atlas" />
+  <meta property="og:description" content="The article explains the technical problem step by step first, then links to every subtheme and its papers. Worked numbers are illustrations, not paper results." />
+  <meta property="og:url" content="https://mehtama1234.github.io/semiconductor-conferences/themes/ai-assisted-eda.html" />
+  <meta property="og:image" content="https://mehtama1234.github.io/semiconductor-conferences/presentation/slides/01-cover.jpg" />
+  <meta property="og:image:width" content="1920" />
+  <meta property="og:image:height" content="1080" />
+  <meta property="og:image:alt" content="Semiconductor conference atlas: 582 papers from ISCA, DAC and ICCAD, sorted into 10 themes and six directions to watch." />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="canonical" href="https://mehtama1234.github.io/semiconductor-conferences/themes/ai-assisted-eda.html" />
+  <link rel="icon" href="../assets/icon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="../assets/base.css" />
+  <link rel="stylesheet" href="../assets/experience.css" />
+  <link rel="stylesheet" href="../assets/theme-atlas.css" />
+  <link rel="stylesheet" href="../assets/styles.css" />
+  <link rel="stylesheet" href="../assets/charts.css" />
+  <link rel="stylesheet" href="../assets/course.css" />
+  
+</head>
+<body class="course-site " data-house="atlas">
+  <aside class="public-demo-banner" aria-label="About this course">A plain-language guide to what ISCA, DAC and ICCAD papers say about chip and computer design · Built from the repository’s own paper records · Not made by the conferences</aside>
+  <a class="skip-link" href="#app">Skip to the page</a>
+  <header>
+    <a class="brand" href="../index.html"><span class="mark" aria-hidden="true">Si</span> Semiconductor conference atlas</a>
+    <span class="header-status"><span class="badge">582 papers</span><span class="badge">10 themes</span><span class="badge">Plain words first</span></span>
+    <a class="header-link" href="../course-map.html">Course map</a>
+  </header>
+  <nav class="course-nav" aria-label="Main sections of the course"><a href="../index.html">The big picture</a><a href="../themes.html" aria-current="page">Themes</a><a href="../subthemes.html">Subthemes</a><a href="../deep-reads.html">Deep reads</a><a href="../directions.html">What to watch</a><a href="../presentation/index.html">Slides</a><a href="../video/index.html">Video</a><a href="../share/index.html">Share</a></nav>
+  <main id="app" tabindex="-1">
+    <section class="screen active landing legacy-page" aria-labelledby="page-title">
+<div class="lm-head"><div class="hj-heading"><nav class="crumbs" aria-label="You are here"><a href="../course-map.html">Course map</a><span aria-hidden="true">›</span><a href="../themes.html">Themes</a></nav><a class="back-button" href="../themes.html">← <span>Themes</span></a><p class="eyebrow">Theme · 59 papers · 8 subthemes</p><h1 id="page-title">AI-assisted EDA: a model may propose a design, but only a tool check makes it count</h1><p class="hj-sub">The article explains the technical problem step by step first, then links to every subtheme and its papers. Worked numbers are illustrations, not paper results.</p></div><div class="hj-art" data-art="trio:file-text,sparkles,checklist"></div></div>
+<figure class="course-fig"><div class="loop-wide" data-art="flow:ai-assisted-eda"></div><div class="loop-tall" data-art="flowTall:ai-assisted-eda"></div><figcaption>A model proposes a design; tools decide whether it counts.</figcaption></figure><div class="chart-card"><div data-chart="theme-ai-assisted-eda"></div><div><p class="lm-k">In numbers</p><h3>8 subthemes, largest first</h3><p>59 papers: DAC 57, ICCAD 2.</p><p class="chart-note">A count shows attention in this sample, not importance.</p></div></div>
+      <article class="prose">
+
+<p>This article explains the subject and then connects it to 59 papers in the selected research sample.</p>
+<p>A subtheme groups related technical problems. A mechanism describes the particular change proposed by a paper. The discussion below explains the subject; the linked paper records state the available evidence.</p>
+<p><a href="../guide/reading-guide-v1.html">Definitions used in the paper records</a></p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>Chip design is a long chain of choices that software helps make</h2>
+<p>A designer states what a circuit must do and which limits it must meet. <strong>Electronic design automation (EDA)</strong> is the software that turns that statement into a circuit and then a physical layout.</p>
+<p>There are many choices along the way:</p>
+<ol>
+<li>how to represent the logic;</li>
+<li>which circuit elements to use;</li>
+<li>where to place them;</li>
+<li>how to connect them.</li>
+</ol>
+<p>Each choice can affect correctness, area, timing and power.</p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="school"></span>A learned model can propose or predict, and these are different jobs</h2>
+<p>A learned model uses patterns in past examples or evaluations to suggest a new choice.</p>
+<ul>
+<li>A <strong>language model</strong> may write hardware-description code, or change a design program.</li>
+<li>A <strong>predictor</strong> may guess which candidate is worth an expensive evaluation.</li>
+</ul>
+<p>Writing code does not show that the code meets the specification. Predicting a good timing score does not show that the built circuit meets timing.</p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="alert-triangle"></span>Each check answers a different question, so record which one failed</h2>
+<ul>
+<li><strong>Synthesis</strong> turns a behavioral or logical description into circuit elements.</li>
+<li><strong>Simulation</strong> runs a model on selected inputs.</li>
+<li><strong>Formal verification</strong> checks a stated property mathematically, within a defined model.</li>
+</ul>
+<p>A design method should record which check rejected a candidate, what it reported, and how that changed the next attempt. A weak test can accept a wrong design and make the search look successful.</p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="checklist"></span>A fair test counts every model call, check and retry</h2>
+<ol>
+<li>Give competing methods the same design tasks.</li>
+<li>Count the whole time and computing budget: model calls, training, checking and retries.</li>
+<li>Report valid completed designs and their measured quality.</li>
+<li>Test on new circuits that were not used to tune the method.</li>
+</ol>
+<p>The long-term question: can better choices be made with less total engineering and evaluation effort, while keeping the design correct?</p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>Separate proposing a design from establishing its properties</h2>
+<p>A learned model can propose a circuit, predict a measurement, select a search action, or suggest a statement for a proof. Each output has a different meaning.</p><p>A proposed circuit is a candidate. A predicted delay is an estimate.</p><p>A suggested proof statement is an obligation to check. None becomes a validated result simply because the model expresses confidence.</p>
+<div class="worked"><p class="lm-k">Worked example</p><p>Suppose a task asks for a four-bit counter that returns to zero after fifteen and resets when requested. Generated code might compile while ignoring reset, count correctly in a short simulation while mishandling simultaneous inputs, or implement the required behavior but exceed an area limit.</p></div><p>Syntax, behavior, and physical constraints are separate acceptance conditions.</p>
+<p>The following calculations and examples are explanatory constructions, not paper results. This theme connects recorded proposals without upgrading their evidence. Several linked branches still have description-level sources and shallow individual treatments; those limits remain part of the reading path.</p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="school"></span>Identify the learned decision before comparing methods</h2>
+<table>
+<thead>
+<tr>
+<th>Learned role</th>
+<th>Output supplied to the design process</th>
+<th>Required check</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Generator</td>
+<td>Code, geometry, or candidate parameters</td>
+<td>Required behavior and implementation constraints</td>
+</tr>
+<tr>
+<td>Predictor</td>
+<td>Estimated delay, power, area, or another property</td>
+<td>Error under the relevant target conditions and decisions</td>
+</tr>
+<tr>
+<td>Search controller</td>
+<td>Which candidate or tool to try next</td>
+<td>Final valid solution at a stated total budget</td>
+</tr>
+<tr>
+<td>Proof assistant</td>
+<td>A candidate lemma or proof step</td>
+<td>Validity under the actual formal model and assumptions</td>
+</tr>
+</tbody>
+</table>
+<p>This separation prevents unrelated accuracy scores from appearing comparable. A predictor with lower mean error and a generator with more valid outputs do not improve the same denominator. Their effects can meet in one design process, but that requires compatible inputs, checks, and cost accounting.</p>
+<p>The <a href="../subthemes/learned-eda-and-optimization.html">learned EDA chapter</a> uses this distinction across electrical prediction, inverse design, algorithm selection, and proof suggestions. Its recorded proposals identify questions worth investigating, not a shared experimentally established improvement.</p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="checklist"></span>Feedback is useful only when the checker observes the requirement</h2>
+<p>A generated candidate is evaluated; the returned information influences the next attempt. Feedback may identify invalid syntax, a failed functional test, a timing violation, or a physical rule violation.</p><p>These are not interchangeable error messages. A useful repair must change the cause while retaining properties that already held.</p>
+<div class="worked"><p class="lm-k">Worked example</p><p>For an illustrative layout constraint, moving a wire can increase one spacing from three units to the required four while reducing another spacing from five to three. One local violation disappears and another appears.</p></div><p>Counting the first repair as completion hides the new problem. Connectivity and circuit behavior need their own checks as well.</p>
+<p><a href="../subthemes/llm-assisted-design-flows.html#paper-dac-2026-research2145">Drcagent's captured record</a> motivates this issue through rule-informed repair. Its current explanation does not establish full closure, process transfer, or final layout quality. The <a href="../subthemes/llm-assisted-design-flows.html#generated-code-needs-several-kinds-of-checking">Verilog-generation discussion</a> similarly distinguishes accepted text, simulated behavior, synthesis completion, and hardware quality.</p>
+<p>Feedback also changes the search population. Repeatedly optimizing against one visible test can exploit gaps in that test.</p><p>Hold back independently designed checks and investigate what happens on unfamiliar requirements. Passing the same tests used to guide every edit is useful but weaker than independent confirmation of the intended behavior.</p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="refresh"></span>Hard constraints must not disappear inside a reward</h2>
+<p>A search can assign a numerical reward to promising candidates. If invalid behavior merely receives a small penalty, another attractive score can outweigh it.</p><p>A faster incorrect circuit is not a valid substitute for a slower correct one when correctness is mandatory. The process must explicitly reject invalid candidates or retain their unresolved status.</p>
+<p>Power, performance, and area also trade off. Candidate A might occupy 80 area units with delay 12; candidate B might occupy 100 with delay 8.</p><p>Neither is better on both dimensions. If delay must be at most 10, only B is feasible among these two.</p><p>A Pareto comparison identifies tradeoffs among evaluated candidates; it does not determine the user's constraints or prove global optimality.</p>
+<p><a href="../subthemes/llm-assisted-design-flows.html#paper-dac-2026-research865">Paretopilot's recorded proposal</a> guides high-level synthesis choices. Its current source conditions do not establish a universally better search. Compare feasible outcomes using the same objectives, evaluated inputs, and complete budget, not merely a favorable summary of the candidate set.</p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>Prediction quality must survive selection and transfer</h2>
+<p>A model trained on examples from one circuit family can exploit similarities within that family. Testing close variants may establish interpolation within that population while saying little about a new topology, technology, or operating condition. State which changes the evaluation actually tests.</p>
+<p>The separation between training and evaluation must follow the claimed transfer. Splitting near-duplicate variants across both sets can make the test easier than deployment on a genuinely new design.</p><p>Conversely, a deliberately harder split answers a different question and should not be compared silently with an easier one.</p>
+<p>Search also selects unusual predictions. A candidate predicted to have exceptionally low delay may owe part of that advantage to an optimistic error.</p><p>Evaluating random candidates accurately does not by itself establish accurate ranking of the selected winners. Re-evaluate winners with the appropriate higher-confidence method and record when their rankings or feasibility change.</p>
+<p>The <a href="design-methodology-and-tooling.html">tooling theme</a> explains why a small delay error near a constraint can change acceptance. Learned prediction belongs within that decision accounting, including exact fallback and rejected candidates, rather than replacing it with a single average-error score.</p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="file-text"></span>Retrieval and multiple roles do not create independent evidence</h2>
+<p>Retrieval supplies selected references to a model. It can make rules or examples accessible, but those references may be incomplete, outdated for the target, or incorrectly applied.</p><p>Record what was retrieved, its applicable version, and whether the evaluation supplied task-specific information that would require effort in a new deployment.</p>
+<p>Dividing work among named model roles can organize generation, criticism, and repair. It does not make their judgments independent if they share a mistaken reference, checker, or underlying assumption.</p><p>A second fluent explanation of the same candidate is not equivalent to a separate functional or physical check.</p>
+<p>The <a href="verification-and-validation.html">verification theme</a> provides the necessary boundary: disagreement requires diagnosis, agreement can share a common error, and a proof depends on its model and assumptions. For <a href="../subthemes/learned-eda-and-optimization.html#paper-dac-2026-research523">Legend's learned lemma proposal</a>, a suggested statement must be established before it supports a proof.</p><p>The captured record does not independently establish the method's soundness or success rate.</p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>Count accepted designs and the effort needed to obtain them</h2>
+<div class="worked"><p class="lm-k">Worked example</p><p>Suppose 100 generated candidates yield 80 syntax successes, 50 functional-test successes, and 20 candidates satisfying the implemented constraints. Final acceptance is 20% of attempts, not 80%. Reporting only survivors conceals where work was spent and which stage remains limiting.</p></div>
+<p>Total cost includes preparing data and references, training or tuning where applicable, model calls, tool executions, retries, and human investigation. A model call taking one second followed by a 100-second physical evaluation does not make the full attempt a one-second process.</p><p>Parallel execution changes elapsed time and resource consumption differently.</p>
+<p>Repeated use can amortize preparation, but only while the prepared model and references remain applicable. Record how many new tasks share that cost, what invalidates reuse, and what happens when a tool or process changes.</p><p>A reusable method is stronger evidence than a manually repaired demonstration, but it still needs stated boundaries.</p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="checklist"></span>Long-term hypotheses to test rather than assume</h2>
+<p>One hypothesis is that learned guidance becomes more useful when it reduces expensive evaluations while preserving final acceptance. Compare against non-learned search with equal checking and preparation budgets. It weakens if saved evaluations are offset by data generation, rejected candidates, or lower valid-output quality.</p>
+<p>A second hypothesis is that structured feedback improves transfer more than additional unconstrained generation. Remove or alter feedback components while retaining model access, tools, and compute. It weakens if apparent gains come from stronger checkers or privileged task examples rather than better use of feedback.</p>
+<p>A third hypothesis is that trustworthy automation requires explicit boundaries between proposing, checking, and accepting. Test replay by an independent user with the same declared requirements and tools.</p><p>It weakens as a demonstrated capability when acceptance still depends on hidden intervention or a checker that misses the claimed property.</p>
+<p>These are bounded interpretations, not measured ISCA–DAC–ICCAD growth trends or evidence of autonomous design closure. Comparable editions, tasks, data access, budgets, and review standards remain needed.</p><p>This expanded parent discussion does not complete the individual-paper rewrites, source recovery, classification reconciliation, or independent comprehension and scientific review below.</p>
+<p class="lm-k h-label">Subthemes and how to study them</p><h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="books"></span>The subthemes in this theme, and how to read them</h2>
+<p>Each link opens the subtheme discussion and its captured paper records. Explanatory depth varies: some papers have expanded individual explanations; others still have only brief discussion or evidence cards. Source locations and unresolved conditions remain visible.</p>
+<h3><a href="../subthemes/learned-design-space-exploration.html">Learned design space exploration</a></h3>
+<p>21 selected records in this theme. Start with <a href="../subthemes/learned-design-space-exploration.html">Agenticdse: A Multi-Agent Design Space Exploration Framework with Multi-Phase Bayesian Optimization for Chiplet Accelerators</a>.</p>
+<h3><a href="../subthemes/learned-eda-and-optimization.html">Learned EDA and optimization</a></h3>
+<p>10 selected records in this theme. Start with <a href="../subthemes/learned-eda-and-optimization.html">Attentioncap: Transformer Based Capacitance Matrix Learning Toward Full-Chip Extraction</a>.</p>
+<h3><a href="../subthemes/llm-assisted-design-flows.html">LLM assisted design flows</a></h3>
+<p>8 selected records in this theme. Start with <a href="../subthemes/llm-assisted-design-flows.html">Drcagent: A Design Rule Aware LLM Agent for DRC Auto-Fix with Adversarial Reinforcement Learning</a>.</p>
+<h3><a href="../subthemes/generative-design-and-synthesis.html">Generative design and synthesis</a></h3>
+<p>7 selected records in this theme. Start with <a href="../subthemes/generative-design-and-synthesis.html">Shortcircuit: Alphazero-Driven Generative Circuit Design</a>.</p>
+<h3><a href="../subthemes/generative-design-automation.html">Generative design automation</a></h3>
+<p>6 selected records in this theme. Start with <a href="../subthemes/generative-design-automation.html">PCBgen3D: A Self-Correcting Graph-Based MLLM Framework for Automated PCB 3D Models Generation</a>.</p>
+<h3><a href="../subthemes/graph-learning-for-eda.html">Graph learning for EDA</a></h3>
+<p>5 selected records in this theme. Start with <a href="../subthemes/graph-learning-for-eda.html">TRACE: Learning to Compute on Circuit Graphs</a>.</p>
+<h3><a href="../subthemes/architecture-modeling-and-exploration.html">Architecture modeling and exploration</a></h3>
+<p>1 selected records in this theme. Start with <a href="../subthemes/architecture-modeling-and-exploration.html">Hades: Harnessing Architecture Design Automation for Application-Specific FHE Accelerators</a>.</p>
+<h3><a href="../subthemes/verification-and-debugging-tools.html">Verification and debugging tools</a></h3>
+<p>1 selected records in this theme. Start with <a href="../subthemes/verification-and-debugging-tools.html">Akirarust: Re-Thinking LLM-Aided Rust Repair Using a Feedback-Guided Thinking Switch</a>.</p>
+<p class="lm-k h-label">Representative source-backed records</p><h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="route"></span>Papers that show the theme well</h2>
+<p>The following reading set spans the available conferences and uses dated corrections where registered. These corrections improve the current reading view but do not change historical adjudication or establish independent acceptance. Each paper link opens its exact evidence card.</p>
+<p class="lm-k h-label">Paper cards: what changes and where it stops</p><h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>Paper cards: what each paper changes, and where it stops</h2>
+<ul>
+<li><a href="../subthemes/learned-eda-and-optimization.html#paper-dac-2026-research951">Exploiting Function-Family Structure in Analog Circuit Optimization</a> — DAC 2026.</li>
+<li><a href="../subthemes/architecture-modeling-and-exploration.html#paper-dac-2026-research912">Hades: Harnessing Architecture Design Automation for Application-Specific FHE Accelerators</a> — DAC 2026.</li>
+<li><a href="../subthemes/learned-design-space-exploration.html#paper-dac-2026-research906">LEAP: A Self-Supervised Per-Cycle Toggle Propagation Model Supports Fast, Transferable, and Early Analysis of Layout Power</a> — DAC 2026.</li>
+<li><a href="../subthemes/learned-design-space-exploration.html#paper-dac-2026-research883">RTL-Sequencer: Towards Scalable RTL Timing Prediction with the Sequence-Based Paradigm</a> — DAC 2026.</li>
+<li><a href="../subthemes/llm-assisted-design-flows.html#paper-iccad-2025-1222">VeriOpt: PPA-Aware High-Quality Verilog Generation via Multi-Role LLMs</a> — ICCAD 2025.</li>
+<li><a href="../subthemes/llm-assisted-design-flows.html#paper-iccad-2025-110">VERIRL: Boosting the LLM-based Verilog Code Generation via Reinforcement Learning</a> — ICCAD 2025.</li>
+<li><a href="../subthemes/llm-assisted-design-flows.html#paper-dac-2026-research865">Paretopilot: Global Optimization Reasoning on HLS Design Space Exploration with LLMs</a> — DAC 2026.</li>
+<li><a href="../subthemes/learned-eda-and-optimization.html#paper-dac-2026-research859">Soberdse: Sample-Efficient Design Space Exploration via Learning-Based Algorithm Selection</a> — DAC 2026.</li>
+<li><a href="../subthemes/graph-learning-for-eda.html#paper-dac-2026-research795">GSR-GNN: Training Acceleration and Memory-Saving Framework of Deep GNNs on Circuit Graph</a> — DAC 2026.</li>
+<li><a href="../subthemes/learned-design-space-exploration.html#paper-dac-2026-research739">Stochastic Diffusion Prior: Knowledge Elicitation and Local Adaptation for Transistor Sizing</a> — DAC 2026.</li>
+<li><a href="../subthemes/learned-eda-and-optimization.html#paper-dac-2026-research692">DiffDEG: Diffusion-Enhanced Design Evolution Graph Representation Learning for Post-Layout Optimization</a> — DAC 2026.</li>
+<li><a href="../subthemes/learned-design-space-exploration.html#paper-dac-2026-research577">Closing the Loop: Hybrid NAS Guided by Analytical and Hardware-Calibrated Quantum Cost Modeling</a> — DAC 2026.</li>
+</ul>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="file-text"></span>What the evidence supports</h2>
+<p>These records identify proposed methods and the conditions recorded for them. A reported improvement should be interpreted with its comparison method, input size, hardware, and result-quality requirement. Missing fields are evidence gaps; a populated field can also state that a detail is unspecified.</p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="file-text"></span>Limits and next evidence</h2>
+<p>The selected sample is uneven across conferences and source types. It cannot establish how fast a subject is growing. Repeated observations across comparable years, with the same inclusion rules and source depth, are needed for a time trend.</p>
+<p>Every linked evidence article preserves the Problem: and Mechanism / artifact: fields, baseline, unshortened limitations, source URL, and recorded location. Primary text and independent review remain necessary where the record says those checks are open.</p>
+<p><a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/reports/directions/README.md">Research directions</a> · <a href="../guide/expanded-taxonomy-v1.html">All observed subthemes</a></p><p class="meta">Written as <a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/reports/themes/ai-assisted-eda.md">reports/themes/ai-assisted-eda.md</a> in the course repository.</p>
+      </article>
+      <nav class="pager" aria-label="Previous and next"><span class="prev empty"></span><a class="map" href="../themes.html"><span class="pg-k">Back to</span><span class="pg-t">Themes</span></a><a class="next" href="analog-mixed-signal-and-emerging-devices.html"><span class="pg-k">Next →</span><span class="pg-t">Analog, mixed-signal, and emerging devices</span></a></nav>
+    </section>
+  </main>
+  <footer class="course-foot">
+    <p>Built from 582 paper records coded from ISCA 2026, DAC 2026 and ICCAD 2025 (ICCAD 2026 papers were not yet public). Most records come from official program descriptions; see “How deep the reading went”. The papers belong to their authors.</p>
+    <p class="foot-links"><a href="https://github.com/mehtama1234/course-concept-library">All courses</a><a href="../index.html">This course</a><a href="../course-map.html">Course map</a><a href="../presentation/index.html">Slides</a><a href="../video/index.html">Video</a><a href="../share/index.html">Share</a></p>
+  </footer>
+  <script src="../assets/course-data.js"></script><script src="../assets/icons.js"></script><script src="../assets/icons-extra.js"></script><script src="../assets/icons-course.js"></script><script src="../assets/art.js"></script><script src="../assets/course-art.js"></script><script src="../assets/charts.js"></script><script src="../assets/course-charts.js"></script><script src="../assets/course-site.js"></script>
+</body>
+</html>

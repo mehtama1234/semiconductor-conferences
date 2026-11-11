@@ -1,59 +1,112 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Semiconductor Research Atlas</title>
-  <link rel="stylesheet" href="styles.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#F3ECE1" />
+  <title>Semiconductor conference atlas · what ISCA, DAC and ICCAD say about where chip design is going</title>
+  <meta name="description" content="What do this year’s chip-design conferences say about where the field is going? 582 papers from ISCA 2026, DAC 2026 and ICCAD 2025 sorted into 10 themes and 113 subthemes, six directions to watch, slides and a short video." />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Semiconductor conference atlas" />
+  <meta property="og:title" content="Semiconductor conference atlas · what ISCA, DAC and ICCAD say about where chip design is going" />
+  <meta property="og:description" content="What do this year’s chip-design conferences say about where the field is going? 582 papers from ISCA 2026, DAC 2026 and ICCAD 2025 sorted into 10 themes and 113 subthemes, six directions to watch, slides and a short video." />
+  <meta property="og:url" content="https://mehtama1234.github.io/semiconductor-conferences/" />
+  <meta property="og:image" content="https://mehtama1234.github.io/semiconductor-conferences/presentation/slides/01-cover.jpg" />
+  <meta property="og:image:width" content="1920" />
+  <meta property="og:image:height" content="1080" />
+  <meta property="og:image:alt" content="Semiconductor conference atlas: 582 papers from ISCA, DAC and ICCAD, sorted into 10 themes and six directions to watch." />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="canonical" href="https://mehtama1234.github.io/semiconductor-conferences/" />
+  <link rel="icon" href="assets/icon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="assets/base.css" />
+  <link rel="stylesheet" href="assets/experience.css" />
+  <link rel="stylesheet" href="assets/theme-atlas.css" />
+  <link rel="stylesheet" href="assets/styles.css" />
+  <link rel="stylesheet" href="assets/charts.css" />
+  <link rel="stylesheet" href="assets/course.css" />
+  
 </head>
-<body>
-  <header class="hero">
-    <div class="eyebrow">ISCA · DAC · ICCAD / research intelligence</div>
-    <h1>How computing systems are designed, tested, and improved.</h1>
-    <p class="dek">Read the basic technical problems, the choices researchers are changing, and the evidence needed to compare their results across ISCA, DAC, and ICCAD.</p>
-    <div class="hero-actions">
-      <a class="button" href="#writeup">Read the synthesis</a>
-      <a class="button secondary" href="../reports/expanded-taxonomy-v1.md">Open the exhaustive taxonomy</a>
-    </div>
+<body class="course-site " data-house="atlas">
+  <aside class="public-demo-banner" aria-label="About this course">A plain-language guide to what ISCA, DAC and ICCAD papers say about chip and computer design · Built from the repository’s own paper records · Not made by the conferences</aside>
+  <a class="skip-link" href="#app">Skip to the page</a>
+  <header>
+    <a class="brand" href="index.html"><span class="mark" aria-hidden="true">Si</span> Semiconductor conference atlas</a>
+    <span class="header-status"><span class="badge">582 papers</span><span class="badge">10 themes</span><span class="badge">Plain words first</span></span>
+    <a class="header-link" href="course-map.html">Course map</a>
   </header>
+  <nav class="course-nav" aria-label="Main sections of the course"><a href="index.html" aria-current="page">The big picture</a><a href="themes.html">Themes</a><a href="subthemes.html">Subthemes</a><a href="deep-reads.html">Deep reads</a><a href="directions.html">What to watch</a><a href="presentation/index.html">Slides</a><a href="video/index.html">Video</a><a href="share/index.html">Share</a></nav>
+  <main id="app" tabindex="-1">
+    <section id="home" class="screen active landing" aria-labelledby="home-title">
+      <div class="landing-hero">
+        <div class="landing-hero-text">
+          <p class="landing-kicker">ISCA 2026 · DAC 2026 · ICCAD 2025 · 582 papers</p>
+          <h1 id="home-title">What do this year’s chip-design conferences say about where the field is going?</h1>
+          <p class="landing-lede">Three conferences publish most new research on how chips and computers are designed, checked and built. This atlas sorts 582 of their papers by the problem each one tackles, explains each problem in plain words, and asks what the papers together say about the next few years. <b>Here is the whole story in three sentences.</b></p>
+          <div class="landing-actions">
+            <a class="button primary" href="#found">The three sentences <span aria-hidden="true">→</span></a>
+            <a class="button secondary" href="themes.html">Start with the themes</a>
+          </div>
+          <p class="landing-try-note">Also as <a href="presentation/index.html">slides</a> and a <a href="video/index.html">four-minute video</a>, all on <a href="share/index.html">one page to share</a>.</p>
+        </div>
+        <svg class="landing-art" viewBox="0 0 440 400" aria-hidden="true" focusable="false"><path class="la-line" d="M210 96 C 228 100, 222 120, 236 122"/><path class="la-line" d="M318 170 C 300 214, 250 204, 214 232"/><path class="la-line" d="M216 304 C 226 304, 228 302, 238 302"/><g class="la-card" transform="translate(14 18) rotate(-2)"><rect width="196" height="104"/><rect class="la-top" width="196" height="5"/><text class="la-kick" x="14" y="26">1 · THE PAPERS</text><text class="la-title" x="14" y="56">582 papers</text><text class="la-small" x="14" y="80">ISCA, DAC, ICCAD</text><text class="la-small" x="14" y="96">sorted by problem</text></g><g class="la-card" transform="translate(234 66) rotate(2)"><rect width="196" height="104"/><text class="la-kick" x="14" y="26">2 · THE THEMES</text><text class="la-title" x="14" y="56">10 subjects</text><text class="la-small" x="14" y="80">113 subthemes</text><text class="la-small" x="14" y="96">each explained</text></g><g class="la-card la-ink" transform="translate(18 214) rotate(1.5)"><rect width="196" height="116"/><text class="la-kick" x="14" y="26">3 · THE LOOP</text><text class="la-title" x="14" y="56">Propose, check</text><text class="la-small" x="14" y="80">learn, try again</text><text class="la-small" x="14" y="96">with costs counted</text></g><g class="la-card" transform="translate(238 236) rotate(-2)"><rect width="196" height="116"/><text class="la-kick" x="14" y="26">4 · THE TEST</text><text class="la-title" x="14" y="56">What to watch</text><text class="la-small" x="14" y="80">6 directions, each</text><text class="la-small" x="14" y="96">with its disproof</text></g></svg>
+      </div>
 
-  <main>
-    <section id="writeup" class="section prose">
-      <div class="section-kicker">01 / The writeup</div>
-      <h2>Start with the work the system must do.</h2>
-      <p>A computing system receives inputs, performs operations, and produces outputs. Its design determines where values are stored, which operations run together, and how results move between components. The hardware must do this within limits on time, energy, memory, temperature, and correctness.</p>
-      <p>The research papers change particular decisions in that process. Some reduce the number of operations. Some reduce the amount of data moved. Others improve circuit construction, detect errors, or measure whether a proposed improvement survives realistic conditions.</p>
-      <p>A <strong>theme</strong> is a broad subject. A <strong>subtheme</strong> groups a narrower technical problem. A <strong>mechanism</strong> is the specific change a paper proposes. The selected sample contains 582 records, 113 unique subthemes, and 577 mechanism labels. Some subthemes belong to more than one broad subject.</p>
-      <p>Read a theme article for the explanation, then follow its subthemes to the paper evidence. Each evidence record includes the comparison method, reported measurements, limits, and available source locations. <a href="../reports/reading-guide-v1.md">Definitions and reading guide →</a></p>
-    </section>
+      <section class="landing-problems no-swipe" aria-labelledby="who-title">
+        <h2 class="landing-subhead" id="who-title">Who this is for, and what you need before you start</h2>
+        <div class="who-for">
+          <div><b>Who it is for</b><p>Engineers, researchers, students and technical leaders who want to know what chip and system design research is working on, without reading hundreds of papers.</p></div>
+          <div><b>What you need first</b><p>A rough idea of what a processor and memory are. Terms such as EDA (the software that turns a circuit description into a chip layout) are explained where they first appear.</p></div>
+          <div><b>What you will be able to do</b><p>Name the main research directions, find the papers behind each one, and say what evidence would confirm or disprove it.</p></div>
+        </div>
+      </section>
 
-    <section class="section trend-grid">
-      <div class="section-kicker">02 / Trend interpretation</div>
-      <h2>Research directions to examine</h2>
-      <p style="grid-column:1/-1">These six hypotheses connect the selected cases. The available records do not establish growth across comparable years. Each article explains the reasoning and the experiment needed to assess it.</p>
-      <div class="trend-card"><span>01</span><h3>Use requirements while choosing a design</h3><p>A design check can identify a failed requirement and inform the next attempt. The question is whether that information produces more valid designs within the same time and computing budget.</p><a href="../reports/directions/01-constraints-become-executable.md">Read the explanation →</a></div>
-      <div class="trend-card"><span>02</span><h3>Reduce the cost of moving data</h3><p>An operation waits if its inputs cannot arrive quickly enough. Choosing where data stays and where computation runs can reduce transfers, but copying and coordination costs must be included.</p><a href="../reports/directions/02-data-movement-as-contract.md">Read the explanation →</a></div>
-      <div class="trend-card"><span>03</span><h3>Measure results so they can be compared</h3><p>A score depends on the inputs, the rule for success, and the comparison method. Better evaluation makes these conditions explicit and records failures as well as successful runs.</p><a href="../reports/directions/06-evaluation-as-research.md">Read the explanation →</a></div>
-      <div class="trend-card"><span>04</span><h3>Include physical limits in design choices</h3><p>Wire delay, heat, current supply, and manufacturing variation affect whether a design works. Their estimates can guide choices, provided the final design is checked with adequate accuracy.</p><a href="../reports/directions/05-physical-reality-in-the-loop.md">Read the explanation →</a></div>
-      <div class="trend-card"><span>05</span><h3>Use measurements to improve the next decision</h3><p>Fast predictions can reduce the number of expensive simulations. The question is whether the saved effort exceeds the cost of prediction errors, training, and final checks.</p><a href="../reports/directions/03-closed-loop-design.md">Read the explanation →</a></div>
-      <div class="trend-card"><span>06</span><h3>Design for faults and attacks</h3><p>Protection changes performance, energy, and recovery behavior. Evaluate useful correct work with the protection enabled under a stated fault or attacker model.</p><a href="../reports/directions/04-reliability-security-upstream.md">Read the explanation →</a></div>
-    </section>
+      <section class="landing-problems" id="found" aria-labelledby="found-title">
+        <h2 class="landing-subhead" id="found-title">The whole story in three sentences</h2>
+        <p class="lp-lead">Each sentence stands on its own. The line under it gives the numbers behind it.</p>
+        <ol aria-label="Three sentences" tabindex="0"><li><p class="lp-k">1 · The direction</p><h3>Chip design is becoming a loop: propose, check, learn, try again.</h3><p class="lp-pain evidence-line">Six directions recur across the 582 papers. Most are about feeding checks, measurements and physical limits back into the next design choice.</p><p class="lp-fix"><a href="directions.html">The six directions →</a></p></li><li><p class="lp-k">2 · The weight</p><h3>Accelerators, memory and reliability draw the most papers.</h3><p class="lp-pain evidence-line">Architecture and accelerators (103), memory, interconnect, and storage (85) and power, reliability, and security (78) are the three largest of 10 themes.</p><p class="lp-fix"><a href="themes.html">All ten themes →</a></p></li><li><p class="lp-k">3 · The caution</p><h3>Most papers were read from short descriptions, so these are hypotheses.</h3><p class="lp-pain evidence-line">541 of 582 records come from program descriptions; 33 from a full paper or preprint. DAC supplies 544 of the 582.</p><p class="lp-fix"><a href="deep-reads.html">Papers read in full →</a></p></li></ol>
+      </section>
 
-    <section class="section" id="atlas">
-      <div class="section-kicker">03 / Interactive taxonomy</div>
-      <div class="section-head"><div><h2>Theme → subtheme → mechanism</h2><p class="muted">Filter the observed taxonomy, then open the source-backed theme page for paper cards and evidence limits.</p></div><input id="search" type="search" placeholder="Search themes, subthemes, mechanisms…"></div>
-      <div id="stats" class="stats"></div>
-      <div id="themes" class="theme-list"></div>
-    </section>
+      <section class="landing-problems no-swipe" aria-labelledby="path-title">
+        <h2 class="landing-subhead" id="path-title">The atlas in five steps: papers, themes, subthemes, deep reads, what to watch</h2>
+        <p class="lp-lead">Follow it left to right the first time. After that, jump to whatever you need.</p>
+        <div class="method-figure"><div class="loop-wide" data-art="path"></div><div class="loop-tall" data-art="pathTall"></div></div>
+      </section>
 
-    <section class="section prose">
-      <div class="section-kicker">04 / How to read this honestly</div>
-      <h2>Structure is evidence of attention, not proof of importance.</h2>
-      <p>The taxonomy is derived from a selected, adjudicated sample with uneven source depth. Official descriptions, abstracts, author sources, artifacts, and primary papers are preserved as different evidence tiers. Similar labels may be aliases; different labels may be genuinely distinct mechanisms. The long-term directions are provisional cross-conference cases, not accepted trend findings.</p>
-      <div class="links"><a href="../reports/research-atlas-index-v1.md">Research atlas index</a><a href="../reports/direction-review-gate-v1.md">Direction review gate</a><a href="../reports/longitudinal-protocol-v1.md">Longitudinal protocol</a><a href="../reports/research-agenda-v1.md">Research agenda</a></div>
+      <h2 class="landing-subhead" id="themes-title">Accelerators, memory and reliability are the three biggest themes</h2>
+      <div class="chart-card"><div data-chart="themes"></div><div><p class="lm-k">Papers per theme</p><h3>Architecture and accelerators leads with 103 papers.</h3><p>Together the top three hold 266 of 582 papers. A count shows where this sample of papers spends its attention, not which subject matters most.</p><p class="chart-note">Each paper is placed in one theme by what it changes.</p></div></div>
+
+      <h2 class="landing-subhead" id="conf-title">DAC supplies 544 of the 582 papers, so the atlas leans toward design automation</h2>
+      <div class="chart-card"><div data-chart="confs"></div><div><p class="lm-k">Where the papers come from</p><h3>DAC 2026 is most of the sample.</h3><p>ISCA 2026 adds 17 selected architecture papers. ICCAD 2026 papers were not public yet, so 21 papers come from ICCAD 2025.</p><p class="chart-note">Counts are for this selected sample, not the full programs.</p></div></div>
+
+      <section class="landing-problems no-swipe" aria-labelledby="dirs-title">
+        <h2 class="landing-subhead" id="dirs-title">Six directions to watch, each a hypothesis with a stated test</h2>
+        <p class="lp-lead">These come up again and again across themes and conferences. None is proven: each page names the paper that pushes back and the result that would disprove it.</p>
+        <ul class="lm-grid"><li><div class="lm-top"><span class=lm-icon data-icon=checklist></span><p class="lm-k">Direction 1</p></div><h3><a href="directions/01-constraints-become-executable.html">Requirements checked while designing</a></h3><p>A candidate is useful only when executable constraints can reject, repair, or rank it.</p></li><li><div class="lm-top"><span class=lm-icon data-icon=arrows-exchange></span><p class="lm-k">Direction 2</p></div><h3><a href="directions/02-data-movement-as-contract.html">Moving data is the real cost</a></h3><p>Useful computation is constrained by where data is, how far it moves, and what competes for the path.</p></li><li><div class="lm-top"><span class=lm-icon data-icon=refresh></span><p class="lm-k">Direction 3</p></div><h3><a href="directions/03-closed-loop-design.html">Measure, then decide the next design</a></h3><p>A design loop is only useful when sensing cost, model error, decision latency, and update semantics are explicit.</p></li><li><div class="lm-top"><span class=lm-icon data-icon=shield-check></span><p class="lm-k">Direction 4</p></div><h3><a href="directions/04-reliability-security-upstream.html">Plan for faults and attacks early</a></h3><p>Performance without a declared fault and threat operating envelope is not a complete system result.</p></li><li><div class="lm-top"><span class=lm-icon data-icon=temperature></span><p class="lm-k">Direction 5</p></div><h3><a href="directions/05-physical-reality-in-the-loop.html">Heat, wires and power in the loop</a></h3><p>An abstract optimum is irrelevant when the physical system cannot realize it.</p></li><li><div class="lm-top"><span class=lm-icon data-icon=ruler></span><p class="lm-k">Direction 6</p></div><h3><a href="directions/06-evaluation-as-research.html">Better ways to measure results</a></h3><p>Every result is a measurement with a task population, evaluator, result, uncertainty, and failure boundary.</p></li></ul>
+      </section>
+
+      <section class="landing-problems no-swipe" aria-labelledby="loop-title">
+        <h2 class="landing-subhead" id="loop-title">The common thread: design becomes a loop of measure, learn, decide and recheck</h2>
+        <figure class="course-fig"><div class="loop-wide" data-art="flow:closed-loop-design"></div><div class="loop-tall" data-art="flowTall:closed-loop-design"></div><figcaption>Measure, learn, decide the next design, and count the cost of every step. A fast estimate is only useful if the final design is rechecked accurately.</figcaption></figure>
+      </section>
+
+      <h2 class="landing-subhead" id="depth-title">How deep the reading went: 33 of 582 papers were read in full</h2>
+      <div class="chart-card"><div data-chart="depth"></div><div><p class="lm-k">What each record was coded from</p><h3>541 records rest on the short official program description.</h3><p>Those give the problem and the claimed method, but rarely the test conditions. 16 papers were checked in depth against their full text or released files; see <a href="deep-reads.html">the deep reads</a>.</p><p class="chart-note">So every direction here is a hypothesis to test, not a measured trend.</p></div></div>
+
+      <section class="landing-more" id="doors" aria-labelledby="doors-title">
+        <div class="lm-head"><div><h2 class="landing-subhead" id="doors-title">Where do you want to go next?</h2><p class="lp-lead">Pick the question you have. Each page answers it in its headings.</p></div><div class="hj-art" data-art="trio:route,cpu,checklist"></div></div>
+        <ul class="lm-grid"><li><div class="lm-top"><span class="lm-icon" data-icon="books"></span><p class="lm-k">Themes</p></div><h3>What are the big subjects?</h3><p>10 themes, each explaining the technical problem before any paper. <a href="themes.html">Read the themes →</a></p></li><li><div class="lm-top"><span class="lm-icon" data-icon="grid-dots"></span><p class="lm-k">Subthemes</p></div><h3>Which papers tackle my problem?</h3><p>113 narrower problems, each with every paper and what its source shows. <a href="subthemes.html">Find a subtheme →</a></p></li><li><div class="lm-top"><span class="lm-icon" data-icon="search"></span><p class="lm-k">Search</p></div><h3>Can I just search?</h3><p>Type a word to filter every theme, subtheme and method. <a href="explorer.html">Search the atlas →</a></p></li><li><div class="lm-top"><span class="lm-icon" data-icon="microscope"></span><p class="lm-k">Deep reads</p></div><h3>Which papers were read in full?</h3><p>16 papers checked against their full text or released files. <a href="deep-reads.html">See the deep reads →</a></p></li><li><div class="lm-top"><span class="lm-icon" data-icon="route"></span><p class="lm-k">What to watch</p></div><h3>Where is the field going?</h3><p>Six directions, each with its evidence, its counter-evidence and its test. <a href="directions.html">See the directions →</a></p></li><li><div class="lm-top"><span class="lm-icon" data-icon="help-circle"></span><p class="lm-k">How to read it</p></div><h3>How far can I trust a record?</h3><p>Six questions every paper must answer, and plain definitions. <a href="guide/reading-guide-v1.html">Read the guide →</a></p></li><li><div class="lm-top"><span class="lm-icon" data-icon="presentation"></span><p class="lm-k">Slides</p></div><h3>Can I present this?</h3><p>Slides with speaker notes, a presenter view, PDF and PowerPoint. <a href="presentation/index.html">See the slides →</a></p></li><li><div class="lm-top"><span class="lm-icon" data-icon="player-play"></span><p class="lm-k">Video</p></div><h3>Can I just watch it?</h3><p>The slides read aloud, with captions, in about four minutes. <a href="video/index.html">Watch the video →</a></p></li><li><div class="lm-top"><span class="lm-icon" data-icon="share"></span><p class="lm-k">Share</p></div><h3>How do I send this to someone?</h3><p>One link, QR codes and every download. <a href="share/index.html">Share it →</a></p></li></ul>
+      </section>
+
+      <div class="landing-facts">
+        <div class="landing-fact"><h2>Built from the repository’s own paper records</h2><p>Every number on this page is read from the coded records at build time. Each paper card keeps its source link, what the source shows and what it leaves open. <a href="guide/research-atlas-index-v1.html">How the atlas was built</a>.</p></div>
+        <div class="landing-fact landing-fact-not"><h2>Not an official conference page, and not a ranking</h2><p>A paper count is not market share, adoption or importance. The sample is selected, and most records come from short descriptions.</p></div>
+      </div>
     </section>
   </main>
-  <footer>Semiconductor Research Atlas · bounded evidence package · <a href="../README.md">repository README</a></footer>
-  <script src="app.js"></script>
+  <footer class="course-foot">
+    <p>Built from 582 paper records coded from ISCA 2026, DAC 2026 and ICCAD 2025 (ICCAD 2026 papers were not yet public). Most records come from official program descriptions; see “How deep the reading went”. The papers belong to their authors.</p>
+    <p class="foot-links"><a href="https://github.com/mehtama1234/course-concept-library">All courses</a><a href="index.html">This course</a><a href="course-map.html">Course map</a><a href="presentation/index.html">Slides</a><a href="video/index.html">Video</a><a href="share/index.html">Share</a></p>
+  </footer>
+  <script src="assets/course-data.js"></script><script src="assets/icons.js"></script><script src="assets/icons-extra.js"></script><script src="assets/icons-course.js"></script><script src="assets/art.js"></script><script src="assets/course-art.js"></script><script src="assets/charts.js"></script><script src="assets/course-charts.js"></script><script src="assets/course-site.js"></script>
 </body>
 </html>

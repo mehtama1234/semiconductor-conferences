@@ -1,0 +1,206 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#F3ECE1" />
+  <title>Analog, mixed-signal, and emerging devices · Semiconductor conference atlas</title>
+  <meta name="description" content="The article explains the technical problem step by step first, then links to every subtheme and its papers. Worked numbers are illustrations, not paper results." />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Semiconductor conference atlas" />
+  <meta property="og:title" content="Analog, mixed-signal, and emerging devices · Semiconductor conference atlas" />
+  <meta property="og:description" content="The article explains the technical problem step by step first, then links to every subtheme and its papers. Worked numbers are illustrations, not paper results." />
+  <meta property="og:url" content="https://mehtama1234.github.io/semiconductor-conferences/themes/analog-mixed-signal-and-emerging-devices.html" />
+  <meta property="og:image" content="https://mehtama1234.github.io/semiconductor-conferences/presentation/slides/01-cover.jpg" />
+  <meta property="og:image:width" content="1920" />
+  <meta property="og:image:height" content="1080" />
+  <meta property="og:image:alt" content="Semiconductor conference atlas: 582 papers from ISCA, DAC and ICCAD, sorted into 10 themes and six directions to watch." />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="canonical" href="https://mehtama1234.github.io/semiconductor-conferences/themes/analog-mixed-signal-and-emerging-devices.html" />
+  <link rel="icon" href="../assets/icon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="../assets/base.css" />
+  <link rel="stylesheet" href="../assets/experience.css" />
+  <link rel="stylesheet" href="../assets/theme-atlas.css" />
+  <link rel="stylesheet" href="../assets/styles.css" />
+  <link rel="stylesheet" href="../assets/charts.css" />
+  <link rel="stylesheet" href="../assets/course.css" />
+  
+</head>
+<body class="course-site " data-house="atlas">
+  <aside class="public-demo-banner" aria-label="About this course">A plain-language guide to what ISCA, DAC and ICCAD papers say about chip and computer design · Built from the repository’s own paper records · Not made by the conferences</aside>
+  <a class="skip-link" href="#app">Skip to the page</a>
+  <header>
+    <a class="brand" href="../index.html"><span class="mark" aria-hidden="true">Si</span> Semiconductor conference atlas</a>
+    <span class="header-status"><span class="badge">582 papers</span><span class="badge">10 themes</span><span class="badge">Plain words first</span></span>
+    <a class="header-link" href="../course-map.html">Course map</a>
+  </header>
+  <nav class="course-nav" aria-label="Main sections of the course"><a href="../index.html">The big picture</a><a href="../themes.html" aria-current="page">Themes</a><a href="../subthemes.html">Subthemes</a><a href="../deep-reads.html">Deep reads</a><a href="../directions.html">What to watch</a><a href="../presentation/index.html">Slides</a><a href="../video/index.html">Video</a><a href="../share/index.html">Share</a></nav>
+  <main id="app" tabindex="-1">
+    <section class="screen active landing legacy-page" aria-labelledby="page-title">
+<div class="lm-head"><div class="hj-heading"><nav class="crumbs" aria-label="You are here"><a href="../course-map.html">Course map</a><span aria-hidden="true">›</span><a href="../themes.html">Themes</a></nav><a class="back-button" href="../themes.html">← <span>Themes</span></a><p class="eyebrow">Theme · 38 papers · 15 subthemes</p><h1 id="page-title">Analog, mixed-signal, and emerging devices: when physics does the arithmetic, noise and drift set the accuracy</h1><p class="hj-sub">The article explains the technical problem step by step first, then links to every subtheme and its papers. Worked numbers are illustrations, not paper results.</p></div><div class="hj-art" data-art="trio:math-function,wave-sine,alert-triangle"></div></div>
+<figure class="course-fig"><div class="loop-wide" data-art="flow:analog-mixed-signal-and-emerging-devices"></div><div class="loop-tall" data-art="flowTall:analog-mixed-signal-and-emerging-devices"></div><figcaption>When a device does the arithmetic, its physics sets the accuracy.</figcaption></figure><div class="chart-card"><div data-chart="theme-analog-mixed-signal-and-emerging-devices"></div><div><p class="lm-k">In numbers</p><h3>15 subthemes, largest first</h3><p>38 papers: DAC 35, ICCAD 3.</p><p class="chart-note">A count shows attention in this sample, not importance.</p></div></div>
+      <article class="prose">
+
+<p>This article explains the subject and then connects it to 38 papers in the selected research sample.</p>
+<p>A subtheme groups related technical problems. A mechanism describes the particular change proposed by a paper. The discussion below explains the subject; the linked paper records state the available evidence.</p>
+<p><a href="../guide/reading-guide-v1.html">Definitions used in the paper records</a></p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>Here physics itself does part of the computing</h2>
+<ul>
+<li><strong>Digital</strong> circuits hold values as discrete bit patterns.</li>
+<li><strong>Analog</strong> computation uses continuously varying quantities such as voltage or current.</li>
+<li><strong>Optical</strong> computation uses properties of light.</li>
+<li><strong>Quantum</strong> computation uses quantum states and operations.</li>
+</ul>
+<p>These differ greatly. But each needs a precise account of how the physical state stands for the input, and how the output is read.</p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>The device is only part of the cost: conversion and correction count too</h2>
+<p>Inputs may need converting from digital values. Outputs may need measuring and converting back.</p>
+<p>Noise, temperature, differences between devices, and measurement precision can all change the result. <strong>Calibration</strong> adjusts operation using measured device behavior, and it also costs time or hardware.</p>
+<p>Any claimed saving must include the conversion, control and correction work around the device.</p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>The subthemes use very different physics, with different accuracy measures</h2>
+<ul>
+<li><strong>Analog circuit automation</strong> designs continuous-signal circuits.</li>
+<li><strong>Compute-in-memory</strong> performs operations in or near storage.</li>
+<li><strong>Photonic</strong> work uses optical components.</li>
+<li><strong>Quantum hardware and control</strong> prepares, manipulates and measures quantum states.</li>
+<li><strong>Emerging memory</strong> studies storage technologies with different physical properties.</li>
+</ul>
+<p>Grouping them does not make their accuracy or performance measures interchangeable.</p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="file-text"></span>A fair test says where the evidence comes from and counts the full path</h2>
+<ol>
+<li>Say whether the evidence comes from equations, simulation, a fabricated device, or a complete system.</li>
+<li>Report precision, error, calibration, conversion cost, temperature and device variation, under the intended workload.</li>
+</ol>
+<p>A low-energy device operation shows one component cost. An application claim needs the full path from inputs to usable outputs.</p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>Follow a number through its physical representation</h2>
+<p>A computation must represent its inputs, transform them, and make its output available. In a digital interface, a value may be encoded by a bit pattern.</p><p>In an analog operation, a continuously varying quantity such as voltage or current represents a value within a defined range. Conversion connects these representations; it is part of the computation's cost and error, not an external detail that can always be ignored.</p>
+<div class="worked"><p class="lm-k">Worked example</p><p>Suppose voltages from zero to one volt represent numbers from zero to one. A measured voltage of 0.6 volt represents 0.6 under that mapping.</p></div><p>An unintended shift of 0.01 volt changes the represented number by 0.01. Another mapping can change that numerical sensitivity.</p><p>Precision is therefore a property of the mapping, device behavior, and measurement together—not simply the number of nominal output bits.</p>
+<p>These examples are independent teaching constructions. The linked chapters retain their manuscript, description, simulation, and measured-device boundaries. The umbrella theme does not make analog, photonic, quantum, and emerging-memory systems interchangeable.</p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>Conversion establishes both a range and a resolution</h2>
+<p>A digital-to-analog converter produces a physical signal from a code. An analog-to-digital converter assigns a code to a measured signal.</p><p>A simple ideal quantizer covering a one-volt range with 256 equal intervals has interval width about 3.906 millivolts. More output codes can distinguish smaller intervals in the ideal model, but they do not eliminate noise, distortion, or uncertainty in the input.</p>
+<p>Inputs outside the supported range can saturate: different physical values then produce the same limiting code. No later arithmetic can reconstruct which original value was present from that code alone without additional information or assumptions. Within range, random error and systematic distortion remain different problems.</p>
+<p>Increasing range can prevent saturation while making intervals wider at fixed code count. Reducing range can improve nominal resolution while excluding valid inputs. Report the input distribution and the required error, not just converter width.</p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>Physical arithmetic needs a stated operating model</h2>
+<p>Under a simple linear model, applying voltage to a conductance produces current equal to their product. Combining currents can implement a sum of such products.</p><p>The mathematical opportunity is to let device relationships perform part of a numerical operation rather than explicitly executing every multiplication in digital logic.</p>
+<p>The implementation must still address signed values, finite operating ranges, wiring effects, and how the output is sensed. A conductance cannot simply represent any signed real number without an encoding method.</p><p>Large arrays can also behave differently from an isolated device because their interconnections affect the applied and observed signals.</p>
+<p>The <a href="../subthemes/analog-compute-in-memory.html">analog compute-in-memory chapter</a> identifies relevant proposals. Their usefulness must be judged after input preparation, output conversion, corrections, and data movement. An efficient internal operation does not establish an equally efficient complete application.</p>
+<p>As an illustrative energy budget, let input conversion cost four units, physical arithmetic one, output conversion three, and control two. Total cost is ten.</p><p>Halving arithmetic energy saves only half a unit, or 5% overall. This is not a measurement; it shows why the accounting boundary can change the interpretation of a large device-level gain.</p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>Calibration cannot recover information that was never observed</h2>
+<p>Calibration uses observations to estimate and compensate for departures from intended behavior. Suppose a device follows <code>measured = 1.1 × input + 0.02</code> over a validated range. A correction can subtract 0.02 and divide by 1.1 if those parameters remain applicable. If they change with temperature or time, the correction can become inaccurate.</p>
+<p>The simple formula also does not remove unobserved random noise or undo arbitrary clipping. Two different inputs producing the same saturated output are indistinguishable through that output alone.</p><p>A learned correction may exploit additional signal structure, but its success then depends on that structure being present.</p>
+<p><a href="../subthemes/analog-calibration-and-modeling.html#blind-adc-calibration-what-the-output-metrics-mean">The ADC-calibration discussion</a> distinguishes converter test-chip measurements from an integrated correction engine operating at the required live sample rate. “Train once” does not by itself establish transfer to every device, input, or unforeseen error. Model storage, inference latency, power, and supported operating conditions still matter.</p>
+<p>Different accuracy measures answer different questions. Noise-and-distortion ratios describe signal quality under a measurement convention.</p><p>Application accuracy counts or scores task outcomes. A relative preservation ratio is not an absolute accuracy.</p><p>For example, retaining 99% of a baseline accuracy of 80% gives 79.2%, not 99% task accuracy.</p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>Measured duration and extrapolated duration must remain separate</h2>
+<p>A memory device can change its electrical state over time even when the intended information remains unchanged. A compensation method may use a fitted drift model to predict future behavior. That prediction is not the same evidence as observing the device for the predicted duration.</p>
+<p>The <a href="../subthemes/analog-calibration-and-modeling.html#vera-correcting-memory-drift-without-retraining-on-the-chip">VeRA+ discussion</a> preserves a one-week measured-device interval separately from ten-year simulated drift. It also distinguishes offline preparation from absence of on-chip retraining. A compact correction representation can reduce storage overhead without establishing a proportional reduction in energy or elapsed time.</p>
+<p>To test long-term transfer, vary the device population and operating conditions, retain residual errors, and check where the extrapolation stops matching observations. A model that fits one interval well still needs evidence for the later interval and intended deployment population.</p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>A circuit representation needs electrical context</h2>
+<p>Connectivity describes which terminals are connected. The same connectivity can behave differently when component parameters, supply, loading, or physical layout change. A learning model predicting an electrical property therefore needs the information relevant to that property.</p>
+<p><a href="../subthemes/analog-circuit-learning.html#a-learned-representation-is-not-yet-a-circuit-result">Hyperanalog's explanation</a> preserves the captured source's missing targets, datasets, and measurements. The term hypergraph describes a representation allowing multi-object relationships; it does not establish which electrical constraints are encoded.</p><p>A learned representation becomes useful engineering evidence through a defined downstream task and validated decision, not through the model name alone.</p>
+<p>This connects to <a href="ai-assisted-eda.html">AI-assisted EDA</a>: prediction, generation, and checking remain separate roles. A favorable predicted circuit must still meet its requirements under the intended conditions.</p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>Keep different physical computing approaches distinct</h2>
+<p>Optical systems encode information in properties of light and require appropriate preparation and measurement. Quantum systems manipulate quantum states and produce measurement outcomes under their own model.</p><p>Classical controllers and data movement can remain substantial parts of either system. Their shared need for input/output accounting does not imply a shared correctness metric or equivalent numerical precision.</p>
+<p>The expanded <a href="../subthemes/neuromorphic-quantum-and-non-von-neumann.html">neuromorphic, quantum, and non-von-Neumann chapter</a> separates physical numerical computation, optical representation, classical quantum control, compilation, and simulation. A control processor's response time is not a quantum algorithm's end-to-end speedup. A simulation result is not measured operation of the corresponding physical device.</p>
+<p>The taxonomy still contains broad and overlapping labels. These connections are conceptual navigation, not silent reclassification or evidence that every technology solves the same problem.</p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>Compare the complete path under an output requirement</h2>
+<table>
+<thead>
+<tr>
+<th>Claimed benefit</th>
+<th>Required companion evidence</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>More nominal representable levels</td>
+<td>Usable range, noise, distortion, and effective discrimination</td>
+</tr>
+<tr>
+<td>Low-energy device arithmetic</td>
+<td>Conversion, sensing, control, correction, and transfer costs</td>
+</tr>
+<tr>
+<td>Reusable calibration</td>
+<td>Unfamiliar-device behavior, update needs, and live execution cost</td>
+</tr>
+<tr>
+<td>Long-term accuracy preservation</td>
+<td>Measured duration, extrapolation assumptions, and absolute task quality</td>
+</tr>
+<tr>
+<td>A better learned circuit model</td>
+<td>Defined targets, appropriate data splits, and validated downstream decisions</td>
+</tr>
+</tbody>
+</table>
+<p>The <a href="architecture-and-accelerators.html">architecture theme</a> explains the numerical boundary; the <a href="systems-applications-and-workloads.html">systems theme</a> explains the completed-task boundary. Both apply here. Holding only the internal operation count fixed can miss changed outputs, additional preparation, or unusable response time.</p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="checklist"></span>Long-term hypotheses and disconfirming tests</h2>
+<p>One hypothesis is that improvements in physical arithmetic shift more of the complete cost toward conversion and control. Measure component and total costs under matched output requirements. It weakens where those surrounding costs are already small or fall alongside the device cost.</p>
+<p>A second hypothesis is that reusable compensation can reduce per-device engineering effort when residual errors remain predictable. Test held-out devices, changed inputs, temperature ranges, and elapsed time while charging for preparation and updates.</p><p>It weakens where correction fails outside familiar conditions or consumes the expected benefit.</p>
+<p>A third hypothesis is that representation-aware co-design is necessary to make device advantages usable. Compare the same computation with explicit encoding, range, error, and output checks. It weakens as a demonstrated capability where gains disappear after conversion or at the application's required quality.</p>
+<p>These are bounded interpretations, not established ISCA–DAC–ICCAD time trends or claims of technological replacement. Comparable tasks, evidence depth, hardware conditions, and editions remain required. This expanded parent discussion does not complete the still-uneven individual-paper writing, full-source recovery, device validation, or independent scientific and comprehension review.</p>
+<p class="lm-k h-label">Subthemes and how to study them</p><h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="books"></span>The subthemes in this theme, and how to read them</h2>
+<p>Each link opens the subtheme discussion and its captured paper records. Explanatory depth varies: some papers have expanded individual explanations; others still have only brief discussion or evidence cards. Source locations and unresolved conditions remain visible.</p>
+<h3><a href="../subthemes/neuromorphic-quantum-and-non-von-neumann.html">Neuromorphic quantum and non von neumann</a></h3>
+<p>8 selected records in this theme. Start with <a href="../subthemes/neuromorphic-quantum-and-non-von-neumann.html">Photomt : Accelerating Zero-Knowledge Proofs with a Photonic-Electronic Merkle Tree Engine</a>.</p>
+<h3><a href="../subthemes/analog-compute-in-memory.html">Analog compute in memory</a></h3>
+<p>4 selected records in this theme. Start with <a href="../subthemes/analog-compute-in-memory.html">RM-CIMA: An Analog Computing-in-Memory Accelerator for a Robust UAV Trajectory Tracking Framework</a>.</p>
+<h3><a href="../subthemes/photonic-and-optical-compute.html">Photonic and optical compute</a></h3>
+<p>4 selected records in this theme. Start with <a href="../subthemes/photonic-and-optical-compute.html">ROSA: Robust and Energy-Efficient Microring-Based Optical Neural Networks via Optical Shift–and–Add and Layer-Wise Hybrid Mapping</a>.</p>
+<h3><a href="../subthemes/quantum-hardware-and-control.html">Quantum hardware and control</a></h3>
+<p>4 selected records in this theme. Start with <a href="../subthemes/quantum-hardware-and-control.html">NIAQ: Adaptive Non-Ideality-Aware Qubit Readout for Long-Term Accuracy</a>.</p>
+<h3><a href="../subthemes/analog-layout-and-circuit-automation.html">Analog layout and circuit automation</a></h3>
+<p>3 selected records in this theme. Start with <a href="../subthemes/analog-layout-and-circuit-automation.html">AMS Layout Automation Using Circuit-Level Analog Standard Cells and Self-Biasing Techniques in Digital PnR Tools</a>.</p>
+<h3><a href="../subthemes/analog-and-mixed-signal-design.html">Analog and mixed signal design</a></h3>
+<p>2 selected records in this theme. Start with <a href="../subthemes/analog-and-mixed-signal-design.html">Floquet-Based Subspace Projection Method for Time-Domain PPV Computation</a>.</p>
+<h3><a href="../subthemes/analog-calibration-and-modeling.html">Analog calibration and modeling</a></h3>
+<p>2 selected records in this theme. Start with <a href="../subthemes/analog-calibration-and-modeling.html">Train Once, Calibrate Always: Machine-Learning-Assisted Blind Calibration for Analog-to-Digital Converters</a>.</p>
+<h3><a href="../subthemes/device-modeling-and-simulation.html">Device modeling and simulation</a></h3>
+<p>2 selected records in this theme. Start with <a href="../subthemes/device-modeling-and-simulation.html">Weak-Form Physics-Informed Neural Network for Self-Supervised Learning in Semiconductor Device Simulation</a>.</p>
+<h3><a href="../subthemes/emerging-device-design.html">Emerging device design</a></h3>
+<p>2 selected records in this theme. Start with <a href="../subthemes/emerging-device-design.html">Duplication-Aware Retiming and Cell Interface Redesign for Superconductor Circuit Minimization</a>.</p>
+<h3><a href="../subthemes/emerging-memory-and-devices.html">Emerging memory and devices</a></h3>
+<p>2 selected records in this theme. Start with <a href="../subthemes/emerging-memory-and-devices.html">M²CAM: A Multi-Level Memristor-Based Self-Adaptive CAM Architecture for Genome Processing Acceleration</a>.</p>
+<h3><a href="../subthemes/analog-and-mixed-signal-synthesis.html">Analog and mixed signal synthesis</a></h3>
+<p>1 selected records in this theme. Start with <a href="../subthemes/analog-and-mixed-signal-synthesis.html">Noisexplore: A Device-Aware Hierarchical Noise Modeling and DTCO Framework for Analog In-Pixel Computing Architectures</a>.</p>
+<h3><a href="../subthemes/analog-circuit-learning.html">Analog circuit learning</a></h3>
+<p>1 selected records in this theme. Start with <a href="../subthemes/analog-circuit-learning.html">Hyperanalog: Domain-Aware Hypergraph Transformer for Analog Circuit Representation Learning</a>.</p>
+<h3><a href="../subthemes/analog-circuit-optimization.html">Analog circuit optimization</a></h3>
+<p>1 selected records in this theme. Start with <a href="../subthemes/analog-circuit-optimization.html">COmPOSER: Circuit Optimization of mm-Wave/rf Circuits with Performance-Oriented Synthesis for Efficient Realizations</a>.</p>
+<h3><a href="../subthemes/emerging-and-nonvon-neumann-compute.html">Emerging and nonvon neumann compute</a></h3>
+<p>1 selected records in this theme. Start with <a href="../subthemes/emerging-and-nonvon-neumann-compute.html">iADS: In-Situ Adaptive Diffusion Sampling Architecture Based on Voltage-Tunable P-Bits</a>.</p>
+<h3><a href="../subthemes/rf-and-mixed-signal-design.html">RF and mixed signal design</a></h3>
+<p>1 selected records in this theme. Start with <a href="../subthemes/rf-and-mixed-signal-design.html">ASG-MOENN: Adaptive Sparsely-Gated Mixture of Experts Neural Network for Digital Predistortion in Quadrature Switched-Capacitor Power Amplifiers</a>.</p>
+<p class="lm-k h-label">Representative source-backed records</p><h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="route"></span>Papers that show the theme well</h2>
+<p>The following reading set spans the available conferences and uses dated corrections where registered. These corrections improve the current reading view but do not change historical adjudication or establish independent acceptance. Each paper link opens its exact evidence card.</p>
+<p class="lm-k h-label">Paper cards: what changes and where it stops</p><h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>Paper cards: what each paper changes, and where it stops</h2>
+<ul>
+<li><a href="../subthemes/emerging-device-design.html#paper-dac-2026-research875">Jsplace: A Shape-Controllable and Length-Matching Placement for Rapid Single-Flux-Quantum Circuits</a> — DAC 2026.</li>
+<li><a href="../subthemes/analog-layout-and-circuit-automation.html#paper-dac-2026-research776">Diffsp: Differentiable Sequence Pair-Based Analog Placement</a> — DAC 2026.</li>
+<li><a href="../subthemes/photonic-and-optical-compute.html#paper-dac-2026-research760">SP2RINT: Spatially-Decoupled Physics-Constrained Progressive Inverse Optimization for Diffractive Optical Neural Network Training</a> — DAC 2026.</li>
+<li><a href="../subthemes/analog-layout-and-circuit-automation.html#paper-dac-2026-research713">Alphaplacer: Analog Placement Enhanced by Monte Carlo Tree Search</a> — DAC 2026.</li>
+<li><a href="../subthemes/neuromorphic-quantum-and-non-von-neumann.html#paper-iccad-2025-130">NeuroPDE: A Neuromorphic PDE Solver Based on Spintronic and Ferroelectric Devices</a> — ICCAD 2025.</li>
+<li><a href="../subthemes/emerging-memory-and-devices.html#paper-iccad-2025-1">Adder-DCIM: A Parallel Bit-Flexible Digital CIM Joint Model Compression Framework for AdderNet Inference</a> — ICCAD 2025.</li>
+<li><a href="../subthemes/neuromorphic-quantum-and-non-von-neumann.html#paper-iccad-2025-1094">Simulation Framework and Optimization of Superconducting Transmon-Tunable Coupler-Transmon System for Qudit Gates</a> — ICCAD 2025.</li>
+<li><a href="../subthemes/rf-and-mixed-signal-design.html#paper-dac-2026-research656">ASG-MOENN: Adaptive Sparsely-Gated Mixture of Experts Neural Network for Digital Predistortion in Quadrature Switched-Capacitor Power Amplifiers</a> — DAC 2026.</li>
+<li><a href="../subthemes/emerging-device-design.html#paper-dac-2026-research520">Duplication-Aware Retiming and Cell Interface Redesign for Superconductor Circuit Minimization</a> — DAC 2026.</li>
+<li><a href="../subthemes/analog-circuit-learning.html#paper-dac-2026-research445">Hyperanalog: Domain-Aware Hypergraph Transformer for Analog Circuit Representation Learning</a> — DAC 2026.</li>
+<li><a href="../subthemes/analog-layout-and-circuit-automation.html#paper-dac-2026-research407">AMS Layout Automation Using Circuit-Level Analog Standard Cells and Self-Biasing Techniques in Digital PnR Tools</a> — DAC 2026.</li>
+<li><a href="../subthemes/photonic-and-optical-compute.html#paper-dac-2026-research3237">Light-Bound Transformers: Hardware-Anchored Robustness for Silicon-Photonic Computer Vision Systems</a> — DAC 2026.</li>
+</ul>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="file-text"></span>What the evidence supports</h2>
+<p>These records identify proposed methods and the conditions recorded for them. A reported improvement should be interpreted with its comparison method, input size, hardware, and result-quality requirement. Missing fields are evidence gaps; a populated field can also state that a detail is unspecified.</p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="file-text"></span>Limits and next evidence</h2>
+<p>The selected sample is uneven across conferences and source types. It cannot establish how fast a subject is growing. Repeated observations across comparable years, with the same inclusion rules and source depth, are needed for a time trend.</p>
+<p>Every linked evidence article preserves the Problem: and Mechanism / artifact: fields, baseline, unshortened limitations, source URL, and recorded location. Primary text and independent review remain necessary where the record says those checks are open.</p>
+<p><a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/reports/directions/README.md">Research directions</a> · <a href="../guide/expanded-taxonomy-v1.html">All observed subthemes</a></p><p class="meta">Written as <a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/reports/themes/analog-mixed-signal-and-emerging-devices.md">reports/themes/analog-mixed-signal-and-emerging-devices.md</a> in the course repository.</p>
+      </article>
+      <nav class="pager" aria-label="Previous and next"><a class="prev" href="ai-assisted-eda.html"><span class="pg-k">← Previous</span><span class="pg-t">AI-assisted EDA</span></a><a class="map" href="../themes.html"><span class="pg-k">Back to</span><span class="pg-t">Themes</span></a><a class="next" href="architecture-and-accelerators.html"><span class="pg-k">Next →</span><span class="pg-t">Architecture and accelerators</span></a></nav>
+    </section>
+  </main>
+  <footer class="course-foot">
+    <p>Built from 582 paper records coded from ISCA 2026, DAC 2026 and ICCAD 2025 (ICCAD 2026 papers were not yet public). Most records come from official program descriptions; see “How deep the reading went”. The papers belong to their authors.</p>
+    <p class="foot-links"><a href="https://github.com/mehtama1234/course-concept-library">All courses</a><a href="../index.html">This course</a><a href="../course-map.html">Course map</a><a href="../presentation/index.html">Slides</a><a href="../video/index.html">Video</a><a href="../share/index.html">Share</a></p>
+  </footer>
+  <script src="../assets/course-data.js"></script><script src="../assets/icons.js"></script><script src="../assets/icons-extra.js"></script><script src="../assets/icons-course.js"></script><script src="../assets/art.js"></script><script src="../assets/course-art.js"></script><script src="../assets/charts.js"></script><script src="../assets/course-charts.js"></script><script src="../assets/course-site.js"></script>
+</body>
+</html>

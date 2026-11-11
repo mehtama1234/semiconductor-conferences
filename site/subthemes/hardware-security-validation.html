@@ -1,0 +1,301 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#F3ECE1" />
+  <title>Hardware security validation · Semiconductor conference atlas</title>
+  <meta name="description" content="Papers: DAC 3. Read from: 3 program descriptions, 0 abstracts or reports, 0 full papers or preprints. The explanations come first; every paper’s record follows at the end." />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Semiconductor conference atlas" />
+  <meta property="og:title" content="Hardware security validation · Semiconductor conference atlas" />
+  <meta property="og:description" content="Papers: DAC 3. Read from: 3 program descriptions, 0 abstracts or reports, 0 full papers or preprints. The explanations come first; every paper’s record follows at the end." />
+  <meta property="og:url" content="https://mehtama1234.github.io/semiconductor-conferences/subthemes/hardware-security-validation.html" />
+  <meta property="og:image" content="https://mehtama1234.github.io/semiconductor-conferences/presentation/slides/01-cover.jpg" />
+  <meta property="og:image:width" content="1920" />
+  <meta property="og:image:height" content="1080" />
+  <meta property="og:image:alt" content="Semiconductor conference atlas: 582 papers from ISCA, DAC and ICCAD, sorted into 10 themes and six directions to watch." />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="canonical" href="https://mehtama1234.github.io/semiconductor-conferences/subthemes/hardware-security-validation.html" />
+  <link rel="icon" href="../assets/icon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="../assets/base.css" />
+  <link rel="stylesheet" href="../assets/experience.css" />
+  <link rel="stylesheet" href="../assets/theme-atlas.css" />
+  <link rel="stylesheet" href="../assets/styles.css" />
+  <link rel="stylesheet" href="../assets/charts.css" />
+  <link rel="stylesheet" href="../assets/course.css" />
+  
+</head>
+<body class="course-site " data-house="atlas">
+  <aside class="public-demo-banner" aria-label="About this course">A plain-language guide to what ISCA, DAC and ICCAD papers say about chip and computer design · Built from the repository’s own paper records · Not made by the conferences</aside>
+  <a class="skip-link" href="#app">Skip to the page</a>
+  <header>
+    <a class="brand" href="../index.html"><span class="mark" aria-hidden="true">Si</span> Semiconductor conference atlas</a>
+    <span class="header-status"><span class="badge">582 papers</span><span class="badge">10 themes</span><span class="badge">Plain words first</span></span>
+    <a class="header-link" href="../course-map.html">Course map</a>
+  </header>
+  <nav class="course-nav" aria-label="Main sections of the course"><a href="../index.html">The big picture</a><a href="../themes.html">Themes</a><a href="../subthemes.html" aria-current="page">Subthemes</a><a href="../deep-reads.html">Deep reads</a><a href="../directions.html">What to watch</a><a href="../presentation/index.html">Slides</a><a href="../video/index.html">Video</a><a href="../share/index.html">Share</a></nav>
+  <main id="app" tabindex="-1">
+    <section class="screen active landing legacy-page" aria-labelledby="page-title">
+<div class="lm-head"><div class="hj-heading"><nav class="crumbs" aria-label="You are here"><a href="../course-map.html">Course map</a><span aria-hidden="true">›</span><a href="../subthemes.html">Subthemes</a></nav><a class="back-button" href="../subthemes.html">← <span>Subthemes</span></a><p class="eyebrow">Subtheme · 3 papers · Verification and validation</p><h1 id="page-title">Hardware security validation</h1><p class="hj-sub">Papers: DAC 3. Read from: 3 program descriptions, 0 abstracts or reports, 0 full papers or preprints. The explanations come first; every paper’s record follows at the end.</p></div><div class="hj-art" data-art="trio:file-text,checklist,search"></div></div>
+<figure class="course-fig"><div class="loop-wide" data-art="flow:verification-and-validation"></div><div class="loop-tall" data-art="flowTall:verification-and-validation"></div><figcaption>The parent theme in one picture: a check proves only what its property and tests cover.</figcaption></figure>
+      <article class="prose">
+
+<p>This subject has 3 records in the selected sample. This page explains where it fits, then presents all captured paper evidence without shortening the measurements or limitations.</p>
+<p><a href="../guide/reading-guide-v1.html">Definitions used in the paper records</a></p>
+<p class="lm-k h-label">Understand the parent subject first</p><h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>The bigger theme this belongs to</h2>
+<ul>
+<li><a href="../themes/verification-and-validation.html">Verification and validation</a></li>
+</ul>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>Security validation needs a property, not just an unusual result</h2>
+<p>A hardware security property states what an actor must not be able to observe or change. For example, an unprivileged program may be forbidden from reading a protected register.</p><p>A useful test must establish the actor's starting permissions, reach the relevant behavior, and determine whether that property was violated.</p>
+<p>An unexpected instruction, a suspicious source-code change, and a synthesis-tool failure are three different observations. None automatically establishes the same security impact.</p><p>This subject brings together three papers on those different parts of validation. Their common question is how to turn candidates into checked findings, not how to combine their counts into a single security score.</p>
+<p>There are three distinct jobs. Discovery produces candidates.</p><p>Characterization determines what those candidates do under stated conditions. Validation tests a particular security consequence against an expected rule.</p><p>Automating the first job can increase the workload for the others unless the resulting evidence is reproducible and well organized.</p>
+<p><span id="explanation-dac-2026-research2804"></span></p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>Undocumented instructions: finding an encoding is not defining its behavior</h2>
+<p>A processor interprets binary instruction encodings according to its implementation and execution mode. An undocumented instruction is one whose behavior is not described in the documentation being used.</p><p>It is not necessarily malicious or exploitable. Discovery must distinguish an executed operation from an invalid encoding, an alias for an existing operation, or behavior dependent on a particular processor state.</p>
+<p><a href="hardware-security-validation.html#paper-dac-2026-research2804">Automated Discovery, Classification, and Systematic Security Verification Methodology for Undocumented Instructions</a> reports an automated discovery, classification, and security-verification framework. The official description gives 23 new instructions, 29 classified instructions, 99.8357% classifier accuracy, and five instructions with security implications.</p><p>It does not identify the processor, privilege settings, labeled dataset, split protocol, or the five consequences. These are separate reported quantities, not a proof of complete instruction coverage. <a href="https://63dac.conference-program.com/presentation/?id=RESEARCH2804&amp;sess=sess111">Official DAC description</a>.</p>
+<p>To characterize an operation, vary its inputs and relevant initial state, then observe outputs, exceptions, and permitted state changes. A semantic class is a grouping by behavior.</p><p>A classifier can suggest such a grouping, but its predicted label cannot replace the underlying observations when assessing a security property.</p>
+<p>Classifier accuracy needs its own denominator. Multiple measurements from the same instruction or processor may be highly related.</p><p>If closely related measurements appear in both training and testing, strong test accuracy may not demonstrate generalization to a new instruction family. Counts of distinct encodings, semantic operations, and individual measurements must therefore remain separate.</p><p>The available description does not resolve which of these units underlies the reported percentage.</p>
+<h3>Discovery, characterization, and security verification are separate gates</h3>
+<p>An automated campaign may vary instruction encodings, operands, privilege state, register state, memory mappings, exception masks, and surrounding instruction sequences. A candidate is useful only if it executes reproducibly and can be distinguished from an illegal encoding, an alias, undocumented but benign behavior, or an implementation artifact.</p><p>The observation interface also matters: architectural registers, memory, timing, exceptions, cache state, power, and firmware-visible effects expose different parts of the behavior.</p>
+<p>Classification should summarize an observed semantic behavior, not substitute for it. A label such as arithmetic, control-flow, privilege-changing, or memory-accessing needs a defined class ontology and annotation procedure.</p><p>Report class counts, ambiguous examples, abstentions, confidence calibration, and performance on held-out instruction families or processor models. The 99.8357% figure cannot be interpreted as broad semantic generalization until the unit of prediction, split boundary, class balance, and leakage controls are known.</p>
+<p>Security verification asks a still narrower question: does a specific instruction enable an actor to violate a stated property under stated privileges and environmental assumptions? For each of the five reported implications, identify the instruction, attacker capability, precondition, affected asset, reproducible trace, security property, and consequence.</p><p>A surprising register or timing effect is evidence for investigation; it is not by itself an exploit, vulnerability severity, or cross-processor security claim. Verify the result against a documented reference model or independently reviewed trace, and test whether firmware, operating-system, virtualization, or microcode controls change the outcome.</p>
+<p>The discovery denominator must also be explicit. “23 new instructions” could count encodings, operations, processor-specific behaviors, or findings that were not in the authors' prior corpus.</p><p>“29 classified” may overlap with those 23 or may be a separate set. Report the tested encoding space, stopping rule, duplicate policy, negative cases, processor revisions, and previously known instruction inventory.</p><p>Compare against constrained discovery and manual semantic analysis under the same execution budget, observation access, and confirmation process. Without these boundaries, the evidence supports an automated candidate-discovery and triage workflow, not complete instruction coverage or a measured security-detection rate.</p>
+<p><span id="explanation-dac-2026-research1628"></span></p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="school"></span>Benchmark shortcuts can obscure what a detector has learned</h2>
+<p>A benchmark often begins with a design and adds known vulnerabilities. If the original design remains available, comparing the two versions can reveal where changes were made.</p><p>A text difference can be a useful investigation aid, but identifying changed lines is not the same as explaining why an attacker can violate a property.</p>
+<p>The evaluation must specify the intended task. Finding a defect in a known modification and finding a defect in an unfamiliar standalone design require different information.</p><p>Supplying a known-good version is not intrinsically invalid; it is invalid to score that task and claim the result establishes a capability that does not have such a reference.</p>
+<p><a href="hardware-security-validation.html#paper-dac-2026-research1628">AttackonCTF</a> rewrites benchmark code to reduce reference-comparison shortcuts while retaining behavior. Section 3.2, PDF page 4, describes Verilator syntax checking and Yosys equivalence checks.</p><p>Section 4.1, pages 4–5, evaluates 50 injected vulnerabilities in three OpenTitan-based competition benchmarks using Claude Sonnet 4.5 and GPT-5, with three runs per configuration.</p>
+<p>Crucially, Section 4.1 defines “detection accuracy” as precision: correct reports divided by all reports. Figures 5–6, pages 5–6, show full-obfuscation D1 recall changing from 83.3% to 54.3%, while precision changes from 67.2% to 15.5%.</p><p>D4 recall changes from 77.1% to 48.9%, and precision from 69.2% to 15.3%. The conclusion's 55% maximum detection-rate reduction is not reconciled with these endpoints.</p><p>The paper's stronger interpretation of internal reasoning is an inference, not a directly observed model process. <a href="https://arxiv.org/pdf/2606.15809v1#page=4">Version-1 manuscript, Sections 3.2–4.4 and Figures 5–6</a>.</p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>Preserving behavior does not establish equal analysis difficulty</h2>
+<p>Equivalent designs produce the same specified behavior under the equivalence check's assumptions. They can still differ in how easily a reader or detector recognizes the relevant relationships. Removing descriptive names, spreading a condition across expressions, or changing organization can increase analysis effort without changing execution.</p>
+<p>Consequently, a detector's decline after a rewrite can support sensitivity to representation without uniquely identifying the cause. Possible contributing factors include retrieval quality, context allocation, localization difficulty, and changed false-positive behavior.</p><p>Separate experiments are needed to distinguish these explanations. It is too strong to infer a complete absence of reasoning from lower performance alone.</p>
+<p>A benchmark transformation also needs two checks that should not be confused. First, the intended vulnerability must remain reachable and demonstrable.</p><p>Second, the surrounding task must remain suitable for the capability being measured. A syntax pass addresses neither by itself.</p><p>An equivalence proof supports specified behavioral preservation, but does not directly measure human readability or educational usefulness.</p>
+<p>For a concrete metric example, a detector that finds eight of ten known defects has 80% recall. If it issues twenty reports and only those eight are correct, its precision is 40%.</p><p>Reporting additional incorrect findings can lower precision without changing recall. Overall classification accuracy would also require a defined set of negative cases.</p><p>These are independently defined measures, not interchangeable uses of the word “accuracy.”</p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>Synthesis-tool security includes the software that produces hardware</h2>
+<p>A hardware description language, or HDL, specifies a circuit's behavior and structure. Logic synthesis transforms that description into an implementation representation.</p><p>A defect in this tool can have several different consequences: the tool may fail, the generated circuit may behave incorrectly, or an input may affect the machine running the tool. A report must identify which boundary is crossed.</p>
+<p><a href="hardware-security-validation.html#paper-dac-2026-research2306">Are They All Safe? Practical Fault Injection Attacks on FPGA Logic Synthesis Tools</a> presents DefVul-Risk: a defect knowledge base, language-model-generated triggering samples, and a trained model for prioritizing risks.</p><p>Its official description reports 26 submitted CVE reports and nine confirmations. It supplies neither the identifiers nor tool versions, reproduction conditions, or a measured ranking evaluation.</p><p>The description emphasizes malicious HDL and toolchain defects; the title should not be interpreted as evidence of voltage or laser fault injection. <a href="https://63dac.conference-program.com/presentation/?id=RESEARCH2306&amp;sess=sess108">Official DAC description</a>.</p>
+<p>A triggering sample is useful when it can reproduce a particular failure. Security severity additionally depends on attacker control, required permissions, and consequences.</p><p>A crash, incorrect synthesis, and unauthorized host access should not be assigned the same meaning simply because each can be triggered by input.</p>
+<p>Likewise, report confirmation is not a classifier test set. Some submitted reports may still be pending or may overlap; the fraction confirmed at one time is not automatically precision.</p><p>Recall requires knowing the relevant defects that were missed, not merely counting discovered cases. A risk-ranking model should be assessed against independently validated severity or reviewer effort under a specified review budget.</p>
+<p><span id="explanation-dac-2026-research2306"></span></p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="file-text"></span>DefVul-Risk: a triggerable HDL sample is evidence of a tool issue only after semantics and security impact are established</h2>
+<p>FPGA synthesis is a security boundary between attacker-influenced HDL and a toolchain that emits an implementation. A defect may crash the tool, reject or accept an input incorrectly, change the synthesized circuit, or expose the host running the tool.</p><p>These outcomes require different oracles and have different security consequences. A generated trigger is therefore a candidate finding, not automatically an exploitable vulnerability.</p>
+<p>DefVul-Risk is described as combining a defect knowledge base, LLM-generated triggerable vulnerability samples, and a fine-tuned model that prioritizes high-risk defects. The record does not identify the HDL subset, tool instrumentation, risk labels, model architecture, reviewer workflow, exploitability analysis or whether generated examples are minimized and independently reproduced.</p>
+<p>The first gate is synthesis and impact validity. Name the tool and version, preserve the relevant HDL and synthesis settings, minimize the trigger, and distinguish parse/elaboration failure, crash, denial of service, synthesis miscompile, incorrect hardware behavior and host/security boundary violation.</p><p>Check accepted HDL against an independent behavioral or formal reference, and state attacker access, permissions, preconditions, persistence and consequence before assigning severity.</p>
+<p>The second gate is evaluation accounting. Define CVE/report deduplication, confirmation timing, pending and duplicate handling, negative cases and an independently labeled held-out set.</p><p>Measure precision, recall, ranking quality, coverage by tool/version/vulnerability class, false positives, reviewer time, remediation time and cost under the same assessment budget as manual, fuzzing or static-analysis baselines. The 26 submitted reports and nine confirmations are discovery and coordination outcomes, not a classifier confusion matrix.</p>
+<p>The source supplies no identifiers, tool/version matrix, trigger traces, distinct-root-cause rule, precision, recall, exploitability, severity distribution or independent review. The evidence supports LLM-assisted FPGA synthesis-tool vulnerability assessment, not demonstrated exploitability coverage, general synthesis-tool security or secure hardware-production guarantees.</p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="affiliate"></span>What connects these papers, and what cannot yet be concluded</h2>
+<p>All three cases make the source of the expected answer important. Instruction labels, planted benchmark defects, and confirmed tool reports are different reference standards with different blind spots.</p><p>The shared research direction is to automate candidate generation while preserving a separate, checkable account of behavior and security consequence.</p>
+<p>That connection is an analytical synthesis of this sample, not a demonstrated multi-year trend. A stronger comparison would measure validated distinct findings, false reports, reviewer time, and coverage under matched access assumptions. Raw discovery counts and benchmark percentages cannot provide that comparison.</p>
+<p>AttackonCTF's recovered manuscript supersedes the old card's missing metric and verification details, but its tools and experiments have not been reproduced here. Manuscripts for the other two records were not recovered. Processor-level evidence, exact CVE mappings, independent review, and checked proof assumptions remain open.</p>
+<p class="lm-k h-label">Compare the results carefully</p><h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="route"></span>How to compare these papers’ results fairly</h2>
+<p>First identify the inputs and required output quality. Then identify the limited resource: time, memory, communication, energy, circuit area, or correctness coverage.</p><p>Ask which part of the method reduces that cost and which new cost it adds. Compare numbers only when the experiments hold these conditions sufficiently similar.</p>
+<p>A conference description may explain the proposal while omitting the full experiment. An author preprint link may have been coded from its abstract. The source classification does not by itself establish that every table was read. Missing locations remain visible below.</p>
+<p class="lm-k h-label">Complete captured evidence</p><h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="file-text"></span>Every paper in this subtheme, with what its source shows</h2>
+<p>These are evidence records, not substitutes for the explanations above. Each record preserves its problem, proposed method, measurements, comparison conditions, and source limits. A populated record does not establish that its mechanism has been fully explained or independently verified.</p>
+<p><span id="paper-dac-2026-research2804"></span></p>
+<h3>Automated Discovery, Classification, and Systematic Security Verification Methodology for Undocumented Instructions</h3>
+<p>DAC 2026 · Record: <code>dac-2026-research2804</code></p>
+<p><a href="#explanation-dac-2026-research2804">Read the step-by-step explanation</a></p>
+<p><strong>Updated source-backed reading card</strong></p>
+<div class="worked"><p class="lm-k">Worked example</p><p>Reviewed 2026-09-08. Deepens the undocumented-instruction treatment into a paper-level reading; separates discovery, semantic classification, and security verification, preserves the 23/29/99.8357%/five claims, and makes instruction-space, classifier split, privilege, exploitability and confirmation boundaries explicit.</p></div>
+<p>This editorial correction updates the current reading view and connected dossiers, not the historical adjudication or scientific acceptance status. The original captured fields are preserved below.</p>
+<p><a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/data/editorial-paper-corrections-v1.json">Correction register</a></p>
+<p><strong>Problem:</strong></p>
+<p>Undocumented processor instructions can expose unexpected behavior or security-relevant effects, while discovery is constrained and semantic analysis and security verification are often manual.</p>
+<p><strong>Mechanism / artifact:</strong></p>
+<p>Automated instruction discovery, classifier-based semantic grouping, and systematic security-verification workflow; encoding exploration, observation interface, class ontology, reference model and confirmation procedure are unspecified.</p>
+<p><strong>Workload — the work tested:</strong></p>
+<p>Processor instruction encodings and undocumented-instruction tests; processor families/revisions, operand and initial-state space, privilege modes, class distribution, train/test split, leakage controls and stopping rule are unspecified.</p>
+<p><strong>Hardware and manufacturing assumptions:</strong></p>
+<p>Processor-level execution with architectural and possibly microarchitectural observation, firmware and operating-system context; processor identity, microcode, virtualization, exception configuration, observation interface and reference model are unspecified.</p>
+<p><strong>Baseline — the comparison method:</strong></p>
+<p>Constrained undocumented-instruction discovery</p>
+<p>Manual semantic analysis</p>
+<p>Same encoding space, processor revisions, execution/observation access, campaign budget, duplicate policy, class ontology, held-out split and security-confirmation rule are unspecified</p>
+<p><strong>Reported measurements:</strong></p>
+<p>The official description reports 23 newly discovered instructions, 29 classified instructions, 99.8357% classifier accuracy, and five instructions with tangible security implications; it does not define counting units, classifier denominator, class balance, split, coverage, exploitability, severity, or independent confirmation.</p>
+<p><strong>Limits on the conclusion:</strong></p>
+<p>Discovery, characterization and security verification are different gates. An observed encoding may be illegal, an alias, benign undocumented behavior or an implementation artifact; characterize outputs, exceptions, state changes and reproducibility under explicit initial and privilege conditions.</p>
+<p>Classifier accuracy depends on prediction unit, class ontology, related measurements, held-out instruction families, imbalance, abstentions and corpus leakage. It cannot stand in for semantic correctness or complete instruction coverage.</p>
+<p>A tangible security implication requires an actor, privilege, precondition, affected asset, violated property, reproducible trace and consequence. The official description does not provide these, nor processor identities, campaign details or independent review.</p><p>The evidence supports candidate discovery and triage, not a general security-detection rate, exploitability claim or cross-processor guarantee.</p>
+<p><strong>Source and location</strong></p>
+<p>Evidence tier: Primary captured official DAC description plus existing chapter level conceptual explanation; no full paper extraction, reproduced instruction campaign, security proof trace or independent review. This is the stored source classification; the location and limits below determine what was actually read.</p>
+<p><a href="https://63dac.conference-program.com/?post_type=page&amp;p=16&amp;id=RESEARCH2804&amp;sess=sess111">Open the recorded source</a></p>
+<p>DAC 2026 official description; existing chapter-level undocumented-instruction discussion; captured Problem, Mechanism / artifact, Workload, Hardware, Baseline, Measurements and Limits fields; no manuscript pages or instruction traces.</p>
+<details markdown="1">
+<summary>Original captured fields — superseded for this reading card</summary>
+
+** page source tier:** medium_official_description
+
+**Baselines:** constrained undocumented-instruction discovery
+
+manual semantic analysis
+
+**Evidence locators:** DAC 2026 official description
+
+**Evidence url:** https://63dac.conference-program.com/?post_type=page&amp;p=16&amp;id=RESEARCH2804&amp;sess=sess111
+
+**Hardware or process assumptions:** Processor-level instruction execution and security analysis; architecture, firmware, privilege modes, and observation interfaces are unspecified.
+
+**Limits:** The description omits processor identities, corpus leakage controls, class imbalance, classifier split, and definition of tangible security impact.
+
+Discovery counts do not establish completeness, exploitability, or severity across processor families.
+
+Official description only; findings and security claims require paper-level verification.
+
+**Method or artifact:** Automated instruction discovery, classifier-based semantic grouping, and systematic security-verification workflow.
+
+**Metrics:** 23 new instructions discovered
+
+29 instructions classified
+
+99.8357% classification accuracy
+
+5 instructions with tangible security implications
+
+**Problem:** Undocumented processor instructions are security risks, while existing discovery is constrained and semantic analysis and security verification remain manual and ad hoc.
+
+**Workload or benchmark:** Processor instruction sets and undocumented-instruction tests; processor models, instruction corpus, class distribution, and security properties are unspecified.
+
+</details>
+<p><span id="paper-dac-2026-research1628"></span></p>
+<h3>Attackonctf: Defending Hardware Security Competition Benchmarks in the Age of LLMs</h3>
+<p>DAC 2026 · Record: <code>dac-2026-research1628</code></p>
+<p><a href="#explanation-dac-2026-research1628">Read the step-by-step explanation</a></p>
+<p><strong>Updated source-backed reading card</strong></p>
+<div class="worked"><p class="lm-k">Worked example</p><p>Reviewed 2026-09-08. Reconciles the existing AttackonCTF benchmark-validity explanation with the official-description and recovered-manuscript record; separates shortcut exposure, semantics-preserving transformation, vulnerability reachability, and detector metrics, preserving the 83%, 50%, and 78.6% claims with explicit precision/recall boundaries.</p></div>
+<p>This editorial correction updates the current reading view and connected dossiers, not the historical adjudication or scientific acceptance status. The original captured fields are preserved below.</p>
+<p><a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/data/editorial-paper-corrections-v1.json">Correction register</a></p>
+<p><strong>Problem:</strong></p>
+<p>Hardware-security competition benchmarks can reward LLM detectors for recognizing diff-style syntax instead of reasoning about vulnerability semantics, undermining the validity of benchmark scores.</p>
+<p><strong>Mechanism / artifact:</strong></p>
+<p>LLM-oriented benchmark obfuscation using human-readable semantics-preserving transformations and controlled diff noise; the recovered evaluation includes Verilator syntax checks and Yosys equivalence checks, while transformation coverage and generation procedure remain bounded by the source.</p>
+<p><strong>Workload — the work tested:</strong></p>
+<p>HackTheSilicon/OpenTitan-based hardware-security competition benchmarks with injected vulnerabilities and LLM vulnerability detectors; three benchmarks, 50 injected vulnerabilities, detector prompts, task distribution and exact split are not fully reconciled in the current record.</p>
+<p><strong>Hardware and manufacturing assumptions:</strong></p>
+<p>Verilog hardware-security benchmark code evaluated with Verilator and Yosys equivalence tooling; IP designs, language subset, tool versions, equivalence assumptions, detector models and execution environment are specified only in the recovered manuscript context, not the official description.</p>
+<p><strong>Baseline — the comparison method:</strong></p>
+<p>Unobfuscated benchmark</p>
+<p>LLM detectors using diff-style syntactic comparison</p>
+<p>Obfuscation levels including 10% and complete transformation</p>
+<p>Same vulnerability instances, behavioral equivalence proof, detector model/prompt, runs, task distribution, tool versions and precision/recall definitions are required for comparison</p>
+<p><strong>Reported measurements:</strong></p>
+<p>The source reports an 83% detection rate associated with a diff-style shortcut, 50% lower detection accuracy with 10% obfuscation, and 78.6% lower detection accuracy under complete obfuscation; recovered manuscript evidence also separates precision and recall, but these reductions do not by themselves prove restored benchmark validity.</p>
+<p><strong>Limits on the conclusion:</strong></p>
+<p>Behavioral equivalence does not guarantee equal analysis difficulty or preservation of every vulnerability cue. Verify syntax, elaboration, functional equivalence, vulnerability reachability and security consequence separately after each transformation.</p>
+<p>Detection rate, precision, recall and accuracy use different denominators. Report false positives, false negatives, per-vulnerability outcomes, runs, model prompts and confidence intervals; a drop in score may mean a harder task, hidden semantic cues, or reduced shortcut access rather than improved validity.</p>
+<p>The official description omits detector identities, benchmark size, transformation coverage and exact conditions. The recovered manuscript context has not been independently reproduced here. The evidence supports benchmark-hardening and shortcut-audit methodology, not a universal claim that LLMs lack security reasoning or that obfuscation restores validity automatically.</p>
+<p><strong>Source and location</strong></p>
+<p>Evidence tier: Primary captured official DAC description plus recovered version 1 manuscript context; no independent reproduction of benchmark transformations, equivalence checks or detector runs. This is the stored source classification; the location and limits below determine what was actually read.</p>
+<p><a href="https://63dac.conference-program.com/?post_type=page&amp;p=16&amp;id=RESEARCH1628&amp;sess=sess107">Open the recorded source</a></p>
+<p>DAC 2026 official description; recovered manuscript Sections 3.2–4.4 and Figures 5–6 as represented in the existing chapter; captured Problem, Mechanism / artifact, Workload, Hardware, Baseline, Measurements and Limits fields.</p>
+<details markdown="1">
+<summary>Original captured fields — superseded for this reading card</summary>
+
+** page source tier:** medium_official_description
+
+**Baselines:** unobfuscated HackTheSilicon benchmark
+
+LLM detectors using syntactic comparisons
+
+**Evidence locators:** DAC 2026 official description
+
+**Evidence url:** https://63dac.conference-program.com/?post_type=page&amp;p=16&amp;id=RESEARCH1628&amp;sess=sess107
+
+**Hardware or process assumptions:** Hardware-security benchmark source code and vulnerability-detection workflow; IP designs, languages, and evaluation environment are unspecified.
+
+**Limits:** The description omits detector identities, benchmark size, semantic-equivalence tests, and distinction between accuracy reduction and restored validity.
+
+Obfuscation may alter task difficulty or hide meaningful vulnerability cues despite preserving function.
+
+Official description only; benchmark validity and security conclusions require paper-level verification.
+
+**Method or artifact:** LLM-oriented semantics-preserving benchmark obfuscation with human-readable transformations and controlled diff noise.
+
+**Metrics:** 83% detection rate from diff-style shortcut
+
+50% lower detection accuracy with 10% obfuscation
+
+78.6% lower detection accuracy under complete obfuscation
+
+**Problem:** Hardware-security competition benchmarks can be invalidated when LLM detectors exploit superficial syntax rather than vulnerability semantics.
+
+**Workload or benchmark:** HackTheSilicon hardware-security competition benchmark and LLM-based vulnerability detectors; detector models, task distribution, and accuracy definition are unspecified.
+
+</details>
+<p><span id="paper-dac-2026-research2306"></span></p>
+<h3>Are They All Safe? Practical Fault Injection Attacks on FPGA Logic Synthesis Tools</h3>
+<p>DAC 2026 · Record: <code>dac-2026-research2306</code></p>
+<p><a href="#explanation-dac-2026-research2306">Read the step-by-step explanation</a></p>
+<p><strong>Updated source-backed reading card</strong></p>
+<div class="worked"><p class="lm-k">Worked example</p><p>Reviewed 2026-09-09. Deepens the DefVul-Risk treatment into a paper-level reading; separates the defect knowledge base, LLM-generated trigger samples and risk-prioritization model from synthesis semantics, exploitability, CVE deduplication, precision/recall and remediation evidence, while preserving the 26-submission/9-confirmation source counts without overreading them as model accuracy.</p></div>
+<p>This editorial correction updates the current reading view and connected dossiers, not the historical adjudication or scientific acceptance status. The original captured fields are preserved below.</p>
+<p><a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/data/editorial-paper-corrections-v1.json">Correction register</a></p>
+<p><strong>Problem:</strong></p>
+<p>FPGA synthesis-tool flaws or malicious HDL can cross the tool boundary and produce crashes, incorrect hardware, or host-side security consequences in critical deployments; manual toolchain risk assessment does not scale.</p>
+<p><strong>Mechanism / artifact:</strong></p>
+<p>DefVul-Risk builds a defect knowledge base, uses an LLM to generate triggerable vulnerability samples, and fine-tunes a model to prioritize high-risk synthesis-tool defects for assessment and remediation. HDL generation constraints, tool instrumentation, risk labels, model architecture, reviewer workflow and exploitability analysis are unspecified.</p>
+<p><strong>Workload — the work tested:</strong></p>
+<p>FPGA logic-synthesis tools and vulnerability/CVE assessment; tool vendors/versions, HDL subset, FPGA families, synthesis settings, vulnerability classes, sample provenance, known-negative corpus, held-out tools, attacker capabilities and evaluation protocol are unspecified.</p>
+<p><strong>Hardware and manufacturing assumptions:</strong></p>
+<p>FPGA EDA toolchain receiving HDL and producing a synthesized implementation; target devices, synthesis/elaboration flow, sandboxing, host privileges, tool plugins, build environment, hardware-output checking and deployment context are unspecified.</p>
+<p><strong>Baseline — the comparison method:</strong></p>
+<p>Manual or conventional synthesis-tool security assessment</p>
+<p>Existing fuzzing, static analysis or vulnerability triage methods</p>
+<p>Same tool/version corpus, HDL constraints, threat model, oracle, deduplication, reviewer budget and confirmation window are unspecified</p>
+<p><strong>Reported measurements:</strong></p>
+<p>The source reports 26 CVE reports submitted and 9 officially confirmed; it provides no report identifiers, distinct-root-cause rule, precision, recall, coverage, severity distribution, exploitability, false-positive rate, reviewer effort, remediation time, model ranking metric or tool/version breakdown.</p>
+<p><strong>Limits on the conclusion:</strong></p>
+<p>A triggerable HDL sample must be minimized and reproduced against a named tool/version, then classified as a crash, synthesis miscompile, incorrect hardware behavior, denial of service or host/security boundary violation. HDL acceptance or a tool crash does not establish exploitability or impact without attacker access, permissions, preconditions and consequence analysis.</p>
+<p>Submitted reports and confirmed CVEs are not a classifier test set. Define deduplication, confirmation timing, pending/duplicate handling, negative cases and an independently labeled held-out set; measure precision, recall, ranking quality, coverage by tool/version/vulnerability class and reviewer time under a fixed budget.</p>
+<div class="worked"><p class="lm-k">Worked example</p><p>The 26/9 counts do not establish model accuracy, general synthesis-tool security, CVE discovery rate or remediation efficiency. The evidence supports LLM-assisted FPGA synthesis-tool vulnerability assessment, not demonstrated exploitability coverage or secure hardware-production guarantees.</p></div>
+<p><strong>Source and location</strong></p>
+<p>Evidence tier: Primary captured official DAC description plus existing authored hardware security validation discussion; no full paper extraction, reproduced synthesis tool campaign or independent exploitability validation. This is the stored source classification; the location and limits below determine what was actually read.</p>
+<p><a href="https://63dac.conference-program.com/?post_type=page&amp;p=16&amp;id=RESEARCH2306">Open the recorded source</a></p>
+<p>DAC 2026 official description; existing hardware-security-validation editorial explanation; captured Problem, Mechanism / artifact, Workload, Hardware, Baseline, Measurements and Limits fields; no manuscript pages, CVE identifiers, tool/version matrix, reproduced triggers or independent security review.</p>
+<details markdown="1">
+<summary>Original captured fields — superseded for this reading card</summary>
+
+** page source tier:** medium_official_description
+
+**Baselines:** Manual or conventional synthesis-tool security assessment
+
+**Evidence locators:** DAC 2026 official description
+
+**Evidence url:** https://63dac.conference-program.com/?post_type=page&amp;p=16&amp;id=RESEARCH2306&amp;sess=sess108
+
+**Hardware or process assumptions:** FPGA EDA toolchain and HDL input flow; target FPGA families, synthesis settings, and attacker capabilities are unspecified.
+
+**Limits:** Submission and confirmation counts do not establish recall, precision, exploitability, or remediation time.
+
+The description omits model evaluation, tool/version coverage, and human-validation procedure.
+
+Official description only; security claims require detailed reproduction and independent review.
+
+**Method or artifact:** Automated defect knowledge base, LLM-generated triggerable vulnerability samples, and fine-tuned risk-prioritization model.
+
+**Metrics:** 26 CVE reports submitted
+
+9 CVEs officially confirmed
+
+**Problem:** Malicious HDL injection and synthesis-tool flaws can create vulnerabilities in FPGA systems used in critical deployments, while manual toolchain risk assessment does not scale.
+
+**Workload or benchmark:** FPGA logic-synthesis tools and vulnerability/CVE assessment; tool versions, vulnerability classes, sample corpus, and evaluation protocol are unspecified.
+
+</details>
+<p class="lm-k h-label">What remains to establish</p><h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>What is still unproven here</h2>
+<p>Resolve unspecified workloads, comparison methods, resource budgets, and source locations before generalizing a reported gain. Multiple papers in this selected sample permit comparison of mechanisms, but do not by themselves establish recurrence across years or a long-term trend.</p>
+<p><a href="../guide/expanded-taxonomy-v1.html">All subthemes</a> · <a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/reports/directions/README.md">Research directions</a></p><p class="meta">Written as <a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/reports/observed-subthemes/hardware-security-validation.md">reports/observed-subthemes/hardware-security-validation.md</a> in the course repository.</p>
+      </article>
+      <nav class="pager" aria-label="Previous and next"><a class="prev" href="formal-and-equivalence-verification.html"><span class="pg-k">← Previous</span><span class="pg-t">Formal and equivalence verification</span></a><a class="map" href="../subthemes.html"><span class="pg-k">Back to</span><span class="pg-t">Subthemes</span></a><a class="next" href="processor-and-rtl-verification.html"><span class="pg-k">Next →</span><span class="pg-t">Processor and RTL verification</span></a></nav>
+    </section>
+  </main>
+  <footer class="course-foot">
+    <p>Built from 582 paper records coded from ISCA 2026, DAC 2026 and ICCAD 2025 (ICCAD 2026 papers were not yet public). Most records come from official program descriptions; see “How deep the reading went”. The papers belong to their authors.</p>
+    <p class="foot-links"><a href="https://github.com/mehtama1234/course-concept-library">All courses</a><a href="../index.html">This course</a><a href="../course-map.html">Course map</a><a href="../presentation/index.html">Slides</a><a href="../video/index.html">Video</a><a href="../share/index.html">Share</a></p>
+  </footer>
+  <script src="../assets/course-data.js"></script><script src="../assets/icons.js"></script><script src="../assets/icons-extra.js"></script><script src="../assets/icons-course.js"></script><script src="../assets/art.js"></script><script src="../assets/course-art.js"></script><script src="../assets/charts.js"></script><script src="../assets/course-charts.js"></script><script src="../assets/course-site.js"></script>
+</body>
+</html>

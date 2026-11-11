@@ -18,3 +18,7 @@ The project studies themes, subthemes, and sub-subthemes in semiconductor and co
 - `scripts/` — collection, normalization, classification, and audit tools
 
 Do not treat conference-paper counts as market share, industrial adoption, or commercial success. Preserve source URLs, edition, identifiers, abstracts/metadata, dates, access status, evidence spans, confidence, and limits.
+
+## Reader website (site/)
+
+`python3 scripts/course_story/build.py all <kokoro-model-folder>` rebuilds the reader site in `site/`: a landing page that answers "what do these conferences say about where the field is going?", every theme, subtheme, deep read, direction and comparison article rendered from `reports/` in one house style, slides (present view, presenter view with notes, PDF, PowerPoint), a narrated video with captions, a share page, the `publish/` folder of web-served files, and an end-to-end browser test. Run `build.py pages` alone after regenerating any report.

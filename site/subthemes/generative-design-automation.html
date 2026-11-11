@@ -1,0 +1,559 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#F3ECE1" />
+  <title>Generative design automation · Semiconductor conference atlas</title>
+  <meta name="description" content="Papers: DAC 6. Read from: 6 program descriptions, 0 abstracts or reports, 0 full papers or preprints. The explanations come first; every paper’s record follows at the end." />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Semiconductor conference atlas" />
+  <meta property="og:title" content="Generative design automation · Semiconductor conference atlas" />
+  <meta property="og:description" content="Papers: DAC 6. Read from: 6 program descriptions, 0 abstracts or reports, 0 full papers or preprints. The explanations come first; every paper’s record follows at the end." />
+  <meta property="og:url" content="https://mehtama1234.github.io/semiconductor-conferences/subthemes/generative-design-automation.html" />
+  <meta property="og:image" content="https://mehtama1234.github.io/semiconductor-conferences/presentation/slides/01-cover.jpg" />
+  <meta property="og:image:width" content="1920" />
+  <meta property="og:image:height" content="1080" />
+  <meta property="og:image:alt" content="Semiconductor conference atlas: 582 papers from ISCA, DAC and ICCAD, sorted into 10 themes and six directions to watch." />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="canonical" href="https://mehtama1234.github.io/semiconductor-conferences/subthemes/generative-design-automation.html" />
+  <link rel="icon" href="../assets/icon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="../assets/base.css" />
+  <link rel="stylesheet" href="../assets/experience.css" />
+  <link rel="stylesheet" href="../assets/theme-atlas.css" />
+  <link rel="stylesheet" href="../assets/styles.css" />
+  <link rel="stylesheet" href="../assets/charts.css" />
+  <link rel="stylesheet" href="../assets/course.css" />
+  
+</head>
+<body class="course-site " data-house="atlas">
+  <aside class="public-demo-banner" aria-label="About this course">A plain-language guide to what ISCA, DAC and ICCAD papers say about chip and computer design · Built from the repository’s own paper records · Not made by the conferences</aside>
+  <a class="skip-link" href="#app">Skip to the page</a>
+  <header>
+    <a class="brand" href="../index.html"><span class="mark" aria-hidden="true">Si</span> Semiconductor conference atlas</a>
+    <span class="header-status"><span class="badge">582 papers</span><span class="badge">10 themes</span><span class="badge">Plain words first</span></span>
+    <a class="header-link" href="../course-map.html">Course map</a>
+  </header>
+  <nav class="course-nav" aria-label="Main sections of the course"><a href="../index.html">The big picture</a><a href="../themes.html">Themes</a><a href="../subthemes.html" aria-current="page">Subthemes</a><a href="../deep-reads.html">Deep reads</a><a href="../directions.html">What to watch</a><a href="../presentation/index.html">Slides</a><a href="../video/index.html">Video</a><a href="../share/index.html">Share</a></nav>
+  <main id="app" tabindex="-1">
+    <section class="screen active landing legacy-page" aria-labelledby="page-title">
+<div class="lm-head"><div class="hj-heading"><nav class="crumbs" aria-label="You are here"><a href="../course-map.html">Course map</a><span aria-hidden="true">›</span><a href="../subthemes.html">Subthemes</a></nav><a class="back-button" href="../subthemes.html">← <span>Subthemes</span></a><p class="eyebrow">Subtheme · 6 papers · AI-assisted EDA</p><h1 id="page-title">Generative design automation</h1><p class="hj-sub">Papers: DAC 6. Read from: 6 program descriptions, 0 abstracts or reports, 0 full papers or preprints. The explanations come first; every paper’s record follows at the end.</p></div><div class="hj-art" data-art="trio:file-text,sparkles,checklist"></div></div>
+<figure class="course-fig"><div class="loop-wide" data-art="flow:ai-assisted-eda"></div><div class="loop-tall" data-art="flowTall:ai-assisted-eda"></div><figcaption>The parent theme in one picture: a model proposes a design; tools decide whether it counts.</figcaption></figure>
+      <article class="prose">
+
+<p>This subject has 6 records in the selected sample. This page explains where it fits, then presents all captured paper evidence without shortening the measurements or limitations.</p>
+<p><a href="../guide/reading-guide-v1.html">Definitions used in the paper records</a></p>
+<p class="lm-k h-label">Understand the parent subject first</p><h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>The bigger theme this belongs to</h2>
+<ul>
+<li><a href="../themes/ai-assisted-eda.html">AI assisted EDA</a></li>
+</ul>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="affiliate"></span>Design automation must connect the specification to a usable artifact</h2>
+<p>A design task can begin with written requirements and end with a schematic, a physical model, or a corrected protocol implementation. Generative automation proposes some part of that artifact.</p><p>The essential question is whether the generated result preserves the required relationships and passes the checks appropriate to its intended use.</p>
+<p>A visually plausible model, a syntactically valid file, and an electrically correct design are different outcomes. The evaluation must identify which outcome it measures and which later steps remain necessary.</p>
+<p><span id="explanation-dac-2026-research561"></span></p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>Cupilot: CUDA-kernel evolution is a measured program-and-hardware search</h2>
+<h3>What a CUDA optimization changes</h3>
+<p>A CUDA kernel is a program executed by many GPU threads. Its performance depends on the algorithm, memory addresses, thread and block mapping, synchronization, atomics, numerical precision, input shape, compiler decisions and the GPU's memory and execution resources.</p><p>Changing one of these can improve throughput while changing the result or making another input shape slower.</p>
+<p>The optimization target must therefore include a correctness rule. A kernel is not accepted because it compiles or because one output looks plausible. The required output comparison, numerical tolerance, supported shapes and error behavior must be defined before performance is compared.</p>
+<h3>What strategy coordination contributes</h3>
+<p>The captured Cupilot framework uses multiple agents coordinated by search strategies to evolve CUDA kernels. Different roles can propose algorithm changes, tune launch and memory parameters, inspect profiler evidence, or reject candidates that fail correctness.</p><p>Coordination is useful only when these roles exchange measured evidence and operate under one shared acceptance boundary. Several agents repeating an unsupported guess do not create independent evidence.</p>
+<p>The search state should retain the source kernel, input shape, compiler configuration, GPU, measured result, correctness result and change made. Without that state, the system cannot distinguish a real improvement from a measurement artifact or a candidate that succeeded only because a test was weakened.</p>
+<h3>What a valid evaluation must include</h3>
+<p>Compilation and profiling are part of the optimization cost. A candidate can appear faster because of cache state, GPU clock behavior, warm-up, input shape, compiler version or an incomplete timing interval.</p><p>Use a fixed measurement protocol with warm-up and repetitions, report variance, include compilation and search cost, and record failed candidates. Test unseen inputs and, if portability is claimed, other GPU architectures and toolchain versions.</p>
+<p>The comparison must use the same functional workload and acceptance rule for manual tuning, single-agent generation and Cupilot. It should report accepted-kernel rate, end-to-end latency or throughput, compile and search time, resource use, and the number of candidates evaluated.</p><p>A benchmark-only speedup does not establish transfer to another kernel or GPU.</p>
+<h3>What the record establishes and where it stops</h3>
+<p>The captured description names manual kernel tuning and single-agent code generation as comparisons and claims kernel-evolution efficiency qualitatively. It does not expose the kernels, inputs, correctness oracle, search budget, GPU models, compiler settings, speedups, compile time, cost, failures or cross-GPU results.</p>
+<p>The evidence supports a coordinated multi-agent CUDA-evolution proposal. It does not establish general kernel correctness, transferable speedup or cost-effective optimization without reproducible functional and performance evaluation.</p>
+<p><a href="generative-design-automation.html#paper-dac-2026-research561">Observed paper card</a></p>
+<p><span id="explanation-dac-2026-research2829"></span></p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>LLM-assisted Signal Temporal Logic transformation must preserve meaning across time semantics</h2>
+<h3>What is being transformed</h3>
+<p>Signal Temporal Logic (STL) describes conditions over signals and time. A formula can constrain a numerical predicate, require it to remain true over an interval, require it to become true within an interval, or relate events with an until condition.</p><p>The meaning depends on the signal names, units, operator nesting, interval endpoints, strictness, sampling model and numerical comparison rules.</p>
+<p>This is why transformation is not ordinary text translation. The target formula is correct only if it accepts and rejects the same traces under the declared semantics.</p><p>A formula can parse successfully while changing an interval boundary, moving an operator over a predicate, or applying a condition to the wrong signal.</p>
+<h3>What the structured intermediate representation contributes</h3>
+<p>The captured workflow uses two LLM-assisted stages with a structured intermediate representation (IR) between source and target forms. The IR can make the semantic structure explicit: predicates, signals, units, temporal operators, interval bounds, nesting and connections between subformulas.</p><p>It gives the system a place to check types and boundaries before producing target syntax.</p>
+<p>The IR is not automatically a proof. If its schema omits a strict inequality, unit conversion, boundary convention or numerical robustness rule, both stages can agree on an incomplete meaning.</p><p>The parser and serializer must preserve the full structure, and malformed or unsupported constructs must be rejected rather than silently approximated.</p>
+<h3>What the two stages should be checked against</h3>
+<p>Separating semantic decomposition from target rendering can make failures easier to locate. The source formula should be parsed and normalized, the IR should be validated, and the target should be parsed back into a comparable form.</p><p>Checks should include operator scope, interval endpoints, signal identity, units, sampling and numerical semantics.</p>
+<p>Semantic validation then needs more than a few passing examples. Use formal equivalence where the representation and signal model permit it; otherwise use trace-based testing that targets boundaries, nested operators, violations, long holds, missing samples and numerical tolerances.</p><p>The test must report cases that cannot be decided and transformations that need human review.</p>
+<h3>What the record establishes and where it stops</h3>
+<p>The captured description names manual transformation and single-stage LLM transformation as comparisons and claims transformation efficiency qualitatively. It does not expose the formula set, source and target representations, temporal semantics, parser or solver settings, semantic-equivalence procedure, coverage, runtime, failure cases or expert review.</p>
+<p>The evidence supports a two-stage LLM-assisted transformation proposal and identifies the structured IR as the key semantic boundary. It does not establish that the generated formulas are equivalent or suitable as verification artifacts without independent formal or simulation validation.</p>
+<p><a href="generative-design-automation.html#paper-dac-2026-research2829">Observed paper card</a></p>
+<p><span id="explanation-dac-2026-research2642"></span></p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="checklist"></span>LLM4SDC: generated timing constraints must be checked as design intent, not just parsed as text</h2>
+<h3>What an SDC file actually specifies</h3>
+<p>Static timing analysis computes whether signal paths can meet required arrival times. An SDC file supplies assumptions for that computation: clocks and their relationships, input and output timing, uncertainty, operating conditions, and exceptions such as false or multicycle paths.</p><p>Those commands define which paths are analyzed and what limits are applied.</p>
+<p>This makes SDC generation a semantic task. A file can be syntactically valid and accepted by the timing tool while describing the wrong clock, interface delay or path exception.</p><p>Under-constraint can hide a real violation. Over-constraint can reject a design that is actually valid or distort optimization.</p><p>A text comparison is therefore insufficient; the effect on the timing graph must be compared.</p>
+<h3>What the multi-agent workflow is intended to do</h3>
+<p>The captured LLM4SDC method uses multiple language-model agents for SDC generation and benchmarking. A useful decomposition could assign one agent to translate the design specification, another to challenge clock and interface assumptions, and a checker to evaluate the resulting constraints.</p><p>The value comes from the evidence each role introduces, not from the number of agents. If all agents repeat the same incomplete description, the workflow can produce a more confident version of the same error.</p>
+<p>The generated file must remain linked to its inputs: the RTL or netlist, clocks, interfaces, library and process assumptions, timing corners, and the intended signoff rules. Without those inputs, the workflow cannot determine whether a command expresses the design or merely makes the timing report easier to satisfy.</p>
+<h3>How benchmarking must distinguish a good constraint from a convenient one</h3>
+<p>A benchmark should compare generated constraints with an authoritative reference or a formally justified specification. It should evaluate semantic differences, not only exact text.</p><p>For the same netlist, libraries and corners, it should measure analyzed-path coverage, preserved and missing violations, timing correlation, and whether the generated exceptions correspond to documented behavior.</p>
+<p>The benchmark must test both failure directions. An under-constrained file leaves paths unchecked.</p><p>An over-constrained file adds relationships or limits that are not real. Both can produce a report that looks orderly.</p><p>Expert review is needed for assumptions that cannot be inferred from the netlist, especially external interface timing and intentional protocol exceptions.</p>
+<h3>What the reported result can and cannot establish</h3>
+<p>The captured description names manual SDC authoring and single-agent generation as comparisons and claims constraint-generation efficiency qualitatively. It does not provide the design set, clock and interface specifications, reference constraints, timing tools, process corners, semantic equivalence method, path coverage, timing correlation, runtime, failed cases or expert review.</p>
+<p>The record therefore supports a proposal for using multiple LLM roles in constraint generation and benchmarking. It does not establish that the generated files preserve design intent, produce trustworthy timing analysis, or are ready for signoff.</p><p>Those claims require reproducible timing runs and review of the assumptions that the timing tool cannot infer automatically.</p>
+<p><a href="generative-design-automation.html#paper-dac-2026-research2642">Observed paper card</a></p>
+<p><span id="explanation-dac-2026-research2443"></span></p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="checklist"></span>Stitch: assertion-guided repair is only as complete as the protocol requirements being checked</h2>
+<h3>What the repair problem is</h3>
+<p>An on-chip protocol is a set of rules for how hardware blocks exchange requests, data, responses, credits, resets and errors over time. An implementation bug is not merely a wrong line of RTL.</p><p>The change must restore the intended sequence while preserving behavior that was already correct. That includes ordering, back-pressure, repeated transactions, reset entry and exit, and interactions with other blocks when those are part of the protocol.</p>
+<h3>What an assertion contributes</h3>
+<p>An assertion is an executable condition over signals and time. It can state, for example, that a response follows a request under a permitted condition, that a response is not produced without a request, or that a valid transfer is held until acceptance.</p><p>The assertion gives the patching system a machine-checkable failure signal. This is more useful than asking a language model to judge its own patch from text alone because the checker evaluates an observed execution or formal state space.</p>
+<p>The assertion is still only a projection of the full requirement. Passing one assertion proves that the checked condition held in the checked scope.</p><p>It does not prove that unasserted ordering, reset, liveness, illegal-input handling, cross-block interaction or implementation timing is correct. Assertion coverage is therefore part of the result, not a background detail.</p>
+<h3>What the LLM patch loop changes</h3>
+<p>The captured Stitch workflow uses an LLM to propose a code change, runs assertion-guided checking, and uses the resulting failure or pass information to guide another patch. The loop can search edits faster than manual trial and error when the failure is localized and the available assertions describe the relevant contract.</p><p>It can also produce a patch that satisfies the visible counterexample while changing behavior outside the checked conditions.</p>
+<p>The workflow must retain the complete failure context: the failing trace or formal obligation, the affected signals, the original requirement, the patch diff and the checks run after the patch. Without that record, it is not possible to tell whether the model repaired the cause, masked the symptom, weakened the assertion or introduced a new violation.</p>
+<h3>What acceptance requires after a patch</h3>
+<p>Patch acceptance needs a regression boundary. Rerun all relevant assertions and tests, including reset and repeated-transaction cases, then check for deadlock, ordering, liveness and illegal-input failures.</p><p>For deployable RTL, synthesis, timing, clock-domain and integration checks are separate gates. A patch that passes simulation can still fail formal exploration, synthesis or timing; a patch that passes assertions can still violate an unencoded system requirement.</p>
+<h3>What the record establishes and where it stops</h3>
+<p>The captured description establishes an assertion-guided LLM repair proposal with manual patching and unguided LLM repair as named comparison points. It reports protocol-repair efficiency qualitatively.</p><p>It does not expose the protocol designs, assertion completeness, checker settings, accepted and rejected patches, regression results, synthesis or timing impact, runtime, or human-review effort. The evidence therefore supports the mechanism and its evaluation question, not a general claim that LLM-generated protocol patches are correct or ready for implementation.</p>
+<p><a href="generative-design-automation.html#paper-dac-2026-research2443">Observed paper card</a></p>
+<p><span id="explanation-dac-2026-research241"></span></p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>PCBgen: specification-to-schematic search needs external electrical evaluation, not only language-model plausibility</h2>
+<h3>What a power-supply specification becomes</h3>
+<p>A power-supply specification defines electrical targets and constraints such as input and output ranges, current, ripple, efficiency, transient behavior, stability and component limits. A schematic must choose a topology, components, connections and parameter values that jointly satisfy those requirements.</p>
+<p>The decisions are coupled. Changing an inductor or compensation value can change stability and transient response. Changing a topology changes the available operating range and component relationships. A syntactically valid netlist is therefore not an accepted design until the required electrical behavior is checked.</p>
+<h3>How the framework reduces the search</h3>
+<p>PCBgen is described as combining PCB knowledge-graph retrieval, constraint-aware pre-filtering, a multimodal intermediate representation and SPICE-in-the-loop training-free Group Relative Policy Optimization. The knowledge graph can retrieve known component, topology and design relationships. Pre-filtering can reject candidates that violate explicit constraints before simulation.</p>
+<p>The source says the pipeline compresses a space of up to 10^20 candidates to roughly 10^3 simulatable designs. Such compression is useful only if the filters preserve valid candidates and if the denominator describes the same design decisions.</p><p>A filter that silently removes hard or failed cases can make the remaining search look efficient while changing the task.</p>
+<h3>What the intermediate representation must preserve</h3>
+<p>A multimodal intermediate representation connects the specification, retrieved knowledge, schematic, parameters and simulation results. It must preserve component identity, net names, pin direction, units, parameter values, operating conditions, constraints and the reason a candidate passed or failed.</p>
+<p>If it loses a unit, connection or sign, later steps can reason consistently over an incorrect circuit. The representation also needs to carry failed simulation state, convergence diagnostics and unresolved constraints so the next action addresses a real problem rather than generating another plausible variant.</p>
+<h3>What SPICE-in-the-loop and TF-GRPO change</h3>
+<p>SPICE evaluates the electrical behavior of a candidate circuit under a defined model and operating condition. It can provide objective signals for output voltage, current, ripple, transient response, stability or other requirements.</p><p>It can also fail to converge, making “no result” different from “design fails the specification.”</p>
+<p>Training-free GRPO can compare groups of candidate actions using simulation-derived rewards without updating model parameters. The reward must include all required constraints and define how failed simulations, invalid netlists, out-of-range components and tradeoffs are ranked.</p><p>Optimizing one reward score does not prove that every specification requirement passes.</p>
+<h3>How to interpret the reported evaluation</h3>
+<p>The captured description reports a 336-case benchmark across six topology families and three design regimes, up to 57% improvement in topology adaptation, Pass@5 rising from 41% to 74%, more than 50% reductions in token use and wall-clock time versus LLM-only baselines, and a 24-case comparison with human designers using vendor tools. It reports 3.70× and 4.74× speedups for topology selection and schematic verification, comparable Pass@1 and overall ROI of 4.39×.</p>
+<p>These metrics need definitions. Pass@k must state what counts as a pass and whether candidates are electrically simulated.</p><p>Topology adaptation must specify the source and target regimes. ROI must include simulator, model, compute, tool, human review and correction costs.</p><p>A human comparison needs matched specifications, libraries, vendor-tool settings and acceptance criteria.</p>
+<h3>What the record establishes and where it stops</h3>
+<p>The official description establishes a closed-loop specification-to-schematic framework using retrieval, constraints, structured state, SPICE evaluation and training-free policy comparison. It reports detailed benchmark and human-comparison numbers.</p><p>It does not expose circuit models, convergence treatment, electrical pass criteria, failed candidates, library transfer, human-effort accounting or hardware validation.</p>
+<p>The <a href="generative-design-automation.html#paper-dac-2026-research241">PCBgen</a> record is evidence of a reported agentic PCB-design workflow, not proof of general electrical correctness or manufacturing readiness. The explanation separates specification semantics, search reduction, structured state, external simulation, policy reward and end-to-end design acceptance.</p>
+<p><span id="explanation-dac-2026-research1991"></span></p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="file-text"></span>PCBgen3D: generating a 3D PCB model requires reconciling datasheet evidence with geometry and connectivity checks</h2>
+<h3>What the input actually contains</h3>
+<p>A manufacturer datasheet can describe one component through orthographic drawings, dimension tables, text, symbols and images. These views are different representations of the same physical object.</p><p>A usable CAD model must determine which dimensions refer to the same feature, establish a coordinate system, place the body and pins, and preserve package identity and orientation.</p>
+<p>The task is not image copying. A dimension table may be authoritative for a height while a drawing shows the feature's location.</p><p>Text may describe a pin numbering convention that is not obvious from the image. Conflicting or incomplete views require a rule for selecting evidence or marking the result uncertain.</p>
+<h3>What a graph representation contributes</h3>
+<p>A graph can represent package parts, pins, dimensions and relationships such as containment, alignment, adjacency and electrical correspondence. The graph makes dependencies explicit: changing the body height may affect clearances, while changing pin numbering affects the component's connectivity representation.</p>
+<p>The graph is only as reliable as its extraction. A missing edge can produce a geometrically correct body with incorrect pin relationships.</p><p>An incorrectly linked dimension can make every downstream module consistent with the wrong value. The framework needs checks against the source datasheet and a record of unresolved ambiguity.</p>
+<h3>What the dynamic task graph changes</h3>
+<p>PCBgen3D is described as decomposing modeling into adaptive subtasks for extraction, planning and refinement. A task graph can schedule dimension extraction, geometry generation, pin placement, format conversion and validation according to the dependencies of a particular package.</p>
+<p>Dynamic decomposition can handle unusual package types by adding or changing subtasks. It also introduces state and dependency problems.</p><p>If a corrected dimension changes a solid, dependent pin positions, clearances and output files must be recomputed. The system needs completion criteria for each task and a rule for propagating changes rather than accepting an outdated downstream result.</p>
+<h3>What self-correction must observe</h3>
+<p>An iterative loop is useful only when it receives an error signal that can distinguish a valid artifact from a plausible one. A model's own description of its output may reproduce the same assumption.</p><p>Independent checks can include dimensional comparison against the datasheet, CAD solid validity, pin-count and pin-position rules, clearance checks, coordinate consistency and manufacturing or assembly constraints.</p>
+<p>The loop must say which failure triggered a repair, what change was made and whether the complete artifact was rechecked afterward. Fixing a pin location can break a clearance; changing a body dimension can invalidate a mounting surface.</p><p>Repair rate and unresolved cases belong in the denominator, not only successfully repaired examples.</p>
+<h3>What the reported evaluation establishes</h3>
+<p>The captured description says PCBgen3D is evaluated on components from varied package types and manufacturers and outperforms a state-of-the-art general-purpose MLLM on industrial-grade PCB 3D-modeling tasks. It does not provide geometric accuracy, dimensional tolerance, connectivity validity, repair success, unresolved-case rate, runtime, human effort, CAD format, checker or manufacturing validation results.</p>
+<p>The comparison needs the same datasheets, component families, output format, geometric tolerance, review policy and accepted-output definition. Manual effort should include interpreting ambiguous tables and correcting generated files.</p><p>A direct generative model may also differ in prompting, tool access and validation, so those conditions must be held constant.</p>
+<h3>What the record establishes and where it stops</h3>
+<p>The official description establishes a graph-based multimodal-LLM workflow with extraction, task planning, dynamic subtask decomposition, refinement and iterative self-correction for datasheet-driven PCB 3D models. It reports a qualitative industrial-task comparison across package types and manufacturers.</p><p>It does not establish geometry or connectivity acceptance, manufacturing readiness, repair reliability, runtime or reduced human effort.</p>
+<p>The <a href="generative-design-automation.html#paper-dac-2026-research1991">PCBgen3D</a> record is evidence of a reported CAD-generation framework, not proof that its outputs are production-usable. The explanation separates source interpretation, graph dependencies, task scheduling, independent correction signals and complete artifact validation.</p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>A design contains several representations of the same intent</h2>
+<p>A schematic describes components and electrical connections. A board layout assigns physical locations and conductive paths. A three-dimensional model adds geometry used for checking fit, clearances, and assembly. These representations need to agree where they describe the same objects and relationships.</p>
+<p>Generating one representation from another can save manual work. It can also introduce missing components, incorrect dimensions, or broken associations. The generation process needs checks against the authoritative inputs rather than relying only on the appearance of its output.</p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>PCBgen3D generates a physical model</h2>
+<p>PCBgen3D's captured method uses a graph-based multimodal model with self-correction to generate board models. A multimodal model accepts or produces more than one information form, such as text and images. A graph can represent components and their relationships. <a href="generative-design-automation.html#paper-dac-2026-research1991">Recorded evidence</a></p>
+<p>The important questions are what geometric and connectivity requirements are checked, which errors trigger correction, and whether the repaired model agrees with the board data. The description does not establish geometric accuracy, repair rate, runtime, or reduced human effort.</p><p>A self-correction procedure needs its own evaluated acceptance rule.</p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>Pcbgen produces schematics and parameter choices</h2>
+<p>Pcbgen's captured record concerns converting a specification into a schematic and tuning parameters. Parameter choices can change whether a circuit operates correctly over its required range. Selecting familiar components or generating a well-formed schematic does not establish that behavior. <a href="generative-design-automation.html#paper-dac-2026-research241">Recorded evidence</a></p>
+<p>Evaluation should state the requirements, component-library assumptions, electrical checks, and manual changes required before the result is usable. The current record leaves electrical correctness, iterations, runtime, and board diversity unresolved. Transfer to another specification or library remains a separate question.</p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>Stitch repairs behavior under assertion guidance</h2>
+<p>Stitch's captured method uses assertions to guide language-model patches for on-chip protocols. A protocol defines permitted interactions, including request ordering and responses. An assertion expresses a condition used to check those interactions. <a href="generative-design-automation.html#paper-dac-2026-research2443">Recorded evidence</a></p>
+<p>A patch may satisfy one assertion while breaking behavior that the assertion does not cover. The test must therefore preserve the complete relevant requirement set and include checks for regression. Patch acceptance, synthesis impact, runtime, and human review remain unreported in the captured description.</p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="file-text"></span>Correction requires a trustworthy source of error information</h2>
+<p>An automated loop can revise an output many times. Its usefulness depends on what identifies the error and how that information reaches the next decision.</p><p>Repeating a model's own judgment can reproduce the same mistaken assumption. A separate geometry, electrical, simulation, or formal check can provide a different source of evidence, within that check's scope.</p>
+<p>Record each failed requirement and the action taken to address it. Check the entire artifact again after a change. Count cases that remain unresolved or require a human correction instead of excluding them from the denominator.</p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>The outcome that should be compared</h2>
+<p>Use the same input specifications, libraries, tool settings, and acceptance criteria. Measure accepted usable outputs, complete elapsed time, computing cost, and human effort. Separate preparation of reusable knowledge from per-task execution, and state how many tasks reuse that preparation.</p>
+<p>These papers concern different artifacts, so their scores are not directly interchangeable. Their shared question is whether generation plus checking reduces the total effort of producing a correct design under the stated requirements.</p><p>That outcome needs a complete evaluation of the generated artifact and its remaining work.</p>
+<p class="lm-k h-label">Compare the results carefully</p><h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="route"></span>How to compare these papers’ results fairly</h2>
+<p>First identify the inputs and required output quality. Then identify the limited resource: time, memory, communication, energy, circuit area, or correctness coverage.</p><p>Ask which part of the method reduces that cost and which new cost it adds. Compare numbers only when the experiments hold these conditions sufficiently similar.</p>
+<p>A conference description may explain the proposal while omitting the full experiment. An author preprint link may have been coded from its abstract. The source classification does not by itself establish that every table was read. Missing locations remain visible below.</p>
+<p class="lm-k h-label">Complete captured evidence</p><h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="file-text"></span>Every paper in this subtheme, with what its source shows</h2>
+<p>These are evidence records, not substitutes for the explanations above. Each record preserves its problem, proposed method, measurements, comparison conditions, and source limits. A populated record does not establish that its mechanism has been fully explained or independently verified.</p>
+<p><span id="paper-dac-2026-research1991"></span></p>
+<h3>PCBgen3D: A Self-Correcting Graph-Based MLLM Framework for Automated PCB 3D Models Generation</h3>
+<p>DAC 2026 · Record: <code>dac-2026-research1991</code></p>
+<p><a href="#explanation-dac-2026-research1991">Read the step-by-step explanation</a></p>
+<p><strong>Updated source-backed reading card</strong></p>
+<div class="worked"><p class="lm-k">Worked example</p><p>Reviewed 2026-09-08. Reconciles the PCBgen3D card with the captured official DAC description; explains datasheet-to-CAD extraction, graph representation, multimodal task decomposition, dynamic task graphs, self-correction and the distinction between visually plausible geometry and validated PCB/CAD artifacts.</p></div>
+<p>This editorial correction updates the current reading view and connected dossiers, not the historical adjudication or scientific acceptance status. The original captured fields are preserved below.</p>
+<p><a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/data/editorial-paper-corrections-v1.json">Correction register</a></p>
+<p><strong>Problem:</strong></p>
+<p>Creating a usable three-dimensional PCB component model from manufacturer datasheets requires extracting dimensions, views, text and relationships and converting them into consistent geometry. Manual interpretation is slow and can introduce geometric or connectivity errors.</p>
+<p><strong>Mechanism / artifact:</strong></p>
+<p>PCBgen3D: self-correcting graph-based multimodal LLM framework with modules for data extraction, task planning and process refinement, an adaptive dynamic task graph that decomposes modeling into subtasks, and an iterative self-correction loop.</p>
+<p><strong>Workload — the work tested:</strong></p>
+<p>Datasheet-driven PCB components across package types and manufacturers; dataset size, CAD formats, package standards, geometric tolerances, pin/connectivity rules and manufacturing checks are unspecified.</p>
+<p><strong>Hardware and manufacturing assumptions:</strong></p>
+<p>EDA/CAD and multimodal-LLM generation workflow; model versions, context inputs, compute, CAD kernel, file formats, geometry checker, connectivity validator and manufacturing rules are unspecified.</p>
+<p><strong>Baseline — the comparison method:</strong></p>
+<p>Manual PCB 3D modeling</p>
+<p>Direct generative model</p>
+<p>State-of-the-art general-purpose multimodal LLM</p>
+<p>Component families, CAD representation, human review, geometric tolerance, connectivity and runtime boundaries are unspecified</p>
+<p><strong>Reported measurements:</strong></p>
+<p>The captured official description reports that PCBgen3D outperforms a state-of-the-art general-purpose MLLM on industrial-grade PCB 3D-modeling tasks across components and manufacturers, but provides no geometric accuracy, connectivity validity, repair rate, runtime or human-effort numbers.</p>
+<p><strong>Limits on the conclusion:</strong></p>
+<p>A datasheet may contain orthographic drawings, dimensions, text descriptions, tables and images that refer to the same component. A usable 3D model must reconcile those sources into a coordinate system, solid geometry, pin locations, orientation and package identity.</p><p>A model that looks plausible can still have a wrong dimension, missing feature or incorrect pin association.</p>
+<p>A graph can represent components, geometric parts, pins and relationships such as adjacency, alignment, containment or electrical correspondence. A graph representation makes dependencies explicit, but its usefulness depends on how nodes and edges are extracted and checked against the authoritative datasheet.</p><p>An incorrect graph can make later generation consistently wrong.</p>
+<p>The dynamic task graph decomposes modeling into subtasks such as extracting dimensions, planning geometry, generating parts, placing features and refining errors. Dynamic decomposition can adapt when a package has unusual structure, but it adds scheduling, state and dependency management.</p><p>The framework must define when a task is complete and how changes propagate to dependent geometry and connectivity.</p>
+<p>Self-correction requires an error signal. A model's own textual judgment can repeat the same mistake; an independent CAD geometry checker, dimensional comparison, pin-rule validator or manufacturing constraint checker supplies a separate source of evidence.</p><p>After a repair, the entire artifact must be checked again because changing one feature can break clearance, alignment or connectivity elsewhere.</p>
+<p>The source reports better performance than a general-purpose MLLM on industrial-grade tasks across package types and manufacturers, but does not expose geometric tolerances, connectivity validity, repair success, unresolved cases, runtime, human effort, CAD formats or manufacturing validation. The record establishes a reported graph/MLLM generation proposal and qualitative comparison, not proof of usable production CAD output.</p>
+<p><strong>Source and location</strong></p>
+<p>Evidence tier: Primary captured official DAC description only; no full paper extraction, pcbgen3d/model/cad artifact reproduction or independent geometry, connectivity, repair, runtime, human effort and manufacturing validation. This is the stored source classification; the location and limits below determine what was actually read.</p>
+<p><a href="https://63dac.conference-program.com/?post_type=page&amp;p=16&amp;id=RESEARCH1991">Open the recorded source</a></p>
+<p>DAC 2026 official description and data/review-packets/dac-2026-research1991.json: datasheet-driven 3D PCB component generation; 2D views/text/dimension tables; graph-based multimodal LLM; extraction/planning/refinement modules; dynamic task graph; iterative self-correction; package/manufacturer-diverse dataset; qualitative outperformance over general-purpose MLLM; omitted geometry, connectivity, repair, runtime, human-effort and manufacturing conditions.</p>
+<details markdown="1">
+<summary>Original captured fields — superseded for this reading card</summary>
+
+** page source tier:** medium_official_description
+
+**Baselines:** manual PCB modeling
+
+direct generative model
+
+**Evidence locators:** DAC 2026 official description
+
+**Evidence url:** https://63dac.conference-program.com/?post_type=page&amp;p=16&amp;id=RESEARCH1991
+
+**Hardware or process assumptions:** EDA/MLLM generation workflow; CAD formats and compute assumptions are unspecified.
+
+**Limits:** No geometric accuracy, connectivity validity, repair rate, runtime, or human-effort results are reported.
+
+Self-correction may depend on board-specific rules.
+
+Official description only; CAD and manufacturing validation is required.
+
+**Method or artifact:** Graph-based MLLM generation with self-correction.
+
+**Metrics:** Automated 3D-model generation is claimed qualitatively
+
+**Problem:** Generating usable 3D PCB models from design specifications requires resolving geometric and connectivity errors.
+
+**Workload or benchmark:** PCB design specifications and 3D models; board families, constraints, and evaluation are unspecified.
+
+</details>
+<p><span id="paper-dac-2026-research241"></span></p>
+<h3>Pcbgen: Self-Evolving LLM Agent for Specification-to-Schematic PCB Design with Parameter Tuning</h3>
+<p>DAC 2026 · Record: <code>dac-2026-research241</code></p>
+<p><a href="#explanation-dac-2026-research241">Read the step-by-step explanation</a></p>
+<p><strong>Updated source-backed reading card</strong></p>
+<div class="worked"><p class="lm-k">Worked example</p><p>Reviewed 2026-09-08. Reconciles the PCBgen card with the captured official DAC description; explains specification-to-schematic search, PCB knowledge-graph retrieval, constraint pre-filtering, multimodal intermediate representation, SPICE-in-the-loop training-free GRPO, closed-loop tuning and the exact benchmark, Pass@5, speedup and ROI claims.</p></div>
+<p>This editorial correction updates the current reading view and connected dossiers, not the historical adjudication or scientific acceptance status. The original captured fields are preserved below.</p>
+<p><a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/data/editorial-paper-corrections-v1.json">Correction register</a></p>
+<p><strong>Problem:</strong></p>
+<p>Turning PCB power-supply specifications into a valid schematic requires selecting a topology, components and parameter values that satisfy electrical constraints. The combinations form a large search space, and a syntactically valid schematic can still fail simulation or operating requirements.</p>
+<p><strong>Mechanism / artifact:</strong></p>
+<p>PCBgen: a closed-loop specification-to-schematic framework using PCB knowledge-graph retrieval, constraint-aware pre-filtering, a multimodal intermediate representation and SPICE-in-the-loop training-free Group Relative Policy Optimization (TF-GRPO) for topology and parameter decisions.</p>
+<p><strong>Workload — the work tested:</strong></p>
+<p>Power-supply designs across six topology families and three design regimes in a 336-case benchmark, plus a 24-case comparison with human designers using vendor tools; exact specifications, component libraries, SPICE models, pass criteria and task split are not fully exposed.</p>
+<p><strong>Hardware and manufacturing assumptions:</strong></p>
+<p>EDA schematic and SPICE simulation flow with PCB knowledge graph and component library; simulator version, model fidelity, convergence policy, hardware, token budget, human review and manufacturing constraints are unspecified.</p>
+<p><strong>Baseline — the comparison method:</strong></p>
+<p>LLM-only static generation</p>
+<p>Manual schematic design with existing vendor tools</p>
+<p>Static LLM generation</p>
+<p>Case split, simulator, component library, electrical pass criteria, human effort and runtime boundaries are unspecified</p>
+<p><strong>Reported measurements:</strong></p>
+<p>The captured official description reports search-space compression from up to 10^20 candidates to roughly 10^3 simulatable designs, up to 57% improvement in topology adaptation, Pass@5 increase from 41% to 74%, over 50% reductions in token usage and wall-clock time versus LLM-only baselines, 3.70× and 4.74× speedups for topology selection and schematic verification in a 24-case human comparison with comparable Pass@1, and overall ROI of 4.39×; exact metric definitions and conditions are not exposed.</p>
+<p><strong>Limits on the conclusion:</strong></p>
+<p>A PCB specification states electrical targets and constraints, but a schematic must choose a topology, components, connections and parameter values before SPICE can evaluate it. The choices are coupled: changing a component can change operating points, stability, ripple, current stress and the feasible range of other values.</p>
+<p>PCB-KG retrieval can restrict generation to known components, topologies or design relationships. Constraint-aware pre-filtering can remove candidates that violate explicit requirements before expensive simulation.</p><p>These steps reduce search only if the graph and constraints are complete; an incorrect or overly restrictive filter can exclude the best valid design.</p>
+<p>A multimodal intermediate representation gives the agent a structured state between specification, schematic, simulation result and next action. It must preserve component identity, nets, parameter values, units, constraints and failure information.</p><p>If the representation loses a unit or connection, later reasoning can be internally consistent but electrically wrong.</p>
+<p>SPICE-in-the-loop supplies an external electrical signal for the closed loop. Training-free GRPO can compare groups of candidate actions using simulation-derived rewards without parameter training, but the reward must reflect all required constraints and handle convergence failures, unstable circuits, invalid models and simulation cost.</p><p>A high reward on one metric can hide a failure on another.</p>
+<p>The description reports strong benchmark and human-comparison results, including Pass@5, topology adaptation, token/time, speedup and ROI figures, but does not expose case specifications, simulator models, pass criteria, failed/invalid candidates, human effort accounting, component-library transfer or hardware validation. The results establish a reported agentic simulation workflow, not general electrical correctness or manufacturing readiness.</p>
+<p><strong>Source and location</strong></p>
+<p>Evidence tier: Primary captured official DAC description only; no full paper extraction, pcbgen code/simulation artifact reproduction or independent electrical, convergence, transfer, human effort and hardware validation. This is the stored source classification; the location and limits below determine what was actually read.</p>
+<p><a href="https://63dac.conference-program.com/?post_type=page&amp;p=16&amp;id=RESEARCH241">Open the recorded source</a></p>
+<p>DAC 2026 official description and data/review-packets/dac-2026-research241.json: spec-to-schematic power-supply design; PCB-KG retrieval; constraint-aware pre-filtering; multimodal IR; SPICE-in-the-loop TF-GRPO; 10^20 to ~10^3 search compression; 336 cases, six topology families, three regimes; 57% TA; Pass@5 41% to 74%; &gt;50% token/time reduction; 24-case human comparison; 3.70×/4.74× speedups; 4.39× ROI; omitted simulator, pass, human, transfer and hardware conditions.</p>
+<details markdown="1">
+<summary>Original captured fields — superseded for this reading card</summary>
+
+** page source tier:** medium_official_description
+
+**Baselines:** manual schematic design
+
+static LLM generation
+
+**Evidence locators:** DAC 2026 official description
+
+**Evidence url:** https://63dac.conference-program.com/?post_type=page&amp;p=16&amp;id=RESEARCH241
+
+**Hardware or process assumptions:** EDA schematic and simulation flow; component libraries and electrical constraints are unspecified.
+
+**Limits:** No electrical correctness, iterations, runtime, human effort, or board-diversity results are reported.
+
+Agent self-evolution may encode library or task bias.
+
+Official description only; simulation and hardware review are required.
+
+**Method or artifact:** Self-evolving LLM agent for schematic generation and parameter tuning.
+
+**Metrics:** Automated PCB design efficiency is claimed qualitatively
+
+**Problem:** Translating PCB specifications into valid schematics requires iterative component and parameter decisions.
+
+**Workload or benchmark:** PCB specifications and schematic designs; board types, rules, and evaluation are unspecified.
+
+</details>
+<p><span id="paper-dac-2026-research2443"></span></p>
+<h3>Stitch: Assertion-Guided Patching of On-Chip Protocol Implementations Using LLMs</h3>
+<p>DAC 2026 · Record: <code>dac-2026-research2443</code></p>
+<p><a href="#explanation-dac-2026-research2443">Read the step-by-step explanation</a></p>
+<p><strong>Updated source-backed reading card</strong></p>
+<div class="worked"><p class="lm-k">Worked example</p><p>Reviewed 2026-09-08. Reconciles the Stitch card with the captured official DAC description; explains assertion-guided protocol repair and separates assertion satisfaction from complete behavioral correctness.</p></div>
+<p>This editorial correction updates the current reading view and connected dossiers, not the historical adjudication or scientific acceptance status. The original captured fields are preserved below.</p>
+<p><a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/data/editorial-paper-corrections-v1.json">Correction register</a></p>
+<p><strong>Problem:</strong></p>
+<p>Repairing an on-chip protocol implementation requires changing RTL so that the intended interaction behavior is restored without breaking legal ordering, response, reset, timing or other requirements.</p>
+<p><strong>Mechanism / artifact:</strong></p>
+<p>Stitch: an assertion-guided LLM patching workflow that uses protocol assertions as feedback while proposing repairs to RTL or protocol implementations.</p>
+<p><strong>Workload — the work tested:</strong></p>
+<p>On-chip protocol RTL implementations and assertion sets; designs, protocol families, simulators, repair set, assertion language, failure distribution and case split are unspecified.</p>
+<p><strong>Hardware and manufacturing assumptions:</strong></p>
+<p>RTL simulation/formal-verification flow for on-chip protocols; synthesis, timing, clock-domain, reset, implementation and downstream integration assumptions are unspecified.</p>
+<p><strong>Baseline — the comparison method:</strong></p>
+<p>Manual patching</p>
+<p>Unguided LLM repair</p>
+<p>Assertion set, simulator/formal engine, testbench, patch acceptance rule, synthesis checks and human-review boundary are unspecified</p>
+<p><strong>Reported measurements:</strong></p>
+<p>The captured official description claims qualitative protocol-repair efficiency; it does not report accepted-patch rate, assertion coverage, regression rate, repair time, synthesis impact or human effort.</p>
+<p><strong>Limits on the conclusion:</strong></p>
+<p>An assertion is an executable condition over selected signals and time points. Passing it shows only that the observed behavior satisfies that condition; it does not prove that unasserted protocol behavior, corner cases, reset sequences, illegal inputs or interactions with other blocks are correct.</p>
+<p>The patch loop needs a trustworthy failure signal and a complete requirement boundary. If the assertion set is incomplete, an LLM can optimize for the visible checks while preserving or introducing a bug outside them.</p><p>If assertions are misleading, the workflow can move the RTL away from the intended protocol.</p>
+<p>A valid repair must be rerun against the complete regression environment, including all relevant assertions, directed tests, randomized traffic, reset and timing-sensitive cases. A patch can fix the reported counterexample while causing a new deadlock, ordering violation, liveness failure or synthesis problem.</p>
+<p>The official description does not expose protocol designs, assertion coverage, simulator or formal settings, accepted and rejected patches, regression results, synthesis/timing impact, runtime or human review. The record establishes an assertion-guided LLM repair proposal, not general protocol correctness or deployable RTL.</p>
+<p><strong>Source and location</strong></p>
+<p>Evidence tier: Primary captured official DAC description only; no full paper extraction, stitch artifact reproduction or independent formal, simulation, synthesis and integration validation. This is the stored source classification; the location and limits below determine what was actually read.</p>
+<p><a href="https://63dac.conference-program.com/?post_type=page&amp;p=16&amp;id=RESEARCH2443">Open the recorded source</a></p>
+<p>DAC 2026 official description and data/review-packets/dac-2026-research2443.json: assertion-guided LLM patching for on-chip protocol implementations; manual and unguided-LLM baselines; qualitative efficiency claim; omitted designs, assertions, simulators, correctness, coverage, synthesis, runtime and human-review conditions.</p>
+<details markdown="1">
+<summary>Original captured fields — superseded for this reading card</summary>
+
+** page source tier:** medium_official_description
+
+**Baselines:** manual patching
+
+unguided LLM repair
+
+**Evidence locators:** DAC 2026 official description
+
+**Evidence url:** https://63dac.conference-program.com/?post_type=page&amp;p=16&amp;id=RESEARCH2443
+
+**Hardware or process assumptions:** On-chip protocol RTL and verification flow; synthesis and timing assumptions are unspecified.
+
+**Limits:** No patch correctness, assertion coverage, synthesis impact, runtime, or human-review results are reported.
+
+Assertions may be incomplete or misleading.
+
+Official description only; formal and simulation validation is required.
+
+**Method or artifact:** Assertion-guided LLM patching workflow for on-chip protocols.
+
+**Metrics:** Protocol repair efficiency is claimed qualitatively
+
+**Problem:** Protocol implementation bugs require patches that preserve intended behavior and satisfy assertions.
+
+**Workload or benchmark:** RTL or protocol implementations; designs, assertions, simulators, and repair set are unspecified.
+
+</details>
+<p><span id="paper-dac-2026-research2642"></span></p>
+<h3>LLM4SDC: Leveraging Multi-Agent System for Automated SDC Generation and Benchmarking</h3>
+<p>DAC 2026 · Record: <code>dac-2026-research2642</code></p>
+<p><a href="#explanation-dac-2026-research2642">Read the step-by-step explanation</a></p>
+<p><strong>Updated source-backed reading card</strong></p>
+<div class="worked"><p class="lm-k">Worked example</p><p>Reviewed 2026-09-08. Reconciles the LLM4SDC card with the captured official DAC description; explains SDC as executable timing intent, the multi-agent generation loop, benchmarking requirements and the risk that syntactically valid constraints silently change signoff assumptions.</p></div>
+<p>This editorial correction updates the current reading view and connected dossiers, not the historical adjudication or scientific acceptance status. The original captured fields are preserved below.</p>
+<p><a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/data/editorial-paper-corrections-v1.json">Correction register</a></p>
+<p><strong>Problem:</strong></p>
+<p>Writing Synopsys Design Constraints (SDC) requires translating clock, input/output, timing exception and operating assumptions into commands that a timing tool interprets. A constraint file can parse successfully while describing the wrong design intent or hiding timing paths.</p>
+<p><strong>Mechanism / artifact:</strong></p>
+<p>LLM4SDC: a multi-agent LLM workflow for automated SDC generation and benchmarking, with agents responsible for generating or evaluating timing constraints.</p>
+<p><strong>Workload — the work tested:</strong></p>
+<p>Static-timing designs and SDC constraints; design netlists, RTL, clocks, interfaces, PDK/library data, timing tools, expert references, generated cases and train/test split are unspecified.</p>
+<p><strong>Hardware and manufacturing assumptions:</strong></p>
+<p>EDA static-timing flow; clock definitions, IO delays, false and multicycle paths, operating corners, libraries, synthesis state, PDK, tool versions, signoff rules and hardware implementation assumptions are unspecified.</p>
+<p><strong>Baseline — the comparison method:</strong></p>
+<p>Manual SDC authoring</p>
+<p>Single-agent generation</p>
+<p>Expert constraint set, timing tool, design state, corner set, review protocol and runtime boundary are unspecified</p>
+<p><strong>Reported measurements:</strong></p>
+<p>The captured official description claims qualitative constraint-generation efficiency; it does not report constraint correctness, timing correlation, path coverage, violation preservation, runtime, repair rate or expert-review effort.</p>
+<p><strong>Limits on the conclusion:</strong></p>
+<p>SDC is not ordinary configuration text. A clock period, generated clock, input/output delay, clock uncertainty or exception changes the set of timing relationships that the analyzer checks and the numerical limits applied to those relationships.</p><p>The same syntax can be valid under a different clock or interface assumption and therefore encode the wrong design intent.</p>
+<p>A multi-agent workflow can separate proposal, critique and checking. That separation helps only when the agents use different evidence or roles and when the final checker compares the generated constraints against an authoritative design and timing specification.</p><p>Multiple language-model opinions do not by themselves establish correctness.</p>
+<p>Benchmarking must compare the generated SDC with an expert or formally justified reference and then measure the timing consequences on the same netlist, libraries and corners. It must distinguish harmless textual differences from semantic differences, and must detect both over-constraint and under-constraint.</p><p>A file that produces clean timing reports may have excluded paths that should have been analyzed.</p>
+<p>The official description does not expose designs, clock/interface specifications, reference constraints, tool versions, corner setup, semantic comparison, coverage, timing correlation, runtime, failed cases or expert review. The record establishes an LLM-assisted constraint-generation proposal, not signoff-ready SDC or evidence that generated constraints preserve design intent.</p>
+<p><strong>Source and location</strong></p>
+<p>Evidence tier: Primary captured official DAC description only; no full paper extraction, llm4sdc artifact reproduction or independent timing, semantic equivalence, coverage and signoff validation. This is the stored source classification; the location and limits below determine what was actually read.</p>
+<p><a href="https://63dac.conference-program.com/?post_type=page&amp;p=16&amp;id=RESEARCH2642">Open the recorded source</a></p>
+<p>DAC 2026 official description and data/review-packets/dac-2026-research2642.json: laborious SDC writing and benchmarking; multi-agent LLM SDC generation; static timing designs; manual and single-agent baselines; qualitative efficiency claim; omitted correctness, timing correlation, coverage, runtime and expert-review conditions.</p>
+<details markdown="1">
+<summary>Original captured fields — superseded for this reading card</summary>
+
+** page source tier:** medium_official_description
+
+**Baselines:** manual SDC authoring
+
+single-agent generation
+
+**Evidence locators:** DAC 2026 official description
+
+**Evidence url:** https://63dac.conference-program.com/?post_type=page&amp;p=16&amp;id=RESEARCH2642
+
+**Hardware or process assumptions:** EDA timing-analysis flow; PDK, clocks, and signoff assumptions are unspecified.
+
+**Limits:** No constraint correctness, timing correlation, coverage, runtime, or expert-review results are reported.
+
+Generated constraints can silently alter design intent.
+
+Official description only; signoff and human validation are required.
+
+**Method or artifact:** Multi-agent LLM workflow for SDC generation and benchmarking.
+
+**Metrics:** Constraint-generation efficiency is claimed qualitatively
+
+**Problem:** Design constraints are laborious to write and benchmark consistently across timing flows.
+
+**Workload or benchmark:** Static timing designs and SDC constraints; tools, designs, and expert references are unspecified.
+
+</details>
+<p><span id="paper-dac-2026-research2829"></span></p>
+<h3>LLM-Enhanced Two-Stage Signal Temporal Logic Automatic Transformation with Structured Intermediate Representation</h3>
+<p>DAC 2026 · Record: <code>dac-2026-research2829</code></p>
+<p><a href="#explanation-dac-2026-research2829">Read the step-by-step explanation</a></p>
+<p><strong>Updated source-backed reading card</strong></p>
+<div class="worked"><p class="lm-k">Worked example</p><p>Reviewed 2026-09-08. Reconciles the LLM-assisted Signal Temporal Logic transformation card with the captured official DAC description; explains semantic preservation across representations and the role and limits of a structured intermediate representation.</p></div>
+<p>This editorial correction updates the current reading view and connected dossiers, not the historical adjudication or scientific acceptance status. The original captured fields are preserved below.</p>
+<p><a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/data/editorial-paper-corrections-v1.json">Correction register</a></p>
+<p><strong>Problem:</strong></p>
+<p>Signal Temporal Logic (STL) formulas describe Boolean and numerical conditions over signals and time intervals. Transforming them between languages or representations must preserve the same accepted and rejected signal traces, not merely produce text that parses.</p>
+<p><strong>Mechanism / artifact:</strong></p>
+<p>Two-stage LLM-assisted STL transformation workflow with a structured intermediate representation between source and target forms.</p>
+<p><strong>Workload — the work tested:</strong></p>
+<p>STL formulas and target representations; source and target languages, domains, parsers, solvers, formula complexity, test traces, equivalence oracle and train/test split are unspecified.</p>
+<p><strong>Hardware and manufacturing assumptions:</strong></p>
+<p>Formal or simulation-based verification flow; parser, solver, numerical semantics, time discretization, floating-point handling, runtime and tool versions are unspecified.</p>
+<p><strong>Baseline — the comparison method:</strong></p>
+<p>Manual transformation</p>
+<p>Single-stage LLM transformation</p>
+<p>Formula set, target syntax, semantic oracle, test traces and review boundary are unspecified</p>
+<p><strong>Reported measurements:</strong></p>
+<p>The captured official description claims transformation efficiency qualitatively; it does not report semantic-equivalence rate, coverage, runtime, failure modes, solver outcomes or expert-review effort.</p>
+<p><strong>Limits on the conclusion:</strong></p>
+<p>An STL formula defines a condition over signal values and time. Operators such as always, eventually and until depend on interval endpoints, nesting and the signal semantics.</p><p>Changing an endpoint, strictness, sampling convention or operator scope can change which traces satisfy the formula even when the transformed text looks structurally similar.</p>
+<p>A structured intermediate representation can make temporal operators, intervals, predicates, signal names, units and nesting explicit before a target-language rendering. It can reduce syntax errors only if the representation preserves every semantic detail and has a validated parser and serializer.</p><p>A clean intermediate object can still encode the wrong meaning if its schema omits a boundary or numerical convention.</p>
+<p>Two stages can separate semantic decomposition from target rendering and provide an intermediate point for checking. The stages do not by themselves prove equivalence.</p><p>The source formula, intermediate form and target formula need parser checks, type and unit checks, boundary-condition tests, and formal or exhaustive semantic comparison over an appropriate trace model.</p>
+<p>The official description does not expose formula sets, representations, temporal semantics, parsers, solvers, equivalence procedure, coverage, runtime, failed transformations or expert review. The record establishes an LLM-assisted transformation proposal, not semantic equivalence or a reliable verification artifact.</p>
+<p><strong>Source and location</strong></p>
+<p>Evidence tier: Primary captured official DAC description only; no full paper extraction, transformation artifact reproduction or independent parser, formal equivalence and simulation validation. This is the stored source classification; the location and limits below determine what was actually read.</p>
+<p><a href="https://63dac.conference-program.com/?post_type=page&amp;p=16&amp;id=RESEARCH2829">Open the recorded source</a></p>
+<p>DAC 2026 official description and data/review-packets/dac-2026-research2829.json: complex/error-prone STL transformation; two-stage LLM-assisted workflow; structured IR; manual and single-stage baselines; qualitative efficiency claim; omitted semantic equivalence, coverage, runtime, failures and expert-review conditions.</p>
+<details markdown="1">
+<summary>Original captured fields — superseded for this reading card</summary>
+
+** page source tier:** medium_official_description
+
+**Baselines:** manual transformation
+
+single-stage LLM transformation
+
+**Evidence locators:** DAC 2026 official description
+
+**Evidence url:** https://63dac.conference-program.com/?post_type=page&amp;p=16&amp;id=RESEARCH2829
+
+**Hardware or process assumptions:** Formal or simulation verification flow; parser, solver, and runtime assumptions are unspecified.
+
+**Limits:** No semantic-equivalence, coverage, runtime, failure, or expert-review results are reported.
+
+LLM outputs can introduce subtle temporal errors.
+
+Official description only; formal equivalence validation is required.
+
+**Method or artifact:** Two-stage LLM-assisted transformation with structured IR.
+
+**Metrics:** Transformation efficiency is claimed qualitatively
+
+**Problem:** Signal temporal logic transformations are complex and error-prone across representations.
+
+**Workload or benchmark:** Signal temporal-logic formulas and target representations; domains, tools, and tests are unspecified.
+
+</details>
+<p><span id="paper-dac-2026-research561"></span></p>
+<h3>Cupilot: A Strategy-Coordinated Multi-Agent Framework for CUDA Kernel Evolution</h3>
+<p>DAC 2026 · Record: <code>dac-2026-research561</code></p>
+<p><a href="#explanation-dac-2026-research561">Read the step-by-step explanation</a></p>
+<p><strong>Updated source-backed reading card</strong></p>
+<div class="worked"><p class="lm-k">Worked example</p><p>Reviewed 2026-09-08. Reconciles the Cupilot card with the captured official DAC description; explains CUDA-kernel search as a constrained compiler-and-hardware feedback loop and separates strategy coordination from correctness and transferable performance evidence.</p></div>
+<p>This editorial correction updates the current reading view and connected dossiers, not the historical adjudication or scientific acceptance status. The original captured fields are preserved below.</p>
+<p><a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/data/editorial-paper-corrections-v1.json">Correction register</a></p>
+<p><strong>Problem:</strong></p>
+<p>Optimizing a CUDA kernel requires choosing algorithm structure, memory access, thread mapping, synchronization, launch configuration and compiler-visible code so that the kernel remains correct and runs efficiently on a particular GPU.</p>
+<p><strong>Mechanism / artifact:</strong></p>
+<p>Cupilot: a multi-agent, strategy-coordinated framework for iterative CUDA kernel evolution, using agents to propose and assess changes across kernel implementations.</p>
+<p><strong>Workload — the work tested:</strong></p>
+<p>CUDA kernels; kernel set, input distributions, numerical tolerances, GPU architectures, CUDA/compiler versions, tests, optimization objective and train/tune/test separation are unspecified.</p>
+<p><strong>Hardware and manufacturing assumptions:</strong></p>
+<p>NVIDIA GPU and compiler/profiling toolchain; GPU model, driver, clock state, memory hierarchy, occupancy limits, correctness oracle, compilation settings and measurement protocol are unspecified.</p>
+<p><strong>Baseline — the comparison method:</strong></p>
+<p>Manual kernel tuning</p>
+<p>Single-agent code generation</p>
+<p>Kernel implementations, optimization budget, profiler, compiler flags, correctness tests and GPU diversity are unspecified</p>
+<p><strong>Reported measurements:</strong></p>
+<p>The captured official description claims kernel-evolution efficiency qualitatively; it does not report correctness, speedup, latency, compile time, search cost, energy, failure rate or cross-GPU results.</p>
+<p><strong>Limits on the conclusion:</strong></p>
+<p>A CUDA kernel is a program executed by many threads. Its result depends on the algorithm, memory addresses, thread and block mapping, synchronization, atomic operations, numerical precision and input shape.</p><p>A faster kernel is useful only if it produces an accepted result under the required numerical and functional checks.</p>
+<p>Strategy coordination can assign agents different search roles, such as proposing algorithm changes, tuning launch and memory parameters, profiling bottlenecks or rejecting invalid candidates. Coordination is meaningful only when the roles exchange measured evidence and respect a shared correctness boundary; multiple proposals without reproducible evaluation are not an optimization result.</p>
+<p>The compilation and profiling loop is part of the search cost. A candidate may look promising on one input or GPU because of cache state, occupancy, shape, compiler version or clock behavior.</p><p>The evaluation must include compilation time, profiling overhead, failed candidates and a fixed measurement protocol, then test unseen inputs and architectures if transfer is claimed.</p>
+<p>The official description does not expose kernels, inputs, correctness oracle, search budget, GPU models, compiler settings, speedups, compile time, cost, failures or GPU-diversity results. The record establishes a coordinated multi-agent CUDA-evolution proposal, not general kernel correctness, transferable speedup or cost-effective optimization.</p>
+<p><strong>Source and location</strong></p>
+<p>Evidence tier: Primary captured official DAC description only; no full paper extraction, cupilot artifact reproduction or independent functional, performance, cost and cross gpu validation. This is the stored source classification; the location and limits below determine what was actually read.</p>
+<p><a href="https://63dac.conference-program.com/?post_type=page&amp;p=16&amp;id=RESEARCH561">Open the recorded source</a></p>
+<p>DAC 2026 official description and data/review-packets/dac-2026-research561.json: iterative CUDA kernel search over algorithmic and low-level choices; multi-agent strategy coordination; manual and single-agent baselines; qualitative efficiency claim; omitted correctness, speedup, compile time, cost and GPU-diversity conditions.</p>
+<details markdown="1">
+<summary>Original captured fields — superseded for this reading card</summary>
+
+** page source tier:** medium_official_description
+
+**Baselines:** manual kernel tuning
+
+single-agent code generation
+
+**Evidence locators:** DAC 2026 official description
+
+**Evidence url:** https://63dac.conference-program.com/?post_type=page&amp;p=16&amp;id=RESEARCH561
+
+**Hardware or process assumptions:** NVIDIA GPU and compiler toolchain; correctness oracle and profiling assumptions are unspecified.
+
+**Limits:** No correctness, speedup, compile time, cost, or GPU-diversity results are reported.
+
+Search may overfit benchmark kernels.
+
+Official description only; reproducible kernel validation is required.
+
+**Method or artifact:** Multi-agent, strategy-coordinated CUDA kernel evolution framework.
+
+**Metrics:** Kernel evolution efficiency is claimed qualitatively
+
+**Problem:** CUDA kernel optimization requires iterative search across algorithmic and low-level implementation choices.
+
+**Workload or benchmark:** CUDA kernels; GPU architectures, tests, and optimization objectives are unspecified.
+
+</details>
+<p class="lm-k h-label">What remains to establish</p><h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>What is still unproven here</h2>
+<p>Resolve unspecified workloads, comparison methods, resource budgets, and source locations before generalizing a reported gain. Multiple papers in this selected sample permit comparison of mechanisms, but do not by themselves establish recurrence across years or a long-term trend.</p>
+<p><a href="../guide/expanded-taxonomy-v1.html">All subthemes</a> · <a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/reports/directions/README.md">Research directions</a></p><p class="meta">Written as <a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/reports/observed-subthemes/generative-design-automation.md">reports/observed-subthemes/generative-design-automation.md</a> in the course repository.</p>
+      </article>
+      <nav class="pager" aria-label="Previous and next"><a class="prev" href="generative-design-and-synthesis.html"><span class="pg-k">← Previous</span><span class="pg-t">Generative design and synthesis</span></a><a class="map" href="../subthemes.html"><span class="pg-k">Back to</span><span class="pg-t">Subthemes</span></a><a class="next" href="graph-learning-for-eda.html"><span class="pg-k">Next →</span><span class="pg-t">Graph learning for EDA</span></a></nav>
+    </section>
+  </main>
+  <footer class="course-foot">
+    <p>Built from 582 paper records coded from ISCA 2026, DAC 2026 and ICCAD 2025 (ICCAD 2026 papers were not yet public). Most records come from official program descriptions; see “How deep the reading went”. The papers belong to their authors.</p>
+    <p class="foot-links"><a href="https://github.com/mehtama1234/course-concept-library">All courses</a><a href="../index.html">This course</a><a href="../course-map.html">Course map</a><a href="../presentation/index.html">Slides</a><a href="../video/index.html">Video</a><a href="../share/index.html">Share</a></p>
+  </footer>
+  <script src="../assets/course-data.js"></script><script src="../assets/icons.js"></script><script src="../assets/icons-extra.js"></script><script src="../assets/icons-course.js"></script><script src="../assets/art.js"></script><script src="../assets/course-art.js"></script><script src="../assets/charts.js"></script><script src="../assets/course-charts.js"></script><script src="../assets/course-site.js"></script>
+</body>
+</html>

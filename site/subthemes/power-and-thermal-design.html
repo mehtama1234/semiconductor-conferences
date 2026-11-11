@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#F3ECE1" />
+  <title>Power and thermal design · Semiconductor conference atlas</title>
+  <meta name="description" content="Papers: DAC 1. Read from: 1 program descriptions, 0 abstracts or reports, 0 full papers or preprints. The explanations come first; every paper’s record follows at the end." />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Semiconductor conference atlas" />
+  <meta property="og:title" content="Power and thermal design · Semiconductor conference atlas" />
+  <meta property="og:description" content="Papers: DAC 1. Read from: 1 program descriptions, 0 abstracts or reports, 0 full papers or preprints. The explanations come first; every paper’s record follows at the end." />
+  <meta property="og:url" content="https://mehtama1234.github.io/semiconductor-conferences/subthemes/power-and-thermal-design.html" />
+  <meta property="og:image" content="https://mehtama1234.github.io/semiconductor-conferences/presentation/slides/01-cover.jpg" />
+  <meta property="og:image:width" content="1920" />
+  <meta property="og:image:height" content="1080" />
+  <meta property="og:image:alt" content="Semiconductor conference atlas: 582 papers from ISCA, DAC and ICCAD, sorted into 10 themes and six directions to watch." />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="canonical" href="https://mehtama1234.github.io/semiconductor-conferences/subthemes/power-and-thermal-design.html" />
+  <link rel="icon" href="../assets/icon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="../assets/base.css" />
+  <link rel="stylesheet" href="../assets/experience.css" />
+  <link rel="stylesheet" href="../assets/theme-atlas.css" />
+  <link rel="stylesheet" href="../assets/styles.css" />
+  <link rel="stylesheet" href="../assets/charts.css" />
+  <link rel="stylesheet" href="../assets/course.css" />
+  
+</head>
+<body class="course-site " data-house="atlas">
+  <aside class="public-demo-banner" aria-label="About this course">A plain-language guide to what ISCA, DAC and ICCAD papers say about chip and computer design · Built from the repository’s own paper records · Not made by the conferences</aside>
+  <a class="skip-link" href="#app">Skip to the page</a>
+  <header>
+    <a class="brand" href="../index.html"><span class="mark" aria-hidden="true">Si</span> Semiconductor conference atlas</a>
+    <span class="header-status"><span class="badge">582 papers</span><span class="badge">10 themes</span><span class="badge">Plain words first</span></span>
+    <a class="header-link" href="../course-map.html">Course map</a>
+  </header>
+  <nav class="course-nav" aria-label="Main sections of the course"><a href="../index.html">The big picture</a><a href="../themes.html">Themes</a><a href="../subthemes.html" aria-current="page">Subthemes</a><a href="../deep-reads.html">Deep reads</a><a href="../directions.html">What to watch</a><a href="../presentation/index.html">Slides</a><a href="../video/index.html">Video</a><a href="../share/index.html">Share</a></nav>
+  <main id="app" tabindex="-1">
+    <section class="screen active landing legacy-page" aria-labelledby="page-title">
+<div class="lm-head"><div class="hj-heading"><nav class="crumbs" aria-label="You are here"><a href="../course-map.html">Course map</a><span aria-hidden="true">›</span><a href="../subthemes.html">Subthemes</a></nav><a class="back-button" href="../subthemes.html">← <span>Subthemes</span></a><p class="eyebrow">Subtheme · 1 papers · Design methodology and tooling</p><h1 id="page-title">Power and thermal design</h1><p class="hj-sub">Papers: DAC 1. Read from: 1 program descriptions, 0 abstracts or reports, 0 full papers or preprints. The explanations come first; every paper’s record follows at the end.</p></div><div class="hj-art" data-art="trio:file-text,settings,checklist"></div></div>
+<figure class="course-fig"><div class="loop-wide" data-art="flow:design-methodology-and-tooling"></div><div class="loop-tall" data-art="flowTall:design-methodology-and-tooling"></div><figcaption>The parent theme in one picture: how a design is written down decides what a tool can change.</figcaption></figure>
+      <article class="prose">
+
+<p>This subject has 1 record in the selected sample. This page explains where it fits, then presents all captured paper evidence without shortening the measurements or limitations.</p>
+<p><a href="../guide/reading-guide-v1.html">Definitions used in the paper records</a></p>
+<p class="lm-k h-label">Understand the parent subject first</p><h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>The bigger theme this belongs to</h2>
+<ul>
+<li><a href="../themes/design-methodology-and-tooling.html">Design methodology and tooling</a></li>
+</ul>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>Energy belongs to an execution, not just an algorithm name</h2>
+<p>An algorithm specifies computation, but its energy use depends on how hardware executes it. The same operations can use different resources, move data over different paths, and take different amounts of time. An energy estimate must therefore describe both the workload and its implementation.</p>
+<p>The selected record, <a href="power-and-thermal-design.html#paper-dac-2026-research2851">The Synchoros Approach</a>, estimates energy for algorithms mapped to a coarse-grained reconfigurable array, or CGRA. Such an array provides configurable connections among processing resources that perform operations at a larger granularity than individual Boolean gates.</p>
+<p>Although the taxonomy calls this subject power and thermal design, the captured paper concerns energy estimation. It supplies no temperature analysis or thermal-management result. That distinction prevents the topic label from implying evidence the paper does not provide.</p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="file-text"></span>Mapping determines which resources do the work</h2>
+<p>A mapping assigns algorithm operations to available processing elements and schedules their execution. It also determines how intermediate values reach their consumers and where values wait when a consumer cannot use them immediately.</p>
+<p>Two valid mappings can therefore have different energy costs despite computing the same result. One may use more local storage; another may require more communication or leave resources active for longer. Counting arithmetic operations alone would miss these differences.</p>
+<p>Synchoros's description does not identify the target array, supported operations, scheduling rules, or memory hierarchy. It should not be assumed to handle every CGRA architecture or to include a particular communication model. Those details are required to establish what the estimate covers.</p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>Power, duration, and energy must remain distinct</h2>
+<p>Power is the rate at which energy is used. Total energy accumulates that rate over execution time.</p><p>A lower-power mapping can still consume more energy if it takes sufficiently longer; a faster mapping can also consume more energy if its power increase outweighs the time reduction.</p>
+<p>The measurement boundary matters as well. Energy inside the processing array is not necessarily the energy of the complete application. Input transfers, external memory, configuration, and host-side work may fall outside an array-only model. They should be identified explicitly rather than silently included or excluded.</p>
+<p>The captured description does not provide that boundary or the treatment of preparation and idle periods. It therefore cannot support a full-system energy claim, even if the proposed estimator is intended to guide early design choices.</p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>Fast estimation and accurate estimation are separate claims</h2>
+<p>Detailed implementation analysis can be expensive, motivating a cheaper estimate during exploration. The engineering tradeoff is whether the cheaper method preserves enough information to choose among candidate mappings correctly.</p>
+<p>The source calls Synchoros agile and accurate but reports no prediction error, runtime, calibration procedure, reference tools, or measured hardware comparison. These adjectives remain proposed qualities, not independently established results. A reader cannot infer an error bound or a speedup from the title.</p>
+<p>Validation should compare estimates and references for the same executions under matching technology, operating conditions, and activity assumptions. If a model is calibrated on particular mappings, testing those same mappings is weaker evidence than evaluating previously unseen algorithms or resource-use patterns.</p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>The ranking can matter more than average error</h2>
+<p>An estimator used for design search must distinguish the choices that matter. A low average error can coexist with incorrect ordering of two attractive candidates. Conversely, a systematic offset may have limited effect on ranking while still making an absolute energy-budget claim unreliable.</p>
+<p>A useful evaluation would therefore report both numerical error and the energy of the mapping selected using the estimator, checked by the reference method. It should expose difficult cases, not only a mean across easy examples.</p><p>Preparation and calibration costs also belong in the total exploration budget.</p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>What would establish the methodology's value?</h2>
+<p>The decisive comparison would hold task correctness and the target array fixed, explore alternatives under a stated budget, and verify that the chosen mappings reduce reference-measured energy. The experiment should identify unsupported architectures, workload changes requiring recalibration, and all excluded system costs.</p>
+<p>Synchoros motivates energy-aware mapping exploration rather than optimization by arithmetic count or execution speed alone. The available record supports that purpose, but not a quantitative energy advantage, temperature improvement, or measured-silicon accuracy claim. Those outcomes remain evidence requirements for the full methodology.</p>
+<p><span id="explanation-dac-2026-research2851"></span></p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="affiliate"></span>Synchoros: an energy estimator must model interconnect effects without losing the speed needed for CGRA exploration</h2>
+<p>A coarse-grained reconfigurable array (CGRA) contains programmable processing resources and configurable connections. An algorithm mapped to a CGRA becomes a concrete execution: operations are assigned to resources, values move through interconnect, storage holds intermediate results, and control or configuration determines when each operation runs.</p><p>Energy therefore depends on the mapping and physical implementation, not only on the algorithm's operation count.</p>
+<p>The Synchoros record addresses an early-design problem. Detailed post-route analysis can account for wires and implementation effects but may be too slow to evaluate many candidate mappings.</p><p>A fast model can support exploration, but it is useful only if its predictions are close enough to a reference and preserve the ordering of choices that a designer would select. “Agile” concerns estimation cost; “accurate” concerns error against a defined reference.</p><p>They are separate properties.</p>
+<p>The claimed technical difference is inclusion of interconnect impact using properties of a synchoros VLSI design style for post-route-accurate estimation. The estimator must specify what it predicts: dynamic switching energy, leakage, total power, execution energy, energy per operation, or another quantity.</p><p>It must also identify the design stage, technology, voltage, frequency, activity assumptions, wire model, memory/access model, configuration cost, idle periods and measurement boundary. A model that estimates array switching but excludes external memory or setup cannot be read as a full-application energy estimate.</p>
+<p>Mapping is the input to the estimator. A mapping determines placement, routing, parallelism, buffering, communication distance, resource utilization and execution duration.</p><p>Two mappings can perform the same arithmetic while using different wire lengths, congestion, storage accesses and active time. The estimator should therefore be tested across changes in functionality, dimensions and parallelism, not only across small variations near one design point.</p><p>It should also state which CGRA architectures and interconnect structures are outside its model.</p>
+<p>Validation needs paired executions. For each algorithm and mapping, run the proposed estimator and a reference post-route method under the same netlist or generated design, technology, operating point, activity trace and workload.</p><p>Report absolute error, relative error, distribution, worst cases, calibration and prediction runtime. If the model claims post-route accuracy, show which post-route quantities are used as the reference and whether the comparison is before or after place-and-route.</p><p>“98% accuracy” is not interpretable without the error definition, sample count, range, outliers and whether it means 2% relative error or a different score.</p>
+<p>Design-space exploration adds a ranking requirement. A model can have a low average error while selecting the wrong mapping because two candidates are close or because errors vary systematically with wire length and parallelism.</p><p>Evaluate pairwise ranking, top-k overlap, selected-mapping energy under the reference, Pareto choices across energy and performance, and total search time including model setup and calibration. Compare against a cycle-level or early power model and against post-layout estimation, but keep the candidate mappings and reference boundary identical.</p>
+<p>Energy must remain distinct from power and temperature. Power is the rate of energy use; energy integrates it over execution.</p><p>A lower-power mapping can consume more energy if it runs longer. The captured record provides no thermal analysis, temperature distribution, cooling condition or thermal-management result.</p><p>The paper belongs to energy estimation within the selected taxonomy, not evidence for a thermal improvement.</p>
+<p>The source reports that Synchoros achieves 98% estimation accuracy relative to post-route results across algorithms with variation in functionality, dimensions and parallelism. The captured record does not provide prediction runtime, calibration details, error distribution, technology/process conditions, exact reference boundary, silicon measurements or independent reproduction.</p><p>The evidence supports an interconnect-aware CGRA energy-estimation direction and a reported accuracy claim under undisclosed conditions, not general full-system energy or thermal improvement. It also does not establish a general full-system energy or thermal guarantee.</p>
+<p class="lm-k h-label">Compare the results carefully</p><h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="route"></span>How to compare these papers’ results fairly</h2>
+<p>First identify the inputs and required output quality. Then identify the limited resource: time, memory, communication, energy, circuit area, or correctness coverage.</p><p>Ask which part of the method reduces that cost and which new cost it adds. Compare numbers only when the experiments hold these conditions sufficiently similar.</p>
+<p>A conference description may explain the proposal while omitting the full experiment. An author preprint link may have been coded from its abstract. The source classification does not by itself establish that every table was read. Missing locations remain visible below.</p>
+<p class="lm-k h-label">Complete captured evidence</p><h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="file-text"></span>Every paper in this subtheme, with what its source shows</h2>
+<p>These are evidence records, not substitutes for the explanations above. Each record preserves its problem, proposed method, measurements, comparison conditions, and source limits. A populated record does not establish that its mechanism has been fully explained or independently verified.</p>
+<p><span id="paper-dac-2026-research2851"></span></p>
+<h3>An Agile and Accurate Energy Estimation Methodology for CGRA-Mapped Algorithms: The Synchoros Approach</h3>
+<p>DAC 2026 · Record: <code>dac-2026-research2851</code></p>
+<p><a href="#explanation-dac-2026-research2851">Read the step-by-step explanation</a></p>
+<p><strong>Updated source-backed reading card</strong></p>
+<div class="worked"><p class="lm-k">Worked example</p><p>Reviewed 2026-09-08. Deepens the existing Synchoros treatment into a paper-level reading; distinguishes estimation speed from accuracy, defines interconnect/mapping and measurement boundaries, explains ranking validation, preserves the reported 98% claim, and separates energy evidence from thermal or silicon evidence.</p></div>
+<p>This editorial correction updates the current reading view and connected dossiers, not the historical adjudication or scientific acceptance status. The original captured fields are preserved below.</p>
+<p><a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/data/editorial-paper-corrections-v1.json">Correction register</a></p>
+<p><strong>Problem:</strong></p>
+<p>Early CGRA mapping exploration needs energy estimates that are fast enough to use across candidates while accounting for interconnect effects that simpler models omit.</p>
+<p><strong>Mechanism / artifact:</strong></p>
+<p>Interconnect-aware Synchoros energy-estimation methodology for CGRA-mapped algorithms using synchoros VLSI design properties to approximate post-route results; predicted quantity, wire/activity model, calibration and supported architecture are unspecified.</p>
+<p><strong>Workload — the work tested:</strong></p>
+<p>CGRA-mapped algorithms varying in functionality, dimensions and parallelism; algorithm set, mappings, activity traces, technology, operating point, sample count, error definition and unseen-design split are unspecified.</p>
+<p><strong>Hardware and manufacturing assumptions:</strong></p>
+<p>CGRA processing elements, configurable interconnect, memories and post-route implementation; process node, voltage, frequency, wire extraction, switching/leakage, external memory, configuration and thermal assumptions are unspecified.</p>
+<p><strong>Baseline — the comparison method:</strong></p>
+<p>Cycle-level power model</p>
+<p>Post-layout/post-route estimation</p>
+<p>Same algorithms, mappings, technology, operating point, activity, candidate set and energy boundary are required; silicon measurement and independent reproduction are unspecified</p>
+<p><strong>Reported measurements:</strong></p>
+<p>Energy-estimation agility and accuracy are claimed; the source reports 98% estimation accuracy relative to post-route results, but no prediction runtime, error definition/distribution, calibration cost, process condition, ranking quality, silicon correlation or full-system energy result is reported.</p>
+<p><strong>Limits on the conclusion:</strong></p>
+<p>Energy prediction must identify whether it covers switching, leakage, execution energy, memory, configuration, external transfers and idle time. Interconnect-aware estimation can still be architecture- or process-specific and must be paired with the same post-route boundary.</p>
+<p>Average estimation accuracy does not establish correct design-space ranking. Report relative/absolute error, worst cases, top-k or pairwise ranking, selected-mapping reference energy, calibration and total exploration time across unseen mappings and architectures.</p>
+<p>The source reports 98% accuracy relative to post-route results, but conditions and error definition are not exposed. No prediction runtime, calibration, process, silicon or thermal results are reported; the evidence supports an energy-estimation direction, not general full-system energy or thermal improvement.</p>
+<p><strong>Source and location</strong></p>
+<p>Evidence tier: Primary captured official DAC description plus existing chapter level synchoros discussion; no full paper extraction, reproduced interconnect model, error distribution or measured silicon correlation. This is the stored source classification; the location and limits below determine what was actually read.</p>
+<p><a href="https://63dac.conference-program.com/?post_type=page&amp;p=16&amp;id=RESEARCH2851">Open the recorded source</a></p>
+<p>DAC 2026 official description; existing chapter-level Synchoros discussion; captured Problem, Mechanism / artifact, Workload, Hardware, Baseline, Measurements and Limits fields; no manuscript pages.</p>
+<details markdown="1">
+<summary>Original captured fields — superseded for this reading card</summary>
+
+** page source tier:** medium_official_description
+
+**Baselines:** cycle-level power model
+
+post-layout estimation
+
+**Evidence locators:** DAC 2026 official description
+
+**Evidence url:** https://63dac.conference-program.com/?post_type=page&amp;p=16&amp;id=RESEARCH2851
+
+**Hardware or process assumptions:** CGRA architecture and mapped datapaths; power models and process assumptions are unspecified.
+
+**Limits:** No prediction error, runtime, calibration, process, or silicon results are reported.
+
+Models may be architecture-specific.
+
+Official description only; measured correlation is required.
+
+**Method or artifact:** Energy-estimation methodology for CGRA-mapped algorithms.
+
+**Metrics:** Energy-estimation agility and accuracy are claimed qualitatively
+
+**Problem:** Energy estimates for CGRA mappings are needed early but can be expensive or inaccurate.
+
+**Workload or benchmark:** CGRA kernels and mappings; technology, measurements, and reference tools are unspecified.
+
+</details>
+<p class="lm-k h-label">What remains to establish</p><h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>What is still unproven here</h2>
+<p>Resolve unspecified workloads, comparison methods, resource budgets, and source locations before generalizing a reported gain. This subject is represented by one paper and supports a case study, not evidence of recurrence or a long-term trend.</p>
+<p><a href="../guide/expanded-taxonomy-v1.html">All subthemes</a> · <a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/reports/directions/README.md">Research directions</a></p><p class="meta">Written as <a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/reports/observed-subthemes/power-and-thermal-design.md">reports/observed-subthemes/power-and-thermal-design.md</a> in the course repository.</p>
+      </article>
+      <nav class="pager" aria-label="Previous and next"><a class="prev" href="hardware-generation-and-compilation.html"><span class="pg-k">← Previous</span><span class="pg-t">Hardware generation and compilation</span></a><a class="map" href="../subthemes.html"><span class="pg-k">Back to</span><span class="pg-t">Subthemes</span></a><a class="next" href="reproducibility-artifacts-and-benchmarks.html"><span class="pg-k">Next →</span><span class="pg-t">Reproducibility artifacts and benchmarks</span></a></nav>
+    </section>
+  </main>
+  <footer class="course-foot">
+    <p>Built from 582 paper records coded from ISCA 2026, DAC 2026 and ICCAD 2025 (ICCAD 2026 papers were not yet public). Most records come from official program descriptions; see “How deep the reading went”. The papers belong to their authors.</p>
+    <p class="foot-links"><a href="https://github.com/mehtama1234/course-concept-library">All courses</a><a href="../index.html">This course</a><a href="../course-map.html">Course map</a><a href="../presentation/index.html">Slides</a><a href="../video/index.html">Video</a><a href="../share/index.html">Share</a></p>
+  </footer>
+  <script src="../assets/course-data.js"></script><script src="../assets/icons.js"></script><script src="../assets/icons-extra.js"></script><script src="../assets/icons-course.js"></script><script src="../assets/art.js"></script><script src="../assets/course-art.js"></script><script src="../assets/charts.js"></script><script src="../assets/course-charts.js"></script><script src="../assets/course-site.js"></script>
+</body>
+</html>

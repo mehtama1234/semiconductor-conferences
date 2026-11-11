@@ -2,21 +2,34 @@
 
 Status: a research hypothesis supported by selected cases. A measured increase across comparable years has not been established.
 
-## The basic technical problem
+## The problem: a result is useful only if it stays valid under faults and attacks
 
-A system is useful only when its results remain valid under the conditions it must face. A corrupted memory value, failed component, or attacker can change the result. Protection consumes resources and may constrain how the system shares data or executes work.
+A corrupted memory value, a failed component or an attacker can change a result.
 
-## What would change in the design process
+Protection uses resources. It may also limit how the system shares data or runs work.
 
-The proposed direction is to consider those conditions while choosing the architecture and software. For example, where data is stored affects which errors must be detected and corrected. Sharing a resource can improve utilization while allowing one user to observe timing changes caused by another. Recovery can require spare capacity or retained copies of state. These choices affect normal operation as well as failure handling.
+## The change: weigh faults and attacks while choosing the architecture and software
 
-## Why the details matter
+- Where data is stored decides which errors must be detected and corrected.
+- Sharing a resource can raise utilization, but may let one user see timing changes caused by another.
+- Recovery can need spare capacity or saved copies of state.
 
-Reliability and security need different assumptions. A random fault experiment asks how the system behaves under an injected error distribution. An adversarial experiment asks what a person with specified access and knowledge can cause or observe. Success under one set of assumptions cannot establish protection against another. The paper must state the assumptions before its protection result can be interpreted.
+These choices affect normal operation, not only failure handling.
 
-## What would support or weaken the claim
+## Reliability and security rest on different assumptions
 
-Compare correct useful work, energy, detection failures, and recovery time with protection enabled. Keep the fault model or attacker capability fixed. Vary realistic fault rates or attack conditions and record uncovered cases. A direction gains support when multiple independent cases show that early design choices improve this combined outcome; an attack-specific improvement is a narrower result. The current evidence does not establish adoption rates or growth.
+- A **random fault** experiment asks how the system behaves under an injected error pattern.
+- An **adversarial** experiment asks what a person with stated access and knowledge can cause or observe.
+
+Success under one set of assumptions does not prove protection against another. A paper must state its assumptions before its protection result can be read.
+
+## The test: useful correct work with protection on, under a fixed threat
+
+1. Compare correct useful work, energy, missed detections and recovery time, with protection switched on.
+2. Keep the fault model or attacker capability fixed.
+3. Vary realistic fault rates or attack conditions, and record cases not covered.
+
+The direction gains support when several independent cases show early design choices improve this combined outcome. A fix for one attack is a narrower result. Today's evidence does not show adoption rates or growth.
 
 ## Counterpressure and falsification boundary
 

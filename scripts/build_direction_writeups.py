@@ -3,59 +3,151 @@ import json
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
+# Each direction: (title, [(heading that states the point, Markdown body), ...4 sections]).
+# Written for a newcomer: short sentences, lists where there are parts, numbered steps where order matters.
 SECTIONS = {
  'constraints-become-executable': (
  'Using design requirements to choose the next design',
- 'A design requirement states a condition that the result must satisfy. A circuit must compute the required function, fit within an area budget, and deliver signals within a specified time. A design process considers many candidates. If a requirement is checked only after choosing a candidate, an expensive implementation can fail at the end.',
- 'The proposed direction is to use checks while constructing or revising a design. A tool measures or tests a candidate, reports a failure or a cost, and the next design decision uses that information. The check must return something useful: which property failed, where the failure occurred, or which resource exceeded its limit. A simple pass or fail may eliminate a candidate without explaining how to improve it.',
- 'A language model generating circuit code, a compiler arranging operations, and a placement tool choosing component locations can all use this procedure. Their checks differ. Compiling code establishes that a tool accepts its syntax and structure. Simulating selected inputs checks those executions. Proving equivalence establishes a stronger claim within the proof model. These outcomes must remain distinct in an evaluation.',
- 'Compare methods on the same unseen design tasks with the same total time and computing resources. Count valid completed designs, failures, unresolved checks, and final area, timing, and power. If feedback improves development examples but fails on new designs, the evidence supports a narrower method. To establish a time trend, compare equivalent paper populations across years and code which checks actually influence design decisions.'),
+ [('The problem: a requirement checked only at the end can fail an expensive design', """A design requirement is a condition the result must meet. A circuit must:
+
+- compute the required function;
+- fit within an area budget;
+- deliver signals within a specified time.
+
+A design process considers many candidates. If a requirement is checked only after a candidate is chosen, an expensive implementation can fail at the end."""),
+  ('The change: run the checks while building, and let the result steer the next attempt', """1. A tool measures or tests a candidate.
+2. It reports a failure or a cost.
+3. The next design decision uses that report.
+
+The check must return something useful: which property failed, where, or which resource went over its limit. A bare pass or fail may rule a candidate out without saying how to improve it."""),
+  ('Different checks prove different things, so keep them apart', """A language model writing circuit code, a compiler arranging operations, and a placement tool choosing locations can all use this loop. Their checks differ:
+
+- **Compiling** shows a tool accepts the code's syntax and structure.
+- **Simulating** selected inputs checks those runs only.
+- **Proving equivalence** is a stronger claim, within the proof's model.
+
+An evaluation must keep these outcomes separate."""),
+  ('The test: same unseen tasks, same total budget, count every outcome', """1. Compare methods on the same unseen design tasks, with the same total time and computing resources.
+2. Count valid completed designs, failures, unresolved checks, and final area, timing and power.
+3. If feedback helps on development examples but fails on new designs, the evidence supports only a narrower method.
+4. To show a trend over time, compare equivalent sets of papers across years, and code which checks actually change design decisions.""")]),
  'data-movement-as-contract': (
  'Designing computation around the cost of moving data',
- 'Every operation needs inputs in a place the executing hardware can access. If those inputs are elsewhere, they must move. The transfer uses bandwidth, takes time, and consumes energy. A job can therefore spend most of its time waiting for values even when its arithmetic is simple.',
- 'The proposed direction is to choose the algorithm, placement of data, and execution schedule together. Keeping intermediate values near later operations can reduce repeated transfers. Moving a computation near stored data can reduce the bytes sent over a connection. Recomputing a cheap value can sometimes avoid storing and retrieving it. Each change needs an account of its new costs, including local traffic and extra computation.',
- 'These choices explain why memory systems, accelerator designs, and distributed applications overlap. A memory method determines where values can reside; an architecture determines where operations can run; a scheduler determines when workers compete for data. A method that changes only one layer may shift the delay elsewhere. A full comparison must include the initial loading of data and any later migration.',
- 'Measure completion time and energy at fixed output quality while varying input size, memory capacity, and competing requests. Include cases where data fits and does not fit in fast memory. For approximate search, compare at the same rate of correct answers. For services, include slow requests and data migration. The hypothesis weakens if an advantage disappears after matching capacity or including all transfer costs. Recurrence across the current cases alone cannot establish growth over time.'),
+ [('The problem: a job can spend most of its time waiting for data', """Every operation needs its inputs where the hardware can reach them. If they are elsewhere, they must move.
+
+Moving them uses bandwidth, takes time and costs energy. So a job can spend most of its time waiting for values, even when its arithmetic is simple."""),
+  ('The change: choose the algorithm, the data placement and the schedule together', """- Keep intermediate values near the operations that use them next, to cut repeated transfers.
+- Move a computation near the stored data, to cut the bytes sent over a connection.
+- Recompute a cheap value, sometimes, instead of storing and fetching it.
+
+Each change brings new costs, such as local traffic and extra computation. Count them."""),
+  ('Memory, architecture and scheduling overlap, so fixing one can shift the delay', """- A **memory** method decides where values can live.
+- An **architecture** decides where operations can run.
+- A **scheduler** decides when workers compete for data.
+
+A method that changes only one layer may just move the delay elsewhere. A full comparison includes the first loading of data and any later migration."""),
+  ('The test: fixed output quality, varied data sizes, every transfer counted', """1. Measure completion time and energy at fixed output quality.
+2. Vary input size, memory capacity and competing requests. Include data that fits, and data that does not fit, in fast memory.
+3. For approximate search, compare at the same rate of correct answers. For services, include slow requests and data migration.
+
+The hypothesis weakens if the advantage disappears once capacity is matched or all transfer costs are counted. Seeing it recur in today's cases cannot show growth over time.""")]),
  'closed-loop-design': (
  'Improving design choices using measured feedback',
- 'Choosing a design requires estimating what it will do. A detailed simulation can take too long to run for every candidate. A simpler model can be faster but less accurate. The design problem is therefore partly a measurement problem: how much evaluation effort should be spent before choosing the next candidate?',
- 'A feedback process evaluates a candidate, updates its estimate, and uses the revised estimate to choose another candidate. Some methods use many inexpensive predictions and a smaller number of detailed checks. This can reduce search time when the inexpensive predictions identify useful candidates. It can also exclude the best candidates if the prediction error is systematic.',
- 'The essential issue is the decision caused by the prediction. A model with a low average error can still rank the best candidates incorrectly. Errors near a hard limit are especially consequential: a small error in predicted timing or temperature can turn an apparently valid design into a failing one. The search should record rejected candidates and test whether its confidence matches later measurements.',
- 'Compare the final valid designs under equal total evaluation time. Include model training, calibration, failed simulations, and final checks. Evaluate unfamiliar designs or operating conditions to see whether the model remains useful. An improvement that disappears after charging these costs does not establish a more efficient design process. A longitudinal claim requires comparable descriptions of feedback and evaluation budgets across editions.'),
+ [('The problem: detailed checks are too slow to run on every candidate', """Choosing a design means estimating what it will do.
+
+- A detailed simulation can take too long to run on every candidate.
+- A simpler model is faster but less accurate.
+
+So design is partly a measurement problem: how much evaluation effort to spend before choosing the next candidate?"""),
+  ('The change: evaluate, update the estimate, choose again', """1. Evaluate a candidate.
+2. Update the estimate.
+3. Use the new estimate to choose the next candidate.
+
+Some methods use many cheap predictions and fewer detailed checks. That saves search time when the cheap predictions find good candidates. It can also exclude the best candidates if the prediction error is systematic."""),
+  ('What matters is the decision a prediction causes, not its average error', """A model with low average error can still rank the best candidates wrongly.
+
+Errors near a hard limit matter most. A small error in predicted timing or temperature can turn an apparently valid design into a failing one.
+
+So the search should record rejected candidates, and check whether its confidence matches later measurements."""),
+  ('The test: equal total evaluation time, with every hidden cost charged', """1. Compare the final valid designs under equal total evaluation time.
+2. Include model training, calibration, failed simulations and final checks.
+3. Try unfamiliar designs or operating conditions, to see whether the model stays useful.
+
+A gain that disappears once these costs are charged does not show a more efficient design process. A claim about change over time needs comparable descriptions of feedback and evaluation budgets across editions.""")]),
  'reliability-security-upstream': (
  'Choosing system designs with faults and attacks in view',
- 'A system is useful only when its results remain valid under the conditions it must face. A corrupted memory value, failed component, or attacker can change the result. Protection consumes resources and may constrain how the system shares data or executes work.',
- 'The proposed direction is to consider those conditions while choosing the architecture and software. For example, where data is stored affects which errors must be detected and corrected. Sharing a resource can improve utilization while allowing one user to observe timing changes caused by another. Recovery can require spare capacity or retained copies of state. These choices affect normal operation as well as failure handling.',
- 'Reliability and security need different assumptions. A random fault experiment asks how the system behaves under an injected error distribution. An adversarial experiment asks what a person with specified access and knowledge can cause or observe. Success under one set of assumptions cannot establish protection against another. The paper must state the assumptions before its protection result can be interpreted.',
- 'Compare correct useful work, energy, detection failures, and recovery time with protection enabled. Keep the fault model or attacker capability fixed. Vary realistic fault rates or attack conditions and record uncovered cases. A direction gains support when multiple independent cases show that early design choices improve this combined outcome; an attack-specific improvement is a narrower result. The current evidence does not establish adoption rates or growth.'),
+ [('The problem: a result is useful only if it stays valid under faults and attacks', """A corrupted memory value, a failed component or an attacker can change a result.
+
+Protection uses resources. It may also limit how the system shares data or runs work."""),
+  ('The change: weigh faults and attacks while choosing the architecture and software', """- Where data is stored decides which errors must be detected and corrected.
+- Sharing a resource can raise utilization, but may let one user see timing changes caused by another.
+- Recovery can need spare capacity or saved copies of state.
+
+These choices affect normal operation, not only failure handling."""),
+  ('Reliability and security rest on different assumptions', """- A **random fault** experiment asks how the system behaves under an injected error pattern.
+- An **adversarial** experiment asks what a person with stated access and knowledge can cause or observe.
+
+Success under one set of assumptions does not prove protection against another. A paper must state its assumptions before its protection result can be read."""),
+  ('The test: useful correct work with protection on, under a fixed threat', """1. Compare correct useful work, energy, missed detections and recovery time, with protection switched on.
+2. Keep the fault model or attacker capability fixed.
+3. Vary realistic fault rates or attack conditions, and record cases not covered.
+
+The direction gains support when several independent cases show early design choices improve this combined outcome. A fix for one attack is a narrower result. Today's evidence does not show adoption rates or growth.""")]),
  'physical-reality-in-the-loop': (
  'Using physical limits while selecting a design',
- 'A logical design specifies operations and connections, but actual circuits occupy space, consume current, and produce heat. Wires have electrical behavior. Manufacturing introduces variation. A design chosen using an abstract performance estimate can violate timing, temperature, or manufacturing rules after implementation.',
- 'The proposed direction is to evaluate these physical effects while choosing circuit structure, placement, packaging, or operation. A temperature estimate can change where computation is placed. A wire-delay estimate can change which components should be near one another. A variation model can change the margin required for a circuit to operate reliably. The estimate influences construction rather than merely describing the final output.',
- 'Using more physical information also costs time. A detailed model can be too expensive to run for every choice; a cheaper model can miss interactions. The important comparison is whether the resulting design remains valid under a more accurate evaluation. Agreement on easy examples is insufficient if errors concentrate near limits or on new structures.',
- 'Use the same process data, circuit inputs, package assumptions, and physical constraints. Record final violations, completed designs, search time, and any calibration cost. Test selected and rejected candidates with an independent, more accurate evaluator when available. A simulation result should retain its simulation assumptions. Manufacturing readiness requires evidence about fabricated behavior and cannot be inferred solely from a favorable model.'),
+ [('The problem: a design chosen on paper can break physical limits once built', """A logical design lists operations and connections. Real circuits take up space, draw current and produce heat. Wires have electrical behavior. Manufacturing adds variation.
+
+So a design picked with an abstract performance estimate can break timing, temperature or manufacturing rules once implemented."""),
+  ('The change: use physical estimates while choosing, not only to describe the result', """- A **temperature** estimate can change where computation is placed.
+- A **wire-delay** estimate can change which components sit near each other.
+- A **variation** model can change the safety margin a circuit needs to work reliably.
+
+The estimate shapes the construction rather than just describing the final output."""),
+  ('More physical detail costs time, so check the final design accurately', """A detailed model can be too expensive to run for every choice. A cheaper model can miss interactions.
+
+The key comparison: does the chosen design stay valid under a more accurate evaluation? Agreeing on easy examples is not enough if errors cluster near limits or on new structures."""),
+  ('The test: same physical setup, violations recorded, an independent accurate check', """1. Use the same process data, circuit inputs, package assumptions and physical constraints.
+2. Record final violations, completed designs, search time and any calibration cost.
+3. Check both selected and rejected candidates with an independent, more accurate evaluator when one exists.
+
+A simulation result keeps its simulation assumptions. Readiness for manufacturing needs evidence from fabricated parts, not only a favorable model.""")]),
  'evaluation-as-research': (
  'Designing measurements that make research results comparable',
- 'A reported result answers a particular question under a particular experiment. A speedup is the ratio of two completion times. A correctness rate is the fraction of stated tasks that passed a stated check. Changing the input set, comparison method, or rule for success can change the number even if the proposed method stays the same.',
- 'The proposed direction treats the measurement procedure as a research contribution. Better tests can expose failures that earlier tests missed. Reproducible software and input data can let another researcher check a claim. Clearly defined timeouts prevent unfinished runs from being counted as success. Separating development examples from evaluation examples helps test whether a method works beyond the cases used to build it.',
- 'An available artifact establishes that some materials can be inspected or run. Reproducing a paper result additionally requires the corresponding inputs, versions, settings, hardware, and measurement procedure. Independent review asks whether another reviewer accepts the interpretation. These are distinct achievements. The current repository has evidence and review preparation, but no independent acceptance verdicts.',
- 'Compare the same methods under documented evaluation rules and examine whether rankings survive changes in task difficulty, input size, and resource budget. Record failed and unresolved runs. A stronger evaluation can reduce a previously reported score by exposing a missing condition. That correction is useful scientific information. The research hypothesis concerns improved comparability and error detection; it does not imply that the count of evaluation papers is increasing.'),
+ [('The problem: the same method can score differently under a different test', """A reported result answers one question under one experiment.
+
+- A **speedup** is the ratio of two completion times.
+- A **correctness rate** is the fraction of stated tasks that passed a stated check.
+
+Changing the input set, the comparison method or the rule for success can change the number, even when the method is the same."""),
+  ('The change: treat the measurement procedure as a research contribution', """- Better tests can expose failures earlier tests missed.
+- Reproducible software and input data let another researcher check a claim.
+- Clearly defined timeouts stop unfinished runs from counting as success.
+- Keeping development examples apart from evaluation examples tests whether a method works beyond the cases used to build it."""),
+  ('Available, reproduced and independently reviewed are three different steps', """1. An **available artifact** shows some materials can be inspected or run.
+2. **Reproducing** a result also needs the matching inputs, versions, settings, hardware and measurement procedure.
+3. **Independent review** asks whether another reviewer accepts the interpretation.
+
+This repository has evidence and review preparation, but no independent acceptance verdicts yet."""),
+  ('The test: do rankings survive harder tasks, bigger inputs and other budgets?', """1. Compare the same methods under documented evaluation rules.
+2. Check whether rankings survive changes in task difficulty, input size and resource budget.
+3. Record failed and unresolved runs.
+
+A stronger evaluation can lower a previously reported score by exposing a missing condition. That correction is useful scientific information. The hypothesis is about better comparability and error detection. It does not claim that the number of evaluation papers is rising.""")]),
 }
 
 def build(root=ROOT):
     atlas = json.loads((root / 'data/long-term-direction-atlas-v1.json').read_text())
     for direction in atlas['directions']:
         did = direction['direction_id']
-        title, basic, change, detail, test = SECTIONS[did]
+        title, sections = SECTIONS[did]
         path = root / direction['page']
         evidence_page = f'evidence/{path.stem}-evidence.md'
         challenge = direction['challenge']
         lines = ['# ' + title, '',
-                 'Status: a research hypothesis supported by selected cases. A measured increase across comparable years has not been established.', '',
-                 '## The basic technical problem', '', basic, '',
-                 '## What would change in the design process', '', change, '',
-                 '## Why the details matter', '', detail, '',
-                 '## What would support or weaken the claim', '', test, '',
+                 'Status: a research hypothesis supported by selected cases. A measured increase across comparable years has not been established.', '']
+        for heading, body in sections:
+            lines += ['## ' + heading, '', body.strip(), '']
+        lines += [
                  '## Counterpressure and falsification boundary', '',
                  f"Challenge paper: `{challenge['paper_id']}` ({challenge['relation']}; source tier `{challenge['evidence_tier']}`). [Open the recorded source]({challenge['source_url']}).", '',
                  challenge['qualification'], '',

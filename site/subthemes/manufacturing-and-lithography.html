@@ -1,0 +1,214 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#F3ECE1" />
+  <title>Manufacturing and lithography · Semiconductor conference atlas</title>
+  <meta name="description" content="Papers: DAC 2. Read from: 2 program descriptions, 0 abstracts or reports, 0 full papers or preprints. The explanations come first; every paper’s record follows at the end." />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Semiconductor conference atlas" />
+  <meta property="og:title" content="Manufacturing and lithography · Semiconductor conference atlas" />
+  <meta property="og:description" content="Papers: DAC 2. Read from: 2 program descriptions, 0 abstracts or reports, 0 full papers or preprints. The explanations come first; every paper’s record follows at the end." />
+  <meta property="og:url" content="https://mehtama1234.github.io/semiconductor-conferences/subthemes/manufacturing-and-lithography.html" />
+  <meta property="og:image" content="https://mehtama1234.github.io/semiconductor-conferences/presentation/slides/01-cover.jpg" />
+  <meta property="og:image:width" content="1920" />
+  <meta property="og:image:height" content="1080" />
+  <meta property="og:image:alt" content="Semiconductor conference atlas: 582 papers from ISCA, DAC and ICCAD, sorted into 10 themes and six directions to watch." />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="canonical" href="https://mehtama1234.github.io/semiconductor-conferences/subthemes/manufacturing-and-lithography.html" />
+  <link rel="icon" href="../assets/icon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="../assets/base.css" />
+  <link rel="stylesheet" href="../assets/experience.css" />
+  <link rel="stylesheet" href="../assets/theme-atlas.css" />
+  <link rel="stylesheet" href="../assets/styles.css" />
+  <link rel="stylesheet" href="../assets/charts.css" />
+  <link rel="stylesheet" href="../assets/course.css" />
+  
+</head>
+<body class="course-site " data-house="atlas">
+  <aside class="public-demo-banner" aria-label="About this course">A plain-language guide to what ISCA, DAC and ICCAD papers say about chip and computer design · Built from the repository’s own paper records · Not made by the conferences</aside>
+  <a class="skip-link" href="#app">Skip to the page</a>
+  <header>
+    <a class="brand" href="../index.html"><span class="mark" aria-hidden="true">Si</span> Semiconductor conference atlas</a>
+    <span class="header-status"><span class="badge">582 papers</span><span class="badge">10 themes</span><span class="badge">Plain words first</span></span>
+    <a class="header-link" href="../course-map.html">Course map</a>
+  </header>
+  <nav class="course-nav" aria-label="Main sections of the course"><a href="../index.html">The big picture</a><a href="../themes.html">Themes</a><a href="../subthemes.html" aria-current="page">Subthemes</a><a href="../deep-reads.html">Deep reads</a><a href="../directions.html">What to watch</a><a href="../presentation/index.html">Slides</a><a href="../video/index.html">Video</a><a href="../share/index.html">Share</a></nav>
+  <main id="app" tabindex="-1">
+    <section class="screen active landing legacy-page" aria-labelledby="page-title">
+<div class="lm-head"><div class="hj-heading"><nav class="crumbs" aria-label="You are here"><a href="../course-map.html">Course map</a><span aria-hidden="true">›</span><a href="../subthemes.html">Subthemes</a></nav><a class="back-button" href="../subthemes.html">← <span>Subthemes</span></a><p class="eyebrow">Subtheme · 2 papers · Physical design and manufacturing</p><h1 id="page-title">Manufacturing and lithography</h1><p class="hj-sub">Papers: DAC 2. Read from: 2 program descriptions, 0 abstracts or reports, 0 full papers or preprints. The explanations come first; every paper’s record follows at the end.</p></div><div class="hj-art" data-art="trio:affiliate,grid-dots,route"></div></div>
+<figure class="course-fig"><div class="loop-wide" data-art="flow:physical-design-and-manufacturing"></div><div class="loop-tall" data-art="flowTall:physical-design-and-manufacturing"></div><figcaption>The parent theme in one picture: turning connections into geometry: every step pushes on the others.</figcaption></figure>
+      <article class="prose">
+
+<p>This subject has 2 records in the selected sample. This page explains where it fits, then presents all captured paper evidence without shortening the measurements or limitations.</p>
+<p><a href="../guide/reading-guide-v1.html">Definitions used in the paper records</a></p>
+<p class="lm-k h-label">Understand the parent subject first</p><h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>The bigger theme this belongs to</h2>
+<ul>
+<li><a href="../themes/physical-design-and-manufacturing.html">Physical design and manufacturing</a></li>
+</ul>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="help-circle"></span>Why the mask differs from the desired wafer pattern</h2>
+<p>Lithography transfers a pattern using light and a light-sensitive material on the wafer. The optical and material processes affect the resulting shapes.</p><p>Consequently, using the desired final geometry directly as the mask geometry does not necessarily produce the intended result. Computational lithography models these effects and changes the mask to compensate.</p><p>This is the role described in <a href="https://www.asml.com/en/products/computational-lithography">ASML's computational-lithography overview</a>.</p>
+<p>Two tasks follow. A forward calculation predicts the result of a specified mask and process. An inverse calculation searches for a mask that produces an acceptable result. The papers in this subject address different parts of that calculation; neither captured description includes numerical evaluation.</p>
+<p><span id="explanation-dac-2026-research1622"></span></p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="world"></span>N3Litho: fast 3D field reconstruction is useful only when the printed-pattern decision survives</h2>
+<p><a href="manufacturing-and-lithography.html#paper-dac-2026-research1622">N3Litho</a> combines numerical and neural computation for three-dimensional mask modeling, propagation, and aerial-image simulation on GPUs. An aerial image is a modeled optical field or intensity distribution, not the final resist profile, etched shape, or wafer measurement.</p><p>Agreement at this stage is necessary for downstream use but does not alone validate the manufacturing result.</p>
+<p>The source describes a GPU-accelerated vectorial Abbe solver coupled to a neural multi-resolution hash backbone. The framework reconstructs a full 3D in-resist vector field from an image-plane vector field plus 3D mask and film-stack parameters.</p><p>This is a specific field-reconstruction hypothesis: it does not establish which solver stages are learned, the field channels and units, discretization, boundary conditions, training targets, loss, uncertainty, fallback or coupling to the resist model.</p>
+<p>The first gate is near-EM fidelity. Compare vector components, phase/intensity, polarization, depth behavior, boundary conditions and residuals against an independent rigorous electromagnetic solver at critical edges, sidewalls, corners and multilayer interfaces.</p><p>Then pass the field through the same resist model and report edge-placement error, pattern fidelity and hotspot decisions. A small average image error can hide the feature or depth that changes an OPC/ILT decision.</p>
+<p>The second gate is process transfer. Hold out mask topologies, thickness and sidewall profiles, film stacks, wavelength/NA/illumination, polarization, focus/dose and process corners.</p><p>Separate interpolation, extrapolation and retraining, and report uncertainty, out-of-support detection and fallback to rigorous simulation. A neural hash representation trained on one geometry/stack distribution may be fast while failing on rare 3D features.</p>
+<p>The official description claims near-EM fidelity and orders-of-magnitude speedup, with 3D aerial images intended for resist models, OPC/ILT and hotspot detection. It gives no field/image error, runtime, memory, resolution, process-window result, downstream mask metric, hotspot precision/recall or wafer correlation.</p><p>End-to-end timing must include preprocessing, vectorial solving, hash-grid inference, memory movement, batching, repeated ILT/OPC evaluations, rejected candidates and final mask checks.</p>
+<p>The evidence supports a GPU numerical-neural 3D lithography direction, not demonstrated process-window robustness, signoff-quality OPC/ILT, wafer correlation or complete full-chip acceleration.</p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>Forward modeling: what N3Litho proposes</h2>
+<p><a href="manufacturing-and-lithography.html#paper-dac-2026-research1622">N3Litho</a> combines numerical and neural computation for three-dimensional mask modeling, propagation, and aerial-image simulation on GPUs. An aerial image is the modeled optical intensity distribution, not the final etched circuit. Agreement at this stage is important but does not alone validate every later physical process.</p>
+<p>Three-dimensional mask modeling makes the vertical structure part of the calculation rather than treating the mask only as a flat pattern. The source does not expose which numerical operations are replaced or supplemented by learned components.</p><p>It would therefore be unjustified to assign the speedup to a particular neural approximation, or to claim that all physical effects are retained.</p>
+<p>To evaluate the framework, the reference calculation, spatial resolution, mask materials, illumination conditions, GPU, and error metric must be specified. An average image error can hide a local error near a critical feature.</p><p>Total runtime should include model preparation and data movement when those are required by the tested workflow. The captured record supplies no image-fidelity, runtime, memory, or wafer-correlation measurements.</p>
+<p><span id="explanation-dac-2026-research827"></span></p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>Inverse optimization: what DR. OPC proposes</h2>
+<p><a href="manufacturing-and-lithography.html#paper-dac-2026-research827">DR. OPC</a> uses differentiable rasterization for optical proximity correction. Rasterization converts geometric shapes into a sampled grid representation. Differentiability allows an optimization procedure to estimate how changing the geometry changes a later objective, through that conversion step.</p>
+<p>This can make geometry adjustment easier to optimize, but it does not guarantee that a reduction in the computed objective produces a better physical mask. The sampled representation may approximate sharp boundaries, and the downstream model may omit relevant process effects.</p><p>These are validation questions, not reported failures of this paper. The source does not specify the rasterizer or the assumptions used to obtain derivatives.</p>
+<p>The source reports reductions of 52.1% in L2 error, 16.0% in PVB and 21.1% in EPE, but does not define their references, aggregation, process-window corners, mask legality, runtime, iteration count or printability boundary. L2, PVB and EPE are not interchangeable evidence of wafer quality.</p>
+<p>The complete gate is physical. Validate curvilinear and segmented masks against an independent lithography/resist simulator, mask-rule and writer constraints, held-out focus/dose/process corners, and measured wafer contours where available.</p><p>Count rasterization, simulation, optimization, repair, fracture and final validation in the runtime boundary. The evidence supports differentiable OPC optimization, not demonstrated signoff-quality or wafer-validated lithographic improvement.</p>
+<p>The final result should be checked in a reference lithography model and against mask-manufacturing constraints. Edge-placement error measures displacement of a resulting pattern boundary from its target.</p><p>That must be distinguished from runtime and mask complexity: reducing one does not establish an improvement in the others. None of those numerical results is available in the captured record.</p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>Accuracy across conditions, not only at one setting</h2>
+<p>A process window is the range of operating conditions over which the printed result remains acceptable. A mask optimized for one nominal condition can be unsuitable when conditions change.</p><p>Comparing methods therefore requires common variation ranges and acceptance limits, not simply attractive images from one setting.</p>
+<p>These two proposals are potentially complementary: a forward model supplies predictions, and a geometry optimizer uses predictions to choose changes. The records do not show them integrated.</p><p>A useful research question is whether faster forward computation and differentiable geometry together reduce the cost of producing masks that pass independent checks across the same process window. Demonstrating that would require a complete experiment, including approximation error and rejected designs, rather than multiplying separate claimed speedups.</p>
+<p class="lm-k h-label">Compare the results carefully</p><h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="route"></span>How to compare these papers’ results fairly</h2>
+<p>First identify the inputs and required output quality. Then identify the limited resource: time, memory, communication, energy, circuit area, or correctness coverage.</p><p>Ask which part of the method reduces that cost and which new cost it adds. Compare numbers only when the experiments hold these conditions sufficiently similar.</p>
+<p>A conference description may explain the proposal while omitting the full experiment. An author preprint link may have been coded from its abstract. The source classification does not by itself establish that every table was read. Missing locations remain visible below.</p>
+<p class="lm-k h-label">Complete captured evidence</p><h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="file-text"></span>Every paper in this subtheme, with what its source shows</h2>
+<p>These are evidence records, not substitutes for the explanations above. Each record preserves its problem, proposed method, measurements, comparison conditions, and source limits. A populated record does not establish that its mechanism has been fully explained or independently verified.</p>
+<p><span id="paper-dac-2026-research1622"></span></p>
+<h3>N3Litho: A GPU-Native Numerical-Neural Framework for 3D Mask Modeling, 3D Propagation, and 3D Aerial Image Simulation</h3>
+<p>DAC 2026 · Record: <code>dac-2026-research1622</code></p>
+<p><a href="#explanation-dac-2026-research1622">Read the step-by-step explanation</a></p>
+<p><strong>Updated source-backed reading card</strong></p>
+<div class="worked"><p class="lm-k">Worked example</p><p>Reviewed 2026-09-09. Deepens the N3Litho treatment into a paper-level reading; separates GPU-accelerated vectorial Abbe solving, multi-resolution hash reconstruction and 3D mask/film-stack conditioning from near-EM field fidelity, resist/OPC validity, process-window transfer, memory/runtime accounting and wafer correlation, without inventing numerical results.</p></div>
+<p>This editorial correction updates the current reading view and connected dossiers, not the historical adjudication or scientific acceptance status. The original captured fields are preserved below.</p>
+<p><a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/data/editorial-paper-corrections-v1.json">Correction register</a></p>
+<p><strong>Problem:</strong></p>
+<p>Advanced-node lithography requires depth-dependent 3D in-resist vector fields and aerial images for masks with thickness, sidewalls and multilayer films, but rigorous electromagnetic simulation is expensive for ILT and full-chip analysis.</p>
+<p><strong>Mechanism / artifact:</strong></p>
+<p>N3Litho couples a GPU-accelerated vectorial Abbe solver with a neural multi-resolution hash-grid backbone to reconstruct a 3D in-resist vector field from image-plane vector fields plus 3D mask and film-stack parameters; solver discretization, neural training target, field channels, sampling, boundary conditions, loss, fallback and coupling boundary are unspecified.</p>
+<p><strong>Workload — the work tested:</strong></p>
+<p>3D masks, multilayer film stacks and in-resist aerial-image/field simulations for advanced lithography, with claimed use in resist models, OPC/ILT and hotspot detection; wavelength/NA/illumination, mask geometry/materials, stack thickness, grid resolution, process conditions, reference EM solver, design scale and held-out process/mask split are unspecified.</p>
+<p><strong>Hardware and manufacturing assumptions:</strong></p>
+<p>GPU-native vectorial optics and neural inference for computational lithography; GPU model/memory, precision, CUDA/kernel implementation, EM solver, mask/film materials, resist model, focus/dose, polarization, coherence, fabrication variation and wafer/metrology correlation are unspecified.</p>
+<p><strong>Baseline — the comparison method:</strong></p>
+<p>Rigorous electromagnetic lithography solver</p>
+<p>Thin-mask or 2D aerial-image approximation</p>
+<p>Conventional GPU numerical simulation</p>
+<p>Same mask/stack, wavelength/illumination, grid, field definition, error tolerance, GPU/CPU hardware, preprocessing, solver initialization and downstream resist/OPC timing boundary are unspecified</p>
+<p><strong>Reported measurements:</strong></p>
+<p>The official description claims near-EM fidelity and orders-of-magnitude speedup, with 3D aerial images usable by resist models, OPC/ILT and hotspot detection, but reports no field/image error, residual, runtime, memory, resolution, process-window result, downstream mask metric, hotspot precision/recall or wafer correlation.</p>
+<p><strong>Limits on the conclusion:</strong></p>
+<p>A 3D aerial image or vector field is an intermediate physical quantity, not a printed wafer pattern. Compare vector components, phase/intensity, boundary behavior, polarization and depth-dependent error against an independent rigorous EM reference at critical mask edges and through the stack; then propagate the field through the same resist model and report edge-placement error, pattern fidelity and hotspot decisions.</p><p>Near-EM average error does not establish resist or wafer validity.</p>
+<p>The neural reconstruction may be process- and geometry-specific. Hold out mask topologies, thickness/sidewall profiles, film stacks, wavelengths, illumination/polarization, focus/dose and process corners; separate interpolation, extrapolation and retraining.</p><p>Report uncertainty, out-of-support detection, fallback to the numerical solver and errors at rare 3D features rather than only nominal images.</p>
+<p>Orders-of-magnitude speed must include mask/field preprocessing, vectorial solver work, hash-grid inference, memory movement, batching, initialization and any fallback. For ILT/OPC or full-chip use, count repeated evaluations, rejected candidates, resist simulation, mask-rule checks and downstream validation.</p><p>The evidence supports a GPU numerical-neural 3D lithography direction, not demonstrated process-window robustness, signoff-quality OPC/ILT, wafer correlation or complete full-chip acceleration.</p>
+<p><strong>Source and location</strong></p>
+<p>Evidence tier: Primary captured official DAC description plus existing authored computational lithography discussion; no full paper extraction, independent em reproduction, process calibrated resist validation or wafer/metrology study. This is the stored source classification; the location and limits below determine what was actually read.</p>
+<p><a href="https://63dac.conference-program.com/?post_type=page&amp;p=16&amp;id=RESEARCH1622&amp;sess=sess154">Open the recorded source</a></p>
+<p>DAC 2026 official description; existing manufacturing-and-lithography chapter framing; captured Problem, Mechanism / artifact, Workload, Hardware, Baseline, Measurements and Limits fields; no manuscript pages, EM-error table, process-window matrix, downstream resist/OPC result or wafer correlation.</p>
+<details markdown="1">
+<summary>Original captured fields — superseded for this reading card</summary>
+
+** page source tier:** medium_official_description
+
+**Baselines:** conventional lithography simulator
+
+2D approximation
+
+**Evidence locators:** DAC 2026 official description
+
+**Evidence url:** https://63dac.conference-program.com/?post_type=page&amp;p=16&amp;id=RESEARCH1622
+
+**Hardware or process assumptions:** GPU numerical and neural kernels for lithography; GPU model and process assumptions are unspecified.
+
+**Limits:** No image fidelity, runtime, memory, process-window, or silicon correlation results are reported.
+
+Neural surrogates may be process-specific.
+
+Official description only; calibrated process validation is required.
+
+**Method or artifact:** GPU-native numerical-neural 3D lithography simulation framework.
+
+**Metrics:** Simulation efficiency is claimed qualitatively
+
+**Problem:** Three-dimensional lithography simulation is computationally expensive while requiring physical fidelity.
+
+**Workload or benchmark:** 3D masks and aerial-image simulations; process stack, solver, and calibration data are unspecified.
+
+</details>
+<p><span id="paper-dac-2026-research827"></span></p>
+<h3>DR. OPC: Differentiable Rasterization for Advanced Optical Proximity Correction</h3>
+<p>DAC 2026 · Record: <code>dac-2026-research827</code></p>
+<p><a href="#explanation-dac-2026-research827">Read the step-by-step explanation</a></p>
+<p><strong>Updated source-backed reading card</strong></p>
+<div class="worked"><p class="lm-k">Worked example</p><p>Reviewed 2026-09-09. Deepens the DR.</p><p>OPC treatment into a paper-level reading; separates differentiable rasterization and advanced OPC objectives from lithography-model fidelity, mask-rule legality, process-window robustness, runtime, printability and wafer validation, while preserving the reported 52.1% L2, 16.0% PVB and 21.1% EPE reductions with their unspecified baselines and conditions.</p></div>
+<p>This editorial correction updates the current reading view and connected dossiers, not the historical adjudication or scientific acceptance status. The original captured fields are preserved below.</p>
+<p><a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/data/editorial-paper-corrections-v1.json">Correction register</a></p>
+<p><strong>Problem:</strong></p>
+<p>Optical proximity correction must compensate lithographic distortion, but rasterization, lithography simulation and mask correction are expensive and a non-differentiable geometry-to-grid step limits gradient-based optimization and flexible mask features.</p>
+<p><strong>Mechanism / artifact:</strong></p>
+<p>DR. OPC is described as a fully differentiable OPC pipeline using differentiable rasterization, with support for curvilinear patterns, multi-segment solving, process-window improvement and mask-rule-violation correction. The rasterization surrogate, lithography/resist model, gradient estimator, objective weighting, mask representation, rule constraints and optimization schedule are unspecified.</p>
+<p><strong>Workload — the work tested:</strong></p>
+<p>Advanced-lithography mask layouts evaluated with optical/lithography models and process-window objectives; technology node, wavelength/NA/illumination, mask topology, resist model, focus/dose corners, layout size, reference simulator, iteration budget and held-out layout split are unspecified.</p>
+<p><strong>Hardware and manufacturing assumptions:</strong></p>
+<p>OPC and mask-writing flow for advanced lithography with curvilinear or segmented mask geometry; process stack, resist, optical model, mask bias, minimum feature/spacing, writer constraints, design-rule deck, simulator, compute hardware and wafer/printability measurement are unspecified.</p>
+<p><strong>Baseline — the comparison method:</strong></p>
+<p>Traditional OPC</p>
+<p>Non-differentiable OPC optimization</p>
+<p>Same mask layout, lithography/resist model, process window, mask rules, simulator, iteration/stopping criterion, compute hardware and downstream printability check are unspecified</p>
+<p><strong>Reported measurements:</strong></p>
+<p>The source reports reductions of 52.1% in L2 error, 16.0% in PVB and 21.1% in EPE, but does not define the reference, averaging, sign convention, process-window corners, mask legality, runtime, iteration count, mask complexity, printability or wafer result. PVB and EPE must be reported with their exact definitions and conditions before cross-paper comparison.</p>
+<p><strong>Limits on the conclusion:</strong></p>
+<p>A differentiable rasterizer supplies gradients through a sampled geometry representation; it does not guarantee that the optimized mask is legal, writable or physically printed. Validate geometry discretization, curvilinear segments, minimum widths/spacings, mask-rule violations, fracture/writer constraints and the full lithography/resist response with an independent trusted simulator.</p>
+<p>L2, PVB and EPE measure different aspects of image or pattern agreement. Define target contours, reference, aggregation, focus/dose/process corners and error units; report worst-case and distributional behavior rather than only an average reduction. Test held-out layouts and process conditions, including out-of-distribution patterns and fallback behavior.</p>
+<p>The 52.1%/16.0%/21.1% claims do not establish faster end-to-end OPC, process-window robustness, mask manufacturability or wafer correlation. Count rasterization, lithography simulation, gradient/optimization iterations, rule repair, mask fracture, data movement and final validation; compare at matched printability and EPE/PVB targets.</p><p>The evidence supports differentiable OPC optimization, not demonstrated signoff-quality or wafer-validated lithographic improvement.</p>
+<p><strong>Source and location</strong></p>
+<p>Evidence tier: Primary captured official DAC description; no full paper extraction, calibrated lithography/printability validation, runtime trace or wafer result. This is the stored source classification; the location and limits below determine what was actually read.</p>
+<p><a href="https://63dac.conference-program.com/?post_type=page&amp;p=16&amp;id=RESEARCH827">Open the recorded source</a></p>
+<p>DAC 2026 official description; existing manufacturing-and-lithography editorial explanation; captured Problem, Mechanism / artifact, Workload, Hardware, Baseline, Measurements and Limits fields; no manuscript pages, metric definitions, process-window matrix, writer validation or wafer correlation.</p>
+<details markdown="1">
+<summary>Original captured fields — superseded for this reading card</summary>
+
+** page source tier:** medium_official_description
+
+**Baselines:** traditional OPC
+
+non-differentiable optimization
+
+**Evidence locators:** DAC 2026 official description
+
+**Evidence url:** https://63dac.conference-program.com/?post_type=page&amp;p=16&amp;id=RESEARCH827
+
+**Hardware or process assumptions:** Advanced lithography and mask-writing flow; process and resist assumptions are unspecified.
+
+**Limits:** No printability, edge-placement error, runtime, mask complexity, or wafer results are reported.
+
+Differentiable approximations may miss process effects.
+
+Official description only; calibrated lithography validation is required.
+
+**Method or artifact:** Differentiable rasterization for OPC optimization.
+
+**Metrics:** OPC optimization efficiency is claimed qualitatively
+
+**Problem:** Optical proximity correction requires expensive lithography simulation and optimization of mask geometry.
+
+**Workload or benchmark:** Mask layouts and lithography models; node, process window, and simulator are unspecified.
+
+</details>
+<p class="lm-k h-label">What remains to establish</p><h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>What is still unproven here</h2>
+<p>Resolve unspecified workloads, comparison methods, resource budgets, and source locations before generalizing a reported gain. Multiple papers in this selected sample permit comparison of mechanisms, but do not by themselves establish recurrence across years or a long-term trend.</p>
+<p><a href="../guide/expanded-taxonomy-v1.html">All subthemes</a> · <a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/reports/directions/README.md">Research directions</a></p><p class="meta">Written as <a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/reports/observed-subthemes/manufacturing-and-lithography.md">reports/observed-subthemes/manufacturing-and-lithography.md</a> in the course repository.</p>
+      </article>
+      <nav class="pager" aria-label="Previous and next"><a class="prev" href="manufacturing-and-yield.html"><span class="pg-k">← Previous</span><span class="pg-t">Manufacturing and yield</span></a><a class="map" href="../subthemes.html"><span class="pg-k">Back to</span><span class="pg-t">Subthemes</span></a><a class="next" href="physical-design-and-routing.html"><span class="pg-k">Next →</span><span class="pg-t">Physical design and routing</span></a></nav>
+    </section>
+  </main>
+  <footer class="course-foot">
+    <p>Built from 582 paper records coded from ISCA 2026, DAC 2026 and ICCAD 2025 (ICCAD 2026 papers were not yet public). Most records come from official program descriptions; see “How deep the reading went”. The papers belong to their authors.</p>
+    <p class="foot-links"><a href="https://github.com/mehtama1234/course-concept-library">All courses</a><a href="../index.html">This course</a><a href="../course-map.html">Course map</a><a href="../presentation/index.html">Slides</a><a href="../video/index.html">Video</a><a href="../share/index.html">Share</a></p>
+  </footer>
+  <script src="../assets/course-data.js"></script><script src="../assets/icons.js"></script><script src="../assets/icons-extra.js"></script><script src="../assets/icons-course.js"></script><script src="../assets/art.js"></script><script src="../assets/course-art.js"></script><script src="../assets/charts.js"></script><script src="../assets/course-charts.js"></script><script src="../assets/course-site.js"></script>
+</body>
+</html>

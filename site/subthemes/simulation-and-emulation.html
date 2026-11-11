@@ -1,0 +1,305 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#F3ECE1" />
+  <title>Simulation and emulation · Semiconductor conference atlas</title>
+  <meta name="description" content="Papers: DAC 3. Read from: 3 program descriptions, 0 abstracts or reports, 0 full papers or preprints. The explanations come first; every paper’s record follows at the end." />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Semiconductor conference atlas" />
+  <meta property="og:title" content="Simulation and emulation · Semiconductor conference atlas" />
+  <meta property="og:description" content="Papers: DAC 3. Read from: 3 program descriptions, 0 abstracts or reports, 0 full papers or preprints. The explanations come first; every paper’s record follows at the end." />
+  <meta property="og:url" content="https://mehtama1234.github.io/semiconductor-conferences/subthemes/simulation-and-emulation.html" />
+  <meta property="og:image" content="https://mehtama1234.github.io/semiconductor-conferences/presentation/slides/01-cover.jpg" />
+  <meta property="og:image:width" content="1920" />
+  <meta property="og:image:height" content="1080" />
+  <meta property="og:image:alt" content="Semiconductor conference atlas: 582 papers from ISCA, DAC and ICCAD, sorted into 10 themes and six directions to watch." />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="canonical" href="https://mehtama1234.github.io/semiconductor-conferences/subthemes/simulation-and-emulation.html" />
+  <link rel="icon" href="../assets/icon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="../assets/base.css" />
+  <link rel="stylesheet" href="../assets/experience.css" />
+  <link rel="stylesheet" href="../assets/theme-atlas.css" />
+  <link rel="stylesheet" href="../assets/styles.css" />
+  <link rel="stylesheet" href="../assets/charts.css" />
+  <link rel="stylesheet" href="../assets/course.css" />
+  
+</head>
+<body class="course-site " data-house="atlas">
+  <aside class="public-demo-banner" aria-label="About this course">A plain-language guide to what ISCA, DAC and ICCAD papers say about chip and computer design · Built from the repository’s own paper records · Not made by the conferences</aside>
+  <a class="skip-link" href="#app">Skip to the page</a>
+  <header>
+    <a class="brand" href="../index.html"><span class="mark" aria-hidden="true">Si</span> Semiconductor conference atlas</a>
+    <span class="header-status"><span class="badge">582 papers</span><span class="badge">10 themes</span><span class="badge">Plain words first</span></span>
+    <a class="header-link" href="../course-map.html">Course map</a>
+  </header>
+  <nav class="course-nav" aria-label="Main sections of the course"><a href="../index.html">The big picture</a><a href="../themes.html">Themes</a><a href="../subthemes.html" aria-current="page">Subthemes</a><a href="../deep-reads.html">Deep reads</a><a href="../directions.html">What to watch</a><a href="../presentation/index.html">Slides</a><a href="../video/index.html">Video</a><a href="../share/index.html">Share</a></nav>
+  <main id="app" tabindex="-1">
+    <section class="screen active landing legacy-page" aria-labelledby="page-title">
+<div class="lm-head"><div class="hj-heading"><nav class="crumbs" aria-label="You are here"><a href="../course-map.html">Course map</a><span aria-hidden="true">›</span><a href="../subthemes.html">Subthemes</a></nav><a class="back-button" href="../subthemes.html">← <span>Subthemes</span></a><p class="eyebrow">Subtheme · 3 papers · Verification and validation</p><h1 id="page-title">Simulation and emulation</h1><p class="hj-sub">Papers: DAC 3. Read from: 3 program descriptions, 0 abstracts or reports, 0 full papers or preprints. The explanations come first; every paper’s record follows at the end.</p></div><div class="hj-art" data-art="trio:file-text,checklist,search"></div></div>
+<figure class="course-fig"><div class="loop-wide" data-art="flow:verification-and-validation"></div><div class="loop-tall" data-art="flowTall:verification-and-validation"></div><figcaption>The parent theme in one picture: a check proves only what its property and tests cover.</figcaption></figure>
+      <article class="prose">
+
+<p>This subject has 3 records in the selected sample. This page explains where it fits, then presents all captured paper evidence without shortening the measurements or limitations.</p>
+<p><a href="../guide/reading-guide-v1.html">Definitions used in the paper records</a></p>
+<p class="lm-k h-label">Understand the parent subject first</p><h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>The bigger theme this belongs to</h2>
+<ul>
+<li><a href="../themes/verification-and-validation.html">Verification and validation</a></li>
+</ul>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>A simulation result is conditional on a model and an input</h2>
+<p>Simulation executes a description of behavior. Its result depends on the model, the supplied inputs, and the rules used to order events.</p><p>Faster execution lets a project examine more cases, but it does not correct an incomplete model or a weak test. Emulation uses an implementation platform to execute represented behavior; the selected records do not establish that their methods run on a hardware emulator.</p>
+<p>This group spans three different parts of a verification workflow: parallel simulation, generated peripheral traces, and maintenance of hardware-generation benchmarks. The common need is preserving the meaning of a test while increasing the amount or usefulness of testing.</p><p>None of the captured descriptions supplies quantitative evaluation.</p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>Partitioning simulation according to activity</h2>
+<p><a href="simulation-and-emulation.html#paper-dac-2026-research440">Activity-aware RTL partitioning</a> divides event-driven simulation work among threads. RTL describes updates to hardware state and the logic between those updates. An event-driven simulator processes changes that require further evaluation rather than assuming that every modeled object performs equal work at every step.</p>
+<p>Equal-sized partitions can therefore have unequal execution cost. A region with many objects but little activity can require less work than a smaller, frequently changing region.</p><p>Accounting for activity is a plausible way to balance work. However, partition boundaries also create communication and synchronization costs when one region affects another.</p>
+<p>The source does not specify how activity is estimated or whether partitions change during execution. A workload used to estimate activity may differ from a later test, so evaluation should include changes in stimulus and operating phase.</p><p>The relevant result is reduced complete simulation time on the same design and tests, including preparation and synchronization.</p>
+<p>Correct event semantics are equally important. Parallel scheduling must preserve the behavior required by the language and simulation model.</p><p>Agreement on a few final values would not necessarily expose an incorrectly ordered intermediate event. The record provides no determinism, trace-equivalence, memory, or thread-scaling results, so correctness and scalability remain unverified claims.</p>
+<p><span id="explanation-dac-2026-research440"></span></p>
+<h3>Activity-aware RTL partitioning: balancing event work must preserve event-causality semantics</h3>
+<h4>What event-driven RTL simulation does</h4>
+<p>RTL describes hardware state and the logic that updates it. An event-driven simulator schedules evaluation when a signal or state changes and propagates resulting changes to dependent logic. It does not perform equal work for every modeled object at every simulated time.</p>
+<p>A large quiet region can generate little work, while a small region with a clock, reset, handshake or feedback activity can generate many events. Static equal-size partitions can therefore give one thread a much larger queue than another.</p><p>Activity-aware partitioning tries to use observed or predicted event work when assigning regions to threads.</p>
+<h4>What partitioning adds</h4>
+<p>When a dependency crosses a partition boundary, a thread must communicate the event or state update to another thread. The simulator needs a rule for timestamps, causality, event ownership, synchronization and simultaneous updates. Repartitioning can also move state, rebuild queues or invalidate an activity estimate.</p>
+<p>The useful balance is complete simulation time, not only equal event counts or thread utilization. Work that is moved across a boundary can reduce local imbalance while increasing synchronization and memory traffic.</p><p>Activity from one stimulus or phase may also fail to predict a later phase, creating imbalance or excessive repartition overhead.</p>
+<h4>Correctness and scalability are separate</h4>
+<p>A parallel simulator must preserve the RTL language and simulator semantics, including ordering of dependent events and the handling of same-time updates. Matching a few final register values does not prove trace equivalence or determinism.</p><p>Repeated runs should expose whether event order, random seeds, scheduling and floating-point behavior produce the same declared result.</p>
+<p>Compare serial simulation, static partitioning and activity-aware partitioning on the same designs, traces, simulator settings, cores and stopping condition. Report complete wall time, speedup by thread count, event count, synchronization and communication time, repartition time, memory, utilization, determinism and mismatches in event or state traces.</p><p>Include stimulus and operating phases not used to estimate activity.</p>
+<p>The captured DAC description supports activity-aware partitioning for multi-threaded event-driven RTL simulation. It reports no activity estimator, event protocol, deterministic-trace result, speedup, memory, overhead or design-suite measurement. The evidence supports a load-balancing direction, not demonstrated faster or semantically equivalent simulation.</p>
+<p><a href="simulation-and-emulation.html#paper-dac-2026-research440">Observed paper card</a></p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>Generating a trace that a peripheral could produce</h2>
+<p><a href="simulation-and-emulation.html#paper-dac-2026-research514">The Phantom of PCIe</a> constrains generative models used to synthesize peripheral traces. A trace records a sequence of interactions. Generating individually plausible entries is not enough: their ordering and state dependencies must also be valid for the modeled device and protocol.</p>
+<p>The captured description does not identify the constraints, protocol version, peripheral classes, or validity checker. It would be inappropriate to infer coverage of particular PCIe rules. The evaluation needs to state which properties are enforced by construction and which are checked afterward.</p>
+<p>Validity and usefulness are separate outcomes. Repeating a small set of valid sequences can produce a high validity rate with little new test coverage.</p><p>A diverse collection of invalid traces can exercise error handling without representing normal operation. A useful study should identify its intended testing purpose and report validated diversity, execution cost, and replay results under that purpose.</p><p>Those measurements are absent here.</p>
+<p><span id="explanation-dac-2026-research514"></span></p>
+<h3>The Phantom of PCIe: a plausible transaction is not a valid stateful peripheral trace</h3>
+<h4>What a peripheral trace represents</h4>
+<p>A trace is an ordered record of interactions between a host and a peripheral. It can include configuration reads and writes, memory transactions, completions, data movement, interrupts, errors and timing or ordering information.</p><p>The legality of one event can depend on earlier events: a device may need to be configured before a DMA request, and a completion must correspond to a request with the right tag and state.</p>
+<p>Generative AI can produce entries that look like examples while violating protocol ordering, credit rules, link timing, device state, payload constraints or completion dependencies. A constraint system must state which of these properties it enforces during generation and which are checked afterward.</p>
+<h4>What constrained generation must preserve</h4>
+<p>The method needs a device-state model, protocol version, transaction grammar, legal state transitions, timing rules, error behavior and a validation oracle. It should distinguish constraints enforced by construction from post-generation filtering.</p><p>If a trace is rejected, the system should record why; otherwise a high acceptance rate can hide that the generator avoids difficult but valuable cases.</p>
+<p>Validity and coverage are different. Repeating a short sequence that always succeeds can produce high validity with little new state or protocol coverage.</p><p>Generating many rare or invalid sequences can increase diversity without testing normal operation. The target should define coverage of states, transaction types, ordering combinations, error paths and device behaviors.</p>
+<h4>What the evaluation must measure</h4>
+<p>Compare unconstrained generation, constrained generation and record-and-replay under the same device classes, protocol, trace budget and hardware or software oracle. Report protocol-validity rate, state-transition validity, coverage, diversity, novelty, generation time, rejection cost, replay success, error handling and resource use.</p><p>Replay on a model is different from replay on a real or cycle-accurate peripheral.</p>
+<p>Test unseen device configurations and protocol sequences, including configuration changes, DMA, backpressure, completion reordering, malformed inputs and recovery. A constraint learned only from known device classes may not transfer to a new peripheral or protocol version.</p>
+<p>The captured DAC description supports constrained generative synthesis of PCIe peripheral traces. It reports no protocol version, state model, validity oracle, coverage, diversity, runtime, replay or hardware result. The evidence supports a test-input generation direction, not demonstrated PCIe coverage or real-device usefulness.</p>
+<p><a href="simulation-and-emulation.html#paper-dac-2026-research514">Observed paper card</a></p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>Updating a benchmark without losing comparability</h2>
+<p><a href="simulation-and-emulation.html#paper-dac-2026-research874">RTL-Benchmt</a> uses agents to analyze and revise RTL-generation benchmarks. A benchmark defines both the tasks and the procedure used to judge generated hardware. Revising either can change apparent model performance even when the model itself is unchanged.</p>
+<p>Maintenance can be useful when tasks contain errors or tools change. To support comparisons, however, each revision needs a recorded reason, versioned inputs and checkers, and reruns of relevant baselines.</p><p>A test added after seeing a candidate failure is valuable for future checks but changes the basis of the score. It should not silently replace the original evaluation protocol.</p>
+<p>The source supplies no benchmark-validity, contamination-control, coverage, revision-cost, or model-comparison results. An agent's successful edit is not independently established benchmark correctness. Review should verify that generated implementations cannot pass by exploiting weak tests and that revised tasks retain their intended difficulty and meaning.</p>
+<p><span id="explanation-dac-2026-research874"></span></p>
+<h3>RTL-Benchmt: changing a benchmark changes the measurement unless tasks, checkers and versions remain comparable</h3>
+<h4>What a benchmark measures</h4>
+<p>An RTL-generation benchmark is not only a list of prompts. It includes task descriptions, reference intent, input/output behavior, testbenches or checkers, tool versions, resource limits, compilation rules and the procedure that turns an implementation into a score.</p><p>A model can score higher because the task became easier or the checker became weaker, even when the model did not improve.</p>
+<p>RTL tasks are especially sensitive to checker design. A generated module may pass a narrow simulation while violating an untested protocol condition, using an unintended latency, relying on an unsupported language feature or exploiting a mismatch between the prompt and the test.</p><p>Synthesis and timing checks may reveal failures that a functional test misses.</p>
+<h4>What agent-assisted maintenance changes</h4>
+<p>An agent can inspect failures, revise task text, add tests, update reference designs or identify stale tool assumptions. That can improve a benchmark, but each revision is a change to the instrument.</p><p>The workflow needs a recorded reason, versioned task and checker files, an approval decision, contamination controls and reruns of relevant baselines before and after the change.</p>
+<p>A test added after seeing a candidate failure may be an important regression test. It can also leak a solution detail or make the new benchmark harder in a way that invalidates historical score comparisons.</p><p>The governance process must distinguish bug repair, scope expansion, difficulty calibration and security hardening.</p>
+<h4>What the evaluation must expose</h4>
+<p>Compare static and revised benchmarks with the same model versions, prompts, toolchain, time/memory limits and random seeds where relevant. Report task validity, checker false acceptance/rejection, language and tool coverage, functional and synthesis coverage, contamination or solution leakage, revision time, task difficulty, baseline score changes and the reasons for every revision.</p>
+<p>Review tasks with independent humans or models that did not author the revision. Run generated RTL through simulation, synthesis, timing and intended design-rule checks, and include hidden tests that cover protocol, reset, corner and adversarial behavior.</p><p>Preserve old benchmark versions so that a model can be evaluated on both historical and current instruments.</p>
+<p>The captured DAC description supports agent-assisted RTL-benchmark maintenance. It reports no validity audit, contamination control, coverage, revision cost, difficulty analysis, checker-strength result or baseline rerun. The evidence supports a benchmark-governance direction, not evidence that agent maintenance improves RTL-generation measurement.</p>
+<p><a href="simulation-and-emulation.html#paper-dac-2026-research874">Observed paper card</a></p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>The end-to-end implication</h2>
+<p>The three proposals motivate improving execution capacity, test inputs, and evaluation maintenance together. That connection is a research hypothesis, not an integration demonstrated by the papers.</p><p>A stronger workflow would preserve reproducible versions, validate model and trace semantics, and report new confirmed findings per total verification cost. More simulation steps or a higher benchmark score alone cannot establish that real hardware is better verified.</p>
+<p class="lm-k h-label">Compare the results carefully</p><h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="route"></span>How to compare these papers’ results fairly</h2>
+<p>First identify the inputs and required output quality. Then identify the limited resource: time, memory, communication, energy, circuit area, or correctness coverage.</p><p>Ask which part of the method reduces that cost and which new cost it adds. Compare numbers only when the experiments hold these conditions sufficiently similar.</p>
+<p>A conference description may explain the proposal while omitting the full experiment. An author preprint link may have been coded from its abstract. The source classification does not by itself establish that every table was read. Missing locations remain visible below.</p>
+<p class="lm-k h-label">Complete captured evidence</p><h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="file-text"></span>Every paper in this subtheme, with what its source shows</h2>
+<p>These are evidence records, not substitutes for the explanations above. Each record preserves its problem, proposed method, measurements, comparison conditions, and source limits. A populated record does not establish that its mechanism has been fully explained or independently verified.</p>
+<p><span id="paper-dac-2026-research440"></span></p>
+<h3>Activity-Aware Partitioning for Effective Multi-Threaded Event-Driven RTL Simulation</h3>
+<p>DAC 2026 · Record: <code>dac-2026-research440</code></p>
+<p><a href="#explanation-dac-2026-research440">Read the step-by-step explanation</a></p>
+<p><strong>Updated source-backed reading card</strong></p>
+<div class="worked"><p class="lm-k">Worked example</p><p>Reviewed 2026-09-08. Deepens the existing activity-aware RTL simulation treatment into a paper-level reading; separates activity-based load balancing from event causality, cross-partition synchronization, determinism and complete simulation-time evidence.</p></div>
+<p>This editorial correction updates the current reading view and connected dossiers, not the historical adjudication or scientific acceptance status. The original captured fields are preserved below.</p>
+<p><a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/data/editorial-paper-corrections-v1.json">Correction register</a></p>
+<p><strong>Problem:</strong></p>
+<p>Event-driven RTL simulation has uneven work because some modeled regions change frequently while others remain idle, and cross-region dependencies can limit thread scalability.</p>
+<p><strong>Mechanism / artifact:</strong></p>
+<p>Activity-aware partitioning for parallel RTL simulation; activity estimator, partition granularity, repartition policy, event ownership, synchronization protocol and simulator integration are unspecified.</p>
+<p><strong>Workload — the work tested:</strong></p>
+<p>Event-driven RTL designs and stimulus traces; simulator, design suite, activity phases, thread counts and trace split are unspecified.</p>
+<p><strong>Hardware and manufacturing assumptions:</strong></p>
+<p>Multicore host running an event-driven RTL simulator; core topology, memory, synchronization, event queue and inter-thread communication assumptions are unspecified.</p>
+<p><strong>Baseline — the comparison method:</strong></p>
+<p>Serial RTL simulation</p>
+<p>Static partitioning</p>
+<p>Simulator, design, stimulus, thread, correctness and timing conditions are unspecified</p>
+<p><strong>Reported measurements:</strong></p>
+<p>Simulation scalability is claimed qualitatively; no complete simulation time, speedup, determinism, memory, partitioning overhead, synchronization cost or design-suite result is reported.</p>
+<p><strong>Limits on the conclusion:</strong></p>
+<p>Event-driven simulation processes updates and propagates changes through dependent RTL logic. Equal object counts do not imply equal work: a small active region can generate more events than a large quiet region.</p><p>Activity-aware partitioning can balance work only when the estimate represents the later stimulus and operating phase.</p>
+<p>Partition boundaries create communication and synchronization. A parallel simulator must preserve event ordering or the defined semantics when one region affects another; matching final values on a few tests may miss an incorrectly ordered intermediate event or nondeterministic race.</p>
+<p>The official description reports no activity estimator, repartition cost, event protocol, deterministic-trace check, memory, thread scaling, complete time or design-suite result. It supports a load-balancing direction, not demonstrated faster or semantically equivalent RTL simulation.</p>
+<p><strong>Source and location</strong></p>
+<p>Evidence tier: Primary captured official DAC description plus existing chapter level RTL simulation discussion; no full paper extraction, simulator reproduction or determinism/scaling validation. This is the stored source classification; the location and limits below determine what was actually read.</p>
+<p><a href="https://63dac.conference-program.com/?post_type=page&amp;p=16&amp;id=RESEARCH440">Open the recorded source</a></p>
+<p>DAC 2026 official description; captured Problem, Mechanism / artifact, Workload, Hardware, Baseline, Measurements and Limits fields; record RESEARCH440; no manuscript pages.</p>
+<details markdown="1">
+<summary>Original captured fields — superseded for this reading card</summary>
+
+** page source tier:** medium_official_description
+
+**Baselines:** serial RTL simulation
+
+static partitioning
+
+**Evidence locators:** DAC 2026 official description
+
+**Evidence url:** https://63dac.conference-program.com/?post_type=page&amp;p=16&amp;id=RESEARCH440
+
+**Hardware or process assumptions:** Multicore host and event-driven simulator; synchronization and memory assumptions are unspecified.
+
+**Limits:** No simulation speed, determinism, memory, overhead, or design-suite results are reported.
+
+Activity estimates may be workload-specific.
+
+Official description only; simulator and design validation is required.
+
+**Method or artifact:** Activity-aware partitioning for parallel RTL simulation.
+
+**Metrics:** Simulation scalability is claimed qualitatively
+
+**Problem:** Event-driven RTL simulation has uneven activity and synchronization that limit thread scalability.
+
+**Workload or benchmark:** Event-driven RTL designs; simulators, traces, and thread counts are unspecified.
+
+</details>
+<p><span id="paper-dac-2026-research514"></span></p>
+<h3>The Phantom of PCIe: Constraining Generative Artificial Intelligences for Practical Peripherals Trace Synthesizing</h3>
+<p>DAC 2026 · Record: <code>dac-2026-research514</code></p>
+<p><a href="#explanation-dac-2026-research514">Read the step-by-step explanation</a></p>
+<p><strong>Updated source-backed reading card</strong></p>
+<div class="worked"><p class="lm-k">Worked example</p><p>Reviewed 2026-09-08. Deepens the existing Phantom of PCIe treatment into a paper-level reading; separates syntactic trace plausibility, protocol validity, stateful device behavior, coverage diversity and hardware replay.</p></div>
+<p>This editorial correction updates the current reading view and connected dossiers, not the historical adjudication or scientific acceptance status. The original captured fields are preserved below.</p>
+<p><a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/data/editorial-paper-corrections-v1.json">Correction register</a></p>
+<p><strong>Problem:</strong></p>
+<p>Generative models can produce PCIe peripheral traces whose individual transactions look plausible but whose ordering, state dependencies or timing cannot occur for a real device and protocol.</p>
+<p><strong>Mechanism / artifact:</strong></p>
+<p>Constraint mechanism for generative AI peripheral-trace synthesis; protocol constraints, device state model, timing rules, validation oracle and generation/rejection process are unspecified.</p>
+<p><strong>Workload — the work tested:</strong></p>
+<p>PCIe peripheral traces; device classes, protocol version, transaction mix, error cases, trace length, capture source and coverage target are unspecified.</p>
+<p><strong>Hardware and manufacturing assumptions:</strong></p>
+<p>PCIe host/peripheral system with trace capture and replay; link generation, timing, configuration state, DMA, memory model and hardware oracle are unspecified.</p>
+<p><strong>Baseline — the comparison method:</strong></p>
+<p>Unconstrained trace generation</p>
+<p>Record-and-replay traces</p>
+<p>Device class, protocol, validity checker, replay hardware and coverage conditions are unspecified</p>
+<p><strong>Reported measurements:</strong></p>
+<p>Trace synthesis utility is claimed qualitatively; no protocol-validity rate, coverage, diversity, runtime, replay success, error-handling or hardware result is reported.</p>
+<p><strong>Limits on the conclusion:</strong></p>
+<p>A trace is a time-ordered sequence of requests, completions, configuration changes, data transfers and errors. A transaction can be valid in isolation but invalid after the device state, ordering rule, credit, tag, link timing or completion dependency is considered.</p>
+<p>Constraints can enforce known syntax or state transitions, but they may encode only the device classes and scenarios represented in their specification. A high validity rate can come from repeating a small safe sequence, while a diverse set can contain invalid traces; validity and useful coverage must be measured separately.</p>
+<p>The official description reports no protocol version, state model, validity oracle, coverage definition, diversity metric, runtime, replay result or hardware trace validation. The record supports constrained generation as a test-input direction, not demonstrated PCIe coverage or real-device usefulness.</p>
+<p><strong>Source and location</strong></p>
+<p>Evidence tier: Primary captured official DAC description plus existing chapter level pcie trace discussion; no full paper extraction, protocol oracle or hardware replay validation. This is the stored source classification; the location and limits below determine what was actually read.</p>
+<p><a href="https://63dac.conference-program.com/?post_type=page&amp;p=16&amp;id=RESEARCH514">Open the recorded source</a></p>
+<p>DAC 2026 official description; captured Problem, Mechanism / artifact, Workload, Hardware, Baseline, Measurements and Limits fields; record RESEARCH514; no manuscript pages.</p>
+<details markdown="1">
+<summary>Original captured fields — superseded for this reading card</summary>
+
+** page source tier:** medium_official_description
+
+**Baselines:** unconstrained trace generation
+
+record-and-replay traces
+
+**Evidence locators:** DAC 2026 official description
+
+**Evidence url:** https://63dac.conference-program.com/?post_type=page&amp;p=16&amp;id=RESEARCH514
+
+**Hardware or process assumptions:** PCIe host/peripheral systems and trace capture; protocol and timing assumptions are unspecified.
+
+**Limits:** No protocol validity, coverage, diversity, runtime, or hardware-replay results are reported.
+
+Constraints may encode only known device classes.
+
+Official description only; hardware trace validation is required.
+
+**Method or artifact:** Constraint mechanism for generative AI trace synthesis.
+
+**Metrics:** Trace synthesis utility is claimed qualitatively
+
+**Problem:** Generative models may produce unrealistic PCIe peripheral traces without hardware and protocol constraints.
+
+**Workload or benchmark:** PCIe peripheral traces; devices, protocols, and validation oracles are unspecified.
+
+</details>
+<p><span id="paper-dac-2026-research874"></span></p>
+<h3>RTL-Benchmt: Dynamic Maintenance of RTL Generation Benchmark Through Agent-Assisted Analysis and Revision</h3>
+<p>DAC 2026 · Record: <code>dac-2026-research874</code></p>
+<p><a href="#explanation-dac-2026-research874">Read the step-by-step explanation</a></p>
+<p><strong>Updated source-backed reading card</strong></p>
+<div class="worked"><p class="lm-k">Worked example</p><p>Reviewed 2026-09-08. Deepens the existing RTL-Benchmt treatment into a paper-level reading; separates benchmark maintenance from model improvement and makes task validity, checker strength, leakage, versioning, difficulty and baseline comparability explicit.</p></div>
+<p>This editorial correction updates the current reading view and connected dossiers, not the historical adjudication or scientific acceptance status. The original captured fields are preserved below.</p>
+<p><a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/data/editorial-paper-corrections-v1.json">Correction register</a></p>
+<p><strong>Problem:</strong></p>
+<p>RTL-generation benchmarks can become stale or contain flawed tasks as design patterns, tools and evaluation requirements change, which can make model comparisons unreliable.</p>
+<p><strong>Mechanism / artifact:</strong></p>
+<p>Agent-assisted benchmark analysis and revision workflow; revision policy, agent permissions, task/checker changes, acceptance review and version-control procedure are unspecified.</p>
+<p><strong>Workload — the work tested:</strong></p>
+<p>RTL-generation tasks and test suites; designs, languages, tool versions, licenses, synthesis flow, hidden tests and evaluation protocol are unspecified.</p>
+<p><strong>Hardware and manufacturing assumptions:</strong></p>
+<p>RTL simulation and synthesis environment; simulator, synthesizer, target technology, timing/signoff rules, resource limits and tool versions are unspecified.</p>
+<p><strong>Baseline — the comparison method:</strong></p>
+<p>Static RTL benchmark</p>
+<p>Manual benchmark maintenance</p>
+<p>Model comparisons require the same task, checker, tool, version, budget and contamination controls</p>
+<p><strong>Reported measurements:</strong></p>
+<p>Benchmark maintenance efficiency is claimed qualitatively; no benchmark-validity, leakage, coverage, revision cost, task-difficulty, checker-strength or model-comparison result is reported.</p>
+<p><strong>Limits on the conclusion:</strong></p>
+<p>A benchmark is both a set of tasks and a measurement procedure. Changing a prompt, reference design, hidden test, checker or synthesis setting can change model scores even when the model is unchanged.</p><p>A revision must record what changed, why it changed and which prior scores remain comparable.</p>
+<p>An agent can identify a broken task or propose a stronger test, but the revision needs independent review. Tests added after seeing a model output can fix a real weakness while also changing the evaluation basis or leaking information about the target solution.</p><p>Checkers must reject implementations that exploit underspecified behavior rather than implement the intended hardware.</p>
+<p>The official description reports no validity audit, contamination control, coverage, revision cost, difficulty analysis, baseline rerun or model-comparison result. The record supports benchmark governance as a research direction, not evidence that agent maintenance improves RTL-generation measurement.</p>
+<p><strong>Source and location</strong></p>
+<p>Evidence tier: Primary captured official DAC description plus existing chapter level benchmark maintenance discussion; no full paper extraction, independent governance review or baseline rerun. This is the stored source classification; the location and limits below determine what was actually read.</p>
+<p><a href="https://63dac.conference-program.com/?post_type=page&amp;p=16&amp;id=RESEARCH874">Open the recorded source</a></p>
+<p>DAC 2026 official description; captured Problem, Mechanism / artifact, Workload, Hardware, Baseline, Measurements and Limits fields; record RESEARCH874; no manuscript pages.</p>
+<details markdown="1">
+<summary>Original captured fields — superseded for this reading card</summary>
+
+** page source tier:** medium_official_description
+
+**Baselines:** static RTL benchmark
+
+manual benchmark maintenance
+
+**Evidence locators:** DAC 2026 official description
+
+**Evidence url:** https://63dac.conference-program.com/?post_type=page&amp;p=16&amp;id=RESEARCH874
+
+**Hardware or process assumptions:** RTL simulation/synthesis environment; tool versions and signoff assumptions are unspecified.
+
+**Limits:** No benchmark validity, leakage, coverage, revision cost, or model-comparison results are reported.
+
+Agent revisions may change task difficulty.
+
+Official description only; independent benchmark governance is required.
+
+**Method or artifact:** Agent-assisted benchmark analysis and revision workflow.
+
+**Metrics:** Benchmark maintenance efficiency is claimed qualitatively
+
+**Problem:** RTL-generation benchmarks become stale as tools and design patterns change.
+
+**Workload or benchmark:** RTL-generation tasks and test suites; designs, licenses, and evaluation protocol are unspecified.
+
+</details>
+<p class="lm-k h-label">What remains to establish</p><h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>What is still unproven here</h2>
+<p>Resolve unspecified workloads, comparison methods, resource budgets, and source locations before generalizing a reported gain. Multiple papers in this selected sample permit comparison of mechanisms, but do not by themselves establish recurrence across years or a long-term trend.</p>
+<p><a href="../guide/expanded-taxonomy-v1.html">All subthemes</a> · <a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/reports/directions/README.md">Research directions</a></p><p class="meta">Written as <a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/reports/observed-subthemes/simulation-and-emulation.md">reports/observed-subthemes/simulation-and-emulation.md</a> in the course repository.</p>
+      </article>
+      <nav class="pager" aria-label="Previous and next"><a class="prev" href="processor-and-rtl-verification.html"><span class="pg-k">← Previous</span><span class="pg-t">Processor and RTL verification</span></a><a class="map" href="../subthemes.html"><span class="pg-k">Back to</span><span class="pg-t">Subthemes</span></a><a class="next" href="emulation-and-prototyping.html"><span class="pg-k">Next →</span><span class="pg-t">Emulation and prototyping</span></a></nav>
+    </section>
+  </main>
+  <footer class="course-foot">
+    <p>Built from 582 paper records coded from ISCA 2026, DAC 2026 and ICCAD 2025 (ICCAD 2026 papers were not yet public). Most records come from official program descriptions; see “How deep the reading went”. The papers belong to their authors.</p>
+    <p class="foot-links"><a href="https://github.com/mehtama1234/course-concept-library">All courses</a><a href="../index.html">This course</a><a href="../course-map.html">Course map</a><a href="../presentation/index.html">Slides</a><a href="../video/index.html">Video</a><a href="../share/index.html">Share</a></p>
+  </footer>
+  <script src="../assets/course-data.js"></script><script src="../assets/icons.js"></script><script src="../assets/icons-extra.js"></script><script src="../assets/icons-course.js"></script><script src="../assets/art.js"></script><script src="../assets/course-art.js"></script><script src="../assets/charts.js"></script><script src="../assets/course-charts.js"></script><script src="../assets/course-site.js"></script>
+</body>
+</html>

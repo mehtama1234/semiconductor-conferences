@@ -18,14 +18,14 @@ function render() {
   ].map(([n, label]) => `<div class="stat"><strong>${n}</strong><span>${label}</span></div>`).join("");
   document.querySelector("#themes").innerHTML = themes.map(theme => `
     <article class="theme-card">
-      <div class="theme-card-head"><div><h3>${esc(theme.label)}</h3><p>${theme.record_count} records · ${theme.subtheme_count} subthemes · ${theme.mechanism_count} mechanisms</p></div><a href="../reports/themes/${esc(theme.theme_id)}.md">Theme writeup ↗</a></div>
+      <div class="theme-card-head"><div><h3>${esc(theme.label)}</h3><p>${theme.record_count} records · ${theme.subtheme_count} subthemes · ${theme.mechanism_count} mechanisms</p></div><a href="themes/${esc(theme.theme_id)}.html">Read the theme →</a></div>
       <div class="subthemes">${theme.subthemes.map(sub => `
         <details class="subtheme" ${q ? "open" : ""}>
           <summary><span>${esc(sub.label)}</span><em>${sub.record_count} records · ${sub.mechanism_count} mechanisms</em></summary>
-          <div class="subtheme-body"><p><a href="../reports/observed-subthemes/${esc(sub.subtheme_id)}.md">Read the subject and its paper evidence →</a></p><div class="chips">${Object.entries(sub.conference_counts).map(([k,v]) => `<span>${k.toUpperCase()} ${v}</span>`).join("")}</div><p>The article includes the recorded problem, proposed method, comparison, results, limits, and source locations for every paper in this subject.</p></div>
+          <div class="subtheme-body"><p><a href="subthemes/${esc(sub.subtheme_id)}.html">Read the subject and its paper evidence →</a></p><div class="chips">${Object.entries(sub.conference_counts).map(([k,v]) => `<span>${k.toUpperCase()} ${v}</span>`).join("")}</div><p>The article includes the recorded problem, proposed method, comparison, results, limits, and source locations for every paper in this subject.</p></div>
         </details>`).join("")}</div>
     </article>`).join("") || `<p class="empty">No matching taxonomy records.</p>`;
 }
 
-fetch("../data/taxonomy-expanded-v1.json").then(r => { if (!r.ok) throw Error(r.status); return r.json(); }).then(data => { state.taxonomy = data; render(); }).catch(() => { document.querySelector('#themes').innerHTML = '<p>Unable to load the index. <a href="../reports/expanded-taxonomy-v1.md">Open the complete written taxonomy</a>.</p>'; });
+fetch("data/taxonomy-expanded-v1.json").then(r => { if (!r.ok) throw Error(r.status); return r.json(); }).then(data => { state.taxonomy = data; render(); }).catch(() => { document.querySelector('#themes').innerHTML = '<p>Unable to load the index. <a href="guide/expanded-taxonomy-v1.html">Open the complete written taxonomy</a>.</p>'; });
 document.querySelector("#search").addEventListener("input", e => { state.query = e.target.value; render(); });

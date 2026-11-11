@@ -6,21 +6,38 @@ A subtheme groups related technical problems. A mechanism describes the particul
 
 [Definitions used in the paper records](../reading-guide-v1.md)
 
-## Begin with what a user needs completed
+## Start from the work a user needs done
 
-A workload describes the work requested from a system: its operations, input sizes, arrival times, and required output quality. A deployment adds constraints such as memory capacity, battery energy, network access, or response deadlines. The same algorithm can face very different limits when requests arrive concurrently or inputs change over time.
+A **workload** is the work asked of a system: its operations, input sizes, arrival times and required output quality.
 
-## Why average speed is insufficient
+A deployment adds limits such as memory size, battery energy, network access or response deadlines. The same algorithm can face very different limits when requests arrive together, or inputs change over time.
 
-A service handles requests that compete for processors, memory, and communication paths. A request may wait even when its own computation is short. Batching can improve total throughput while increasing that wait. Throughput is work completed per unit time; response latency is the time one request takes. Tail latency describes unusually slow requests and matters when deadlines apply.
+## Average speed hides the slow requests that miss deadlines
 
-## What separates the subthemes
+Requests compete for processors, memory and communication paths. A request may wait even when its own computation is short.
 
-Edge systems run close to data collection or users, often under power or memory limits. Cloud systems allocate shared remote resources. Distributed systems coordinate work across machines. Application-specific systems use structure in fields such as robotics, sensing, or scientific computation. The workload determines which resource is limiting and which output errors are acceptable.
+- **Throughput** is work completed per unit of time.
+- **Response latency** is the time one request takes.
+- **Tail latency** describes the unusually slow requests. It matters when deadlines apply.
 
-## A comparison that answers the question
+Batching can raise throughput while making each request wait longer.
 
-Specify request distributions, concurrency, input sizes, quality targets, hardware, and network conditions. Include scheduling, loading, communication, and recovery costs. Measure whether the service meets its target as demand changes. The current selected records in this theme are from DAC, so they cannot establish a three-conference pattern by themselves.
+## The subthemes differ in where the system runs and what limits it
+
+- **Edge** systems run near the data or the users, often short of power or memory.
+- **Cloud** systems share remote resources.
+- **Distributed** systems coordinate work across machines.
+- **Application-specific** systems use the structure of fields such as robotics, sensing or scientific computing.
+
+The workload decides which resource is the limit, and which output errors are acceptable.
+
+## A fair test states the demand and checks targets as it changes
+
+1. Specify request patterns, concurrency, input sizes, quality targets, hardware and network conditions.
+2. Include scheduling, loading, communication and recovery costs.
+3. Measure whether the service meets its target as demand changes.
+
+All selected records in this theme come from DAC. So they cannot show a three-conference pattern by themselves.
 
 ## Follow a request from arrival to a usable result
 

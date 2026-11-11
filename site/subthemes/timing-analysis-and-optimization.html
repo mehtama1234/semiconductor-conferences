@@ -1,0 +1,300 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#F3ECE1" />
+  <title>Timing analysis and optimization · Semiconductor conference atlas</title>
+  <meta name="description" content="Papers: DAC 2. Read from: 2 program descriptions, 0 abstracts or reports, 0 full papers or preprints. The explanations come first; every paper’s record follows at the end." />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Semiconductor conference atlas" />
+  <meta property="og:title" content="Timing analysis and optimization · Semiconductor conference atlas" />
+  <meta property="og:description" content="Papers: DAC 2. Read from: 2 program descriptions, 0 abstracts or reports, 0 full papers or preprints. The explanations come first; every paper’s record follows at the end." />
+  <meta property="og:url" content="https://mehtama1234.github.io/semiconductor-conferences/subthemes/timing-analysis-and-optimization.html" />
+  <meta property="og:image" content="https://mehtama1234.github.io/semiconductor-conferences/presentation/slides/01-cover.jpg" />
+  <meta property="og:image:width" content="1920" />
+  <meta property="og:image:height" content="1080" />
+  <meta property="og:image:alt" content="Semiconductor conference atlas: 582 papers from ISCA, DAC and ICCAD, sorted into 10 themes and six directions to watch." />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="canonical" href="https://mehtama1234.github.io/semiconductor-conferences/subthemes/timing-analysis-and-optimization.html" />
+  <link rel="icon" href="../assets/icon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="../assets/base.css" />
+  <link rel="stylesheet" href="../assets/experience.css" />
+  <link rel="stylesheet" href="../assets/theme-atlas.css" />
+  <link rel="stylesheet" href="../assets/styles.css" />
+  <link rel="stylesheet" href="../assets/charts.css" />
+  <link rel="stylesheet" href="../assets/course.css" />
+  
+</head>
+<body class="course-site " data-house="atlas">
+  <aside class="public-demo-banner" aria-label="About this course">A plain-language guide to what ISCA, DAC and ICCAD papers say about chip and computer design · Built from the repository’s own paper records · Not made by the conferences</aside>
+  <a class="skip-link" href="#app">Skip to the page</a>
+  <header>
+    <a class="brand" href="../index.html"><span class="mark" aria-hidden="true">Si</span> Semiconductor conference atlas</a>
+    <span class="header-status"><span class="badge">582 papers</span><span class="badge">10 themes</span><span class="badge">Plain words first</span></span>
+    <a class="header-link" href="../course-map.html">Course map</a>
+  </header>
+  <nav class="course-nav" aria-label="Main sections of the course"><a href="../index.html">The big picture</a><a href="../themes.html">Themes</a><a href="../subthemes.html" aria-current="page">Subthemes</a><a href="../deep-reads.html">Deep reads</a><a href="../directions.html">What to watch</a><a href="../presentation/index.html">Slides</a><a href="../video/index.html">Video</a><a href="../share/index.html">Share</a></nav>
+  <main id="app" tabindex="-1">
+    <section class="screen active landing legacy-page" aria-labelledby="page-title">
+<div class="lm-head"><div class="hj-heading"><nav class="crumbs" aria-label="You are here"><a href="../course-map.html">Course map</a><span aria-hidden="true">›</span><a href="../subthemes.html">Subthemes</a></nav><a class="back-button" href="../subthemes.html">← <span>Subthemes</span></a><p class="eyebrow">Subtheme · 2 papers · Physical design and manufacturing</p><h1 id="page-title">Timing analysis and optimization</h1><p class="hj-sub">Papers: DAC 2. Read from: 2 program descriptions, 0 abstracts or reports, 0 full papers or preprints. The explanations come first; every paper’s record follows at the end.</p></div><div class="hj-art" data-art="trio:affiliate,grid-dots,route"></div></div>
+<figure class="course-fig"><div class="loop-wide" data-art="flow:physical-design-and-manufacturing"></div><div class="loop-tall" data-art="flowTall:physical-design-and-manufacturing"></div><figcaption>The parent theme in one picture: turning connections into geometry: every step pushes on the others.</figcaption></figure>
+      <article class="prose">
+
+<p>This subject has 2 records in the selected sample. This page explains where it fits, then presents all captured paper evidence without shortening the measurements or limitations.</p>
+<p><a href="../guide/reading-guide-v1.html">Definitions used in the paper records</a></p>
+<p class="lm-k h-label">Understand the parent subject first</p><h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>The bigger theme this belongs to</h2>
+<ul>
+<li><a href="../themes/physical-design-and-manufacturing.html">Physical design and manufacturing</a></li>
+</ul>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="chart-bar"></span>A circuit must deliver data at the right time</h2>
+<p>Both paper records now have expanded individual explanations. Warp-STAR has selected manuscript evidence; Powerpath remains description-backed. This is writing coverage, not independent comprehension acceptance. Source recovery and original-record reconciliation remain open.</p>
+<p>Correct logic is not enough for a clocked circuit. A receiving storage element needs its input to be stable around the clock event that captures it.</p><p>Setup and hold checks describe the relevant before-and-after requirements. Timing analysis compares data arrival with the required timing, accounting for the clock paths as well as the data path. <a href="https://www.intel.com/content/www/us/en/support/programmable/support-resources/design-examples/quartus/tq-clock.html">Intel's clock-analysis equations</a> show why both are necessary.</p>
+<p>Two separate computations appear in this group. Characterization determines timing constraints for individual circuit elements under specified conditions.</p><p>Static timing analysis uses such models to check paths through a larger design without simulating every input sequence. A faster path analyzer still needs trustworthy input models; faster characterization does not automatically accelerate every later design step.</p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>Warp-STAR: organizing irregular timing work on a GPU</h2>
+<p><a href="timing-analysis-and-optimization.html#paper-dac-2026-research004">Warp-STAR</a> addresses load imbalance in GPU timing analysis. A circuit graph is irregular: different parts have different numbers of connections and dependencies. Assigning equal numbers of graph objects to processing groups does not necessarily assign equal amounts of work.</p>
+<p>The proposed method coordinates work at the warp level, the GPU execution grouping named by the paper. Its claimed benefit concerns how that work is organized, not a reduction in the circuit's actual signal delay.</p><p>The official description reports 2.4 times faster timing analysis than prior GPU analysis and 1.7 times faster timing-driven global placement. These are separate measured scopes, not two interchangeable versions of one speedup.</p>
+<p>Placement performs other work besides timing analysis. Consequently, accelerating the analyzer need not accelerate the entire placement process by the same factor.</p><p>The <a href="#explanation-dac-2026-research004">expanded manuscript discussion</a> now supplies selected absolute times, circuit conditions and a timing-quality regression that the original description omitted. A fair evaluation still needs comparable timing conclusions and designs meeting the same constraints.</p>
+<p>The engine also supports differentiable analysis: computing information about how an analysis objective changes as adjustable quantities change. That can guide optimization, but an available gradient does not prove that every suggested physical change is legal or improves the final routed circuit.</p><p>Gradient cost, optimization convergence, and completed design quality require separate measurements.</p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="refresh"></span>Powerpath: reducing the search needed for cell constraints</h2>
+<p><a href="timing-analysis-and-optimization.html#paper-dac-2026-research025">Powerpath</a> targets sequential-constraint characterization. Finding a limiting timing condition can require repeated detailed circuit simulations as a search narrows the acceptable interval. A reliable estimate that starts the search closer to the answer can reduce that work.</p>
+<p>The method uses a supply-current signature from an already required reference-delay simulation. “Internal-probe-free” means the proposed estimate does not require the internal probes targeted by its comparison; it does not mean no simulation or measurement information is needed.</p><p>The description identifies affine lookup-table calibration and online ridge regression. In plain terms, these calibrate a relationship between observed information and the search estimate, with the regression regularized to limit unstable fitting.</p>
+<p>The reported evaluation uses post-layout TSMC 5 nm and 12 nm libraries across five process-voltage-temperature corners. A corner specifies the conditions under which the model is evaluated.</p><p>The description reports 1.5-fold acceleration with affine calibration and 3.6-fold acceleration with statistical calibration. Those results should remain attached to their respective methods, not summarized as a single universal gain.</p>
+<p>The description calls the accuracy suitable for final design checking, but does not provide error distributions. That wording is a source claim rather than an independently established accuracy bound.</p><p>Evaluation should inspect cases where interval reduction might exclude the true boundary, along with the fallback and extra simulation cost when an estimate is poor.</p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="help-circle"></span>The end-to-end research question</h2>
+<p>These papers address complementary parts of timing work: creating constraints and propagating timing through a design. They motivate asking how much complete design turnaround improves when both costs fall while the final acceptance criteria remain unchanged.</p><p>They do not demonstrate their integration. Any combined study must count calibration, data conversion, GPU transfers, repeated optimization, and final reference checks before claiming a full-flow improvement.</p>
+<h3>Compare the changed work and the remaining responsibility</h3>
+<table>
+<thead>
+<tr>
+<th>Question</th>
+<th>Powerpath</th>
+<th>Warp-STAR</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>What work is reduced?</td>
+<td>Search needed to characterize a cell constraint</td>
+<td>Time spent analyzing a connected timing graph</td>
+</tr>
+<tr>
+<td>What information is reused?</td>
+<td>Information from a required reference simulation</td>
+<td>Parallel work and dependencies exposed by the graph</td>
+</tr>
+<tr>
+<td>What must not be inferred from speed?</td>
+<td>That a narrowed interval contains the true boundary</td>
+<td>That a faster run produces better timing or equivalent analysis</td>
+</tr>
+<tr>
+<td>Current evidence depth</td>
+<td>Official description; target manuscript and artifact unrecovered</td>
+<td>Selected manuscript methods and tables; no reproduction</td>
+</tr>
+</tbody>
+</table>
+<p>The sequence is important: a faster consumer of timing models cannot repair an incorrect constraint supplied upstream. Conversely, spending more effort on accurate characterization does not ensure that a parallel analyzer combines and propagates its inputs correctly.</p><p>Each stage needs its own check, and the combined flow needs a check of the final design.</p>
+<p>For an independent budget example, suppose characterization costs forty time units and repeated analysis sixty. Halving the first and tripling the speed of the second gives a total of forty, so overall speedup is 2.5×, not 6×.</p><p>Those gains act on different portions of the budget. If the library is already characterized and reused unchanged, its preparation saving contributes nothing to that particular design run.</p><p>If a new library must be built, omitting preparation would understate the actual work.</p>
+<p>The durable hypothesis is that reducing repeated estimation work is valuable when the reused information remains valid and errors are detected before acceptance. Test it with unchanged criteria, an explicit reuse lifetime and complete recovery costs.</p><p>Reject a stronger claim of field-wide progress until comparable editions and task populations support it. Two selected DAC papers establish neither deployment prevalence nor a historical trend across ISCA, DAC and ICCAD.</p>
+<p><span id="explanation-dac-2026-research025"></span></p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>Powerpath: narrow a characterization search without losing its valid boundary</h2>
+<h3>What the available source establishes</h3>
+<p>The official description uses a supply-current signature from a required reference-delay simulation to estimate sequential constraints. It names affine calibration and online ridge regression, reporting 1.5× and 3.6× acceleration respectively on post-layout TSMC 5nm/12nm libraries across five process-voltage-temperature corners.</p><p>These are separate configurations, not factors to multiply. <a href="https://63dac.conference-program.com/presentation/?id=RESEARCH025&amp;sess=sess155">Official Description and Authors</a></p>
+<div class="worked"><p class="lm-k">Worked example</p><p>Title and author searches on 2026-09-08 did not recover the target manuscript or a verified target artifact. Related characterization papers are not substitutes.</p><p>The source says code and data are open, but this pass did not locate and inspect that release. No manuscript page citations, estimator equations, error distributions or fallback details are available.</p><p>No circuit simulation was executed. The reasoning below is explanatory, not a reconstruction of Powerpath.</p></div>
+<h3>Characterization creates a model used by later analysis</h3>
+<p>A sequential cell stores state. A flip-flop, for example, captures a data value in relation to a clock event.</p><p>The physical transistors do not switch instantaneously. Input transitions close to the capture event can change the output delay or prevent the intended capture under the specified observation criterion.</p>
+<p>Characterization evaluates the cell under controlled conditions to determine values that a larger timing analyzer can use. Setup concerns how early data must become stable before capture.</p><p>Hold concerns how long it must remain stable afterward. Their numerical values depend on the cell and conditions; neither is a universal fixed interval that can be inferred from its logical function alone.</p>
+<p>For an independent example, fix a rising clock edge at time zero and vary a data transition before it. At a separation of 40 picoseconds, the output meets the chosen criterion; at 20 picoseconds, it does not.</p><p>The task is to find a boundary between these outcomes to a chosen resolution. A picosecond is one trillionth of a second.</p><p>The specific boundary and criterion here are illustrative, not paper measurements.</p>
+<p>An acceptance criterion must say what counts as success. It could involve the correct output value within an observation window or a permitted increase in clock-to-output delay.</p><p>These are different questions. A method that changes the criterion can change the reported constraint even if its simulator is unchanged.</p>
+<h3>A search interval must contain the transition of interest</h3>
+<p>For a simplified monotone search, maintain one passing endpoint and one failing endpoint. Test their midpoint and retain the half containing the transition.</p><p>Starting with an interval of width 128ps, seven halvings reduce the width to 1ps. Starting with a correctly bracketed interval of width 16ps takes four halvings to reach that resolution.</p>
+<p>A predictor can save expensive tests by supplying the narrower interval. But if the true transition is at 30ps and the predicted interval is <code>[40,56]</code>, refinement inside that interval cannot recover it. The final answer can be very precise about the wrong region. Numerical convergence is not evidence that the initial interval was valid.</p>
+<p>Before using a narrow bracket, check its endpoints under the actual criterion. If both pass or both fail, expand or revert to a trusted search procedure.</p><p>This is a proposed safeguard, not a verified feature of Powerpath. More complicated or nonmonotone behavior requires a search method appropriate to that behavior; binary-search reasoning alone does not establish it.</p>
+<h3>The current waveform supplies information, not a direct proof</h3>
+<p>Supply current changes as internal capacitances charge and discharge and transistors conduct. A waveform records current over time.</p><p>Features such as timing, shape or integrated charge may correlate with the internal events that constrain capture. An estimator can exploit such correlations without reading every internal node voltage.</p>
+<p>However, an aggregate waveform can combine contributions from several internal events. Two internal behaviors may produce similar summaries.</p><p>A selected feature can also change with supply voltage, input transition shape or loading. Predictive usefulness therefore requires calibration and validation across the conditions in which the estimate will be used.</p>
+<p>Reusing an already required simulation can avoid an extra simulator invocation. It does not make feature extraction, fitting or failed predictions free. The complete budget must include any work needed to obtain a usable estimate and to confirm or repair the search interval.</p>
+<h3>Calibration corrects an estimate under observed conditions</h3>
+<p>An affine correction applies a scale and offset: corrected estimate equals <code>a×raw estimate + b</code>. For an illustrative raw estimate of 20ps, scale 1.1 and offset 3ps give 25ps. The correction can remove a systematic bias in the calibration data. It does not supply a guaranteed worst-case error bound for unseen cells or conditions.</p>
+<p>Ridge regression fits a weighted combination of features while penalizing large coefficients. The penalty can make fitting less sensitive to noisy or strongly correlated features.</p><p>It still relies on the relationship between the features and the target remaining useful. Online fitting updates the model as observations arrive; early samples and later samples may consequently receive different-quality predictions.</p>
+<p>To evaluate that procedure, record the order of samples, the information available at each prediction, and the reference outcome obtained afterward. A prediction made after seeing its own target is not a prospective estimate.</p><p>Separating calibration and evaluation prevents an apparently accurate interval from relying on information unavailable when the real search starts.</p>
+<h3>Statistical accuracy needs more than a small average error</h3>
+<p>A process-voltage-temperature corner specifies a particular operating and manufacturing condition. Statistical sampling additionally varies model parameters according to a stated distribution. Results at several corners do not by themselves establish how rare variations behave inside or beyond those conditions.</p>
+<div class="worked"><p class="lm-k">Worked example</p><p>Suppose 999 estimates each have absolute error 0.1ps, but one misses by 20ps. The average absolute error is only 0.1199ps.</p></div><p>A narrow interval of ±1ps might work well for almost every sample and still miss the exceptional boundary. If that exceptional region determines a reliability decision, the average alone is inadequate.</p>
+<p>Useful measurements include boundary error, interval coverage, fallback frequency and cost, and the distribution of failures across cell and constraint types. The reference search also needs a stated tolerance and criterion. Calling an outcome suitable for final design checking cannot replace those measurements.</p>
+<h3>Connect characterization speed to complete design work</h3>
+<p>For an independent cost calculation, let a baseline characterization require one reference simulation and seven search simulations, each costing one time unit. A revised method uses the same reference, four search simulations and 0.2 units of estimator work.</p><p>Total time falls from eight to 5.2 units, about 1.54× faster. If a fraction of cases requires fallback, those additional simulations reduce the aggregate gain.</p>
+<p>This is a different optimization from <a href="#explanation-dac-2026-research004">Warp-STAR</a>, which reorganizes graph analysis using already supplied timing models. Better characterization can improve model availability or preparation time; faster graph propagation can improve repeated design evaluation.</p><p>Neither paper alone establishes the performance or accuracy of a combined flow.</p>
+<p>The bounded hypothesis is that information already produced by a required simulation can reduce later search work when the predicted bracket is checked and the original acceptance criterion is preserved. It weakens if the useful feature requires undisclosed extra work, if rare errors escape detection, or if calibration cost dominates on new libraries.</p><p>Manuscript recovery, exact feature and search definitions, validated failure handling and independent review remain open.</p>
+<p>The correction boundary is explicit: test setup, hold and removal constraints, Monte Carlo samples, PVT coverage, 5 nm and 12 nm libraries, interval bracketing, tail errors, fallback behavior and signoff criteria separately. The 1.5× and 3.6× source claims are not evidence of reliable tail-safe sequential characterization across libraries and statistical conditions.</p><p>The evidence supports search reduction, not demonstrated reliable tail-safe sequential characterization.</p>
+<p><span id="explanation-dac-2026-research004"></span></p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>Warp-STAR: divide timing work more evenly without changing what timing means</h2>
+<h3>What was recovered</h3>
+<div class="worked"><p class="lm-k">Worked example</p><p>The version-1 manuscript identifies DAC DOI <code>10.1145/3770743.3803891</code>. Selected method and evaluation text was inspected on 2026-09-08; no GPU code, analyzer or placer was executed. The current reading card includes those conditions; its disclosure preserves the original description-only fields. Original-ledger and artifact reconciliation remain open.</p></div>
+<p>Warp-STAR distributes pin work across a warp, reduces shared loads, and respects timing-graph levels. It retains ordinary maximum-based arrival analysis alongside a smooth differentiable calculation; CUDA events coordinate dependent streams. <a href="https://arxiv.org/html/2603.28381v1#S3.SS1">Sections 3.1–3.2</a></p>
+<div class="worked"><p class="lm-k">Worked example</p><p>Experiments use a 24-core AMD 7965WX, RTX 4090 and CUDA 11.8 with contest circuits. Table 2 gives superblue1 analyzer times 57ms for GPU-Timer, 25ms pin-based and 48ms CTE.</p><p>Table 3 gives Xplace/Warp-STAR placement times 60.9/35.4 seconds, but signed TNS −21.8/−23.7 in units of 100,000ns. <a href="https://arxiv.org/pdf/2603.28381v1#page=5">Section 4 and Tables 2–3, PDF pages 5–6</a></p></div>
+<p>The manuscript attributes some differences to baseline synchronization and floating-point effects; INSTA-Place results are not a fully matched local rerun. <a href="https://arxiv.org/pdf/2603.28381v1#page=6">Section 4.3 and footnote 3, PDF page 6</a></p>
+<p>The following examples are independent teaching calculations, not reproductions of these circuits.</p>
+<h3>A timing graph propagates arrival requirements</h3>
+<p>A pin is a connection point on a circuit element. A timing arc describes how a transition at one pin affects timing at another. A net connects a driving pin to receiving pins. An analysis graph combines these relationships with delays and timing requirements.</p>
+<div class="worked"><p class="lm-k">Worked example</p><p>For an illustrative late-arrival calculation, one input arrives at 2ns and crosses an arc taking 3ns. Another arrives at 4ns and crosses an arc taking 2ns.</p></div><p>The candidate output arrivals are five and six nanoseconds. The conservative latest arrival is six, not their sum or average.</p><p>If the output is required by 5.5ns, its setup slack is −0.5ns.</p>
+<p>Backward propagation answers a complementary question. To deliver an output by 5.5ns through a 2ns arc, the corresponding input must arrive by 3.5ns under this simplified model.</p><p>Multiple downstream requirements can constrain the same upstream point. A parallel implementation must preserve both the operation being computed and the dependencies that make its inputs valid.</p>
+<p>The earliest arrival matters for other checks, including whether new data arrives too soon after capture. Replacing every operation with a maximum would therefore not constitute a general timing analyzer. Transition direction, early/late conditions, clock relationships and exceptions must retain their distinct meanings.</p>
+<h3>Equal numbers of nets need not mean equal work</h3>
+<p>A GPU executes groups of threads that share instruction issue. When threads in such a group have different loop lengths, some can finish their useful work while others continue. The unused execution lanes do not necessarily get reassigned to unrelated work within that same instruction.</p>
+<div class="worked"><p class="lm-k">Worked example</p><p>Consider a deliberately simplified four-lane group assigned nets with one, one, one and thirteen receiving pins. If each lane processes one pin per iteration, the group requires thirteen iterations. It performs sixteen useful pin operations over fifty-two lane-iteration opportunities: about 30.8% utilization in this model.</p></div>
+<p>If those sixteen pin operations can instead be divided evenly among the four lanes, they need four iterations before accounting for coordination. That is an opportunity, not a guaranteed speedup.</p><p>Finding each pin's net, fetching data, combining partial results and synchronizing threads all take work. Real hardware can also schedule other groups while one waits; the four-lane example does not model an entire GPU.</p>
+<p>For very small nets, assigning a whole group to a net may leave lanes idle. For large nets, distributing its pins can expose more parallel work.</p><p>The circuit's distribution of net sizes therefore matters more than a single average pin count. A scheduling policy needs evaluation on both broad shallow graphs and narrow dependency-heavy ones.</p>
+<h3>Shared quantities require a defined combination operation</h3>
+<p>Each receiving pin contributes load that can affect a driver's delay. A reduction combines contributions into one result.</p><p>For loads 1, 2, 3 and 4, a tree reduction can first form 3 and 7, then combine them into 10. Separate partial sums avoid having every thread update the same location unsafely.</p>
+<p>Without synchronization, two threads might both read an old sum of zero, compute their additions independently and write one and two. The final value can be two rather than three.</p><p>The lost contribution is a correctness error, not an acceptable numerical approximation. More concurrency is useful only when these updates have defined ordering or a correct combination scheme.</p>
+<p>Even a race-free parallel sum can differ slightly from a sequential floating-point sum because finite-precision addition is not associative. This is different from dropping an update.</p><p>Comparisons should distinguish tolerated numerical differences from invalid dependencies, and should examine their effect on the optimization decisions made from the results.</p>
+<h3>Graph levels restrict when parallel work can start</h3>
+<p>Levelization groups work by dependency depth. If C depends on the arrivals at A and B, it cannot use unfinished values from either.</p><p>A and B may be computed concurrently if neither depends on the other. The next level begins only when its required inputs are ready.</p>
+<p>Reusing this organization is valid only while the dependency structure remains appropriate. Moving cells can change wire delays without changing which pins connect.</p><p>Rewiring or inserting a new cell can change the graph itself. An incremental flow must identify which cached information is still valid after each kind of edit.</p>
+<p>More threads cannot eliminate a long chain of dependent calculations. They mainly exploit the work that is independent within or around those levels.</p><p>Kernel launch costs and memory traffic can dominate when each level contains little useful work. This is why graph shape and repeated-analysis conditions belong beside the runtime result.</p>
+<h3>A smooth objective is guidance, not the original maximum</h3>
+<p>Optimization may need a gradient: information about how a numerical objective changes when a design variable changes. An exact maximum assigns the local derivative to the currently largest input, except where the maximum is tied.</p><p>A smooth alternative gives nearby competing inputs some influence, which can make optimization guidance less abrupt.</p>
+<div class="worked"><p class="lm-k">Worked example</p><p>For an illustrative smooth maximum of two equal values five, use <code>5 + γ log(2)</code> with positive smoothing parameter γ. At γ=0.1, the result is approximately 5.0693, not five. The difference is a property of the surrogate expression. It must not silently become a new measured path delay.</p></div>
+<p>Overlapping gradient calculations with ordinary timing work can reduce elapsed time when dependencies permit it. But a consumer stream must wait for the exact producer result it needs.</p><p>Starting a second stream does not by itself create safe overlap, and reducing synchronization too far can use stale values.</p>
+<h3>Judge analysis runtime and placement quality separately</h3>
+<div class="worked"><p class="lm-k">Worked example</p><p>Total negative slack, abbreviated TNS, aggregates violations over the chosen endpoints. With signed slacks, values closer to zero indicate less total lateness.</p><p>For example, endpoint slacks −2, −1 and +4 sum to TNS −3 when only negative terms contribute. The positive margin at the third endpoint does not cancel the other violations.</p></div>
+<p>A smaller magnitude of TNS can coexist with a worse single endpoint, so worst slack and the number of violating endpoints are also useful. Where a table displays negative TNS, simply saying “lower is better” is ambiguous: a more negative signed value indicates greater aggregate violation.</p><p>Preserve signs and explain the convention before comparing results.</p>
+<div class="worked"><p class="lm-k">Worked example</p><p>Suppose analysis consumes sixty of one hundred seconds in a placement run. Making that portion 2.4 times faster gives <code>40 + 60/2.4 = 65</code> seconds if everything else stays fixed. The full-run speedup is about 1.54, not 2.4. If faster analysis also changes how often the placer requests feedback, the algorithm's trajectory and output may change too; the fixed-work calculation no longer describes the whole comparison.</p></div>
+<p>The bounded insight is that reorganizing irregular work can make timing feedback cheaper, but useful end-to-end improvement requires comparable constraints and acceptable final designs. It weakens if scheduling overhead consumes the savings, timing accuracy changes materially, or faster placement worsens required outcomes.</p><p>Full artifact inspection, matched correctness checks, routed-design evaluation and independent comprehension review remain open.</p>
+<p class="lm-k h-label">Compare the results carefully</p><h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="route"></span>How to compare these papers’ results fairly</h2>
+<p>First identify the inputs and required output quality. Then identify the limited resource: time, memory, communication, energy, circuit area, or correctness coverage.</p><p>Ask which part of the method reduces that cost and which new cost it adds. Compare numbers only when the experiments hold these conditions sufficiently similar.</p>
+<p>A conference description may explain the proposal while omitting the full experiment. An author preprint link may have been coded from its abstract. The source classification does not by itself establish that every table was read. Missing locations remain visible below.</p>
+<p class="lm-k h-label">Complete captured evidence</p><h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="file-text"></span>Every paper in this subtheme, with what its source shows</h2>
+<p>These are evidence records, not substitutes for the explanations above. Each record preserves its problem, proposed method, measurements, comparison conditions, and source limits. A populated record does not establish that its mechanism has been fully explained or independently verified.</p>
+<p><span id="paper-dac-2026-research004"></span></p>
+<h3>Warp-STAR: High-Performance, Differentiable GPU-Accelerated Static Timing Analysis Through Warp-Oriented Parallel Orchestration</h3>
+<p>DAC 2026 · Record: <code>dac-2026-research004</code></p>
+<p><a href="#explanation-dac-2026-research004">Read the step-by-step explanation</a></p>
+<p><strong>Updated source-backed reading card</strong></p>
+<div class="worked"><p class="lm-k">Worked example</p><p>Reviewed 2026-09-08. Reconciles the original description with selected manuscript inspection; separates analyzer runtime, placement runtime and signed timing quality.</p></div>
+<p>This editorial correction updates the current reading view and connected dossiers, not the historical adjudication or scientific acceptance status. The original captured fields are preserved below.</p>
+<p><a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/data/editorial-paper-corrections-v1.json">Correction register</a></p>
+<p><strong>Problem:</strong></p>
+<p>Uneven pin workloads within GPU timing analysis and added gradient-computation cost.</p>
+<p><strong>Mechanism / artifact:</strong></p>
+<p>Pin-based warp scheduling, shared-load reductions and dependency levels; ordinary maximum-based timing alongside smooth differentiable analysis, coordinated with CUDA events. CTE scheduling is a separate variant.</p>
+<p><strong>Workload — the work tested:</strong></p>
+<div class="worked"><p class="lm-k">Worked example</p><p>ICCAD 2015/2025 contest circuits; Table 1 lists AES and eight superblue designs. Xplace3.0-based global placement integration.</p></div>
+<p><strong>Hardware and manufacturing assumptions:</strong></p>
+<p>24-core AMD 7965WX, RTX 4090, CUDA 11.8; not measured fabricated-circuit speed.</p>
+<p><strong>Baseline — the comparison method:</strong></p>
+<p>OpenTimer, GPU-Timer and placement frameworks. INSTA-Place comparison is not a fully matched local rerun.</p>
+<p><strong>Reported measurements:</strong></p>
+<div class="worked"><p class="lm-k">Worked example</p><p>Superblue1: analyzer GPU-Timer/pin-based/CTE 57/25/48ms. Placement Xplace/Warp-STAR 60.9/35.4s; signed TNS -21.8/-23.7 in 100,000ns units. Faster runtime coexists with worse signed TNS.</p></div>
+<p><strong>Limits on the conclusion:</strong></p>
+<p>Selected manuscript text only; no execution. Baseline synchronization, floating-point variation, matched accuracy and routed-design quality require verification. Independent acceptance pending.</p>
+<p><strong>Source and location</strong></p>
+<p>Evidence tier: DAC identified manuscript v1; selected method/evaluation reading, not reproduction. This is the stored source classification; the location and limits below determine what was actually read.</p>
+<p><a href="https://arxiv.org/pdf/2603.28381v1">Open the recorded source</a></p>
+<div class="worked"><p class="lm-k">Worked example</p><p>Sections 3.1–3.2; Section 4/Table 2 PDF page 5; Table 3, Section 4.3 and footnote 3 page 6. DAC DOI 10.1145/3770743.3803891.</p></div>
+<details markdown="1">
+<summary>Original captured fields — superseded for this reading card</summary>
+
+** page source tier:** medium_official_description
+
+**Baselines:** previous state-of-the-art GPU-based STA
+
+state-of-the-art timing-driven global placement frameworks
+
+**Evidence locators:** Not established in the captured evidence.
+
+**Evidence url:** https://63dac.conference-program.com/?post_type=page&amp;p=16&amp;id=RESEARCH004&amp;sess=sess155
+
+**Hardware or process assumptions:** Not established in the captured evidence.
+
+**Limits:** The public description does not expose full circuit suites, absolute runtime, quality tradeoffs, or transfer limits.
+
+**Method or artifact:** Warp-level parallel orchestration for a differentiable GPU-accelerated static timing analysis engine.
+
+**Metrics:** 2.4X STA speedup
+
+1.7X placement-flow speedup
+
+minimal overhead for differentiable gradient analysis
+
+**Problem:** GPU static timing analysis suffers from intra-warp load imbalance on irregular circuit graphs, limiting timing-analysis and placement-flow throughput.
+
+**Workload or benchmark:** Static timing analysis on irregular circuit graphs; integration into timing-driven global placement; differentiable gradient analysis.
+
+</details>
+<p><span id="paper-dac-2026-research025"></span></p>
+<h3>Powerpath: Internal-Probe-Free Search Interval Reduction for Efficient Statistical Sequential Constraint Characterization</h3>
+<p>DAC 2026 · Record: <code>dac-2026-research025</code></p>
+<p><a href="#explanation-dac-2026-research025">Read the step-by-step explanation</a></p>
+<p><strong>Updated source-backed reading card</strong></p>
+<div class="worked"><p class="lm-k">Worked example</p><p>Reviewed 2026-09-09. Deepens the Powerpath treatment into a paper-level reading; separates the supply-current signature, affine calibration and online ridge-regression interval reduction from bracket validity, tail error, rare-corner coverage, fallback cost and signoff acceptance, while preserving the 1.5x/3.6x, five-PVT-corner and TSMC 5/12 nm source claims.</p></div>
+<p>This editorial correction updates the current reading view and connected dossiers, not the historical adjudication or scientific acceptance status. The original captured fields are preserved below.</p>
+<p><a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/data/editorial-paper-corrections-v1.json">Correction register</a></p>
+<p><strong>Problem:</strong></p>
+<p>Sequential-constraint characterization can consume most of library signoff runtime, while path-based methods depend on internal observability and extra simulations and may not handle toggle-unexpected hold/removal arcs reliably.</p>
+<p><strong>Mechanism / artifact:</strong></p>
+<p>Powerpath estimates constraints from a physics-grounded supply-current signature extracted from a mandatory reference-delay simulation, uses affine lookup-table calibration for nominal characterization, and uses online ridge regression to tighten search intervals across statistical Monte Carlo samples. Feature definition, regression inputs, interval policy, fallback and acceptance criterion are unspecified.</p>
+<p><strong>Workload — the work tested:</strong></p>
+<p>Post-layout TSMC 5 nm and 12 nm standard-cell libraries across five PVT corners for sequential constraint characterization, including setup/hold/removal/toggle-unexpected arc classes; cell count, library contents, Monte Carlo distributions/sample counts, voltage/temperature values, SPICE settings and baseline search tolerances are unspecified.</p>
+<p><strong>Hardware and manufacturing assumptions:</strong></p>
+<p>Post-layout standard-cell/SPICE characterization flow with supply-current waveform access and a mandatory reference-delay simulation; PDK/library versions, parasitics, simulator, waveform sampling, compute hardware, license/runtime accounting, process variation model and signoff tool are unspecified.</p>
+<p><strong>Baseline — the comparison method:</strong></p>
+<p>Traditional path-based sequential-constraint characterization</p>
+<p>Same reference simulation, acceptance criterion, search resolution, SPICE settings, cells/arcs, PVT/Monte Carlo samples, fallback policy and total runtime boundary are unspecified</p>
+<p><strong>Reported measurements:</strong></p>
+<p>The source reports up to 80% of signoff runtime addressed, 1.5x speedup with affine calibration and 3.6x with statistical calibration across post-layout TSMC 5 nm/12 nm libraries and five PVT corners, while claiming signoff-grade accuracy; it provides no absolute runtime, boundary-error distribution, interval coverage, tail/rare-case error, fallback frequency/cost, sample counts or independent signoff comparison.</p>
+<p><strong>Limits on the conclusion:</strong></p>
+<p>A narrower search interval is useful only if it contains the true constraint boundary under the same acceptance criterion. Validate both endpoints, expand or fall back when they do not bracket the transition, and test nonmonotone behavior, hold/removal arcs, rare process samples, waveform noise and calibration extrapolation; average error cannot hide a missed signoff-critical tail.</p>
+<p>Internal-probe-free means the estimator reuses information from a required reference simulation; it does not mean zero simulation, measurement or feature-extraction cost. Account for reference simulation, waveform processing, calibration/online regression, Monte Carlo updates, retries, fallback searches and model transfer to new libraries/corners.</p>
+<p>The 1.5x/3.6x and signoff-grade claims are description-backed and do not establish universal accuracy, coverage or signoff acceptance. The evidence supports supply-current-informed search reduction, not demonstrated reliable tail-safe sequential characterization across libraries, processes and statistical conditions.</p>
+<p><strong>Source and location</strong></p>
+<p>Evidence tier: Primary captured official DAC description plus existing authored timing characterization discussion; no full paper extraction, reproduced spice campaign or independent signoff acceptance. This is the stored source classification; the location and limits below determine what was actually read.</p>
+<p><a href="https://63dac.conference-program.com/?post_type=page&amp;p=16&amp;id=RESEARCH025">Open the recorded source</a></p>
+<p>DAC 2026 official description; existing timing-analysis-and-optimization editorial explanation; captured Problem, Mechanism / artifact, Workload, Hardware, Baseline, Measurements and Limits fields; no manuscript pages, estimator equations, error distributions, fallback trace or independent signoff validation.</p>
+<details markdown="1">
+<summary>Original captured fields — superseded for this reading card</summary>
+
+** page source tier:** high_official_description
+
+**Baselines:** traditional path-based characterization methods
+
+**Evidence locators:** Not established in the captured evidence.
+
+**Evidence url:** https://63dac.conference-program.com/?post_type=page&amp;p=16&amp;id=RESEARCH025&amp;sess=sess155
+
+**Hardware or process assumptions:** Not established in the captured evidence.
+
+**Limits:** The description does not expose absolute runtime, error distributions, or whether the reported libraries represent broader process technologies.
+
+**Method or artifact:** Internal-probe-free supply-current estimation with affine calibration and online ridge-regression interval tightening.
+
+**Metrics:** up to 80% of signoff runtime addressed
+
+1.5X speedup with affine calibration
+
+3.6X speedup with statistical calibration
+
+signoff-grade accuracy
+
+**Problem:** Sequential-constraint characterization consumes substantial signoff runtime and traditional path-based approaches fail for toggle-unexpected arcs or require extra SPICE simulations.
+
+**Workload or benchmark:** Post-layout TSMC 5 nm and 12 nm libraries across five process-voltage-temperature corners; sequential constraint characterization.
+
+</details>
+<p class="lm-k h-label">What remains to establish</p><h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>What is still unproven here</h2>
+<p>Resolve unspecified workloads, comparison methods, resource budgets, and source locations before generalizing a reported gain. Multiple papers in this selected sample permit comparison of mechanisms, but do not by themselves establish recurrence across years or a long-term trend.</p>
+<p><a href="../guide/expanded-taxonomy-v1.html">All subthemes</a> · <a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/reports/directions/README.md">Research directions</a></p><p class="meta">Written as <a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/reports/observed-subthemes/timing-analysis-and-optimization.md">reports/observed-subthemes/timing-analysis-and-optimization.md</a> in the course repository.</p>
+      </article>
+      <nav class="pager" aria-label="Previous and next"><a class="prev" href="physical-design-and-routing.html"><span class="pg-k">← Previous</span><span class="pg-t">Physical design and routing</span></a><a class="map" href="../subthemes.html"><span class="pg-k">Back to</span><span class="pg-t">Subthemes</span></a><a class="next" href="device-and-process-modeling.html"><span class="pg-k">Next →</span><span class="pg-t">Device and process modeling</span></a></nav>
+    </section>
+  </main>
+  <footer class="course-foot">
+    <p>Built from 582 paper records coded from ISCA 2026, DAC 2026 and ICCAD 2025 (ICCAD 2026 papers were not yet public). Most records come from official program descriptions; see “How deep the reading went”. The papers belong to their authors.</p>
+    <p class="foot-links"><a href="https://github.com/mehtama1234/course-concept-library">All courses</a><a href="../index.html">This course</a><a href="../course-map.html">Course map</a><a href="../presentation/index.html">Slides</a><a href="../video/index.html">Video</a><a href="../share/index.html">Share</a></p>
+  </footer>
+  <script src="../assets/course-data.js"></script><script src="../assets/icons.js"></script><script src="../assets/icons-extra.js"></script><script src="../assets/icons-course.js"></script><script src="../assets/art.js"></script><script src="../assets/course-art.js"></script><script src="../assets/charts.js"></script><script src="../assets/course-charts.js"></script><script src="../assets/course-site.js"></script>
+</body>
+</html>

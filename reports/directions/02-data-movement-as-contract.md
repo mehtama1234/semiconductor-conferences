@@ -2,21 +2,35 @@
 
 Status: a research hypothesis supported by selected cases. A measured increase across comparable years has not been established.
 
-## The basic technical problem
+## The problem: a job can spend most of its time waiting for data
 
-Every operation needs inputs in a place the executing hardware can access. If those inputs are elsewhere, they must move. The transfer uses bandwidth, takes time, and consumes energy. A job can therefore spend most of its time waiting for values even when its arithmetic is simple.
+Every operation needs its inputs where the hardware can reach them. If they are elsewhere, they must move.
 
-## What would change in the design process
+Moving them uses bandwidth, takes time and costs energy. So a job can spend most of its time waiting for values, even when its arithmetic is simple.
 
-The proposed direction is to choose the algorithm, placement of data, and execution schedule together. Keeping intermediate values near later operations can reduce repeated transfers. Moving a computation near stored data can reduce the bytes sent over a connection. Recomputing a cheap value can sometimes avoid storing and retrieving it. Each change needs an account of its new costs, including local traffic and extra computation.
+## The change: choose the algorithm, the data placement and the schedule together
 
-## Why the details matter
+- Keep intermediate values near the operations that use them next, to cut repeated transfers.
+- Move a computation near the stored data, to cut the bytes sent over a connection.
+- Recompute a cheap value, sometimes, instead of storing and fetching it.
 
-These choices explain why memory systems, accelerator designs, and distributed applications overlap. A memory method determines where values can reside; an architecture determines where operations can run; a scheduler determines when workers compete for data. A method that changes only one layer may shift the delay elsewhere. A full comparison must include the initial loading of data and any later migration.
+Each change brings new costs, such as local traffic and extra computation. Count them.
 
-## What would support or weaken the claim
+## Memory, architecture and scheduling overlap, so fixing one can shift the delay
 
-Measure completion time and energy at fixed output quality while varying input size, memory capacity, and competing requests. Include cases where data fits and does not fit in fast memory. For approximate search, compare at the same rate of correct answers. For services, include slow requests and data migration. The hypothesis weakens if an advantage disappears after matching capacity or including all transfer costs. Recurrence across the current cases alone cannot establish growth over time.
+- A **memory** method decides where values can live.
+- An **architecture** decides where operations can run.
+- A **scheduler** decides when workers compete for data.
+
+A method that changes only one layer may just move the delay elsewhere. A full comparison includes the first loading of data and any later migration.
+
+## The test: fixed output quality, varied data sizes, every transfer counted
+
+1. Measure completion time and energy at fixed output quality.
+2. Vary input size, memory capacity and competing requests. Include data that fits, and data that does not fit, in fast memory.
+3. For approximate search, compare at the same rate of correct answers. For services, include slow requests and data migration.
+
+The hypothesis weakens if the advantage disappears once capacity is matched or all transfer costs are counted. Seeing it recur in today's cases cannot show growth over time.
 
 ## Counterpressure and falsification boundary
 

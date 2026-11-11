@@ -1,0 +1,607 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#F3ECE1" />
+  <title>Process aware design · Semiconductor conference atlas</title>
+  <meta name="description" content="Papers: DAC 6, ICCAD 1. Read from: 6 program descriptions, 0 abstracts or reports, 1 full papers or preprints. The explanations come first; every paper’s record follows at the end." />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Semiconductor conference atlas" />
+  <meta property="og:title" content="Process aware design · Semiconductor conference atlas" />
+  <meta property="og:description" content="Papers: DAC 6, ICCAD 1. Read from: 6 program descriptions, 0 abstracts or reports, 1 full papers or preprints. The explanations come first; every paper’s record follows at the end." />
+  <meta property="og:url" content="https://mehtama1234.github.io/semiconductor-conferences/subthemes/process-aware-design.html" />
+  <meta property="og:image" content="https://mehtama1234.github.io/semiconductor-conferences/presentation/slides/01-cover.jpg" />
+  <meta property="og:image:width" content="1920" />
+  <meta property="og:image:height" content="1080" />
+  <meta property="og:image:alt" content="Semiconductor conference atlas: 582 papers from ISCA, DAC and ICCAD, sorted into 10 themes and six directions to watch." />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="canonical" href="https://mehtama1234.github.io/semiconductor-conferences/subthemes/process-aware-design.html" />
+  <link rel="icon" href="../assets/icon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="../assets/base.css" />
+  <link rel="stylesheet" href="../assets/experience.css" />
+  <link rel="stylesheet" href="../assets/theme-atlas.css" />
+  <link rel="stylesheet" href="../assets/styles.css" />
+  <link rel="stylesheet" href="../assets/charts.css" />
+  <link rel="stylesheet" href="../assets/course.css" />
+  
+</head>
+<body class="course-site " data-house="atlas">
+  <aside class="public-demo-banner" aria-label="About this course">A plain-language guide to what ISCA, DAC and ICCAD papers say about chip and computer design · Built from the repository’s own paper records · Not made by the conferences</aside>
+  <a class="skip-link" href="#app">Skip to the page</a>
+  <header>
+    <a class="brand" href="../index.html"><span class="mark" aria-hidden="true">Si</span> Semiconductor conference atlas</a>
+    <span class="header-status"><span class="badge">582 papers</span><span class="badge">10 themes</span><span class="badge">Plain words first</span></span>
+    <a class="header-link" href="../course-map.html">Course map</a>
+  </header>
+  <nav class="course-nav" aria-label="Main sections of the course"><a href="../index.html">The big picture</a><a href="../themes.html">Themes</a><a href="../subthemes.html" aria-current="page">Subthemes</a><a href="../deep-reads.html">Deep reads</a><a href="../directions.html">What to watch</a><a href="../presentation/index.html">Slides</a><a href="../video/index.html">Video</a><a href="../share/index.html">Share</a></nav>
+  <main id="app" tabindex="-1">
+    <section class="screen active landing legacy-page" aria-labelledby="page-title">
+<div class="lm-head"><div class="hj-heading"><nav class="crumbs" aria-label="You are here"><a href="../course-map.html">Course map</a><span aria-hidden="true">›</span><a href="../subthemes.html">Subthemes</a></nav><a class="back-button" href="../subthemes.html">← <span>Subthemes</span></a><p class="eyebrow">Subtheme · 7 papers · Physical design and manufacturing</p><h1 id="page-title">Process aware design</h1><p class="hj-sub">Papers: DAC 6, ICCAD 1. Read from: 6 program descriptions, 0 abstracts or reports, 1 full papers or preprints. The explanations come first; every paper’s record follows at the end.</p></div><div class="hj-art" data-art="trio:affiliate,grid-dots,route"></div></div>
+<figure class="course-fig"><div class="loop-wide" data-art="flow:physical-design-and-manufacturing"></div><div class="loop-tall" data-art="flowTall:physical-design-and-manufacturing"></div><figcaption>The parent theme in one picture: turning connections into geometry: every step pushes on the others.</figcaption></figure>
+      <article class="prose">
+
+<p>This subject has 7 records in the selected sample. This page explains where it fits, then presents all captured paper evidence without shortening the measurements or limitations.</p>
+<p><a href="../guide/reading-guide-v1.html">Definitions used in the paper records</a></p>
+<p class="lm-k h-label">Understand the parent subject first</p><h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>The bigger theme this belongs to</h2>
+<ul>
+<li><a href="../themes/physical-design-and-manufacturing.html">Physical design and manufacturing</a></li>
+</ul>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>Manufacturing assumptions determine which designs are feasible</h2>
+<p>A circuit layout is a set of shapes that will be turned into physical structures. The manufacturing process constrains permitted dimensions, spacing, layers, materials, and device behavior. A design optimization is meaningful only within those assumptions.</p>
+<p>Process-aware design includes those constraints while choosing circuits or geometry. The purpose is to avoid selecting a design that looks favorable under an abstract model but fails after fabrication effects are considered. The quality of the process model is therefore part of the evidence.</p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="help-circle"></span>Why changing technology also changes the comparison</h2>
+<p>A new layer arrangement or connection technology can shorten some paths and change resistance, capacitance, supply delivery, or heat removal. The best circuit organization under one process may not be the best under another.</p><p>Comparing only one metric can miss a cost shifted to another part of the implementation.</p>
+<p>The network-on-chip co-optimization record compares several two-dimensional, three-dimensional, and backside-interconnect schemes using technology-dependent physical modeling. A network on chip connects components within a chip.</p><p>The captured record indicates that the preferred choice depends on core size, while detailed stack, routing, workload, and manufacturing assumptions remain unresolved. <a href="process-aware-design.html#paper-dac-2026-research2290">Recorded evidence</a></p>
+<p>This supports examining the circuit and technology jointly. It does not establish that one integration scheme is universally superior or that modeled improvements imply manufacturing yield.</p>
+<p><span id="explanation-dac-2026-research2290"></span></p>
+<h3>DTCO for 3 nm NoCs: process choice changes the link, power and traffic problem together</h3>
+<h4>What a network-on-chip link costs</h4>
+<p>A network-on-chip transfers packets between cores, caches or other components. A long link has resistance and capacitance that affect how quickly a signal can change and how much energy is used to drive it.</p><p>Repeaters and vias can restore signal quality or cross layers, but they consume area, power and routing resources.</p>
+<p>The physical design also needs a power-delivery network. IR drop is the voltage reduction caused by current flowing through the power network.</p><p>It can reduce circuit speed or operating margin. A process-aware comparison therefore needs more than a wire length: it needs the extracted interconnect, power delivery, voltage, timing, energy and layout constraints used to make the claim.</p>
+<h4>What the co-optimization compares</h4>
+<p>The record compares four two-dimensional, three-dimensional and backside-interconnect schemes using post-layout extraction, technology-dependent resistance/capacitance, and PDN and IR-drop-aware circuit/system simulation. This is design-technology co-optimization: the interconnect organization and the process assumptions are evaluated together.</p>
+<p>The official description reports 53% and 68% lower delay for F3D and B2D, 32% and 63% lower EDP, 2.1× and 3.1× feasible link frequency, and 23% and 35% lower average NoC latency. Each pair remains attached to its named scheme and metric.</p><p>A feasible link frequency is not CPU performance, and average NoC latency is not the latency of every packet or application.</p>
+<h4>Why traffic and core size change the answer</h4>
+<p>Latency depends on the number of hops, serialization, routing, queueing, contention and injection rate. A link technology can improve an unloaded path while a hotspot still dominates the application.</p><p>The best physical arrangement can also change with core size because the ratio of local to global wires, endpoint count and traffic concentration changes.</p>
+<p>EDP combines energy and delay within a specified boundary. It does not show whether the design meets thermal limits, whether the package can be assembled, or whether the CPU's application performance improves.</p><p>The comparison must state whether buffers, routers, repeaters, converters, power delivery, memory traffic and idle power are included.</p>
+<h4>What remains necessary for a process claim</h4>
+<p>Hold the CPU tile, core count, traffic matrix, routing policy, voltage, frequency target and acceptance criteria fixed while comparing the frontside 2D baseline with F3D and B2D. Report per-flow and average/tail latency, link utilization, throughput, energy, peak power, IR drop, thermal conditions, area, routing violations, process variation, assembly assumptions and yield.</p>
+<p>The captured DAC description supports process-aware NoC co-optimization with the reported F3D/B2D delay, EDP, frequency and average-latency results. It does not establish universal technology preference, full-system CPU benefit, manufacturability, thermal feasibility or yield.</p>
+<p><a href="process-aware-design.html#paper-dac-2026-research2290">Observed paper card</a></p>
+<p><span id="explanation-iccad-2025-1080"></span></p>
+<h3>RSizing: robust analog sizing is a probability-constrained Pareto search, not a nominal best-point search</h3>
+<h4>What analog sizing must decide</h4>
+<p>Analog circuit sizing chooses device parameters such as transistor dimensions, bias values and compensation values. Several performance measures can conflict: increasing gain can increase current, reducing offset can affect bandwidth, and a design that is best at nominal parameter values may fail when fabrication changes device parameters.</p>
+<p>For a design (x), let (y(x)) be the vector of performance values after process variation. A yield requirement asks for the probability that all required specifications are met.</p><p>RSizing seeks a Pareto set of designs that are not dominated by another design while satisfying a stated yield target. The output is therefore a set of tradeoff choices, not one point that is best on every metric.</p>
+<h4>What the three phases do</h4>
+<p>The recovered paper first runs nominal multi-objective optimization to find promising regions and prune the design space. It then uses heteroscedastic Gaussian-process models, which allow the variation level to depend on the design point, and Thompson sampling to select limited Monte Carlo simulations.</p><p>Finally, it performs targeted Monte Carlo refinement and calibrates the model before producing the robust Pareto set.</p>
+<p>This structure reduces expensive circuit simulations, but it also creates model-risk boundaries. A surrogate can predict the mean and variation incorrectly in an unexplored region.</p><p>Process distributions can be skewed or have tails that a Gaussian assumption does not capture. The paper uses an MVaR approximation and explicitly notes that its approximation error is not fully addressed and may introduce bias, especially at lower yield requirements.</p>
+<h4>What the manuscript actually evaluates</h4>
+<p>The paper evaluates ITC 2017 OPAMP, OSC and PLL circuits with 36, 14 and 77 selected parameters and the listed multi-objective performance measures. Spectre simulations use a TSMC 40 nm process on a machine with an 80-core 2.70 GHz CPU and an A100 GPU.</p><p>It evaluates yield targets of 97.5%, 99.0% and 99.9%; the variation-aware stage uses 50 Monte Carlo samples, refinement uses 100, 200 or 500 samples by target, and final yield is checked with 1,000 samples.</p>
+<p>Table II reports mean, minimum and maximum verified yield. Table III reports yield, hypervolume and runtime for NSGA-II, MARS-NEI and RSizing.</p><p>Table IV compares RSizing with PVTSizing at three target points. NSGA-II is omitted for PLL because its simulation cost is excessive.</p><p>These conditions matter: the reported results show behavior under a specific process, circuit suite, simulator and budget, not a general analog-design law.</p>
+<h4>How to interpret yield and runtime</h4>
+<p>Finite Monte Carlo verification estimates a probability; it does not prove the true yield exactly. A design near a 99.9% threshold needs enough samples and uncertainty reporting to distinguish a true pass from sampling variation.</p><p>A higher target can move the Pareto set toward safer but lower-performance designs. Runtime also includes different algorithm and baseline budgets, and the PLL comparison omits NSGA-II, so a speed ranking must preserve those conditions.</p>
+<p>The page-backed manuscript supports RSizing's robust multi-objective method and its reported OPAMP/OSC/PLL simulations, yield checks, hypervolume and runtime tables. It does not establish transfer to another process node, circuit family, simulator, variation distribution or signoff flow, and it does not remove the stated MVaR approximation or independent-reproduction requirements.</p>
+<p><a href="process-aware-design.html#paper-iccad-2025-1080">Observed paper card</a></p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="affiliate"></span>Lithography connects an intended shape to a printed shape</h2>
+<p>Lithography uses a patterned exposure process to define structures during fabrication. The resulting shape can differ from the intended design because of the physical imaging and process behavior. Inverse lithography seeks a mask pattern that will produce the desired result under a stated model.</p>
+<p>The generative-reinforcement-learning record proposes learning and refining candidate mask distributions. A model that produces plausible patterns still needs physical evaluation of the printed result and checks on whether the mask can be manufactured.</p><p>The current description does not establish pattern coverage, process conditions, mask-quality measures, or total training and search cost. <a href="process-aware-design.html#paper-dac-2026-research209">Recorded evidence</a></p>
+<p>The relevant comparison is the final acceptable pattern under the same process conditions and evaluation budget. Similarity to training examples is a different measurement from successful printing.</p>
+<p><span id="explanation-dac-2026-research209"></span></p>
+<h3>Generative inverse lithography: a plausible mask is not yet a verified printed pattern</h3>
+<h4>What inverse lithography is solving</h4>
+<p>The desired layout describes shapes that should exist after fabrication. Lithography chooses a mask and exposure process that produce those shapes after imaging, resist processing and other physical effects.</p><p>Inverse lithography works backward: it searches over mask patterns using a model of how a candidate mask becomes a printed pattern.</p>
+<p>The objective must therefore be defined at the printed shape, not only at the mask. Useful quantities can include edge-placement error, contour distance, process-window behavior, hotspot count, forbidden geometry and mask complexity.</p><p>The metric must state the simulator, process conditions, tolerance and whether the final mask satisfies manufacturing rules.</p>
+<h4>What the generative and reinforcement-learning stages do</h4>
+<p>The recorded method uses style-aware GAN pretraining on design data, followed by policy optimization and imitation-learning fine-tuning over mask distributions. GAN pretraining can produce candidate patterns resembling the training distribution.</p><p>Policy optimization changes candidates according to a reward. Imitation learning can make the policy follow selected examples or trajectories.</p>
+<p>Those stages do not define the physical result without a reward and action space. If the reward measures only image similarity, it can prefer a mask that looks plausible but prints poorly.</p><p>If the lithography simulator is simplified, the policy may exploit simulator errors. If process constraints are added only after generation, the refinement cost may remove the claimed time benefit.</p>
+<h4>What a complete comparison must measure</h4>
+<p>Compare conventional inverse-lithography solvers, generative methods and post-generation refinement on the same pattern suite, process model, simulator, compute budget and stopping rule. Report final printed-pattern metrics, edge-placement distributions, process-window or variation behavior, mask-rule violations, hotspot results, simulator calls, training and refinement time, memory and energy.</p>
+<p>Test patterns must include shapes and interactions not represented in the training set. The study should separate training, policy-selection and final evaluation patterns, and should test process changes rather than assuming that a policy trained for one node transfers to another.</p><p>A mask that succeeds in simulation still needs mask-writing and fabrication constraints.</p>
+<p>The captured DAC description supports a generative reinforcement-learning direction for inverse lithography. It reports no mask-quality metric, process condition, pattern suite, runtime, simulator cost, policy-training budget, refinement result or yield implication.</p><p>The evidence supports a search method hypothesis, not demonstrated printed-pattern fidelity, speed or manufacturing benefit.</p>
+<p><a href="process-aware-design.html#paper-dac-2026-research209">Observed paper card</a></p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>Fill changes both manufacturing conditions and electrical behavior</h2>
+<p>Fill insertion adds material patterns to satisfy density or other manufacturing requirements. Added structures can change electrical coupling near signal wires. Meeting a density rule can therefore affect circuit delay.</p>
+<p>The differentiable-fill record combines fill selection with a learned capacitance estimate and an explicit delay objective. Capacitance describes how much charge changes with voltage in the modeled structure. A delay approximation uses those electrical estimates to guide the choice. <a href="process-aware-design.html#paper-dac-2026-research648">Recorded evidence</a></p>
+<p>The important question is whether the final layout meets both manufacturing rules and timing requirements under an adequate extraction model. The current description does not establish the accuracy of that connection across technologies or the complete final results.</p>
+<p><span id="explanation-dac-2026-research648"></span></p>
+<h3>Differentiable fill insertion: meeting density rules is not the same as preserving signoff delay</h3>
+<h4>Why fill affects timing</h4>
+<p>Fill insertion adds shapes or material to satisfy density rules used by fabrication. Those shapes can change the electric field around signal wires. The result can change self-capacitance, coupling capacitance and the time needed for a driver to charge a wire and its load.</p>
+<p>The design must satisfy two different conditions: the layout must meet manufacturing density rules, and the signal paths must meet timing under the declared process and operating corners. A density score or a proxy for capacitance is not a timing-signoff result.</p>
+<h4>What the differentiable method changes</h4>
+<p>The recorded framework learns a capacitance estimate and optimizes fill with an explicit Elmore-delay objective. Differentiability allows the optimizer to change fill choices using a gradient rather than trying every discrete pattern independently.</p><p>The method must define the fill representation, density and spacing constraints, training data, reference extractor, coupling model and how discrete legal layouts are produced from the optimization variables.</p>
+<p>A learned capacitance model is useful only if its errors do not change the selected fill or the timing decision. A model can be accurate on average while missing a high-coupling net or a layout corner that controls signoff.</p><p>Elmore delay is an RC approximation; it is not automatically equivalent to a signoff timing engine with distributed wires, coupling, slew, driver resistance, corners and variation.</p>
+<h4>What a complete evaluation must measure</h4>
+<p>Compare state-of-the-art and proxy-objective fill insertion on the same layouts, density rules, routing, process node, timing paths, extraction corners and stopping budget. Report density compliance, capacitance error against a reference extractor, delay and slack before and after fill, runtime, memory, violations, repair rate and the fraction of paths that change signoff status.</p>
+<p>The final selected layouts should be checked with an independent signoff extractor and timing tool. Test layer stacks, coupling patterns, path lengths, congestion, process variation and nodes not used for training.</p><p>If the method claims manufacturing validity, include design-rule checks and the conditions under which the fill can actually be fabricated.</p>
+<p>The captured DAC description supports differentiable fill insertion with learned capacitance and explicit Elmore-delay optimization. It reports no delay, density, capacitance, runtime, design-quality, extraction-error, signoff or cross-node result. The evidence supports an optimization direction, not demonstrated timing closure or manufacturing validity.</p>
+<p><a href="process-aware-design.html#paper-dac-2026-research648">Observed paper card</a></p>
+<p><span id="explanation-dac-2026-research1282"></span></p>
+<h3>CPW-SMO: a larger common process window must be measured over a defined pattern set and fidelity rule</h3>
+<h4>What source-mask optimization is choosing</h4>
+<p>Lithography uses a source of illumination and a mask pattern to print a wafer pattern. Source-mask optimization chooses both so that the printed result matches the desired layout.</p><p>Conventional optimization may work on one source-mask pair at a time. CPW-SMO targets a set of patterns that must share one source while using multiple masks.</p>
+<p>A common process window is a region of process conditions, commonly focus and exposure, where every selected pattern remains within a stated print-fidelity limit. The size of that window depends on the pattern set, the error metric, the process axes, the optical and resist model, and the acceptable failure rate.</p><p>“Nearly two times” is not interpretable until those quantities are named.</p>
+<h4>What the proposed components change</h4>
+<p>The record describes single-shot set-based generative optimization with attention, parallel simulation, preference-penalty scalarization and SMO-aware gradients. Attention can relate features across patterns.</p><p>Parallel simulation can evaluate candidates concurrently. Scalarization combines objectives such as fidelity, window size and mask constraints into one optimization signal.</p><p>The weights determine which pattern or constraint is sacrificed when the objectives conflict.</p>
+<p>The source and masks remain coupled. A source that helps one pattern can hurt another, and a mask that compensates for one focus/exposure condition may fail elsewhere.</p><p>The method must define its action representation, gradient through the simulator or surrogate, mask-writability constraints, process sampling and stopping rule. A generative candidate that scores well in a surrogate still needs physical simulation and manufacturing checks.</p>
+<h4>How to read the reported speedup</h4>
+<p>The official description reports nearly 2× common process window and approximately 200× runtime speedup. Runtime speedup can arise from parallel hardware, fewer simulator calls, a surrogate, an early stopping rule or a changed fidelity target.</p><p>The comparison must include training, candidate generation, simulation, refinement, hardware and the same convergence or acceptance criterion.</p>
+<p>Evaluate against iterative source-mask optimization on the same pattern set, node, process model, focus/exposure grid, fidelity threshold, mask rules and compute budget. Report per-pattern fidelity, the intersection of all patterns' valid windows, failed patterns, simulator calls, total wall time, hardware, memory and mask-writing constraints.</p><p>Include unseen critical patterns and process variation.</p>
+<p>The captured DAC description supports a set-based generative source/mask optimization direction. It reports no node, pattern count, common-window definition, fidelity constraint, simulator fidelity, runtime hardware, mask-writability result or baseline stopping rule.</p><p>The nearly-2× and approximately-200× claims are conditional indicators, not established general lithography or manufacturing gains.</p>
+<p><a href="process-aware-design.html#paper-dac-2026-research1282">Observed paper card</a></p>
+<p><span id="explanation-dac-2026-research1287"></span></p>
+<h3>Differentiable MDP-ILT: a mask can print the right wafer pattern and still be hard to write</h3>
+<h4>Why ILT and mask data preparation interact</h4>
+<p>Inverse lithography chooses a mask intended to produce a target wafer pattern. Mask data preparation then converts that mask into shapes and shots that a mask-writing system can expose.</p><p>A curvilinear mask can improve the optical representation but may require more complex geometry, more shot fracturing or a write pattern that violates practical constraints.</p>
+<p>The two objectives are related but different. Wafer fidelity measures the printed contour under an optical and resist process.</p><p>Writability measures whether the mask can be represented, fractured, exposed, inspected and manufactured within beam, dose, geometry, time and cost limits. A disjoint workflow can improve one while damaging the other.</p>
+<h4>What the differentiable MDP-ILT method changes</h4>
+<p>The record describes a physics-aware differentiable EBL simulator with exact gradients, optical-lithography simulation in the loop and end-to-end shot-parameter co-optimization. The intended benefit is to let changes to mask geometry and shot parameters respond to both wafer-fidelity and mask-writing objectives during one optimization.</p>
+<p>The gradient is exact with respect to the implemented simulator, not automatically exact with respect to a physical mask writer. Discrete shot fracturing, variable-shaped-beam constraints, geometry snapping, dose quantization and process variation may require projection or approximation after the gradient step.</p><p>The final legal mask must be reevaluated through the full optical and EBL path.</p>
+<h4>What a complete evaluation must measure</h4>
+<p>Compare disjoint fab-ILT/MDP workflows with joint optimization on the same curvilinear pattern set, process node, optical and resist models, EBL calibration, shot constraints, compute budget and stopping rule. Report wafer contour error, edge placement, mask geometry violations, shot count, write time, dose, mask complexity, process window, simulator calls and optimization time.</p>
+<p>Use an independent optical model and calibrated EBL model where possible. Test pattern geometries not used in training or tuning, process variation, different shot limits and layouts that make wafer fidelity and writability conflict. A simulation result is not a mask-write or fabrication result.</p>
+<p>The captured DAC description supports differentiable joint optimization of wafer pattern fidelity and mask writability. It reports no wafer-error metric, writability metric, shot count, runtime, process window, calibration, mask-write or fabrication result.</p><p>The evidence supports a co-optimization direction, not demonstrated manufacturability or preserved wafer fidelity on hardware.</p>
+<p><a href="process-aware-design.html#paper-dac-2026-research1287">Observed paper card</a></p>
+<p><span id="explanation-dac-2026-research1298"></span></p>
+<h3>FreqSEM: a small edge-placement error requires a calibrated image-to-distance measurement and unseen-tool validation</h3>
+<h4>What contour extraction is measuring</h4>
+<p>An SEM image contains pixel intensities produced by an imaging process. Contour extraction selects the boundary that represents a printed feature.</p><p>The extracted contour can be compared with a reference contour using edge placement error, but the result depends on how the reference is defined, how the image is calibrated and how annotation uncertainty is handled.</p>
+<p>FreqSEM uses frequency-aware FFT decomposition, SEM-adapted SAM2 prompting and feature injection, edge-weighted loss and Sobel-gradient loss. FFT features can expose different spatial-frequency content.</p><p>A gradient loss can emphasize transitions. These mechanisms can help a model locate edges, but they do not by themselves identify the physical edge when contrast, charging, blur, noise, tool calibration or process variation changes.</p>
+<h4>What the reported EPE values mean</h4>
+<p>The official description reports EPE mean 0.334 nm and standard deviation 0.661 nm for an 81 nm minimum line width. These numbers must remain tied to the stated image and measurement conditions.</p><p>A nanometer value requires a pixel-to-distance calibration and a reference contour. The standard deviation is larger than the mean, so the distribution and difficult cases matter; an average alone can hide systematic bias or a subset of bad contours.</p>
+<p>The comparison should report baseline EPE values, per-pattern errors, annotation agreement, repeat-image variation, calibration uncertainty, runtime and the fraction of contours meeting a specified tolerance. It should state whether EPE is measured on centerlines, edges, line widths or another convention.</p>
+<h4>What generalization requires</h4>
+<p>Train and test splits should separate images or patterns in a way that prevents near-duplicate structures from leaking across the boundary. Test on a new SEM session, tool, magnification, process condition, node and line-width range.</p><p>If the model is used for process control, link contour error to the downstream decision and report whether the extracted result changes that decision.</p>
+<p>The captured DAC description supports a frequency-aware SEM contour-extraction direction with the reported EPE values. It does not provide dataset size, annotation uncertainty, baseline values, runtime, calibration, imaging conditions or cross-tool/node generalization. The evidence supports selected metrology results, not validated process-control accuracy or broad transfer.</p>
+<p><a href="process-aware-design.html#paper-dac-2026-research1298">Observed paper card</a></p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>Distinguish prediction, physical verification, and fabrication</h2>
+<p>A model predicts behavior under assumptions. A physical design-rule check establishes compliance with the rules it implements. Measurement on fabricated devices establishes behavior of those devices under the measurement conditions. These are related steps, but they support different conclusions.</p>
+<p>A process-aware method should state which step provides each result. If a learned model substitutes for a physical calculation, compare its errors against an appropriate reference and test whether those errors change the selected design.</p><p>If the claim concerns yield or variation, include the population and operating conditions needed to assess those quantities.</p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>The comparison that supports a design decision</h2>
+<p>Keep input circuits or patterns, manufacturing rules, process models, and acceptance criteria explicit. Compare final valid outcomes, violations, total search cost, and sensitivity to relevant process variation. Include repair and recalibration when changing the process or design family.</p>
+<p>The transferable lesson is which physical constraint changes the design choice and how reliably the method accounts for it. A faster approximation or favorable nominal case remains useful evidence, but its claim must retain that narrower scope until broader validation is available.</p>
+<p class="lm-k h-label">Compare the results carefully</p><h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="route"></span>How to compare these papers’ results fairly</h2>
+<p>First identify the inputs and required output quality. Then identify the limited resource: time, memory, communication, energy, circuit area, or correctness coverage.</p><p>Ask which part of the method reduces that cost and which new cost it adds. Compare numbers only when the experiments hold these conditions sufficiently similar.</p>
+<p>A conference description may explain the proposal while omitting the full experiment. An author preprint link may have been coded from its abstract. The source classification does not by itself establish that every table was read. Missing locations remain visible below.</p>
+<p class="lm-k h-label">Complete captured evidence</p><h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="file-text"></span>Every paper in this subtheme, with what its source shows</h2>
+<p>These are evidence records, not substitutes for the explanations above. Each record preserves its problem, proposed method, measurements, comparison conditions, and source limits. A populated record does not establish that its mechanism has been fully explained or independently verified.</p>
+<p><span id="paper-dac-2026-research2290"></span></p>
+<h3>Design Technology Co-Optimization for Network on Chip in High Performance CPUs at 3nm Node Using Monolithic 3D and Backside Interconnect Technologies</h3>
+<p>DAC 2026 · Record: <code>dac-2026-research2290</code></p>
+<p><a href="#explanation-dac-2026-research2290">Read the step-by-step explanation</a></p>
+<p><strong>Updated source-backed reading card</strong></p>
+<div class="worked"><p class="lm-k">Worked example</p><p>Reviewed 2026-09-08. Deepens the existing process-aware NoC treatment into a paper-level reading; preserves the F3D/B2D quantitative claims and makes RC, PDN, IR drop, traffic, core-size dependence and manufacturing assumptions explicit.</p></div>
+<p>This editorial correction updates the current reading view and connected dossiers, not the historical adjudication or scientific acceptance status. The original captured fields are preserved below.</p>
+<p><a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/data/editorial-paper-corrections-v1.json">Correction register</a></p>
+<p><strong>Problem:</strong></p>
+<p>Long global network-on-chip links in many-core CPUs require repeaters and vias that affect delay, energy and power delivery, so the interconnect technology and circuit organization should be chosen together.</p>
+<p><strong>Mechanism / artifact:</strong></p>
+<p>Design-technology co-optimization across four 2D, 3D and backside-interconnect schemes using post-layout extraction, technology-dependent resistance/capacitance, power-delivery-network and IR-drop-aware circuit/system simulation.</p>
+<p><strong>Workload — the work tested:</strong></p>
+<p>ARM Neoverse CSS N2 compute tile and NoC system evaluations across Cortex-A76 through Cortex-N2-sized clusters; traffic matrix, link lengths, process stack, routing rules and workload phases are incompletely specified.</p>
+<p><strong>Hardware and manufacturing assumptions:</strong></p>
+<p>3 nm high-performance CPU clusters with monolithic 3D integration and backside power/signal routing, extracted PDN and RC characteristics; thermal, assembly, yield and exact stack assumptions are unspecified.</p>
+<p><strong>Baseline — the comparison method:</strong></p>
+<p>Conventional frontside 2D NoC implementation</p>
+<p>F3D and B2D technology schemes</p>
+<p>Core size, traffic, link, process, extraction and system configuration must remain matched</p>
+<p><strong>Reported measurements:</strong></p>
+<p>Official description reports 53% and 68% lower delay for F3D and B2D, 32% and 63% lower EDP, 2.1× and 3.1× feasible link frequency, and 23% and 35% lower average NoC latency; exact measurement boundaries and traffic conditions are not fully specified.</p>
+<p><strong>Limits on the conclusion:</strong></p>
+<p>Resistance and capacitance determine wire delay and energy, while the power-delivery network and IR drop can change the voltage available to the circuit. A technology that shortens a signal path can add routing, thermal, assembly or power-delivery constraints.</p><p>Post-layout modeling is stronger than an abstract wire estimate, but its extraction and process assumptions define the result.</p>
+<p>Average NoC latency depends on traffic, contention, link placement, routing and injection rate. Feasible link frequency is not the same as application throughput or CPU performance, and EDP combines energy and delay only within the stated system boundary.</p>
+<p>The official description omits exact process stack, routing rules, traffic workloads, thermal and assembly cost, extraction detail, yield and full-system validation. The reported preference varies with core size, so F3D/B2D gains are conditional technology comparisons rather than universal superiority.</p>
+<p><strong>Source and location</strong></p>
+<p>Evidence tier: Primary captured official DAC description plus existing chapter level process aware noc discussion; no manuscript pages, extracted layout reproduction or manufacturing/yield validation. This is the stored source classification; the location and limits below determine what was actually read.</p>
+<p><a href="https://63dac.conference-program.com/?post_type=page&amp;p=16&amp;id=RESEARCH2290&amp;sess=sess169">Open the recorded source</a></p>
+<p>DAC 2026 official description; captured Problem, Mechanism / artifact, Workload, Hardware, Baseline, Measurements and Limits fields; record RESEARCH2290; reports F3D/B2D delay, EDP, frequency and average-latency factors.</p>
+<details markdown="1">
+<summary>Original captured fields — superseded for this reading card</summary>
+
+** page source tier:** medium_official_description
+
+**Baselines:** conventional frontside 2D NoC implementation
+
+**Evidence locators:** DAC 2026 official description
+
+**Evidence url:** https://63dac.conference-program.com/?post_type=page&amp;p=16&amp;id=RESEARCH2290&amp;sess=sess169
+
+**Hardware or process assumptions:** 3 nm high-performance CPU clusters, monolithic 3D integration, backside power/signal routing, extracted PDN and RC characteristics.
+
+**Limits:** The description omits exact process stack, routing rules, traffic workloads, thermal/assembly cost, and post-layout extraction details.
+
+Technology preference varies by core size; results are not a universal comparison of 2D, 3D, and backside integration.
+
+Official description only; manufacturability, yield, and full-system claims require paper-level verification.
+
+**Method or artifact:** DTCO across four 2D/3D/backside-interconnect schemes with post-layout extraction, technology-dependent RC, PDN, and IR-drop-aware circuit/system simulation.
+
+**Metrics:** 53% and 68% lower delay for F3D and B2D
+
+32% and 63% lower EDP for F3D and B2D
+
+2.1x and 3.1x feasible link frequency
+
+23% and 35% lower average NoC latency
+
+**Problem:** Long global NoC links in many-core CPUs require repeaters and vias that degrade delay and energy, motivating technology-aware interconnect co-design.
+
+**Workload or benchmark:** ARM Neoverse CSS N2 compute tile and NoC system-level evaluations across Cortex-A76 through Cortex-N2-sized clusters; traffic, link lengths, and process details are only partially specified.
+
+</details>
+<p><span id="paper-dac-2026-research209"></span></p>
+<h3>Pushing the Limits of Inverse Lithography with Generative Reinforcement Learning</h3>
+<p>DAC 2026 · Record: <code>dac-2026-research209</code></p>
+<p><a href="#explanation-dac-2026-research209">Read the step-by-step explanation</a></p>
+<p><strong>Updated source-backed reading card</strong></p>
+<div class="worked"><p class="lm-k">Worked example</p><p>Reviewed 2026-09-08. Deepens the existing inverse-lithography treatment into a paper-level reading; separates generated-mask distribution quality, policy optimization, printed-pattern fidelity, simulator cost and manufacturability.</p></div>
+<p>This editorial correction updates the current reading view and connected dossiers, not the historical adjudication or scientific acceptance status. The original captured fields are preserved below.</p>
+<p><a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/data/editorial-paper-corrections-v1.json">Correction register</a></p>
+<p><strong>Problem:</strong></p>
+<p>Inverse lithography must choose a mask pattern whose printed result matches a desired layout under a physical process model, while the search space is large and refinement can be expensive.</p>
+<p><strong>Mechanism / artifact:</strong></p>
+<p>Style-aware GAN pretraining on design data followed by policy optimization and imitation-learning fine-tuning over mask distributions; reward, simulator, action representation, constraints and refinement schedule are unspecified.</p>
+<p><strong>Workload — the work tested:</strong></p>
+<p>Inverse-lithography mask generation; design-pattern suite, geometry, process node, optical model, resist model, simulator, mask constraints and refinement budget are unspecified.</p>
+<p><strong>Hardware and manufacturing assumptions:</strong></p>
+<p>Semiconductor mask-generation and lithography simulation flow; resolution, exposure, resist, process variation, mask writing, design rules, thermal and manufacturing constraints are unspecified.</p>
+<p><strong>Baseline — the comparison method:</strong></p>
+<p>Conventional inverse-lithography solvers</p>
+<p>Generative ILT methods with post-ILT refinement</p>
+<p>Pattern suite, process, simulator, compute budget and acceptance metric are unspecified</p>
+<p><strong>Reported measurements:</strong></p>
+<p>Mask quality and optimization/refinement reduction are claimed qualitatively; no printed-pattern metric, process condition, pattern suite, runtime, simulator cost, policy-training budget or yield result is reported.</p>
+<p><strong>Limits on the conclusion:</strong></p>
+<p>Inverse lithography is an optimization problem over a mask. A generated mask is useful only after the lithography and resist model predicts the printed pattern under stated process conditions.</p><p>Similarity to training patterns or a plausible mask image does not establish contour fidelity, edge placement, hotspot safety or manufacturability.</p>
+<p>GAN pretraining can provide a distribution of candidate masks, while policy optimization changes candidates according to a reward and imitation learning can copy selected behavior. The result depends on the reward, action space, simulator fidelity, exploration budget and pattern coverage.</p><p>A reward that omits a process constraint can optimize the wrong physical outcome.</p>
+<p>The official description reports no mask-quality metric, process condition, pattern suite, runtime, policy-training cost, refinement budget, simulator validation or yield implication. The record supports a generative-optimization direction, not demonstrated lithography fidelity, speed or manufacturing benefit.</p>
+<p><strong>Source and location</strong></p>
+<p>Evidence tier: Primary captured official DAC description plus existing chapter level inverse lithography discussion; no full paper extraction, lithography simulation reproduction or manufacturability validation. This is the stored source classification; the location and limits below determine what was actually read.</p>
+<p><a href="https://63dac.conference-program.com/?post_type=page&amp;p=16&amp;id=RESEARCH209&amp;sess=sess154">Open the recorded source</a></p>
+<p>DAC 2026 official description; captured Problem, Mechanism / artifact, Workload, Hardware, Baseline, Measurements and Limits fields; record RESEARCH209; no manuscript pages.</p>
+<details markdown="1">
+<summary>Original captured fields — superseded for this reading card</summary>
+
+** page source tier:** medium_official_description
+
+**Baselines:** conventional inverse-lithography solvers
+
+generative ILT methods with post-ILT refinement
+
+**Evidence locators:** DAC 2026 official description
+
+**Evidence url:** https://63dac.conference-program.com/?post_type=page&amp;p=16&amp;id=RESEARCH209&amp;sess=sess154
+
+**Hardware or process assumptions:** Semiconductor mask-generation and lithography simulation flow; optical model, process conditions, resolution, and manufacturing constraints are unspecified.
+
+**Limits:** No mask-quality metric, process condition, pattern suite, runtime, or policy-training budget is supplied.
+
+GAN distribution quality and manufacturability may depend strongly on training-pattern coverage.
+
+Official description only; lithography fidelity and yield implications require paper-level verification.
+
+**Method or artifact:** Style-aware GAN pretraining on design data followed by policy-optimization and imitation-learning fine-tuning over mask distributions.
+
+**Metrics:** Improved mask quality claimed qualitatively
+
+Reduced optimization/refinement time claimed qualitatively
+
+**Problem:** Inverse lithography is non-convex, and suboptimal training data plus expensive post-generation refinement can leave generative mask solutions in poor local minima.
+
+**Workload or benchmark:** Inverse-lithography mask generation; design patterns, process node, lithography simulator, mask metrics, and refinement budget are unspecified.
+
+</details>
+<p><span id="paper-dac-2026-research648"></span></p>
+<h3>Differentiable Fill Insertion with Explicit Delay Optimization</h3>
+<p>DAC 2026 · Record: <code>dac-2026-research648</code></p>
+<p><a href="#explanation-dac-2026-research648">Read the step-by-step explanation</a></p>
+<p><strong>Updated source-backed reading card</strong></p>
+<div class="worked"><p class="lm-k">Worked example</p><p>Reviewed 2026-09-08. Deepens the existing differentiable-fill treatment into a paper-level reading; separates density-rule compliance, learned capacitance prediction, Elmore delay and signoff extraction validity.</p></div>
+<p>This editorial correction updates the current reading view and connected dossiers, not the historical adjudication or scientific acceptance status. The original captured fields are preserved below.</p>
+<p><a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/data/editorial-paper-corrections-v1.json">Correction register</a></p>
+<p><strong>Problem:</strong></p>
+<p>Fill insertion adds material to meet manufacturing density rules, but the added structures can change coupling and wire capacitance near signal paths and therefore change delay.</p>
+<p><strong>Mechanism / artifact:</strong></p>
+<p>Differentiable fill-insertion framework with learned capacitance extraction and explicit Elmore-delay optimization; fill representation, density constraints, training data, extraction reference and gradient path are unspecified.</p>
+<p><strong>Workload — the work tested:</strong></p>
+<p>Physical-design fill insertion; layouts, process node, layer stack, routed nets, timing paths, density targets and comparison metrics are unspecified.</p>
+<p><strong>Hardware and manufacturing assumptions:</strong></p>
+<p>Semiconductor interconnect capacitance and delay modeling; extraction tool, routing rules, coupling model, signoff corners, variation and manufacturing rules are unspecified.</p>
+<p><strong>Baseline — the comparison method:</strong></p>
+<p>State-of-the-art fill-insertion methods</p>
+<p>Proxy-objective fill optimization</p>
+<p>Layout, density, timing, process, extraction and signoff conditions are unspecified</p>
+<p><strong>Reported measurements:</strong></p>
+<p>Significant improvement over state of the art is claimed qualitatively; no delay, density, capacitance, runtime, design-quality, signoff or cross-node result is supplied.</p>
+<p><strong>Limits on the conclusion:</strong></p>
+<p>Fill is not electrically neutral. It changes nearby conductor geometry and dielectric environment, which can change self-capacitance and coupling capacitance. Meeting a density rule is therefore a manufacturing constraint, while meeting delay is an electrical constraint; optimizing one proxy does not establish the other.</p>
+<p>A learned capacitance model can make the objective differentiable and reduce repeated extraction cost, but its prediction error matters only through the selected fill and final timing. Elmore delay is an approximation based on a simplified RC network; it must be compared with signoff extraction across relevant paths, layers, corners and coupling conditions.</p>
+<p>The official description reports no delay, density, capacitance, runtime, design-quality, extraction-error, signoff or cross-node result. The record supports a differentiable fill-optimization direction, not demonstrated timing closure or manufacturing validity.</p>
+<p><strong>Source and location</strong></p>
+<p>Evidence tier: Primary captured official DAC description plus existing chapter level differentiable fill discussion; no full paper extraction, signoff extraction reproduction or cross node validation. This is the stored source classification; the location and limits below determine what was actually read.</p>
+<p><a href="https://63dac.conference-program.com/?post_type=page&amp;p=16&amp;id=RESEARCH648&amp;sess=sess154">Open the recorded source</a></p>
+<p>DAC 2026 official description; captured Problem, Mechanism / artifact, Workload, Hardware, Baseline, Measurements and Limits fields; record RESEARCH648; no manuscript pages.</p>
+<details markdown="1">
+<summary>Original captured fields — superseded for this reading card</summary>
+
+** page source tier:** medium_official_description
+
+**Baselines:** state-of-the-art fill-insertion methods
+
+proxy-objective fill optimization
+
+**Evidence locators:** DAC 2026 official description
+
+**Evidence url:** https://63dac.conference-program.com/?post_type=page&amp;p=16&amp;id=RESEARCH648&amp;sess=sess154
+
+**Hardware or process assumptions:** Interconnect capacitance and delay modeled for semiconductor physical design; extraction tool, layer stack, routing rules, and signoff conditions are unspecified.
+
+**Limits:** No delay, density, capacitance, runtime, or design-quality values are supplied.
+
+Learned capacitance accuracy and Elmore approximation may not match signoff extraction across nodes.
+
+Official description only; physical-design validity requires paper-level verification.
+
+**Method or artifact:** Differentiable fill-insertion framework with learned capacitance extraction and explicit Elmore-delay optimization.
+
+**Metrics:** Significant improvement over state of the art claimed qualitatively
+
+**Problem:** Traditional fill insertion optimizes density and proxy objectives while remaining misaligned with actual signal delay.
+
+**Workload or benchmark:** Physical-design fill insertion; layouts, process node, density constraints, delay paths, and comparison metrics are unspecified.
+
+</details>
+<p><span id="paper-dac-2026-research1282"></span></p>
+<h3>CPW-SMO: Generating Mask Sets and Common Source for Maximum Common Process Window</h3>
+<p>DAC 2026 · Record: <code>dac-2026-research1282</code></p>
+<p><a href="#explanation-dac-2026-research1282">Read the step-by-step explanation</a></p>
+<p><strong>Updated source-backed reading card</strong></p>
+<div class="worked"><p class="lm-k">Worked example</p><p>Reviewed 2026-09-08. Deepens the existing process-aware lithography treatment into a paper-level reading; defines common process window and source/mask co-optimization, and bounds the nearly-2× and approximately-200× claims by pattern, simulator, fidelity and runtime conditions.</p></div>
+<p>This editorial correction updates the current reading view and connected dossiers, not the historical adjudication or scientific acceptance status. The original captured fields are preserved below.</p>
+<p><a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/data/editorial-paper-corrections-v1.json">Correction register</a></p>
+<p><strong>Problem:</strong></p>
+<p>Source-mask optimization must choose one illumination source and masks for a set of patterns, while keeping all patterns printable across a shared range of process conditions.</p>
+<p><strong>Mechanism / artifact:</strong></p>
+<p>Single-shot set-based generative source/mask optimization using attention, parallel simulation, preference-penalty scalarization and SMO-aware gradients; pattern representation, simulator, reward weights and stopping rule are unspecified.</p>
+<p><strong>Workload — the work tested:</strong></p>
+<p>Full-chip or critical-pattern common-process-window lithography optimization; pattern count, criticality, node, pitch, process range, mask constraints and fidelity targets are unspecified.</p>
+<p><strong>Hardware and manufacturing assumptions:</strong></p>
+<p>Advanced-node DTCO and source-mask optimization with one common source and multiple masks; optical/resist model, focus/exposure conditions, process variation, simulator hardware and mask-writing limits are unspecified.</p>
+<p><strong>Baseline — the comparison method:</strong></p>
+<p>State-of-the-art source-mask optimization methods</p>
+<p>Iterative single-pair source-mask optimization</p>
+<p>Pattern set, simulator fidelity, stopping criteria, hardware and comparison budget are unspecified</p>
+<p><strong>Reported measurements:</strong></p>
+<p>Official description reports nearly 2× common process window and approximately 200× runtime speedup; process-window definition, pattern/fidelity conditions, simulator hardware and baseline stopping rule are unspecified.</p>
+<p><strong>Limits on the conclusion:</strong></p>
+<p>A common process window is the range of process conditions, such as focus and exposure, over which all selected patterns meet a stated print-fidelity requirement. Improving the window requires defining the patterns, acceptable error, process axes and whether the source is fixed across masks.</p>
+<p>Source and mask are coupled: source shape affects how the mask prints, and each mask may need to compensate for the same source across different patterns. Parallel simulation can reduce wall time only if simulator work and hardware are counted consistently.</p><p>Preference-penalty scalarization depends on weights and can trade one pattern or metric against another.</p>
+<p>The official description reports no node, pattern count, process-window definition, fidelity constraint, simulator fidelity, runtime hardware, mask-writability result or baseline stopping rule. The nearly-2× and approximately-200× claims are conditional indicators, not established general lithography or manufacturing gains.</p>
+<p><strong>Source and location</strong></p>
+<p>Evidence tier: Primary captured official DAC description plus existing process aware lithography discussion; no manuscript pages, simulator reproduction or mask/fabrication validation. This is the stored source classification; the location and limits below determine what was actually read.</p>
+<p><a href="https://63dac.conference-program.com/?post_type=page&amp;p=16&amp;id=RESEARCH1282&amp;sess=sess154">Open the recorded source</a></p>
+<p>DAC 2026 official description; captured Problem, Mechanism / artifact, Workload, Hardware, Baseline, Measurements and Limits fields; record RESEARCH1282; official page reports nearly 2× CPW and approximately 200× runtime.</p>
+<details markdown="1">
+<summary>Original captured fields — superseded for this reading card</summary>
+
+** page source tier:** medium_official_description
+
+**Baselines:** state-of-the-art source-mask optimization methods
+
+**Evidence locators:** DAC 2026 official description
+
+**Evidence url:** https://63dac.conference-program.com/?post_type=page&amp;p=16&amp;id=RESEARCH1282&amp;sess=sess154
+
+**Hardware or process assumptions:** Advanced-node DTCO and source-mask optimization with common source and multiple masks; optical model, resist/process assumptions, and compute platform are unspecified.
+
+**Limits:** The description omits node, pattern count, process-window definition, fidelity constraints, and runtime hardware.
+
+Speedup and CPW comparisons may depend on simulator fidelity and baseline stopping criteria.
+
+Official description only; reported gains require paper-level verification.
+
+**Method or artifact:** Single-shot set-based generative source/mask optimization with attention, parallel simulation, preference-penalty scalarization, and SMO-aware gradients.
+
+**Metrics:** Nearly 2x common process window
+
+Approximately 200x runtime speedup
+
+**Problem:** Conventional source-mask optimization iteratively produces a single pair and does not efficiently co-optimize critical pattern sets under a common source.
+
+**Workload or benchmark:** Full-chip or critical-pattern common-process-window lithography optimization; pattern sets, node, simulator, and mask constraints are unspecified.
+
+</details>
+<p><span id="paper-dac-2026-research1287"></span></p>
+<h3>From Fab to Mask Shop: A Differentiable MDP-ILT Framework for Co-Optimization of Wafer Pattern Fidelity and Mask Writability</h3>
+<p>DAC 2026 · Record: <code>dac-2026-research1287</code></p>
+<p><a href="#explanation-dac-2026-research1287">Read the step-by-step explanation</a></p>
+<p><strong>Updated source-backed reading card</strong></p>
+<div class="worked"><p class="lm-k">Worked example</p><p>Reviewed 2026-09-08. Deepens the existing inverse-lithography/MDP treatment into a paper-level reading; separates wafer pattern fidelity from mask writability and makes EBL shot, gradient, simulator calibration and fabrication evidence explicit.</p></div>
+<p>This editorial correction updates the current reading view and connected dossiers, not the historical adjudication or scientific acceptance status. The original captured fields are preserved below.</p>
+<p><a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/data/editorial-paper-corrections-v1.json">Correction register</a></p>
+<p><strong>Problem:</strong></p>
+<p>Inverse lithography can optimize the wafer pattern while a separate mask-data-preparation flow produces a mask that is costly or difficult to write, causing the two objectives to conflict.</p>
+<p><strong>Mechanism / artifact:</strong></p>
+<p>Physics-aware differentiable electron-beam-lithography simulation with exact gradients, optical-lithography simulation in the loop and end-to-end shot-parameter co-optimization for curvilinear ILT and variable-shaped-beam mask preparation.</p>
+<p><strong>Workload — the work tested:</strong></p>
+<p>Curvilinear inverse-lithography and variable-shaped-beam mask preparation; pattern suite, process node, geometry, shot count, resist/optical conditions and acceptance targets are unspecified.</p>
+<p><strong>Hardware and manufacturing assumptions:</strong></p>
+<p>Optical lithography and EBL mask-writing models with shot fracturing and geometry-level mask-process correction; EBL calibration, beam settings, write time, mask rules and simulator settings are unspecified.</p>
+<p><strong>Baseline — the comparison method:</strong></p>
+<p>Disjoint fab ILT and mask-shop MDP workflows</p>
+<p>Separate wafer-fidelity optimization and mask-writability optimization</p>
+<p>Pattern, process, simulator, shot, runtime and acceptance conditions are unspecified</p>
+<p><strong>Reported measurements:</strong></p>
+<p>Improved mask manufacturability and preserved wafer pattern fidelity are claimed qualitatively; no wafer error, writability metric, shot count, runtime, process window, write time or calibration result is provided.</p>
+<p><strong>Limits on the conclusion:</strong></p>
+<p>Wafer pattern fidelity asks whether the printed wafer contour matches the target. Mask writability asks whether the mask can be fractured, written and manufactured within beam, geometry, dose and shot constraints.</p><p>Optimizing one does not guarantee the other; the joint objective and its weights must be stated.</p>
+<p>Differentiability can propagate a gradient through a simulated EBL and optical process, but exact gradients of a simulator are exact only for that simulator. Discrete shot fracturing, geometry rules and process effects may need approximations or projection steps that change the final mask.</p>
+<p>The official description reports no wafer-error metric, writability metric, shot count, runtime, process window, physical EBL calibration, mask-write experiment or fabrication result. The record supports a joint differentiable optimization direction, not demonstrated manufacturability or preserved wafer fidelity on hardware.</p>
+<p><strong>Source and location</strong></p>
+<p>Evidence tier: Primary captured official DAC description plus existing process aware lithography discussion; no full paper extraction, ebl calibration, mask write or fabrication validation. This is the stored source classification; the location and limits below determine what was actually read.</p>
+<p><a href="https://63dac.conference-program.com/?post_type=page&amp;p=16&amp;id=RESEARCH1287&amp;sess=sess154">Open the recorded source</a></p>
+<p>DAC 2026 official description; captured Problem, Mechanism / artifact, Workload, Hardware, Baseline, Measurements and Limits fields; record RESEARCH1287; no manuscript pages.</p>
+<details markdown="1">
+<summary>Original captured fields — superseded for this reading card</summary>
+
+** page source tier:** medium_official_description
+
+**Baselines:** disjoint fab ILT and mask-shop MDP workflows
+
+**Evidence locators:** DAC 2026 official description
+
+**Evidence url:** https://63dac.conference-program.com/?post_type=page&amp;p=16&amp;id=RESEARCH1287&amp;sess=sess154
+
+**Hardware or process assumptions:** Optical lithography and EBL mask-writing models with shot fracturing and geometry-level mask-process correction; process calibration and simulator settings are unspecified.
+
+**Limits:** No numeric wafer error, writability, shot count, runtime, or process-window results are provided.
+
+Differentiable simulator fidelity and calibration to physical EBL are unresolved.
+
+Official description only; no independent fabrication or mask-write validation.
+
+**Method or artifact:** Physics-aware differentiable EBL simulation with exact gradients, optical-lithography simulation in the loop, and end-to-end shot-parameter co-optimization.
+
+**Metrics:** Improved mask manufacturability and preserved wafer pattern fidelity claimed qualitatively
+
+**Problem:** Disjoint inverse-lithography and mask-data-preparation workflows can optimize wafer fidelity and mask manufacturability inconsistently.
+
+**Workload or benchmark:** Curvilinear inverse-lithography and variable-shaped-beam mask preparation; pattern suite, process node, and shot counts are unspecified.
+
+</details>
+<p><span id="paper-dac-2026-research1298"></span></p>
+<h3>FreqSEM: Frequency-Aware High-Precision Contour Extraction for Lithographic SEM Images</h3>
+<p>DAC 2026 · Record: <code>dac-2026-research1298</code></p>
+<p><a href="#explanation-dac-2026-research1298">Read the step-by-step explanation</a></p>
+<p><strong>Updated source-backed reading card</strong></p>
+<div class="worked"><p class="lm-k">Worked example</p><p>Reviewed 2026-09-08. Deepens the existing FreqSEM treatment into a paper-level reading; separates image-feature extraction, contour annotation, EPE calibration and model generalization from the reported nanometer values.</p></div>
+<p>This editorial correction updates the current reading view and connected dossiers, not the historical adjudication or scientific acceptance status. The original captured fields are preserved below.</p>
+<p><a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/data/editorial-paper-corrections-v1.json">Correction register</a></p>
+<p><strong>Problem:</strong></p>
+<p>Lithographic SEM images can have low contrast, noise and complex structures, making it difficult to locate the printed contour accurately for metrology and process control.</p>
+<p><strong>Mechanism / artifact:</strong></p>
+<p>Frequency-aware FFT decomposition with SEM-adapted SAM2 prompting and feature injection, edge-weighted loss and Sobel-gradient loss; model input, prompt construction, labels, calibration and training protocol are unspecified.</p>
+<p><strong>Workload — the work tested:</strong></p>
+<p>Lithographic SEM contour extraction with an 81 nm minimum line width and limited training data; dataset size, annotation process, imaging conditions, tool variation and cross-node test are unspecified.</p>
+<p><strong>Hardware and manufacturing assumptions:</strong></p>
+<p>SEM-based lithographic metrology and image-analysis pipeline; pixel scale, magnification, calibration, process node, noise, imaging settings and inference hardware are unspecified.</p>
+<p><strong>Baseline — the comparison method:</strong></p>
+<p>Existing contour-extraction approaches</p>
+<p>Baseline model names, annotation protocol, image tool, calibration and runtime conditions are unspecified</p>
+<p><strong>Reported measurements:</strong></p>
+<p>Official description reports EPE mean 0.334 nm, EPE standard deviation 0.661 nm and an 81 nm minimum line width; dataset, annotation uncertainty, calibration and baseline values are not reported.</p>
+<p><strong>Limits on the conclusion:</strong></p>
+<p>Contour extraction maps image intensities to a geometric boundary. FFT decomposition can separate frequency components and Sobel loss can emphasize gradients, but these design choices do not define the physical edge or remove SEM noise and charging.</p><p>SAM2 prompting and feature injection must be tied to the image scale and label convention.</p>
+<p>Edge placement error is meaningful only relative to a calibrated pixel-to-length conversion, reference contour, annotation uncertainty and measurement repeatability. A sub-nanometer mean with a larger standard deviation may hide difficult structures or systematic bias, and the number cannot be compared across tools without matching conventions.</p>
+<p>The official description supplies no dataset size, annotation uncertainty, baseline values, runtime, calibration, imaging conditions or cross-node/tool generalization. The record supports a frequency-aware metrology direction and selected EPE figures, not validated process-control accuracy or broad transfer.</p>
+<p><strong>Source and location</strong></p>
+<p>Evidence tier: Primary captured official DAC description plus existing process aware metrology discussion; no full paper extraction, calibrated sem reproduction or cross tool/node validation. This is the stored source classification; the location and limits below determine what was actually read.</p>
+<p><a href="https://63dac.conference-program.com/?post_type=page&amp;p=16&amp;id=RESEARCH1298&amp;sess=sess160">Open the recorded source</a></p>
+<p>DAC 2026 official description; captured Problem, Mechanism / artifact, Workload, Hardware, Baseline, Measurements and Limits fields; record RESEARCH1298; official page reports 0.334 nm mean, 0.661 nm standard deviation and 81 nm line width.</p>
+<details markdown="1">
+<summary>Original captured fields — superseded for this reading card</summary>
+
+** page source tier:** medium_official_description
+
+**Baselines:** existing contour-extraction approaches
+
+**Evidence locators:** DAC 2026 official description
+
+**Evidence url:** https://63dac.conference-program.com/?post_type=page&amp;p=16&amp;id=RESEARCH1298&amp;sess=sess160
+
+**Hardware or process assumptions:** SEM-based lithographic metrology and image-analysis pipeline; imaging conditions, process node, pixel scale, and inference hardware are unspecified.
+
+**Limits:** No dataset size, annotation uncertainty, baseline values, runtime, or generalization across nodes is supplied.
+
+Nanometer EPE depends on calibration and measurement conventions that are not described.
+
+Official description only; metrology validity requires paper-level verification.
+
+**Method or artifact:** Frequency-aware FFT decomposition, SEM-adapted SAM2 prompting and feature injection, edge-weighted loss, and Sobel gradient loss.
+
+**Metrics:** EPE mean 0.334 nm
+
+EPE standard deviation 0.661 nm
+
+81 nm minimum line width
+
+**Problem:** Low contrast, noise, and complex structures in lithographic SEM images make precise contour extraction difficult for metrology and process optimization.
+
+**Workload or benchmark:** Lithographic SEM contour extraction at an 81 nm minimum line width with limited training data; dataset, annotation, and cross-tool conditions are unspecified.
+
+</details>
+<p><span id="paper-iccad-2025-1080"></span></p>
+<h3>RSizing: Robust Bayesian Optimization for Analog Circuit Sizing Under Process Variations</h3>
+<p>ICCAD 2025 · Record: <code>iccad-2025-1080</code></p>
+<p><a href="#explanation-iccad-2025-1080">Read the step-by-step explanation</a></p>
+<p><strong>Updated source-backed reading card</strong></p>
+<div class="worked"><p class="lm-k">Worked example</p><p>Reviewed 2026-09-08. Adds a page-backed RSizing reading from the recovered author PDF; explains robust Pareto optimization, heteroscedastic process variation, MVaR approximation, Monte Carlo budgets and the yield/runtime tradeoff rather than retaining the shallow card.</p></div>
+<p>This editorial correction updates the current reading view and connected dossiers, not the historical adjudication or scientific acceptance status. The original captured fields are preserved below.</p>
+<p><a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/data/editorial-paper-corrections-v1.json">Correction register</a></p>
+<p><strong>Problem:</strong></p>
+<p>Analog circuit sizing must choose device parameters that trade several performance objectives while meeting a probability-of-success requirement under process variation.</p>
+<p><strong>Mechanism / artifact:</strong></p>
+<p>Three-phase robust Bayesian optimization: nominal multi-objective pruning, heteroscedastic Gaussian-process modeling with Thompson sampling and targeted Monte Carlo refinement/calibration; the recovered paper defines a robust Pareto set using a yield constraint.</p>
+<p><strong>Workload — the work tested:</strong></p>
+<p>ITC 2017 OPAMP, OSC and PLL benchmark circuits with 36, 14 and 77 selected parameters and the listed circuit objectives; Spectre simulations use TSMC 40 nm. Yield targets are 97.5%, 99.0% and 99.9%.</p>
+<p><strong>Hardware and manufacturing assumptions:</strong></p>
+<div class="worked"><p class="lm-k">Worked example</p><p>Spectre analog simulation on TSMC 40 nm; 80-core 2.70 GHz CPU and A100 80 GB machine; 50 Monte Carlo samples in variation-aware optimization and 100/200/500 refinement samples for the three yield targets, with final verification by 1,000 samples.</p></div>
+<p><strong>Baseline — the comparison method:</strong></p>
+<p>NSGA-II</p>
+<p>MARS-NEI</p>
+<p>PVTSizing</p>
+<p>NSGA-II is omitted for PLL because of simulation cost; baseline budgets and objective constructions are not fully symmetric</p>
+<p><strong>Reported measurements:</strong></p>
+<p>Manuscript-backed: Table II verifies mean/min/max yield over 1,000 Monte Carlo samples; Table III reports yield, hypervolume and runtime for OPAMP/OSC/PLL at 97.5%, 99.0% and 99.9%; Table IV compares PVTSizing and RSizing at three targets. The paper notes MVaR approximation bias for lower yield requirements and tradeoffs between target yield and performance.</p>
+<p><strong>Limits on the conclusion:</strong></p>
+<p>A robust Pareto solution is not one design that maximizes every metric. It is a set of non-dominated designs whose probability of meeting the performance specifications is at least the required yield.</p><p>The yield estimate is itself uncertain when based on finite Monte Carlo samples, especially near a threshold.</p>
+<p>The heteroscedastic GP models input-dependent variation and the acquisition function chooses expensive simulations, but the model can be wrong when distributions are non-Gaussian or local variation changes. The paper's refinement uses MVaR estimates and states that approximation error is not fully addressed and may bias results at lower yield.</p>
+<p>The recovered experiment is strong page-backed evidence under TSMC 40 nm, ITC 2017 circuits, stated simulation budgets and a specific machine. It does not establish transfer to other nodes, circuits, simulators, variation distributions or commercial signoff.</p><p>Runtime comparisons also need the asymmetric PLL omission and different baseline budgets kept visible.</p>
+<p><strong>Source and location</strong></p>
+<p>Evidence tier: Primary author hosted manuscript backed selected evaluation; page level extraction performed 2026 09 08; independent reproduction and broader technology/circuit validation remain open. This is the stored source classification; the location and limits below determine what was actually read.</p>
+<p><a href="https://www.cse.cuhk.edu.hk/~byu/papers/C287-ICCAD2025-RSizing.pdf">Open the recorded source</a></p>
+<p>Recovered author-hosted PDF v1, pages 1–7; Sections II–IV; Fig. 2; Table I (page 6), Tables II–IV (page 7); TSMC 40 nm, ITC 2017 OPAMP/OSC/PLL, yield targets, Monte Carlo budgets and baseline settings.</p>
+<details markdown="1">
+<summary>Original captured fields — superseded for this reading card</summary>
+
+** page source tier:** high_primary_author_pdf
+
+**Baselines:** existing analog circuit sizing and Bayesian-optimization methods
+
+**Evidence locators:** Not established in the captured evidence.
+
+**Evidence url:** https://www.cse.cuhk.edu.hk/~byu/papers/C287-ICCAD2025-RSizing.pdf
+
+**Hardware or process assumptions:** CMOS analog circuit sizing and Monte Carlo process-variation simulation; exact technology node, circuit identities, and simulation budgets require full-paper extraction.
+
+**Limits:** The evidence is an author-hosted conference PDF; the repository has not yet extracted numerical table values, exact baselines, technology assumptions, or all yield/quality tradeoffs.
+
+**Method or artifact:** Three-phase robust Bayesian optimization using nominal-region pruning, heteroscedastic Gaussian-process surrogate models, Thompson sampling, targeted Monte Carlo simulations, and model calibration.
+
+**Metrics:** yield requirement satisfaction
+
+multiple analog performance objectives
+
+Monte Carlo simulation/computational cost
+
+**Problem:** Analog circuit sizing under process variation is expensive and manual; nominal optimization can produce designs with poor yield when performance distributions shift across manufacturing variation.
+
+**Workload or benchmark:** Three analog benchmark circuits evaluated under process variation with multi-objective performance and yield requirements.
+
+</details>
+<p class="lm-k h-label">What remains to establish</p><h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>What is still unproven here</h2>
+<p>Resolve unspecified workloads, comparison methods, resource budgets, and source locations before generalizing a reported gain. Multiple papers in this selected sample permit comparison of mechanisms, but do not by themselves establish recurrence across years or a long-term trend.</p>
+<p><a href="../guide/expanded-taxonomy-v1.html">All subthemes</a> · <a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/reports/directions/README.md">Research directions</a></p><p class="meta">Written as <a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/reports/observed-subthemes/process-aware-design.md">reports/observed-subthemes/process-aware-design.md</a> in the course repository.</p>
+      </article>
+      <nav class="pager" aria-label="Previous and next"><a class="prev" href="placement-routing-and-floorplanning.html"><span class="pg-k">← Previous</span><span class="pg-t">Placement routing and floorplanning</span></a><a class="map" href="../subthemes.html"><span class="pg-k">Back to</span><span class="pg-t">Subthemes</span></a><a class="next" href="placement-routing-and-timing.html"><span class="pg-k">Next →</span><span class="pg-t">Placement routing and timing</span></a></nav>
+    </section>
+  </main>
+  <footer class="course-foot">
+    <p>Built from 582 paper records coded from ISCA 2026, DAC 2026 and ICCAD 2025 (ICCAD 2026 papers were not yet public). Most records come from official program descriptions; see “How deep the reading went”. The papers belong to their authors.</p>
+    <p class="foot-links"><a href="https://github.com/mehtama1234/course-concept-library">All courses</a><a href="../index.html">This course</a><a href="../course-map.html">Course map</a><a href="../presentation/index.html">Slides</a><a href="../video/index.html">Video</a><a href="../share/index.html">Share</a></p>
+  </footer>
+  <script src="../assets/course-data.js"></script><script src="../assets/icons.js"></script><script src="../assets/icons-extra.js"></script><script src="../assets/icons-course.js"></script><script src="../assets/art.js"></script><script src="../assets/course-art.js"></script><script src="../assets/charts.js"></script><script src="../assets/course-charts.js"></script><script src="../assets/course-site.js"></script>
+</body>
+</html>

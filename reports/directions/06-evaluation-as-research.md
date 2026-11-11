@@ -2,21 +2,37 @@
 
 Status: a research hypothesis supported by selected cases. A measured increase across comparable years has not been established.
 
-## The basic technical problem
+## The problem: the same method can score differently under a different test
 
-A reported result answers a particular question under a particular experiment. A speedup is the ratio of two completion times. A correctness rate is the fraction of stated tasks that passed a stated check. Changing the input set, comparison method, or rule for success can change the number even if the proposed method stays the same.
+A reported result answers one question under one experiment.
 
-## What would change in the design process
+- A **speedup** is the ratio of two completion times.
+- A **correctness rate** is the fraction of stated tasks that passed a stated check.
 
-The proposed direction treats the measurement procedure as a research contribution. Better tests can expose failures that earlier tests missed. Reproducible software and input data can let another researcher check a claim. Clearly defined timeouts prevent unfinished runs from being counted as success. Separating development examples from evaluation examples helps test whether a method works beyond the cases used to build it.
+Changing the input set, the comparison method or the rule for success can change the number, even when the method is the same.
 
-## Why the details matter
+## The change: treat the measurement procedure as a research contribution
 
-An available artifact establishes that some materials can be inspected or run. Reproducing a paper result additionally requires the corresponding inputs, versions, settings, hardware, and measurement procedure. Independent review asks whether another reviewer accepts the interpretation. These are distinct achievements. The current repository has evidence and review preparation, but no independent acceptance verdicts.
+- Better tests can expose failures earlier tests missed.
+- Reproducible software and input data let another researcher check a claim.
+- Clearly defined timeouts stop unfinished runs from counting as success.
+- Keeping development examples apart from evaluation examples tests whether a method works beyond the cases used to build it.
 
-## What would support or weaken the claim
+## Available, reproduced and independently reviewed are three different steps
 
-Compare the same methods under documented evaluation rules and examine whether rankings survive changes in task difficulty, input size, and resource budget. Record failed and unresolved runs. A stronger evaluation can reduce a previously reported score by exposing a missing condition. That correction is useful scientific information. The research hypothesis concerns improved comparability and error detection; it does not imply that the count of evaluation papers is increasing.
+1. An **available artifact** shows some materials can be inspected or run.
+2. **Reproducing** a result also needs the matching inputs, versions, settings, hardware and measurement procedure.
+3. **Independent review** asks whether another reviewer accepts the interpretation.
+
+This repository has evidence and review preparation, but no independent acceptance verdicts yet.
+
+## The test: do rankings survive harder tasks, bigger inputs and other budgets?
+
+1. Compare the same methods under documented evaluation rules.
+2. Check whether rankings survive changes in task difficulty, input size and resource budget.
+3. Record failed and unresolved runs.
+
+A stronger evaluation can lower a previously reported score by exposing a missing condition. That correction is useful scientific information. The hypothesis is about better comparability and error detection. It does not claim that the number of evaluation papers is rising.
 
 ## Counterpressure and falsification boundary
 

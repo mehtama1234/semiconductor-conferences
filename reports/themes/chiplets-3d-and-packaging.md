@@ -6,21 +6,35 @@ A subtheme groups related technical problems. A mechanism describes the particul
 
 [Definitions used in the paper records](../reading-guide-v1.md)
 
-## Why a system can contain several dies
+## Splitting a system into several dies adds boundaries data must cross
 
-A die is a piece of semiconductor containing circuits. A package can connect several dies, often called chiplets when designed as components of a larger system. A three-dimensional design places active layers or dies above one another. Partitioning can let different functions use different manufacturing processes, but communication must cross additional physical boundaries.
+A **die** is a piece of semiconductor carrying circuits. A package can connect several dies. When they are designed as parts of one larger system they are often called **chiplets**. A **three-dimensional (3D)** design stacks active layers or dies on top of each other.
 
-## The costs introduced by partitioning
+Splitting lets different functions use different manufacturing processes. The cost is that communication must cross extra physical boundaries.
 
-A connection between dies consumes physical area, energy, and time. The package must deliver current and remove heat from every active part. Stacked parts can place heat sources farther from an effective cooling path. Moving computation between dies therefore changes communication and temperature together. A system-level choice cannot be evaluated solely from the speed of an individual die.
+## Each boundary costs area, energy, time and heat
 
-## What separates the subthemes
+- A link between dies uses area, energy and time.
+- The package must deliver current to, and remove heat from, every active part.
+- Stacked parts can sit far from a good cooling path.
 
-Partitioning methods decide which functions belong together. Interconnect methods design communication between the parts. Thermal methods estimate temperatures and choose placement or operation to stay within limits. Package co-design studies these decisions jointly with power delivery and physical assembly. Each branch concerns a different variable, although a single paper may address several.
+So moving computation between dies changes communication and temperature together. A system choice cannot be judged from the speed of one die alone.
 
-## A comparison that answers the question
+## The subthemes split, connect, cool, or design the package
 
-State die dimensions, link rates, cooling conditions, power assumptions, workload placement, and the manufacturing assumptions used for cost. Compare the full system while respecting the same temperature and performance limits. Thermal simulation supports a temperature prediction under its model; manufactured reliability and yield need their own evidence.
+- **Partitioning** decides which functions belong together.
+- **Interconnect** designs the communication between the parts.
+- **Thermal** methods estimate temperatures and choose placement or operation to stay within limits.
+- **Package co-design** studies these choices together with power delivery and physical assembly.
+
+One paper may address several of these.
+
+## A fair test states the physical setup and compares whole systems
+
+1. State die sizes, link rates, cooling, power assumptions, workload placement and the manufacturing assumptions used for cost.
+2. Compare the full system under the same temperature and performance limits.
+
+A thermal simulation supports a temperature prediction under its model. Reliability and yield of manufactured parts need their own evidence.
 
 ## Follow the information crossing a die boundary
 

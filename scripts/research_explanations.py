@@ -1,62 +1,248 @@
-"""Editorial explanations; kept separate from verbatim evidence and coding labels."""
+"""Editorial explanations; kept separate from verbatim evidence and coding labels.
 
-# Each entry explains the physical or computational cause, the design choices,
-# and a concrete comparison. These are conceptual explanations, not new results.
+Each entry explains the physical or computational cause, the design choices, and a concrete comparison.
+These are conceptual explanations, not new results. Written for a newcomer: short sections, short
+sentences, numbered steps where order matters, and worked numbers in a marked box."""
+
+# Each section is (heading that states its point, Markdown body).
 EXPLANATIONS = {
  'architecture-and-accelerators': [
- ('Start with the computation', 'A program performs operations on stored values. A processor must obtain those values, execute each operation, and store or forward its result. Operations that depend on earlier results must wait. Independent operations can run at the same time if enough hardware and data are available. An accelerator is hardware arranged for a particular kind of computation. Its benefit comes from reducing work, reducing data transfers, or executing more useful operations at once.'),
- ('Why more arithmetic units may not help', 'If an operation needs two inputs and those inputs have not arrived, an arithmetic unit waits. Adding units increases the possible rate of computation but also increases the rate at which inputs must arrive. The time to finish a job is therefore constrained by both computation and data supply. A design must also account for operations that cannot run in parallel. Performance on one large matrix calculation does not establish performance on an entire application.'),
- ('What separates the subthemes', 'Precision methods change how many bits represent a number and how much numerical error the application accepts. Sparse computation skips values or operations known to be unnecessary; it must also locate the remaining values and distribute uneven work. Dataflow methods choose when operations run and where intermediate results remain. Hardware and software co-design changes the machine and the program together, so the evaluation must identify which change caused the improvement.'),
- ('A comparison that answers the question', 'Hold the application, required answer quality, and input sizes fixed. Compare completion time, energy per completed job, memory use, and hardware cost. Then vary inputs that affect reuse or parallelism. If a specialized design wins only when all inputs fit in a small memory, that capacity condition is part of the result. The evidence cards below preserve the reported conditions; they should be read before transferring a result to a different application.')],
+ ('A processor fetches values, computes, and passes results on', '''A program performs operations on stored values. For each operation the processor must:
+
+1. obtain the input values;
+2. execute the operation;
+3. store or forward the result.
+
+An operation that depends on an earlier result must wait for it. Independent operations can run at the same time, if enough hardware and data are available.
+
+An **accelerator** is hardware arranged for one kind of computation. Its benefit comes from one of three things: less work, fewer data transfers, or more useful operations at once.'''),
+ ('More arithmetic units help only if their inputs arrive in time', '''An operation needs its inputs. If they have not arrived, the arithmetic unit waits.
+
+Adding units raises the possible rate of computation. It also raises the rate at which inputs must arrive. So the time to finish a job is limited by both computation and data supply.
+
+Some operations cannot run in parallel at all. That is why good performance on one large matrix calculation does not show good performance on a whole application.'''),
+ ('The subthemes differ in what they change', '''- **Precision methods** change how many bits represent a number, and how much numerical error the application accepts.
+- **Sparse computation** skips values or operations known to be unnecessary. It must still find the remaining values and share out the uneven work.
+- **Dataflow methods** choose when operations run and where intermediate results stay.
+- **Hardware and software co-design** changes the machine and the program together. The evaluation must then show which change caused the improvement.'''),
+ ('A fair test holds the job fixed and measures the whole cost', '''1. Hold the application, the required answer quality and the input sizes fixed.
+2. Compare completion time, energy per completed job, memory use and hardware cost.
+3. Vary the inputs that affect reuse or parallelism.
+
+If a specialized design wins only when all inputs fit in a small memory, that capacity condition is part of the result. The evidence cards below keep the reported conditions. Read them before applying a result to a different application.''')],
  'memory-interconnect-and-storage': [
- ('What the system must move', 'A computation reads inputs and produces outputs. Those values occupy bytes in memory or storage. Capacity is the number of bytes that can be held. Bandwidth is the number of bytes that can be transferred per second. Latency is the time between requesting a value and receiving it. These are different limits: enough capacity does not guarantee a fast transfer, and high bandwidth does not guarantee a short wait for one request.'),
- ('How movement sets a lower limit on time', 'If a job must transfer B bytes through a connection that sustains W bytes per second, those transfers alone require at least B/W seconds. This simplified bound assumes the stated bandwidth is available to the job. Shared requests, protocol work, and dependencies can increase the time. Keeping a value near its next user can reduce transfers, but the nearby memory has limited capacity and may need to discard another useful value.'),
- ('What separates the subthemes', 'Memory hierarchy work decides which values occupy faster and slower memories. Near-memory or processing-in-memory work moves some computation toward the stored data. Interconnect work changes the communication paths between components. Storage work must also consider whether a value survives a power loss and whether updates remain consistent. All these methods can reduce a particular transfer while adding scheduling, copying, or coordination work elsewhere.'),
- ('A comparison that answers the question', 'Measure the whole job, including placement and migration of data. Vary whether the input fits in each memory and how many other jobs use the connection. For approximate search, keep answer quality fixed; for a service, measure slow requests as well as the average. A reduction in remote bytes is useful evidence about one cost, but the final claim requires completion time or energy under the full conditions.')],
+ ('Capacity, bandwidth and latency are three different limits', '''A computation reads inputs and writes outputs. Those values take up bytes in memory or storage.
+
+- **Capacity** is how many bytes can be held.
+- **Bandwidth** is how many bytes can be moved per second.
+- **Latency** is the wait between asking for a value and getting it.
+
+Enough capacity does not guarantee a fast transfer. High bandwidth does not guarantee a short wait for one request.'''),
+ ('Moving data sets a floor on how long a job takes', '''> **The rule.** A job must move **B** bytes. Its connection sustains **W** bytes per second. The transfers alone take at least **B ÷ W** seconds, however fast the arithmetic is.
+
+This simple bound assumes the job gets the stated bandwidth. Shared requests, protocol work and dependencies can make it slower.
+
+Keeping a value near its next user can cut transfers. But nearby memory is small, so keeping one value there may push out another useful one.'''),
+ ('The subthemes move data, move work, or change the path', '''- **Memory hierarchy** work decides which values sit in faster or slower memory.
+- **Near-memory or processing-in-memory** work moves some computation toward the stored data.
+- **Interconnect** work changes the paths between components.
+- **Storage** work must also ask whether a value survives power loss and whether updates stay consistent.
+
+Each can cut one transfer while adding scheduling, copying or coordination work somewhere else.'''),
+ ('A fair test measures the whole job, including moving the data', '''1. Measure the whole job, including placing and migrating data.
+2. Vary whether the input fits in each memory, and how many other jobs share the connection.
+3. For approximate search, hold answer quality fixed. For a service, measure slow requests as well as the average.
+
+Fewer remote bytes is useful evidence about one cost. The final claim needs completion time or energy under the full conditions.''')],
  'ai-assisted-eda': [
- ('What designing a chip requires', 'A designer specifies what a circuit must do and which limits it must satisfy. Electronic design automation, abbreviated EDA, is software that helps turn that specification into a circuit and a physical layout. There are many choices: how to represent the logic, which circuit elements to use, where to place them, and how to connect them. Each choice can affect correctness, area, timing, and power.'),
- ('Where a learned model enters', 'A learned model uses patterns in previous examples or evaluations to suggest a new choice. A language model may generate hardware-description code or modify a design program. Another model may predict which candidate is worth an expensive evaluation. These are different jobs. Generating code does not show that the code implements the specification; predicting a favorable timing score does not show that the implemented circuit meets timing.'),
- ('Why the checking procedure matters', 'Synthesis converts a behavioral or logical description into circuit elements. Simulation executes a model on selected inputs. Formal verification checks a stated property mathematically within a defined model. Each check answers a different question. The design method needs to record which check rejected a candidate, what information was returned, and how that information changed the next attempt. A weak test can accept an incorrect design and make the search appear successful.'),
- ('A comparison that answers the question', 'Give competing methods the same design tasks and account for the complete time and computing budget, including model calls, training, checking, and retries. Report valid completed designs and their measured quality. Test new circuits that were not used to tune the method. The long-term question is whether better choices can be made with less total engineering and evaluation effort while preserving correctness.')],
+ ('Chip design is a long chain of choices that software helps make', '''A designer states what a circuit must do and which limits it must meet. **Electronic design automation (EDA)** is the software that turns that statement into a circuit and then a physical layout.
+
+There are many choices along the way:
+
+1. how to represent the logic;
+2. which circuit elements to use;
+3. where to place them;
+4. how to connect them.
+
+Each choice can affect correctness, area, timing and power.'''),
+ ('A learned model can propose or predict, and these are different jobs', '''A learned model uses patterns in past examples or evaluations to suggest a new choice.
+
+- A **language model** may write hardware-description code, or change a design program.
+- A **predictor** may guess which candidate is worth an expensive evaluation.
+
+Writing code does not show that the code meets the specification. Predicting a good timing score does not show that the built circuit meets timing.'''),
+ ('Each check answers a different question, so record which one failed', '''- **Synthesis** turns a behavioral or logical description into circuit elements.
+- **Simulation** runs a model on selected inputs.
+- **Formal verification** checks a stated property mathematically, within a defined model.
+
+A design method should record which check rejected a candidate, what it reported, and how that changed the next attempt. A weak test can accept a wrong design and make the search look successful.'''),
+ ('A fair test counts every model call, check and retry', '''1. Give competing methods the same design tasks.
+2. Count the whole time and computing budget: model calls, training, checking and retries.
+3. Report valid completed designs and their measured quality.
+4. Test on new circuits that were not used to tune the method.
+
+The long-term question: can better choices be made with less total engineering and evaluation effort, while keeping the design correct?''')],
  'physical-design-and-manufacturing': [
- ('From circuit connections to geometry', 'A circuit description identifies components and their connections. Manufacturing requires actual shapes in specified material layers. Placement chooses component locations. Routing chooses wire paths and layers. Wires occupy space, resist current, and store electric charge. Their length and surroundings affect how quickly a signal changes, so a correct logical connection can still arrive too late.'),
- ('Why the decisions interact', 'Moving two communicating components closer can shorten a wire but make another region crowded. Adding a buffer can improve signal timing while increasing area and power. Manufacturing rules restrict widths, spacing, and overlaps. Changes in fabrication can also change transistor or wire behavior. An optimizer must satisfy these conditions together, rather than improving one score while silently violating another.'),
- ('What separates the subthemes', 'Placement and routing methods construct geometry. Timing analysis estimates whether signal transitions meet required times. Process models estimate how fabricated devices behave. Manufacturing and yield methods study defects and variation; yield means the fraction of manufactured devices that meet requirements. A faster estimator and a better final layout are different contributions and need different evidence.'),
- ('A comparison that answers the question', 'Use the same circuit set, manufacturing rules, timing requirements, and implementation tools. Record violations as well as successful outputs. Check the selected designs with a sufficiently accurate final evaluation and include all search time. If a method uses a cheaper approximation, measure whether its errors change which design is selected.')],
+ ('A correct connection can still arrive too late once it becomes a wire', '''A circuit description lists components and their connections. Manufacturing needs real shapes in specified material layers.
+
+1. **Placement** chooses where each component sits.
+2. **Routing** chooses each wire's path and layer.
+
+Wires take up space, resist current and store electric charge. Their length and surroundings change how fast a signal switches. So a logically correct connection can still arrive too late.'''),
+ ('Every physical fix pushes on another part of the design', '''- Moving two communicating components closer shortens a wire, but can crowd another region.
+- Adding a buffer can improve signal timing, but adds area and power.
+- Manufacturing rules limit widths, spacing and overlaps.
+- Changes in fabrication can change how transistors and wires behave.
+
+An optimizer must meet all these conditions together. Improving one score while quietly breaking another does not count.'''),
+ ('The subthemes build geometry, estimate timing, or model manufacturing', '''- **Placement and routing** methods build the geometry.
+- **Timing analysis** estimates whether signals switch in time.
+- **Process models** estimate how fabricated devices behave.
+- **Manufacturing and yield** methods study defects and variation. Yield is the fraction of manufactured chips that meet requirements.
+
+A faster estimator and a better final layout are different contributions. They need different evidence.'''),
+ ('A fair test uses the same circuits and rules, and counts violations', '''1. Use the same circuit set, manufacturing rules, timing requirements and implementation tools.
+2. Record violations as well as successful outputs.
+3. Check the chosen designs with an accurate enough final evaluation, and count all search time.
+4. If a method uses a cheaper approximation, check whether its errors change which design is chosen.''')],
  'chiplets-3d-and-packaging': [
- ('Why a system can contain several dies', 'A die is a piece of semiconductor containing circuits. A package can connect several dies, often called chiplets when designed as components of a larger system. A three-dimensional design places active layers or dies above one another. Partitioning can let different functions use different manufacturing processes, but communication must cross additional physical boundaries.'),
- ('The costs introduced by partitioning', 'A connection between dies consumes physical area, energy, and time. The package must deliver current and remove heat from every active part. Stacked parts can place heat sources farther from an effective cooling path. Moving computation between dies therefore changes communication and temperature together. A system-level choice cannot be evaluated solely from the speed of an individual die.'),
- ('What separates the subthemes', 'Partitioning methods decide which functions belong together. Interconnect methods design communication between the parts. Thermal methods estimate temperatures and choose placement or operation to stay within limits. Package co-design studies these decisions jointly with power delivery and physical assembly. Each branch concerns a different variable, although a single paper may address several.'),
- ('A comparison that answers the question', 'State die dimensions, link rates, cooling conditions, power assumptions, workload placement, and the manufacturing assumptions used for cost. Compare the full system while respecting the same temperature and performance limits. Thermal simulation supports a temperature prediction under its model; manufactured reliability and yield need their own evidence.')],
+ ('Splitting a system into several dies adds boundaries data must cross', '''A **die** is a piece of semiconductor carrying circuits. A package can connect several dies. When they are designed as parts of one larger system they are often called **chiplets**. A **three-dimensional (3D)** design stacks active layers or dies on top of each other.
+
+Splitting lets different functions use different manufacturing processes. The cost is that communication must cross extra physical boundaries.'''),
+ ('Each boundary costs area, energy, time and heat', '''- A link between dies uses area, energy and time.
+- The package must deliver current to, and remove heat from, every active part.
+- Stacked parts can sit far from a good cooling path.
+
+So moving computation between dies changes communication and temperature together. A system choice cannot be judged from the speed of one die alone.'''),
+ ('The subthemes split, connect, cool, or design the package', '''- **Partitioning** decides which functions belong together.
+- **Interconnect** designs the communication between the parts.
+- **Thermal** methods estimate temperatures and choose placement or operation to stay within limits.
+- **Package co-design** studies these choices together with power delivery and physical assembly.
+
+One paper may address several of these.'''),
+ ('A fair test states the physical setup and compares whole systems', '''1. State die sizes, link rates, cooling, power assumptions, workload placement and the manufacturing assumptions used for cost.
+2. Compare the full system under the same temperature and performance limits.
+
+A thermal simulation supports a temperature prediction under its model. Reliability and yield of manufactured parts need their own evidence.''')],
  'power-reliability-and-security': [
- ('Define the failure before designing protection', 'Reliability concerns whether a system continues to produce correct results under faults such as corrupted bits or failing components. Security concerns what an adversary can observe or change. Power is the rate of energy use and affects electrical supply and temperature. These topics are grouped here because protections and operating limits change the amount of useful work a system can perform.'),
- ('Why protection has a cost', 'Detecting a wrong value requires additional information, repeated work, or a check against a constraint. Correcting the value requires enough information to distinguish the possible errors. Isolation may restrict sharing, while recovery may stop work and restart it. The benefit therefore depends on the error or attack being considered and the cost of the added work.'),
- ('What separates the subthemes', 'Fault-tolerance methods preserve or recover computation after faults. Side-channel methods study information exposed by timing, power, or shared resources even when direct access is forbidden. Privacy-preserving computation changes how protected inputs are processed. Energy methods change when or how hardware operates. An improvement in one category does not establish protection in another.'),
- ('A comparison that answers the question', 'State which faults can occur or which actions an attacker can take. Measure undetected failures, incorrect alarms, recovery time, and performance with protection enabled. Include energy per correct completed job. If fault injection is used, state where and how faults were introduced. Results from that experiment apply to the tested fault model until broader evidence is available.')],
+ ('Reliability, security and power all limit useful work', '''- **Reliability** asks whether a system keeps producing correct results under faults, such as flipped bits or failing parts.
+- **Security** asks what an adversary can observe or change.
+- **Power** is the rate of energy use. It affects electrical supply and temperature.
+
+They sit together here because protections and operating limits change how much useful work a system can do.'''),
+ ('Every protection costs something, so name the threat first', '''- **Detecting** a wrong value needs extra information, repeated work, or a check against a constraint.
+- **Correcting** it needs enough information to tell the possible errors apart.
+- **Isolation** may restrict sharing.
+- **Recovery** may stop work and restart it.
+
+So the benefit depends on which error or attack is being considered, and on the cost of the added work.'''),
+ ('The subthemes protect against different things', '''- **Fault tolerance** keeps or recovers computation after faults.
+- **Side-channel** work studies information leaked through timing, power or shared resources, even when direct access is blocked.
+- **Privacy-preserving computation** changes how protected inputs are processed.
+- **Energy** methods change when or how hardware runs.
+
+Progress in one category does not show protection in another.'''),
+ ('A fair test states the fault or attacker and measures work with protection on', '''1. State which faults can occur, or which actions an attacker can take.
+2. Measure undetected failures, false alarms, recovery time, and performance with protection switched on.
+3. Include energy per correct completed job.
+4. If faults are injected, say where and how.
+
+Results from that experiment apply to the tested fault model, until broader evidence exists.''')],
  'verification-and-validation': [
- ('Correctness needs an explicit statement', 'A design is correct relative to a requirement. The requirement can describe an output, a sequence of states, a timing limit, or information that must remain private. Verification checks whether a design satisfies those statements. Validation asks whether those statements and the design meet the intended use. The two questions can require different experiments.'),
- ('Why testing does not cover every behavior', 'A circuit can have many input combinations and internal states. Simulation tries selected executions and compares their behavior with an expected result. A test that never reaches a faulty state cannot expose that fault. Formal verification reasons about a specified set of behaviors, but its conclusion depends on the model, assumptions, and the property being proved. A timeout is an unresolved check.'),
- ('What separates the subthemes', 'Simulation methods accelerate execution of a model. Emulation implements a representation of the design on other hardware to run tests. Formal methods search for violations or prove properties. Test-generation methods choose inputs likely to expose errors. Coverage measures describe which behaviors were exercised; they need a definition to be interpretable.'),
- ('A comparison that answers the question', 'Use known faults or independently established reference behavior to assess detection. State the design sizes, properties, test budget, unresolved checks, false alarms, and missed faults. When a generated test improves a score, examine whether it finds new errors on designs outside the development set. More tests are useful only to the extent that they improve the relevant coverage or detection.')],
+ ('A design is correct only relative to a written requirement', '''A requirement can describe an output, a sequence of states, a timing limit, or information that must stay private.
+
+- **Verification** checks whether the design meets those statements.
+- **Validation** asks whether the statements and the design meet the intended use.
+
+The two questions can need different experiments.'''),
+ ('Tests try some behaviors; proofs cover only what they assume', '''A circuit can have very many input combinations and internal states.
+
+- **Simulation** tries selected runs and compares them with the expected result. A test that never reaches a faulty state cannot expose that fault.
+- **Formal verification** reasons about a specified set of behaviors. Its conclusion depends on the model, the assumptions and the property proved.
+
+A timeout is an unresolved check, not a pass.'''),
+ ('The subthemes run tests faster, prove properties, or choose better inputs', '''- **Simulation** methods run a model faster.
+- **Emulation** builds a version of the design on other hardware to run tests.
+- **Formal** methods search for violations or prove properties.
+- **Test generation** picks inputs likely to expose errors.
+- **Coverage** measures say which behaviors were exercised. They need a definition to mean anything.'''),
+ ('A fair test uses known faults and reports what was missed', '''1. Use known faults, or independently established reference behavior, to judge detection.
+2. State design sizes, properties, test budget, unresolved checks, false alarms and missed faults.
+3. When a generated test raises a score, check whether it finds new errors on designs outside the development set.
+
+More tests help only if they improve the relevant coverage or detection.''')],
  'design-methodology-and-tooling': [
- ('What a design tool transforms', 'A compiler transforms a program from one representation into another while preserving its intended behavior. A synthesis tool constructs a circuit implementation. An optimizer chooses among implementations according to a stated objective. These tools make many small choices that collectively determine execution time, memory use, circuit size, and the effort required to obtain a result.'),
- ('Why representation matters', 'A representation makes some properties explicit and hides others. A graph can expose dependencies between operations; a schedule assigns operations to times or resources. A transformation that removes redundant work can also change memory traffic or available parallelism. The tool needs a rule for which transformations preserve correctness and a cost model for selecting useful ones.'),
- ('What separates the subthemes', 'Compilation and synthesis methods change the sequence of transformations. Search methods choose configurations or implementations. Graph and partitioning methods organize connected work. Benchmark and artifact methods make inputs, expected outputs, and execution steps available for comparison. Their common question is whether another design or user can obtain the claimed benefit through a defined process.'),
- ('A comparison that answers the question', 'State inputs, versions, settings, hardware, and the total time to produce a valid output. Separate time spent running the tool from time saved by the output it produces. Compare correctness and output quality as well as runtime. Transfer to unfamiliar inputs is a stronger test of a reusable method than repeated optimization of its development examples.')],
+ ('Design tools make many small choices that add up', '''- A **compiler** turns a program from one form into another while keeping its intended behavior.
+- A **synthesis tool** builds a circuit implementation.
+- An **optimizer** picks among implementations by a stated goal.
+
+Together these choices decide run time, memory use, circuit size, and the effort needed to get a result.'''),
+ ('How a design is written down decides what a tool can see and change', '''A representation makes some properties visible and hides others.
+
+- A **graph** can show which operations depend on which.
+- A **schedule** assigns operations to times or resources.
+
+Removing redundant work can also change memory traffic or available parallelism. So a tool needs two things: a rule for which changes keep the design correct, and a cost model for picking useful ones.'''),
+ ('The subthemes change the steps, the search, the structure, or the benchmarks', '''- **Compilation and synthesis** methods change the sequence of transformations.
+- **Search** methods choose configurations or implementations.
+- **Graph and partitioning** methods organize connected work.
+- **Benchmark and artifact** methods publish inputs, expected outputs and steps so others can compare.
+
+Their shared question: can another designer or user get the claimed benefit by following a defined process?'''),
+ ('A fair test separates tool time from the time the output saves', '''1. State inputs, versions, settings, hardware, and the total time to get a valid output.
+2. Separate time spent running the tool from time saved by its output.
+3. Compare correctness and output quality, not only run time.
+4. Test on unfamiliar inputs. That is a stronger test than re-tuning on the development examples.''')],
  'systems-applications-and-workloads': [
- ('Begin with what a user needs completed', 'A workload describes the work requested from a system: its operations, input sizes, arrival times, and required output quality. A deployment adds constraints such as memory capacity, battery energy, network access, or response deadlines. The same algorithm can face very different limits when requests arrive concurrently or inputs change over time.'),
- ('Why average speed is insufficient', 'A service handles requests that compete for processors, memory, and communication paths. A request may wait even when its own computation is short. Batching can improve total throughput while increasing that wait. Throughput is work completed per unit time; response latency is the time one request takes. Tail latency describes unusually slow requests and matters when deadlines apply.'),
- ('What separates the subthemes', 'Edge systems run close to data collection or users, often under power or memory limits. Cloud systems allocate shared remote resources. Distributed systems coordinate work across machines. Application-specific systems use structure in fields such as robotics, sensing, or scientific computation. The workload determines which resource is limiting and which output errors are acceptable.'),
- ('A comparison that answers the question', 'Specify request distributions, concurrency, input sizes, quality targets, hardware, and network conditions. Include scheduling, loading, communication, and recovery costs. Measure whether the service meets its target as demand changes. The current selected records in this theme are from DAC, so they cannot establish a three-conference pattern by themselves.')],
+ ('Start from the work a user needs done', '''A **workload** is the work asked of a system: its operations, input sizes, arrival times and required output quality.
+
+A deployment adds limits such as memory size, battery energy, network access or response deadlines. The same algorithm can face very different limits when requests arrive together, or inputs change over time.'''),
+ ('Average speed hides the slow requests that miss deadlines', '''Requests compete for processors, memory and communication paths. A request may wait even when its own computation is short.
+
+- **Throughput** is work completed per unit of time.
+- **Response latency** is the time one request takes.
+- **Tail latency** describes the unusually slow requests. It matters when deadlines apply.
+
+Batching can raise throughput while making each request wait longer.'''),
+ ('The subthemes differ in where the system runs and what limits it', '''- **Edge** systems run near the data or the users, often short of power or memory.
+- **Cloud** systems share remote resources.
+- **Distributed** systems coordinate work across machines.
+- **Application-specific** systems use the structure of fields such as robotics, sensing or scientific computing.
+
+The workload decides which resource is the limit, and which output errors are acceptable.'''),
+ ('A fair test states the demand and checks targets as it changes', '''1. Specify request patterns, concurrency, input sizes, quality targets, hardware and network conditions.
+2. Include scheduling, loading, communication and recovery costs.
+3. Measure whether the service meets its target as demand changes.
+
+All selected records in this theme come from DAC. So they cannot show a three-conference pattern by themselves.''')],
  'analog-mixed-signal-and-emerging-devices': [
- ('What changes when physics performs part of the computation', 'Digital circuits represent values with discrete bit patterns. Analog computation uses continuously varying quantities such as voltage or current. Optical computation uses properties of light. Quantum computation uses quantum states and operations. These approaches differ substantially, but each requires a precise account of how the physical state represents the input and how the output is read.'),
- ('Why device behavior is only part of the system', 'Inputs may require conversion from digital values, and outputs may require measurement and conversion back. Noise, temperature, variation between devices, and measurement precision can change the result. Calibration adjusts operation using measured device behavior and also consumes time or hardware. Any claimed saving must include the surrounding conversion, control, and correction work.'),
- ('What separates the subthemes', 'Analog circuit automation designs continuous-signal circuits. Compute-in-memory methods perform operations in or near storage structures. Photonic work uses optical components. Quantum hardware and control work concerns preparing, manipulating, and measuring quantum states. Emerging-memory work studies storage technologies with different physical properties. The umbrella grouping does not imply these methods have interchangeable accuracy or performance measures.'),
- ('A comparison that answers the question', 'Identify whether the evidence comes from equations, simulation, a fabricated device, or a complete system. Report precision, error, calibration, conversion cost, temperature, and device variation under the intended workload. A device operation with low energy establishes one component cost; an application claim requires the full path from inputs to usable outputs.')],
+ ('Here physics itself does part of the computing', '''- **Digital** circuits hold values as discrete bit patterns.
+- **Analog** computation uses continuously varying quantities such as voltage or current.
+- **Optical** computation uses properties of light.
+- **Quantum** computation uses quantum states and operations.
+
+These differ greatly. But each needs a precise account of how the physical state stands for the input, and how the output is read.'''),
+ ('The device is only part of the cost: conversion and correction count too', '''Inputs may need converting from digital values. Outputs may need measuring and converting back.
+
+Noise, temperature, differences between devices, and measurement precision can all change the result. **Calibration** adjusts operation using measured device behavior, and it also costs time or hardware.
+
+Any claimed saving must include the conversion, control and correction work around the device.'''),
+ ('The subthemes use very different physics, with different accuracy measures', '''- **Analog circuit automation** designs continuous-signal circuits.
+- **Compute-in-memory** performs operations in or near storage.
+- **Photonic** work uses optical components.
+- **Quantum hardware and control** prepares, manipulates and measures quantum states.
+- **Emerging memory** studies storage technologies with different physical properties.
+
+Grouping them does not make their accuracy or performance measures interchangeable.'''),
+ ('A fair test says where the evidence comes from and counts the full path', '''1. Say whether the evidence comes from equations, simulation, a fabricated device, or a complete system.
+2. Report precision, error, calibration, conversion cost, temperature and device variation, under the intended workload.
+
+A low-energy device operation shows one component cost. An application claim needs the full path from inputs to usable outputs.''')],
 }
+
 
 def explanation_sections(theme):
     lines = []
-    for heading, paragraph in EXPLANATIONS[theme]:
-        lines += ['## ' + heading, '', paragraph, '']
+    for heading, body in EXPLANATIONS[theme]:
+        lines += ['## ' + heading, '', body.strip(), '']
     return lines
