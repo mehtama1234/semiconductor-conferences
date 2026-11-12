@@ -1,0 +1,385 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#F3ECE1" />
+  <title>Embedded and edge systems · Semiconductor conference atlas</title>
+  <meta name="description" content="Papers: DAC 4. Read from: 4 program descriptions, 0 abstracts or reports, 0 full papers or preprints. The explanations come first; every paper’s record follows at the end." />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Semiconductor conference atlas" />
+  <meta property="og:title" content="Embedded and edge systems · Semiconductor conference atlas" />
+  <meta property="og:description" content="Papers: DAC 4. Read from: 4 program descriptions, 0 abstracts or reports, 0 full papers or preprints. The explanations come first; every paper’s record follows at the end." />
+  <meta property="og:url" content="https://mehtama1234.github.io/semiconductor-conferences/subthemes/embedded-and-edge-systems.html" />
+  <meta property="og:image" content="https://mehtama1234.github.io/semiconductor-conferences/presentation/slides/01-cover.jpg" />
+  <meta property="og:image:width" content="1920" />
+  <meta property="og:image:height" content="1080" />
+  <meta property="og:image:alt" content="Semiconductor conference atlas: 582 papers from ISCA, DAC and ICCAD, sorted into 10 themes and six directions to watch." />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="canonical" href="https://mehtama1234.github.io/semiconductor-conferences/subthemes/embedded-and-edge-systems.html" />
+  <link rel="icon" href="../assets/icon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="../assets/base.css" />
+  <link rel="stylesheet" href="../assets/experience.css" />
+  <link rel="stylesheet" href="../assets/theme-atlas.css" />
+  <link rel="stylesheet" href="../assets/styles.css" />
+  <link rel="stylesheet" href="../assets/charts.css" />
+  <link rel="stylesheet" href="../assets/course.css" />
+  
+</head>
+<body class="course-site " data-house="atlas">
+  <aside class="public-demo-banner" aria-label="About this course">A plain-language guide to what ISCA, DAC and ICCAD papers say about chip and computer design · Built from the repository’s own paper records · Not made by the conferences</aside>
+  <a class="skip-link" href="#app">Skip to the page</a>
+  <header>
+    <a class="brand" href="../index.html"><span class="mark" aria-hidden="true">Si</span> Semiconductor conference atlas</a>
+    <span class="header-status"><span class="badge">582 papers</span><span class="badge">10 themes</span><span class="badge">Plain words first</span></span>
+    <a class="header-link" href="../course-map.html">Course map</a>
+  </header>
+  <nav class="course-nav" aria-label="Main sections of the course"><a href="../index.html">The big picture</a><a href="../themes.html">Themes</a><a href="../subthemes.html" aria-current="page">Subthemes</a><a href="../deep-reads.html">Deep reads</a><a href="../directions.html">What to watch</a><a href="../presentation/index.html">Slides</a><a href="../video/index.html">Video</a><a href="../share/index.html">Share</a></nav>
+  <main id="app" tabindex="-1">
+    <section class="screen active landing legacy-page" aria-labelledby="page-title">
+<div class="lm-head"><div class="hj-heading"><nav class="crumbs" aria-label="You are here"><a href="../course-map.html">Course map</a><span aria-hidden="true">›</span><a href="../subthemes.html">Subthemes</a></nav><a class="back-button" href="../subthemes.html">← <span>Subthemes</span></a><p class="eyebrow">Subtheme · 4 papers · Systems, applications, and workloads</p><h1 id="page-title">Embedded and edge systems: what the 4 papers change, and what is still unproven</h1><p class="hj-sub">Papers: DAC 4. Read from: 4 program descriptions, 0 abstracts or reports, 0 full papers or preprints. The explanations come first; every paper’s record follows at the end.</p></div><div class="hj-art" data-art="trio:users,activity,server"></div></div>
+<figure class="course-fig"><div class="loop-wide" data-art="flow:systems-applications-and-workloads"></div><div class="loop-tall" data-art="flowTall:systems-applications-and-workloads"></div><figcaption>The parent theme in one picture: judge a system by the useful work its users get done.</figcaption></figure>
+      <article class="prose">
+
+<p>This subject has 4 records in the selected sample. This page explains where it fits, then presents all captured paper evidence without shortening the measurements or limitations.</p>
+<p><a href="../guide/reading-guide-v1.html">Definitions used in the paper records</a></p>
+<p class="lm-k h-label">Understand the parent subject first</p><h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>The bigger theme this belongs to</h2>
+<ul>
+<li><a href="../themes/systems-applications-and-workloads.html">Systems applications and workloads</a></li>
+</ul>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="alert-triangle"></span>Useful results must survive limited memory, communication, and power</h2>
+<p>An embedded system performs computation as part of a larger device. An edge system performs work near the source or consumer of data.</p><p>Neither term specifies one processor type or application. The four papers here address stream counting, debugging under power loss, satellite-image compression, and intermittent inference.</p>
+<p>Their shared constraint is that a computation must remain useful when resources are limited. A stream summary must retain enough information to answer a query.</p><p>A debug trace must survive the failure being investigated. A compressed representation must decode consistently.</p><p>A partially completed inference must resume without mixing incompatible states.</p>
+<p>Two historical descriptions below need explicit correction. CelestialEye concerns item frequencies in data streams, not measuring an electrical signal's oscillation frequency.</p><p>WINNER uses “in-vivo” for regular execution and “ex-vivo” for debug sessions; the available source does not describe a biomedical implant. These distinctions change the relevant experiments, not just the wording.</p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>CelestialEye: count repeated items without storing the entire stream</h2>
+<p>An item's frequency is its number of occurrences within the stream or observation window. Exact counting can require a counter for every distinct item. If many different items arrive quickly, memory capacity, memory-access rate, and counter-update conflicts become important limits.</p>
+<p><a href="embedded-and-edge-systems.html#paper-dac-2026-research1587">CelestialEye</a> combines FPGA stream processing with CPU heuristic decoding. Its official description identifies hot/cold item separation, compression, encoding, and FPGA-generated frequency bounds that assist decoding.</p><p>It claims better performance and accuracy than BitMatcher but supplies no numerical throughput, count-error results, memory budget, or evaluation distributions. The relevant accuracy is frequency-estimation accuracy, not clock calibration. <a href="https://63dac.conference-program.com/presentation/?id=RESEARCH1587&amp;sess=sess175">Official DAC description</a>.</p>
+<p>A frequently occurring item can justify different treatment from one seen rarely. A compact summary saves space by storing less than the full stream, but decoding must distinguish information actually retained from information estimated.</p><p>Bounds can constrain a reconstruction only if their assumptions hold; a heuristic search among possible counts is not automatically an exact-count guarantee.</p>
+<p>The CPU–FPGA split creates a system-level question: can decoding keep up with the rate at which summaries require processing? An FPGA may accept items quickly while CPU work accumulates.</p><p>Measure ingestion, transfer, query completion, and loss or backpressure separately. Changing item popularity and bursts are useful stress cases because average traffic can conceal temporary overload.</p><p>These are evaluation requirements, not unreported CelestialEye results.</p>
+<p><span id="explanation-dac-2026-research1587"></span></p>
+<h3>CelestialEye: a stream-frequency engine is a bounded summary-and-decoding system</h3>
+<h4>What “frequency” means here</h4>
+<p>For a stream of items, an item's frequency is the number of times that item appears in a defined observation window. The item could be a key, event type, packet field or other identifier.</p><p>This is different from the oscillation rate of an electrical signal. The system must state the item domain, window boundary, whether counts reset, and whether the required answer is exact or estimated.</p>
+<p>Exact counting can require storage for many distinct items. At high input rates, the system must accept items, update state, retain enough information for later queries and avoid dropping or reordering data.</p><p>A summary reduces storage by retaining compressed information rather than a complete counter for every item. That saves resources only if the retained summary still supports the required query with a known error rule.</p>
+<h4>What the FPGA and CPU each do</h4>
+<p>An FPGA can process items in a pipeline with predictable per-item work. It may classify hot and cold items, encode a compact summary and produce bounds or partial counts.</p><p>A CPU can run a more flexible search or heuristic decoder over that summary. The split creates two rates: the rate at which the FPGA produces summaries and the rate at which the CPU can decode and answer queries.</p><p>If production is faster than decoding, queues grow, summaries are delayed, or backpressure and loss occur.</p>
+<p>The FPGA-generated bounds are useful only if they are valid for the information the hardware retained. A bound narrows possible counts; it does not prove the exact count unless the remaining possibilities collapse to one under stated assumptions.</p><p>A heuristic that selects the most plausible count may be accurate on a distribution while still failing on an adversarial or unseen distribution.</p>
+<h4>What a complete result must establish</h4>
+<p>Define the stream distribution, item cardinality, hot/cold threshold, window, burst pattern, summary size, encoding, counter width, overflow behavior and decoder search budget. Compare with CPU-only counting and a fixed FPGA counter under the same input rate, memory, clock, interface and output requirement.</p><p>Measure throughput, count error, exact-recovery rate, query latency, FPGA resources, CPU time, memory, power, transfer cost, dropped items and backpressure.</p>
+<p>Test uniform streams, skewed streams, changing popularity, bursts, unseen items, high-cardinality inputs, counter overflow and windows that cross transfers. Report whether accuracy is per item, per query or aggregate, and whether reported throughput includes CPU decoding and data movement.</p><p>The captured official description claims improved performance and accuracy over BitMatcher but gives no numerical throughput, count-error distribution, memory budget or input distributions. The evidence supports a CPU–FPGA summary-and-decoding architecture, not a proven exact frequency instrument or universal throughput improvement.</p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>WINNER: observe power-loss behavior without removing that behavior</h2>
+<p>An intermittent device loses power and later resumes from state that survived. Registers and ordinary working memory may not survive, while nonvolatile memory retains saved information.</p><p>A failure can leave some effects persistent and other progress lost, making a restarted task behave differently from uninterrupted execution.</p>
+<p><a href="embedded-and-edge-systems.html#paper-dac-2026-research2997">WINNER</a> records execution traces in nonvolatile memory during normal operation and exposes them in debug sessions triggered by user-defined property violations. It uses software-controlled electromagnetic emissions for low-rate communication.</p><p>Across six applications and five platforms, the description reports less than 1% runtime increase, 6% average binary-size growth, and up to fourfold lower transmission energy than Bluetooth Low Energy. Exact hardware, receiver conditions, bug coverage, and trace-completeness guarantees are missing.</p><p>The description states that the tool is open source; no artifact execution was performed here. <a href="https://63dac.conference-program.com/presentation/?id=RESEARCH2997&amp;sess=sess158">Official DAC description</a>.</p>
+<p>Attaching a debugger can change power supply, timing, or execution. Logging also consumes energy and storage.</p><p>A useful analyzer must therefore quantify how observation changes the workload and whether the recorded sequence remains interpretable after interruption. A partially written trace record must not silently appear to be a complete observation.</p>
+<p>A property violation is a condition chosen to trigger investigation, such as an excessive number of repeated task executions. It detects behavior covered by that condition, not every possible bug.</p><p>Debugging evidence should connect the triggering property to the recorded state and clearly mark missing intervals. A low runtime overhead does not by itself prove negligible energy impact or complete visibility.</p>
+<p><span id="explanation-dac-2026-research2997"></span></p>
+<h3>WINNER: intermittent debugging is a trace-integrity problem as well as a telemetry problem</h3>
+<h4>What an intermittent execution trace must preserve</h4>
+<p>An intermittent device can lose power during an instruction sequence, memory update or trace write. Volatile registers and working memory may disappear, while a nonvolatile record survives.</p><p>A useful trace must therefore identify the execution interval, record ordering, write completion and reset boundary. It must distinguish a complete record from a record interrupted halfway through a power failure.</p>
+<p>WINNER records execution during ordinary operation and exposes the trace during a debug session triggered by a user-defined property violation. The source uses “in-vivo” and “ex-vivo” as names for execution and debug contexts; those words do not, in the captured evidence, establish a biomedical implant or medical deployment.</p><p>The important engineering question is whether recording and later transmission reveal enough state to diagnose the selected property without changing the failure behavior.</p>
+<h4>Why observation can change the failure being studied</h4>
+<p>Writing each event consumes time, memory writes and energy. More work can change when the next power loss occurs.</p><p>A software-controlled electromagnetic transmission also consumes energy and may compete with computation or interfere with other activity. If tracing makes the device survive longer, fail earlier or reach a different schedule, the trace may describe the instrumented program rather than the original failure.</p>
+<p>The trigger has a defined scope. A property such as repeated task execution can identify one class of abnormal behavior, but it cannot prove that other bugs are absent.</p><p>The trace should connect the violation to the preceding state, preserve enough context to reproduce it and mark gaps caused by overflow, reset, torn writes or failed transmission.</p>
+<h4>What a complete evaluation must measure</h4>
+<p>Compare tracing and transmission with offline collection and local monitoring on the same applications, platforms, energy traces and trigger conditions. Report runtime, binary size, storage writes, trace completeness, event loss, trigger latency, radio or EM energy, communication rate, receiver conditions, recovery after power loss and diagnosis accuracy.</p><p>Test power failures during every trace-record stage, full storage, repeated resets, bursts, clock variation, changing harvested energy and false or missed property triggers.</p>
+<p>If the description reports less than 1% runtime increase, 6% average binary-size growth and up to fourfold lower transmission energy than Bluetooth Low Energy, those figures still need their denominators, hardware, receiver, application set and accounting boundary. Low runtime overhead does not prove low total energy, complete visibility or safe deployment.</p><p>The captured description reports no such full conditions, biomedical validation or artifact execution here.</p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>SemCom: consistent decoding and faithful imagery are different requirements</h2>
+<p>Image compression replaces a large image representation with fewer bits. A codebook associates compact codes with stored representations.</p><p>An entropy coder further reduces bit use by assigning representations according to symbol probabilities. The encoder and decoder must agree on the coding rules to reconstruct the encoded symbols.</p>
+<p><a href="embedded-and-edge-systems.html#paper-dac-2026-research791">SemCom</a> partitions a codebook by semantic region and uses region-aware bit allocation. It estimates entropy-coding probabilities offline to avoid platform-dependent probability calculations between satellite and ground hardware.</p><p>The official description claims bit-exact decoding and favorable results on real satellite payloads, but gives no bitrate, reconstruction metric, processor identity, or flight-test conditions. “Payload” does not by itself establish an in-orbit experiment. <a href="https://63dac.conference-program.com/presentation/?id=RESEARCH791&amp;sess=sess145">Official DAC description</a>.</p>
+<p>Bit-exact decoding means recovering the intended encoded symbols under the specified coding process. It does not necessarily mean reconstructing the original pixels without loss. An image can be quantized before entropy coding; exact recovery of those quantized symbols still leaves the earlier approximation unchanged.</p>
+<p>Likewise, semantic regions are classes or structures used to organize representation, not a guarantee that all important content is preserved. A compression strategy adapted to common regions needs separate tests on small objects, unusual events, and class boundaries.</p><p>Downstream task quality and pixel reconstruction quality can differ. The full transmitted size should include any region labels, codebook identifiers, and side information needed by the receiver.</p>
+<p><span id="explanation-dac-2026-research791"></span></p>
+<h3>SemCom: semantic compression chooses what survives a bitrate limit</h3>
+<h4>What compression changes</h4>
+<p>An image contains more samples than a constrained satellite link can transmit. Compression converts the image into a smaller representation and the decoder reconstructs an image or an intermediate representation.</p><p>At a very low bitrate, the system cannot preserve every pixel equally. It must decide which visual information receives bits and which information is approximated or discarded.</p>
+<p>Semantic compression uses regions, object classes or task-relevant structures to make that decision. A codebook stores representative patterns, and an entropy coder assigns shorter codes to more probable symbols.</p><p>Region labels, codebook identifiers, probability tables and other side information also consume bits. A claim about bitrate must count the complete transmitted representation, not only the compressed image symbols.</p>
+<h4>What bit-exact decoding means</h4>
+<p>The encoder and decoder may use fixed, offline probability tables so that both sides interpret a code stream identically. Bit-exact decoding means the decoder reproduces the intended encoded symbols under the specified arithmetic and tables.</p><p>It does not mean that the original uncompressed pixels are recovered exactly. If quantization or semantic simplification happened before entropy coding, exact decoding reproduces the already approximated representation.</p>
+<p>The quality question is therefore separate from decoder agreement. Pixel metrics such as distortion or structural similarity may disagree with object-detection, classification, change-detection or geolocation quality.</p><p>A semantic priority can improve one downstream task while removing an unusual object, small target, boundary or event that was not represented in the training distribution.</p>
+<h4>What an end-to-end satellite evaluation needs</h4>
+<p>Specify sensor data, image resolution, bitrates, codebook and region overhead, onboard processor, memory, power, radiation assumptions, decoder version and link errors. Compare JPEG-like and task-agnostic learned compression at the same total bitrate and hardware budget.</p><p>Report reconstruction quality, task accuracy or recall, rare-event performance, encode/decode latency, memory, energy, failure behavior and any adaptation or retraining cost.</p>
+<p>Test ordinary scenes, small objects, unexpected content, class boundaries, seasonal and sensor changes, corrupted packets and images outside the training set. Separate ground simulation, hardware-in-the-loop and flight evidence.</p><p>The captured official description claims bit-exact decoding and favorable results on real satellite payloads but reports no bitrate, reconstruction metric, processor, task metric, energy, latency or flight condition. The evidence supports a semantic, region-aware compression direction, not demonstrated ultra-low-bitrate superiority or in-orbit performance.</p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>EnergyHDC: preserve enough progress to finish after power returns</h2>
+<p>Hyperdimensional computing represents information using vectors with many components and compares or combines those vectors for tasks such as classification. The representation can offer tolerance to some approximation, but inference correctness under power loss is a separate issue from statistical classification quality.</p>
+<p><a href="embedded-and-edge-systems.html#paper-dac-2026-research962">EnergyHDC</a> combines energy-dependent checkpoint granularity, dimension-first execution, and compile-time priority pruning. On an MSP432P401R microcontroller under intermittent power, the official description reports up to 214× speedup over Mementos and 19.6× faster inference than DynBal at similar accuracy.</p><p>It does not provide the datasets, exact accuracy differences, outage traces, storage sizes, or elapsed-time accounting. These are separate comparisons, not two factors to multiply. <a href="https://63dac.conference-program.com/presentation/?id=RESEARCH962&amp;sess=sess158">Official DAC description</a>.</p>
+<p>A checkpoint saves enough state to continue later. Saving too frequently consumes energy on preservation rather than new work; saving too rarely risks repeating a large amount of work after interruption.</p><p>Reordering computation can change how much unfinished intermediate state must be saved, without necessarily changing the desired mathematical result.</p>
+<p>Pruning deliberately omits selected work and can change the answer. It therefore needs its own accuracy comparison, separate from the question of whether resumed execution matches the selected pruned algorithm. A system that reliably resumes an inaccurate model has solved one problem, not both.</p>
+<p>Average harvested power is insufficient to characterize completion. Two energy traces can provide equal total energy but different uninterrupted intervals.</p><p>If each interval ends before a necessary unit of work and its preservation can finish, usable progress may remain small. Report wall-clock completion, active execution time, restart work, and successful outputs under the same energy trace.</p>
+<p><span id="explanation-dac-2026-research962"></span></p>
+<h3>EnergyHDC: intermittent inference has two correctness questions—resume the computation and preserve its answer</h3>
+<h4>What the computation is doing</h4>
+<p>Hyperdimensional computing represents an input or class with a vector containing many components. Operations combine or compare those components, and the final similarity or score selects a class.</p><p>The representation may tolerate some approximate or missing work, but that tolerance must be measured for the task; it is not a guarantee that any skipped component is harmless.</p>
+<p>An energy-harvesting device may lose power before an inference finishes. The system must save enough intermediate state to resume without confusing a new inference with an old one.</p><p>That state can include the current input, vector components, loop position, partial sums, class scores, configuration and a valid checkpoint marker. A checkpoint that is internally consistent but omits needed state can produce a plausible yet wrong answer.</p>
+<h4>Why checkpoint granularity and execution order matter</h4>
+<p>Frequent checkpoints reduce repeated work after an outage but consume energy, memory writes and time. Infrequent checkpoints reduce preservation cost but may force the device to repeat a large interval.</p><p>The best interval depends on the energy trace, capacitor capacity, write cost, computation rate and probability of interruption.</p>
+<p>The dimension-first execution strategy changes the order in which vector components are processed so that a useful portion can be completed or preserved within an available energy interval. Compile-time priority pruning removes selected work to reduce cost.</p><p>These are different mechanisms: reordering can preserve the selected algorithm's result, while pruning may change the algorithm and its accuracy. The comparison must not treat a speedup from pruning as only a checkpointing gain.</p>
+<h4>What “faster inference” must mean</h4>
+<p>Accuracy compares answers with a reference model. Resumption compares whether the interrupted computation produces the same answer as an uninterrupted execution of that selected model.</p><p>Completion measures whether useful outputs arrive under a real sequence of energy outages. A system can have unchanged accuracy when power is continuous but fail to complete under short outages, or complete reliably while pruning reduces accuracy.</p>
+<p>Evaluate under identical datasets, model, memory, capacitor, harvested-energy trace and output requirement. Report accuracy, energy per inference, checkpoint count and size, write cost, restart work, wall-clock time to a valid output, active compute time, outage tolerance, latency distribution, memory, storage endurance and failure rate.</p><p>Test traces with equal average energy but different burst lengths, long gaps, noisy harvest, changing input and outages during checkpoint writes.</p>
+<p>The captured official description reports up to 214× speedup over Mementos and 19.6× faster inference than DynBal at similar accuracy on an MSP432P401R under intermittent power. It does not provide datasets, exact accuracy differences, outage traces, storage sizes or elapsed-time accounting.</p><p>These figures support a claimed intermittent-inference direction, not a verified end-to-end completion or accuracy result across harvest conditions.</p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>Compare retained information and completed work</h2>
+<p>All four cases reduce or reorganize information: stream summaries, failure-surviving traces, compressed image symbols, or inference state. The important question is what information remains sufficient for the required output.</p><p>Less storage or traffic is beneficial only if the corresponding reconstruction, diagnosis, decoding, or classification requirement still holds.</p>
+<p>This is a mechanism-level connection across the selected papers, not proof of a multi-year trend. Strong comparisons need both resource measurements and an explicit output-quality rule.</p><p>Full manuscripts were not recovered in this pass; the author publication listings and refreshed official descriptions do not supply missing page-backed experiments. The corrections above supersede the historical cards' biomedical and signal-frequency assumptions.</p><p>Source-record reconciliation and independent reproduction remain open.</p>
+<p class="lm-k h-label">Compare the results carefully</p><h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="route"></span>How to compare these papers’ results fairly</h2>
+<p>First identify the inputs and required output quality. Then identify the limited resource: time, memory, communication, energy, circuit area, or correctness coverage.</p><p>Ask which part of the method reduces that cost and which new cost it adds. Compare numbers only when the experiments hold these conditions sufficiently similar.</p>
+<p>A conference description may explain the proposal while omitting the full experiment. An author preprint link may have been coded from its abstract. The source classification does not by itself establish that every table was read. Missing locations remain visible below.</p>
+<p class="lm-k h-label">Complete captured evidence</p><h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="file-text"></span>Every paper in this subtheme, with what its source shows</h2>
+<p>These are evidence records, not substitutes for the explanations above. Each record preserves its problem, proposed method, measurements, comparison conditions, and source limits. A populated record does not establish that its mechanism has been fully explained or independently verified.</p>
+<p><span id="paper-dac-2026-research1587"></span></p>
+<h3>Celestialeye: A Synergistic CPU-FPGA Engine for Accurate Frequency Measurement in High-Speed Data Streams</h3>
+<p>DAC 2026 · Record: <code>dac-2026-research1587</code></p>
+<p><a href="#explanation-dac-2026-research1587">Read the step-by-step explanation</a></p>
+<p><strong>Updated source-backed reading card</strong></p>
+<div class="worked"><p class="lm-k">Worked example</p><p>Reviewed 2026-09-08. Deepens the existing CelestialEye treatment into a paper-level reading and corrects the historical frequency interpretation; defines item-frequency summaries, CPU–FPGA rate matching and bounded decoding, and makes stream distributions, count error and end-to-end throughput explicit.</p></div>
+<p>This editorial correction updates the current reading view and connected dossiers, not the historical adjudication or scientific acceptance status. The original captured fields are preserved below.</p>
+<p><a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/data/editorial-paper-corrections-v1.json">Correction register</a></p>
+<p><strong>Problem:</strong></p>
+<p>High-speed item-frequency measurement needs precise counting or estimation while sustaining stream throughput.</p>
+<p><strong>Mechanism / artifact:</strong></p>
+<p>Synergistic CPU–FPGA engine for item-frequency summaries and heuristic decoding; hot/cold policy, summary encoding, FPGA bounds, decoder objective and overflow behavior are incompletely specified. This is item frequency, not electrical signal-frequency measurement.</p>
+<p><strong>Workload — the work tested:</strong></p>
+<p>High-speed item streams; item domain, cardinality, input rate, popularity distribution, observation window, bursts, unseen items and query protocol are unspecified.</p>
+<p><strong>Hardware and manufacturing assumptions:</strong></p>
+<p>CPU–FPGA system with streaming I/O; FPGA pipeline, memory, interface, clock, summary size, transfer path, CPU decoder and power conditions are unspecified.</p>
+<p><strong>Baseline — the comparison method:</strong></p>
+<p>CPU-only item-frequency measurement</p>
+<p>Fixed FPGA counter</p>
+<p>BitMatcher is named in the chapter description</p>
+<p>Input distribution, rate, memory, clock, interface and end-to-end accounting are unspecified</p>
+<p><strong>Reported measurements:</strong></p>
+<p>Measurement accuracy and throughput are claimed qualitatively; no count-error distribution, exact-recovery rate, maximum sustainable rate, query latency, resource, memory, power, transfer, loss or backpressure result is reported.</p>
+<p><strong>Limits on the conclusion:</strong></p>
+<p>Frequency means the number of occurrences of an item in a defined stream window, not an electrical oscillation frequency. The item domain, window, reset rule and exact-versus-estimated output must be defined before accuracy can be interpreted.</p>
+<p>A compact summary and FPGA-generated bounds retain less information than full counters. A bound narrows possible counts but does not prove an exact count unless the remaining possibilities collapse under stated assumptions; heuristic decoding can work on one distribution and fail on another.</p><p>CPU decoding can also lag FPGA ingestion and create queueing, backpressure or loss.</p>
+<p>The official description claims improved performance and accuracy over BitMatcher but reports no numerical throughput, count-error distribution, memory budget or input distribution. The record supports a CPU–FPGA summary-and-decoding architecture, not a proven exact frequency instrument or universal throughput improvement.</p>
+<p><strong>Source and location</strong></p>
+<p>Evidence tier: Primary captured official DAC description plus existing chapter level celestialeye correction; no full paper extraction, stream distribution reconstruction or independent throughput/error validation. This is the stored source classification; the location and limits below determine what was actually read.</p>
+<p><a href="https://63dac.conference-program.com/?post_type=page&amp;p=16&amp;id=RESEARCH1587">Open the recorded source</a></p>
+<p>DAC 2026 official description; captured Problem, Mechanism / artifact, Workload, Hardware, Baseline, Measurements and Limits fields; record RESEARCH1587; no manuscript pages.</p>
+<details markdown="1">
+<summary>Original captured fields — superseded for this reading card</summary>
+
+** page source tier:** medium_official_description
+
+**Baselines:** CPU-only frequency measurement
+
+fixed FPGA counter
+
+**Evidence locators:** DAC 2026 official description
+
+**Evidence url:** https://63dac.conference-program.com/?post_type=page&amp;p=16&amp;id=RESEARCH1587
+
+**Hardware or process assumptions:** CPU-FPGA system with streaming I/O; clock and interface assumptions are unspecified.
+
+**Limits:** No frequency error, maximum rate, latency, resource, or power results are reported.
+
+Clock and signal assumptions determine accuracy.
+
+Official description only; instrumented stream validation is required.
+
+**Method or artifact:** Synergistic CPU-FPGA frequency-measurement engine.
+
+**Metrics:** Measurement accuracy and throughput are claimed qualitatively
+
+**Problem:** High-speed frequency measurement needs precise timing while sustaining stream throughput.
+
+**Workload or benchmark:** High-speed data streams; input rate, signal classes, and measurement windows are unspecified.
+
+</details>
+<p><span id="paper-dac-2026-research2997"></span></p>
+<h3>WINNER: A Wireless In-Vivo/ex-Vivo Runtime Analyzer for Intermittent Computing</h3>
+<p>DAC 2026 · Record: <code>dac-2026-research2997</code></p>
+<p><a href="#explanation-dac-2026-research2997">Read the step-by-step explanation</a></p>
+<p><strong>Updated source-backed reading card</strong></p>
+<div class="worked"><p class="lm-k">Worked example</p><p>Reviewed 2026-09-08. Deepens the existing WINNER treatment into a paper-level reading and corrects the biomedical implication; defines intermittent trace persistence, trigger scope, observation disturbance and trace completeness, and makes telemetry energy and receiver conditions explicit.</p></div>
+<p>This editorial correction updates the current reading view and connected dossiers, not the historical adjudication or scientific acceptance status. The original captured fields are preserved below.</p>
+<p><a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/data/editorial-paper-corrections-v1.json">Correction register</a></p>
+<p><strong>Problem:</strong></p>
+<p>Intermittent embedded execution needs runtime visibility despite power loss and constrained communication.</p>
+<p><strong>Mechanism / artifact:</strong></p>
+<p>Runtime analyzer that records execution traces in nonvolatile memory during normal execution and exposes them in debug sessions triggered by user-defined property violations; trace format, atomicity, trigger coverage and software-controlled EM communication are incompletely specified. The captured use of “in-vivo/ex-vivo” does not establish a biomedical implant.</p>
+<p><strong>Workload — the work tested:</strong></p>
+<p>Intermittent embedded applications; six applications and five platforms are named in the captured description, but exact applications, energy traces, trigger properties, trace volume, power-failure points and diagnosis tasks are unspecified.</p>
+<p><strong>Hardware and manufacturing assumptions:</strong></p>
+<p>Low-power intermittent embedded device with nonvolatile storage and software-controlled electromagnetic telemetry; hardware, energy source, receiver, storage endurance, bandwidth, safety and interference assumptions are unspecified.</p>
+<p><strong>Baseline — the comparison method:</strong></p>
+<p>Offline trace collection</p>
+<p>Local runtime monitoring</p>
+<p>Bluetooth Low Energy is named for transmission-energy comparison</p>
+<p>Receiver, application, energy, trace-completeness and accounting conditions are unspecified</p>
+<p><strong>Reported measurements:</strong></p>
+<p>The captured description reports less than 1% runtime increase, 6% average binary-size growth and up to fourfold lower transmission energy than Bluetooth Low Energy; it reports no trace completeness, event loss, telemetry latency, total energy, receiver reliability, privacy or biomedical validation.</p>
+<p><strong>Limits on the conclusion:</strong></p>
+<p>Intermittent power can interrupt an instruction, memory update or trace write. A valid trace must preserve ordering, write completion, reset boundaries and missing intervals; a partially written record must not be interpreted as complete evidence.</p>
+<p>Tracing and electromagnetic transmission consume time, writes and energy and can change the power-loss schedule. A property trigger covers only the behavior it defines; low runtime overhead does not establish low total energy, complete bug visibility or diagnosis correctness.</p>
+<p>The captured description uses in-vivo/ex-vivo terminology but does not establish a biomedical implant. It reports no full telemetry conditions, receiver reliability, trace completeness, power-failure coverage, privacy, safety or artifact execution result. The record supports intermittent-debugging instrumentation, not validated biomedical deployment or complete runtime observability.</p>
+<p><strong>Source and location</strong></p>
+<p>Evidence tier: Primary captured official DAC description plus existing chapter level winner correction; no full paper extraction, artifact execution or deployment/safety validation. This is the stored source classification; the location and limits below determine what was actually read.</p>
+<p><a href="https://63dac.conference-program.com/?post_type=page&amp;p=16&amp;id=RESEARCH2997">Open the recorded source</a></p>
+<p>DAC 2026 official description; captured Problem, Mechanism / artifact, Workload, Hardware, Baseline, Measurements and Limits fields; record RESEARCH2997; no manuscript pages.</p>
+<details markdown="1">
+<summary>Original captured fields — superseded for this reading card</summary>
+
+** page source tier:** medium_official_description
+
+**Baselines:** offline trace collection
+
+local runtime monitoring
+
+**Evidence locators:** DAC 2026 official description
+
+**Evidence url:** https://63dac.conference-program.com/?post_type=page&amp;p=16&amp;id=RESEARCH2997
+
+**Hardware or process assumptions:** Low-power intermittent embedded device with wireless telemetry; safety and bandwidth assumptions are unspecified.
+
+**Limits:** No telemetry energy, latency, reliability, privacy, or biomedical validation results are reported.
+
+Wireless operation may disturb intermittent execution.
+
+Official description only; deployment and safety validation is required.
+
+**Method or artifact:** Wireless in-vivo/ex-vivo runtime analysis system.
+
+**Metrics:** Runtime observability is claimed qualitatively
+
+**Problem:** Intermittent biomedical systems need runtime visibility despite power loss and wireless constraints.
+
+**Workload or benchmark:** Intermittent biomedical applications; implant, radio, energy source, and traces are unspecified.
+
+</details>
+<p><span id="paper-dac-2026-research791"></span></p>
+<h3>Semcom: Semantic-Enhanced On-Board Satellite Image Compression at Ultra-Low Bitrates</h3>
+<p>DAC 2026 · Record: <code>dac-2026-research791</code></p>
+<p><a href="#explanation-dac-2026-research791">Read the step-by-step explanation</a></p>
+<p><strong>Updated source-backed reading card</strong></p>
+<div class="worked"><p class="lm-k">Worked example</p><p>Reviewed 2026-09-08. Deepens the existing SemCom treatment into a paper-level reading; separates bit-exact symbol decoding from image and task fidelity, defines region/side-information bitrate accounting, and makes rare-content, hardware, packet and flight-validation requirements explicit.</p></div>
+<p>This editorial correction updates the current reading view and connected dossiers, not the historical adjudication or scientific acceptance status. The original captured fields are preserved below.</p>
+<p><a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/data/editorial-paper-corrections-v1.json">Correction register</a></p>
+<p><strong>Problem:</strong></p>
+<p>Satellite links constrain image bandwidth while downstream tasks may need semantic content more than pixel fidelity.</p>
+<p><strong>Mechanism / artifact:</strong></p>
+<p>Semantic-enhanced on-board image compression; region definition, codebook, bit allocation, side information, entropy tables and task objective are incompletely specified.</p>
+<p><strong>Workload — the work tested:</strong></p>
+<p>Satellite imagery; sensor, resolution, scene distribution, bitrates, downstream tasks, rare content, packet errors and training/test split are unspecified.</p>
+<p><strong>Hardware and manufacturing assumptions:</strong></p>
+<p>Spaceborne low-power compute and communications; processor, memory, energy, radiation, link, decoder and flight conditions are unspecified.</p>
+<p><strong>Baseline — the comparison method:</strong></p>
+<p>JPEG-like compression</p>
+<p>Task-agnostic learned compression</p>
+<p>Bitrate accounting, hardware budget, task set, scene split and comparison conditions are unspecified</p>
+<p><strong>Reported measurements:</strong></p>
+<p>Ultra-low-bitrate efficiency is claimed qualitatively; no total bitrate, reconstruction quality, task accuracy/recall, latency, memory, energy, packet-failure or flight result is reported.</p>
+<p><strong>Limits on the conclusion:</strong></p>
+<p>Semantic compression allocates limited bits among regions or task-relevant structures. Region labels, codebook identifiers, probability tables and other side information also consume bits. A bitrate must include the complete representation, not only image symbols.</p>
+<p>Bit-exact decoding means reproducing the intended encoded symbols under shared coding rules; it does not restore original pixels after quantization or semantic loss. Pixel fidelity and downstream task quality can diverge, and semantic prioritization can discard small, unusual or out-of-distribution content.</p>
+<p>The official description claims bit-exact decoding and favorable results on real satellite payloads but reports no bitrate, reconstruction metric, processor, task metric, energy, latency or flight condition. The record supports a semantic compression direction, not demonstrated ultra-low-bitrate superiority or in-orbit performance.</p>
+<p><strong>Source and location</strong></p>
+<p>Evidence tier: Primary captured official DAC description plus existing chapter level semcom discussion; no full paper extraction, task quality reconstruction or flight validation. This is the stored source classification; the location and limits below determine what was actually read.</p>
+<p><a href="https://63dac.conference-program.com/?post_type=page&amp;p=16&amp;id=RESEARCH791">Open the recorded source</a></p>
+<p>DAC 2026 official description; captured Problem, Mechanism / artifact, Workload, Hardware, Baseline, Measurements and Limits fields; record RESEARCH791; no manuscript pages.</p>
+<details markdown="1">
+<summary>Original captured fields — superseded for this reading card</summary>
+
+** page source tier:** medium_official_description
+
+**Baselines:** JPEG-like compression
+
+task-agnostic learned compression
+
+**Evidence locators:** DAC 2026 official description
+
+**Evidence url:** https://63dac.conference-program.com/?post_type=page&amp;p=16&amp;id=RESEARCH791
+
+**Hardware or process assumptions:** Spaceborne low-power compute and communications; radiation and power assumptions are unspecified.
+
+**Limits:** No bitrate, image quality, task accuracy, latency, energy, or flight results are reported.
+
+Semantic prioritization may discard unexpected content.
+
+Official description only; task and hardware validation is required.
+
+**Method or artifact:** Semantic-enhanced on-board image compression.
+
+**Metrics:** Ultra-low-bitrate efficiency is claimed qualitatively
+
+**Problem:** Satellite links constrain image bandwidth while downstream tasks may need semantic content more than pixel fidelity.
+
+**Workload or benchmark:** Satellite imagery; sensors, bitrates, task metrics, and onboard hardware are unspecified.
+
+</details>
+<p><span id="paper-dac-2026-research962"></span></p>
+<h3>Energyhdc: Intermittent Hyperdimensional Inference on Energy-Harvesting IoT</h3>
+<p>DAC 2026 · Record: <code>dac-2026-research962</code></p>
+<p><a href="#explanation-dac-2026-research962">Read the step-by-step explanation</a></p>
+<p><strong>Updated source-backed reading card</strong></p>
+<div class="worked"><p class="lm-k">Worked example</p><p>Reviewed 2026-09-08. Deepens the existing EnergyHDC treatment into a paper-level reading; separates resume correctness, model accuracy and real outage completion, and makes checkpoint cost, dimension-first ordering, pruning, harvest traces and elapsed-time accounting explicit.</p></div>
+<p>This editorial correction updates the current reading view and connected dossiers, not the historical adjudication or scientific acceptance status. The original captured fields are preserved below.</p>
+<p><a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/data/editorial-paper-corrections-v1.json">Correction register</a></p>
+<p><strong>Problem:</strong></p>
+<p>Energy-harvesting IoT devices experience intermittent power and need robust low-memory inference.</p>
+<p><strong>Mechanism / artifact:</strong></p>
+<p>Hyperdimensional inference designed for intermittent operation, combining energy-dependent checkpoint granularity, dimension-first execution and compile-time priority pruning; state format, pruning rule and checkpoint validity are unspecified.</p>
+<p><strong>Workload — the work tested:</strong></p>
+<p>Energy-harvesting IoT classification or sensing; datasets, model, vector dimension, inputs, harvest traces, outage timing, output requirement and task metrics are unspecified.</p>
+<p><strong>Hardware and manufacturing assumptions:</strong></p>
+<p>Low-power intermittent microcontroller or accelerator; captured description names MSP432P401R, but capacitor, memory, nonvolatile storage, write cost, clock, energy source and hardware conditions are unspecified.</p>
+<p><strong>Baseline — the comparison method:</strong></p>
+<p>Mementos</p>
+<p>DynBal</p>
+<p>Continuous-power ML</p>
+<p>Checkpointed neural inference</p>
+<p>Dataset, accuracy, energy trace, memory, outage and elapsed-time conditions are unspecified</p>
+<p><strong>Reported measurements:</strong></p>
+<p>The captured description reports up to 214× speedup over Mementos and 19.6× faster inference than DynBal at similar accuracy; it reports no datasets, exact accuracy differences, checkpoint size/count, outage traces, storage cost, wall-clock completion or full energy accounting.</p>
+<p><strong>Limits on the conclusion:</strong></p>
+<p>Intermittent inference has separate correctness questions: whether execution resumes from a complete state, whether the selected model remains accurate, and whether a valid output completes under the actual outage trace. A checkpoint must preserve all state needed to continue and distinguish an old partial result from a new inference.</p>
+<p>Checkpoint frequency trades write energy and time against repeated work. Dimension-first execution reorders work, while priority pruning removes work and can change accuracy; a speedup from pruning is not only a checkpointing improvement.</p><p>Average harvested power does not determine completion because outage timing and uninterrupted interval length matter.</p>
+<p>The captured description reports up to 214× speedup over Mementos and 19.6× faster inference than DynBal at similar accuracy on an MSP432P401R under intermittent power, but provides no datasets, exact accuracy differences, outage traces, storage sizes or elapsed-time accounting. The record supports an intermittent-inference direction, not verified end-to-end completion or general harvest robustness.</p>
+<p><strong>Source and location</strong></p>
+<p>Evidence tier: Primary captured official DAC description plus existing chapter level energyhdc discussion; no full paper extraction, outage trace reconstruction or independent hardware validation. This is the stored source classification; the location and limits below determine what was actually read.</p>
+<p><a href="https://63dac.conference-program.com/?post_type=page&amp;p=16&amp;id=RESEARCH962">Open the recorded source</a></p>
+<p>DAC 2026 official description; captured Problem, Mechanism / artifact, Workload, Hardware, Baseline, Measurements and Limits fields; record RESEARCH962; no manuscript pages.</p>
+<details markdown="1">
+<summary>Original captured fields — superseded for this reading card</summary>
+
+** page source tier:** medium_official_description
+
+**Baselines:** continuous-power ML
+
+checkpointed neural inference
+
+**Evidence locators:** DAC 2026 official description
+
+**Evidence url:** https://63dac.conference-program.com/?post_type=page&amp;p=16&amp;id=RESEARCH962
+
+**Hardware or process assumptions:** Low-power intermittent microcontroller or accelerator; storage and capacitor assumptions are unspecified.
+
+**Limits:** No accuracy, energy, outage tolerance, latency, memory, or hardware results are reported.
+
+Harvest profiles may be environment-specific.
+
+Official description only; deployment validation is required.
+
+**Method or artifact:** Hyperdimensional inference designed for intermittent operation.
+
+**Metrics:** Intermittent inference efficiency is claimed qualitatively
+
+**Problem:** Energy-harvesting IoT devices experience intermittent power and need robust low-memory inference.
+
+**Workload or benchmark:** Energy-harvesting IoT classification or sensing; harvest profile, tasks, and hardware are unspecified.
+
+</details>
+<p class="lm-k h-label">What remains to establish</p><h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>What is still unproven here</h2>
+<p>Resolve unspecified workloads, comparison methods, resource budgets, and source locations before generalizing a reported gain. Multiple papers in this selected sample permit comparison of mechanisms, but do not by themselves establish recurrence across years or a long-term trend.</p>
+<p><a href="../guide/expanded-taxonomy-v1.html">All subthemes</a> · <a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/reports/directions/README.md">Research directions</a></p><p class="meta">Written as <a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/reports/observed-subthemes/embedded-and-edge-systems.md">reports/observed-subthemes/embedded-and-edge-systems.md</a> in the course repository.</p>
+      </article>
+      <nav class="pager" aria-label="Previous and next"><a class="prev" href="datacenter-and-cloud-systems.html"><span class="pg-k">← Previous</span><span class="pg-t">Datacenter and cloud systems</span></a><a class="map" href="../subthemes.html"><span class="pg-k">Back to</span><span class="pg-t">Subthemes</span></a><a class="next" href="real-time-and-networked-systems.html"><span class="pg-k">Next →</span><span class="pg-t">Real time and networked systems</span></a></nav>
+    </section>
+  </main>
+  <footer class="course-foot">
+    <p>Built from 582 paper records coded from ISCA 2026, DAC 2026 and ICCAD 2025 (ICCAD 2026 papers were not yet public). Most records come from official program descriptions; see “How deep the reading went”. The papers belong to their authors.</p>
+    <p class="foot-links"><a href="https://github.com/mehtama1234/course-concept-library">All courses</a><a href="../index.html">This course</a><a href="../course-map.html">Course map</a><a href="../presentation/index.html">Slides</a><a href="../video/index.html">Video</a><a href="../share/index.html">Share</a></p>
+  </footer>
+  <script src="../assets/course-data.js"></script><script src="../assets/icons.js"></script><script src="../assets/icons-extra.js"></script><script src="../assets/icons-course.js"></script><script src="../assets/art.js"></script><script src="../assets/course-art.js"></script><script src="../assets/charts.js"></script><script src="../assets/course-charts.js"></script><script src="../assets/course-site.js"></script>
+</body>
+</html>

@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#F3ECE1" />
+  <title>Distributed and wafer scale inference · Semiconductor conference atlas</title>
+  <meta name="description" content="Papers: ISCA 1. Read from: 0 program descriptions, 1 abstracts or reports, 0 full papers or preprints. The explanations come first; every paper’s record follows at the end." />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Semiconductor conference atlas" />
+  <meta property="og:title" content="Distributed and wafer scale inference · Semiconductor conference atlas" />
+  <meta property="og:description" content="Papers: ISCA 1. Read from: 0 program descriptions, 1 abstracts or reports, 0 full papers or preprints. The explanations come first; every paper’s record follows at the end." />
+  <meta property="og:url" content="https://mehtama1234.github.io/semiconductor-conferences/subthemes/distributed-and-wafer-scale-inference.html" />
+  <meta property="og:image" content="https://mehtama1234.github.io/semiconductor-conferences/presentation/slides/01-cover.jpg" />
+  <meta property="og:image:width" content="1920" />
+  <meta property="og:image:height" content="1080" />
+  <meta property="og:image:alt" content="Semiconductor conference atlas: 582 papers from ISCA, DAC and ICCAD, sorted into 10 themes and six directions to watch." />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="canonical" href="https://mehtama1234.github.io/semiconductor-conferences/subthemes/distributed-and-wafer-scale-inference.html" />
+  <link rel="icon" href="../assets/icon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="../assets/base.css" />
+  <link rel="stylesheet" href="../assets/experience.css" />
+  <link rel="stylesheet" href="../assets/theme-atlas.css" />
+  <link rel="stylesheet" href="../assets/styles.css" />
+  <link rel="stylesheet" href="../assets/charts.css" />
+  <link rel="stylesheet" href="../assets/course.css" />
+  
+</head>
+<body class="course-site " data-house="atlas">
+  <aside class="public-demo-banner" aria-label="About this course">A plain-language guide to what ISCA, DAC and ICCAD papers say about chip and computer design · Built from the repository’s own paper records · Not made by the conferences</aside>
+  <a class="skip-link" href="#app">Skip to the page</a>
+  <header>
+    <a class="brand" href="../index.html"><span class="mark" aria-hidden="true">Si</span> Semiconductor conference atlas</a>
+    <span class="header-status"><span class="badge">582 papers</span><span class="badge">10 themes</span><span class="badge">Plain words first</span></span>
+    <a class="header-link" href="../course-map.html">Course map</a>
+  </header>
+  <nav class="course-nav" aria-label="Main sections of the course"><a href="../index.html">The big picture</a><a href="../themes.html">Themes</a><a href="../subthemes.html" aria-current="page">Subthemes</a><a href="../deep-reads.html">Deep reads</a><a href="../directions.html">What to watch</a><a href="../presentation/index.html">Slides</a><a href="../video/index.html">Video</a><a href="../share/index.html">Share</a></nav>
+  <main id="app" tabindex="-1">
+    <section class="screen active landing legacy-page" aria-labelledby="page-title">
+<div class="lm-head"><div class="hj-heading"><nav class="crumbs" aria-label="You are here"><a href="../course-map.html">Course map</a><span aria-hidden="true">›</span><a href="../subthemes.html">Subthemes</a></nav><a class="back-button" href="../subthemes.html">← <span>Subthemes</span></a><p class="eyebrow">Subtheme · 1 papers · Architecture and accelerators</p><h1 id="page-title">Distributed and wafer scale inference: what the 1 papers change, and what is still unproven</h1><p class="hj-sub">Papers: ISCA 1. Read from: 0 program descriptions, 1 abstracts or reports, 0 full papers or preprints. The explanations come first; every paper’s record follows at the end.</p></div><div class="hj-art" data-art="trio:activity,server,cpu"></div></div>
+<figure class="course-fig"><div class="loop-wide" data-art="flow:architecture-and-accelerators"></div><div class="loop-tall" data-art="flowTall:architecture-and-accelerators"></div><figcaption>The parent theme in one picture: extra arithmetic helps only when the data arrives in time.</figcaption></figure>
+      <article class="prose">
+
+<p>This subject has 1 record in the selected sample. This page explains where it fits, then presents all captured paper evidence without shortening the measurements or limitations.</p>
+<p><a href="../guide/reading-guide-v1.html">Definitions used in the paper records</a></p>
+<p class="lm-k h-label">Understand the parent subject first</p><h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>The bigger theme this belongs to</h2>
+<ul>
+<li><a href="../themes/architecture-and-accelerators.html">Architecture and accelerators</a></li>
+</ul>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="map"></span>Mapping decides where work runs; routing decides how values arrive</h2>
+<p>Distributed inference divides a model's computation among processing resources. A mapping assigns work and data to those resources.</p><p>Routing determines the paths used to transfer the values required by that assignment. These decisions interact: a balanced arithmetic assignment can still create concentrated communication that delays completion.</p>
+<p>On a wafer-scale system, physical distance and the arrangement of cores or dies matter to those transfers. A logical connection is not automatically a cheap physical path.</p><p>Faults can further change which resources and routes are usable, so performance must be evaluated on the system that remains available, not only an ideal intact topology.</p>
+<p>The selected record is <a href="distributed-and-wafer-scale-inference.html#paper-isca-2026-program-060">BusyBarn</a>, an exact-title artifact for <em>Mapping and Communication Optimizations with Fault Tolerance for Wafer-Scale LLM Inference</em>. The captured evidence is its Zenodo description, not an executed reproduction or the paper manuscript.</p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>What the artifact describes</h2>
+<p>The description identifies hierarchical mapping using simulated annealing and load-balanced, distance-aware, fault-tolerant routing. Hierarchical mapping makes choices at multiple resource scales rather than treating every assignment as unrelated.</p><p>Simulated annealing is a search method that can temporarily accept worse candidate choices to explore alternatives; its practical result depends on the search settings and evaluation budget.</p>
+<p>The captured description does not expose the mapping objective, hierarchy boundaries, annealing schedule, or route-selection algorithm. Those details must not be reconstructed from the labels.</p><p>In particular, distance-aware routing does not establish that every transfer follows the shortest possible route: load balancing may favor a different path.</p>
+<p>The key evaluation question is whether the combined choices reduce complete inference time under the stated physical and fault constraints. Improving an intermediate traffic metric is useful evidence but does not by itself answer that question.</p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>Collective bandwidth and application latency are distinct</h2>
+<p>The artifact lists AllGather and AllToAll bandwidth evaluations. AllGather distributes each participant's contributed data to all participants. AllToAll exchanges potentially different data between participant pairs. Their communication patterns and congestion can differ, so one collective's bandwidth does not characterize all model traffic.</p>
+<p>The listed studies also include end-to-end latency for six language-model architectures. Application latency depends on when required values become available, not simply aggregate link capacity. Dependencies between computation and communication can leave resources waiting even when some links are idle.</p>
+<p>The source does not name the six models, input sizes, batching conditions, or baseline values. Consequently this article reports no numerical speedup. Neither the existence of scripts nor the listed evaluation scope supplies the missing measurements.</p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>Fault tolerance needs a defined fault model</h2>
+<p>The artifact description lists power/fault and multi-fault scaling studies. To interpret them, the reader needs to know what fails, whether failures occur before or during execution, how they are detected, and which state must be recovered.</p><p>A routing method that avoids known unavailable links addresses a different problem from recovering data after an unexpected failure.</p>
+<p>The captured metadata does not specify those assumptions. It should therefore not be described as tolerating arbitrary faults or guaranteeing uninterrupted inference. A complete result would report both correctness and degraded performance, along with reconfiguration or recovery costs and cases where no usable mapping remains.</p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>The ablations are a useful plan, not verified findings</h2>
+<p>The described scripts target Figures 8–15 and include mapping/routing ablations, die-group and core-shape sensitivity, workload heatmaps, and runtime breakdown. Ablations remove or replace a component to examine its contribution.</p><p>They can help distinguish the effects of mapping from routing when the rest of the experiment remains comparable.</p>
+<p>However, this atlas has not established those results by executing the artifact. Environment versions, simulator settings, fault distributions, baseline implementations, and hardware calibration remain unresolved in the captured description. Intended reproducibility and successful independent reproduction are separate evidentiary states.</p>
+<p><span id="explanation-isca-2026-program-060"></span></p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="map"></span>BusyBarn: judge mapping, routing and fault handling as one inference path</h2>
+<h3>Distributed inference has two coupled schedules</h3>
+<p>The computation schedule assigns model operations and data to processing resources. The communication schedule moves activations, partial results, parameters or synchronization state between those resources.</p><p>A mapping can balance arithmetic work while producing a communication hotspot; a route can balance links while making a dependent operation wait. Wafer-scale distance adds another constraint because a logical hop count can correspond to different physical path lengths and link costs.</p>
+<p>BusyBarn's artifact description combines hierarchical mapping, simulated-annealing search, and load-balanced, distance-aware, fault-tolerant routing. These labels describe different decisions.</p><p>Hierarchical mapping may choose groups before individual cores. Simulated annealing is a search procedure that explores alternatives under a cost function.</p><p>Routing then selects paths subject to distance, load and available resources. The description does not expose the cost function, hierarchy boundaries, annealing schedule or route algorithm, so they are not reconstructed here.</p>
+<h3>Collective communication does not equal application latency</h3>
+<p>AllGather requires every participant to receive the combined contributions. AllToAll allows different data to move between participant pairs. Their message dependencies, volume, contention and completion conditions differ. A high bandwidth for one collective does not prove that the full LLM execution has low latency.</p>
+<p>Application latency also includes computation, synchronization, waiting for the last required transfer, setup, and any reconfiguration. Six unnamed LLM architectures are listed in the artifact description, but model names, input sizes, batch conditions and baseline values are not supplied.</p><p>The existence of scripts or a figure list is not a measured speedup and does not establish end-to-end inference behavior.</p>
+<h3>Fault tolerance changes the feasible topology</h3>
+<p>A fault model must state what can fail, when it fails, how it is detected, and what state is lost. Avoiding a known failed link is different from recovering an in-flight activation or remapping a partially completed computation.</p><p>Multiple simultaneous faults can disconnect a region even when each individual fault is tolerable.</p>
+<p>Fault-tolerant routing therefore has two outputs: a route that remains usable and a correctness/recovery procedure for the computation that depends on it. Reconfiguration can consume bandwidth and time, and a route that avoids a fault can be longer or more congested.</p><p>The artifact description names power/fault and multi-fault scaling studies but does not specify the fault distribution, detection delay, state-recovery rule, or condition under which no mapping remains.</p>
+<h3>Artifact availability is not artifact reproduction</h3>
+<p>The Zenodo record provides a concrete artifact identity and reproduction-script scope. It does not, by itself, establish that the scripts execute in the current environment, that the environment versions are pinned, or that their output matches the paper.</p><p>A reproducible evaluation should record dependencies, seeds, simulator configuration, topology, model inputs, baseline implementations, numerical outputs, and the cost of mapping and recovery.</p>
+<h3>What BusyBarn establishes and what remains open</h3>
+<p>The accessible evidence establishes an exact-title artifact for a proposed wafer-scale LLM inference workflow combining hierarchical mapping, simulated-annealing exploration, distance/load-aware routing and fault-tolerance studies. It does not establish numerical collective bandwidth, end-to-end latency, mapping quality, fault coverage, measured wafer-scale hardware behavior, or independent reproduction.</p><p>A stronger evaluation would recover the manuscript, execute the pinned artifact, define the collective and application workloads, report complete optimization/reconfiguration costs, specify fault models and correctness checks, and compare intact and degraded systems under matched conditions.</p>
+<p><a href="https://zenodo.org/records/19430308">Zenodo artifact description</a> · <a href="https://doi.org/10.5281/zenodo.19430308">Artifact DOI</a></p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="help-circle"></span>The long-term question supported here</h2>
+<p>BusyBarn motivates coordinating work placement and communication with the physical resources available under faults. Its value would be established by reproducible results showing correct complete inference, full optimization and recovery costs, and performance across declared geometries and workloads.</p>
+<p>The artifact provides a concrete path toward such evaluation. It does not yet support a numerical ranking, measured wafer-scale hardware claims, or a forecast of broad adoption.</p><p>The defensible insight is that mapping quality, routing quality, and fault handling must be judged together at the application level, while their individual contributions remain inspectable.</p>
+<p class="lm-k h-label">Compare the results carefully</p><h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="route"></span>How to compare these papers’ results fairly</h2>
+<p>First identify the inputs and required output quality. Then identify the limited resource: time, memory, communication, energy, circuit area, or correctness coverage.</p><p>Ask which part of the method reduces that cost and which new cost it adds. Compare numbers only when the experiments hold these conditions sufficiently similar.</p>
+<p>A conference description may explain the proposal while omitting the full experiment. An author preprint link may have been coded from its abstract. The source classification does not by itself establish that every table was read. Missing locations remain visible below.</p>
+<p class="lm-k h-label">Complete captured evidence</p><h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="file-text"></span>Every paper in this subtheme, with what its source shows</h2>
+<p>These are evidence records, not substitutes for the explanations above. Each record preserves its problem, proposed method, measurements, comparison conditions, and source limits. A populated record does not establish that its mechanism has been fully explained or independently verified.</p>
+<p><span id="paper-isca-2026-program-060"></span></p>
+<h3>Mapping and Communication Optimizations with Fault Tolerance for Wafer-Scale LLM Inference</h3>
+<p>ISCA 2026 · Record: <code>isca-2026-program-060</code></p>
+<p><a href="#explanation-isca-2026-program-060">Read the step-by-step explanation</a></p>
+<p><strong>Updated source-backed reading card</strong></p>
+<div class="worked"><p class="lm-k">Worked example</p><p>Reviewed 2026-09-08. Deepens the exact-title artifact reading; separates mapping, routing, collective bandwidth, application latency, fault models and the boundary between artifact availability and reproduction.</p></div>
+<p>This editorial correction updates the current reading view and connected dossiers, not the historical adjudication or scientific acceptance status. The original captured fields are preserved below.</p>
+<p><a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/data/editorial-paper-corrections-v1.json">Correction register</a></p>
+<p><strong>Problem:</strong></p>
+<p>Wafer-scale LLM inference must map computation and communication under physical distance, irregular traffic and faults without losing end-to-end progress.</p>
+<p><strong>Mechanism / artifact:</strong></p>
+<p>BusyBarn artifact: hierarchical simulated-annealing mapping plus load-balanced, distance-aware, fault-tolerant routing and reproduction scripts.</p>
+<p><strong>Workload — the work tested:</strong></p>
+<p>Artifact description names AllGather and AllToAll, six LLM architectures, die/core-shape studies, fault-scaling studies and mapping/routing ablations; model names, input sizes, topology, seeds and baselines are not exposed.</p>
+<p><strong>Hardware and manufacturing assumptions:</strong></p>
+<p>Wafer-scale simulated system with die/core geometry, power/fault conditions and distance-aware routing; simulator configuration, fault model, recovery state and hardware calibration are unspecified.</p>
+<p><strong>Baseline — the comparison method:</strong></p>
+<p>Mapping/routing ablations are listed but baseline implementations are not named</p>
+<p>AllGather and AllToAll are workload classes, not interchangeable baselines</p>
+<p><strong>Reported measurements:</strong></p>
+<p>No quantitative result is established in the captured Zenodo description; bandwidth, end-to-end latency, mapping success, fault coverage and recovery cost remain withheld pending manuscript or execution.</p>
+<p><strong>Limits on the conclusion:</strong></p>
+<p>Collective bandwidth does not establish application latency; computation, synchronization, waiting, setup and reconfiguration remain in the end-to-end boundary.</p>
+<p>Fault tolerance requires a defined fault type, timing, detection, state recovery and no-mapping condition; the description does not provide them.</p>
+<p>Zenodo artifact identity and reproduction scripts are not independent execution; environment versions, seeds, simulator settings, numerical outputs and baseline conditions remain unresolved.</p>
+<p>No manuscript PDF or full abstract was recovered; no wafer-scale hardware measurement or independent review is established.</p>
+<p><strong>Source and location</strong></p>
+<p>Evidence tier: Exact title artifact description; execution and independent acceptance not performed. This is the stored source classification; the location and limits below determine what was actually read.</p>
+<p><a href="https://zenodo.org/records/19430308">Open the recorded source</a></p>
+<div class="worked"><p class="lm-k">Worked example</p><p>Zenodo description; artifact DOI 10.5281/zenodo.19430308; separate artifact assessment dated 2026-09-06; manuscript not recovered.</p></div>
+<details markdown="1">
+<summary>Original captured fields — superseded for this reading card</summary>
+
+** page source tier:** medium_exact_artifact_description
+
+**Baselines:** Artifact description lists mapping/routing ablation scope but does not name all baseline implementations
+
+**Evidence locators:** **Fields:** method_or_artifact
+
+workload_or_benchmark
+
+**Location:** Zenodo description; artifact DOI 10.5281/zenodo.19430308
+
+**Evidence url:** https://zenodo.org/records/19430308
+
+**Hardware or process assumptions:** Wafer-scale simulated system with die/core geometry, power/fault conditions, and distance-aware routing; simulator configuration, fault model, and hardware calibration are not exposed in the Zenodo description.
+
+**Limits:** Zenodo artifact metadata is not the paper manuscript and does not independently verify the reported results.
+
+No quantitative claim is promoted until the artifact is run with pinned environment metadata or the manuscript supplies exact conditions and baselines.
+
+Artifact authorship and title match the ISCA record, but acceptance and independent review remain pending.
+
+**Method or artifact:** BusyBarn artifact: hierarchical simulated-annealing mapping plus load-balanced, distance-aware, fault-tolerant routing and reproducibility scripts.
+
+**Metrics:** Not established in the captured evidence.
+
+**Problem:** Wafer-scale LLM inference must map computation and communication under irregular traffic, physical distance, and faults without losing end-to-end throughput.
+
+**Workload or benchmark:** Artifact description names AllGather and AllToAll communication, six LLM architectures, die/core shape studies, fault-scaling studies, and mapping/routing ablations; exact model names, input sizes, topology, and baseline values require manuscript or artifact execution.
+
+</details>
+<h4>Additional source assessment</h4>
+<div class="worked"><p class="lm-k">Worked example</p><p>This separately recorded check is dated 2026-09-06. It supplements the original record above and retains its own scope and uncertainty.</p></div>
+<p><a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/isca/data/busybarn-artifact-primary-recovery-v1.json">Assessment record</a></p>
+<p><a href="https://zenodo.org/records/19430308">Assessed source</a></p>
+<p><strong>Extraction scope</strong></p>
+<p>Zenodo artifact description for BusyBarn and its reproduction scripts; no manuscript PDF or full abstract recovered.</p>
+<p><strong>Conditions</strong></p>
+<p>The artifact description names AllGather and AllToAll, six LLM architectures, fault and power sensitivity, and mapping/routing ablations; exact platforms, baselines, seeds, numerical results, and metric units remain unextracted.</p>
+<p><strong>Headline metric status</strong></p>
+<p>withheld_pending_primary_paper</p>
+<p><strong>Independent review status</strong></p>
+<p>pending</p>
+<p class="lm-k h-label">What remains to establish</p><h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>What is still unproven here</h2>
+<p>Resolve unspecified workloads, comparison methods, resource budgets, and source locations before generalizing a reported gain. This subject is represented by one paper and supports a case study, not evidence of recurrence or a long-term trend.</p>
+<p><a href="../guide/expanded-taxonomy-v1.html">All subthemes</a> · <a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/reports/directions/README.md">Research directions</a></p><p class="meta">Written as <a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/reports/observed-subthemes/distributed-and-wafer-scale-inference.md">reports/observed-subthemes/distributed-and-wafer-scale-inference.md</a> in the course repository.</p>
+      </article>
+      <nav class="pager" aria-label="Previous and next"><a class="prev" href="ai-accelerator-microarchitecture.html"><span class="pg-k">← Previous</span><span class="pg-t">AI accelerator microarchitecture</span></a><a class="map" href="../subthemes.html"><span class="pg-k">Back to</span><span class="pg-t">Subthemes</span></a><a class="next" href="neuromorphic-and-emerging-architectures.html"><span class="pg-k">Next →</span><span class="pg-t">Neuromorphic and emerging architectures</span></a></nav>
+    </section>
+  </main>
+  <footer class="course-foot">
+    <p>Built from 582 paper records coded from ISCA 2026, DAC 2026 and ICCAD 2025 (ICCAD 2026 papers were not yet public). Most records come from official program descriptions; see “How deep the reading went”. The papers belong to their authors.</p>
+    <p class="foot-links"><a href="https://github.com/mehtama1234/course-concept-library">All courses</a><a href="../index.html">This course</a><a href="../course-map.html">Course map</a><a href="../presentation/index.html">Slides</a><a href="../video/index.html">Video</a><a href="../share/index.html">Share</a></p>
+  </footer>
+  <script src="../assets/course-data.js"></script><script src="../assets/icons.js"></script><script src="../assets/icons-extra.js"></script><script src="../assets/icons-course.js"></script><script src="../assets/art.js"></script><script src="../assets/course-art.js"></script><script src="../assets/charts.js"></script><script src="../assets/course-charts.js"></script><script src="../assets/course-site.js"></script>
+</body>
+</html>

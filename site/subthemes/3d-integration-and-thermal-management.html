@@ -1,0 +1,518 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#F3ECE1" />
+  <title>3d integration and thermal management · Semiconductor conference atlas</title>
+  <meta name="description" content="Papers: DAC 6. Read from: 6 program descriptions, 0 abstracts or reports, 0 full papers or preprints. The explanations come first; every paper’s record follows at the end." />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Semiconductor conference atlas" />
+  <meta property="og:title" content="3d integration and thermal management · Semiconductor conference atlas" />
+  <meta property="og:description" content="Papers: DAC 6. Read from: 6 program descriptions, 0 abstracts or reports, 0 full papers or preprints. The explanations come first; every paper’s record follows at the end." />
+  <meta property="og:url" content="https://mehtama1234.github.io/semiconductor-conferences/subthemes/3d-integration-and-thermal-management.html" />
+  <meta property="og:image" content="https://mehtama1234.github.io/semiconductor-conferences/presentation/slides/01-cover.jpg" />
+  <meta property="og:image:width" content="1920" />
+  <meta property="og:image:height" content="1080" />
+  <meta property="og:image:alt" content="Semiconductor conference atlas: 582 papers from ISCA, DAC and ICCAD, sorted into 10 themes and six directions to watch." />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="canonical" href="https://mehtama1234.github.io/semiconductor-conferences/subthemes/3d-integration-and-thermal-management.html" />
+  <link rel="icon" href="../assets/icon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="../assets/base.css" />
+  <link rel="stylesheet" href="../assets/experience.css" />
+  <link rel="stylesheet" href="../assets/theme-atlas.css" />
+  <link rel="stylesheet" href="../assets/styles.css" />
+  <link rel="stylesheet" href="../assets/charts.css" />
+  <link rel="stylesheet" href="../assets/course.css" />
+  
+</head>
+<body class="course-site " data-house="atlas">
+  <aside class="public-demo-banner" aria-label="About this course">A plain-language guide to what ISCA, DAC and ICCAD papers say about chip and computer design · Built from the repository’s own paper records · Not made by the conferences</aside>
+  <a class="skip-link" href="#app">Skip to the page</a>
+  <header>
+    <a class="brand" href="../index.html"><span class="mark" aria-hidden="true">Si</span> Semiconductor conference atlas</a>
+    <span class="header-status"><span class="badge">582 papers</span><span class="badge">10 themes</span><span class="badge">Plain words first</span></span>
+    <a class="header-link" href="../course-map.html">Course map</a>
+  </header>
+  <nav class="course-nav" aria-label="Main sections of the course"><a href="../index.html">The big picture</a><a href="../themes.html">Themes</a><a href="../subthemes.html" aria-current="page">Subthemes</a><a href="../deep-reads.html">Deep reads</a><a href="../directions.html">What to watch</a><a href="../presentation/index.html">Slides</a><a href="../video/index.html">Video</a><a href="../share/index.html">Share</a></nav>
+  <main id="app" tabindex="-1">
+    <section class="screen active landing legacy-page" aria-labelledby="page-title">
+<div class="lm-head"><div class="hj-heading"><nav class="crumbs" aria-label="You are here"><a href="../course-map.html">Course map</a><span aria-hidden="true">›</span><a href="../subthemes.html">Subthemes</a></nav><a class="back-button" href="../subthemes.html">← <span>Subthemes</span></a><p class="eyebrow">Subtheme · 6 papers · Chiplets, 3D integration, and packaging</p><h1 id="page-title">3d integration and thermal management: what the 6 papers change, and what is still unproven</h1><p class="hj-sub">Papers: DAC 6. Read from: 6 program descriptions, 0 abstracts or reports, 0 full papers or preprints. The explanations come first; every paper’s record follows at the end.</p></div><div class="hj-art" data-art="trio:cpu,stack-2,arrows-exchange"></div></div>
+<figure class="course-fig"><div class="loop-wide" data-art="flow:chiplets-3d-and-packaging"></div><div class="loop-tall" data-art="flowTall:chiplets-3d-and-packaging"></div><figcaption>The parent theme in one picture: splitting a chip into dies trades cost for wiring and heat.</figcaption></figure>
+      <article class="prose">
+
+<p>This subject has 6 records in the selected sample. This page explains where it fits, then presents all captured paper evidence without shortening the measurements or limitations.</p>
+<p><a href="../guide/reading-guide-v1.html">Definitions used in the paper records</a></p>
+<p class="lm-k h-label">Understand the parent subject first</p><h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>The bigger theme this belongs to</h2>
+<ul>
+<li><a href="../themes/chiplets-3d-and-packaging.html">Chiplets 3d and packaging</a></li>
+</ul>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>Building a usable stack, not just a compact arrangement</h2>
+<p>A three-dimensional chip divides circuitry among layers and connects those layers vertically. This adds choices that do not exist in a single-layer placement: which layer owns each function, where a signal crosses layers, and whether the connection locations fit the bonding structure.</p><p>A shorter geometric distance is only useful if the resulting circuit can be connected, clocked, powered, cooled, and manufactured.</p>
+<p>This subject's six records mainly concern construction of that physical implementation. The neighboring <a href="3d-stacking-and-thermal-management.html">stacking and thermal-management article</a> mainly concerns temperature prediction and operating policies. These labels overlap; they are retained to make the existing classification reviewable, not to assert that they are separate established fields.</p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>Early partitioning and detailed placement make different commitments</h2>
+<p>Partitioning chooses which circuitry belongs on each layer. Placement assigns locations within those layers.</p><p>An early decision sees a less detailed design but can avoid expensive changes later. A late decision sees more realistic wire and cell information, but much of the structure is already fixed.</p>
+<p><a href="3d-integration-and-thermal-management.html#paper-dac-2026-research793">RTL-3D</a> chooses layers using timing estimates before synthesis, the step that turns a behavioral hardware description into a network of implementation cells. The conceptual risk is estimation error: a path judged important early may change when logic is transformed and actual wires are introduced.</p><p>The captured record gives no timing, link-count, or implementation results. The appropriate test is whether early choices remain useful after the same complete implementation flow, including any corrective work.</p>
+<p><span id="explanation-dac-2026-research793"></span></p>
+<h3>RTL-3D: early tier partitioning is a prediction problem before it is a placement result</h3>
+<h3>What tier partitioning decides</h3>
+<p>A 3D IC divides a design among physical tiers. Tier partitioning assigns selected logic or registers to those tiers and determines which signals must cross between them.</p><p>This decision happens before detailed cell placement and routing, so the exact wire shapes, buffer locations, parasitics and congestion are not yet known. The partitioner must estimate whether a proposed assignment will produce acceptable timing after those later steps.</p>
+<p>At RTL, the input describes operations and storage relationships rather than final implementation geometry. Synthesis can change the number and structure of gates, duplicate logic, choose different cells and alter the paths that dominate timing.</p><p>A pre-synthesis predictor therefore does not directly measure final delay. It estimates a property of a future implementation, and its usefulness depends on whether the estimate remains informative after synthesis, placement, routing and extraction.</p>
+<h3>What the reported method changes</h3>
+<p>The captured description combines a Transformer-based pre-synthesis timing-analysis model with differentiable register tier partitioning. The timing model predicts timing-related information from the RTL representation.</p><p>The partitioning method treats register-to-tier decisions as differentiable during optimization, so timing feedback can influence the assignment instead of being used only after a discrete partition has already been chosen.</p>
+<p>“Differentiable” means that the optimizer can use a computed change in its objective to adjust a continuous representation of a decision. A real register cannot finally occupy a fractional tier, so the method must eventually convert the relaxed decision into a discrete assignment and implement it.</p><p>That conversion can change timing and cross-tier traffic. The claimed feedback loop is therefore a design strategy; it is not by itself proof that the pre-synthesis prediction is accurate or that the final partition is legal under bonding, routing and thermal constraints.</p>
+<p>The source reports 59.3% WNS reduction and 75.4% TNS reduction against state-of-the-art methods and describes these as signoff timing improvements. WNS is the most negative timing slack under a stated convention; TNS aggregates negative slack across violating endpoints.</p><p>Percentage reductions need the baseline and signed-slack convention. If the baseline values, signs, endpoint sets or timing corners are not shown, the direction and practical size of the claimed improvement cannot be independently reconstructed from the headline percentages.</p>
+<h3>The evaluation that would establish early partitioning value</h3>
+<p>Report the RTL designs, synthesis settings, technology libraries, number of tiers, vertical-link limits and training/test split. Measure predictor error before partitioning and compare predicted timing with post-synthesis and post-route timing on designs not used to fit the model.</p><p>For each partition, report absolute WNS, TNS, violating endpoints, cross-tier connection count, area, power, temperature, routing success and runtime through signoff. Compare the same designs with timing-oblivious and post-synthesis partitioners under equal implementation effort, and account for the cost of prediction, relaxation, discrete legalization and any repair after routing.</p>
+<p>The <a href="3d-integration-and-thermal-management.html#paper-dac-2026-research793">RTL-3D</a> record describes Transformer-guided pre-synthesis timing analysis coupled to differentiable register tier partitioning. The detailed explanation above separates RTL prediction from synthesized physical timing, relaxed decisions from discrete tier assignments, WNS/TNS ratios from absolute slack, and author-reported signoff from independently reproducible evidence; this card is the compact evidence record.</p>
+<p><span id="explanation-dac-2026-research900"></span></p>
+<h3>Integrated timing-driven placement: a 3D timing estimate must include the physical connection model</h3>
+<h3>Why ordinary placement models are insufficient</h3>
+<p>Face-to-face hybrid bonding puts two dies in opposing orientations and connects them through die-to-die bonding locations. A placer must choose each cell or module's tier and in-tier position, then ensure that signals crossing tiers can reach legal bonding resources.</p><p>A shorter 2D distance is not enough: a cross-tier signal also depends on alignment, bonding density, parasitic capacitance/resistance, congestion, and the receiving tier's available connections.</p>
+<p>Timing closure means that every required path meets its arrival constraint after implementation effects are included. Total negative slack (TNS) sums timing violations under a chosen convention; worst negative slack (WNS) records the most severe violation.</p><p>A reduction factor for TNS or WNS can be misleading when the baseline value is close to zero or when the signs and absolute values are not reported. Ratios must be accompanied by the underlying slack values.</p>
+<h3>What the integrated framework changes</h3>
+<p>The source describes a true-3D static-timing-analysis engine with more accurate parasitic modeling, a sample-based 3D wirelength model with hybrid weighting for global placement, and Lagrangian-based detailed placement. The timing model is used while placement is being optimized, so timing is not only checked after the geometric arrangement is chosen.</p><p>The sample-based wirelength model estimates connection cost without enumerating every final route; hybrid weighting combines placement objectives, but the description does not specify the weights or their calibration.</p>
+<p>Lagrangian detailed placement treats constraints through penalties or multipliers while refining legal positions. This can coordinate timing, tier assignment, alignment and inter-tier connectivity, but a penalty model is not the same as a completed physical check.</p><p>The final result must still be routed and analyzed with the actual bonding and parasitic rules. Thermal consequences also remain separate: moving logic to improve timing can change power density and heat paths.</p>
+<p>The official description reports 30–1002× TNS reduction and 3–14× WNS reduction over state-of-the-art placers. It does not provide absolute slack values, benchmark identities, process and bonding conditions, corner coverage, runtime, routed timing, alignment tolerance, thermal results, or the meaning of each range endpoint.</p><p>The source therefore supports an integrated timing-driven placement direction, not a verified timing-closure or universal 3D-placement result. <a href="https://63dac.conference-program.com/presentation/?id=RESEARCH900&amp;sess=sess132">Source: official DAC description and captured record</a>.</p>
+<h3>The evaluation that would establish physical usefulness</h3>
+<p>Report tier legality, bond count and capacity, alignment violations, wirelength, congestion, absolute WNS/TNS before and after, timing corners, runtime, routing success, parasitic extraction method, power density and temperature. Compare true-3D and pseudo-3D methods under equal constraints and use the same post-route timing flow.</p><p>Separate global-placement, detailed-placement, routing and thermal-analysis time. A placement result is useful only if its timing estimate remains predictive after the physical connections it assumed are actually implemented.</p>
+<p><a href="3d-integration-and-thermal-management.html#paper-dac-2026-research900">Integrated Timing-Driven Placement</a> targets face-to-face hybrid-bonded chips. The detailed explanation above separates tier/position decisions, 3D parasitics, estimated versus routed timing, slack-ratio interpretation, bonding legality and thermal consequences; this card is the compact evidence record.</p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="affiliate"></span>Dense packing and programmable connections</h2>
+<p><span id="explanation-dac-2026-research3027"></span></p>
+<h3>POLT: fitting hard and soft 3D modules is a geometric problem before it is a chip problem</h3>
+<h3>What a 3D floorplan must represent</h3>
+<p>A floorplan assigns each module a position and shape on one or more dies. A <strong>hard module</strong> has a fixed outline.</p><p>A <strong>soft module</strong> has a target area but can change its aspect ratio or boundary. A rectilinear shape has boundaries aligned with perpendicular directions rather than arbitrary curves.</p><p>A 3D floorplan adds die-to-die interfaces and alignment constraints between modules or connection regions on different dies.</p>
+<p>The geometric objective is to place modules without overlap, satisfy target areas and alignment, and reduce estimated wirelength. A whitespace-free result means the chosen floorplan regions are packed without unused geometric regions under the model.</p><p>It does not mean that all physical space is removable: routing tracks, power delivery, thermal paths, keep-out regions, bonding pads, mechanical limits, and manufacturing tolerances may require space that a geometric packing model does not include.</p>
+<h3>What POLT changes</h3>
+<p>POLT uses a two-stage process. First, a force-directed method places hard modules and determines spatial relationships for soft modules while respecting constraints.</p><p>The force calculation is a placement heuristic: it moves objects according to the selected objective and constraints; it does not itself produce a legal routed design. Second, <strong>pressure-driven orthogonal Laguerre–Voronoi tessellation</strong> partitions the soft-module region into rectilinear shapes.</p><p>The tessellation is intended to match target areas with small error while preserving the relationships established in the first stage.</p>
+<p>This separation matters. The first stage determines where regions belong and how they relate.</p><p>The second stage determines the exact rectilinear boundaries and area allocation. A shape can satisfy its target area while creating an unfavorable boundary for routing or a poor location for a die-to-die interface.</p><p>The method therefore needs downstream checks after tessellation, not only geometric area checks.</p>
+<p>The official description reports an average 5.6% HPWL reduction on 3D floorplans with alignment constraints, 98% area-error reduction versus existing rectilinear floorplanners, and less than 0.16% area error across stated 2D and 3D stacking scenarios. HPWL is a placement estimate, not routed wirelength, delay, power or thermal behavior.</p><p>The description does not identify benchmarks, runtime, routing feasibility, interface capacity, process rules, or the denominator for area-error reduction. <a href="https://63dac.conference-program.com/presentation/?id=RESEARCH3027&amp;sess=sess114">Source: official DAC description and captured record</a>.</p>
+<h3>The evaluation that would establish physical usefulness</h3>
+<p>Report overlap, target-area error, alignment violations, HPWL, routed wirelength, congestion, die-to-die connection count, timing, power-delivery feasibility, temperature, runtime, and repair cost. Compare hard/soft and alignment-constrained cases separately.</p><p>Run the same placement through detailed routing and thermal analysis; a floorplan should not be called better for a physical flow if the later stages cannot legalize it or require more whitespace and repair.</p>
+<p>The <a href="3d-integration-and-thermal-management.html#paper-dac-2026-research3027">POLT</a> record describes pressure-driven orthogonal Laguerre–Voronoi tessellation for rectilinear 3D floorplanning. The detailed explanation above separates hard/soft geometry, tessellation, area error, HPWL and downstream routability/thermal feasibility; this card is the compact evidence record.</p>
+<p><span id="explanation-dac-2026-research3100"></span></p>
+<h3>Escaping Flatland: placement in a 3D FPGA is a placement-and-routing problem</h3>
+<h3>What an FPGA placement actually chooses</h3>
+<p>An FPGA contains programmable logic blocks and a programmable network of wires and switches. Placement assigns each logic block to a legal site.</p><p>Routing then selects the programmable wires and switch settings that connect the placed blocks. A placement is useful only when the later routing step can connect every required signal within the available resources.</p>
+<p>A 3D FPGA adds a tier choice to the site choice. A logic block is assigned both an in-tier location and a layer.</p><p>Signals that remain on one layer use that layer's routing fabric. Signals that cross layers use vertical connections and the horizontal resources that reach them.</p><p>Those vertical connections are finite resources with their own delay, capacitance, area and congestion; they are not an unlimited shortcut between any two points.</p>
+<p>This makes geometric distance an incomplete objective. Moving two connected blocks onto different tiers may reduce horizontal distance, but it can add a vertical crossing, consume a scarce connection, or force other nets through a congested region.</p><p>The relevant cost is the delay and resource demand of the complete routed path. A placement cost that represents only 2D wirelength can therefore prefer an arrangement that later routes poorly.</p>
+<h3>What the reported flow changes</h3>
+<p>The captured description introduces four changes aimed at this 3D-specific search: partitioning-based initialization, adaptive cost scheduling, refined delay estimation and a simulated-annealing move set designed for 3D architectures. Partitioning provides an initial layer assignment.</p><p>Cost scheduling changes which placement costs dominate at different stages. Delay estimation attempts to represent the timing effect of 3D connections during placement.</p><p>The move set lets the search explore layer assignments as well as ordinary site movements.</p>
+<p>The source compares the flow with Verilog-To-Routing (VTR) on four named architecture families: 3D CB, 3D CB-O, 3D CB-I and 3D SB. It reports approximate geometric-mean and maximum reductions in critical-path delay and routed wirelength.</p><p>These are different summaries: a geometric mean describes typical multiplicative behavior across the tested cases, while a maximum identifies the strongest reported case. The maximum must not be read as the expected result for every circuit.</p>
+<p>The evidence supports a placement flow that uses 3D-aware costs and layer moves. It does not identify the benchmark circuits, tier topology, vertical-link model, routing-capacity assumptions, runtime or physical FPGA implementation.</p><p>The description says the experiments include routed wirelength, but it does not provide enough detail to determine whether all comparisons used equal routing budgets, identical architecture parameters and successful routing for every case.</p>
+<h3>The evaluation that would establish a usable 3D FPGA flow</h3>
+<p>Report the number and arrangement of tiers, the type and capacity of vertical connections, the delay model for each connection, placement and routing runtime, routing success rate, congestion, critical-path delay before and after routing, total wirelength, power and resource use. Separate layer-assignment quality from in-layer placement quality.</p><p>Show whether the estimated delay used during placement predicts post-route delay, and test architecture families and benchmark circuits separately rather than combining their best cases.</p>
+<p>The <a href="3d-integration-and-thermal-management.html#paper-dac-2026-research3100">Escaping Flatland</a> record describes a 3D-FPGA placement flow with partitioned initialization, adaptive costs, refined delay estimation and 3D simulated-annealing moves. The detailed explanation above separates tier assignment, programmable routing resources, vertical-link cost, routed evidence and the limits of geometric-mean/max comparisons; this card is the compact evidence record.</p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="target"></span>Clock analysis is part of the physical problem</h2>
+<p>A clock network distributes the timing signal used by storage elements. Differences in arrival time affect how much time data has to travel between them.</p><p>If two clock paths share a segment, independently assigning the shared segment its fastest and slowest delays can introduce an unnecessarily pessimistic comparison. Common-path pessimism removal accounts for that shared-path variation in timing analysis; it does not physically remove clock delay. <a href="https://www.intel.com/content/www/us/en/docs/programmable/683243/22-1/timing-pessimism.html">Intel's timing-analysis documentation</a> explains this distinction.</p>
+<p><a href="3d-integration-and-thermal-management.html#paper-dac-2026-research518">Flexicts</a> incorporates that analysis into three-dimensional clock-tree synthesis. The unanswered issue is how its constructed network performs across layer crossings and variation conditions. The captured record has no clock-arrival difference, power, area, or final timing numbers.</p>
+<p><span id="explanation-dac-2026-research518"></span></p>
+<h3>FlexiCTS: clock-tree construction must preserve the timing paths that CPPR analyzes</h3>
+<h3>What a clock tree and CPPR measure</h3>
+<p>A clock tree distributes one clock source to many storage elements. The useful property is not just that every endpoint receives a clock.</p><p>The clock must arrive within an acceptable time window at each endpoint and with acceptable differences between endpoints. Those arrival differences are clock skew.</p><p>Clock-tree synthesis chooses buffers, branching points, wire segments and, in a 3D design, the die or tier on which each part is placed.</p>
+<p>Static timing analysis compares a launch clock path and a capture clock path. The two paths can share a physical segment before they separate.</p><p>If analysis treats the shared segment as having an independently worst delay in both comparisons, it can count the same uncertainty twice. Common-path pessimism removal (CPPR) removes that analysis over-counting for the shared portion.</p><p>CPPR changes the reported timing margin; it does not shorten the shared wire, improve the buffer, or remove variation in the manufactured clock network.</p>
+<p>Face-to-face bonding makes the construction problem discrete and resource-constrained. A clock branch may stay on one die, cross to the other die, or share part of a path before crossing.</p><p>A cross-die branch consumes a hybrid-bonding terminal (HBT) or other vertical connection and adds the delay, capacitance, resistance and variation of that connection. If a flow partitions clock paths rigidly by die, it can destroy useful common paths and leave HBT locations poorly allocated.</p><p>The best CPPR result therefore depends on the actual tree topology and on whether the physical bond resources can support it.</p>
+<h3>What FlexiCTS changes</h3>
+<p>The captured description presents FlexiCTS as a CPPR-aware, correct-by-construction 3D clock-tree synthesis framework. Its adaptive cross-die buffer assignment decides where buffers are placed relative to die crossings so that path sharing can be preserved while HBT use is allocated.</p><p>“Correct by construction” is a property of the method's stated constraints; it is not evidence that a fabricated clock tree meets every signoff corner.</p>
+<p>The source contrasts the approach with 2D clock-tree synthesis and CPPR-oblivious 3D CTS, and reports a claimed 4.1× skew reduction and 88% fewer HBTs than state-of-the-art methods while matching 2D timing quality. The record does not provide absolute skew, clock latency, HBT counts, power, area, variation corners, benchmark designs, runtime or the definition of “matching.” A reduction factor without the baseline and endpoint values cannot show whether the remaining skew meets a required clock period.</p>
+<h3>The evaluation that would establish a usable 3D clock flow</h3>
+<p>Report the complete die topology, clock sinks, buffer library, HBT capacity and placement rules. Give absolute skew, insertion delay, transition time, area, power, HBT count and timing margin before and after CPPR, with the same constraints for every baseline.</p><p>Evaluate process, voltage, temperature, bonding-alignment and inter-die-variation corners. Compare the timing analysis estimate with extracted post-route timing and show whether CPPR changes only the pessimism calculation or also corresponds to a physically improved clock network.</p>
+<p>The <a href="3d-integration-and-thermal-management.html#paper-dac-2026-research518">FlexiCTS</a> record describes CPPR-aware 3D clock-tree synthesis with adaptive cross-die buffer assignment. The detailed explanation above separates clock skew from CPPR pessimism, timing analysis from physical delay, shared-path preservation from HBT allocation, and the reported ratios from missing signoff evidence; this card is the compact evidence record.</p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="affiliate"></span>Temperature must be connected to useful operation</h2>
+<p><span id="explanation-dac-2026-research1862"></span></p>
+<h3>3D eFlash analog IMC: thermal stability is a chain from temperature to task output</h3>
+<h3>Start with the physical stack</h3>
+<p>The described system places a 12 nm logic die and a 28 nm eFlash die in a hybrid-bonded wafer-on-wafer stack. The eFlash die is reported to provide 36 MB for analog in-memory computing.</p><p>The process nodes identify fabrication generations; they do not by themselves determine thermal resistance, maximum temperature, memory programming behavior, analog noise, or system throughput.</p>
+<p>In analog in-memory computing, stored conductance or another physical state represents a weight, and an electrical operation in the memory array contributes to a computation. Temperature can change the stored state, the read/write response, the analog signal, and surrounding circuits.</p><p>A thermal claim therefore needs a chain of evidence: temperature distribution under a power pattern, change in stored or computed values, calibration or programming response, and final task output.</p>
+<h3>What the thermal-stability strategy changes</h3>
+<p>The source describes three cross-layer mechanisms. A <strong>physics-guided thermal model</strong> predicts temperature behavior using a model constrained by thermal relationships. The reported KL divergence of 0.088 is meaningful only with the reference distribution, normalization, operating points, and spatial/temporal aggregation defined.</p>
+<p><strong>Temperature-insensitive differential programming (TIDP)</strong> is intended to stabilize stored weights from −30°C to 60°C. Differential representation can reduce the effect of a common change, but it does not remove every temperature-dependent effect: the two programmed states can respond differently, read circuitry can drift, and programming itself may have temperature-dependent error.</p><p>The programming range is also not the same as the later task-evaluation range.</p>
+<p><strong>Adaptive temperature calibration (ATC)</strong> adjusts the computation or its interpretation using temperature information. The reported 60.7% reduction in output-error standard deviation must be tied to the baseline calibration, sensor conditions, calibration cost, update frequency, and remaining task error.</p><p>Calibration can improve output stability while consuming time, energy, memory, or control bandwidth.</p>
+<p>The official description reports a first 3D eFlash analog-IMC prototype with hybrid bonding, less than 10% degradation in end-to-end task accuracy for ResNet-18 and DCCRN across −15°C to 75°C, and the model/error values above. It does not identify datasets, exact accuracy baseline, temperature measurement locations, power/cooling conditions, calibration overhead, endurance, retention, or silicon characterization protocol.</p><p>The source supports a prototype and a cross-layer strategy claim, not commercial qualification or universal thermal resilience. <a href="https://63dac.conference-program.com/presentation/?id=RESEARCH1862&amp;sess=sess139">Source: official DAC description and captured record</a>.</p>
+<h3>The evaluation that would establish thermal stability</h3>
+<p>Measure temperature at both dies and relevant array/periphery regions under repeatable workloads and cooling. Sweep the complete operating range, including the gap between the −30°C to 60°C programming claim and the −15°C to 75°C task claim.</p><p>Report raw weight drift, analog output error, calibration time/energy, task accuracy, throughput, endurance and retention before and after calibration. Compare TIDP and ATC separately against ordinary programming and calibration, and report whether the result is measured silicon, calibrated simulation, or a mixture.</p>
+<p>The <a href="3d-integration-and-thermal-management.html#paper-dac-2026-research1862">12nm/28nm eFlash computing stack</a> introduces a thermal-stability strategy for bonded memory and computation. The detailed explanation above separates process labels from thermal behavior, temperature from stored-weight/output error, programming range from task range, and prototype evidence from qualification; this card is the compact evidence record.</p>
+<p>Taken together, these records motivate evaluating early design choices through completed physical implementation. They do not yet show which method wins.</p><p>A defensible comparison needs the same functional design, bonding limits, cooling conditions, connection resources, and timing requirements, with area and runtime counted after necessary repairs.</p>
+<p class="lm-k h-label">Compare the results carefully</p><h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="route"></span>How to compare these papers’ results fairly</h2>
+<p>First identify the inputs and required output quality. Then identify the limited resource: time, memory, communication, energy, circuit area, or correctness coverage.</p><p>Ask which part of the method reduces that cost and which new cost it adds. Compare numbers only when the experiments hold these conditions sufficiently similar.</p>
+<p>A conference description may explain the proposal while omitting the full experiment. An author preprint link may have been coded from its abstract. The source classification does not by itself establish that every table was read. Missing locations remain visible below.</p>
+<p class="lm-k h-label">Complete captured evidence</p><h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="file-text"></span>Every paper in this subtheme, with what its source shows</h2>
+<p>These are evidence records, not substitutes for the explanations above. Each record preserves its problem, proposed method, measurements, comparison conditions, and source limits. A populated record does not establish that its mechanism has been fully explained or independently verified.</p>
+<p><span id="paper-dac-2026-research1862"></span></p>
+<h3>Thermal Stability Strategy for a 12nm/28nm Hybrid-Bonding Wafer-on-Wafer 3D-Integrated Eflash In-Memory Computing SoC</h3>
+<p>DAC 2026 · Record: <code>dac-2026-research1862</code></p>
+<p><a href="#explanation-dac-2026-research1862">Read the step-by-step explanation</a></p>
+<p><strong>Updated source-backed reading card</strong></p>
+<div class="worked"><p class="lm-k">Worked example</p><p>Reviewed 2026-09-08. Reconciles the 3D eFlash thermal-stability card with the captured official source; separates the 12nm/28nm stack from thermal behavior, the physics model from measured temperature, TIDP/ATC mechanisms from their costs, and programming-range evidence from task-range and qualification claims.</p></div>
+<p>This editorial correction updates the current reading view and connected dossiers, not the historical adjudication or scientific acceptance status. The original captured fields are preserved below.</p>
+<p><a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/data/editorial-paper-corrections-v1.json">Correction register</a></p>
+<p><strong>Problem:</strong></p>
+<p>A hybrid-bonded 3D eFlash analog in-memory-computing stack can experience temperature-dependent weight and computation changes that degrade analog accuracy and system throughput.</p>
+<p><strong>Mechanism / artifact:</strong></p>
+<p>Cross-layer thermal stability strategy combining a physics-guided thermal model, temperature-insensitive differential programming from -30°C to 60°C, and adaptive temperature calibration.</p>
+<p><strong>Workload — the work tested:</strong></p>
+<p>ResNet-18 and DCCRN inference on a reported 3D eFlash analog-IMC SoC; datasets, task metrics, power workloads and accuracy baseline are unspecified.</p>
+<p><strong>Hardware and manufacturing assumptions:</strong></p>
+<p>Reported hybrid-bonded wafer-on-wafer prototype with 12nm logic, 28nm 36MB eFlash and analog IMC; temperature sensor locations, cooling, power, measurement instruments, endurance/retention and silicon characterization procedure are unspecified.</p>
+<p><strong>Baseline — the comparison method:</strong></p>
+<p>Ordinary temperature-sensitive programming/calibration</p>
+<p>2D CIM thermal design</p>
+<p>Baseline implementation and resource parity are unspecified</p>
+<p><strong>Reported measurements:</strong></p>
+<p>The official description reports KL divergence 0.088 for the thermal model, 60.7% output-error-standard-deviation reduction from adaptive calibration, and less than 10% end-to-end task-accuracy degradation across -15°C to 75°C; reference distributions, baselines and percentage-point conventions are unspecified.</p>
+<p><strong>Limits on the conclusion:</strong></p>
+<p>The 12nm and 28nm process labels do not quantify thermal resistance or heat removal; thermal behavior requires measured temperatures under specified power and cooling.</p>
+<p>The -30°C to 60°C programming range differs from the -15°C to 75°C task-evaluation range, so programming stability does not cover the complete claimed task range.</p>
+<p>Calibration can reduce output-error variation while adding sensing, computation, update, time and energy cost; output-error standard deviation is not task accuracy or throughput.</p>
+<p>The official description supplies no temperature maps, raw weight drift, calibration overhead, endurance, retention, dataset, baseline accuracy or independent thermal characterization; prototype evidence is not commercial qualification or universal resilience.</p>
+<p><strong>Source and location</strong></p>
+<p>Evidence tier: Primary captured official DAC description only; no full paper extraction, thermal/silicon execution or independent endurance/qualification validation. This is the stored source classification; the location and limits below determine what was actually read.</p>
+<p><a href="https://63dac.conference-program.com/?post_type=page&amp;p=16&amp;id=RESEARCH1862&amp;sess=sess139">Open the recorded source</a></p>
+<p>DAC 2026 official description and data/review-packets/dac-2026-research1862.json: hybrid-bonded 12nm logic/28nm 36MB eFlash stack; physics-guided model/KL 0.088; TIDP -30°C to 60°C; ATC 60.7% output-error-standard-deviation reduction; ResNet-18/DCCRN less-than-10% task degradation across -15°C to 75°C.</p>
+<details markdown="1">
+<summary>Original captured fields — superseded for this reading card</summary>
+
+** page source tier:** medium_official_description
+
+**Baselines:** 2D CIM thermal design
+
+3D stack without thermal stabilization
+
+**Evidence locators:** DAC 2026 official description
+
+**Evidence url:** https://63dac.conference-program.com/?post_type=page&amp;p=16&amp;id=RESEARCH1862
+
+**Hardware or process assumptions:** 12nm/28nm hybrid-bonded wafer-on-wafer eFlash CIM stack; thermal path, materials, and operating voltage are unspecified.
+
+**Limits:** No temperature, drift, endurance, power, density, or process-corner results are reported.
+
+Thermal mitigation may reduce density or performance.
+
+Official description only; silicon and thermal characterization are required.
+
+**Method or artifact:** Thermal-stability design strategy for 12nm/28nm hybrid-bonded wafer-on-wafer CIM.
+
+**Metrics:** Thermal stability is claimed qualitatively
+
+**Problem:** 3D eFlash CIM stacks create thermal coupling that can destabilize memory and compute behavior.
+
+**Workload or benchmark:** 3D eFlash CIM SoC workloads and thermal operating points; measurements and baselines are unspecified.
+
+</details>
+<p><span id="paper-dac-2026-research3027"></span></p>
+<h3>Whitespace-Free Rectilinear 3D Floorplanning with Pressure-Driven Orthogonal Laguerre-Voronoi Tessellation (POLT)</h3>
+<p>DAC 2026 · Record: <code>dac-2026-research3027</code></p>
+<p><a href="#explanation-dac-2026-research3027">Read the step-by-step explanation</a></p>
+<p><strong>Updated source-backed reading card</strong></p>
+<div class="worked"><p class="lm-k">Worked example</p><p>Reviewed 2026-09-08. Reconciles the POLT card with the captured official source; separates hard/soft module geometry, force-directed placement, rectilinear tessellation, HPWL and area error from routed, thermal, power-delivery and manufacturing feasibility.</p></div>
+<p>This editorial correction updates the current reading view and connected dossiers, not the historical adjudication or scientific acceptance status. The original captured fields are preserved below.</p>
+<p><a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/data/editorial-paper-corrections-v1.json">Correction register</a></p>
+<p><strong>Problem:</strong></p>
+<p>3D floorplanning must place fixed-outline hard modules and flexible soft modules while meeting die-to-die alignment and area constraints without relying on unrealistic rectangular-only assumptions.</p>
+<p><strong>Mechanism / artifact:</strong></p>
+<p>Two-stage whitespace-free rectilinear floorplanning: force-directed placement establishes hard-module positions and soft-module relationships, then pressure-driven orthogonal Laguerre–Voronoi tessellation shapes soft modules with low area error.</p>
+<p><strong>Workload — the work tested:</strong></p>
+<p>2D and 3D stacking floorplans, including alignment-constrained 3D cases; benchmark identities, module counts, interface topology and constraint distributions are unspecified.</p>
+<p><strong>Hardware and manufacturing assumptions:</strong></p>
+<p>Hard/soft modules and die-to-die interfaces in a 3D IC floorplan; process rules, bonding alignment tolerance, routing resources, power delivery, thermal model and physical verification flow are unspecified.</p>
+<p><strong>Baseline — the comparison method:</strong></p>
+<p>Existing rectilinear floorplanners</p>
+<p>Baseline runtime, constraints, area-error definition and physical-feasibility parity are unspecified</p>
+<p><strong>Reported measurements:</strong></p>
+<p>The official description reports average 5.6% HPWL reduction with alignment constraints, 98% area-error reduction versus existing rectilinear floorplanners, and less than 0.16% area error across stated 2D/3D scenarios; aggregation and denominators are unspecified.</p>
+<p><strong>Limits on the conclusion:</strong></p>
+<p>Whitespace-free geometric packing does not establish routability, power-delivery feasibility, thermal paths, bonding keep-outs, timing closure or manufacturing tolerance.</p>
+<p>HPWL is a placement estimate, not routed wirelength, delay, congestion, power or temperature; a lower HPWL can still create a difficult inter-die connection pattern.</p>
+<p>Force-directed placement and tessellation solve different stages; low soft-module area error does not prove that hard-module relationships or interface constraints remain feasible after exact shaping.</p>
+<p>The official description supplies no benchmark identities, runtime, routed/thermal results, process constraints or independent execution; area-error and HPWL claims do not establish a better physical 3D implementation.</p>
+<p><strong>Source and location</strong></p>
+<p>Evidence tier: Primary captured official DAC description only; no full paper extraction, routing/thermal execution or independent 3d physical feasibility validation. This is the stored source classification; the location and limits below determine what was actually read.</p>
+<p><a href="https://63dac.conference-program.com/?post_type=page&amp;p=16&amp;id=RESEARCH3027&amp;sess=sess114">Open the recorded source</a></p>
+<p>DAC 2026 official description and data/review-packets/dac-2026-research3027.json: hard/soft module and D2D floorplanning problem; force-directed first stage; pressure-driven orthogonal Laguerre–Voronoi tessellation; 5.6% HPWL, 98% area-error reduction and &lt;0.16% area-error claims.</p>
+<details markdown="1">
+<summary>Original captured fields — superseded for this reading card</summary>
+
+** page source tier:** medium_official_description
+
+**Baselines:** whitespace-permitting 3D floorplanning
+
+rectilinear heuristic floorplanning
+
+**Evidence locators:** DAC 2026 official description
+
+**Evidence url:** https://63dac.conference-program.com/?post_type=page&amp;p=16&amp;id=RESEARCH3027
+
+**Hardware or process assumptions:** 3D IC floorplanning with stacked or bonded tiers; technology and inter-tier assumptions are unspecified.
+
+**Limits:** No area, whitespace, thermal, timing, routing, or runtime results are reported.
+
+Whitespace-free packing may worsen thermal and routing feasibility.
+
+Official description only; full 3D signoff validation is required.
+
+**Method or artifact:** Pressure-driven orthogonal Laguerre-Voronoi tessellation for 3D floorplanning.
+
+**Metrics:** Whitespace and floorplan quality are claimed qualitatively
+
+**Problem:** Three-dimensional floorplanning must avoid whitespace while satisfying rectilinear geometry and physical constraints.
+
+**Workload or benchmark:** Rectilinear 3D floorplanning instances; thermal, timing, and routing models are unspecified.
+
+</details>
+<p><span id="paper-dac-2026-research900"></span></p>
+<h3>Integrated Timing-Driven Placement for Hybrid-Bonding-Based Face-to-Face 3D ICs</h3>
+<p>DAC 2026 · Record: <code>dac-2026-research900</code></p>
+<p><a href="#explanation-dac-2026-research900">Read the step-by-step explanation</a></p>
+<p><strong>Updated source-backed reading card</strong></p>
+<div class="worked"><p class="lm-k">Worked example</p><p>Reviewed 2026-09-08. Reconciles the integrated 3D placement card with the captured official source; separates tier/position decisions, 3D parasitic timing, estimated versus routed connections, TNS/WNS ratios, bonding legality and thermal consequences.</p></div>
+<p>This editorial correction updates the current reading view and connected dossiers, not the historical adjudication or scientific acceptance status. The original captured fields are preserved below.</p>
+<p><a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/data/editorial-paper-corrections-v1.json">Correction register</a></p>
+<p><strong>Problem:</strong></p>
+<p>Face-to-face hybrid-bonded 3D placement must jointly choose tiers and positions while accounting for timing, parasitics, bonding alignment and inter-tier connections.</p>
+<p><strong>Mechanism / artifact:</strong></p>
+<p>True-3D STA with parasitic modeling integrated into placement, a sample-based 3D wirelength model with hybrid weighting for global placement, and Lagrangian-based detailed placement.</p>
+<p><strong>Workload — the work tested:</strong></p>
+<p>Face-to-face hybrid-bonded 3D IC netlists and tier assignments; benchmark identities, design sizes, timing corners, bonding constraints and post-route flow are unspecified.</p>
+<p><strong>Hardware and manufacturing assumptions:</strong></p>
+<p>Hybrid-bonded 3D IC physical-design flow; process, bonding pitch/alignment tolerance, parasitic extraction, inter-tier resource capacity, routing, power delivery, cooling and thermal model are unspecified.</p>
+<p><strong>Baseline — the comparison method:</strong></p>
+<p>State-of-the-art 3D placers</p>
+<p>2D/pseudo-3D placement methods</p>
+<p>Baseline constraints, timing flow, absolute slack values and resource parity are unspecified</p>
+<p><strong>Reported measurements:</strong></p>
+<p>The official description reports 30–1002x TNS reduction and 3–14x WNS reduction; absolute slack values, endpoint mapping, signed-ratio convention and aggregation are unspecified.</p>
+<p><strong>Limits on the conclusion:</strong></p>
+<p>TNS/WNS reduction factors can be unstable near a zero baseline and do not substitute for absolute slack, timing-corner coverage or complete timing closure.</p>
+<p>A sample-based wirelength/parasitic model guides placement but does not prove that final routed wires, bonding connections and extracted parasitics match the estimate.</p>
+<p>Lagrangian penalties can balance timing and geometry without proving legal bonding, routing, power delivery or thermal feasibility; timing improvement can increase local power density.</p>
+<p>The official description supplies no benchmark identities, runtime, routed timing, alignment tolerance, thermal result or independent execution; no universal 3D signoff claim follows.</p>
+<p><strong>Source and location</strong></p>
+<p>Evidence tier: Primary captured official DAC description only; no full paper extraction, routed 3d execution or independent timing/thermal/signoff validation. This is the stored source classification; the location and limits below determine what was actually read.</p>
+<p><a href="https://63dac.conference-program.com/?post_type=page&amp;p=16&amp;id=RESEARCH900&amp;sess=sess132">Open the recorded source</a></p>
+<p>DAC 2026 official description and data/review-packets/dac-2026-research900.json: true-3D hybrid-bonded placement problem; 3D STA with parasitic modeling; sample-based 3D wirelength/hybrid weighting; Lagrangian detailed placement; reported TNS/WNS reduction ranges.</p>
+<details markdown="1">
+<summary>Original captured fields — superseded for this reading card</summary>
+
+** page source tier:** medium_official_description
+
+**Baselines:** 2D timing-driven placement
+
+timing-oblivious 3D placement
+
+**Evidence locators:** DAC 2026 official description
+
+**Evidence url:** https://63dac.conference-program.com/?post_type=page&amp;p=16&amp;id=RESEARCH900
+
+**Hardware or process assumptions:** Face-to-face hybrid bonding with 3D tiers; thermal, alignment, and via assumptions are unspecified.
+
+**Limits:** No timing, wirelength, thermal, alignment, yield, or runtime results are reported.
+
+Timing improvements may increase thermal or bonding risk.
+
+Official description only; 3D signoff validation is required.
+
+**Method or artifact:** Integrated timing-driven placement for hybrid-bonded 3D ICs.
+
+**Metrics:** 3D timing and placement quality are claimed qualitatively
+
+**Problem:** Face-to-face 3D IC placement must jointly manage timing, tier assignment, bonding alignment, and inter-tier connections.
+
+**Workload or benchmark:** 3D IC netlists and tier assignments; process, bonding constraints, and baselines are unspecified.
+
+</details>
+<p><span id="paper-dac-2026-research3100"></span></p>
+<h3>Escaping Flatland: A Placement Flow for Enabling 3D FPGAs</h3>
+<p>DAC 2026 · Record: <code>dac-2026-research3100</code></p>
+<p><a href="#explanation-dac-2026-research3100">Read the step-by-step explanation</a></p>
+<p><strong>Updated source-backed reading card</strong></p>
+<div class="worked"><p class="lm-k">Worked example</p><p>Reviewed 2026-09-08. Reconciles the Escaping Flatland card with the captured official source; explains FPGA placement and routing from first principles and separates tier assignment, vertical resources, delay estimation, routed wirelength, architecture-specific comparisons and missing implementation detail.</p></div>
+<p>This editorial correction updates the current reading view and connected dossiers, not the historical adjudication or scientific acceptance status. The original captured fields are preserved below.</p>
+<p><a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/data/editorial-paper-corrections-v1.json">Correction register</a></p>
+<p><strong>Problem:</strong></p>
+<p>3D FPGA placement must assign logic to tiers and sites while accounting for vertical connectivity, programmable routing resources and 3D delay rather than relying on 2D-derived costs.</p>
+<p><strong>Mechanism / artifact:</strong></p>
+<p>A 3D FPGA placement flow using partitioning-based initialization, adaptive cost scheduling, refined delay estimation and a 3D-specific simulated-annealing move set to explore layer assignments and placements.</p>
+<p><strong>Workload — the work tested:</strong></p>
+<p>Four 3D FPGA architectures named 3D CB, 3D CB-O, 3D CB-I and 3D SB; benchmark circuits, architecture dimensions, tier topology and routing-resource distributions are unspecified.</p>
+<p><strong>Hardware and manufacturing assumptions:</strong></p>
+<p>Programmable 3D FPGA fabric with horizontal routing and finite vertical connections; vertical-link implementation, delay/capacitance model, capacity, power model and physical implementation status are unspecified.</p>
+<p><strong>Baseline — the comparison method:</strong></p>
+<p>Verilog-To-Routing (VTR)</p>
+<p>Architecture matching, routing budgets, benchmark set and configuration parity are unspecified</p>
+<p><strong>Reported measurements:</strong></p>
+<div class="worked"><p class="lm-k">Worked example</p><p>The official description reports approximate geometric-mean and maximum critical-path-delay reductions of 3/7%, 2/4%, 3/8% and 6/18% for 3D CB, 3D CB-O, 3D CB-I and 3D SB, respectively, plus corresponding routed-wirelength reductions of approximately 1/3%, 2/8%, below 1/5% and 5/10%; endpoint mapping and aggregation details are unspecified.</p></div>
+<p><strong>Limits on the conclusion:</strong></p>
+<p>A 3D placement improvement is not a routing or silicon improvement unless vertical resources, congestion and complete routing feasibility are reported under matched architecture constraints.</p>
+<p>Geometric means and maxima summarize different parts of the tested distribution; the maximum is not a general expected gain and the description does not provide per-circuit results.</p>
+<p>Refined delay estimation can guide search without predicting post-route delay if the vertical-link, switch, congestion or parasitic model is incomplete; estimated timing and routed timing must be compared directly.</p>
+<p>The official description supplies no benchmark identities, tier topology, vertical-link implementation, runtime, power, routing-success rate or independent execution; no universal advantage over 2D FPGA flows follows.</p>
+<p><strong>Source and location</strong></p>
+<p>Evidence tier: Primary captured official DAC description only; no full paper extraction, architecture reconstruction or independent placement/routing execution. This is the stored source classification; the location and limits below determine what was actually read.</p>
+<p><a href="https://63dac.conference-program.com/?post_type=page&amp;p=16&amp;id=RESEARCH3100&amp;sess=sess175">Open the recorded source</a></p>
+<p>DAC 2026 official description and data/review-packets/dac-2026-research3100.json: 2D-derived placement limitation; partitioned initialization; adaptive cost scheduling; refined delay estimation; 3D simulated-annealing moves; four architecture families; critical-path-delay and routed-wirelength comparisons versus VTR.</p>
+<details markdown="1">
+<summary>Original captured fields — superseded for this reading card</summary>
+
+** page source tier:** medium_official_description
+
+**Baselines:** 2D FPGA placement
+
+3D placement without vertical-awareness
+
+**Evidence locators:** DAC 2026 official description
+
+**Evidence url:** https://63dac.conference-program.com/?post_type=page&amp;p=16&amp;id=RESEARCH3100
+
+**Hardware or process assumptions:** Stacked or monolithic 3D FPGA with vertical interconnect; thermal and process assumptions are unspecified.
+
+**Limits:** No timing, wirelength, thermal, routability, area, or runtime results are reported.
+
+Vertical placement benefits may depend on architecture and cooling.
+
+Official description only; full 3D routing validation is required.
+
+**Method or artifact:** Placement flow for 3D FPGA architectures.
+
+**Metrics:** 3D FPGA placement quality is claimed qualitatively
+
+**Problem:** 3D FPGA placement must exploit tiers while managing vertical connectivity, timing, and thermal effects.
+
+**Workload or benchmark:** 3D FPGA netlists; tier topology, vias, architecture, and baselines are unspecified.
+
+</details>
+<p><span id="paper-dac-2026-research518"></span></p>
+<h3>Flexicts: CPPR-Aware 3D Clock Tree Synthesis for Face-to-Face Bonded ICs</h3>
+<p>DAC 2026 · Record: <code>dac-2026-research518</code></p>
+<p><a href="#explanation-dac-2026-research518">Read the step-by-step explanation</a></p>
+<p><strong>Updated source-backed reading card</strong></p>
+<div class="worked"><p class="lm-k">Worked example</p><p>Reviewed 2026-09-08. Reconciles the FlexiCTS card with the captured official source; explains clock-tree synthesis and CPPR from first principles and separates skew, common-path analysis, physical cross-die resources, HBT allocation, reported ratios and missing signoff evidence.</p></div>
+<p>This editorial correction updates the current reading view and connected dossiers, not the historical adjudication or scientific acceptance status. The original captured fields are preserved below.</p>
+<p><a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/data/editorial-paper-corrections-v1.json">Correction register</a></p>
+<p><strong>Problem:</strong></p>
+<p>Face-to-face bonded 3D IC clock trees must control skew and cross-die resources without destroying common clock paths that affect CPPR analysis.</p>
+<p><strong>Mechanism / artifact:</strong></p>
+<p>CPPR-aware 3D clock-tree synthesis with adaptive cross-die buffer assignment intended to preserve path sharing and optimize hybrid-bonding-terminal allocation.</p>
+<p><strong>Workload — the work tested:</strong></p>
+<p>Face-to-face bonded 3D IC clock networks; endpoint counts, benchmark designs, tier topology, clock constraints and variation cases are unspecified.</p>
+<p><strong>Hardware and manufacturing assumptions:</strong></p>
+<p>3D bonded clock distribution with tier-crossing interconnects and hybrid-bonding terminals; buffer library, bond pitch, alignment tolerance, inter-die variation, process corners, power delivery and thermal conditions are unspecified.</p>
+<p><strong>Baseline — the comparison method:</strong></p>
+<p>2D clock-tree synthesis</p>
+<p>CPPR-oblivious 3D CTS</p>
+<p>State-of-the-art comparison configuration and resource parity are unspecified</p>
+<p><strong>Reported measurements:</strong></p>
+<p>The official description reports 4.1x skew reduction and 88% fewer HBTs than state-of-the-art methods while matching 2D timing quality; absolute skew, HBT counts, timing-quality definition and aggregation are unspecified.</p>
+<p><strong>Limits on the conclusion:</strong></p>
+<p>CPPR removes pessimism in timing analysis for shared clock paths; it does not physically remove clock delay, variation or skew in the manufactured network.</p>
+<p>Adaptive buffer assignment can preserve common paths while consuming different cross-die resources; HBT reduction is not automatically lower power, area or timing risk.</p>
+<p>A reduction factor and qualitative 2D match do not establish required absolute skew, insertion delay, timing margin or signoff closure without baseline values and corner definitions.</p>
+<p>The official description supplies no benchmark identities, runtime, clock topology, absolute measurements, process/voltage/temperature/bonding corners or independent execution; no universal 3D CTS advantage follows.</p>
+<p><strong>Source and location</strong></p>
+<p>Evidence tier: Primary captured official DAC description only; no full paper extraction, clock tree reconstruction or independent signoff corner validation. This is the stored source classification; the location and limits below determine what was actually read.</p>
+<p><a href="https://63dac.conference-program.com/?post_type=page&amp;p=16&amp;id=RESEARCH518&amp;sess=sess114">Open the recorded source</a></p>
+<p>DAC 2026 official description and data/review-packets/dac-2026-research518.json: face-to-face 3D clock-tree challenge; CPPR-aware construction; adaptive cross-die buffer assignment; path sharing and HBT allocation; claimed 4.1x skew reduction, 88% HBT reduction and 2D timing match.</p>
+<details markdown="1">
+<summary>Original captured fields — superseded for this reading card</summary>
+
+** page source tier:** medium_official_description
+
+**Baselines:** 2D clock-tree synthesis
+
+CPPR-oblivious 3D CTS
+
+**Evidence locators:** DAC 2026 official description
+
+**Evidence url:** https://63dac.conference-program.com/?post_type=page&amp;p=16&amp;id=RESEARCH518
+
+**Hardware or process assumptions:** 3D bonded clock distribution with tier-crossing interconnects; thermal and bonding assumptions are unspecified.
+
+**Limits:** No skew, latency, power, area, thermal, yield, or runtime results are reported.
+
+Bonding and tier variation may alter clock behavior.
+
+Official description only; signoff-corner validation is required.
+
+**Method or artifact:** CPPR-aware 3D clock-tree synthesis flow.
+
+**Metrics:** Clock quality and timing closure are claimed qualitatively
+
+**Problem:** 3D bonded IC clock trees must manage common-path pessimism, tier crossings, and skew.
+
+**Workload or benchmark:** Face-to-face bonded 3D IC clock networks; process, tiers, and baselines are unspecified.
+
+</details>
+<p><span id="paper-dac-2026-research793"></span></p>
+<h3>RTL-3D: Timing-Aware Tier Partitioning for 3D ICs Using Pre-Synthesis Timing Analysis</h3>
+<p>DAC 2026 · Record: <code>dac-2026-research793</code></p>
+<p><a href="#explanation-dac-2026-research793">Read the step-by-step explanation</a></p>
+<p><strong>Updated source-backed reading card</strong></p>
+<div class="worked"><p class="lm-k">Worked example</p><p>Reviewed 2026-09-08. Reconciles the RTL-3D card with the captured official source; explains pre-synthesis tier partitioning from first principles and separates RTL prediction, differentiable relaxation, discrete implementation, WNS/TNS interpretation and missing post-route evidence.</p></div>
+<p>This editorial correction updates the current reading view and connected dossiers, not the historical adjudication or scientific acceptance status. The original captured fields are preserved below.</p>
+<p><a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/data/editorial-paper-corrections-v1.json">Correction register</a></p>
+<p><strong>Problem:</strong></p>
+<p>Early 3D IC tier partitioning must anticipate cross-tier timing before synthesis, placement and routing expose the physical implementation costs.</p>
+<p><strong>Mechanism / artifact:</strong></p>
+<p>RTL-3D couples a Transformer-based pre-synthesis timing-analysis model with differentiable register tier partitioning and implementation feedback.</p>
+<p><strong>Workload — the work tested:</strong></p>
+<p>RTL designs partitioned across 3D IC tiers; benchmark identities, design sizes, register counts, tier count, synthesis settings and train/test split are unspecified.</p>
+<p><strong>Hardware and manufacturing assumptions:</strong></p>
+<p>3D IC with tiered logic and vertical interconnect; technology libraries, bonding limits, vertical-link capacity, parasitic extraction, routing, power delivery and thermal model are unspecified.</p>
+<p><strong>Baseline — the comparison method:</strong></p>
+<p>Post-synthesis tier partitioning</p>
+<p>Timing-oblivious partitioning</p>
+<p>State-of-the-art comparison flow, implementation effort and constraint parity are unspecified</p>
+<p><strong>Reported measurements:</strong></p>
+<p>The official description reports 59.3% WNS reduction and 75.4% TNS reduction in signoff timing versus state-of-the-art methods; absolute slack, signed-slack convention, endpoint set, corner coverage and aggregation are unspecified.</p>
+<p><strong>Limits on the conclusion:</strong></p>
+<p>A pre-synthesis timing predictor estimates a later implementation; synthesis transformations, cell selection, placement, routing, parasitics and congestion can change the critical paths it predicts.</p>
+<p>Differentiable tier decisions are a relaxed optimization representation; discrete legalization can change tier crossings, timing and routing feasibility, so relaxation quality is not final physical quality.</p>
+<p>WNS/TNS reduction percentages do not establish timing closure without absolute baseline and final slack, violating-endpoint counts, timing corners and a stated sign convention.</p>
+<p>The official description supplies no benchmark identities, predictor error, runtime, area, power, thermal result, vertical-link count or independent execution; author-reported signoff claims are not independently validated.</p>
+<p><strong>Source and location</strong></p>
+<p>Evidence tier: Primary captured official DAC description only; no full paper extraction, predictor reproduction or independent 3d signoff validation. This is the stored source classification; the location and limits below determine what was actually read.</p>
+<p><a href="https://63dac.conference-program.com/?post_type=page&amp;p=16&amp;id=RESEARCH793&amp;sess=sess155">Open the recorded source</a></p>
+<p>DAC 2026 official description and data/review-packets/dac-2026-research793.json: pre-synthesis timing problem; Transformer timing model; differentiable register tier partitioning; implementation feedback; reported 59.3% WNS and 75.4% TNS reductions.</p>
+<details markdown="1">
+<summary>Original captured fields — superseded for this reading card</summary>
+
+** page source tier:** medium_official_description
+
+**Baselines:** post-synthesis tier partitioning
+
+timing-oblivious partitioning
+
+**Evidence locators:** DAC 2026 official description
+
+**Evidence url:** https://63dac.conference-program.com/?post_type=page&amp;p=16&amp;id=RESEARCH793
+
+**Hardware or process assumptions:** 3D IC with tiered logic and vertical interconnect; thermal and bonding assumptions are unspecified.
+
+**Limits:** No timing, area, thermal, vertical-link, yield, or runtime results are reported.
+
+Pre-synthesis timing may mispredict post-layout behavior.
+
+Official description only; 3D signoff validation is required.
+
+**Method or artifact:** Pre-synthesis timing-aware RTL tier partitioning.
+
+**Metrics:** 3D timing and partition quality are claimed qualitatively
+
+**Problem:** 3D IC tier partitioning must anticipate timing before detailed synthesis and physical implementation.
+
+**Workload or benchmark:** RTL designs mapped to 3D IC tiers; technologies, vertical links, and baselines are unspecified.
+
+</details>
+<p class="lm-k h-label">What remains to establish</p><h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>What is still unproven here</h2>
+<p>Resolve unspecified workloads, comparison methods, resource budgets, and source locations before generalizing a reported gain. Multiple papers in this selected sample permit comparison of mechanisms, but do not by themselves establish recurrence across years or a long-term trend.</p>
+<p><a href="../guide/expanded-taxonomy-v1.html">All subthemes</a> · <a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/reports/directions/README.md">Research directions</a></p><p class="meta">Written as <a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/reports/observed-subthemes/3d-integration-and-thermal-management.md">reports/observed-subthemes/3d-integration-and-thermal-management.md</a> in the course repository.</p>
+      </article>
+      <nav class="pager" aria-label="Previous and next"><a class="prev" href="3d-stacking-and-thermal-management.html"><span class="pg-k">← Previous</span><span class="pg-t">3d stacking and thermal management</span></a><a class="map" href="../subthemes.html"><span class="pg-k">Back to</span><span class="pg-t">Subthemes</span></a><a class="next" href="chiplet-system-architecture.html"><span class="pg-k">Next →</span><span class="pg-t">Chiplet system architecture</span></a></nav>
+    </section>
+  </main>
+  <footer class="course-foot">
+    <p>Built from 582 paper records coded from ISCA 2026, DAC 2026 and ICCAD 2025 (ICCAD 2026 papers were not yet public). Most records come from official program descriptions; see “How deep the reading went”. The papers belong to their authors.</p>
+    <p class="foot-links"><a href="https://github.com/mehtama1234/course-concept-library">All courses</a><a href="../index.html">This course</a><a href="../course-map.html">Course map</a><a href="../presentation/index.html">Slides</a><a href="../video/index.html">Video</a><a href="../share/index.html">Share</a></p>
+  </footer>
+  <script src="../assets/course-data.js"></script><script src="../assets/icons.js"></script><script src="../assets/icons-extra.js"></script><script src="../assets/icons-course.js"></script><script src="../assets/art.js"></script><script src="../assets/course-art.js"></script><script src="../assets/charts.js"></script><script src="../assets/course-charts.js"></script><script src="../assets/course-site.js"></script>
+</body>
+</html>

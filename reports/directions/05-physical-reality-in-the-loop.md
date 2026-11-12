@@ -2,21 +2,33 @@
 
 Status: a research hypothesis supported by selected cases. A measured increase across comparable years has not been established.
 
-## The basic technical problem
+## The problem: a design chosen on paper can break physical limits once built
 
-A logical design specifies operations and connections, but actual circuits occupy space, consume current, and produce heat. Wires have electrical behavior. Manufacturing introduces variation. A design chosen using an abstract performance estimate can violate timing, temperature, or manufacturing rules after implementation.
+A logical design lists operations and connections. Real circuits take up space, draw current and produce heat. Wires have electrical behavior. Manufacturing adds variation.
 
-## What would change in the design process
+So a design picked with an abstract performance estimate can break timing, temperature or manufacturing rules once implemented.
 
-The proposed direction is to evaluate these physical effects while choosing circuit structure, placement, packaging, or operation. A temperature estimate can change where computation is placed. A wire-delay estimate can change which components should be near one another. A variation model can change the margin required for a circuit to operate reliably. The estimate influences construction rather than merely describing the final output.
+## The change: use physical estimates while choosing, not only to describe the result
 
-## Why the details matter
+- A **temperature** estimate can change where computation is placed.
+- A **wire-delay** estimate can change which components sit near each other.
+- A **variation** model can change the safety margin a circuit needs to work reliably.
 
-Using more physical information also costs time. A detailed model can be too expensive to run for every choice; a cheaper model can miss interactions. The important comparison is whether the resulting design remains valid under a more accurate evaluation. Agreement on easy examples is insufficient if errors concentrate near limits or on new structures.
+The estimate shapes the construction rather than just describing the final output.
 
-## What would support or weaken the claim
+## More physical detail costs time, so check the final design accurately
 
-Use the same process data, circuit inputs, package assumptions, and physical constraints. Record final violations, completed designs, search time, and any calibration cost. Test selected and rejected candidates with an independent, more accurate evaluator when available. A simulation result should retain its simulation assumptions. Manufacturing readiness requires evidence about fabricated behavior and cannot be inferred solely from a favorable model.
+A detailed model can be too expensive to run for every choice. A cheaper model can miss interactions.
+
+The key comparison: does the chosen design stay valid under a more accurate evaluation? Agreeing on easy examples is not enough if errors cluster near limits or on new structures.
+
+## The test: same physical setup, violations recorded, an independent accurate check
+
+1. Use the same process data, circuit inputs, package assumptions and physical constraints.
+2. Record final violations, completed designs, search time and any calibration cost.
+3. Check both selected and rejected candidates with an independent, more accurate evaluator when one exists.
+
+A simulation result keeps its simulation assumptions. Readiness for manufacturing needs evidence from fabricated parts, not only a favorable model.
 
 ## Counterpressure and falsification boundary
 
@@ -38,6 +50,13 @@ Thermal management is an accuracy issue as well as a throughput issue; a reporte
 
 ## Establishing a long-term trend
 
-To test change over time, select comparable editions, apply the same inclusion and coding rules, and measure source coverage in each edition. Distinguish the number of papers discussing a method from evidence that the method improves results. The current sample combines DAC and ISCA 2026 with ICCAD 2025 fallback material, and coverage is uneven. That supports comparison of cases with stated limits.
+A trend needs the same rules applied to comparable years:
+
+1. Select comparable editions.
+2. Apply the same inclusion and coding rules.
+3. Measure source coverage in each edition.
+4. Tell apart how many papers discuss a method from evidence that the method improves results.
+
+The current sample combines DAC and ISCA 2026 with ICCAD 2025 fallback material, and coverage is uneven. That supports comparing cases with stated limits.
 
 [Read the longitudinal protocol](../longitudinal-protocol-v1.md) · [Return to research directions](README.md)

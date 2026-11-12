@@ -1,0 +1,1083 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#F3ECE1" />
+  <title>Storage and data movement · Semiconductor conference atlas</title>
+  <meta name="description" content="Papers: DAC 13, ICCAD 1. Read from: 13 program descriptions, 1 abstracts or reports, 0 full papers or preprints. The explanations come first; every paper’s record follows at the end." />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Semiconductor conference atlas" />
+  <meta property="og:title" content="Storage and data movement · Semiconductor conference atlas" />
+  <meta property="og:description" content="Papers: DAC 13, ICCAD 1. Read from: 13 program descriptions, 1 abstracts or reports, 0 full papers or preprints. The explanations come first; every paper’s record follows at the end." />
+  <meta property="og:url" content="https://mehtama1234.github.io/semiconductor-conferences/subthemes/storage-and-data-movement.html" />
+  <meta property="og:image" content="https://mehtama1234.github.io/semiconductor-conferences/presentation/slides/01-cover.jpg" />
+  <meta property="og:image:width" content="1920" />
+  <meta property="og:image:height" content="1080" />
+  <meta property="og:image:alt" content="Semiconductor conference atlas: 582 papers from ISCA, DAC and ICCAD, sorted into 10 themes and six directions to watch." />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="canonical" href="https://mehtama1234.github.io/semiconductor-conferences/subthemes/storage-and-data-movement.html" />
+  <link rel="icon" href="../assets/icon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="../assets/base.css" />
+  <link rel="stylesheet" href="../assets/experience.css" />
+  <link rel="stylesheet" href="../assets/theme-atlas.css" />
+  <link rel="stylesheet" href="../assets/styles.css" />
+  <link rel="stylesheet" href="../assets/charts.css" />
+  <link rel="stylesheet" href="../assets/course.css" />
+  
+</head>
+<body class="course-site " data-house="atlas">
+  <aside class="public-demo-banner" aria-label="About this course">A plain-language guide to what ISCA, DAC and ICCAD papers say about chip and computer design · Built from the repository’s own paper records · Not made by the conferences</aside>
+  <a class="skip-link" href="#app">Skip to the page</a>
+  <header>
+    <a class="brand" href="../index.html"><span class="mark" aria-hidden="true">Si</span> Semiconductor conference atlas</a>
+    <span class="header-status"><span class="badge">582 papers</span><span class="badge">10 themes</span><span class="badge">Plain words first</span></span>
+    <a class="header-link" href="../course-map.html">Course map</a>
+  </header>
+  <nav class="course-nav" aria-label="Main sections of the course"><a href="../index.html">The big picture</a><a href="../themes.html">Themes</a><a href="../subthemes.html" aria-current="page">Subthemes</a><a href="../deep-reads.html">Deep reads</a><a href="../directions.html">What to watch</a><a href="../presentation/index.html">Slides</a><a href="../video/index.html">Video</a><a href="../share/index.html">Share</a></nav>
+  <main id="app" tabindex="-1">
+    <section class="screen active landing legacy-page" aria-labelledby="page-title">
+<div class="lm-head"><div class="hj-heading"><nav class="crumbs" aria-label="You are here"><a href="../course-map.html">Course map</a><span aria-hidden="true">›</span><a href="../subthemes.html">Subthemes</a></nav><a class="back-button" href="../subthemes.html">← <span>Subthemes</span></a><p class="eyebrow">Subtheme · 14 papers · Memory, interconnect, and storage</p><h1 id="page-title">Storage and data movement: what the 14 papers change, and what is still unproven</h1><p class="hj-sub">Papers: DAC 13, ICCAD 1. Read from: 13 program descriptions, 1 abstracts or reports, 0 full papers or preprints. The explanations come first; every paper’s record follows at the end.</p></div><div class="hj-art" data-art="trio:server,arrows-exchange,cpu"></div></div>
+<figure class="course-fig"><div class="loop-wide" data-art="flow:memory-interconnect-and-storage"></div><div class="loop-tall" data-art="flowTall:memory-interconnect-and-storage"></div><figcaption>The parent theme in one picture: moving data often costs more time and energy than computing it.</figcaption></figure>
+      <article class="prose">
+
+<p>This subject has 14 records in the selected sample. This page explains where it fits, then presents all captured paper evidence without shortening the measurements or limitations.</p>
+<p><a href="../guide/reading-guide-v1.html">Definitions used in the paper records</a></p>
+<p class="lm-k h-label">Understand the parent subject first</p><h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>The bigger theme this belongs to</h2>
+<ul>
+<li><a href="../themes/memory-interconnect-and-storage.html">Memory interconnect and storage</a></li>
+</ul>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>What a storage request actually requires</h2>
+<p>A program requests a value using a logical address or a higher-level query. The storage system must locate the data, transfer the relevant bytes, and deliver the result in a usable form. Software queues, caches, device controllers, and physical media all contribute time and energy.</p>
+<p>The amount transferred can exceed the amount returned to the program. A database scan may inspect many records to produce a small answer.</p><p>A storage device may read or rewrite units larger than the particular value updated. Understanding those differences is necessary before claiming that faster media or an accelerated operation will improve the whole request.</p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>Where coordination adds cost</h2>
+<p>A server can contain several processors, memory regions, and storage devices. Access costs can depend on which processor runs an I/O thread, where the cached data resides, and where the device attaches. NUMA means non-uniform memory access: access time depends on location within the machine.</p>
+<p>If a thread executes far from its cached data or storage path, requests can cross shared connections unnecessarily. Placing the thread and data together can reduce this traffic, but may overload that location or limit scheduling flexibility.</p><p>A placement policy therefore needs both locality and load information.</p>
+<p><span id="explanation-dac-2026-research2074"></span></p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="link"></span>Z-ParaSwap: spreading correlated graph pages can expose ZNS parallelism, but swapping remains part of GNN execution</h2>
+<p>Zoned Namespace (ZNS) SSDs expose some physical organization to the host. That visibility lets software place data across zones and exploit parallel chips, but it also imposes zone and write-order rules.</p><p>A heterogeneous GNN (HetGNN) adds an irregular access pattern: feature, relation and embedding pages may be touched according to graph sampling and traversal decisions rather than a sequential scan. When those pages are missing from memory, the swap path becomes part of the GNN's latency and throughput.</p>
+<p>Z-ParaSwap is described as finding access correlations in graph data and distributing highly correlated pages across different SSD chips. The intent is to let requests that are likely to arrive together use parallel devices instead of contending at one chip.</p><p>This changes page placement and swap management; it does not change the GNN's aggregation semantics, guarantee that correlations persist across phases, or create bandwidth when all chips share a saturated controller or link.</p>
+<p>The first gate is semantic and placement correctness. Define the page granularity, correlation window, graph sampling/traversal, placement function, zone allocation, migration and update protocol, and the consistency rules for features, edges and intermediate states.</p><p>Replay the same GNN access trace under the proposed placement and verify that every page contains the intended version and that sampling, aggregation, relation types and output accuracy are unchanged. A lower page-fetch time is not useful if stale or mis-associated graph data changes the model result.</p>
+<p>The second gate is storage-system accounting. Measure page faults, reads/writes, bytes moved, queue depth, chip/channel/controller utilization, PCIe and host-memory traffic, queueing, garbage collection, write amplification, migration cost and p50/p95/p99/p99.9 latency.</p><p>Include correlation analysis, placement, zone management and synchronization in the end-to-end boundary. Test graph scale, working-set pressure, batch/concurrency, sampling policy, phase changes, unseen graphs and background storage activity; a placement learned from one traversal can become a hotspot in another.</p>
+<p>The third gate is ZNS and device durability. State zone size and limits, SSD channels/chips, NAND generation, controller/firmware, queue policy, host kernel, link, read/write mix and garbage-collection behavior.</p><p>Separate read-only swapping from writes or migration that consume NAND program/erase budget, and report endurance or write-amplification impact. Compare conventional paging, Linux ZNS swapping and ZNS-oblivious GNN execution on the same SSD, memory capacity, graph/model, queue depth, software stack and quality requirement.</p>
+<p>The official description reports 34% lower average swapping latency and 44% lower tail swapping latency, with improved overall HetGNN execution efficiency on ZNS-based systems. It does not expose absolute latency, tail definition, graph/model and sampling conditions, SSD configuration, GNN accuracy, end-to-end runtime, background activity, write amplification or endurance.</p><p>The evidence supports access-aware ZNS swapping for HetGNNs, not demonstrated general GNN speedup or durable SSD efficiency.</p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="affiliate"></span>Laelaps changes three connected decisions</h2>
+<p>The official description of Cache Where It Counts names Laelaps and describes storage-aware cache placement, alignment of I/O threads with that placement, and selection of eviction policies based on access patterns. It reports a 1.41× geometric-mean throughput improvement with 3.5% runtime overhead.</p><p>Those are author-reported summary values; the description does not establish per-workload results, slow-request behavior, fairness, or the full configuration. <a href="https://63dac.conference-program.com/presentation/?id=RESEARCH651&amp;sess=sess162">Official description</a></p>
+<p>The causal question is which unnecessary cross-location accesses disappear and what policy-management work replaces them. An average gain can coexist with regressions for some workloads, so a deployment decision requires the distribution of outcomes and the system conditions.</p>
+<p><span id="explanation-dac-2026-research444"></span></p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="alert-triangle"></span>GWrite: memory-side replication removes a host bottleneck only if ordering, failure recovery and RNIC capacity remain correct</h2>
+<p>Disaggregated memory lets a compute node access memory attached to another node over a fabric. Replication adds a second requirement: a write must reach enough replica locations, in the right order and under the declared durability/consistency rule, before the system reports completion.</p><p>With host-managed synchronous fan-out, the compute node's RDMA NIC can become the serialization point as the replica count grows. Moving the fan-out closer to the memory nodes may free host-side issue capacity, but it does not eliminate packets, acknowledgments, queueing or failure handling.</p>
+<p>GWrite is described as a hardware-oriented RDMA primitive, with GWrap as the co-designed replication protocol. Together they offload replication fan-out to memory-side RNICs while preserving one-sided RDMA semantics.</p><p>The key mechanism is therefore where replication requests are issued and expanded, not a relaxation of the consistency guarantee. The implementation must specify packet and descriptor format, ownership, write visibility, completion and acknowledgment, duplicate suppression, ordering across replicas, retry and timeout behavior, and how reads, atomics and recovery interact with a partially completed fan-out.</p>
+<p>The first gate is history and failure correctness. Define the consistency and durability target, replica quorum or completion rule, fencing, failure detector, crash persistence and recovery protocol.</p><p>Compare returned histories and final values with a trusted host-managed reference under concurrent writes, reordering, packet loss, duplicate packets, compute-node failure, memory-node failure and RNIC reset. A reduction in compute-node NIC traffic is not evidence that a transaction is serializable or that an acknowledged write survives the stated failures.</p>
+<p>The second gate is complete replication-path accounting. Measure compute- and memory-side RNIC queue occupancy, packets and bytes, link utilization, memory-controller contention, CPU work, acknowledgments, retries, backpressure, batching, synchronization, p50/p95/p99 write and transaction latency, throughput and energy.</p><p>Include protocol setup, metadata, background replication, recovery and tail behavior. GWrite relocates outbound work; the memory-side RNICs and shared fabric can become the new bottleneck, especially as replicas or concurrent writers increase.</p>
+<p>Evaluate replica count, node count, object/value size, read/write mix, transaction conflicts, concurrency, topology, link contention and workload phases. Compare synchronous host fan-out, GWrite/GWrap and batching or asynchronous alternatives under the same RDMA transport, hardware, software, consistency/durability target, failure budget and end-to-end boundary.</p><p>Report per-workload results and the saturation point rather than only the best replication factor.</p>
+<p>The official description reports a software prototype that emulates GWrite on commodity RNICs, with up to 2.18× higher throughput in a distributed transaction system and replication-induced throughput degradation reduced from 46.7% to 19.7% in a replicated hash table. It does not expose absolute throughput, latency tails, consistency histories, fault recovery, RNIC utilization, bandwidth, energy, topology, scale or memory-side RNIC hardware results.</p><p>The evidence supports memory-side replication offload, not demonstrated durable, low-tail-latency distributed-memory scaling or hardware-level RDMA benefit.</p>
+<p><span id="explanation-dac-2026-research651"></span></p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>Laelaps: NUMA-aware cache placement must be evaluated as one I/O coordination path</h2>
+<p>In a NUMA server, a CPU core, memory region, PCIe root complex and NVMe device have locations and links. A page-cache hit still costs different amounts depending on which CPU accesses the page; a miss adds a request to the device attached to some path.</p><p>I/O-thread affinity, cache placement and eviction therefore interact. Improving one locality decision can overload a node, increase queueing, or move misses to a slower device.</p>
+<p>Laelaps is described as three coordinated mechanisms: it places cache pages near their backing NVMe devices, schedules I/O threads according to that cache/storage topology, and chooses eviction policies from observed workload access patterns. The combination addresses placement, execution locality and reuse.</p><p>It must define page migration and invalidation behavior, cache ownership, thread affinity changes, policy-selection interval, observation window, cold-start behavior and what happens when the local node or device is full.</p>
+<p>The first gate is request correctness and fairness. Verify that cache coherence, write ordering, durability, page ownership, eviction, readahead and direct-I/O interactions remain valid.</p><p>Measure per-workload throughput, p50/p95/p99 latency, queue depth, cross-node bytes, cache hit rate, device utilization, CPU overhead, migrations and policy decisions. A geometric mean can improve while latency-sensitive or low-bandwidth tenants regress.</p>
+<p>The second gate is overhead accounting. Include topology discovery, monitoring, policy inference, page migration, scheduler decisions, synchronization, NUMA imbalance, cache warming, background writeback and device garbage collection.</p><p>Compare topology-oblivious allocation and scheduling, fixed eviction, manually tuned programmable policies and each Laelaps mechanism ablated under the same node/device placement, workload mix and time budget.</p>
+<p>The official description reports a 1.41× geometric-mean throughput improvement with 3.5% runtime overhead. It does not provide workload identities, topology scale, device configuration, tail latency, fairness, per-workload variance, policy-selection cost or baseline tuning.</p><p>The evidence supports workload-aware NUMA/storage coordination, not demonstrated universal throughput improvement or a bounded overhead across deployments.</p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="chart-bar"></span>Moving computation toward stored data</h2>
+<p>In-storage processing executes some filtering, searching, or other computation before transferring data to the main processor. It is attractive when much of the read data can be discarded near its storage location.</p><p>The storage device must still perform the work and return a correct result with sufficient throughput.</p>
+<p>HDDB's captured description combines a representation for database values with operations on ferroelectric NAND flash. Its open questions include query correctness, false matches, device overhead, and the energy boundary. The representation and device behavior must be checked together before interpreting a database-level claim. <a href="storage-and-data-movement.html#paper-dac-2026-research1619">Recorded evidence</a></p>
+<p><span id="explanation-dac-2026-research1619"></span></p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>HDDB: noise-robust in-storage SQL must preserve query semantics at the complete device boundary</h2>
+<p>An SQL predicate maps rows to a Boolean decision, and aggregation combines the selected values. Hyperdimensional computing (HDC) represents data with high-dimensional distributed vectors, so similarity and bitwise operations can implement approximate or redundant versions of those decisions.</p><p>That representation can be tolerant of some corrupted components, but tolerance must be measured against the exact predicate, filter cardinality, aggregate, and false-positive/false-negative rule.</p>
+<p>HDDB is described as an HDC and ferroelectric-NAND (FeNAND) multi-level-cell co-design. It encodes standard SQL tables for in-storage predicate evaluation and analytics, using FeNAND parallelism and HDC redundancy to tolerate device noise without explicit ECC.</p><p>This moves work and data reduction toward storage, but it also couples encoding, sensing, analog levels, bit errors, HDC decoding, query execution, and result transfer. “No explicit ECC” is not the same as no redundancy or no recovery cost.</p>
+<p>The first gate is database correctness. Hold the original table, SQL semantics, NULL and type rules, predicate thresholds, aggregation, ordering and output format fixed.</p><p>Compare exact rows and aggregates with a trusted CPU reference under clean and corrupted storage. Report false positives, false negatives, aggregate error, undecodable queries and whether a corrupted vector can produce a plausible but wrong answer.</p><p>A correct HDC decode is not automatically a correct SQL result if the encoding or threshold operation changes the predicate.</p>
+<p>The second gate is a real device and energy boundary. Include table encoding, programming, FeNAND sensing, MLC/TLC level discrimination, peripheral circuits, HDC operations, controllers, metadata, query setup, host transfer, decoding, result materialization, wear management and any ECC or calibration work.</p><p>State cell corruption distribution, level, spatial correlation, retention and endurance conditions. A random-cell corruption experiment does not establish behavior under structured faults, drift, coupling, stuck cells or aging.</p>
+<p>The reported TPC-DS evaluation claims up to 80.6× lower latency and 12,636× lower energy than conventional CPU/GPU SQL engines, with correct predicate and decode outcomes under up to 10% randomly corrupted TLC cells. The official description does not provide query set, table size, HDC dimension, FeNAND geometry, sensing method, corruption denominator, false-error rates, device overhead, CPU/GPU tuning or energy boundary.</p><p>The evidence supports a noise-robust in-storage SQL direction, not demonstrated exact database correctness or general end-to-end latency and energy gains.</p>
+<p><span id="explanation-dac-2026-research1570"></span></p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="chart-bar"></span>NVLLM: NAND-resident inference must prove data delivery, numerical fidelity, and endurance together</h2>
+<p>NVLLM places a large part of an LLM's storage and computation path in 3D NAND. The proposal assigns FFN work to the flash array, keeps attention on lightweight CMOS logic with external DRAM, decomposes matrix operations into dot-product primitives, and uses ECC and a KV-cache-aware scheduler.</p><p>The architectural idea is to reduce DRAM weight traversal for single-batch decoding. A large storage capacity does not by itself establish the access time, parallel delivery rate, numerical behavior or lifetime required for inference.</p>
+<p>The first gate is numerical correctness. Raw NAND reads, ECC, analog or mixed-signal dot products, finite precision and accumulation must reproduce the intended GEMM/GEMV semantics.</p><p>Compare layer outputs and final model outputs with a trusted digital reference across OPT and LLaMA variants, quantization, sequence lengths, KV-cache growth and exceptional values. Report perplexity, task quality, output agreement, error distributions, failed reads and unsupported operators.</p><p>A storage-centric path that returns weights quickly but changes attention or FFN outputs is not an equivalent inference engine.</p>
+<p>The second gate is the complete physical data path. State NAND generation, page/read latency, channel and plane parallelism, raw-read interface, ECC throughput, PE lanes, buffers, controller scheduling, DRAM/KV traffic, queueing, thermal conditions and power.</p><p>Measure attention, FFN, transfers, decode, initialization and idle work together, including p50/p95/p99 token latency and throughput as context grows. Area must include NAND-adjacent compute, ECC, buffers, CMOS attention logic, controller and interfaces, not only the CMOS overhead selected for the headline.</p>
+<p>Endurance is a separate deployment constraint. If inference updates metadata, KV state, calibration data or any NAND-resident state, measure program/erase activity, read disturb, retention, wear leveling and lifetime under sustained serving.</p><p>If weights are read-only, state that assumption and include the controller, refresh and thermal limits that still affect availability. A speed comparison against an A800 or SSD-like design is meaningful only with matched model precision, quality target, context, cache policy, storage hierarchy, software overhead and full latency/energy boundaries.</p>
+<p>The official description reports 16.7× speedup over A800 out-of-core inference, 1.1×–4.7× improvement over SSD-like designs and 2.7% CMOS area overhead for OPT and LLaMA models up to 30B parameters. The captured evidence does not expose absolute latency or energy, precision, model quality, NAND/process conditions, capacity, endurance, controller/peripheral costs or per-model results.</p><p>It supports a 3D-NAND-centric LLM architecture direction, not demonstrated durable, quality-preserving end-to-end edge inference. <a href="storage-and-data-movement.html#paper-dac-2026-research1570">Recorded evidence</a></p>
+<p><span id="explanation-dac-2026-research1291"></span></p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>NASiC: dense expert storage is not yet quality-preserving on-device MoE inference</h2>
+<p>Mixture-of-Experts (MoE) models store many expert networks but activate only a small subset for each token. That sparsity can reduce arithmetic, while the inactive experts still consume capacity and must be selected, addressed and delivered.</p><p>The useful system boundary therefore includes routing, expert movement, storage reads, arithmetic, combination, host control and output quality—not just the density of the memory array.</p>
+<p>NASiC is described as an algorithm--hardware co-optimization using 3D NAND for dense storage, CAM to select experts, and multibit computing-in-memory (CIM) for the selected computation. The source names V-ASIC as the proposed architecture.</p><p>CAM matching can reduce a separate expert-index traversal and multibit CIM can place more values in each cell, but the captured description does not specify the expert encoding, top-k behavior, sensing/ADC path, accumulation, precision, controller or dataflow. These choices determine whether the array's match and arithmetic correspond to the intended MoE computation.</p>
+<p>The first gate is routing and numerical correctness. Compare selected experts, top-k ties, load balance, dropped tokens, capacity overflow, dispatch/combination and final expert outputs with a trusted digital reference across sequence length, batch size and routing distributions.</p><p>Then evaluate layer and model outputs under the stated precision, multibit encoding, ADC quantization, accumulation, noise and variation. Report perplexity or task quality, error tails, unsupported cases and the cost of calibration, ECC and controller recovery.</p>
+<p>The second gate is device and system efficiency. State NAND generation/process, cell levels, array geometry, read/program conditions, sensing and ADC/DAC, parallelism, buffers, controller, host interface, thermal state, retention, read disturb, write endurance and ECC.</p><p>Measure token latency, throughput, energy per token, area, density and capacity with CMOS peripherals and data movement included; separate steady-state reads from initialization, writes, calibration, refresh and failure recovery. Compare DRAM/GPU inference, NAND storage with digital compute and other on-device MoE accelerators at the same model, top-k policy, precision, quality target, capacity and software boundary.</p>
+<p>The official description claims improved throughput and high area- and energy-efficiency for V-ASIC, but provides no numerical results, MoE workload, model quality, precision, device/process conditions, peripheral overhead, endurance or end-to-end measurement. The evidence supports a 3D-NAND CAM-selected multibit CIM direction for dense expert storage, not demonstrated quality-preserving on-device MoE efficiency or durable device-to-system benefit.</p>
+<p><span id="explanation-dac-2026-research282"></span></p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>HiBand: more in-situ DRAM bandwidth still requires a measured NoC schedule</h2>
+<p>Hybrid-bonding 3D DRAM can place compute and memory resources close enough to expose very high local bandwidth. That changes the bottleneck rather than removing it: many banks and arrays must share a network-on-chip (NoC), and a tensor partition that is fast at one bank can create a hotspot at a link, buffer or reduction point.</p><p>The useful quantity is achieved delivery under the real schedule, not the sum of nominal bank bandwidths.</p>
+<p>HiBand is described as co-designing grouped tensor parallelism and cross-head array-level co-execution with a four-mode reconfigurable NoC. It overlaps bandwidth-bound attention with compute-bound feed-forward layers.</p><p>These mechanisms can confine traffic to short links and expose independent work, but the captured description does not specify the mapping, routing, buffers, multicast/reduction behavior, mode-switch cost or control policy. A reconfigurable NoC can also add area, state and scheduling complexity.</p>
+<p>The first gate is movement and routing validity. Report offered and achieved bandwidth by bank, array and link, queueing, conflicts, buffer occupancy, stalls, multicast/reduction traffic, synchronization and reconfiguration overhead for each attention and FFN phase.</p><p>Fix the 32-array organization, frequency, tensor partitions, sequence/batch workload and compiler/runtime. Validate that all routes are legal and that no hidden serialization or bandwidth assumption is omitted.</p>
+<p>The second gate is LLM correctness and system accounting. Compare array-executed outputs with a trusted digital reference across precision, sequence length, KV-cache growth, tensor-parallel reductions and concurrency; report perplexity, task quality and numerical error.</p><p>Include NoC, buffers, controllers, DRAM interfaces, thermal/power and area costs, and compare against HBM3 GPU-style and HB-DRAM NMP baselines under the same model, quality, capacity and latency/energy boundary.</p>
+<p>The official description reports up to 4.28× speedup over an HBM3 GPU-style accelerator and 1.67× speedup over a state-of-the-art HB-DRAM-based NMP design on a 32-array HB-DRAM accelerator. The captured evidence does not expose absolute results, model/precision conditions, bandwidth utilization, NoC overhead, area, energy, process details or hardware validation.</p><p>It supports bandwidth-aware HB-DRAM/NoC co-design, not demonstrated portable end-to-end LLM acceleration or physical 3D-DRAM efficiency.</p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>Reliability can create additional movement</h2>
+<p>Storage protection often retains extra information that permits detection or reconstruction of damaged data. Updating protected data can require updating that additional information. Moving valid data while reorganizing storage can create still more physical writes than the application requested.</p>
+<p>SSD Reforge's record proposes changing parity protection as flash ages. Parity is additional information computed from stored values and used to help detect or recover certain errors.</p><p>Stronger protection can extend usable operation under a stated error model, but may consume capacity, controller time, and write bandwidth. The captured record leaves those costs and the error-model calibration unresolved. <a href="storage-and-data-movement.html#paper-dac-2026-research1872">Recorded evidence</a></p>
+<p><span id="explanation-dac-2026-research1872"></span></p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>SSD Reforge: extra parity extends endurance only if the reliability model and protection cost are real</h2>
+<p>Flash aging increases the raw bit-error rate (RBER), so an SSD eventually reaches a controller-defined lifetime limit even when the host still has useful data to write. Parity adds information that can detect or reconstruct errors across a stripe.</p><p>Dynamic parity management changes the protection level as blocks age instead of applying one fixed protection policy to the whole device. That can trade spare capacity and controller work for additional usable total bytes written (TBW), but the trade is meaningful only when the error distribution and recovery budget match the real device.</p>
+<p>SSD Reforge is described as estimating an RBER-based error probability for heterogeneous blocks, solving parity-stripe grouping as a combinatorial optimization, and using Reliability-Aware Striping (RAS) to form groups. Stripe UPER Leveling (SUPERL) maintains the grouping as later writes change the device state.</p><p>The important system boundary is therefore not just the grouping algorithm: it includes RBER estimation, parity generation and checking, allocation, migration or rewrite behavior, flash wear, controller scheduling and the definition of the lifetime limit.</p>
+<p>The first gate is reliability-model calibration. Specify the NAND generation, page/block geometry, ECC and decoding assumptions, error correlation, retention age, read disturb, program/erase history, temperature, voltage and how RBER is measured.</p><p>Compare predicted block error probabilities with held-out device measurements across aging states. A model that ranks blocks correctly on one trace can still misestimate tail failures or correlated errors, which determine whether a parity stripe actually remains recoverable.</p>
+<p>The second gate is complete cost accounting. Report parity capacity, user-visible capacity, metadata, extra reads and writes, parity-update traffic, write amplification, garbage collection, latency tails, controller CPU, energy and bandwidth.</p><p>Compare fixed protection, conventional dynamic protection and an oracle with the same NAND geometry, ECC, overprovisioning, workload, lifetime criterion and background maintenance. Include RAS construction, SUPERL updates, degraded blocks, failed stripes and recovery in the end-to-end time and endurance budget.</p>
+<p>The official description reports FEMU experiments with real I/O traces and up to 40% average user-TBW improvement over traditional mode at the lifetime limit. It does not expose NAND/process conditions, trace diversity, parity budget, RBER calibration, ECC baseline, capacity loss, write amplification, latency, energy, tail reliability or the exact lifetime accounting.</p><p>The evidence supports adaptive parity and reliability-aware striping as an SSD-endurance direction, not demonstrated device-level endurance improvement without performance, capacity or energy tradeoffs.</p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="route"></span>How to compare complete requests</h2>
+<p>Hold the data, query or request sequence, answer requirements, and durability guarantees fixed. Report bytes read and written at both the application and device levels. Measure throughput, slow-request latency, processor overhead, energy, and capacity devoted to metadata or protection.</p>
+<p>For a long-running storage system, state whether the measurements include background cleanup, aging, recovery, and changing request patterns. A method that wins on an empty device or one short trace may behave differently after the system has reached sustained operation.</p><p>The transferable result is the identified source of saved work under those stated conditions.</p>
+<p><span id="explanation-dac-2026-research698"></span></p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>FreeZone: SLC-backed out-of-order buffering helps only when zone ordering and durability remain intact</h2>
+<p>Zoned storage exposes an important constraint: writes within a zone must advance in logical order. Consumer workloads can generate irregular writes, so enforcing that order in the kernel may serialize requests and leave device channels idle.</p><p>Moving reordering into the SSD can recover parallelism, but it also makes the device responsible for holding, ordering and safely acknowledging data that the host submitted out of order.</p>
+<p>FreeZone is described as allowing the kernel to submit I/O requests freely and extending the on-device reorder buffer with high-performance SLC flash. Requests can remain in that buffer until they are committed in legal zone order.</p><p>The mechanism changes the location and capacity of ordering state; it does not specify the zone write pointer, request identity, append/overwrite semantics, barriers, flush/FUA, zone reset, admission/backpressure, metadata persistence or flush policy.</p>
+<p>The first gate is zone and durability correctness. Define per-zone ordering, visibility, acknowledgments, synchronization, reset and failure semantics.</p><p>Check that every committed sequence is legal and that a host completion does not imply durability before reordered data and metadata are protected. Test power loss, controller reset, torn metadata, aborted or duplicate requests, replay, zone reset, full SLC and concurrent reads; a higher IOPS result is invalid if a zone becomes inconsistent or acknowledged data disappears.</p>
+<p>The second gate is the physical buffer tradeoff. SLC capacity used for reordering consumes flash resources and can create migration, garbage-collection, metadata and endurance costs.</p><p>Measure SLC occupancy, admission/backpressure, spill/fallback, migration bytes, logical-to-physical writes, write amplification, channel utilization, queueing, p50/p95/p99 latency, energy and TBW under sustained and bursty workloads. Include reorder decisions, buffer management, recovery and cleanup in the IOPS boundary.</p>
+<p>Compare host-side ordering, strict in-order writes and prior limited-buffer device reordering with the same zone rules, host/kernel/filesystem, device capacity, SLC budget, queue depth, request trace, durability contract and recovery path. Test device aging, thermal throttling, full SLC, mixed reads and changing write phases.</p><p>The official description reports up to 2.3× IOPS improvement over existing zoned-storage architectures, but provides no absolute IOPS, latency tails, write amplification, SLC cost, endurance, crash result or ordering trace. The evidence supports SLC-backed on-device zoned-write reordering, not demonstrated crash-safe consistency, durable endurance benefit or portable 2.3× end-to-end performance.</p>
+<p><span id="explanation-dac-2026-research609"></span></p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="school"></span>LLM-hybridSSD: adaptive tuning helps only when the learned controller remains safe and durable</h2>
+<p>A hybrid SSD can combine flash modes such as SLC and QLC, converting or migrating data between them to trade latency, capacity and endurance. That enlarges the controller's design space: placement, garbage collection, conversion, migration, wear leveling and queue scheduling interact with workload phases.</p><p>A parameter setting that raises throughput during one phase can increase physical writes, tail latency or lifetime cost during another.</p>
+<p>LLM-hybridSSD is described as formulating hybrid-SSD management as parameter tuning, using an LLM-based tuner for adaptive configuration and applying reinforcement-learning fine-tuning to align lightweight local models with domain-specific SSD knowledge. The LLM supplies contextual knowledge or configuration proposals; the local model supports cheaper repeated decisions.</p><p>The captured description does not specify the state/action representation, reward, training data, safety constraints, update cadence, fallback, deployment path or controller integration.</p>
+<p>The first gate is controller safety. Define legal placement, mapping, conversion, migration, garbage-collection, ECC, wear-leveling, crash-consistency and power-loss constraints.</p><p>Use a guarded controller that rejects unsafe actions and test stale telemetry, invalid parameters, model failures, firmware restart, power loss and concurrent host I/O. A learned policy is not a replacement for FTL invariants; higher throughput is not a valid result if data is lost, mappings become inconsistent or latency SLOs are violated.</p>
+<p>Write amplification needs a complete physical accounting. Separate host writes, conversion/migration writes, garbage collection, metadata/ECC, refresh and recovery.</p><p>Measure logical-to-physical write ratio, bytes, migration traffic, queueing, channel utilization, p50/p95/p99 latency, energy and lifetime/TBW under sustained aging. Include profiling, LLM calls, RL or local-model inference, retraining, policy transfer, fallback and controller CPU/memory.</p><p>A lower reported WA can hide extra background writes or exclude the cost of learning and adaptation.</p>
+<p>Validate transfer and stability on complete held-out workloads, unseen read/write mixes, capacity pressure, burstiness, temperature and aging. Hold flash modes, capacity, overprovisioning, FTL/ECC, controller resources, queueing, latency target, tuning budget, warm-up and long-run boundary constant against state-of-the-art hybrid management, heuristics and LLM-free policy learning.</p><p>Report per-trace results, adaptation time, unsafe-action/fallback rate and policy oscillation rather than only an average.</p>
+<p>The official description reports average 58.92% higher throughput and 28.56% lower write amplification than state-of-the-art schemes across different real-world workloads. It does not expose absolute latency or tails, endurance/TBW, energy, conversion/migration traffic, capacity, policy/LLM cost, safety violations or per-workload variance.</p><p>The evidence supports knowledge-guided adaptive hybrid-SSD management, not demonstrated safe, durable, low-tail or universally better controller behavior.</p>
+<p><span id="explanation-dac-2026-research442"></span></p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>VALVE: in-storage visible-version search helps only when MVCC visibility survives the host–CSD boundary</h2>
+<p>Multi-Version Concurrency Control (MVCC) keeps several committed versions of a row or record so readers can use a consistent snapshot while writers continue. An analytical query must find the newest version that is visible to its transaction timestamp; under frequent HTAP updates, the version chain becomes longer and the search can cause more storage reads and host processing.</p><p>Moving that search into a computational-storage device can reduce host I/O, but it also moves a transaction-correctness decision across a device boundary.</p>
+<p>VALVE is described as offloading Visible Version Searching (VVS) to a CSD and first addressing consistency under host–CSD concurrency. It adds a frugal skip list to accelerate traversal of version chains.</p><p>The skip list changes how versions are reached, while the offload changes where visibility metadata is interpreted. The captured description does not specify timestamps, snapshot semantics, version ordering, metadata ownership, update/delete protocol, skip-list maintenance, synchronization, persistence or recovery.</p>
+<p>The first gate is visibility correctness. Define transaction timestamps, commit/abort visibility, snapshot isolation or serializability target, deletes, updates, chain ordering and result completeness.</p><p>Compare host and CSD answers under concurrent commits, aborts, retries, stale metadata, long chains and changing snapshots. A lower scan latency is not valid if a query reads an uncommitted or too-new version, misses a committed version, or returns a result inconsistent with the database engine.</p>
+<p>The second gate is skip-list and path accounting. Expose level construction, key/order, insertion/deletion, stale-index fallback, memory placement, synchronization and rebuild cost.</p><p>Measure version-chain length, metadata bytes, host/CSD traffic, random reads, queueing, CPU/CSD utilization, lock/wait time and p50/p95/p99 analytical and transaction latency under read-heavy, update-heavy and mixed loads. Include query setup, CSD dispatch, result transfer, skip-list maintenance and cache warm-up; fewer host requests can leave the CSD or storage medium saturated.</p>
+<p>The CSD creates a distributed failure boundary. Test power loss, device reset, host failure, partial metadata writes, retries, duplicate requests, firmware restart and recovery, and state which data and visibility metadata are durable.</p><p>Compare host-side VVS and generic in-storage processing with equal isolation, cache, hardware, workload, batching, warm-up and recovery cost. The official description claims reduced end-to-end analytical scan latency and improved analytical throughput, but provides no absolute results, I/O/CPU reduction, consistency test, transaction impact, energy, endurance or failure evidence.</p><p>The evidence supports CSD-assisted MVCC visible-version traversal, not demonstrated consistency, failure-safe persistence or portable end-to-end HTAP improvement.</p>
+<p><span id="explanation-dac-2026-research484"></span></p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="refresh"></span>SmartSwap: adaptive tensor swapping helps only when training semantics and overlap survive Eager Mode</h2>
+<p>LLM training can exceed GPU HBM because activations, gradients, optimizer state and temporary buffers peak at different points in the operator sequence. Swapping tensors to host memory or storage can extend capacity, but each eviction and fetch competes with forward/backward computation for bandwidth and synchronization.</p><p>Eager Mode makes the schedule harder: operator sequences can vary between iterations, so a policy learned from one sequence can become stale.</p>
+<p>SmartSwap is described as an end-to-end swap optimizer for varying Eager-Mode sequences. A lightweight online profiler monitors operator sequences, a policy generator works with limited operator information, and an optimized policy-execution module applies the policy accurately.</p><p>These mechanisms target schedule adaptation and runtime overhead. The captured description does not specify tensor lifetime inference, policy representation, profiler sampling, prefetch/eviction rules, overlap scheduler, correctness barriers or whether the swap tier is CPU memory, storage or both.</p>
+<p>The first gate is training correctness. Define tensor versions, autograd and lifetime dependencies, optimizer state, checkpoint/recomputation interaction, precision, synchronization and eviction/prefetch barriers.</p><p>Compare loss curves, gradients, checkpoints and final model quality with a no-swap reference while operator sequences change. A model fitting in HBM plus swap is not equivalent training if a stale, partially transferred or incorrectly synchronized tensor enters backpropagation.</p>
+<p>The second gate is the training critical path. Measure profiling, policy generation, CPU/GPU scheduling, pinned-memory and DMA setup, HBM eviction/fetch, host/storage transfer, synchronization, queueing, stalls, policy misses, fallback, residency and p50/p95/p99 iteration time.</p><p>Include cold start, phase changes, failed transfers, model loading and policy execution. An 84.25% reduction in profiling overhead can coexist with slower training if transfer or synchronization dominates; overlap must be demonstrated at the iteration boundary, not inferred from component time.</p>
+<p>Capacity and performance need matched baselines. Hold model, batch, sequence length, optimizer, precision, convergence target, GPU/HBM, interconnect/storage, warm-up and baseline tuning constant against static checkpointing, naive swapping, recomputation and higher-degree parallelism.</p><p>Test irregular control flow, operator-sequence shifts, long runs, memory pressure and concurrent workloads. If storage is written, include write amplification, endurance and energy.</p>
+<p>The official description reports 84.25% lower profiling overhead, support for models up to 4× larger than hardware memory, and up to 38.94% performance improvement over recomputation or high-degree parallelism while adapting to operator changes. It does not expose absolute throughput, memory occupancy, transfer volume, convergence/accuracy, energy, tails, policy overhead or long-run storage cost.</p><p>The evidence supports adaptive Eager-Mode training swap management, not demonstrated accuracy-preserving, universally faster or durable out-of-HBM training.</p>
+<p><span id="explanation-dac-2026-research2773"></span></p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>FlashHD: in-storage HDC filtering helps only when exact matches and flash cost survive</h2>
+<p>Exact DNA-sequence matching often scans a corpus much larger than host memory. The query may return only a few matches, but a conventional system still moves pages from storage, examines them in software and pays page-fault and host-memory costs.</p><p>In-storage processing can reduce that movement by rejecting dissimilar sequences near the flash array. The rejection must be conservative: a fast filter that discards a true match is not an exact matcher.</p>
+<p>FlashHD is described as executing sequence matching directly inside 3D NAND flash with a hierarchical hyperdimensional-computing (HDC) architecture. HDC encodes sequences into high-dimensional representations and compares them through staged similarity/filter operations; FlashHD uses multiple hierarchy levels to remove dissimilar candidates while claiming full recall.</p><p>A hierarchy-aware architecture search tunes HDC hyperparameters for latency and energy. These mechanisms change the representation and location of filtering, but the captured description does not specify the encoding, dimension, similarity threshold, sensing path, hierarchy, candidate-verification stage or search budget.</p>
+<p>The first gate is exactness. Define sequence encoding, match semantics, allowed mutations or edit distance, hierarchy/fanout, HDC precision, threshold and tie behavior.</p><p>Compare every returned and rejected candidate with a trusted CPU exact matcher, and report false negatives, false positives and recall by sequence length, match rarity and distance. “Full recall” needs a denominator and an independent exact check; HDC collision tolerance or a visually plausible candidate set is not proof that no true sequence was filtered out.</p>
+<p>The second gate is the complete flash path. State the 3D-NAND generation, array geometry, channels/planes, raw-read and sensing behavior, ECC, controller, peripheral HDC operations, host link, memory, temperature and queueing.</p><p>Include encoding, flash reads, staged HDC filtering, candidate transfer and exact verification, query setup, result materialization and calibration in latency and energy. Report bytes read, parallelism, queue depth, device utilization and p50/p95/p99 query latency, not only array-level operation counts.</p><p>A reduction in host I/O can be replaced by serial sensing, ECC or controller contention.</p>
+<p>The architecture search also needs a reproducible boundary. Expose the HDC dimensions, thresholds, hierarchy, objective, search evaluations, training/calibration data, stopping rule and tuning cost.</p><p>Test unseen sequence distributions, corpus sizes, match rates and changing databases. If data or metadata are written, measure re-encoding, garbage collection, read disturb, retention, program/erase activity and endurance; if the corpus is read-only, state that assumption and include the refresh and thermal limits that govern sustained service.</p>
+<p>The official description claims that FlashHD significantly outperforms state-of-the-art systems and that hierarchical filtering preserves full recall for DNA sequence matching. It provides no recall/precision table, latency, throughput, energy, I/O bytes, density, area, endurance, query conditions or per-workload comparison.</p><p>The evidence supports an in-storage HDC sequence-matching direction, not demonstrated exact-recall, durable flash efficiency or quantitative end-to-end superiority.</p>
+<p><span id="explanation-dac-2026-research2806"></span></p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="school"></span>LHGstore: learned adjacency layout helps only when graph semantics and distribution survive updates</h2>
+<p>An in-memory graph store has two competing paths. Updates must find and modify the right vertex and edge records, while analytics must traverse adjacency lists with predictable locality.</p><p>A single layout can waste space or cause pointer chasing when degree varies widely: a low-degree vertex benefits from compact arrays, while a high-degree vertex may need an index to avoid shifting or scanning many neighbors. The useful result is therefore a complete update-and-query tradeoff, not an isolated lookup speed.</p>
+<p>LHGstore is described as a degree-aware Learned Hierarchical Graph store. Its two-level hierarchy decouples vertex and edge access, uses lightweight arrays for low-degree vertices to preserve traversal locality, and applies learned indexes to high-degree vertices to improve update throughput.</p><p>This representation changes where adjacency metadata and neighbor access are organized. It does not specify the degree threshold, key/layout encoding, model training or correction, insertion/deletion path, index rebuild policy, synchronization, allocator, migration or persistence semantics.</p>
+<p>The first gate is graph correctness. Define vertex and edge identity, duplicate and self-loop rules, insertion/deletion visibility, adjacency ordering, snapshot or transaction semantics and crash recovery.</p><p>Run analytics against a trusted graph reference while updates occur, including concurrent writes, deletes, degree changes, stale learned predictions, index rebuilds and partial failures. An update-throughput gain is not useful if a traversal observes a missing edge, a duplicate edge or an inconsistent snapshot.</p>
+<p>The second gate is the representation cost. Report degree thresholds, array and model bytes, metadata, slack, fragmentation, cache and NUMA misses, pointer chasing, training/correction/rebuild time, synchronization, allocation and migration.</p><p>Measure absolute p50/p95/p99 update and query latency, update throughput, traversal work, memory per vertex/edge and CPU utilization under read-heavy, update-heavy and mixed workloads. Include index maintenance and graph loading in the stated boundary; a fast steady-state lookup can be offset by rebuilding after a burst.</p>
+<p>Learned indexes need a distribution-transfer test. Hold out graph snapshots, unseen graphs and temporal phases, then vary degree skew, neighbor-key distributions, insertions, deletions, bursts, adversarial keys and memory pressure.</p><p>Compare hash/table and conventional in-memory graph stores with the same CPU threads, cache/NUMA placement, memory budget, batching, consistency, query semantics and warm-up. Report stale-prediction and fallback rates, convergence/rebuild cost and tail behavior rather than only an average.</p>
+<p>The official description claims 5.9–28.2× higher throughput and significantly faster analytics than state-of-the-art in-memory graph storage systems. It does not expose absolute update/query results, graph scale, degree thresholds, memory overhead, consistency cost, tail latency, baseline tuning or persistence conditions.</p><p>The evidence supports degree-aware learned in-memory graph storage, not demonstrated portable 5.9–28.2× end-to-end benefit or stable analytics under dynamic distribution shift.</p>
+<p><span id="explanation-dac-2026-research297"></span></p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>EtherSSD: moving authenticated Ethereum queries into storage helps only if proofs, snapshots and trust boundaries remain intact</h2>
+<p>An authenticated blockchain query does more than read a value. It retrieves ledger or state data and checks auxiliary evidence—such as a Merkle proof—against a committed root for a particular snapshot or version.</p><p>The proof path, page contents, ordering and query semantics must agree. Moving the work into a computational storage device (CSD) can reduce host I/O and CPU work, but it also moves part of the query and authentication boundary into firmware or device-side computation.</p>
+<p>EtherSSD is described as bridging host and CSD semantics, flattening authenticated queries into highly concurrent in-CSD page accesses, and adding an authentication engine to offload cryptographic verification from host CPUs. These choices target page scheduling and hash computation.</p><p>The captured description does not specify the query operators, proof format, root/version handling, CSD programming model, key/root storage, result materialization, update protocol, concurrency semantics or failure recovery. Lower host request count is not by itself authenticated-query correctness.</p>
+<p>The first gate is proof and query fidelity. Define the hash/proof scheme, committed root, snapshot, page order, sibling path, range or aggregate semantics, duplicate/omitted record behavior and result-completeness rule.</p><p>Compare EtherSSD with a trusted host implementation on valid, malformed, stale, reordered, replayed and adversarial pages; report false acceptance, false rejection, incomplete results and proof failures. If Ethereum reorganization or fork handling is in scope, state the version transition and confirmation assumptions rather than treating one static snapshot as the whole chain.</p>
+<p>The second gate is the CSD trust boundary. State which code, pages, metadata, keys and roots are trusted; how device-side results are protected; and what happens under firmware compromise, DMA misuse, corrupted pages, power loss, partial writes, reset, device replacement and snapshot/update races.</p><p>Test concurrent queries and updates, stale roots, retries and recovery. An authentication engine can reduce host CPU work while leaving a security gap if its inputs or proof result cannot be independently trusted.</p>
+<p>The third gate is complete storage accounting. Measure host/CSD/media bytes and page reads, proof hashes, authentication-engine utilization, CPU cycles, queueing, cache hits, controller work, metadata, result transfer, p50/p95/p99 latency, throughput, energy, write amplification and wear.</p><p>Include query flattening, proof construction, scheduling, initialization, updates and recovery. Compare host-side analytics, unaccelerated authenticated storage, CSD processing without flattening and host versus in-storage authentication under the same chain snapshot, query, proof/security policy, cache state, hardware and end-to-end boundary.</p>
+<p>The official description reports reduced authenticated query execution time, particularly I/O and authentication overhead, on real-world workloads. It does not expose query/proof conditions, absolute results, integrity validation, trust/update assumptions, hardware configuration, wear, energy or baseline accounting.</p><p>The evidence supports authenticated in-storage Ethereum analytics, not demonstrated complete blockchain-query correctness, adversarial storage security or portable end-to-end deployment efficiency.</p>
+<p><span id="explanation-iccad-2025-1144"></span></p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>GAIA: glass-aware scheduling must model the mechanical-optical access path</h2>
+<p>Quartz-glass archival storage combines physical movement and optical focusing. A request may require moving a mechanical stage along X and Y and tuning an optical focus along Z before data can be read.</p><p>The cost is therefore not determined by geometric distance alone: direction reversals, seek acceleration, focus changes, queue order, parallelism and device state can all affect latency.</p>
+<p>GAIA is described as I/O middleware with three coordinated strategies: Zigzag Data Placement aligns data with the stage's natural motion; Z-Axis First Placement prioritizes optical traversal along depth; and Shortest Moving Time First (SMTF) schedules requests using predicted movement time rather than geometric distance. The institutional abstract does not specify the glass encoding, coordinate mapping, stage dynamics, focus model, request concurrency, placement constraints, simulator, or whether writes and failures are modeled.</p>
+<h3>Placement and scheduling must preserve logical addresses</h3>
+<p>Data placement can reduce movement only if the address-to-location mapping remains correct and maintainable. Define object/chunk granularity, X/Y/Z coordinates, page or voxel layout, replication, updates, free space, relocation and metadata recovery.</p><p>Test reads after placement, mixed reads/writes if supported, queue reordering, retries, partial movement and device restart. A lower movement estimate is not useful if the middleware returns stale, wrong or incomplete archival data.</p>
+<h3>Predicted movement time needs calibration and tails</h3>
+<p>SMTF requires a cost model for stage travel, direction changes, acceleration/deceleration, settling, optical focus, media access and queue interference. A schedule minimizing predicted time can be worse when requests contend for the same stage or when the model omits focus or settling costs.</p><p>Validate predicted versus measured/simulator service time across directions, distances, depths, queue depths, request sizes, media regions and aging or calibration variation. Report p50/p95/p99/p99.9 latency, starvation, fairness, queueing and throughput—not only an average or best reduction.</p>
+<p>The abstract reports up to 82% lower read latency than traditional baseline schedulers using trace-driven simulations on enterprise-scale workloads and varied glass sizes. The institutional record does not identify the traces, glass dimensions, baseline scheduler implementations, movement parameters, latency distribution, simulator validation or absolute results.</p><p>“Up to” is a maximum claim; it does not establish a typical or deployed-system reduction.</p>
+<p>Compare placement and scheduling against FIFO, shortest geometric distance, seek-aware scheduling and the unnamed traditional baselines with the same traces, requests, capacity, glass geometry, media model, queue depth, warm-up and objective. Include placement construction, metadata, scheduler computation, movement, focus, data transfer and result delivery in the end-to-end boundary.</p><p>This is archival glass storage, not glass substrates for chip packaging or fabricated-chip evidence; the evidence supports a glass-aware I/O scheduling direction, not demonstrated durable, deployable 82% end-to-end archival-storage improvement.</p>
+<p class="lm-k h-label">Compare the results carefully</p><h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="route"></span>How to compare these papers’ results fairly</h2>
+<p>First identify the inputs and required output quality. Then identify the limited resource: time, memory, communication, energy, circuit area, or correctness coverage.</p><p>Ask which part of the method reduces that cost and which new cost it adds. Compare numbers only when the experiments hold these conditions sufficiently similar.</p>
+<p>A conference description may explain the proposal while omitting the full experiment. An author preprint link may have been coded from its abstract. The source classification does not by itself establish that every table was read. Missing locations remain visible below.</p>
+<p class="lm-k h-label">Complete captured evidence</p><h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="file-text"></span>Every paper in this subtheme, with what its source shows</h2>
+<p>These are evidence records, not substitutes for the explanations above. Each record preserves its problem, proposed method, measurements, comparison conditions, and source limits. A populated record does not establish that its mechanism has been fully explained or independently verified.</p>
+<p><span id="paper-dac-2026-research1619"></span></p>
+<h3>HDDB: Efficient In-Storage SQL Database Search Using Hyperdimensional Computing on Ferroelectric NAND Flash</h3>
+<p>DAC 2026 · Record: <code>dac-2026-research1619</code></p>
+<p><a href="#explanation-dac-2026-research1619">Read the step-by-step explanation</a></p>
+<p><strong>Updated source-backed reading card</strong></p>
+<div class="worked"><p class="lm-k">Worked example</p><p>Reviewed 2026-09-08. Deepens the existing HDDB treatment into a paper-level reading; separates HDC SQL encoding, FeNAND MLC in-storage operations and noise tolerance from predicate/aggregate correctness, false errors, sensing, device overhead, ECC/redundancy and complete latency/energy boundaries, preserves the 80.6x, 12,636x and 10% claims, and makes query semantics explicit.</p></div>
+<p>This editorial correction updates the current reading view and connected dossiers, not the historical adjudication or scientific acceptance status. The original captured fields are preserved below.</p>
+<p><a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/data/editorial-paper-corrections-v1.json">Correction register</a></p>
+<p><strong>Problem:</strong></p>
+<p>SQL scans over large fact tables move substantial data, while dense FeNAND storage and in-storage compute can suffer elevated raw bit-error rates.</p>
+<p><strong>Mechanism / artifact:</strong></p>
+<p>HDC encoding for standard SQL tables with in-storage predicate filtering and aggregation on FeNAND multi-level cells, relying on HDC redundancy under noise without explicit ECC; vector dimension, encoding, sensing and decode are unspecified.</p>
+<p><strong>Workload — the work tested:</strong></p>
+<p>TPC-DS fact-table SQL workloads; tables, queries, predicates, aggregations, data types, table size, HDC dimension, output quality, query concurrency and CPU/GPU engine configurations are unspecified.</p>
+<p><strong>Hardware and manufacturing assumptions:</strong></p>
+<p>Ferroelectric NAND MLC/TLC storage with in-storage compute, controller, sensing and peripheral circuits; geometry, cell levels, process, corruption distribution, retention, endurance, calibration, ECC, interface and energy boundary are unspecified.</p>
+<p><strong>Baseline — the comparison method:</strong></p>
+<p>Conventional CPU SQL database engine</p>
+<p>Conventional GPU SQL database engine</p>
+<p>Same TPC-DS data and queries, exact SQL semantics, table size, CPU/GPU tuning, device overhead, host transfer, output materialization and full energy/latency boundary are unspecified</p>
+<p><strong>Reported measurements:</strong></p>
+<p>The official description reports up to 80.6x lower latency and 12,636x lower energy than CPU/GPU SQL engines, with correct predicate/decode outcomes under up to 10% randomly corrupted TLC cells; it supplies no false-positive/negative rates, aggregate error, query conditions, device overhead or energy accounting.</p>
+<p><strong>Limits on the conclusion:</strong></p>
+<p>Validate exact predicate rows and aggregates against a trusted CPU reference under clean and corrupted storage, including NULL/type rules, thresholds, ordering and output format. Report false positives, false negatives, aggregate error, undecodable queries and plausible wrong answers; HDC decode correctness alone is not SQL correctness.</p>
+<p>Include encoding/programming, FeNAND sensing and level discrimination, peripherals, HDC, controller, metadata, query setup, host transfer, decoding, result materialization, wear, calibration and redundancy/ECC work. Vary random and structured faults, retention, endurance and spatial correlation.</p>
+<p>The 80.6x, 12,636x and 10% claims lack query, table, HDC, FeNAND, sensing, corruption, false-error, device-overhead, CPU/GPU and energy-boundary conditions. The evidence supports noise-robust in-storage SQL, not demonstrated exact database correctness or general end-to-end latency and energy gains.</p>
+<p><strong>Source and location</strong></p>
+<p>Evidence tier: Primary captured DAC official description plus existing chapter level conceptual discussion; no full paper extraction, device trace, sql correctness suite or independent review. This is the stored source classification; the location and limits below determine what was actually read.</p>
+<p><a href="https://63dac.conference-program.com/?post_type=page&amp;p=16&amp;id=RESEARCH1619&amp;sess=sess120">Open the recorded source</a></p>
+<p>DAC 2026 official description; existing chapter-level HDDB discussion; captured Problem, Mechanism / artifact, Workload, Hardware, Baseline, Measurements and Limits fields; no manuscript pages or reproduced FeNAND query run.</p>
+<details markdown="1">
+<summary>Original captured fields — superseded for this reading card</summary>
+
+** page source tier:** medium_official_description
+
+**Baselines:** conventional CPU SQL engine
+
+conventional GPU SQL engine
+
+**Evidence locators:** DAC 2026 official description
+
+**Evidence url:** https://63dac.conference-program.com/?post_type=page&amp;p=16&amp;id=RESEARCH1619&amp;sess=sess120
+
+**Hardware or process assumptions:** Ferroelectric NAND multi-level storage with in-storage compute and up to 10% random cell corruption; device process, controller, sensing, and interface are unspecified.
+
+**Limits:** The description omits query accuracy, HDC false-positive/negative behavior, device overhead, table size, and energy boundaries.
+
+Noise tolerance may depend on redundancy, sensing, and data distributions and does not replace full ECC for all workloads.
+
+Official description only; storage and database claims require paper-level verification.
+
+**Method or artifact:** HDC encoding for SQL tables and in-storage predicate/filter/aggregation operations on FeNAND MLC/TLC cells.
+
+**Metrics:** Up to 80.6x lower latency
+
+Up to 12,636x lower energy
+
+Correct predicate/decode outcomes under up to 10% random TLC corruption
+
+**Problem:** SQL predicate scans over large fact tables require data movement, while dense FeNAND storage can have high raw bit-error rates.
+
+**Workload or benchmark:** TPC-DS fact-table SQL workloads; table sizes, queries, FeNAND geometry, HDC dimensionality, and CPU/GPU baselines are unspecified.
+
+</details>
+<p><span id="paper-dac-2026-research651"></span></p>
+<h3>Cache Where It Counts: Towards Workload-Aware I/O Coordination for NUMA Storage Systems</h3>
+<p>DAC 2026 · Record: <code>dac-2026-research651</code></p>
+<p><a href="#explanation-dac-2026-research651">Read the step-by-step explanation</a></p>
+<p><strong>Updated source-backed reading card</strong></p>
+<div class="worked"><p class="lm-k">Worked example</p><p>Reviewed 2026-09-08. Deepens the existing Laelaps treatment into a paper-level reading; separates topology-aware page placement, I/O-thread affinity and adaptive eviction from request correctness, cache migration, queueing, fairness, tail latency and complete coordination overhead, preserves the 1.41x geometric-mean and 3.5% claims, and makes NUMA/NVMe conditions explicit.</p></div>
+<p>This editorial correction updates the current reading view and connected dossiers, not the historical adjudication or scientific acceptance status. The original captured fields are preserved below.</p>
+<p><a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/data/editorial-paper-corrections-v1.json">Correction register</a></p>
+<p><strong>Problem:</strong></p>
+<p>NUMA storage stacks can place page-cache data away from its NVMe device, schedule I/O threads without storage locality, and use rigid eviction policies that ignore workload access patterns.</p>
+<p><strong>Mechanism / artifact:</strong></p>
+<p>Workload-aware I/O coordination with storage-topology-aware page-cache placement, topology-aware I/O-thread scheduling and adaptive eviction-policy selection from observed access patterns; migration, monitoring, policy and affinity details are unspecified.</p>
+<p><strong>Workload — the work tested:</strong></p>
+<p>NUMA servers with distributed NVMe and diverse application access patterns; workload identities, read/write mix, working sets, concurrency, node/device count, cache state, request distribution and baseline policies are unspecified.</p>
+<p><strong>Hardware and manufacturing assumptions:</strong></p>
+<p>NUMA CPU/memory topology with PCIe-attached distributed NVMe, OS page cache and I/O scheduling path; kernel, CPU, PCIe topology, NVMe models, links, memory capacity, filesystem, direct-I/O/writeback and garbage-collection conditions are unspecified.</p>
+<p><strong>Baseline — the comparison method:</strong></p>
+<p>Topology-oblivious page-cache allocation</p>
+<p>Conventional I/O-thread scheduling</p>
+<p>Rigid page-cache eviction</p>
+<p>Programmable manually tuned cache policies</p>
+<p>Same nodes, devices, kernel, filesystem, workload mix, cache warmup, time budget, topology, monitoring and end-to-end measurement boundary are unspecified</p>
+<p><strong>Reported measurements:</strong></p>
+<p>The official description reports 1.41x geometric-mean throughput improvement with 3.5% runtime overhead; it supplies no per-workload throughput, p95/p99 latency, fairness, cross-node bytes, cache hit rate, migration count, policy cost or configuration result.</p>
+<p><strong>Limits on the conclusion:</strong></p>
+<p>Preserve cache coherence, write ordering, durability, page ownership, eviction, readahead and direct-I/O semantics. Measure per-workload throughput and tail latency, queueing, cross-node bytes, hit rate, device utilization, CPU overhead, migrations and regressions; geometric mean can conceal harmed tenants.</p>
+<p>Include topology discovery, monitoring, policy inference, affinity changes, page migration, synchronization, cache warming, writeback and device garbage collection. Ablate placement, scheduling and adaptive eviction under matched node/device, workload and time conditions.</p>
+<p>The 1.41x geometric-mean and 3.5% claims lack workloads, topology, devices, tails, fairness, policy cost, migration and baseline-tuning conditions. The evidence supports workload-aware NUMA/storage coordination, not demonstrated universal throughput improvement or bounded overhead across deployments.</p>
+<p><strong>Source and location</strong></p>
+<p>Evidence tier: Primary captured DAC official description plus existing chapter level conceptual discussion; no full paper extraction, per workload trace, topology configuration or independent review. This is the stored source classification; the location and limits below determine what was actually read.</p>
+<p><a href="https://63dac.conference-program.com/?post_type=page&amp;p=16&amp;id=RESEARCH651&amp;sess=sess162">Open the recorded source</a></p>
+<p>DAC 2026 official description; existing chapter-level Laelaps discussion; captured Problem, Mechanism / artifact, Workload, Hardware, Baseline, Measurements and Limits fields; no manuscript pages or reproduced NUMA/storage trace.</p>
+<details markdown="1">
+<summary>Original captured fields — superseded for this reading card</summary>
+
+** page source tier:** medium_official_description
+
+**Baselines:** conventional topology-oblivious page-cache allocation
+
+conventional I/O scheduling and rigid page-cache eviction
+
+programmable cache policies requiring manual tuning
+
+**Evidence locators:** DAC 2026 official description
+
+**Evidence url:** https://63dac.conference-program.com/?post_type=page&amp;p=16&amp;id=RESEARCH651&amp;sess=sess162
+
+**Hardware or process assumptions:** NUMA CPU/memory topology with distributed NVMe devices and an OS page-cache/I/O scheduling path; kernel, PCIe topology, CPU, and device details are unspecified.
+
+**Limits:** The description omits workload mix, tail latency, fairness, topology scale, policy-selection overhead, and per-workload variance.
+
+Geometric-mean gains can conceal regressions and depend on the selected storage and NUMA configuration.
+
+Official description only; systems results require paper-level trace and baseline verification.
+
+**Method or artifact:** Workload-aware I/O coordination framework aligning page-cache placement and I/O-thread scheduling with NVMe topology and selecting eviction policies from observed access patterns.
+
+**Metrics:** 1.41x geometric-mean throughput improvement
+
+3.5% runtime overhead
+
+**Problem:** NUMA storage stacks ignore storage topology, cache locality, and workload-specific eviction, causing cross-node accesses and poor I/O coordination.
+
+**Workload or benchmark:** NUMA servers with distributed NVMe storage and diverse application access patterns; workloads, devices, node counts, and baseline policies are unspecified.
+
+</details>
+<p><span id="paper-dac-2026-research1872"></span></p>
+<h3>SSD Reforge: Dynamic Parity Management to Extend SSD Lifetime Under Aging</h3>
+<p>DAC 2026 · Record: <code>dac-2026-research1872</code></p>
+<p><a href="#explanation-dac-2026-research1872">Read the step-by-step explanation</a></p>
+<p><strong>Updated source-backed reading card</strong></p>
+<div class="worked"><p class="lm-k">Worked example</p><p>Reviewed 2026-09-08. Deepens the existing SSD Reforge treatment into a paper-level reading; separates dynamic parity, RBER-aware stripe grouping, RAS and SUPERL from reliability-model calibration, parity overhead, write amplification, latency, capacity and device-level endurance conclusions, preserves the FEMU, real-trace and up-to-40% user-TBW claims, and defines the evidence boundary.</p></div>
+<p>This editorial correction updates the current reading view and connected dossiers, not the historical adjudication or scientific acceptance status. The original captured fields are preserved below.</p>
+<p><a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/data/editorial-paper-corrections-v1.json">Correction register</a></p>
+<p><strong>Problem:</strong></p>
+<p>Flash aging raises raw bit-error rate and limits SSD lifetime by TBW or program/erase cycles, while fixed protection does not adapt to heterogeneous block reliability.</p>
+<p><strong>Mechanism / artifact:</strong></p>
+<p>Dynamic intra-device parity strengthening with an RBER-based error-probability model, combinatorial parity-stripe grouping, Reliability-Aware Striping (RAS) and Stripe UPER Leveling (SUPERL) for subsequent writes; NAND, ECC, calibration and controller details are unspecified.</p>
+<p><strong>Workload — the work tested:</strong></p>
+<p>FEMU SSD simulation evaluated with real I/O traces against traditional protection mode at the lifetime limit; trace set, NAND geometry, aging states, ECC baseline, parity budget and lifetime accounting are unspecified.</p>
+<p><strong>Hardware and manufacturing assumptions:</strong></p>
+<p>Aging flash SSD with controller-managed intra-device parity, RBER estimation and dynamic striping; NAND generation, channels, pages/blocks, ECC/decoder, overprovisioning, retention, temperature, voltage, controller hardware and measurement instrumentation are unspecified.</p>
+<p><strong>Baseline — the comparison method:</strong></p>
+<p>Traditional fixed SSD protection mode</p>
+<p>Static parity grouping</p>
+<p>Conventional dynamic protection</p>
+<p>Same NAND geometry, ECC, overprovisioning, workload, aging/error process, lifetime criterion, maintenance policy and end-to-end cost boundary are unspecified</p>
+<p><strong>Reported measurements:</strong></p>
+<p>The official description reports up to 40% average increase in user TBW at the lifetime limit in FEMU with real I/O traces; it supplies no RBER-model error, parity/capacity overhead, write amplification, latency, energy, tail-failure rate, trace variance or device-level validation.</p>
+<p><strong>Limits on the conclusion:</strong></p>
+<p>Calibrate the RBER/error-probability model against held-out device measurements across program/erase age, retention, temperature, voltage, read disturb and correlated-error conditions. A block ranking that works on one trace does not establish recoverability for tail or correlated failures.</p>
+<p>Account for parity capacity, metadata, parity reads/writes, garbage collection, migration, write amplification, controller work, latency tails, bandwidth and energy. Include RAS construction, SUPERL updates, degraded blocks, failed stripes and recovery in the lifetime and performance boundary.</p>
+<p>The FEMU, real-trace and up-to-40% user-TBW claim lacks NAND, ECC, calibration, parity-budget, trace, capacity, performance and energy conditions. The evidence supports adaptive parity and reliability-aware striping, not demonstrated device-level endurance improvement without tradeoffs.</p>
+<p><strong>Source and location</strong></p>
+<p>Evidence tier: Primary captured DAC official description plus existing chapter level ssd reforge discussion; no full paper extraction, device trace, error model calibration or endurance reproduction. This is the stored source classification; the location and limits below determine what was actually read.</p>
+<p><a href="https://63dac.conference-program.com/?post_type=page&amp;p=16&amp;id=RESEARCH1872&amp;sess=sess162">Open the recorded source</a></p>
+<p>DAC 2026 official description; existing chapter-level SSD Reforge discussion; captured Problem, Mechanism / artifact, Workload, Hardware, Baseline, Measurements and Limits fields; no manuscript pages or reproduced FEMU/device campaign.</p>
+<details markdown="1">
+<summary>Original captured fields — superseded for this reading card</summary>
+
+** page source tier:** medium_official_description
+
+**Baselines:** traditional SSD protection mode
+
+**Evidence locators:** DAC 2026 official description
+
+**Evidence url:** https://63dac.conference-program.com/?post_type=page&amp;p=16&amp;id=RESEARCH1872&amp;sess=sess162
+
+**Hardware or process assumptions:** Aging flash SSD with intra-device parity, RBER estimation, and controller-managed striping; NAND generation, channels, ECC, overprovisioning, and latency/energy costs are unspecified.
+
+**Limits:** The description omits latency, write amplification, capacity overhead, energy, trace diversity, and error-model calibration.
+
+Lifetime gains depend on aging distribution, parity budget, workload write pattern, and controller implementation.
+
+Official description only; endurance and performance claims require trace- and device-level verification.
+
+**Method or artifact:** Dynamic intra-device parity strengthening with RBER-aware stripe grouping and continued leveling under subsequent writes.
+
+**Metrics:** Up to 40% average user-TBW increase at the lifetime limit
+
+**Problem:** Flash aging raises raw bit-error rates and limits SSD lifetime by total bytes written or program/erase cycles.
+
+**Workload or benchmark:** FEMU SSD simulation evaluated with real I/O traces against traditional protection mode; NAND geometry, trace set, ECC baseline, and lifetime model are unspecified.
+
+</details>
+<p><span id="paper-dac-2026-research1570"></span></p>
+<h3>NVLLM: A 3D NAND-Centric Architecture Enabling Edge on-Device LLM Inference</h3>
+<p>DAC 2026 · Record: <code>dac-2026-research1570</code></p>
+<p><a href="#explanation-dac-2026-research1570">Read the step-by-step explanation</a></p>
+<p><strong>Updated source-backed reading card</strong></p>
+<div class="worked"><p class="lm-k">Worked example</p><p>Reviewed 2026-09-08. Deepens the NVLLM treatment into a paper-level reading; separates 3D-NAND-resident FFN execution, CMOS attention, ECC and KV-aware scheduling from NAND latency/parallelism, endurance, numerical fidelity, controller/peripheral cost and complete edge-serving measurements, while preserving the 16.7x, 1.1x–4.7x and 2.7% claims.</p></div>
+<p>This editorial correction updates the current reading view and connected dossiers, not the historical adjudication or scientific acceptance status. The original captured fields are preserved below.</p>
+<p><a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/data/editorial-paper-corrections-v1.json">Correction register</a></p>
+<p><strong>Problem:</strong></p>
+<p>On-device LLM decoding is memory-capacity and data-movement bound, while DRAM weight traversal and coarse SSD-like access granularity limit resource-constrained edge inference.</p>
+<p><strong>Mechanism / artifact:</strong></p>
+<p>3D NAND-centric inference architecture that offloads FFN computation into the flash array, executes attention on lightweight CMOS logic with external DRAM, decomposes GEMM/GEMV into dot-product primitives on out-of-order PE lanes over raw NAND reads with integrated ECC, and uses a KV-cache-aware scheduler; device, controller and numerical implementation details are unspecified.</p>
+<p><strong>Workload — the work tested:</strong></p>
+<p>OPT and LLaMA LLM inference up to 30B parameters with growing context and single-batch decoding; model precision/quantization, sequence lengths, token throughput, prompt mix, batch/concurrency, KV-cache size, decoding quality and baseline configurations are unspecified.</p>
+<p><strong>Hardware and manufacturing assumptions:</strong></p>
+<p>Wafer-to-wafer-stacked multi-plane 3D NAND with compute pipelines, ECC units, buffers, CMOS attention logic and external DRAM; NAND generation, page/read latency, channels/planes, raw-read interface, controller, process, thermal, endurance, voltage, frequency and area accounting are unspecified.</p>
+<p><strong>Baseline — the comparison method:</strong></p>
+<p>A800 out-of-core inference</p>
+<p>SSD-like LLM accelerators</p>
+<p>DRAM-centric edge inference</p>
+<p>Same OPT/LLaMA models, precision, quality target, context, KV-cache policy, storage hierarchy, controller, preprocessing, thermal/power and complete latency/energy boundary are unspecified</p>
+<p><strong>Reported measurements:</strong></p>
+<p>The official description reports 16.7x speedup over A800 out-of-core inference, 1.1x–4.7x improvement over SSD-like designs and 2.7% CMOS area overhead for models up to 30B parameters; it supplies no absolute latency/throughput, energy, accuracy, capacity, endurance, NAND access conditions, controller/peripheral overhead or per-model distribution.</p>
+<p><strong>Limits on the conclusion:</strong></p>
+<p>Raw NAND reads and in-array dot products must preserve the model's numerical semantics. Validate GEMM/GEMV accumulation, precision/quantization, ECC and error behavior against a trusted digital reference across layers, sequence lengths, KV-cache growth and edge cases; report perplexity, task quality, output agreement and unsupported operations.</p>
+<p>NAND access is not free storage bandwidth. Measure page/read latency, channel and plane parallelism, queueing, raw-to-ECC data path, PE utilization, DRAM/KV traffic, controller scheduling, buffers, write/program activity, thermal limits and p50/p95/p99 token latency.</p><p>Account for attention, FFN, transfers, decode, initialization and idle power in the same boundary.</p>
+<p>The 16.7x, 1.1x–4.7x and 2.7% claims lack model precision, absolute results, energy, NAND/process conditions, capacity, endurance, controller/peripheral costs and quality validation. The evidence supports a 3D-NAND-centric LLM architecture direction, not demonstrated durable, quality-preserving end-to-end edge inference.</p>
+<p><strong>Source and location</strong></p>
+<p>Evidence tier: Primary captured official DAC description plus existing authored chapter level explanation; no full paper extraction, device level nand trace, endurance study, numerical quality validation or independent edge serving reproduction. This is the stored source classification; the location and limits below determine what was actually read.</p>
+<p><a href="https://63dac.conference-program.com/?post_type=page&amp;p=16&amp;id=RESEARCH1570&amp;sess=sess116">Open the recorded source</a></p>
+<p>DAC 2026 official description; existing chapter-level storage-and-data-movement NVLLM discussion; captured Problem, Mechanism / artifact, Workload, Hardware, Baseline, Measurements and Limits fields; no manuscript pages or reproduced NAND/LLM evaluation.</p>
+<details markdown="1">
+<summary>Original captured fields — superseded for this reading card</summary>
+
+** page source tier:** medium_official_description
+
+**Baselines:** DRAM-centric edge inference
+
+flash-offloaded LLM inference
+
+**Evidence locators:** DAC 2026 official description
+
+**Evidence url:** https://63dac.conference-program.com/?post_type=page&amp;p=16&amp;id=RESEARCH1570&amp;sess=sess116
+
+**Hardware or process assumptions:** 3D NAND-centric memory/storage hierarchy with compute or near-storage support; endurance, latency, channel parallelism, and technology assumptions are unspecified.
+
+**Limits:** The description omits latency, energy, capacity, endurance, accuracy, and hardware implementation details.
+
+NAND latency and write endurance may constrain practical deployment.
+
+Official description only; storage-centric claims require device-level evidence.
+
+**Method or artifact:** Architecture using 3D NAND resources as a central substrate for edge LLM storage and inference.
+
+**Metrics:** On-device feasibility and efficiency are claimed qualitatively
+
+**Problem:** On-device LLM deployment is limited by model capacity, memory bandwidth, and energy constraints.
+
+**Workload or benchmark:** On-device LLM inference; model quantization, NAND organization, controller, and baselines are unspecified.
+
+</details>
+<p><span id="paper-dac-2026-research1291"></span></p>
+<h3>NASiC: 3D NAND-Based CAM-Selected Multibit CIM Architecture for Efficient On-Device Mixture-of-Experts LLM Inference</h3>
+<p>DAC 2026 · Record: <code>dac-2026-research1291</code></p>
+<p><a href="#explanation-dac-2026-research1291">Read the step-by-step explanation</a></p>
+<p><strong>Updated source-backed reading card</strong></p>
+<div class="worked"><p class="lm-k">Worked example</p><p>Reviewed 2026-09-09. Deepens the NASiC treatment into a paper-level reading; separates 3D-NAND CAM expert selection and multibit CIM from MoE routing quality, analog/digital numerical fidelity, peripheral movement, endurance and complete on-device system efficiency, while preserving the V-ASIC architecture claim and its official-description evidence boundary.</p></div>
+<p>This editorial correction updates the current reading view and connected dossiers, not the historical adjudication or scientific acceptance status. The original captured fields are preserved below.</p>
+<p><a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/data/editorial-paper-corrections-v1.json">Correction register</a></p>
+<p><strong>Problem:</strong></p>
+<p>Mixture-of-Experts LLMs reduce active computation per token by selecting a sparse subset of experts, but storing all expert parameters creates a large memory-capacity and data-movement burden for on-device inference.</p>
+<p><strong>Mechanism / artifact:</strong></p>
+<p>NASiC: algorithm--hardware co-optimization using a 3D NAND-based CAM-selected multibit computing-in-memory architecture, with V-ASIC as the proposed architecture; expert-selection encoding, CAM match operation, multibit sensing/ADC, CIM arithmetic, precision, controller and dataflow are unspecified.</p>
+<p><strong>Workload — the work tested:</strong></p>
+<p>On-device MoE LLM inference with sparse expert activation; models, parameter size, number of experts, top-k routing, sequence length, batch/concurrency, token quality, precision, expert placement and baseline software/runtime are unspecified.</p>
+<p><strong>Hardware and manufacturing assumptions:</strong></p>
+<p>3D NAND array used for dense storage, CAM-based expert selection and multibit CIM with CMOS peripherals; NAND generation/process, cell levels, array geometry, ADC/DAC, sensing, variation, retention, endurance, ECC, controller, buffers, host interface, thermal conditions and power boundary are unspecified.</p>
+<p><strong>Baseline — the comparison method:</strong></p>
+<p>DRAM/GPU MoE inference</p>
+<p>NAND storage with digital compute</p>
+<p>Conventional on-device MoE accelerator or expert-cache system</p>
+<p>Same MoE model, top-k routing, precision, quality target, storage capacity, expert placement, compiler/runtime, peripheral accounting, device conditions and end-to-end latency/energy boundary are unspecified</p>
+<p><strong>Reported measurements:</strong></p>
+<p>The official description claims improved throughput and high area- and energy-efficiency for the V-ASIC architecture, but reports no throughput, token latency, energy per token, model quality, area, density, capacity, ADC/peripheral overhead, endurance, variation tolerance or device/system measurement.</p>
+<p><strong>Limits on the conclusion:</strong></p>
+<p>CAM-selected sparse computation must preserve MoE routing semantics. Compare selected experts, top-k ties, load balance, dropped tokens, capacity overflow, dispatch/combination and expert outputs with a trusted digital reference across sequence length, batch and routing distributions; a memory-array match is not automatically correct model execution.</p>
+<p>Multibit NAND storage and CIM arithmetic require numerical and reliability validation. State cell-level encoding, read/program conditions, ADC quantization, accumulation, noise, retention, read disturb, process variation, ECC/calibration and write endurance; report layer/output error, perplexity or task quality, error tails, temperature and aging, including CMOS peripheral, buffer and controller costs.</p>
+<p>The source claims V-ASIC throughput and area/energy efficiency but provides no numerical result, MoE workload, precision, device/process, peripheral overhead, endurance, model-quality or end-to-end boundary. The evidence supports a 3D-NAND CAM-selected multibit CIM direction for dense expert storage, not demonstrated quality-preserving on-device MoE efficiency or durable device-to-system benefit.</p>
+<p><strong>Source and location</strong></p>
+<p>Evidence tier: Primary captured official DAC description plus existing authored storage/data movement discussion; no full paper extraction, device variability/endurance matrix, model quality trace or independent end to end validation. This is the stored source classification; the location and limits below determine what was actually read.</p>
+<p><a href="https://63dac.conference-program.com/?post_type=page&amp;p=16&amp;id=RESEARCH1291&amp;sess=sess123">Open the recorded source</a></p>
+<p>DAC 2026 official description; existing storage-and-data-movement chapter discussion; captured Problem, Mechanism / artifact, Workload, Hardware, Baseline, Measurements and Limits fields; no manuscript pages, reproduced MoE inference, NAND device data or system measurement.</p>
+<details markdown="1">
+<summary>Original captured fields — superseded for this reading card</summary>
+
+** page source tier:** medium_official_description
+
+**Baselines:** DRAM/GPU MoE inference
+
+NAND storage with digital compute
+
+**Evidence locators:** DAC 2026 official description
+
+**Evidence url:** https://63dac.conference-program.com/?post_type=page&amp;p=16&amp;id=RESEARCH1291
+
+**Hardware or process assumptions:** 3D NAND CIM with CAM-based expert selection; endurance, ADC, latency, and process assumptions are unspecified.
+
+**Limits:** No throughput, energy, accuracy, endurance, density, or peripheral overhead results are reported.
+
+NAND variability and write endurance may constrain deployment.
+
+Official description only; device-to-system validation is required.
+
+**Method or artifact:** 3D NAND-based CAM-selected multibit computing-in-memory architecture.
+
+**Metrics:** On-device MoE efficiency is claimed qualitatively
+
+**Problem:** On-device MoE inference is constrained by model capacity, expert selection, and memory movement.
+
+**Workload or benchmark:** On-device MoE LLM inference; NAND technology, models, precision, and baselines are unspecified.
+
+</details>
+<p><span id="paper-dac-2026-research2074"></span></p>
+<h3>Z-Paraswap: Co-Optimizing ZNS Parallelism and Swapping for Heterogeneous Graph Neural Network</h3>
+<p>DAC 2026 · Record: <code>dac-2026-research2074</code></p>
+<p><a href="#explanation-dac-2026-research2074">Read the step-by-step explanation</a></p>
+<p><strong>Updated source-backed reading card</strong></p>
+<div class="worked"><p class="lm-k">Worked example</p><p>Reviewed 2026-09-09. Deepens the Z-Paraswap treatment into a paper-level reading; separates graph-access correlation, ZNS chip placement and swapping from GNN semantic correctness, page lifetime, queueing, device parallelism and end-to-end execution accounting, while preserving the reported 34% average and 44% tail swapping-latency reductions.</p></div>
+<p>This editorial correction updates the current reading view and connected dossiers, not the historical adjudication or scientific acceptance status. The original captured fields are preserved below.</p>
+<p><a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/data/editorial-paper-corrections-v1.json">Correction register</a></p>
+<p><strong>Problem:</strong></p>
+<p>Heterogeneous GNNs can exceed main-memory capacity and generate irregular, non-sequential page accesses; a Linux ZNS swapping mechanism can underuse SSD-chip parallelism and create congestion and long-tail latency when correlated graph data compete for storage service.</p>
+<p><strong>Mechanism / artifact:</strong></p>
+<p>Z-ParaSwap: ZNS-based parallelism-aware swapping that identifies access correlations in graph data and distributes correlated pages across different SSD chips to increase parallelism and reduce I/O contention; correlation window, page-placement policy, zone allocation, migration/write protocol, queue model, graph execution coordination and consistency semantics are unspecified.</p>
+<p><strong>Workload — the work tested:</strong></p>
+<p>Heterogeneous Graph Neural Network applications with memory pressure and ZNS-backed swapping; graph types, node/edge/features, graph scale, sampling/traversal pattern, working-set size, page size, access traces, batch/concurrency, memory capacity, swap rate, storage queue depth and model accuracy conditions are unspecified.</p>
+<p><strong>Hardware and manufacturing assumptions:</strong></p>
+<p>NVMe Zoned Namespace SSDs used as swap storage with CPU or accelerator HetGNN execution; SSD model, channels/chips, zones, zone size, NAND generation, controller/firmware, PCIe link, bandwidth, latency, host memory, OS/kernel, queue depth, garbage collection, wear/endurance and instrumentation are unspecified.</p>
+<p><strong>Baseline — the comparison method:</strong></p>
+<p>Conventional paging</p>
+<p>ZNS-oblivious GNN execution</p>
+<p>Linux-based ZNS swapping mechanism</p>
+<p>Same graph/model, sampling, memory capacity, page/zone layout, SSD, queue depth, CPU/accelerator, kernel, background activity, accuracy target and end-to-end timing boundary are unspecified</p>
+<p><strong>Reported measurements:</strong></p>
+<p>The official description reports 34% lower average swapping latency and 44% lower tail swapping latency, with improved overall HetGNN execution efficiency on ZNS-based systems; it reports no absolute I/O latency, percentile definition, throughput, page-fault rate, I/O volume, memory reduction, GNN accuracy, end-to-end execution time, SSD utilization, write amplification or endurance result.</p>
+<p><strong>Limits on the conclusion:</strong></p>
+<p>Access correlation is workload- and phase-dependent. Define the observation window, graph traversal/sampling semantics, page-to-chip placement, zone constraints and update/migration consistency; evaluate unseen graphs, sampling policies, batch sizes and phase changes. A placement that reduces one trace's contention can create hotspots or destroy locality on another.</p>
+<p>ZNS parallelism does not eliminate NAND, channel, controller, PCIe or host-memory bottlenecks. Report queue depth, chip/channel utilization, read/write mix, page faults, bytes moved, queueing, garbage-collection interference, write amplification, migration cost and p50/p95/p99/p99.9 latency. Include the placement and correlation-computation overhead in the end-to-end result.</p>
+<p>The official description reports 34% lower average and 44% lower tail swapping latency but omits absolute conditions, tail definition, graph/model details, storage configuration, GNN accuracy, end-to-end runtime, background activity, write amplification and endurance. The evidence supports access-aware ZNS swapping for HetGNNs, not demonstrated general GNN speedup, semantic preservation under all paging behavior or durable SSD efficiency.</p>
+<p><strong>Source and location</strong></p>
+<p>Evidence tier: Primary captured official DAC description plus existing authored storage discussion; no full paper extraction, reproduced trace diverse evaluation, zns device characterization or independent end to end hetgnn validation. This is the stored source classification; the location and limits below determine what was actually read.</p>
+<p><a href="https://63dac.conference-program.com/?post_type=page&amp;p=16&amp;id=RESEARCH2074&amp;sess=sess146">Open the recorded source</a></p>
+<p>DAC 2026 official description; existing storage-and-data-movement chapter discussion; captured Problem, Mechanism / artifact, Workload, Hardware, Baseline, Measurements and Limits fields; no manuscript pages, access trace, SSD configuration matrix, accuracy check or endurance measurement.</p>
+<details markdown="1">
+<summary>Original captured fields — superseded for this reading card</summary>
+
+** page source tier:** medium_official_description
+
+**Baselines:** conventional paging
+
+ZNS-oblivious GNN execution
+
+**Evidence locators:** DAC 2026 official description
+
+**Evidence url:** https://63dac.conference-program.com/?post_type=page&amp;p=16&amp;id=RESEARCH2074
+
+**Hardware or process assumptions:** NVMe/ZNS storage hierarchy with accelerator or CPU GNN execution; bandwidth and queue assumptions are unspecified.
+
+**Limits:** No I/O latency, throughput, memory reduction, GNN accuracy, or endurance results are reported.
+
+Swap policies may be sensitive to graph access locality.
+
+Official description only; trace-diverse storage evaluation is required.
+
+**Method or artifact:** ZNS parallelism and swap co-optimization for heterogeneous GNN execution.
+
+**Metrics:** Storage-aware GNN efficiency is claimed qualitatively
+
+**Problem:** Heterogeneous GNNs can exceed memory capacity and require storage parallelism and swapping without destroying locality.
+
+**Workload or benchmark:** Heterogeneous graph workloads and ZNS storage; device, graph scale, and baselines are unspecified.
+
+</details>
+<p><span id="paper-dac-2026-research444"></span></p>
+<h3>Gwrite: Offloading Replication in Disaggregated Memory Systems</h3>
+<p>DAC 2026 · Record: <code>dac-2026-research444</code></p>
+<p><a href="#explanation-dac-2026-research444">Read the step-by-step explanation</a></p>
+<p><strong>Updated source-backed reading card</strong></p>
+<div class="worked"><p class="lm-k">Worked example</p><p>Reviewed 2026-09-09. Deepens the GWrite treatment into a paper-level reading; separates memory-side RNIC replication fan-out and GWrap protocol behavior from RDMA ordering, consistency, failure recovery, tail latency, NIC capacity and deployment scale, while preserving the 2.18x and 46.7%-to-19.7% claims.</p></div>
+<p>This editorial correction updates the current reading view and connected dossiers, not the historical adjudication or scientific acceptance status. The original captured fields are preserved below.</p>
+<p><a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/data/editorial-paper-corrections-v1.json">Correction register</a></p>
+<p><strong>Problem:</strong></p>
+<p>Disaggregated memory replicates writes across memory nodes for consistency and durability, but synchronous host-managed fan-out can saturate the compute node's RDMA NIC and create a throughput bottleneck as replica count grows.</p>
+<p><strong>Mechanism / artifact:</strong></p>
+<p>GWrite, a hardware-oriented RDMA primitive, and GWrap, a co-designed replication protocol that offload replication fan-out to memory-side RNICs while preserving one-sided RDMA semantics; packet format, ordering, completion, acknowledgment, retry, ownership, memory-side RNIC capacity and failure behavior are unspecified.</p>
+<p><strong>Workload — the work tested:</strong></p>
+<p>Write-intensive disaggregated deployments including a distributed transaction system and a replicated hash table; transaction mix, object/value size, replica count, consistency/durability target, concurrency, fabric topology, workload scale, failure injection and software stack are unspecified.</p>
+<p><strong>Hardware and manufacturing assumptions:</strong></p>
+<p>Disaggregated memory nodes with memory-side RNICs and compute-node RDMA NICs connected by an RDMA fabric; RNIC model, memory controller, link rate, topology, transport, queue depth, CPU, host memory, clocks, power, firmware, FPGA/ASIC implementation and deployment scale are unspecified.</p>
+<p><strong>Baseline — the comparison method:</strong></p>
+<p>Host-managed synchronous replication</p>
+<p>Unreplicated disaggregated memory</p>
+<p>Same RDMA transport, replica count, object size, transaction workload, consistency/durability guarantee, NIC/link configuration, software stack, failure policy and end-to-end measurement boundary are unspecified</p>
+<p><strong>Reported measurements:</strong></p>
+<p>The official description reports that a software prototype emulating GWrite on commodity RNICs achieves up to 2.18x higher throughput in a distributed transaction system and reduces replication-induced throughput degradation in a replicated hash table from 46.7% to 19.7%; it does not report absolute throughput, latency/tails, CPU/RNIC utilization, bandwidth, consistency checks, failure recovery, energy, scale or hardware implementation results.</p>
+<p><strong>Limits on the conclusion:</strong></p>
+<p>Moving fan-out to memory-side RNICs must preserve one-sided RDMA semantics and the declared consistency/durability guarantee. Define write visibility, replica ordering, acknowledgments, completion, duplicate/retry handling, partial failure, timeout, crash recovery, fencing and interaction with reads or atomics.</p><p>Compare final values and histories with a trusted host-managed reference under concurrent writes, reordering, packet loss and node/NIC failures; lower host-NIC traffic is not evidence of serializability or durability.</p>
+<p>The outbound capacity is relocated, not made free. Measure compute- and memory-side RNIC queue occupancy, packet/byte counts, link utilization, memory-controller contention, CPU work, acknowledgments, retransmissions, backpressure, batching, p50/p95/p99 write and transaction latency, throughput and energy.</p><p>Include protocol setup, metadata, recovery, background replication and the critical path; a throughput gain can hide worse tail latency or a hotspot at memory-side RNICs.</p>
+<p>Evaluate replica count, node count, object/value size, read/write mix, transaction conflicts, concurrency, topology, link contention and workload phases. Compare synchronous host fan-out, GWrite/GWrap and any batching or asynchronous replication policy at equal consistency, durability, hardware, transport, software tuning and failure budget.</p><p>Report per-workload results and the point at which memory-side outbound capacity saturates.</p>
+<p>The captured record reports a commodity-RNIC software emulation rather than a demonstrated memory-side RNIC implementation, and does not expose consistency/failure results, latency, bandwidth, energy, topology, scale or absolute values. The evidence supports memory-side replication offload, not demonstrated durable, low-tail-latency distributed-memory scaling or hardware-level RDMA benefit.</p>
+<p><strong>Source and location</strong></p>
+<p>Evidence tier: Primary captured official DAC description plus existing authored storage/disaggregated memory discussion; no full paper extraction, reproduced rdma protocol, failure validation or hardware deployment. This is the stored source classification; the location and limits below determine what was actually read.</p>
+<p><a href="https://63dac.conference-program.com/?post_type=page&amp;p=16&amp;id=RESEARCH444&amp;sess=sess169">Open the recorded source</a></p>
+<p>DAC 2026 official description; existing storage-and-data-movement chapter framing; captured Problem, Mechanism / artifact, Workload, Hardware, Baseline, Measurements and Limits fields; no manuscript pages, consistency history, fault-injection trace or memory-side RNIC implementation.</p>
+<details markdown="1">
+<summary>Original captured fields — superseded for this reading card</summary>
+
+** page source tier:** medium_official_description
+
+**Baselines:** host-managed replication
+
+unreplicated disaggregated memory
+
+**Evidence locators:** DAC 2026 official description
+
+**Evidence url:** https://63dac.conference-program.com/?post_type=page&amp;p=16&amp;id=RESEARCH444
+
+**Hardware or process assumptions:** Disaggregated memory fabric with replication-capable endpoints; protocol and failure assumptions are unspecified.
+
+**Limits:** No latency, bandwidth, consistency, failure recovery, energy, or scale results are reported.
+
+Offload can complicate correctness and recovery ordering.
+
+Official description only; fault-injection validation is required.
+
+**Method or artifact:** Replication offload mechanism for disaggregated memory.
+
+**Metrics:** Replication efficiency and system performance are claimed qualitatively
+
+**Problem:** Replication in disaggregated memory consumes host CPU, network bandwidth, and tail latency.
+
+**Workload or benchmark:** Distributed memory workloads; consistency model, fabric, failure mode, and baselines are unspecified.
+
+</details>
+<p><span id="paper-dac-2026-research297"></span></p>
+<h3>Etherssd: An In-Storage Ethereum Analytics Platform with Minimized I/O and Authentication Overhead</h3>
+<p>DAC 2026 · Record: <code>dac-2026-research297</code></p>
+<p><a href="#explanation-dac-2026-research297">Read the step-by-step explanation</a></p>
+<p><strong>Updated source-backed reading card</strong></p>
+<div class="worked"><p class="lm-k">Worked example</p><p>Reviewed 2026-09-09. Deepens the EtherSSD treatment into a paper-level reading; separates CSD-side flattened authenticated-page access and cryptographic authentication offload from Ethereum query semantics, Merkle-proof integrity, snapshot/update consistency, trust boundaries, wear/latency and complete analytics cost.</p></div>
+<p>This editorial correction updates the current reading view and connected dossiers, not the historical adjudication or scientific acceptance status. The original captured fields are preserved below.</p>
+<p><a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/data/editorial-paper-corrections-v1.json">Correction register</a></p>
+<p><strong>Problem:</strong></p>
+<p>Ethereum analytics must retrieve large ledger structures and validate auxiliary proofs such as Merkle proofs; host-side page movement and cryptographic verification can dominate authenticated query latency and CPU/I/O cost.</p>
+<p><strong>Mechanism / artifact:</strong></p>
+<p>EtherSSD, an in-storage Ethereum analytics platform using computational storage devices to bridge host/CSD semantics, flatten authenticated data queries into highly concurrent in-CSD page accesses, reduce host-side I/O operations and offload cryptographic authentication to an authentication engine; query language/operators, proof format, root/version handling, CSD programming model, trust boundary, update protocol, concurrency and failure behavior are unspecified.</p>
+<p><strong>Workload — the work tested:</strong></p>
+<p>Real-world Ethereum authenticated analytics workloads and ledger queries; query types, chain snapshot/block range, dataset size, transaction/log/state structures, proof depth, cache state, update/concurrency pattern, CSD configuration and host/storage baselines are unspecified.</p>
+<p><strong>Hardware and manufacturing assumptions:</strong></p>
+<p>Computational storage devices with in-storage page processing and cryptographic authentication attached to a host; flash/media/controller, CSD compute, memory, interface, parallelism, cryptographic engine, key/root-of-trust storage, firmware, power, wear, fault model and threat assumptions are unspecified.</p>
+<p><strong>Baseline — the comparison method:</strong></p>
+<p>Host-side Ethereum analytics</p>
+<p>Unaccelerated authenticated storage</p>
+<p>CSD analytics without flattened page access</p>
+<p>Host CPU authentication without the in-storage engine</p>
+<p>Same Ethereum snapshot, query, proof/security policy, consistency point, storage media, interface, cache state, concurrency, software and end-to-end latency/energy boundary are unspecified</p>
+<p><strong>Reported measurements:</strong></p>
+<p>The official description reports reduced authenticated query execution time, particularly I/O and authentication overhead, under real-world workloads; it does not report absolute latency, throughput, host I/O bytes, CPU/authentication cost, proof-verification throughput, energy, dataset/query conditions, integrity outcomes, update consistency or CSD scale.</p>
+<p><strong>Limits on the conclusion:</strong></p>
+<p>Flattening a Merkle-authenticated query must preserve the query's semantics and proof relation to the committed root. Define the proof type, hash function, root/version, page ordering, sibling paths, duplicate/omitted records, range/aggregate semantics and result completeness; compare returned records and proof acceptance with a trusted host reference under malformed, stale, reordered, replayed and adversarial pages.</p><p>Fewer host requests do not establish authenticated correctness.</p>
+<p>The CSD creates a new trust boundary. State which code, pages, metadata, keys and roots are trusted, how authentication-engine results are protected, how firmware compromise or DMA is handled, and how errors, retries, power loss and device replacement affect evidence.</p><p>Test snapshot/update races, reorg or fork handling if relevant, concurrent queries, partial writes, corrupted pages and stale roots; report rejected invalid proofs and false acceptance, not just successful query time.</p>
+<p>Measure page reads, bytes transferred at host/CSD/media levels, proof hashes, authentication-engine utilization, CPU cycles, queueing, parallelism, cache hits, flash reads, controller work, metadata, tail latency, energy, write amplification and wear. Include proof construction, query flattening, scheduling, result materialization, initialization, updates and recovery in the end-to-end boundary.</p><p>An authentication speedup can be offset by CSD contention or media access.</p>
+<p>The official description says EtherSSD reduces authenticated Ethereum-query execution time and I/O/authentication overhead on real-world workloads, but omits query/proof conditions, absolute results, integrity validation, trust/update assumptions, hardware configuration, wear, energy and baseline accounting. The evidence supports authenticated in-storage Ethereum analytics, not demonstrated complete blockchain-query correctness, adversarial storage security or portable end-to-end deployment efficiency.</p>
+<p><strong>Source and location</strong></p>
+<p>Evidence tier: Primary captured official DAC description plus existing authored in storage/query discussion; no full paper extraction, reproduced authenticated query, trust boundary analysis or independent csd validation. This is the stored source classification; the location and limits below determine what was actually read.</p>
+<p><a href="https://63dac.conference-program.com/?post_type=page&amp;p=16&amp;id=RESEARCH297&amp;sess=sess161">Open the recorded source</a></p>
+<p>DAC 2026 official description; existing storage-and-data-movement chapter framing; captured Problem, Mechanism / artifact, Workload, Hardware, Baseline, Measurements and Limits fields; no manuscript pages, proof trace, adversarial validation or CSD benchmark matrix.</p>
+<details markdown="1">
+<summary>Original captured fields — superseded for this reading card</summary>
+
+** page source tier:** medium_official_description
+
+**Baselines:** host-side Ethereum analytics
+
+unaccelerated authenticated storage
+
+**Evidence locators:** DAC 2026 official description
+
+**Evidence url:** https://63dac.conference-program.com/?post_type=page&amp;p=16&amp;id=RESEARCH297
+
+**Hardware or process assumptions:** Computational storage device with secure data path; flash/controller and threat assumptions are unspecified.
+
+**Limits:** No query latency, throughput, energy, authentication cost, or integrity results are reported.
+
+In-storage trust boundaries and update consistency are unspecified.
+
+Official description only; adversarial storage validation is required.
+
+**Method or artifact:** In-storage Ethereum analytics platform with authentication-aware data processing.
+
+**Metrics:** I/O and authentication efficiency are claimed qualitatively
+
+**Problem:** Blockchain analytics is storage- and I/O-heavy and must authenticate data accesses.
+
+**Workload or benchmark:** Ethereum ledger queries; storage device, datasets, authentication scheme, and baselines are unspecified.
+
+</details>
+<p><span id="paper-dac-2026-research2773"></span></p>
+<h3>Flashhd: A Flash-Based In-Storage Hyperdimensional Computing Framework for Hierarchical Sequence Matching</h3>
+<p>DAC 2026 · Record: <code>dac-2026-research2773</code></p>
+<p><a href="#explanation-dac-2026-research2773">Read the step-by-step explanation</a></p>
+<p><strong>Updated source-backed reading card</strong></p>
+<div class="worked"><p class="lm-k">Worked example</p><p>Reviewed 2026-09-09. Deepens the FlashHD treatment into a paper-level reading; separates 3D-NAND in-storage exact matching, hierarchical HDC filtering and hierarchy-aware hyperparameter search from exact-recall validation, flash sensing/variation, write/endurance cost, host/device data movement and end-to-end sequence-query performance, while preserving the qualitative superiority claim without inventing results.</p></div>
+<p>This editorial correction updates the current reading view and connected dossiers, not the historical adjudication or scientific acceptance status. The original captured fields are preserved below.</p>
+<p><a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/data/editorial-paper-corrections-v1.json">Correction register</a></p>
+<p><strong>Problem:</strong></p>
+<p>Exact DNA-sequence matching scans large corpora and can become dominated by page faults and host data movement when the working set exceeds memory; filtering near flash is attractive only if it preserves exact matches and does not shift the bottleneck into sensing or device management.</p>
+<p><strong>Mechanism / artifact:</strong></p>
+<p>FlashHD is described as a 3D-NAND in-storage sequence-matching framework using hierarchical hyperdimensional computing to filter dissimilar sequences across stages while preserving full recall, plus hierarchy-aware hyperdimensional architecture search to tune HDC hyperparameters for latency and energy; encoding, dimension, similarity/threshold operation, NAND sensing, controller integration, hierarchy construction and search budget are unspecified.</p>
+<p><strong>Workload — the work tested:</strong></p>
+<p>Exact DNA-sequence matching over large stored databases with hierarchical representations; sequence length, corpus size, query count/distribution, match rate, hierarchy/fanout, HDC dimension/precision, recall definition, storage working set, update pattern and competing systems are unspecified.</p>
+<p><strong>Hardware and manufacturing assumptions:</strong></p>
+<p>3D-NAND flash with in-storage compute and controller/sensing support; NAND generation, array geometry, channels/planes, raw-read path, peripheral compute, ADC/sense margins, ECC, controller, host link, memory, temperature, retention, read disturb, program/erase activity and endurance model are unspecified.</p>
+<p><strong>Baseline — the comparison method:</strong></p>
+<p>Host-side exact sequence matching</p>
+<p>Digital in-storage processing</p>
+<p>Same DNA corpus, query workload, exactness/recall criterion, sequence encoding, NAND capacity, host memory, controller, parallelism, software stack and end-to-end measurement boundary are unspecified</p>
+<p><strong>Reported measurements:</strong></p>
+<p>The official description claims that FlashHD significantly outperforms state-of-the-art systems and states that hierarchical filtering preserves full recall, but reports no recall/precision result, latency, throughput, energy, I/O bytes, density, area, endurance, query count or per-workload comparison.</p>
+<p><strong>Limits on the conclusion:</strong></p>
+<p>HDC filtering can discard a true match if encoding collisions, finite dimension, thresholding, quantization or NAND sensing errors alter similarity. Define exact matching semantics, sequence encoding, hierarchy, candidate-recall stage, tie/threshold behavior and compare every returned match with a trusted CPU reference; report false negatives, false positives and recall by sequence length, mutation/edit distance and match rarity. 'Full recall' requires a denominator and independent exact check.</p>
+<p>Moving matching into 3D NAND couples computation to raw-read latency, sensing variation, ECC, controller scheduling, channels/planes, thermal state and data movement. Include encoding, flash read, HDC operations, candidate transfer, verification, host result materialization, setup and calibration in latency/energy; report bytes read, parallelism, queueing and p50/p95/p99 behavior rather than only nominal array throughput.</p>
+<p>The hierarchy-aware architecture search must expose its objective, HDC hyperparameters, training/search evaluations, fidelity model, stopping rule and cost. Test unseen sequence distributions, database sizes, match rates, NAND conditions and changing corpora; measure re-encoding, writes, garbage collection, read disturb, retention and program/erase endurance if data or metadata are updated.</p><p>The evidence supports an in-storage HDC sequence-matching direction, not demonstrated exact-recall, durable flash efficiency or quantitative end-to-end superiority.</p>
+<p><strong>Source and location</strong></p>
+<p>Evidence tier: Primary captured official DAC description plus existing authored in storage compute discussion; no full paper extraction, reproduced exact match campaign, device level sensing validation or endurance study. This is the stored source classification; the location and limits below determine what was actually read.</p>
+<p><a href="https://63dac.conference-program.com/?post_type=page&amp;p=16&amp;id=RESEARCH2773">Open the recorded source</a></p>
+<p>DAC 2026 official description; existing storage-and-data-movement chapter framing; captured Problem, Mechanism / artifact, Workload, Hardware, Baseline, Measurements and Limits fields; no manuscript pages, sequence-query table, NAND condition matrix or reproduced recall/energy/endurance evaluation.</p>
+<details markdown="1">
+<summary>Original captured fields — superseded for this reading card</summary>
+
+** page source tier:** medium_official_description
+
+**Baselines:** host-side sequence matching
+
+digital in-storage processing
+
+**Evidence locators:** DAC 2026 official description
+
+**Evidence url:** https://63dac.conference-program.com/?post_type=page&amp;p=16&amp;id=RESEARCH2773
+
+**Hardware or process assumptions:** Flash storage with in-storage compute and endurance constraints; controller and sensing assumptions are unspecified.
+
+**Limits:** No accuracy, latency, energy, endurance, density, or query results are reported.
+
+Flash variability and writes may constrain updates.
+
+Official description only; device-level validation is required.
+
+**Method or artifact:** Flash-based in-storage hyperdimensional computing framework.
+
+**Metrics:** I/O and matching efficiency are claimed qualitatively
+
+**Problem:** Sequence matching is data-movement-heavy, especially for large stored corpora and hierarchical representations.
+
+**Workload or benchmark:** Hierarchical sequence matching; flash technology, data sizes, and baselines are unspecified.
+
+</details>
+<p><span id="paper-dac-2026-research2806"></span></p>
+<h3>Lhgstore: An In-Memory Learned Graph Storage for Fast Updates and Analytics</h3>
+<p>DAC 2026 · Record: <code>dac-2026-research2806</code></p>
+<p><a href="#explanation-dac-2026-research2806">Read the step-by-step explanation</a></p>
+<p><strong>Updated source-backed reading card</strong></p>
+<div class="worked"><p class="lm-k">Worked example</p><p>Reviewed 2026-09-09. Deepens the LHGstore treatment into a paper-level reading; separates degree-aware two-level graph layout, vertex/edge decoupling, low-degree arrays and high-degree learned indexes from graph-update correctness, traversal semantics, memory overhead, concurrency, distribution shift and end-to-end analytics conditions, while preserving the 5.9–28.2x claim with its missing measurement boundary.</p></div>
+<p>This editorial correction updates the current reading view and connected dossiers, not the historical adjudication or scientific acceptance status. The original captured fields are preserved below.</p>
+<p><a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/data/editorial-paper-corrections-v1.json">Correction register</a></p>
+<p><strong>Problem:</strong></p>
+<p>Dynamic in-memory graphs must absorb frequent edge/vertex updates while retaining locality for low-latency traversal and analytics; skewed degree distributions make one representation inefficient for both low- and high-degree vertices.</p>
+<p><strong>Mechanism / artifact:</strong></p>
+<p>LHGstore is described as a degree-aware Learned Hierarchical Graph store with a two-level hierarchy that decouples vertex and edge access, uses lightweight arrays for low-degree vertices to preserve traversal locality, and applies learned indexes to high-degree vertices to improve update throughput; degree thresholds, index training, correction/rebuild, concurrency, memory layout and recovery are unspecified.</p>
+<p><strong>Workload — the work tested:</strong></p>
+<p>Real-world dynamic graphs with frequent updates and analytics, including skewed degree distributions; graph identities, vertex/edge counts, degree/timestamp distributions, update mix and burstiness, query/traversal algorithms, concurrency, memory capacity, warm-up, graph mutability and scale are unspecified.</p>
+<p><strong>Hardware and manufacturing assumptions:</strong></p>
+<p>In-memory graph storage on a modern multi-core CPU; CPU model, cores, cache/NUMA topology, DRAM capacity/bandwidth, allocator, thread/runtime, synchronization, persistence, failure recovery and consistency model are unspecified.</p>
+<p><strong>Baseline — the comparison method:</strong></p>
+<p>Hash/table-based graph store</p>
+<p>Conventional in-memory graph database</p>
+<p>Same graph representation/semantics, memory budget, CPU/NUMA placement, update/query workload, concurrency, thread count, batching, warm-up, persistence and end-to-end timing boundary are unspecified</p>
+<p><strong>Reported measurements:</strong></p>
+<p>The official description reports 5.9–28.2x higher throughput and significantly faster analytics than state-of-the-art in-memory graph storage systems, but does not report absolute update/query throughput or latency, memory overhead, graph scale, consistency cost, tail behavior, per-workload results or baseline tuning.</p>
+<p><strong>Limits on the conclusion:</strong></p>
+<p>A learned index predicts locations or ordering; it does not replace graph semantics. Define vertex/edge identity, insertion/deletion/update visibility, duplicate/self-loop handling, adjacency ordering, traversal consistency and crash/recovery behavior.</p><p>Validate analytics against a trusted graph reference during concurrent updates, including races, deletes, degree changes, stale predictions and index rebuilds; higher update throughput is not useful if a traversal sees an invalid graph.</p>
+<p>The degree-aware split trades locality and memory layout against update and lookup cost. Report degree thresholds, array/index bytes, model metadata, slack, fragmentation, cache/NUMA misses, pointer chasing, rebuild/training time, synchronization, allocator and migration cost.</p><p>Measure p50/p95/p99 update and query latency, throughput, scan/traversal work and memory per vertex/edge under read-heavy, update-heavy and mixed workloads rather than only a geometric mean.</p>
+<p>Learned indexes can degrade when degree or neighbor-key distributions change. Hold out graph snapshots, unseen graphs and temporal phases; test skew shifts, bursts, insertions/deletions, adversarial keys and memory pressure.</p><p>Compare hash/table and conventional stores with equal CPU threads, memory, consistency, batching and query semantics. The evidence supports degree-aware learned in-memory graph storage, not demonstrated portable 5.9–28.2x end-to-end benefit, stable analytics under dynamic shift or a persistence guarantee.</p>
+<p><strong>Source and location</strong></p>
+<p>Evidence tier: Primary captured official DAC description plus existing authored graph storage discussion; no full paper extraction, reproduced dynamic update campaign, memory accounting or independent analytics correctness validation. This is the stored source classification; the location and limits below determine what was actually read.</p>
+<p><a href="https://63dac.conference-program.com/?post_type=page&amp;p=16&amp;id=RESEARCH2806">Open the recorded source</a></p>
+<p>DAC 2026 official description; existing storage-and-data-movement chapter framing; captured Problem, Mechanism / artifact, Workload, Hardware, Baseline, Measurements and Limits fields; no manuscript pages, graph/workload table, consistency trace or reproduced multi-core benchmark.</p>
+<details markdown="1">
+<summary>Original captured fields — superseded for this reading card</summary>
+
+** page source tier:** medium_official_description
+
+**Baselines:** hash/table graph store
+
+conventional in-memory graph database
+
+**Evidence locators:** DAC 2026 official description
+
+**Evidence url:** https://63dac.conference-program.com/?post_type=page&amp;p=16&amp;id=RESEARCH2806
+
+**Hardware or process assumptions:** In-memory graph storage system; consistency, persistence, and memory technology assumptions are unspecified.
+
+**Limits:** No update latency, query throughput, memory, consistency, or graph-scale results are reported.
+
+Learned indexes may degrade under distribution shift.
+
+Official description only; dynamic-workload validation is required.
+
+**Method or artifact:** Learned in-memory graph storage structure.
+
+**Metrics:** Update and analytics efficiency are claimed qualitatively
+
+**Problem:** Graph stores need fast updates and analytics while fitting large, irregular structures in memory.
+
+**Workload or benchmark:** Dynamic graph updates and analytics; graph sizes, memory, and baselines are unspecified.
+
+</details>
+<p><span id="paper-dac-2026-research442"></span></p>
+<h3>VALVE: Accelerating Visible Version Searching in HTAP Systems via In-Storage Computing</h3>
+<p>DAC 2026 · Record: <code>dac-2026-research442</code></p>
+<p><a href="#explanation-dac-2026-research442">Read the step-by-step explanation</a></p>
+<p><strong>Updated source-backed reading card</strong></p>
+<div class="worked"><p class="lm-k">Worked example</p><p>Reviewed 2026-09-09. Deepens the VALVE treatment into a paper-level reading; separates CSD-offloaded MVCC visible-version searching and frugal skip-list traversal from snapshot/visibility correctness, host-CSD concurrency, transaction isolation, failure recovery and complete HTAP latency/throughput cost, while preserving the qualitative end-to-end scan and analytical-throughput claims.</p></div>
+<p>This editorial correction updates the current reading view and connected dossiers, not the historical adjudication or scientific acceptance status. The original captured fields are preserved below.</p>
+<p><a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/data/editorial-paper-corrections-v1.json">Correction register</a></p>
+<p><strong>Problem:</strong></p>
+<p>HTAP systems maintain multiple versions under MVCC; frequent updates lengthen version chains, so analytical queries spend more I/O and CPU work finding the version visible to their snapshot while transactions continue concurrently.</p>
+<p><strong>Mechanism / artifact:</strong></p>
+<p>VALVE offloads visible-version searching from the host to a computational-storage device and first addresses consistency under host-CSD concurrency; a frugal skip list accelerates traversal of version chains. Snapshot visibility rule, metadata format, skip-list maintenance, host/device ownership, synchronization, transaction protocol, persistence and recovery are unspecified.</p>
+<p><strong>Workload — the work tested:</strong></p>
+<p>HTAP transactional updates and analytical scans over MVCC version chains; database engine, workload mix, transaction/update rate, chain length, snapshot age, query predicates, data size, concurrency, cache state, CSD configuration and baselines are unspecified.</p>
+<p><strong>Hardware and manufacturing assumptions:</strong></p>
+<p>Computational-storage device processing transaction/version metadata with host-side HTAP database; CSD processor/memory, storage medium, host link, controller, persistence, cache, queueing, firmware, power-loss and failure assumptions are unspecified.</p>
+<p><strong>Baseline — the comparison method:</strong></p>
+<p>Host-side visible-version search</p>
+<p>Generic in-storage query processing</p>
+<p>Same MVCC isolation/visibility contract, transaction and analytical workload, version-chain state, database engine, CSD/host hardware, cache, concurrency, recovery policy and end-to-end timing boundary are unspecified</p>
+<p><strong>Reported measurements:</strong></p>
+<p>The official description claims reduced end-to-end analytical scan latency and improved analytical throughput using CSD-offloaded visible-version search and a frugal skip list, but reports no absolute latency, throughput, I/O/CPU reduction, consistency result, transaction impact, energy, endurance, failure recovery or per-workload condition.</p>
+<p><strong>Limits on the conclusion:</strong></p>
+<p>Visible-version search is a correctness operation, not merely a filter. Define transaction timestamps, snapshot/commit visibility, deletes, updates, version-chain ordering, phantom/serializability or snapshot-isolation contract and result completeness.</p><p>Compare host and CSD results under concurrent commits, aborts, retries, stale metadata, long chains and snapshot changes; lower scan latency is invalid if a query reads an uncommitted, too-new or missing version.</p>
+<p>The frugal skip list trades metadata, maintenance and pointer traversal for fewer version comparisons. Specify its level construction, key/order, update/delete protocol, stale-index fallback, memory placement, synchronization and rebuild cost.</p><p>Measure host/CSD bytes, metadata traffic, random reads, queueing, CPU/CSD utilization, lock/wait time, version-chain length, p50/p95/p99 analytical latency and transaction latency under read-heavy, update-heavy and mixed loads.</p>
+<p>CSD concurrency creates a distributed state boundary. Test power loss, device reset, host failure, partial metadata writes, retries, duplicate requests, firmware restart and recovery, and state which data are durable.</p><p>Compare host-side and generic in-storage processing with equal isolation, cache, hardware, workload, warm-up, batching and recovery cost. The evidence supports CSD-assisted MVCC visible-version traversal, not demonstrated serializable/consistent HTAP correctness, failure-safe persistence or portable end-to-end throughput improvement.</p>
+<p><strong>Source and location</strong></p>
+<p>Evidence tier: Primary captured official DAC description plus existing authored in storage/query discussion; no full paper extraction, independent concurrency validation, failure recovery study or complete htap measurement matrix. This is the stored source classification; the location and limits below determine what was actually read.</p>
+<p><a href="https://63dac.conference-program.com/?post_type=page&amp;p=16&amp;id=RESEARCH442">Open the recorded source</a></p>
+<p>DAC 2026 official description; existing storage-and-data-movement chapter framing; captured Problem, Mechanism / artifact, Workload, Hardware, Baseline, Measurements and Limits fields; no manuscript pages, MVCC history trace, consistency test or reproduced CSD scan benchmark.</p>
+<details markdown="1">
+<summary>Original captured fields — superseded for this reading card</summary>
+
+** page source tier:** medium_official_description
+
+**Baselines:** host-side version search
+
+generic in-storage query processing
+
+**Evidence locators:** DAC 2026 official description
+
+**Evidence url:** https://63dac.conference-program.com/?post_type=page&amp;p=16&amp;id=RESEARCH442
+
+**Hardware or process assumptions:** Computational storage with transaction metadata processing; persistence and failure assumptions are unspecified.
+
+**Limits:** No latency, throughput, consistency, energy, endurance, or failure results are reported.
+
+In-storage query state may complicate transactional correctness.
+
+Official description only; concurrency and fault validation are required.
+
+**Method or artifact:** In-storage visible-version search accelerator.
+
+**Metrics:** HTAP query efficiency is claimed qualitatively
+
+**Problem:** HTAP version visibility queries incur I/O and transaction-history processing overhead.
+
+**Workload or benchmark:** HTAP transaction/version queries; storage device, consistency model, and baselines are unspecified.
+
+</details>
+<p><span id="paper-dac-2026-research609"></span></p>
+<h3>Knowledge-Driven Hybrid SSD Management Enhanced by Fine-Tuned LLMs</h3>
+<p>DAC 2026 · Record: <code>dac-2026-research609</code></p>
+<p><a href="#explanation-dac-2026-research609">Read the step-by-step explanation</a></p>
+<p><strong>Updated source-backed reading card</strong></p>
+<div class="worked"><p class="lm-k">Worked example</p><p>Reviewed 2026-09-09. Deepens the LLM-hybridSSD treatment into a paper-level reading; separates knowledge-guided parameter tuning, LLM-based adaptive configuration and RL fine-tuning of lightweight local models from SSD-policy safety, SLC/QLC conversion and migration cost, write-amplification/endurance accounting, workload transfer and controller deployment, while preserving the 58.92% throughput and 28.56% WA claims.</p></div>
+<p>This editorial correction updates the current reading view and connected dossiers, not the historical adjudication or scientific acceptance status. The original captured fields are preserved below.</p>
+<p><a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/data/editorial-paper-corrections-v1.json">Correction register</a></p>
+<p><strong>Problem:</strong></p>
+<p>A hybrid SSD combines flash modes such as SLC and QLC and may convert or migrate data between them, creating a larger management space involving placement, garbage collection, conversion and endurance; static policies can be poor when workload phases change.</p>
+<p><strong>Mechanism / artifact:</strong></p>
+<p>LLM-hybridSSD formulates hybrid-SSD management as parameter tuning, uses an LLM-based tuner for adaptive configuration and applies reinforcement-learning fine-tuning to align lightweight local models with domain-specific SSD knowledge; parameter/state representation, actions, safety constraints, training data, reward, deployment path, update cadence, fallback and controller integration are unspecified.</p>
+<p><strong>Workload — the work tested:</strong></p>
+<p>Hybrid SLC/QLC SSD management under different real-world workloads with mode conversion and data migration; traces, read/write mix, queue depth, locality, phase changes, capacity/overprovisioning, SSD geometry, workload duration, training/validation split and workload holdout are unspecified.</p>
+<p><strong>Hardware and manufacturing assumptions:</strong></p>
+<p>SSD controller managing heterogeneous flash modes with conversion, migration, garbage collection and wear-leveling; NAND generation, channels, firmware, controller compute/memory, host interface, FTL, ECC, thermal state, power-loss protection, program/erase limits and telemetry access are unspecified.</p>
+<p><strong>Baseline — the comparison method:</strong></p>
+<p>State-of-the-art hybrid-SSD management schemes</p>
+<p>Heuristic SSD management</p>
+<p>LLM-free policy learning</p>
+<p>Same flash modes, capacity, overprovisioning, FTL/ECC, workload trace, queueing, latency/SLO target, controller resources, tuning budget, warm-up and long-run measurement boundary are unspecified</p>
+<p><strong>Reported measurements:</strong></p>
+<p>The official description reports average 58.92% higher throughput and 28.56% lower write amplification than state-of-the-art schemes across different real-world workloads; it does not report absolute latency/tails, throughput conditions, endurance/TBW, energy, conversion/migration traffic, capacity, policy/LLM cost, safety violations or per-workload variance.</p>
+<p><strong>Limits on the conclusion:</strong></p>
+<p>A learned tuner proposes control parameters; it does not automatically preserve FTL invariants or flash safety. Define legal placement, mapping, garbage-collection, conversion, migration, ECC, wear-leveling, crash-consistency and power-loss constraints, and use a guarded controller that rejects unsafe actions.</p><p>Test stale telemetry, invalid parameters, model failures, firmware restart, power loss and concurrent host I/O; a throughput gain is not valid if data is lost or an SLO is violated.</p>
+<p>Write amplification is an accounting boundary, not only a policy output. Separate host writes, migration/conversion writes, garbage collection, metadata/ECC and background refresh; report logical-to-physical write ratio, bytes, latency tails, queueing, channel utilization, energy and lifetime/TBW under sustained aging.</p><p>Include LLM calls, profiling, RL/local-model inference, retraining, policy transfer, fallback and controller CPU/memory in the deployment cost.</p>
+<p>The 58.92% and 28.56% averages need named traces, baselines, workload phases and matched tuning. Hold out complete workloads, unseen read/write mixes, capacity pressure, burstiness, temperature and aging; report per-trace results, policy stability and adaptation time.</p><p>The evidence supports knowledge-guided adaptive hybrid-SSD management, not demonstrated safe, durable, low-tail or universally better controller behavior.</p>
+<p><strong>Source and location</strong></p>
+<p>Evidence tier: Primary captured official DAC description plus existing authored ssd management discussion; no full paper extraction, independent safety/convergence validation, firmware integration or endurance/aging measurement. This is the stored source classification; the location and limits below determine what was actually read.</p>
+<p><a href="https://63dac.conference-program.com/?post_type=page&amp;p=16&amp;id=RESEARCH609">Open the recorded source</a></p>
+<p>DAC 2026 official description; existing storage-and-data-movement chapter framing; captured Problem, Mechanism / artifact, Workload, Hardware, Baseline, Measurements and Limits fields; no manuscript pages, SSD trace table, policy-action log, endurance study or reproduced long-run controller evaluation.</p>
+<details markdown="1">
+<summary>Original captured fields — superseded for this reading card</summary>
+
+** page source tier:** medium_official_description
+
+**Baselines:** heuristic SSD management
+
+LLM-free policy learning
+
+**Evidence locators:** DAC 2026 official description
+
+**Evidence url:** https://63dac.conference-program.com/?post_type=page&amp;p=16&amp;id=RESEARCH609
+
+**Hardware or process assumptions:** SSD controller managing heterogeneous media; endurance, firmware, and workload assumptions are unspecified.
+
+**Limits:** No latency, throughput, endurance, energy, write amplification, or safety results are reported.
+
+LLM policies may behave unpredictably on unseen workloads.
+
+Official description only; long-run workload validation is required.
+
+**Method or artifact:** Knowledge-driven SSD-management policy enhanced by fine-tuned LLMs.
+
+**Metrics:** SSD management efficiency is claimed qualitatively
+
+**Problem:** Hybrid SSD management must balance performance, endurance, placement, and workload changes.
+
+**Workload or benchmark:** Hybrid SSD workloads; media types, policies, and baselines are unspecified.
+
+</details>
+<p><span id="paper-dac-2026-research698"></span></p>
+<h3>Freezone: An On-Device Out-of-Order Writes Reordering Scheme for Consumer Zoned Storage</h3>
+<p>DAC 2026 · Record: <code>dac-2026-research698</code></p>
+<p><a href="#explanation-dac-2026-research698">Read the step-by-step explanation</a></p>
+<p><strong>Updated source-backed reading card</strong></p>
+<div class="worked"><p class="lm-k">Worked example</p><p>Reviewed 2026-09-09. Deepens the FreeZone treatment into a paper-level reading; separates kernel-ordering bypass, SLC-backed write-buffer extension and on-device zone reordering from zoned-write correctness, persistence/recovery, flash capacity/endurance, write amplification and complete IOPS/latency accounting, while preserving the up-to-2.3x claim.</p></div>
+<p>This editorial correction updates the current reading view and connected dossiers, not the historical adjudication or scientific acceptance status. The original captured fields are preserved below.</p>
+<p><a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/data/editorial-paper-corrections-v1.json">Correction register</a></p>
+<p><strong>Problem:</strong></p>
+<p>Zoned storage requires sequential writes within each zone; kernel-side ordering of irregular consumer writes can serialize requests and reduce parallelism, while an on-device reorder buffer can run out of space as outstanding requests grow.</p>
+<p><strong>Mechanism / artifact:</strong></p>
+<p>FreeZone allows the kernel to submit writes without strict host-side ordering and extends the on-device reorder buffer using high-performance SLC flash, where requests are retained/reordered before being committed in zone order; zone sequence tracking, buffer admission, flush policy, metadata, persistence, recovery and SLC management are unspecified.</p>
+<p><strong>Workload — the work tested:</strong></p>
+<p>Consumer zoned-storage workloads with irregular/random writes and high parallelism; device capacity, zone size/count, write-size distribution, queue depth, workload phases, read/write mix, host kernel, filesystem, cache state, SLC allocation and baseline tuning are unspecified.</p>
+<p><strong>Hardware and manufacturing assumptions:</strong></p>
+<p>Consumer SSD/controller supporting a zone interface, on-device write buffering and an SLC flash region; NAND generation, channels, controller resources, FTL, zone-management commands, host link, power-loss protection, ECC, garbage collection, SLC-to-QLC/TLC conversion, wear and endurance are unspecified.</p>
+<p><strong>Baseline — the comparison method:</strong></p>
+<p>Existing zoned-storage architectures with host-side write ordering</p>
+<p>Strict in-order zoned writes</p>
+<p>Prior on-device request reordering with limited buffer</p>
+<p>Same zone rules, host/kernel/filesystem, device capacity, SLC budget, queue depth, request trace, durability contract, recovery path and end-to-end measurement boundary are unspecified</p>
+<p><strong>Reported measurements:</strong></p>
+<p>The official description reports up to 2.3x IOPS improvement over existing zoned-storage architectures, but does not report absolute IOPS, latency/tails, queueing, write amplification, SLC capacity cost, data-movement overhead, endurance, power-loss recovery, ordering violations or per-workload results.</p>
+<p><strong>Limits on the conclusion:</strong></p>
+<p>Reordering must preserve the zone interface contract. Define per-zone logical write pointer, request identity/ordering, overwrite/append semantics, barriers, flush/FUA, zone reset, synchronization and visibility.</p><p>Check that every committed sequence is legal and that host acknowledgments do not imply durability before the reordered data and metadata are safe; higher IOPS is invalid if zones become inconsistent.</p>
+<p>Using SLC as a reorder buffer trades buffer capacity for flash writes, metadata, garbage collection, conversion and endurance. Measure SLC occupancy, admission/backpressure, spill/fallback, migration bytes, logical-to-physical writes, write amplification, channel utilization, latency tails, energy and TBW under sustained and bursty workloads.</p><p>Include reorder decisions, buffer management, recovery and cleanup in the IOPS boundary.</p>
+<p>Test power loss, controller reset, torn metadata, aborted requests, duplicate/replayed writes, zone reset, full SLC, device aging, thermal throttling and concurrent reads. Compare host ordering and prior device reorderers with equal zone/queue/device/durability settings.</p><p>The evidence supports SLC-backed on-device zoned-write reordering, not demonstrated crash-safe consistency, durable endurance benefit or portable 2.3x end-to-end performance.</p>
+<p><strong>Source and location</strong></p>
+<p>Evidence tier: Primary captured official DAC description plus existing authored zoned storage discussion; no full paper extraction, independent ordering/persistence validation, slc endurance study or complete iops/latency accounting. This is the stored source classification; the location and limits below determine what was actually read.</p>
+<p><a href="https://63dac.conference-program.com/?post_type=page&amp;p=16&amp;id=RESEARCH698">Open the recorded source</a></p>
+<p>DAC 2026 official description; existing storage-and-data-movement chapter framing; captured Problem, Mechanism / artifact, Workload, Hardware, Baseline, Measurements and Limits fields; no manuscript pages, zone-order trace, crash-injection result or reproduced consumer-SSD benchmark.</p>
+<details markdown="1">
+<summary>Original captured fields — superseded for this reading card</summary>
+
+** page source tier:** medium_official_description
+
+**Baselines:** host-side write ordering
+
+strict in-order zoned writes
+
+**Evidence locators:** DAC 2026 official description
+
+**Evidence url:** https://63dac.conference-program.com/?post_type=page&amp;p=16&amp;id=RESEARCH698
+
+**Hardware or process assumptions:** SSD/controller supporting zoned storage and write reordering; persistence and failure assumptions are unspecified.
+
+**Limits:** No latency, throughput, write amplification, endurance, consistency, or crash results are reported.
+
+Reordering may complicate recovery semantics.
+
+Official description only; fault-injection validation is required.
+
+**Method or artifact:** On-device out-of-order write-reordering scheme.
+
+**Metrics:** Storage performance and write efficiency are claimed qualitatively
+
+**Problem:** Zoned storage constrains write ordering while consumer workloads generate irregular writes.
+
+**Workload or benchmark:** Consumer zoned-storage workloads; media, zone rules, and baselines are unspecified.
+
+</details>
+<p><span id="paper-iccad-2025-1144"></span></p>
+<h3>GAIA: Glass-Aware I/O Middleware</h3>
+<p>ICCAD 2025 · Record: <code>iccad-2025-1144</code></p>
+<p><a href="#explanation-iccad-2025-1144">Read the step-by-step explanation</a></p>
+<p><strong>Updated source-backed reading card</strong></p>
+<div class="worked"><p class="lm-k">Worked example</p><p>Reviewed 2026-09-09. Deepens the GAIA institutional-abstract treatment into a paper-level reading; separates glass-aware placement and movement-time scheduling from address correctness, mechanical-optical cost-model validity, latency tails, trace/baseline conditions and deployment evidence, while preserving the up-to-82% abstract claim as withheld pending simulation conditions.</p></div>
+<p>This editorial correction updates the current reading view and connected dossiers, not the historical adjudication or scientific acceptance status. The original captured fields are preserved below.</p>
+<p><a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/data/editorial-paper-corrections-v1.json">Correction register</a></p>
+<p><strong>Problem:</strong></p>
+<p>Quartz-glass archival storage combines mechanical X/Y movement and optical Z focusing, creating access costs that conventional I/O schedulers may not model.</p>
+<p><strong>Mechanism / artifact:</strong></p>
+<p>GAIA glass-aware I/O middleware with Zigzag Data Placement, Z-Axis First Placement and Shortest Moving Time First scheduling based on predicted movement time; coordinate mapping, cost model, queue policy, request granularity and update/recovery behavior are unspecified.</p>
+<p><strong>Workload — the work tested:</strong></p>
+<p>Trace-driven simulation of enterprise-scale archival-storage workloads across varied glass sizes; trace identities, request mix/size, glass dimensions, queue depth, concurrency, warm-up and latency distribution are unresolved.</p>
+<p><strong>Hardware and manufacturing assumptions:</strong></p>
+<p>Quartz-glass archival medium with mechanical stage motion along X/Y and optical focus along Z; encoding, media geometry, stage dynamics, acceleration/settling, focus behavior, controller, simulator validation, power, durability and implementation status are unspecified.</p>
+<p><strong>Baseline — the comparison method:</strong></p>
+<p>Traditional baseline schedulers (unnamed in abstract)</p>
+<p>FIFO, geometric-distance and movement-aware schedulers under the same traces, glass geometry, request set, capacity, queue depth, warm-up, cost model and end-to-end boundary are unspecified</p>
+<p><strong>Reported measurements:</strong></p>
+<p>The institutional abstract reports up to 82% lower read latency in trace-driven simulation across enterprise-scale workloads and varied glass sizes, but provides no absolute latency, trace-level distribution, throughput, queueing, starvation/fairness, movement/focus breakdown, baseline implementation, simulator calibration or energy/durability result.</p>
+<p><strong>Limits on the conclusion:</strong></p>
+<p>Placement and scheduling must preserve logical address-to-location mapping, object/chunk boundaries, X/Y/Z coordinates, metadata, replication, updates, relocation, retries and recovery. Test stale/wrong/incomplete reads, mixed operations and restart; reducing movement is not useful if data semantics fail.</p>
+<p>SMTF depends on a calibrated cost model for direction changes, stage dynamics, settling, focus, media access and queue interference. Compare predicted and measured/simulated service time across directions, distances, depth, queue depth and contention; report p50/p95/p99/p99.9 latency, fairness and starvation, not only an average.</p>
+<p>The institutional abstract supports glass-aware archival I/O placement and scheduling, but the up-to-82% claim remains withheld pending trace, glass-size, simulator and baseline conditions. This is archival glass storage, not glass packaging or fabricated-chip evidence, and it does not establish durable, deployable 82% end-to-end improvement.</p>
+<p><strong>Source and location</strong></p>
+<p>Evidence tier: Primary captured institutional abstract plus bounded source recovery assessment and existing storage/data movement explanation; no full paper extraction, reproduced glass storage simulation or deployed media measurement. This is the stored source classification; the location and limits below determine what was actually read.</p>
+<p><a href="https://scholar.nycu.edu.tw/en/publications/gaia-glass-aware-io-middleware/">Open the recorded source</a></p>
+<p>NYCU institutional abstract; iccad/data/gaia-primary-recovery-v1.json; captured Problem, Mechanism / artifact, Workload, Hardware, Baseline, Measurements and Limits fields; author metadata variants retained; no full manuscript, trace table, simulator calibration or independent validation.</p>
+<details markdown="1">
+<summary>Original captured fields — superseded for this reading card</summary>
+
+** page source tier:** medium_institutional_abstract
+
+**Baselines:** Traditional baseline schedulers (unnamed in abstract)
+
+**Evidence locators:** **Fields:** problem
+
+method_or_artifact
+
+workload_or_benchmark
+
+hardware_or_process_assumptions
+
+baselines
+
+limits
+
+**Location:** NYCU institutional abstract; iccad/data/gaia-primary-recovery-v1.json
+
+**Evidence url:** https://scholar.nycu.edu.tw/en/publications/gaia-glass-aware-io-middleware/
+
+**Hardware or process assumptions:** Quartz-glass archival storage model; mechanical X/Y stage and optical Z focus; implementation and simulator details unresolved.
+
+**Limits:** The institutional page reports up to 82% read-latency reduction, but the number is withheld pending trace, glass-size and baseline conditions. This is archival glass storage, not glass packaging or fabricated-chip evidence. Author spellings differ between institutional metadata and program/author-lab listings; DOI/title match and source variants are retained.
+
+**Method or artifact:** Zigzag data placement, Z-axis-first placement and shortest-moving-time-first scheduling based on predicted movement time.
+
+**Metrics:** Not established in the captured evidence.
+
+**Problem:** Hybrid mechanical-optical glass storage has movement and depth-traversal costs that conventional I/O schedulers do not model.
+
+**Workload or benchmark:** Trace-driven simulations with enterprise-scale workloads and varied glass sizes; trace identities and sizes unresolved.
+
+</details>
+<h4>Additional source assessment</h4>
+<div class="worked"><p class="lm-k">Worked example</p><p>This separately recorded check is dated 2026-09-06. It supplements the original record above and retains its own scope and uncertainty.</p></div>
+<p><a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/iccad/data/gaia-primary-recovery-v1.json">Assessment record</a></p>
+<p><a href="https://scholar.nycu.edu.tw/en/publications/gaia-glass-aware-io-middleware/">Assessed source</a></p>
+<p><strong>Extraction scope</strong></p>
+<p>Browser-readable institutional abstract and metadata; author-lab publication entry cross-check. No full text or original capture packet.</p>
+<p><strong>Conditions</strong></p>
+<p>Trace-driven glass-storage simulation; named traces, mechanics, baseline implementations and latency distribution not established by abstract.</p>
+<p><strong>Headline metric status</strong></p>
+<p>withheld_pending_identity_and_simulation_conditions</p>
+<p><strong>Independent review status</strong></p>
+<p>pending</p>
+<p class="lm-k h-label">What remains to establish</p><h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>What is still unproven here</h2>
+<p>Resolve unspecified workloads, comparison methods, resource budgets, and source locations before generalizing a reported gain. Multiple papers in this selected sample permit comparison of mechanisms, but do not by themselves establish recurrence across years or a long-term trend.</p>
+<p><a href="../guide/expanded-taxonomy-v1.html">All subthemes</a> · <a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/reports/directions/README.md">Research directions</a></p><p class="meta">Written as <a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/reports/observed-subthemes/storage-and-data-movement.md">reports/observed-subthemes/storage-and-data-movement.md</a> in the course repository.</p>
+      </article>
+      <nav class="pager" aria-label="Previous and next"><a class="prev" href="memory-hierarchy-and-persistence.html"><span class="pg-k">← Previous</span><span class="pg-t">Memory hierarchy and persistence</span></a><a class="map" href="../subthemes.html"><span class="pg-k">Back to</span><span class="pg-t">Subthemes</span></a><a class="next" href="memory-compute-and-reliability.html"><span class="pg-k">Next →</span><span class="pg-t">Memory compute and reliability</span></a></nav>
+    </section>
+  </main>
+  <footer class="course-foot">
+    <p>Built from 582 paper records coded from ISCA 2026, DAC 2026 and ICCAD 2025 (ICCAD 2026 papers were not yet public). Most records come from official program descriptions; see “How deep the reading went”. The papers belong to their authors.</p>
+    <p class="foot-links"><a href="https://github.com/mehtama1234/course-concept-library">All courses</a><a href="../index.html">This course</a><a href="../course-map.html">Course map</a><a href="../presentation/index.html">Slides</a><a href="../video/index.html">Video</a><a href="../share/index.html">Share</a></p>
+  </footer>
+  <script src="../assets/course-data.js"></script><script src="../assets/icons.js"></script><script src="../assets/icons-extra.js"></script><script src="../assets/icons-course.js"></script><script src="../assets/art.js"></script><script src="../assets/course-art.js"></script><script src="../assets/charts.js"></script><script src="../assets/course-charts.js"></script><script src="../assets/course-site.js"></script>
+</body>
+</html>

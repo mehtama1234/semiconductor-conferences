@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#F3ECE1" />
+  <title>Interconnect and networking · Semiconductor conference atlas</title>
+  <meta name="description" content="Papers: DAC 1. Read from: 1 program descriptions, 0 abstracts or reports, 0 full papers or preprints. The explanations come first; every paper’s record follows at the end." />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Semiconductor conference atlas" />
+  <meta property="og:title" content="Interconnect and networking · Semiconductor conference atlas" />
+  <meta property="og:description" content="Papers: DAC 1. Read from: 1 program descriptions, 0 abstracts or reports, 0 full papers or preprints. The explanations come first; every paper’s record follows at the end." />
+  <meta property="og:url" content="https://mehtama1234.github.io/semiconductor-conferences/subthemes/interconnect-and-networking.html" />
+  <meta property="og:image" content="https://mehtama1234.github.io/semiconductor-conferences/presentation/slides/01-cover.jpg" />
+  <meta property="og:image:width" content="1920" />
+  <meta property="og:image:height" content="1080" />
+  <meta property="og:image:alt" content="Semiconductor conference atlas: 582 papers from ISCA, DAC and ICCAD, sorted into 10 themes and six directions to watch." />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="canonical" href="https://mehtama1234.github.io/semiconductor-conferences/subthemes/interconnect-and-networking.html" />
+  <link rel="icon" href="../assets/icon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="../assets/base.css" />
+  <link rel="stylesheet" href="../assets/experience.css" />
+  <link rel="stylesheet" href="../assets/theme-atlas.css" />
+  <link rel="stylesheet" href="../assets/styles.css" />
+  <link rel="stylesheet" href="../assets/charts.css" />
+  <link rel="stylesheet" href="../assets/course.css" />
+  
+</head>
+<body class="course-site " data-house="atlas">
+  <aside class="public-demo-banner" aria-label="About this course">A plain-language guide to what ISCA, DAC and ICCAD papers say about chip and computer design · Built from the repository’s own paper records · Not made by the conferences</aside>
+  <a class="skip-link" href="#app">Skip to the page</a>
+  <header>
+    <a class="brand" href="../index.html"><span class="mark" aria-hidden="true">Si</span> Semiconductor conference atlas</a>
+    <span class="header-status"><span class="badge">582 papers</span><span class="badge">10 themes</span><span class="badge">Plain words first</span></span>
+    <a class="header-link" href="../course-map.html">Course map</a>
+  </header>
+  <nav class="course-nav" aria-label="Main sections of the course"><a href="../index.html">The big picture</a><a href="../themes.html">Themes</a><a href="../subthemes.html" aria-current="page">Subthemes</a><a href="../deep-reads.html">Deep reads</a><a href="../directions.html">What to watch</a><a href="../presentation/index.html">Slides</a><a href="../video/index.html">Video</a><a href="../share/index.html">Share</a></nav>
+  <main id="app" tabindex="-1">
+    <section class="screen active landing legacy-page" aria-labelledby="page-title">
+<div class="lm-head"><div class="hj-heading"><nav class="crumbs" aria-label="You are here"><a href="../course-map.html">Course map</a><span aria-hidden="true">›</span><a href="../subthemes.html">Subthemes</a></nav><a class="back-button" href="../subthemes.html">← <span>Subthemes</span></a><p class="eyebrow">Subtheme · 1 papers · Memory, interconnect, and storage</p><h1 id="page-title">Interconnect and networking: what the 1 papers change, and what is still unproven</h1><p class="hj-sub">Papers: DAC 1. Read from: 1 program descriptions, 0 abstracts or reports, 0 full papers or preprints. The explanations come first; every paper’s record follows at the end.</p></div><div class="hj-art" data-art="trio:server,arrows-exchange,cpu"></div></div>
+<figure class="course-fig"><div class="loop-wide" data-art="flow:memory-interconnect-and-storage"></div><div class="loop-tall" data-art="flowTall:memory-interconnect-and-storage"></div><figcaption>The parent theme in one picture: moving data often costs more time and energy than computing it.</figcaption></figure>
+      <article class="prose">
+
+<p>This subject has 1 record in the selected sample. This page explains where it fits, then presents all captured paper evidence without shortening the measurements or limitations.</p>
+<p><a href="../guide/reading-guide-v1.html">Definitions used in the paper records</a></p>
+<p class="lm-k h-label">Understand the parent subject first</p><h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>The bigger theme this belongs to</h2>
+<ul>
+<li><a href="../themes/memory-interconnect-and-storage.html">Memory interconnect and storage</a></li>
+</ul>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>Buffers hold traffic that cannot leave immediately</h2>
+<p>A switching chip receives packets and forwards them toward selected outputs. If packets arrive faster than an output can transmit them, some must wait.</p><p>Buffers provide finite storage for that waiting traffic. They absorb temporary bursts; they do not create additional output bandwidth or make sustained overload disappear.</p>
+<p><span id="explanation-dac-2026-research837"></span></p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>Credix: share distributed buffer capacity without weakening flow-control invariants</h2>
+<p>The selected paper, <a href="interconnect-and-networking.html#paper-dac-2026-research837">Credix</a>, proposes region-based shared buffer pools managed by a Regional Credit Allocator, while using existing credit flow control and a VC-to-path mapping for packet ordering. Its captured official description reports 65.6% lower backpressure under synthetic Hotspot traffic and mitigation of severe hotspot occupancy in a realistic workload, but provides no delivered throughput, latency, fairness, losslessness or hardware results.</p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="file-text"></span>A credit represents permission to use a resource</h2>
+<p>In credit-based flow control, a sender uses accounting information about available downstream capacity to determine how much traffic it may send. Consuming and returning credits coordinates traffic with finite storage.</p><p>The unit might be a packet, a fixed-size transfer unit, or a storage allocation; the source does not specify Credix's unit.</p>
+<p>Correct accounting must prevent the same capacity from being promised to incompatible uses. At the same time, overly conservative accounting can leave usable storage or links idle. The delay between freeing a resource and making that information available to a sender can also affect utilization.</p>
+<p>These are the underlying design questions, not a description of Credix's unreported protocol. The captured record does not expose its credit-update rule, communication mechanism, or handling of delayed information. It therefore cannot establish a particular overflow-prevention or losslessness guarantee.</p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="target"></span>Distributed storage creates a placement problem</h2>
+<p>Distributing buffers can place storage and control near different parts of a switch. That may reduce dependence on one shared control point, but available capacity in one location is not necessarily usable by traffic waiting elsewhere.</p><p>Total free memory alone is therefore an incomplete measure of how well the switch can serve a workload.</p>
+<p>The policy must determine which traffic can use which capacity and when allocations change. A policy that works well for evenly spread traffic can behave differently when many senders target one output. Short bursts and long-lived overload also require separate interpretation.</p>
+<p>Credix's source does not identify the switch topology, queue organization, buffer size, or allocation rules. No specific load-balancing or capacity-sharing capability should be inferred from the word “distributed.”</p>
+<p>The realistic evaluation boundary matters. A buffer policy can reduce local occupancy by throttling senders, moving queues, or changing which traffic receives credit.</p><p>Compare offered versus delivered traffic, queue occupancy, link utilization, p50/p95/p99 latency, drops, head-of-line blocking, fairness and starvation under bursts, concentrated destinations, changing demand and sustained overload. Include RCA control traffic, credit-update delay and total buffer capacity.</p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="help-circle"></span>Throughput, delay, loss, and fairness answer different questions</h2>
+<p>Throughput measures delivered traffic per unit time. Latency measures how long individual traffic waits and travels. A switch can achieve high aggregate throughput while a subset of packets experiences long delays. Average latency can conceal those slow cases.</p>
+<p>Drop rate counts traffic discarded under the stated policy and load. Avoiding drops by delaying senders can move waiting outside the switch, so a complete latency measurement needs a declared start point.</p><p>Fairness concerns how competing traffic shares resources; it requires a specified unit, such as flows, ports, or priorities, and a stated policy goal.</p>
+<p>The captured description provides none of these measurements or definitions. It cannot support a claim that Credix improves all of them together. Evaluation should show their tradeoffs under the same offered traffic and total resources.</p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>Hardware feasibility and protocol correctness both matter</h2>
+<p>A large switching chip must make decisions fast enough to sustain its intended interfaces. Credit-state storage, updates, arbitration, and internal communication all consume resources. A policy that is effective in an unconstrained simulation may require a different implementation to meet timing or area limits.</p>
+<p>The source supplies no silicon, area, power, operating frequency, or control-path results. Correctness testing would separately check accounting invariants and progress under the supported conditions.</p><p>Whether the complete system avoids deadlock or starvation depends on more than the existence of a credit counter and cannot be assumed here.</p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>What would establish Credix's benefit?</h2>
+<p>A reproducible comparison would hold link capacities, total buffering, traffic, and priority requirements fixed. It would include bursts, concentrated destinations, changing demand, and prolonged contention, while reporting delivered traffic, delay distributions, drops, and resource sharing. Hardware cost and credit-update overhead should accompany those outcomes.</p>
+<p>Credix motivates treating storage allocation and flow control as a coordinated distributed problem. The current record supports that research direction, not a quantified improvement or deployment recommendation. Its end-to-end value remains a question of useful delivered traffic under stated latency, fairness, and implementation constraints.</p>
+<p>The evidence supports distributed credit-managed buffering, not demonstrated lossless, deadlock-free or silicon-validated switching improvement.</p>
+<p class="lm-k h-label">Compare the results carefully</p><h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="route"></span>How to compare these papers’ results fairly</h2>
+<p>First identify the inputs and required output quality. Then identify the limited resource: time, memory, communication, energy, circuit area, or correctness coverage.</p><p>Ask which part of the method reduces that cost and which new cost it adds. Compare numbers only when the experiments hold these conditions sufficiently similar.</p>
+<p>A conference description may explain the proposal while omitting the full experiment. An author preprint link may have been coded from its abstract. The source classification does not by itself establish that every table was read. Missing locations remain visible below.</p>
+<p class="lm-k h-label">Complete captured evidence</p><h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="file-text"></span>Every paper in this subtheme, with what its source shows</h2>
+<p>These are evidence records, not substitutes for the explanations above. Each record preserves its problem, proposed method, measurements, comparison conditions, and source limits. A populated record does not establish that its mechanism has been fully explained or independently verified.</p>
+<p><span id="paper-dac-2026-research837"></span></p>
+<h3>Credix: A Credit-Driven Distributed Buffer Management for Large-Scale Switching Chips</h3>
+<p>DAC 2026 · Record: <code>dac-2026-research837</code></p>
+<p><a href="#explanation-dac-2026-research837">Read the step-by-step explanation</a></p>
+<p><strong>Updated source-backed reading card</strong></p>
+<div class="worked"><p class="lm-k">Worked example</p><p>Reviewed 2026-09-09. Deepens the Credix treatment into a paper-level reading; separates region-based shared pools, Regional Credit Allocator policy and VC-to-path ordering from credit-accounting correctness, losslessness, deadlock, fairness, buffer sizing and silicon cost, while preserving the 65.6% synthetic-Hotspot backpressure reduction and realistic-hotspot claim with their bounded traffic conditions.</p></div>
+<p>This editorial correction updates the current reading view and connected dossiers, not the historical adjudication or scientific acceptance status. The original captured fields are preserved below.</p>
+<p><a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/data/editorial-paper-corrections-v1.json">Correction register</a></p>
+<p><strong>Problem:</strong></p>
+<p>Modular switching chips distribute buffers across tiles, so imbalanced traffic can leave capacity idle in one tile while another queue is congested and backpressuring senders.</p>
+<p><strong>Mechanism / artifact:</strong></p>
+<p>Credix aggregates distributed buffers into region-based shared pools and allocates capacity on demand through a Regional Credit Allocator, using existing credit-based flow control and a VC-to-path mapping to preserve packet ordering. Credit unit, pool membership, update latency, arbitration, reclamation, admission priority, escape paths and deadlock-avoidance rules are unspecified.</p>
+<p><strong>Workload — the work tested:</strong></p>
+<p>Packet-switching evaluation with synthetic Hotspot traffic and a realistic workload showing severe hotspot occupancy; switch topology, offered load, burstiness, flow mix, packet sizes, virtual channels, queue depth, region count, traffic trace, fairness target and realistic-workload identity are unspecified.</p>
+<p><strong>Hardware and manufacturing assumptions:</strong></p>
+<p>Large switching ASIC with physically distributed tile buffers and credit-based links; buffer capacity, link bandwidth, router pipeline, VC count, credit width/update path, arbitration logic, clock/frequency, area/power, process, congestion-control implementation and silicon status are unspecified.</p>
+<p><strong>Baseline — the comparison method:</strong></p>
+<p>Static per-tile or static-credit buffer management</p>
+<p>Centralized buffer management</p>
+<p>Same topology, total buffer capacity, link bandwidth, VC allocation, packet ordering, offered traffic, arbitration, credit latency, priority policy and measurement start/end points are unspecified</p>
+<p><strong>Reported measurements:</strong></p>
+<p>The source reports 65.6% lower backpressure under synthetic Hotspot traffic and mitigation of severe hotspot occupancy in a realistic workload; it reports no delivered throughput, latency distribution, drop/loss rate, buffer utilization, fairness, deadlock/progress result, credit overhead, area, power, frequency or silicon measurement.</p>
+<p><strong>Limits on the conclusion:</strong></p>
+<p>A credit is permission to consume a finite downstream resource, not proof that the resource accounting is correct. Verify conservation and non-negativity of credits, allocation/reclamation races, packet ordering, overflow, underutilization, delayed credit return and behavior when regions or links fail; show that shared capacity cannot be promised simultaneously to incompatible queues.</p>
+<p>Lower backpressure can reflect delaying or throttling senders rather than delivering more useful traffic. Report offered and delivered load, p50/p95/p99 latency, drops, queue occupancy, link utilization, head-of-line blocking, fairness by flow/port/priority, starvation, deadlock and livelock under bursts, concentrated destinations, changing traffic and sustained overload.</p>
+<p>The 65.6% Hotspot result and realistic-hotspot statement do not establish full-chip throughput, losslessness, fairness or deployable ASIC cost. Hold total buffers and link resources constant, include RCA/credit-update control traffic and pipeline delay, and report area, power, timing and scaling with tile/region count.</p><p>The evidence supports distributed credit-managed buffering, not demonstrated lossless, deadlock-free or silicon-validated switching improvement.</p>
+<p><strong>Source and location</strong></p>
+<p>Evidence tier: Primary captured official DAC description; no full paper extraction, packet level trace, formal flow control validation, asic measurement or independent reproduction. This is the stored source classification; the location and limits below determine what was actually read.</p>
+<p><a href="https://63dac.conference-program.com/?post_type=page&amp;p=16&amp;id=RESEARCH837">Open the recorded source</a></p>
+<p>DAC 2026 official description; existing interconnect-and-networking editorial explanation; captured Problem, Mechanism / artifact, Workload, Hardware, Baseline, Measurements and Limits fields; no packet traces, topology/buffer table, formal credit proof, silicon result or independent reproduction.</p>
+<details markdown="1">
+<summary>Original captured fields — superseded for this reading card</summary>
+
+** page source tier:** medium_official_description
+
+**Baselines:** centralized buffer management
+
+static credits
+
+**Evidence locators:** DAC 2026 official description
+
+**Evidence url:** https://63dac.conference-program.com/?post_type=page&amp;p=16&amp;id=RESEARCH837
+
+**Hardware or process assumptions:** Large-scale switching ASIC with distributed queues; link and flow-control assumptions are unspecified.
+
+**Limits:** No throughput, latency, drop rate, fairness, buffer, or silicon results are reported.
+
+Credit policies may depend on traffic patterns.
+
+Official description only; packet-trace validation is required.
+
+**Method or artifact:** Credit-driven distributed buffer-management mechanism.
+
+**Metrics:** Switching efficiency is claimed qualitatively
+
+**Problem:** Large switching chips need distributed buffers that prevent congestion and manage competing traffic.
+
+**Workload or benchmark:** Packet-switching traffic; topology, buffer size, and workloads are unspecified.
+
+</details>
+<p class="lm-k h-label">What remains to establish</p><h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>What is still unproven here</h2>
+<p>Resolve unspecified workloads, comparison methods, resource budgets, and source locations before generalizing a reported gain. This subject is represented by one paper and supports a case study, not evidence of recurrence or a long-term trend.</p>
+<p><a href="../guide/expanded-taxonomy-v1.html">All subthemes</a> · <a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/reports/directions/README.md">Research directions</a></p><p class="meta">Written as <a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/reports/observed-subthemes/interconnect-and-networking.md">reports/observed-subthemes/interconnect-and-networking.md</a> in the course repository.</p>
+      </article>
+      <nav class="pager" aria-label="Previous and next"><a class="prev" href="chiplet-and-on-chip-interconnect.html"><span class="pg-k">← Previous</span><span class="pg-t">Chiplet and on chip interconnect</span></a><a class="map" href="../subthemes.html"><span class="pg-k">Back to</span><span class="pg-t">Subthemes</span></a><a class="next" href="side-channel-and-hardware-security.html"><span class="pg-k">Next →</span><span class="pg-t">Side channel and hardware security</span></a></nav>
+    </section>
+  </main>
+  <footer class="course-foot">
+    <p>Built from 582 paper records coded from ISCA 2026, DAC 2026 and ICCAD 2025 (ICCAD 2026 papers were not yet public). Most records come from official program descriptions; see “How deep the reading went”. The papers belong to their authors.</p>
+    <p class="foot-links"><a href="https://github.com/mehtama1234/course-concept-library">All courses</a><a href="../index.html">This course</a><a href="../course-map.html">Course map</a><a href="../presentation/index.html">Slides</a><a href="../video/index.html">Video</a><a href="../share/index.html">Share</a></p>
+  </footer>
+  <script src="../assets/course-data.js"></script><script src="../assets/icons.js"></script><script src="../assets/icons-extra.js"></script><script src="../assets/icons-course.js"></script><script src="../assets/art.js"></script><script src="../assets/course-art.js"></script><script src="../assets/charts.js"></script><script src="../assets/course-charts.js"></script><script src="../assets/course-site.js"></script>
+</body>
+</html>

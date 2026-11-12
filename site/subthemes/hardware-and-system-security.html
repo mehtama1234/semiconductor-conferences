@@ -1,0 +1,890 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#F3ECE1" />
+  <title>Hardware and system security · Semiconductor conference atlas</title>
+  <meta name="description" content="Papers: DAC 11. Read from: 11 program descriptions, 0 abstracts or reports, 0 full papers or preprints. The explanations come first; every paper’s record follows at the end." />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Semiconductor conference atlas" />
+  <meta property="og:title" content="Hardware and system security · Semiconductor conference atlas" />
+  <meta property="og:description" content="Papers: DAC 11. Read from: 11 program descriptions, 0 abstracts or reports, 0 full papers or preprints. The explanations come first; every paper’s record follows at the end." />
+  <meta property="og:url" content="https://mehtama1234.github.io/semiconductor-conferences/subthemes/hardware-and-system-security.html" />
+  <meta property="og:image" content="https://mehtama1234.github.io/semiconductor-conferences/presentation/slides/01-cover.jpg" />
+  <meta property="og:image:width" content="1920" />
+  <meta property="og:image:height" content="1080" />
+  <meta property="og:image:alt" content="Semiconductor conference atlas: 582 papers from ISCA, DAC and ICCAD, sorted into 10 themes and six directions to watch." />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="canonical" href="https://mehtama1234.github.io/semiconductor-conferences/subthemes/hardware-and-system-security.html" />
+  <link rel="icon" href="../assets/icon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="../assets/base.css" />
+  <link rel="stylesheet" href="../assets/experience.css" />
+  <link rel="stylesheet" href="../assets/theme-atlas.css" />
+  <link rel="stylesheet" href="../assets/styles.css" />
+  <link rel="stylesheet" href="../assets/charts.css" />
+  <link rel="stylesheet" href="../assets/course.css" />
+  
+</head>
+<body class="course-site " data-house="atlas">
+  <aside class="public-demo-banner" aria-label="About this course">A plain-language guide to what ISCA, DAC and ICCAD papers say about chip and computer design · Built from the repository’s own paper records · Not made by the conferences</aside>
+  <a class="skip-link" href="#app">Skip to the page</a>
+  <header>
+    <a class="brand" href="../index.html"><span class="mark" aria-hidden="true">Si</span> Semiconductor conference atlas</a>
+    <span class="header-status"><span class="badge">582 papers</span><span class="badge">10 themes</span><span class="badge">Plain words first</span></span>
+    <a class="header-link" href="../course-map.html">Course map</a>
+  </header>
+  <nav class="course-nav" aria-label="Main sections of the course"><a href="../index.html">The big picture</a><a href="../themes.html">Themes</a><a href="../subthemes.html" aria-current="page">Subthemes</a><a href="../deep-reads.html">Deep reads</a><a href="../directions.html">What to watch</a><a href="../presentation/index.html">Slides</a><a href="../video/index.html">Video</a><a href="../share/index.html">Share</a></nav>
+  <main id="app" tabindex="-1">
+    <section class="screen active landing legacy-page" aria-labelledby="page-title">
+<div class="lm-head"><div class="hj-heading"><nav class="crumbs" aria-label="You are here"><a href="../course-map.html">Course map</a><span aria-hidden="true">›</span><a href="../subthemes.html">Subthemes</a></nav><a class="back-button" href="../subthemes.html">← <span>Subthemes</span></a><p class="eyebrow">Subtheme · 11 papers · Power, reliability, and security</p><h1 id="page-title">Hardware and system security: what the 11 papers change, and what is still unproven</h1><p class="hj-sub">Papers: DAC 11. Read from: 11 program descriptions, 0 abstracts or reports, 0 full papers or preprints. The explanations come first; every paper’s record follows at the end.</p></div><div class="hj-art" data-art="trio:alert-triangle,shield-check,bolt"></div></div>
+<figure class="course-fig"><div class="loop-wide" data-art="flow:power-reliability-and-security"></div><div class="loop-tall" data-art="flowTall:power-reliability-and-security"></div><figcaption>The parent theme in one picture: name the fault or attack first, then pay for the protection.</figcaption></figure>
+      <article class="prose">
+
+<p>This subject has 11 records in the selected sample. This page explains where it fits, then presents all captured paper evidence without shortening the measurements or limitations.</p>
+<p><a href="../guide/reading-guide-v1.html">Definitions used in the paper records</a></p>
+<p class="lm-k h-label">Understand the parent subject first</p><h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>The bigger theme this belongs to</h2>
+<ul>
+<li><a href="../themes/power-reliability-and-security.html">Power reliability and security</a></li>
+</ul>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>Security depends on interactions across the system</h2>
+<p>A processor, memory manager, operating system, peripheral, and application can each behave according to its local rules while their interaction exposes protected information. System security therefore requires identifying how data and control pass between components and which observations are available to another party.</p>
+<p>The same observation can have different consequences in different deployments. A shared machine, an isolated device, and a device accessible to a physical observer provide different opportunities. The evaluation must describe the actual deployment assumptions before a claim can be interpreted.</p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>An information path needs several conditions</h2>
+<p>For an information leak to matter, protected activity must affect something observable, the observer must access that observation, and the observation must support a useful inference. Noise, unrelated activity, and changing software can affect each step.</p>
+<p>An experiment should distinguish identifying the relationship from demonstrating the full inference. The number of measurements, the time needed, the observer's prior knowledge, and unsuccessful cases are part of practicality. A title describing an attack does not establish these conditions.</p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>Address translation can expose system behavior</h2>
+<p>Stone-Skimming's captured description concerns a page-table-walk side channel in analytics applications. Virtual-memory systems translate program-visible addresses into physical-memory locations. A page-table walk consults the translation data needed to resolve an address when that information is not already available in a faster structure. <a href="hardware-and-system-security.html#paper-dac-2026-research1793">Recorded evidence</a></p>
+<p>The research question is whether observable translation activity permits inference about protected application behavior. The record does not establish access requirements, leakage rate, observation time, operating-system configuration, or evaluated mitigations. Those gaps prevent interpreting the description as a generally available attack against analytics systems.</p>
+<p><span id="explanation-dac-2026-research1793"></span></p>
+<h3>Stone-Skimming: a page-table side channel is an inference path, not merely a slow memory access</h3>
+<h4>What address translation does</h4>
+<p>An application normally uses virtual addresses. The processor must translate each virtual address into a physical location before memory can be accessed.</p><p>A translation cache can hold recent mappings. When the needed mapping is absent, the processor consults page-table data through one or more memory references.</p><p>That extra work is a page-table walk.</p>
+<p>The walk is governed by the operating system's page tables, page size, permissions, process layout and memory state. It can affect latency, cache state, memory traffic, contention and other timing-visible behavior.</p><p>The important security question is whether those effects depend on a protected computation in a way that an observer can measure.</p>
+<h4>How an inference attack would have to work</h4>
+<p>The attack needs a chain of conditions. First, the protected workload must choose addresses or execution paths that produce distinguishable translation activity.</p><p>Second, the attacker must obtain an observation: for example, timing, contention or another architectural or microarchitectural signal. Third, the signal must be separated from noise caused by the attacker's own work, other tenants, interrupts, scheduling, garbage collection, input variation and unrelated system activity.</p><p>Fourth, the attacker must map the remaining signal to a useful property of the analytics application.</p>
+<p>Observing that two workloads produce different timing is weaker than recovering a secret or identifying a protected query. A complete result must define the target information, the attacker's prior knowledge, the number of measurements, the time per attempt, the success threshold and the rate of unsuccessful inferences.</p>
+<h4>Why big-data workloads need explicit evaluation</h4>
+<p>Analytics systems often execute long pipelines with changing data, parallel workers, task scheduling, joins, shuffles and repeated stages. These features can create both signal and noise.</p><p>A page-table pattern associated with one input or software version may not remain stable when partitions, memory pressure, worker placement or operating-system decisions change.</p>
+<p>The comparison must hold the protected workload, input, software, processor, memory size, co-location, scheduling policy and measurement procedure fixed while varying the protected condition of interest. It should then test unseen inputs, different workers, concurrent applications, process placement, page sizes, huge pages, address-space randomization and relevant mitigations.</p><p>Report leakage or classification accuracy, confidence, samples, wall-clock attack time, observation bandwidth, false positives, false negatives and attacker overhead.</p>
+<p>The captured official description identifies a page-table-walk side-channel attack against big-data analytics applications. It does not state the observation interface, co-location requirement, operating system, processor, workload configuration, leakage rate, attack time or mitigation result.</p><p>The evidence supports a plausible translation-based information path and a research direction; it does not establish a generally practical attack or a security conclusion for all analytics systems.</p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>Physical measurements have their own access boundary</h2>
+<p>The per-core electromagnetic-monitoring record concerns signals associated with multicore execution. A physical observation can depend on the device package, measurement position, surrounding noise, and concurrent activity. Distinguishing one core's activity from another is a different result from recovering a protected application value. <a href="hardware-and-system-security.html#paper-dac-2026-research213">Recorded evidence</a></p>
+<p>The captured description does not supply measurement distance, trace count, inference success, or protection results. A complete evaluation must identify the measured quantity and the observer's access. The record supports a research topic, while the practical security conclusion remains open.</p>
+<p><span id="explanation-dac-2026-research213"></span></p>
+<h3>Per-core electromagnetic leakage: detecting activity is different from recovering a secret</h3>
+<h4>Why computation can create an electromagnetic signal</h4>
+<p>Digital circuits change voltage and current as transistors switch. Those changes can produce electromagnetic fields around the die, package, board and power-delivery network.</p><p>The field is not a direct copy of the program. It is a physical mixture of switching activity, clocking, memory traffic, power regulation, package coupling, nearby cores and environmental noise.</p>
+<p>The security question is whether the mixture changes in a repeatable way when a protected computation changes. A probe or antenna can collect a time-varying trace.</p><p>Signal processing or statistical learning can then test whether traces reveal a core, an instruction class, an operand property or a secret-dependent operation. Each step is an additional claim; detecting that two cores have different activity is not the same as extracting a secret value.</p>
+<h4>What “per-core” must establish</h4>
+<p>Multicore systems create overlapping sources. The measured field may contain activity from the target core, sibling cores, shared caches, memory controllers, interconnects, clock circuits and regulators.</p><p>A per-core claim therefore needs an attribution method: spatial placement, timing, repeated execution, controlled scheduling, a reference trace or another validated separation procedure.</p>
+<p>The physical setup is part of the threat model. Report the package and board, probe type and bandwidth, probe position and distance, shielding, grounding, sampling rate, trigger, measurement duration, environmental noise, supply conditions and whether the attacker controls or shares a core.</p><p>A result requiring a probe placed directly over a known package location has a different security meaning from a remote or unmodified-device observation.</p>
+<h4>What a secret-recovery claim requires</h4>
+<p>The protected computation must be repeated under controlled inputs and labels, while the attacker is prevented from learning the answer through an easier channel. Training and test traces must be separated by execution, input, key or device as appropriate.</p><p>Report the number of traces, preprocessing, classifier or statistical test, confidence intervals, false positives, false negatives, guessing success and time to reach the stated success level.</p>
+<p>The experiment should vary core placement, simultaneous activity, workload, input, secret, clock frequency, voltage, temperature, device and probe position. It should compare per-core monitoring with aggregate electromagnetic and power monitoring under the same conditions.</p><p>A defense must be tested against the same attack budget and must show whether it reduces leakage, lowers attribution quality, or only defeats one measurement setup.</p>
+<p>The captured official description identifies per-core electromagnetic side-channel monitoring of multicore architectures. It reports no probe distance, trace count, leakage rate, attack success, package conditions, attribution method or mitigation result.</p><p>The evidence supports a physical side-channel research direction; it does not establish remote observability, reliable per-core separation or secret recovery.</p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>Obscuring a protocol can affect its correct execution</h2>
+<p>ODBP concerns hiding aspects of a biochemical protocol implemented in a continuous-flow microfluidic device. Such a protocol controls fluid movement and processing steps. Altering its implementation to obscure information may also change timing, reagent use, or the intended biochemical result. <a href="hardware-and-system-security.html#paper-dac-2026-research2107">Recorded evidence</a></p>
+<p>This case requires both a confidentiality evaluation and a functional evaluation. The current description leaves leakage, assay outcome, latency, reagent cost, and fabrication conditions unresolved.</p><p>A design that is harder to interpret is useful only if it also executes the required protocol adequately under the stated conditions.</p>
+<p><span id="explanation-dac-2026-research2107"></span></p>
+<h3>ODBP: protocol obfuscation must preserve both secrecy and the biochemical result</h3>
+<h4>What a continuous-flow protocol controls</h4>
+<p>A continuous-flow microfluidic biochip moves liquids through channels and control points. A protocol is an ordered set of operations: introduce a reagent, route or mix fluids, wait for a reaction, wash a channel, and deliver a result.</p><p>The physical schedule determines which fluids meet, for how long, at what concentrations and in what order.</p>
+<p>The schedule can reveal information even when the chip does not expose a software-level description. An observer may see valve activations, flow paths, timing, reagent order, channel use, pressure changes or power and control traffic.</p><p>Those observations can identify the assay or infer sensitive intermediate steps. Obfuscation therefore tries to make different protected protocols produce less distinguishable observations.</p>
+<h4>What obfuscation can and cannot mean</h4>
+<p>Randomizing or adding operations does not automatically hide the protocol. The observer may learn from the added operations, from timing differences, from which channels are available, or from the total duration and reagent volume.</p><p>A useful confidentiality claim must define the observer, the signals available, the set of protocols that must be confused, the observer's prior knowledge and the allowed number of observations.</p>
+<p>There is also a functional constraint. Fluidic operations have physical meaning.</p><p>Extra mixing, routing or waiting can change concentration, residence time, temperature exposure, contamination risk, reagent consumption and completion time. An obfuscated schedule that makes the protocol harder to identify but produces the wrong assay result is not a valid implementation.</p><p>Correctness must be checked at the biochemical output, not only at the valve-control trace.</p>
+<h4>What a complete evaluation should measure</h4>
+<p>Compare the original and obfuscated schedules on the same chip architecture, reagents, input conditions and fabrication assumptions. Measure protocol success rate, assay yield or output error, latency, reagent volume, energy or control overhead, channel occupancy, fault tolerance and repeatability.</p><p>Separately measure confidentiality with an explicit attack: classification or inference accuracy, mutual information or another defined leakage measure, the observations used, training and test protocols, sample count and attacker computation.</p>
+<p>The evaluation should include unseen protocols, varied flow rates, manufacturing variation, valve faults, contamination or incomplete flow where relevant, and an attacker who knows the obfuscation procedure. It should state whether the method hides the protocol itself, only hides a selected feature, or merely reduces the success of one tested classifier.</p>
+<p>The captured official description identifies protocol obfuscation for continuous-flow microfluidic biochips. It reports no leakage measure, attacker model, assay result, yield, latency, reagent cost, fabrication condition or fault/variation experiment.</p><p>The evidence supports a security-and-function co-design problem, not a demonstrated confidentiality guarantee or a validated biochemical improvement.</p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>Reconnaissance: tracking several secrets without treating every observation as a leak</h2>
+<p><span id="explanation-dac-2026-research2369"></span></p>
+<h3>Reconnaissance: reveal and conceal labels define what an information-flow analysis is allowed to expose</h3>
+<h4>What the analysis is trying to preserve</h4>
+<p>An information-flow analysis follows how values move through a design. It marks a value as secret, tracks operations that depend on it, and checks whether that dependence reaches an output or observation available to an attacker.</p><p>With multiple secrets, the analysis must preserve identity: a result may depend on secret A, secret B, both, or a relation between them. Combining all secrets into one undifferentiated label can lose that information.</p>
+<p>The analysis also needs a policy for intentional release. Some systems are designed to reveal a value, a checksum, a comparison result or a protocol-approved output.</p><p>A reveal operation means that a flow to that output is permitted under a stated rule. A conceal operation means that a value remains protected and must not reach an unauthorized observation.</p><p>These labels are policy statements; they do not by themselves prove that an implementation obeys the policy.</p>
+<h4>Why reveal and conceal semantics matter</h4>
+<p>The same operation can be safe or unsafe depending on what is revealed and to whom. Revealing one secret's authorization result must not silently reveal another secret.</p><p>A comparison between two secret values can disclose their equality even when neither value is printed. A function can also combine several secret inputs, so the analysis must state whether it tracks individual dependencies, sets of secrets, correlations, or only a coarse public/secret distinction.</p>
+<p>Soundness asks whether every forbidden flow is detected under the model. Precision asks whether the analysis avoids reporting flows that are permitted or impossible.</p><p>A system can be sound but produce many false alarms, or precise on tested examples while missing a flow outside its model. Multiple-secret support must therefore be evaluated against explicit programs, policies and attacker observations.</p>
+<h4>What a complete validation needs</h4>
+<p>Define the label state, the transfer rule for each operation, the meaning of reveal and conceal, the allowed output interface, control-flow treatment, memory and concurrency model, and the treatment of declassification or intentional release. Then test direct flows, flows through arithmetic and comparisons, aliases, arrays, control predicates, exceptions, speculative or concurrent behavior where relevant, and interactions between multiple secrets.</p>
+<p>Compare with single-secret tracking and standard information-flow analysis using the same designs and policies. Report soundness and precision against a reference judgment, runtime, memory, number of tracked labels, scaling with secret count and analysis failures.</p><p>Case studies should state whether the result is a proof, a warning, or a tool-assisted check under a restricted model.</p>
+<p>The captured official description identifies a reveal/conceal paradigm for tracking multiple secrets. It reports no formal label semantics, soundness proof, precision study, runtime, scalability result or case study.</p><p>The evidence supports a policy-aware analysis direction; it does not establish that all forbidden multi-secret flows are detected or that all reported flows are meaningful.</p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>SRAM aging can preserve history without preserving the original bits directly</h2>
+<p><span id="explanation-dac-2026-research3019"></span></p>
+<h3>Decoding the Past: an aging imprint is a physical inference problem, not ordinary memory remanence</h3>
+<h4>What an SRAM cell stores and what aging changes</h4>
+<p>An SRAM bit is held by a small feedback circuit that has two stable electrical states. Reading the cell normally reports which state the circuit currently occupies.</p><p>A prior data pattern can also affect long-term electrical stress if one side of the cell experiences different voltage, current or switching conditions for a substantial time. Device aging mechanisms may then change transistor strength, leakage or switching margin.</p>
+<p>An aging imprint is therefore different from simply reading charge left behind after power is removed. The proposed attack would infer earlier activity from a later change in how cells behave.</p><p>The cell does not necessarily retain the original bit as a readable bit. Instead, its later readout may contain a weak, noisy statistical relationship with the earlier pattern.</p>
+<p>The strength and direction of that relationship depend on the cell design, process variation, supply voltage, temperature, stress duration, duty cycle, refresh and intervening writes. An observed read bias can also come from manufacturing mismatch, retention effects, read disturb, supply noise or the measurement circuit.</p><p>Those alternative causes must be separated from the claimed historical imprint.</p>
+<h4>What data recovery would require</h4>
+<p>The attacker needs a way to access the SRAM and a readout that is sensitive to the claimed aging effect. The attacker may need to know the device before and after stress, control the stress pattern, wait a specified time, or calibrate each chip.</p><p>A recovery procedure then maps measurements to a prior data pattern using a model or classifier.</p>
+<p>Recovery accuracy must be defined against a baseline. Guessing a bit more often than chance is not the same as recovering a file, key or structured record.</p><p>Report bit error rate, confidence, block or message recovery rate, number of cells and reads, calibration data, time since the sensitive data was written, required prior knowledge and the probability of false recovery. Test data from new devices separately from training data and test whether the model transfers in a cross-device evaluation.</p>
+<h4>What can erase or weaken the imprint</h4>
+<p>The evaluation should vary stress time, temperature, voltage, write pattern, intervening writes, power cycles, idle time and read activity. It should test process and device variation, different SRAM blocks, memory controllers and the readout sensor.</p><p>Mitigations might overwrite memory, randomize placement, equalize stress, power-cycle, change voltage or limit access, but each must be tested for both residual information and functional cost.</p>
+<p>The captured official description identifies recovery of sensitive data from SRAM aging imprints. It reports no recovery accuracy, age or retention horizon, access requirement, sensor, process condition, calibration procedure or mitigation result.</p><p>The evidence supports a hardware-forensics hypothesis; it does not establish that sensitive data can be recovered from ordinary SRAM across devices or after a stated sanitization procedure.</p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>A touchscreen trajectory can leak through the sensing process</h2>
+<p><span id="explanation-dac-2026-research315"></span></p>
+<h3>Touchscreen electromagnetic emanations: reconstructing a path requires more than detecting a touch</h3>
+<h4>How a capacitive touchscreen produces a measurable process</h4>
+<p>A capacitive touchscreen contains a grid of conductive electrodes. The controller scans parts of the grid and measures how a finger or stylus changes the electrical coupling at nearby locations.</p><p>It repeats this scan over time, estimates touch coordinates and sends those estimates to the operating system or application.</p>
+<p>The controller's repeated switching can produce electrical current changes and electromagnetic fields. The field can depend on scan timing, electrode activity, touch location, controller state, display interference, power regulation and the device enclosure.</p><p>An external sensor may therefore collect a trace correlated with touch activity without receiving the touchscreen's digital coordinate messages.</p>
+<p>Correlation is not yet trajectory recovery. A trajectory is a time-ordered sequence of positions, so the attack must determine both where each touch occurred and when it occurred.</p><p>It must separate touch-dependent variation from scan schedule, display refresh, wireless radios, processor activity, hand position, orientation and environmental noise. The attacker also needs a mapping from measured traces to coordinates, gestures or handwriting symbols.</p>
+<h4>What the physical threat model controls</h4>
+<p>The result depends on the phone model, screen stack, case, sensor type, probe orientation and distance, shielding, sampling bandwidth, trigger and whether the attacker can control the display or induce repeated writing. A probe placed near a known edge of one unmodified phone is a different access condition from a remote sensor in a room.</p><p>The evaluation must state whether the target is a trajectory, individual points, words or a secret entered through handwriting.</p>
+<p>Training and test traces must be separated by writing session, user, device and phrase as appropriate. Otherwise a model may recognize a particular user's motion, phone placement or recording setup rather than reconstructing touch coordinates from a new target.</p><p>Report coordinate error, point-detection precision and recall, temporal alignment, handwriting or phrase recovery rate, false positives, trace count, recording time and attacker computation.</p>
+<h4>What a complete comparison needs</h4>
+<p>Compare the electromagnetic method with direct touchscreen software logging under the same sessions, and with a noisy electromagnetic baseline that has no useful calibration. Test different users, writing speeds, screen orientations, cases, display states, phone models, probe positions, distances and background activity.</p><p>Evaluate whether a defense changes the field, reduces reconstruction quality or only defeats one probe and one trained model. Include the energy, latency, usability and display or touch-performance cost of any mitigation.</p>
+<p>The captured official description identifies electromagnetic side-channel recovery of smartphone touch trajectories. It reports no recovery accuracy, distance, equipment, user diversity, cross-device result or mitigation result.</p><p>The evidence supports a physical side-channel hypothesis; it does not establish remote trajectory recovery, general handwriting reconstruction or a demonstrated protection failure.</p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>A vehicle IDS must reason about messages in their system context</h2>
+<p><span id="explanation-dac-2026-research462"></span></p>
+<h3>SCIMI: collaborative intrusion detection needs semantic meaning, trustworthy exchange and vehicle-level validation</h3>
+<h4>What an in-vehicle intrusion detector observes</h4>
+<p>An in-vehicle network carries messages between electronic controllers. A message has more than a payload: its sender, identifier, timing, order, rate, operating mode and relationship to other messages can determine whether it is expected.</p><p>A detector must compare observed traffic with the vehicle behavior and communication rules it is meant to protect.</p>
+<p>“Semantic-aware” means the detector uses the meaning or context of traffic rather than treating each frame as an isolated byte pattern. For example, the same value may be normal in one operating mode and suspicious in another.</p><p>This requires a defined message vocabulary, signal interpretation, state or mode model and assumptions about which sources are trusted. If those meanings are wrong or incomplete, a detector can reject valid behavior or miss an attack that stays within the expected format.</p>
+<h4>Why collaboration can help and hurt</h4>
+<p>A local detector sees only its own traffic or sensor inputs. Nodes can share alerts, features, context or summarized evidence so that one node can identify a pattern that is visible only across domains.</p><p>Collaboration may improve coverage of distributed attacks, but it adds communication delay, bandwidth, synchronization and dependency on other nodes.</p>
+<p>The exchange itself becomes an attack surface. A compromised node may send false alerts, suppress real alerts, replay old evidence, poison a shared model or infer sensitive vehicle state from the information it receives.</p><p>The system must define identity, authentication, freshness, trust, missing messages, disagreement resolution and behavior when the collaboration channel is unavailable. A global alert also needs a clear rule for converting distributed evidence into an action.</p>
+<h4>What a safety-relevant evaluation must measure</h4>
+<p>Evaluate local, signature-based and collaborative detectors on the same vehicle architecture, traffic traces, attack set and compute budget. Separate training from test drives, vehicles, attack instances and operating modes.</p><p>Report detection rate by attack type, false-positive rate, alert latency, missed attacks, bandwidth, memory and processor cost, detection under node failure or compromise, and the effect on control or safety functions.</p>
+<p>Test benign mode changes, rare but valid traffic, timing jitter, loss and reordering, gateway behavior, unknown attacks, replay, forged semantic context, compromised detectors and partitioned domains. Measure whether collaboration improves system-level detection rather than only an isolated classifier score.</p><p>If the detector triggers a safety response, validate that response and its worst-case delay on the vehicle platform.</p>
+<p>The captured official description identifies a semantic-aware collaborative intrusion-detection system for multi-domain in-vehicle networks. It reports no detection rate, false positives, latency, bandwidth, compromised-node test, attack set or vehicle result.</p><p>The evidence supports a context-aware distributed detection direction; it does not establish safe deployment, improved system-level detection or resistance to attacks on the collaboration mechanism.</p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="checklist"></span>Attestation can establish an artifact identity without proving its whole execution</h2>
+<p><span id="explanation-dac-2026-research625"></span></p>
+<h3>AttestLLM: efficient model attestation must connect a trusted measurement to runtime behavior</h3>
+<h4>What attestation is meant to establish</h4>
+<p>An on-device language model can be changed by replacing weights, modifying code, changing configuration, loading an unauthorized adapter or altering the runtime that interprets the model. Attestation is a protocol in which the device produces evidence about its state and a verifier checks that evidence against an approved reference.</p>
+<p>The evidence normally includes a cryptographic measurement, such as a digest of an artifact, plus a signed statement from a hardware-protected key. The verifier must know which component was measured, when it was measured, what version and configuration are allowed, and which device key is trusted.</p><p>A digest can show that measured bytes match an approved value; it does not by itself say that the correct bytes were loaded into every execution path or that the device is free of later changes.</p>
+<h4>Why billion-scale models change the engineering problem</h4>
+<p>Hashing a complete model can require reading a large amount of memory and can add latency, bandwidth and energy cost. An efficient framework may measure chunks, a tree of hashes, metadata, selected layers or a compact commitment.</p><p>Each shortcut changes the security claim. If only metadata is measured, altered weights may be missed.</p><p>If only selected regions are measured, the attacker may target an unchecked region. If a tree is used, the verifier must know how leaves map to model storage and how updates invalidate old proofs.</p>
+<p>The measurement must also cover provenance and lifecycle: model version, tokenizer, preprocessing, quantization, adapters, compiler, runtime, libraries, configuration, update authorization, rollback protection and secure boot chain. Measuring a file without binding it to the code and configuration that execute it leaves an integrity gap.</p>
+<h4>What model integrity does not prove</h4>
+<p>A valid attestation can show that a designated image or model is present under a stated measurement procedure. It does not prove that prompts are private, that outputs are correct, that the runtime has no memory-safety flaw, that an accelerator executes every operation faithfully, or that a compromised operating system cannot observe or alter inputs and outputs.</p><p>It also does not establish that an approved model is safe or that its behavior meets a task-specific policy.</p>
+<p>The verifier therefore needs a threat model: which device components are trusted, whether the hardware root of trust is genuine, whether keys can be cloned, whether the network is authenticated, whether freshness prevents replay, and what happens when an update is revoked or a device is offline. The protocol must define nonce or freshness handling and the action taken when evidence is missing or invalid.</p>
+<h4>What a complete evaluation should measure</h4>
+<p>Compare full-model hashing, the proposed method and unattested deployment on the same device and model. Report attestation latency, memory traffic, energy, verifier time, proof size, startup delay, inference throughput, update cost, rollback handling and failure recovery.</p><p>Test altered weights, code, runtime, adapters, tokenizer, configuration, storage, boot state and accelerator paths. Measure whether the evidence detects each change and whether an attacker can produce a valid statement for an unauthorized state.</p>
+<p>The captured official description identifies an efficient attestation framework for billion-scale on-device LLMs. It reports no security proof, attestation latency, memory, energy, update, freshness, tamper-detection or device result.</p><p>The evidence supports an integrity-and-provenance protocol direction; it does not establish runtime behavior integrity, end-to-end model trust or deployment readiness.</p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>An emulator detector relies on a difference in instruction behavior</h2>
+<p><span id="explanation-dac-2026-research663"></span></p>
+<h3>Emudrop: reserved-opcode detection is a compatibility test with a narrow evidence boundary</h3>
+<h4>What a reserved opcode is testing</h4>
+<p>An instruction encoding is a bit pattern that a processor or emulator interprets as an operation. Some encodings are reserved or invalid for a stated processor mode.</p><p>A real processor may raise an illegal-instruction exception, while an emulator, dynamic translator or hypervisor may handle the same bytes through a different path. A program can deliberately execute the encoding, catch the resulting exception or observe the result, and classify the environment from that behavior.</p>
+<p>This is a hardware-behavior fingerprint. It does not directly prove that an environment is virtualized.</p><p>The observed result can depend on the CPU generation, execution mode, operating system, exception delivery, signal handler, hypervisor policy, binary translation, sandbox restrictions and whether the instruction is intercepted or rewritten before execution.</p>
+<h4>What the detector can and cannot establish</h4>
+<p>The detector can establish that the observed environment did not behave like the reference behavior under the chosen test. It may distinguish a particular emulator or hypervisor implementation from a particular class of Intel processors.</p><p>It does not automatically identify all emulators, and native behavior that differs from the reference can produce a false positive.</p>
+<p>An emulator author can implement the expected exception behavior, intercept the test, patch the instruction, or alter the visible exception state. A malware-analysis system can also recognize the detector and neutralize it.</p><p>The resulting contest is about the tested behavior and attacker budget, not a permanent property of hardware and software.</p>
+<h4>What a complete validation needs</h4>
+<p>Run the exact test across Intel CPU generations, operating systems, privilege levels, exception mechanisms, bare metal, hypervisors, full-system emulators, user-mode emulators, sandboxes and binary translators. Record the exception type, signal or fault delivery, register and memory state, timing and any required permissions.</p><p>Test benign native machines and emulated machines not used to design the rule.</p>
+<p>Compare reserved-opcode detection with software emulator checks and CPUID-based checks under the same conditions. Report detection rate by environment, false positives, false negatives, portability, execution overhead, crash or recovery behavior, required privilege and the effect of a defender that emulates the expected response.</p><p>A result useful for malware evasion analysis should also state whether the method survives common instruction rewriting, sandbox policy and detector-aware emulation.</p>
+<p>The captured official description identifies a minimal hardware-based emulator-detection technique using Intel reserved opcodes. It reports no detection rate, false positives, CPU or emulator coverage, privilege requirement, timing, evasion test or mitigation result.</p><p>The evidence supports a compatibility-fingerprint direction; it does not establish portable detection of emulation or a general malware-evasion capability.</p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>A TLB signal can weaken address randomization only if it yields a usable address fact</h2>
+<p><span id="explanation-dac-2026-research681"></span></p>
+<h3>Mistletunnel: a TLB side channel turns translation activity into a KASLR question</h3>
+<h4>What KASLR is protecting</h4>
+<p>Kernel address-space layout randomization, or KASLR, changes where kernel code and data are placed in memory. An attacker may know the relative arrangement of kernel components but not their actual addresses.</p><p>The random offset makes it harder to use a memory-corruption bug or another pointer-based technique reliably.</p>
+<p>The translation lookaside buffer, or TLB, is a fast cache of recent mappings from virtual addresses to physical locations. A TLB hit and a TLB miss can cause different timing or contention.</p><p>Shared or indirectly observable translation state can therefore reveal whether particular address translations were recently used. A side-channel attack tries to turn that difference into information about a victim's execution or layout.</p>
+<h4>What must happen for KASLR to be weakened</h4>
+<p>The attacker needs an observation that depends on a kernel address or translation event. The signal must be distinguishable from the attacker's own activity, other processes, interrupts, scheduling, cache and memory traffic, and the noise of the Apple silicon implementation.</p><p>The observed result must then be mapped to a candidate address, offset or layout hypothesis with a known error rate.</p>
+<p>Finding a correlation with translation activity is weaker than recovering the randomized kernel base. A complete claim should state the address information recovered, how many observations are needed, elapsed time, confidence, false-recovery rate and whether the result enables a demonstrated follow-on action.</p><p>It should also state whether the attacker needs local code execution, same-core or same-machine co-location, special privileges, a vulnerable interface or a particular victim workload.</p>
+<h4>Why the platform boundary matters</h4>
+<p>TLB levels, invalidation rules, page sizes, exception behavior, scheduling, privilege checks and operating-system mappings differ across processors and OS versions. Apple M-series parts may share broad architectural ideas with other systems while implementing translation state and timing differently.</p><p>A result on one chip and kernel build cannot be generalized to all Apple silicon or all KASLR deployments without cross-platform tests.</p>
+<p>Compare with cache side channels and existing KASLR attacks using the same victim, access, noise, time and success criteria. Test different M-series generations, OS versions, page sizes, core placement, concurrent workloads, process permissions, mitigations and repeated randomized layouts.</p><p>Report address-recovery rate, confidence, time, samples, noise tolerance, required privilege, false positives, false negatives and whether mitigations remove the signal or only lower it.</p>
+<p>The captured official description identifies a novel TLB side-channel attack against KASLR on Apple M-series systems. It reports no address-recovery rate, time, noise tolerance, privilege, cross-platform coverage or mitigation result.</p><p>The evidence supports a platform-specific translation-leakage direction; it does not establish general KASLR defeat or a usable exploit chain.</p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>A secure snapshot must preserve the whole trusted execution state</h2>
+<p><span id="explanation-dac-2026-research876"></span></p>
+<h3>Tdsnap: fast restoration is useful only when the snapshot keeps isolation, integrity and freshness</h3>
+<h4>What state a FaaS snapshot represents</h4>
+<p>Function-as-a-service runs short pieces of application code on shared infrastructure. A function can have registers, stack and heap memory, runtime metadata, open connections, pending work, credentials, device state and communication with storage or other services.</p><p>A snapshot is a saved representation from which execution can resume later.</p>
+<p>A trusted-domain snapshot tries to save and restore that state while keeping one tenant's state hidden from the platform, another tenant and an attacker who can influence scheduling or reuse. The trusted domain may be a hardware-isolated execution area, but the snapshot mechanism still needs to define which state is inside the boundary, which component performs copying, and how the saved bytes are protected while stored and moved.</p>
+<h4>Why saving memory is not enough</h4>
+<p>Confidentiality requires encryption and key handling for the snapshot, but encryption alone does not prevent an attacker from replacing, replaying, truncating or reordering snapshots. Integrity requires authentication of the state and its metadata.</p><p>Freshness requires binding the snapshot to a function instance, version, monotonic progress or accepted epoch so that an old valid snapshot cannot restore stale secrets or repeat a one-time action.</p>
+<p>The boundary also includes external state. A function may have sent a message, charged an account, updated a database or received a secret before the snapshot was taken.</p><p>Restoring the computation without coordinating those effects can duplicate an action, lose an action or create inconsistent state. A snapshot protocol must define quiescence, in-flight requests, timers, random-number state, device mappings, network connections, keys, storage writes and rollback behavior.</p>
+<p>Snapshot metadata can itself leak information. Size, timing, page-change patterns, function identity, access frequency and restore failures may reveal workload or tenant state even when the snapshot contents are encrypted.</p><p>The evaluator must state whether the platform, storage service, hypervisor, network and co-resident tenant are trusted, and what they can observe.</p>
+<h4>What a complete FaaS evaluation should measure</h4>
+<p>Compare process isolation, standard virtual-machine snapshots and the trusted-domain method with the same functions, state sizes, cold-start targets, storage and network conditions. Measure snapshot and restore latency, memory and storage overhead, bandwidth, energy, throughput, tail latency, concurrent tenants, failure recovery and cost.</p><p>Test a malicious host, storage replacement, replay, rollback, interrupted copy, stale key, compromised co-tenant and failed trust-domain entry.</p>
+<p>The evaluation should prove that a restored function cannot read another tenant's state, that unauthorized modification is detected, that freshness rules prevent unsafe replay, and that external side effects remain correct. It should report whether the method protects only memory contents or also code, runtime, I/O, device state and secrets.</p>
+<p>The captured official description identifies a trusted-domain snapshot mechanism for secure FaaS. It reports no isolation proof, snapshot latency, memory overhead, rollback handling, metadata leakage, threat-model detail or workload result.</p><p>The evidence supports a secure state-migration direction; it does not establish confidential, rollback-safe or production-efficient FaaS snapshots.</p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>Comparing attacks and protections</h2>
+<p>Use a defined attacker model, protected behavior, and success criterion. Report how much control and observation the experiment permits. Evaluate the unprotected and protected systems under comparable conditions and include resource overhead and effects on correct operation.</p>
+<p>For defenses, examine whether protection removes the information path or merely weakens the tested procedure. For attacks, report the conditions under which inference fails. These details allow the result to inform design decisions without implying security or insecurity beyond the demonstrated case.</p>
+<p>The selected papers address different interfaces and access assumptions. Their connection is the need to examine whole-system information paths. Their individual success measures should not be combined into a common security ranking.</p>
+<p class="lm-k h-label">Compare the results carefully</p><h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="route"></span>How to compare these papers’ results fairly</h2>
+<p>First identify the inputs and required output quality. Then identify the limited resource: time, memory, communication, energy, circuit area, or correctness coverage.</p><p>Ask which part of the method reduces that cost and which new cost it adds. Compare numbers only when the experiments hold these conditions sufficiently similar.</p>
+<p>A conference description may explain the proposal while omitting the full experiment. An author preprint link may have been coded from its abstract. The source classification does not by itself establish that every table was read. Missing locations remain visible below.</p>
+<p class="lm-k h-label">Complete captured evidence</p><h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="file-text"></span>Every paper in this subtheme, with what its source shows</h2>
+<p>These are evidence records, not substitutes for the explanations above. Each record preserves its problem, proposed method, measurements, comparison conditions, and source limits. A populated record does not establish that its mechanism has been fully explained or independently verified.</p>
+<p><span id="paper-dac-2026-research1793"></span></p>
+<h3>Stone-Skimming: Attacking Big-Data Analytics Applications with Page Table Walk</h3>
+<p>DAC 2026 · Record: <code>dac-2026-research1793</code></p>
+<p><a href="#explanation-dac-2026-research1793">Read the step-by-step explanation</a></p>
+<p><strong>Updated source-backed reading card</strong></p>
+<div class="worked"><p class="lm-k">Worked example</p><p>Reviewed 2026-09-08. Deepens the existing Stone-Skimming treatment into a paper-level reading; defines the translation path, separates an observable timing relationship from useful secret inference, and makes threat-model, workload-variation and mitigation measurements explicit.</p></div>
+<p>This editorial correction updates the current reading view and connected dossiers, not the historical adjudication or scientific acceptance status. The original captured fields are preserved below.</p>
+<p><a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/data/editorial-paper-corrections-v1.json">Correction register</a></p>
+<p><strong>Problem:</strong></p>
+<p>Page-table behavior may expose information about large analytics workloads.</p>
+<p><strong>Mechanism / artifact:</strong></p>
+<p>Page-table-walk side-channel attack against big-data analytics applications; observation interface, signal extraction, inference model and mitigation procedure are unspecified.</p>
+<p><strong>Workload — the work tested:</strong></p>
+<p>Big-data analytics workloads; datasets, pipeline stages, workers, inputs, software versions, operating system, co-tenancy and trace conditions are unspecified.</p>
+<p><strong>Hardware and manufacturing assumptions:</strong></p>
+<p>Paged virtual-memory processor with observable translation or timing behavior; processor, memory hierarchy, page size, huge-page policy, scheduler and address-space configuration are unspecified.</p>
+<p><strong>Baseline — the comparison method:</strong></p>
+<p>Noisy page-table observation</p>
+<p>Existing memory side channels</p>
+<p>Attacker access, co-location, observation interface, prior knowledge and comparison conditions are unspecified</p>
+<p><strong>Reported measurements:</strong></p>
+<p>Attack effectiveness is claimed qualitatively; no leakage rate, inference accuracy, sample count, attack time, observation bandwidth, false-positive/false-negative rate, attacker overhead or mitigation result is reported.</p>
+<p><strong>Limits on the conclusion:</strong></p>
+<p>A page-table walk can change latency, memory traffic, cache state or contention, but a measurable difference is not automatically a useful security leak. The protected workload must affect the observation, the attacker must obtain it, noise must be controlled, and the signal must support the stated inference.</p>
+<p>Analytics pipelines change with data partitions, parallel workers, scheduling, memory pressure and software versions. A result on one controlled configuration does not establish stability on unseen inputs, other workers, different co-tenants or different operating-system and page-size settings.</p>
+<p>The official description reports no leakage rate, attack time, co-location requirement, observation interface, operating-system or processor configuration, or mitigation result. The record supports a plausible translation-based information path, not a generally practical attack against all analytics systems.</p>
+<p><strong>Source and location</strong></p>
+<p>Evidence tier: Primary captured official DAC description plus existing chapter level stone skimming discussion; no full paper extraction, controlled threat model validation or mitigation experiment. This is the stored source classification; the location and limits below determine what was actually read.</p>
+<p><a href="https://63dac.conference-program.com/?post_type=page&amp;p=16&amp;id=RESEARCH1793">Open the recorded source</a></p>
+<p>DAC 2026 official description; captured Problem, Mechanism / artifact, Workload, Hardware, Baseline, Measurements and Limits fields; record RESEARCH1793; no manuscript pages.</p>
+<details markdown="1">
+<summary>Original captured fields — superseded for this reading card</summary>
+
+** page source tier:** medium_official_description
+
+**Baselines:** noisy page-table observation
+
+existing memory side channels
+
+**Evidence locators:** DAC 2026 official description
+
+**Evidence url:** https://63dac.conference-program.com/?post_type=page&amp;p=16&amp;id=RESEARCH1793
+
+**Hardware or process assumptions:** Paged virtual-memory system with observable timing or translation behavior; platform is unspecified.
+
+**Limits:** No leakage rate, attack time, co-location requirement, or mitigation results are reported.
+
+Practicality depends on OS and hardware details.
+
+Official description only; controlled threat-model validation is required.
+
+**Method or artifact:** Page-table-walk side-channel attack against big-data analytics applications.
+
+**Metrics:** Attack effectiveness is claimed qualitatively
+
+**Problem:** Page-table behavior can expose information about large analytics workloads.
+
+**Workload or benchmark:** Big-data analytics workloads; operating systems, co-tenancy, and trace conditions are unspecified.
+
+</details>
+<p><span id="paper-dac-2026-research2107"></span></p>
+<h3>ODBP: Obfuscation Design Approach for Biochemical Protocols in Continuous-Flow Microfluidic Biochips</h3>
+<p>DAC 2026 · Record: <code>dac-2026-research2107</code></p>
+<p><a href="#explanation-dac-2026-research2107">Read the step-by-step explanation</a></p>
+<p><strong>Updated source-backed reading card</strong></p>
+<div class="worked"><p class="lm-k">Worked example</p><p>Reviewed 2026-09-08. Deepens the existing ODBP treatment into a paper-level reading; defines a fluidic protocol as an ordered physical process, separates observer confusion from assay correctness, and specifies confidentiality, biochemical, overhead and variation measurements.</p></div>
+<p>This editorial correction updates the current reading view and connected dossiers, not the historical adjudication or scientific acceptance status. The original captured fields are preserved below.</p>
+<p><a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/data/editorial-paper-corrections-v1.json">Correction register</a></p>
+<p><strong>Problem:</strong></p>
+<p>Biochemical protocols on microfluidic chips can reveal sensitive operations or reagent sequences.</p>
+<p><strong>Mechanism / artifact:</strong></p>
+<p>Protocol-obfuscation design for continuous-flow microfluidic biochips; schedule transformation, observer model, leakage definition and biochemical validation procedure are unspecified.</p>
+<p><strong>Workload — the work tested:</strong></p>
+<p>Biochemical protocols and fluidic schedules; assays, reagents, flow rates, protocol set, chip architecture, attacker observations and test conditions are unspecified.</p>
+<p><strong>Hardware and manufacturing assumptions:</strong></p>
+<p>Continuous-flow microfluidic biochip with controllable valves and flows; channel geometry, fabrication process, pressure/flow limits, valve faults, contamination model and assay conditions are unspecified.</p>
+<p><strong>Baseline — the comparison method:</strong></p>
+<p>Unobfuscated protocol</p>
+<p>Randomized scheduling</p>
+<p>Protocol set, attacker knowledge, chip architecture, biochemical conditions and comparison procedure are unspecified</p>
+<p><strong>Reported measurements:</strong></p>
+<p>Protocol obfuscation is claimed qualitatively; no leakage, inference accuracy, assay yield, output error, latency, reagent cost, control overhead, fabrication or variation result is reported.</p>
+<p><strong>Limits on the conclusion:</strong></p>
+<p>A protocol is an ordered physical process whose timing, fluid identity, mixing, residence time and routing affect the biochemical result. Hiding a control trace is not sufficient if the observer can use duration, channel use, added operations or reagent consumption, and it is not useful if obfuscation changes the assay outcome.</p>
+<p>Confidentiality requires a defined observer, available signals, protected protocol set, prior knowledge and success criterion. Functional validity requires biochemical output checks under the same process conditions. A method that reduces one classifier's accuracy is not automatically a general confidentiality guarantee.</p>
+<p>The official description reports no leakage measure, attacker model, assay result, yield, latency, reagent cost, fabrication condition or fault/variation experiment. The record supports a security-and-function co-design problem, not demonstrated confidentiality or validated biochemical improvement.</p>
+<p><strong>Source and location</strong></p>
+<p>Evidence tier: Primary captured official DAC description plus existing chapter level odbp discussion; no full paper extraction, biochemical validation or controlled threat model experiment. This is the stored source classification; the location and limits below determine what was actually read.</p>
+<p><a href="https://63dac.conference-program.com/?post_type=page&amp;p=16&amp;id=RESEARCH2107">Open the recorded source</a></p>
+<p>DAC 2026 official description; captured Problem, Mechanism / artifact, Workload, Hardware, Baseline, Measurements and Limits fields; record RESEARCH2107; no manuscript pages.</p>
+<details markdown="1">
+<summary>Original captured fields — superseded for this reading card</summary>
+
+** page source tier:** medium_official_description
+
+**Baselines:** unobfuscated protocol
+
+randomized scheduling
+
+**Evidence locators:** DAC 2026 official description
+
+**Evidence url:** https://63dac.conference-program.com/?post_type=page&amp;p=16&amp;id=RESEARCH2107
+
+**Hardware or process assumptions:** Continuous-flow microfluidic biochip with controllable valves and flows; fabrication assumptions are unspecified.
+
+**Limits:** No leakage, assay yield, latency, reagent cost, or fabrication results are reported.
+
+Obfuscation may change fluidic timing or correctness.
+
+Official description only; biochemical and threat-model validation is required.
+
+**Method or artifact:** Protocol obfuscation design for continuous-flow microfluidic biochips.
+
+**Metrics:** Protocol obfuscation is claimed qualitatively
+
+**Problem:** Biochemical protocols on microfluidic chips can reveal sensitive operations or reagent sequences.
+
+**Workload or benchmark:** Biochemical protocols and fluidic schedules; chip architecture, attacker model, and assay quality are unspecified.
+
+</details>
+<p><span id="paper-dac-2026-research213"></span></p>
+<h3>Exploiting Per-Core Leakage: Electromagnetic Side-Channel Monitoring of Multicore Architectures</h3>
+<p>DAC 2026 · Record: <code>dac-2026-research213</code></p>
+<p><a href="#explanation-dac-2026-research213">Read the step-by-step explanation</a></p>
+<p><strong>Updated source-backed reading card</strong></p>
+<div class="worked"><p class="lm-k">Worked example</p><p>Reviewed 2026-09-08. Deepens the existing per-core electromagnetic-leakage treatment into a paper-level reading; separates physical signal detection, source attribution and secret recovery, and makes probe access, trace, device, noise and mitigation conditions explicit.</p></div>
+<p>This editorial correction updates the current reading view and connected dossiers, not the historical adjudication or scientific acceptance status. The original captured fields are preserved below.</p>
+<p><a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/data/editorial-paper-corrections-v1.json">Correction register</a></p>
+<p><strong>Problem:</strong></p>
+<p>Multicore activity can leak through electromagnetic emissions and reveal computation or secrets.</p>
+<p><strong>Mechanism / artifact:</strong></p>
+<p>Per-core electromagnetic side-channel monitoring or attack method; probe setup, attribution method, signal processing, secret-recovery task and mitigation procedure are unspecified.</p>
+<p><strong>Workload — the work tested:</strong></p>
+<p>Multicore programs and secret-dependent computation; core placement, inputs, secrets, repetitions, simultaneous workloads and trace protocol are unspecified.</p>
+<p><strong>Hardware and manufacturing assumptions:</strong></p>
+<p>Multicore silicon with measurable electromagnetic leakage; processor, package, board, probe, bandwidth, distance, shielding, grounding, clock, voltage and temperature conditions are unspecified.</p>
+<p><strong>Baseline — the comparison method:</strong></p>
+<p>Aggregate electromagnetic monitoring</p>
+<p>Power side-channel monitoring</p>
+<p>Per-core attribution, attacker access, trace budget and comparison conditions are unspecified</p>
+<p><strong>Reported measurements:</strong></p>
+<p>Per-core leakage exploitation is claimed qualitatively; no leakage rate, trace count, probe distance, attribution accuracy, attack success, secret-recovery time, false-positive/false-negative rate or mitigation result is reported.</p>
+<p><strong>Limits on the conclusion:</strong></p>
+<p>Switching activity can create an electromagnetic signal, but the measured field is a mixture of cores, caches, memory, interconnects, clocks, regulators, package coupling and noise. Detecting activity or distinguishing two cores is not the same as recovering a protected secret.</p>
+<p>A per-core claim needs a validated attribution method and an explicit physical threat model. Probe position, distance, bandwidth, shielding, sampling, device access and concurrent activity determine whether the result applies to a nearby laboratory probe, a shared device or a remote observer.</p>
+<p>The official description reports no probe conditions, trace count, leakage rate, attack success, attribution method, package setup or mitigation result. The record supports a physical side-channel research direction, not established remote observability, reliable per-core separation or secret recovery.</p>
+<p><strong>Source and location</strong></p>
+<p>Evidence tier: Primary captured official DAC description plus existing chapter level electromagnetic monitoring discussion; no full paper extraction, controlled hardware measurement or mitigation validation. This is the stored source classification; the location and limits below determine what was actually read.</p>
+<p><a href="https://63dac.conference-program.com/?post_type=page&amp;p=16&amp;id=RESEARCH213">Open the recorded source</a></p>
+<p>DAC 2026 official description; captured Problem, Mechanism / artifact, Workload, Hardware, Baseline, Measurements and Limits fields; record RESEARCH213; no manuscript pages.</p>
+<details markdown="1">
+<summary>Original captured fields — superseded for this reading card</summary>
+
+** page source tier:** medium_official_description
+
+**Baselines:** aggregate EM monitoring
+
+power side-channel monitoring
+
+**Evidence locators:** DAC 2026 official description
+
+**Evidence url:** https://63dac.conference-program.com/?post_type=page&amp;p=16&amp;id=RESEARCH213
+
+**Hardware or process assumptions:** Multicore silicon with measurable electromagnetic leakage; package and sensor assumptions are unspecified.
+
+**Limits:** No leakage rate, trace count, distance, attack success, or mitigation results are reported.
+
+Practicality depends on package and probe conditions.
+
+Official description only; controlled hardware validation is required.
+
+**Method or artifact:** Per-core electromagnetic side-channel monitoring or attack method.
+
+**Metrics:** Per-core leakage exploitation is claimed qualitatively
+
+**Problem:** Multicore activity can leak through electromagnetic emissions and reveal computation or secrets.
+
+**Workload or benchmark:** Multicore programs and secret-dependent computation; processor, probe, and co-location assumptions are unspecified.
+
+</details>
+<p><span id="paper-dac-2026-research2369"></span></p>
+<h3>Reconnaissance: Correctly Tracking Multiple Secrets Using Reveal/conceal Paradigms</h3>
+<p>DAC 2026 · Record: <code>dac-2026-research2369</code></p>
+<p><a href="#explanation-dac-2026-research2369">Read the step-by-step explanation</a></p>
+<p><strong>Updated source-backed reading card</strong></p>
+<div class="worked"><p class="lm-k">Worked example</p><p>Reviewed 2026-09-08. Deepens the existing Reconnaissance treatment into a paper-level reading; defines multi-secret information-flow tracking, separates permitted reveal from protected concealment, and makes soundness, precision, semantics and scalability requirements explicit.</p></div>
+<p>This editorial correction updates the current reading view and connected dossiers, not the historical adjudication or scientific acceptance status. The original captured fields are preserved below.</p>
+<p><a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/data/editorial-paper-corrections-v1.json">Correction register</a></p>
+<p><strong>Problem:</strong></p>
+<p>Security analyses must track multiple secret values while distinguishing intentional reveal from protected state.</p>
+<p><strong>Mechanism / artifact:</strong></p>
+<p>Reveal/conceal paradigm for multi-secret tracking or information-flow analysis; label semantics, transfer rules, declassification policy, attacker observation and proof model are unspecified.</p>
+<p><strong>Workload — the work tested:</strong></p>
+<p>Hardware or software designs with multiple secrets; language, control flow, memory, concurrency, policies, case studies and reference judgments are unspecified.</p>
+<p><strong>Hardware and manufacturing assumptions:</strong></p>
+<p>Security-analysis or information-flow tooling; execution, memory, concurrency, speculation and observation assumptions are unspecified.</p>
+<p><strong>Baseline — the comparison method:</strong></p>
+<p>Single-secret tracking</p>
+<p>Standard information-flow analysis</p>
+<p>Soundness reference, precision reference, policy model and scalability conditions are unspecified</p>
+<p><strong>Reported measurements:</strong></p>
+<p>Multi-secret tracking capability is claimed qualitatively; no soundness proof, precision result, runtime, memory, label-scaling, false-alarm rate, missed-flow rate or case-study result is reported.</p>
+<p><strong>Limits on the conclusion:</strong></p>
+<p>Multiple secrets need identity and dependency information: an output may depend on secret A, secret B, both or a relation between them. Treating all secrets as one label can lose this distinction.</p><p>Reveal and conceal are policy semantics, not proof that the implementation follows the policy.</p>
+<p>Soundness asks whether forbidden flows are detected under the stated model; precision asks whether permitted or impossible flows are avoided. Comparisons, aliases, control predicates, arrays, exceptions, concurrency and intentional declassification can change the result, so the language and observation model must be explicit.</p>
+<p>The official description reports no formal label semantics, soundness proof, precision study, runtime, scalability result or case study. The record supports a policy-aware multi-secret analysis direction, not established complete flow detection or meaningfulness of every reported warning.</p>
+<p><strong>Source and location</strong></p>
+<p>Evidence tier: Primary captured official DAC description plus existing chapter level reveal/conceal discussion; no full paper extraction, formal proof or implementation validation. This is the stored source classification; the location and limits below determine what was actually read.</p>
+<p><a href="https://63dac.conference-program.com/?post_type=page&amp;p=16&amp;id=RESEARCH2369">Open the recorded source</a></p>
+<p>DAC 2026 official description; captured Problem, Mechanism / artifact, Workload, Hardware, Baseline, Measurements and Limits fields; record RESEARCH2369; no manuscript pages.</p>
+<details markdown="1">
+<summary>Original captured fields — superseded for this reading card</summary>
+
+** page source tier:** medium_official_description
+
+**Baselines:** single-secret tracking
+
+standard information-flow analysis
+
+**Evidence locators:** DAC 2026 official description
+
+**Evidence url:** https://63dac.conference-program.com/?post_type=page&amp;p=16&amp;id=RESEARCH2369
+
+**Hardware or process assumptions:** Security-analysis or information-flow tooling; execution and memory assumptions are unspecified.
+
+**Limits:** No soundness, precision, runtime, scalability, or case-study results are reported.
+
+Reveal semantics may be domain-specific.
+
+Official description only; formal and implementation validation is required.
+
+**Method or artifact:** Reveal/conceal paradigm for multi-secret tracking or analysis.
+
+**Metrics:** Multi-secret tracking capability is claimed qualitatively
+
+**Problem:** Security analyses must track multiple secret values while distinguishing intentional reveal from protected state.
+
+**Workload or benchmark:** Hardware or software designs with multiple secrets; language, attacker, and proof setting are unspecified.
+
+</details>
+<p><span id="paper-dac-2026-research3019"></span></p>
+<h3>Decoding the Past: Recovering Sensitive Data from SRAM Aging Imprints</h3>
+<p>DAC 2026 · Record: <code>dac-2026-research3019</code></p>
+<p><a href="#explanation-dac-2026-research3019">Read the step-by-step explanation</a></p>
+<p><strong>Updated source-backed reading card</strong></p>
+<div class="worked"><p class="lm-k">Worked example</p><p>Reviewed 2026-09-08. Deepens the existing SRAM-aging treatment into a paper-level reading; separates residual charge from history-dependent aging, defines the readout and inference chain, and makes device variation, retention horizon, recovery metrics and sanitization tests explicit.</p></div>
+<p>This editorial correction updates the current reading view and connected dossiers, not the historical adjudication or scientific acceptance status. The original captured fields are preserved below.</p>
+<p><a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/data/editorial-paper-corrections-v1.json">Correction register</a></p>
+<p><strong>Problem:</strong></p>
+<p>Aging-dependent SRAM patterns may retain information about previously stored sensitive data.</p>
+<p><strong>Mechanism / artifact:</strong></p>
+<p>Attack or forensic method recovering data from SRAM aging imprints; cell-aging mechanism, readout sensor, calibration, inference model and sanitization test are unspecified.</p>
+<p><strong>Workload — the work tested:</strong></p>
+<p>SRAM devices and prior data patterns; stress duration, data structure, intervening writes, power cycles, age, temperature, voltage, access procedure and attacker model are unspecified.</p>
+<p><strong>Hardware and manufacturing assumptions:</strong></p>
+<p>SRAM memory with measurable aging variation; cell design, process, supply, temperature, memory controller, sensor and readout assumptions are unspecified.</p>
+<p><strong>Baseline — the comparison method:</strong></p>
+<p>Fresh SRAM readout</p>
+<p>Conventional remanence attacks</p>
+<p>Recovery target, chance baseline, calibration, cross-device transfer and access conditions are unspecified</p>
+<p><strong>Reported measurements:</strong></p>
+<p>Sensitive-data recovery is claimed qualitatively; no bit error rate, recovery accuracy, block/message recovery, cell/read count, age, retention horizon, calibration cost, cross-device result or mitigation result is reported.</p>
+<p><strong>Limits on the conclusion:</strong></p>
+<p>An aging imprint is not ordinary residual charge. It would be a weak relationship between earlier electrical stress and later cell behavior, which can be confounded by process mismatch, retention, read disturb, supply noise and the sensor.</p><p>The physical aging mechanism and alternative causes must be identified.</p>
+<p>A recovery claim needs an access path, readout, calibration and inference rule. A rate above random guessing on selected bits does not establish recovery of a key, file or structured record. Accuracy must be measured across time, devices, SRAM blocks, stress patterns and unseen chips.</p>
+<p>The official description reports no recovery accuracy, age or retention horizon, access requirement, sensor, process condition, calibration procedure or mitigation result. The record supports a hardware-forensics hypothesis, not established recovery from ordinary SRAM or a proven sanitization failure.</p>
+<p><strong>Source and location</strong></p>
+<p>Evidence tier: Primary captured official DAC description plus existing chapter level sram aging discussion; no full paper extraction, controlled hardware forensics experiment or mitigation validation. This is the stored source classification; the location and limits below determine what was actually read.</p>
+<p><a href="https://63dac.conference-program.com/?post_type=page&amp;p=16&amp;id=RESEARCH3019">Open the recorded source</a></p>
+<p>DAC 2026 official description; captured Problem, Mechanism / artifact, Workload, Hardware, Baseline, Measurements and Limits fields; record RESEARCH3019; no manuscript pages.</p>
+<details markdown="1">
+<summary>Original captured fields — superseded for this reading card</summary>
+
+** page source tier:** medium_official_description
+
+**Baselines:** fresh SRAM readout
+
+conventional remanence attacks
+
+**Evidence locators:** DAC 2026 official description
+
+**Evidence url:** https://63dac.conference-program.com/?post_type=page&amp;p=16&amp;id=RESEARCH3019
+
+**Hardware or process assumptions:** SRAM memory with measurable aging variation; sensor and readout assumptions are unspecified.
+
+**Limits:** No recovery accuracy, age, retention horizon, access requirements, or mitigation results are reported.
+
+Aging signatures may vary by process and environment.
+
+Official description only; hardware and threat-model validation is required.
+
+**Method or artifact:** Attack or forensic method recovering data from SRAM aging imprints.
+
+**Metrics:** Sensitive-data recovery is claimed qualitatively
+
+**Problem:** Aging-dependent SRAM patterns may retain information about previously stored sensitive data.
+
+**Workload or benchmark:** SRAM devices and prior data patterns; process, age, access, and attacker model are unspecified.
+
+</details>
+<p><span id="paper-dac-2026-research315"></span></p>
+<h3>Capacitive Touchscreens at Risk: Recovering Handwritten Trajectory on Smartphone via Electromagnetic Emanations</h3>
+<p>DAC 2026 · Record: <code>dac-2026-research315</code></p>
+<p><a href="#explanation-dac-2026-research315">Read the step-by-step explanation</a></p>
+<p><strong>Updated source-backed reading card</strong></p>
+<div class="worked"><p class="lm-k">Worked example</p><p>Reviewed 2026-09-08. Deepens the existing touchscreen-emanation treatment into a paper-level reading; defines capacitive scanning and the signal-to-trajectory inference chain, and makes physical access, user/device generalization and reconstruction metrics explicit.</p></div>
+<p>This editorial correction updates the current reading view and connected dossiers, not the historical adjudication or scientific acceptance status. The original captured fields are preserved below.</p>
+<p><a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/data/editorial-paper-corrections-v1.json">Correction register</a></p>
+<p><strong>Problem:</strong></p>
+<p>Touchscreen electromagnetic emissions may reveal sensitive user input.</p>
+<p><strong>Mechanism / artifact:</strong></p>
+<p>Electromagnetic side-channel recovery of touch trajectories; touchscreen scan behavior, sensor, probe, coordinate-reconstruction model and mitigation procedure are unspecified.</p>
+<p><strong>Workload — the work tested:</strong></p>
+<p>Smartphone handwriting and touchscreen traces; phone model, screen stack, users, phrases, writing sessions, orientations and test protocol are unspecified.</p>
+<p><strong>Hardware and manufacturing assumptions:</strong></p>
+<p>Capacitive touchscreen and EM sensing setup; probe, distance, orientation, bandwidth, shielding, case, display state, background activity and attacker access are unspecified.</p>
+<p><strong>Baseline — the comparison method:</strong></p>
+<p>Noisy EM observation</p>
+<p>Touchscreen software logging</p>
+<p>Device, probe, calibration, user split, cross-device and comparison conditions are unspecified</p>
+<p><strong>Reported measurements:</strong></p>
+<p>Trajectory recovery is claimed qualitatively; no coordinate error, point precision/recall, temporal alignment, phrase recovery, recovery accuracy, distance, equipment, user diversity, trace count or mitigation result is reported.</p>
+<p><strong>Limits on the conclusion:</strong></p>
+<p>A capacitive controller scans electrodes and estimates touch locations; its switching may create an electromagnetic trace. A correlation with touch activity is not trajectory recovery. A trajectory requires time-ordered position reconstruction and separation from display, processor, radio, enclosure, user and environmental effects.</p>
+<p>Physical access is part of the security claim. Probe position, distance, orientation, bandwidth, shielding, phone model, case and attacker control determine whether the result applies to one laboratory setup, a nearby observer or a remote attacker.</p><p>Training must be separated by session, user and device to establish generalization.</p>
+<p>The official description reports no recovery accuracy, distance, equipment, user diversity, cross-device result or mitigation result. The record supports a physical side-channel hypothesis, not established remote trajectory recovery, general handwriting reconstruction or a demonstrated protection failure.</p>
+<p><strong>Source and location</strong></p>
+<p>Evidence tier: Primary captured official DAC description plus existing chapter level touchscreen emanation discussion; no full paper extraction, controlled hardware validation or mitigation experiment. This is the stored source classification; the location and limits below determine what was actually read.</p>
+<p><a href="https://63dac.conference-program.com/?post_type=page&amp;p=16&amp;id=RESEARCH315">Open the recorded source</a></p>
+<p>DAC 2026 official description; captured Problem, Mechanism / artifact, Workload, Hardware, Baseline, Measurements and Limits fields; record RESEARCH315; no manuscript pages.</p>
+<details markdown="1">
+<summary>Original captured fields — superseded for this reading card</summary>
+
+** page source tier:** medium_official_description
+
+**Baselines:** noisy EM observation
+
+touchscreen software logging
+
+**Evidence locators:** DAC 2026 official description
+
+**Evidence url:** https://63dac.conference-program.com/?post_type=page&amp;p=16&amp;id=RESEARCH315
+
+**Hardware or process assumptions:** Capacitive touchscreen and EM sensing setup; shielding and attacker access are unspecified.
+
+**Limits:** No recovery accuracy, distance, equipment, user diversity, or mitigation results are reported.
+
+Practicality depends on device and probe placement.
+
+Official description only; controlled hardware validation is required.
+
+**Method or artifact:** Electromagnetic side-channel recovery of touch trajectories.
+
+**Metrics:** Trajectory recovery is claimed qualitatively
+
+**Problem:** Touchscreen electromagnetic emissions may reveal sensitive user input.
+
+**Workload or benchmark:** Smartphone handwriting and touchscreen traces; device, probe, distance, and user set are unspecified.
+
+</details>
+<p><span id="paper-dac-2026-research462"></span></p>
+<h3>SCIMI: Semantic-Aware Collaborative Intrusion Detection for Multi-Domain In-Vehicle Networks</h3>
+<p>DAC 2026 · Record: <code>dac-2026-research462</code></p>
+<p><a href="#explanation-dac-2026-research462">Read the step-by-step explanation</a></p>
+<p><strong>Updated source-backed reading card</strong></p>
+<div class="worked"><p class="lm-k">Worked example</p><p>Reviewed 2026-09-08. Deepens the existing SCIMI treatment into a paper-level reading; defines semantic vehicle context, separates local detection from collaborative evidence exchange, and makes communication attack surface, safety, latency and vehicle validation explicit.</p></div>
+<p>This editorial correction updates the current reading view and connected dossiers, not the historical adjudication or scientific acceptance status. The original captured fields are preserved below.</p>
+<p><a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/data/editorial-paper-corrections-v1.json">Correction register</a></p>
+<p><strong>Problem:</strong></p>
+<p>Vehicle networks span domains with heterogeneous traffic and need collaborative intrusion detection.</p>
+<p><strong>Mechanism / artifact:</strong></p>
+<p>Semantic-aware collaborative intrusion-detection system; message semantics, context model, evidence exchanged, trust mechanism, fusion rule and response behavior are unspecified.</p>
+<p><strong>Workload — the work tested:</strong></p>
+<p>In-vehicle network traffic and attacks; vehicle architecture, domains, operating modes, benign mode changes, attack set, labels, traces and communication conditions are unspecified.</p>
+<p><strong>Hardware and manufacturing assumptions:</strong></p>
+<p>Automotive network controllers and collaborative detection nodes; compute, network latency, bandwidth, authentication, safety response and platform validation assumptions are unspecified.</p>
+<p><strong>Baseline — the comparison method:</strong></p>
+<p>Local intrusion-detection system</p>
+<p>Signature-based intrusion-detection system</p>
+<p>Vehicle architecture, attack set, compute budget, latency, communication and evaluation conditions are unspecified</p>
+<p><strong>Reported measurements:</strong></p>
+<p>Intrusion-detection effectiveness is claimed qualitatively; no detection rate, false-positive rate, missed attacks, alert latency, bandwidth, processor/memory cost, compromised-node result or vehicle result is reported.</p>
+<p><strong>Limits on the conclusion:</strong></p>
+<p>Semantic detection depends on a defined message vocabulary, signal meaning, operating mode, state model and trusted sources. The same traffic can be valid in one mode and suspicious in another; incomplete or wrong semantics can create false alarms or missed attacks.</p>
+<p>Collaboration can expose cross-domain patterns, but exchanged evidence adds delay, bandwidth, synchronization and attack surface. A compromised node can forge, suppress, replay or poison evidence, so identity, freshness, trust, disagreement and channel-failure behavior must be defined.</p>
+<p>The official description reports no detection rate, false positives, latency, bandwidth, compromised-node test, attack set or vehicle result. The record supports context-aware distributed detection, not safe deployment, improved vehicle-level detection or resistance to attacks on collaboration.</p>
+<p><strong>Source and location</strong></p>
+<p>Evidence tier: Primary captured official DAC description plus existing chapter level collaborative ids discussion; no full paper extraction, threat model validation or vehicle experiment. This is the stored source classification; the location and limits below determine what was actually read.</p>
+<p><a href="https://63dac.conference-program.com/?post_type=page&amp;p=16&amp;id=RESEARCH462">Open the recorded source</a></p>
+<p>DAC 2026 official description; captured Problem, Mechanism / artifact, Workload, Hardware, Baseline, Measurements and Limits fields; record RESEARCH462; no manuscript pages.</p>
+<details markdown="1">
+<summary>Original captured fields — superseded for this reading card</summary>
+
+** page source tier:** medium_official_description
+
+**Baselines:** local IDS
+
+signature-based IDS
+
+**Evidence locators:** DAC 2026 official description
+
+**Evidence url:** https://63dac.conference-program.com/?post_type=page&amp;p=16&amp;id=RESEARCH462
+
+**Hardware or process assumptions:** Automotive network controllers and collaborative detection nodes; latency and safety assumptions are unspecified.
+
+**Limits:** No detection rate, false positives, latency, bandwidth, or vehicle results are reported.
+
+Semantic collaboration may expose additional attack surface.
+
+Official description only; threat-model and vehicle validation is required.
+
+**Method or artifact:** Semantic-aware collaborative intrusion-detection system.
+
+**Metrics:** Intrusion-detection effectiveness is claimed qualitatively
+
+**Problem:** Vehicle networks span domains with heterogeneous traffic and need collaborative intrusion detection.
+
+**Workload or benchmark:** In-vehicle network traffic and attacks; vehicle architecture, labels, and communication are unspecified.
+
+</details>
+<p><span id="paper-dac-2026-research625"></span></p>
+<h3>Attestllm: Efficient Attestation Framework for Billion-Scale On-Device LLMs</h3>
+<p>DAC 2026 · Record: <code>dac-2026-research625</code></p>
+<p><a href="#explanation-dac-2026-research625">Read the step-by-step explanation</a></p>
+<p><strong>Updated source-backed reading card</strong></p>
+<div class="worked"><p class="lm-k">Worked example</p><p>Reviewed 2026-09-08. Deepens the existing AttestLLM treatment into a paper-level reading; defines trusted measurement and evidence binding, separates model artifact integrity from runtime behavior integrity, and makes model-scale, update, freshness and tamper-validation requirements explicit.</p></div>
+<p>This editorial correction updates the current reading view and connected dossiers, not the historical adjudication or scientific acceptance status. The original captured fields are preserved below.</p>
+<p><a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/data/editorial-paper-corrections-v1.json">Correction register</a></p>
+<p><strong>Problem:</strong></p>
+<p>On-device LLM deployments need integrity and provenance attestation without large inference overhead.</p>
+<p><strong>Mechanism / artifact:</strong></p>
+<p>Efficient attestation framework for large on-device LLMs; measured components, commitment structure, hardware root of trust, verifier protocol, freshness and update/rollback behavior are unspecified.</p>
+<p><strong>Workload — the work tested:</strong></p>
+<p>Billion-scale LLM models on edge devices; model formats, quantization, adapters, tokenizer, runtime, accelerator, update flow and inference workload are unspecified.</p>
+<p><strong>Hardware and manufacturing assumptions:</strong></p>
+<p>Secure embedded device with model storage and attestation; root of trust, secure boot, TEE, keys, storage, accelerator, network and offline behavior are unspecified.</p>
+<p><strong>Baseline — the comparison method:</strong></p>
+<p>Full-model hashing</p>
+<p>Unattested deployment</p>
+<p>Attacker capability, device configuration, model lifecycle and comparison conditions are unspecified</p>
+<p><strong>Reported measurements:</strong></p>
+<p>Attestation efficiency is claimed qualitatively; no security proof, attestation latency, memory traffic, energy, proof size, verifier time, update cost, freshness, tamper-detection or device result is reported.</p>
+<p><strong>Limits on the conclusion:</strong></p>
+<p>Attestation evidence can bind a signed measurement to an approved artifact only if the measured component, reference, device key, freshness and execution chain are defined. A model digest does not by itself prove that the approved bytes were loaded on every path or that later runtime changes are impossible.</p>
+<p>Efficient measurement of a billion-scale model may hash chunks, metadata, a tree or selected regions. Each choice changes what an attacker can alter without detection. Provenance also includes tokenizer, preprocessing, quantization, adapters, compiler, runtime, libraries, configuration, update authorization and rollback state.</p>
+<p>Model integrity does not prove prompt privacy, output correctness, absence of runtime bugs, faithful accelerator execution or safety of the approved model. The official description reports no security proof, performance, freshness, update, tamper-detection or device result; the record supports an attestation direction, not end-to-end runtime trust or deployment readiness.</p>
+<p><strong>Source and location</strong></p>
+<p>Evidence tier: Primary captured official DAC description plus existing chapter level on device model attestation discussion; no full paper extraction, security proof or device validation. This is the stored source classification; the location and limits below determine what was actually read.</p>
+<p><a href="https://63dac.conference-program.com/?post_type=page&amp;p=16&amp;id=RESEARCH625">Open the recorded source</a></p>
+<p>DAC 2026 official description; captured Problem, Mechanism / artifact, Workload, Hardware, Baseline, Measurements and Limits fields; record RESEARCH625; no manuscript pages.</p>
+<details markdown="1">
+<summary>Original captured fields — superseded for this reading card</summary>
+
+** page source tier:** medium_official_description
+
+**Baselines:** full-model hashing
+
+unattested deployment
+
+**Evidence locators:** DAC 2026 official description
+
+**Evidence url:** https://63dac.conference-program.com/?post_type=page&amp;p=16&amp;id=RESEARCH625
+
+**Hardware or process assumptions:** Secure embedded device with model storage and attestation; TEE and network assumptions are unspecified.
+
+**Limits:** No security proof, attestation latency, memory, energy, update, or device results are reported.
+
+Model integrity may not imply runtime behavior integrity.
+
+Official description only; threat-model and device validation is required.
+
+**Method or artifact:** Efficient attestation framework for large on-device LLMs.
+
+**Metrics:** Attestation efficiency is claimed qualitatively
+
+**Problem:** On-device LLM deployments need integrity and provenance attestation without large inference overhead.
+
+**Workload or benchmark:** Billion-scale LLM models on edge devices; hardware root of trust, updates, and attacker are unspecified.
+
+</details>
+<p><span id="paper-dac-2026-research663"></span></p>
+<h3>Emudrop: A Minimalistic, Hardware-Based Emulation Detection Approach Through Intel Reserved Opcodes</h3>
+<p>DAC 2026 · Record: <code>dac-2026-research663</code></p>
+<p><a href="#explanation-dac-2026-research663">Read the step-by-step explanation</a></p>
+<p><strong>Updated source-backed reading card</strong></p>
+<div class="worked"><p class="lm-k">Worked example</p><p>Reviewed 2026-09-08. Deepens the existing Emudrop treatment into a paper-level reading; defines reserved-opcode behavior as an environment fingerprint, separates mismatch detection from universal emulation detection, and makes CPU, OS, privilege, hypervisor, evasion and false-positive conditions explicit.</p></div>
+<p>This editorial correction updates the current reading view and connected dossiers, not the historical adjudication or scientific acceptance status. The original captured fields are preserved below.</p>
+<p><a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/data/editorial-paper-corrections-v1.json">Correction register</a></p>
+<p><strong>Problem:</strong></p>
+<p>Malware and software may evade analysis by detecting virtualized or emulated environments.</p>
+<p><strong>Mechanism / artifact:</strong></p>
+<p>Minimal hardware-based emulator-detection technique using reserved opcodes; exact opcode, exception handling, reference behavior, privilege, timing and evasion assumptions are unspecified.</p>
+<p><strong>Workload — the work tested:</strong></p>
+<p>Intel-compatible systems and emulators; CPU generations, operating systems, privilege levels, hypervisors, full/user-mode emulators, sandboxes, translators and attacker-aware variants are unspecified.</p>
+<p><strong>Hardware and manufacturing assumptions:</strong></p>
+<p>Intel CPU supporting reserved-opcode behavior; execution mode, exception path, OS, virtualization, binary translation and sandbox assumptions are unspecified.</p>
+<p><strong>Baseline — the comparison method:</strong></p>
+<p>Software emulator checks</p>
+<p>CPUID-based checks</p>
+<p>CPU/emulator coverage, attacker budget, privilege, exception and comparison conditions are unspecified</p>
+<p><strong>Reported measurements:</strong></p>
+<p>Emulation-detection effectiveness is claimed qualitatively; no detection rate, false-positive rate, false-negative rate, portability, privilege, overhead, exception behavior, evasion or mitigation result is reported.</p>
+<p><strong>Limits on the conclusion:</strong></p>
+<p>A reserved opcode can expose a difference between native and emulated instruction handling, but the result depends on CPU generation, mode, operating system, exception delivery, hypervisor policy, translation and sandbox restrictions. It is a compatibility fingerprint, not direct proof that an environment is virtualized.</p>
+<p>An emulator or analysis system can reproduce the expected exception, intercept or rewrite the instruction, or recognize the detector. Native machines that differ from the reference can create false positives.</p><p>The security meaning therefore depends on the attacker and defender budgets and the exact environment set tested.</p>
+<p>The official description reports no detection rate, false positives, CPU or emulator coverage, privilege requirement, timing, evasion test or mitigation result. The record supports a hardware-fingerprint direction, not portable detection of all emulation or a general malware-evasion capability.</p>
+<p><strong>Source and location</strong></p>
+<p>Evidence tier: Primary captured official DAC description plus existing chapter level reserved opcode discussion; no full paper extraction, cross platform validation or detector aware evasion experiment. This is the stored source classification; the location and limits below determine what was actually read.</p>
+<p><a href="https://63dac.conference-program.com/?post_type=page&amp;p=16&amp;id=RESEARCH663">Open the recorded source</a></p>
+<p>DAC 2026 official description; captured Problem, Mechanism / artifact, Workload, Hardware, Baseline, Measurements and Limits fields; record RESEARCH663; no manuscript pages.</p>
+<details markdown="1">
+<summary>Original captured fields — superseded for this reading card</summary>
+
+** page source tier:** medium_official_description
+
+**Baselines:** software emulator checks
+
+CPUID-based checks
+
+**Evidence locators:** DAC 2026 official description
+
+**Evidence url:** https://63dac.conference-program.com/?post_type=page&amp;p=16&amp;id=RESEARCH663
+
+**Hardware or process assumptions:** Intel CPU supporting reserved-opcode behavior; OS and virtualization assumptions are unspecified.
+
+**Limits:** No detection rate, false positives, portability, privilege, or mitigation results are reported.
+
+Reserved-opcode behavior may vary across CPUs and hypervisors.
+
+Official description only; cross-platform validation is required.
+
+**Method or artifact:** Minimal hardware-based emulator-detection technique using reserved opcodes.
+
+**Metrics:** Emulation-detection effectiveness is claimed qualitatively
+
+**Problem:** Malware and software may evade analysis by detecting virtualized or emulated environments.
+
+**Workload or benchmark:** Intel-compatible systems and emulators; versions, privileges, and attacker model are unspecified.
+
+</details>
+<p><span id="paper-dac-2026-research681"></span></p>
+<h3>Mistletunnel: Attacking KASLR on Apple M-Series Silicon with a Novel TLB Side Channel</h3>
+<p>DAC 2026 · Record: <code>dac-2026-research681</code></p>
+<p><a href="#explanation-dac-2026-research681">Read the step-by-step explanation</a></p>
+<p><strong>Updated source-backed reading card</strong></p>
+<div class="worked"><p class="lm-k">Worked example</p><p>Reviewed 2026-09-08. Deepens the existing Mistletunnel treatment into a paper-level reading; defines KASLR and TLB translation leakage, separates a timing correlation from kernel-address recovery, and makes Apple silicon, OS, privilege, noise and mitigation boundaries explicit.</p></div>
+<p>This editorial correction updates the current reading view and connected dossiers, not the historical adjudication or scientific acceptance status. The original captured fields are preserved below.</p>
+<p><a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/data/editorial-paper-corrections-v1.json">Correction register</a></p>
+<p><strong>Problem:</strong></p>
+<p>Address-space randomization can be weakened by microarchitectural translation leakage.</p>
+<p><strong>Mechanism / artifact:</strong></p>
+<p>Novel TLB side-channel attack against KASLR; observation method, translation-state sharing, address-recovery procedure, victim access and follow-on exploit condition are unspecified.</p>
+<p><strong>Workload — the work tested:</strong></p>
+<p>Apple M-series systems and victim software; chip generations, OS versions, randomized layouts, victim workload, co-location, permissions and noise conditions are unspecified.</p>
+<p><strong>Hardware and manufacturing assumptions:</strong></p>
+<p>Apple silicon TLB and memory system; TLB levels, page sizes, invalidation, scheduler, core placement, privilege, timing interface and attacker access are unspecified.</p>
+<p><strong>Baseline — the comparison method:</strong></p>
+<p>Cache side channels</p>
+<p>Existing KASLR attacks</p>
+<p>Victim, access, noise, time, success criterion and mitigation conditions are unspecified</p>
+<p><strong>Reported measurements:</strong></p>
+<p>KASLR recovery effectiveness is claimed qualitatively; no address-recovery rate, confidence, time, sample count, noise tolerance, privilege, false-recovery rate, cross-platform result or mitigation result is reported.</p>
+<p><strong>Limits on the conclusion:</strong></p>
+<p>KASLR hides the randomized placement of kernel components. A TLB hit/miss or contention signal may reveal translation activity, but a correlation with activity is weaker than recovering the kernel base or enabling a follow-on exploit.</p><p>The address hypothesis, error rate and attacker observation path must be explicit.</p>
+<p>TLB behavior depends on processor, OS, page size, invalidation, scheduling, privilege, co-location and concurrent activity. Apple M-series and OS-specific results cannot automatically be generalized to all Apple silicon or KASLR deployments.</p>
+<p>The official description reports no address-recovery rate, time, noise tolerance, privilege, cross-platform coverage or mitigation result. The record supports a platform-specific translation-leakage direction, not general KASLR defeat or a usable exploit chain.</p>
+<p><strong>Source and location</strong></p>
+<p>Evidence tier: Primary captured official DAC description plus existing chapter level tlb/kaslr discussion; no full paper extraction, controlled hardware validation or mitigation experiment. This is the stored source classification; the location and limits below determine what was actually read.</p>
+<p><a href="https://63dac.conference-program.com/?post_type=page&amp;p=16&amp;id=RESEARCH681">Open the recorded source</a></p>
+<p>DAC 2026 official description; captured Problem, Mechanism / artifact, Workload, Hardware, Baseline, Measurements and Limits fields; record RESEARCH681; no manuscript pages.</p>
+<details markdown="1">
+<summary>Original captured fields — superseded for this reading card</summary>
+
+** page source tier:** medium_official_description
+
+**Baselines:** cache side channels
+
+existing KASLR attacks
+
+**Evidence locators:** DAC 2026 official description
+
+**Evidence url:** https://63dac.conference-program.com/?post_type=page&amp;p=16&amp;id=RESEARCH681
+
+**Hardware or process assumptions:** Apple silicon TLB and memory system; OS version and attacker access are unspecified.
+
+**Limits:** No address-recovery rate, time, noise tolerance, privilege, or mitigation results are reported.
+
+Results may be OS- and silicon-specific.
+
+Official description only; controlled hardware validation is required.
+
+**Method or artifact:** Novel TLB side-channel attack against KASLR.
+
+**Metrics:** KASLR recovery effectiveness is claimed qualitatively
+
+**Problem:** Address-space randomization can be weakened by microarchitectural translation leakage.
+
+**Workload or benchmark:** Apple M-series systems and victim software; privileges, co-location, and noise are unspecified.
+
+</details>
+<p><span id="paper-dac-2026-research876"></span></p>
+<h3>Tdsnap: Enabling Secure Function-as-a-Service with Trusted Domain Snapshots</h3>
+<p>DAC 2026 · Record: <code>dac-2026-research876</code></p>
+<p><a href="#explanation-dac-2026-research876">Read the step-by-step explanation</a></p>
+<p><strong>Updated source-backed reading card</strong></p>
+<div class="worked"><p class="lm-k">Worked example</p><p>Reviewed 2026-09-08. Deepens the existing Tdsnap treatment into a paper-level reading; defines trusted FaaS snapshot state, separates confidentiality/integrity from freshness and external side effects, and makes isolation proof, metadata leakage, rollback and efficiency requirements explicit.</p></div>
+<p>This editorial correction updates the current reading view and connected dossiers, not the historical adjudication or scientific acceptance status. The original captured fields are preserved below.</p>
+<p><a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/data/editorial-paper-corrections-v1.json">Correction register</a></p>
+<p><strong>Problem:</strong></p>
+<p>FaaS systems need fast isolation and state handling while preserving confidentiality across tenants.</p>
+<p><strong>Mechanism / artifact:</strong></p>
+<p>Trusted-domain snapshot mechanism for secure FaaS; trusted boundary, captured state, key handling, integrity/freshness protocol, external-side-effect coordination and restore behavior are unspecified.</p>
+<p><strong>Workload — the work tested:</strong></p>
+<p>Function-as-a-service workloads; state sizes, runtimes, open connections, storage, device use, concurrent tenants, failures and cold-start targets are unspecified.</p>
+<p><strong>Hardware and manufacturing assumptions:</strong></p>
+<p>Trusted execution or hardware-isolated domain; memory, storage, hypervisor, network, key, rollback, I/O and trust-boundary assumptions are unspecified.</p>
+<p><strong>Baseline — the comparison method:</strong></p>
+<p>Process isolation</p>
+<p>Standard VM snapshots</p>
+<p>Function, state, concurrency, threat model, storage, network and performance conditions are unspecified</p>
+<p><strong>Reported measurements:</strong></p>
+<p>Secure FaaS efficiency is claimed qualitatively; no isolation proof, snapshot/restore latency, memory, storage, bandwidth, energy, rollback, metadata-leakage or workload result is reported.</p>
+<p><strong>Limits on the conclusion:</strong></p>
+<p>A FaaS snapshot includes more than memory: registers, runtime metadata, connections, pending work, credentials, device state and external effects may matter. The trusted boundary must state what is captured, who copies it and how saved state is protected.</p>
+<p>Encryption supports confidentiality but does not prevent replacement, replay or stale restoration. Integrity and freshness must bind state and metadata to the correct instance, version or epoch. External database writes, messages, timers and one-time actions need coordination to avoid duplicate or lost effects.</p>
+<p>The official description reports no isolation proof, snapshot latency, memory overhead, rollback handling, metadata leakage, threat-model detail or workload result. The record supports secure state migration, not established confidential, rollback-safe or production-efficient FaaS snapshots.</p>
+<p><strong>Source and location</strong></p>
+<p>Evidence tier: Primary captured official DAC description plus existing chapter level trusted domain snapshot discussion; no full paper extraction, isolation proof or system validation. This is the stored source classification; the location and limits below determine what was actually read.</p>
+<p><a href="https://63dac.conference-program.com/?post_type=page&amp;p=16&amp;id=RESEARCH876">Open the recorded source</a></p>
+<p>DAC 2026 official description; captured Problem, Mechanism / artifact, Workload, Hardware, Baseline, Measurements and Limits fields; record RESEARCH876; no manuscript pages.</p>
+<details markdown="1">
+<summary>Original captured fields — superseded for this reading card</summary>
+
+** page source tier:** medium_official_description
+
+**Baselines:** process isolation
+
+standard VM snapshots
+
+**Evidence locators:** DAC 2026 official description
+
+**Evidence url:** https://63dac.conference-program.com/?post_type=page&amp;p=16&amp;id=RESEARCH876
+
+**Hardware or process assumptions:** Trusted execution or hardware-isolated domain; memory and rollback assumptions are unspecified.
+
+**Limits:** No isolation proof, snapshot latency, memory, rollback, or workload results are reported.
+
+Snapshot metadata may leak state.
+
+Official description only; threat-model and system validation is required.
+
+**Method or artifact:** Trusted-domain snapshot mechanism for secure FaaS.
+
+**Metrics:** Secure FaaS efficiency is claimed qualitatively
+
+**Problem:** FaaS systems need fast isolation and state handling while preserving confidentiality across tenants.
+
+**Workload or benchmark:** Function-as-a-service workloads; TEE, snapshots, and attacker model are unspecified.
+
+</details>
+<p class="lm-k h-label">What remains to establish</p><h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>What is still unproven here</h2>
+<p>Resolve unspecified workloads, comparison methods, resource budgets, and source locations before generalizing a reported gain. Multiple papers in this selected sample permit comparison of mechanisms, but do not by themselves establish recurrence across years or a long-term trend.</p>
+<p><a href="../guide/expanded-taxonomy-v1.html">All subthemes</a> · <a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/reports/directions/README.md">Research directions</a></p><p class="meta">Written as <a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/reports/observed-subthemes/hardware-and-system-security.md">reports/observed-subthemes/hardware-and-system-security.md</a> in the course repository.</p>
+      </article>
+      <nav class="pager" aria-label="Previous and next"><a class="prev" href="side-channel-and-hardware-security.html"><span class="pg-k">← Previous</span><span class="pg-t">Side channel and hardware security</span></a><a class="map" href="../subthemes.html"><span class="pg-k">Back to</span><span class="pg-t">Subthemes</span></a><a class="next" href="accelerator-reliability.html"><span class="pg-k">Next →</span><span class="pg-t">Accelerator reliability</span></a></nav>
+    </section>
+  </main>
+  <footer class="course-foot">
+    <p>Built from 582 paper records coded from ISCA 2026, DAC 2026 and ICCAD 2025 (ICCAD 2026 papers were not yet public). Most records come from official program descriptions; see “How deep the reading went”. The papers belong to their authors.</p>
+    <p class="foot-links"><a href="https://github.com/mehtama1234/course-concept-library">All courses</a><a href="../index.html">This course</a><a href="../course-map.html">Course map</a><a href="../presentation/index.html">Slides</a><a href="../video/index.html">Video</a><a href="../share/index.html">Share</a></p>
+  </footer>
+  <script src="../assets/course-data.js"></script><script src="../assets/icons.js"></script><script src="../assets/icons-extra.js"></script><script src="../assets/icons-course.js"></script><script src="../assets/art.js"></script><script src="../assets/course-art.js"></script><script src="../assets/charts.js"></script><script src="../assets/course-charts.js"></script><script src="../assets/course-site.js"></script>
+</body>
+</html>

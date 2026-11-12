@@ -1,0 +1,224 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#F3ECE1" />
+  <title>Emerging device design · Semiconductor conference atlas</title>
+  <meta name="description" content="Papers: DAC 2. Read from: 2 program descriptions, 0 abstracts or reports, 0 full papers or preprints. The explanations come first; every paper’s record follows at the end." />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Semiconductor conference atlas" />
+  <meta property="og:title" content="Emerging device design · Semiconductor conference atlas" />
+  <meta property="og:description" content="Papers: DAC 2. Read from: 2 program descriptions, 0 abstracts or reports, 0 full papers or preprints. The explanations come first; every paper’s record follows at the end." />
+  <meta property="og:url" content="https://mehtama1234.github.io/semiconductor-conferences/subthemes/emerging-device-design.html" />
+  <meta property="og:image" content="https://mehtama1234.github.io/semiconductor-conferences/presentation/slides/01-cover.jpg" />
+  <meta property="og:image:width" content="1920" />
+  <meta property="og:image:height" content="1080" />
+  <meta property="og:image:alt" content="Semiconductor conference atlas: 582 papers from ISCA, DAC and ICCAD, sorted into 10 themes and six directions to watch." />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="canonical" href="https://mehtama1234.github.io/semiconductor-conferences/subthemes/emerging-device-design.html" />
+  <link rel="icon" href="../assets/icon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="../assets/base.css" />
+  <link rel="stylesheet" href="../assets/experience.css" />
+  <link rel="stylesheet" href="../assets/theme-atlas.css" />
+  <link rel="stylesheet" href="../assets/styles.css" />
+  <link rel="stylesheet" href="../assets/charts.css" />
+  <link rel="stylesheet" href="../assets/course.css" />
+  
+</head>
+<body class="course-site " data-house="atlas">
+  <aside class="public-demo-banner" aria-label="About this course">A plain-language guide to what ISCA, DAC and ICCAD papers say about chip and computer design · Built from the repository’s own paper records · Not made by the conferences</aside>
+  <a class="skip-link" href="#app">Skip to the page</a>
+  <header>
+    <a class="brand" href="../index.html"><span class="mark" aria-hidden="true">Si</span> Semiconductor conference atlas</a>
+    <span class="header-status"><span class="badge">582 papers</span><span class="badge">10 themes</span><span class="badge">Plain words first</span></span>
+    <a class="header-link" href="../course-map.html">Course map</a>
+  </header>
+  <nav class="course-nav" aria-label="Main sections of the course"><a href="../index.html">The big picture</a><a href="../themes.html">Themes</a><a href="../subthemes.html" aria-current="page">Subthemes</a><a href="../deep-reads.html">Deep reads</a><a href="../directions.html">What to watch</a><a href="../presentation/index.html">Slides</a><a href="../video/index.html">Video</a><a href="../share/index.html">Share</a></nav>
+  <main id="app" tabindex="-1">
+    <section class="screen active landing legacy-page" aria-labelledby="page-title">
+<div class="lm-head"><div class="hj-heading"><nav class="crumbs" aria-label="You are here"><a href="../course-map.html">Course map</a><span aria-hidden="true">›</span><a href="../subthemes.html">Subthemes</a></nav><a class="back-button" href="../subthemes.html">← <span>Subthemes</span></a><p class="eyebrow">Subtheme · 2 papers · Analog, mixed-signal, and emerging devices</p><h1 id="page-title">Emerging device design: what the 2 papers change, and what is still unproven</h1><p class="hj-sub">Papers: DAC 2. Read from: 2 program descriptions, 0 abstracts or reports, 0 full papers or preprints. The explanations come first; every paper’s record follows at the end.</p></div><div class="hj-art" data-art="trio:math-function,wave-sine,alert-triangle"></div></div>
+<figure class="course-fig"><div class="loop-wide" data-art="flow:analog-mixed-signal-and-emerging-devices"></div><div class="loop-tall" data-art="flowTall:analog-mixed-signal-and-emerging-devices"></div><figcaption>The parent theme in one picture: when a device does the arithmetic, its physics sets the accuracy.</figcaption></figure>
+      <article class="prose">
+
+<p>This subject has 2 records in the selected sample. This page explains where it fits, then presents all captured paper evidence without shortening the measurements or limitations.</p>
+<p><a href="../guide/reading-guide-v1.html">Definitions used in the paper records</a></p>
+<p class="lm-k h-label">Understand the parent subject first</p><h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>The bigger theme this belongs to</h2>
+<ul>
+<li><a href="../themes/analog-mixed-signal-and-emerging-devices.html">Analog mixed signal and emerging devices</a></li>
+</ul>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>The device changes what a design tool must preserve</h2>
+<p>The two papers in this group concern superconducting logic, not a general survey of emerging devices. One changes circuit structure and cell interfaces; the other changes physical placement.</p><p>Their shared problem is that a correct Boolean expression is only part of a usable implementation. Signals must also arrive in the right relationship, reach their intended loads, and fit within physical constraints.</p>
+<p>Single-flux-quantum logic uses electrical pulses associated with individual magnetic flux quanta. Its circuits use Josephson junctions, superconducting elements separated by a weak link.</p><p>A junction count measures one important resource, but it is not the same as layout area, energy per result, or total equipment cost. Wiring, interfaces, biasing, and cooling can matter as well.</p>
+<p>The logic family matters. Rules for synchronizing gates in rapid single-flux-quantum logic should not be silently applied to every superconducting architecture. Conversely, removing explicit gate-level clocking does not remove the need to preserve valid signal ordering and representation.</p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>Retiming and interfaces: minimize the circuit actually implemented</h2>
+<p>Retiming moves storage boundaries across logic while preserving the required sequence behavior under the transformation's conditions. It can change which signals need stored copies and how much logic lies between boundaries.</p><p>If the representation needs separate paths for a value and its complement, counting only the unencoded logic can miss duplication costs.</p>
+<p><a href="emerging-device-design.html#paper-dac-2026-research520">Duplication-Aware Retiming and Cell Interface Redesign</a> co-optimizes register positions and signal polarity to reduce Josephson junction count. Its official description also targets interconnect drivers, receivers, and fanout elements with a new amplifier integrated into a characterized cell library.</p><p>Fanout is the distribution of one signal to several destinations; the required supporting circuitry is not necessarily negligible.</p>
+<p>The description reports 63–71% fewer junctions for single-cycle implementations and 41–66% fewer for multi-cycle implementations against prior work. It claims experimental verification of the amplifier but does not expose the experiment, technology conditions, or per-design comparisons.</p><p>The two ranges concern different implementation classes and must remain separate. They do not establish equivalent percentages of energy or area savings. <a href="https://63dac.conference-program.com/presentation/?id=RESEARCH520&amp;sess=sess172">Official retiming and interface description</a>.</p>
+<p>A multi-cycle design can shorten its most restrictive within-cycle path while taking more cycles to produce a result. To compare it with a single-cycle design, report both cycle duration and cycles per result, plus how often new inputs can be accepted.</p><p>Otherwise, a shorter critical path can be mistaken for lower end-to-end latency.</p>
+<p>The preservation check should cover sequential behavior, initial state assumptions, signal encoding, and interface timing. A junction-count improvement is useful only after those conditions are met. The recovered description does not supply that complete validation.</p>
+<p><span id="explanation-dac-2026-research520"></span></p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>Duplication-aware superconducting retiming: fewer junctions help only when timing and interfaces remain equivalent</h2>
+<p>Superconductor logic uses pulses and specialized cells whose cost is not captured by Boolean gate count alone. In logic families that rely on dual-rail representation, a value and its complement can require duplicated logic.</p><p>Interconnect drivers, receivers and fanout elements add further Josephson junctions at cell boundaries. Retiming moves storage boundaries across logic; polarity assignment determines which rail and duplicated paths are needed.</p><p>The useful objective is therefore the implemented circuit under its sequential, pulse-timing and interface contract.</p>
+<p>The described method co-optimizes register placement and signal polarity to minimize Josephson-junction count, then redesigns an amplifier for interconnect drivers, receivers and fanout inside existing SFQ cells. The amplifier is described as experimentally verified and characterized into a new cell library.</p><p>These are two coupled changes: retiming alters stage boundaries and duplication, while the cell interface changes the cost of connecting stages. The captured description does not specify the logic-family timing model, dual-rail encoding, retiming legality, amplifier parameters, library characterization, fabrication status or process corners.</p>
+<p>The first gate is sequential and pulse correctness. Prove equivalence under initial state, reset, feedback, dual-rail polarity, pulse ordering, cycle boundaries and environment assumptions.</p><p>Check pulse integrity, setup/hold or SFQ timing, hazards, fanout loading, interconnect delay and interface behavior. A lower JJ count is not useful if the transformation changes the function, loses a pulse, violates a timing contract or changes the input acceptance rate.</p>
+<p>Single-cycle and multi-cycle results need separate throughput accounting. Report absolute JJ count, cycle duration, cycles per result, initiation interval, latency, throughput, buffering and critical path.</p><p>State whether the Pareto comparison holds the Boolean/sequential function, encoding, throughput target, fanout, timing model, technology and cell library constant. A multi-cycle circuit can have a shorter critical path while taking more cycles per result; those are different benefits.</p>
+<p>The amplifier and cell library require process-calibrated validation across bias, temperature, device variation, load, fanout, pulse amplitude/width, wiring and yield. Include drivers, receivers, fanout, bias and clock circuitry, interconnect, library characterization and cryogenic infrastructure in the declared area and energy boundary.</p><p>Compare standard retiming and fixed interfaces at the same function, timing, process, library and measurement boundary.</p>
+<p>The official description reports 63–71% fewer JJ counts for single-cycle implementations and 41–66% fewer for multi-cycle implementations versus prior state of the art, and claims the multi-cycle designs form a Pareto frontier with shorter critical paths and lower JJ counts than the best single-cycle implementations. It does not expose absolute counts, cycle/throughput results, area, energy, process conditions, yield or per-design comparisons.</p><p>The evidence supports duplication-aware superconducting retiming and interface co-design, not demonstrated portable process yield, energy reduction or complete cryogenic-system benefit.</p>
+<p><span id="explanation-dac-2026-research875"></span></p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="link"></span>JSPlace: control shape without losing timing-related structure</h2>
+<p>A placement can have small area yet be too wide or too tall for the surrounding design. Aspect ratio is width divided by height.</p><p>Controlling it adds a requirement beyond minimizing the total length of connections. Moving elements to improve shape may lengthen some connections or alter the available paths for clocks and data.</p>
+<p><a href="emerging-device-design.html#paper-dac-2026-research875">JSPlace</a> addresses RSFQ placement organized by logic stages. Its official description folds the staged placement into three segments, merges columns using mixed-integer linear programming, chooses vertical node positions with dynamic programming, and then adjusts positions using connectivity to reduce vertical wire length.</p><p>The first optimization includes discrete choices; the second solves a structured sequence of subproblems. These algorithm labels do not establish global optimality for the entire layout.</p>
+<p>The description names ISCAS85 and EPFL benchmarks and reports improved layout area and wire length with aspect-ratio control. It supplies no numerical gains, target ratios, routing results, or pulse-timing margins.</p><p>The title's length-matching objective must therefore not become a claim that every final routed path meets a verified timing requirement. <a href="https://63dac.conference-program.com/presentation/?id=RESEARCH875&amp;sess=sess169">Official JSPlace description</a>.</p>
+<p>Equal geometric length alone does not prove equal electrical delay if routes differ in their structures or loads. A useful final check includes the actual routes and interface elements under the intended technology model.</p><p>It should also identify any extra wiring needed after placement to satisfy timing or length requirements.</p>
+<p>JSPlace's first gate is physical and pulse validity. Define the RSFQ stage graph, clock period, target aspect ratio, length-matching set and tolerance, then check the actual routed interconnect for pulse delay, skew, synchronization, fanout loading, crossings, vias, bias/clock effects and signal integrity across process and operating corners.</p><p>A compact placement can still fail if legalization or routing changes the path lengths, or if equal geometric length does not imply equal electrical delay.</p>
+<p>Its optimization boundary also needs to be explicit. Report the three-segment folding rule, MILP variables and optimality gap, dynamic-programming state, connectivity-repositioning objective, solver time, failed candidates and post-placement repair.</p><p>Compare generic and length-oblivious placement at the same cell library, stage/clock constraints, target shape, routing flow and final timing evaluator. Include legalization, routing, timing analysis and any infeasible placement in runtime; proposal time alone is not a physical-design speedup.</p>
+<p>The official evidence supports shape-controlled RSFQ placement on ISCAS85 and EPFL, with qualitative area and wirelength improvement. It does not expose numerical gains, absolute aspect ratios, pulse timing, routability, runtime, process conditions, yield or fabrication.</p><p>The evidence supports a shape-and-length-aware placement direction, not demonstrated clock-safe routed layouts, process portability or manufacturing benefit.</p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="route"></span>How the two approaches could interact</h2>
+<p>Cell redesign changes the sizes and interface costs that a placer sees. Retiming changes stage boundaries and connections. Placement then changes physical distances and may reveal additional interface requirements. These dependencies explain why independently good local results need a complete-flow comparison.</p>
+<p>That interaction is an inference about design methodology, not an assertion that these papers were evaluated together. Their logic-family and timing assumptions must first be reconciled. Combining one paper's percentage improvement with another's qualitative layout result would not establish a realizable joint benefit.</p>
+<p>An end-to-end comparison should use the same required computation, input/output timing, technology, and physical constraints. Report functional correctness, latency, input acceptance rate, junction count, routed area, and energy at clearly stated boundaries.</p><p>Cryogenic operating conditions belong in the system assessment; circuit-level savings alone cannot determine facility-level energy.</p>
+<p class="lm-k h-label">Evidence boundary</p><h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="file-text"></span>Where the evidence stops</h2>
+<div class="worked"><p class="lm-k">Worked example</p><p>The official descriptions were refreshed on 2026-09-07. They explain substantially more mechanism than the earlier cards below, but neither full manuscript was recovered in this pass.</p><p>The amplifier's verification conditions and JSPlace's final timing results remain missing. Related JPlace or J2Place publications are different works and cannot fill these gaps without explicit source reconciliation.</p><p>These two cases support a technical connection, not a measured long-term adoption trend.</p></div>
+<p class="lm-k h-label">Compare the results carefully</p><h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="route"></span>How to compare these papers’ results fairly</h2>
+<p>First identify the inputs and required output quality. Then identify the limited resource: time, memory, communication, energy, circuit area, or correctness coverage.</p><p>Ask which part of the method reduces that cost and which new cost it adds. Compare numbers only when the experiments hold these conditions sufficiently similar.</p>
+<p>A conference description may explain the proposal while omitting the full experiment. An author preprint link may have been coded from its abstract. The source classification does not by itself establish that every table was read. Missing locations remain visible below.</p>
+<p class="lm-k h-label">Complete captured evidence</p><h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="file-text"></span>Every paper in this subtheme, with what its source shows</h2>
+<p>These are evidence records, not substitutes for the explanations above. Each record preserves its problem, proposed method, measurements, comparison conditions, and source limits. A populated record does not establish that its mechanism has been fully explained or independently verified.</p>
+<p><span id="paper-dac-2026-research520"></span></p>
+<h3>Duplication-Aware Retiming and Cell Interface Redesign for Superconductor Circuit Minimization</h3>
+<p>DAC 2026 · Record: <code>dac-2026-research520</code></p>
+<p><a href="#explanation-dac-2026-research520">Read the step-by-step explanation</a></p>
+<p><strong>Updated source-backed reading card</strong></p>
+<div class="worked"><p class="lm-k">Worked example</p><p>Reviewed 2026-09-09. Deepens the duplication-aware superconducting retiming treatment into a paper-level reading; separates dual-rail duplication-aware register/polarity co-optimization and JJ cell-interface amplifier redesign from sequential equivalence, timing/throughput, interface/fanout accounting, process calibration and cryogenic-system conclusions, while preserving the single-cycle and multi-cycle JJ-count ranges.</p></div>
+<p>This editorial correction updates the current reading view and connected dossiers, not the historical adjudication or scientific acceptance status. The original captured fields are preserved below.</p>
+<p><a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/data/editorial-paper-corrections-v1.json">Correction register</a></p>
+<p><strong>Problem:</strong></p>
+<p>Superconductor logic families can rely on dual-rail representations that duplicate gates, while interconnect drivers, receivers and fanout elements add substantial Josephson-junction cost; retiming and cell interfaces must be optimized together without changing sequential behavior or timing.</p>
+<p><strong>Mechanism / artifact:</strong></p>
+<p>Duplication-aware retiming co-optimizes register placement and polarity assignment to minimize Josephson-junction count, and a redesigned amplifier targets interconnect-driver/receiver/fanout overhead inside existing SFQ cells; the amplifier is experimentally verified and used to characterize a new SFQ cell library. Logic-family assumptions, retiming constraints, dual-rail encoding, amplifier circuit/parameters, library characterization, timing model and fabrication status are unspecified.</p>
+<p><strong>Workload — the work tested:</strong></p>
+<p>Superconducting logic circuits in single-cycle and multi-cycle implementations, with monotonic-circuit applicability claimed beyond SFQ; circuit suite, pipeline/latency constraints, input acceptance rate, dual-rail policy, fanout distribution, cell library, process, critical-path definition and comparison designs are unspecified.</p>
+<p><strong>Hardware and manufacturing assumptions:</strong></p>
+<p>Josephson-junction superconducting logic and SFQ cells with specialized drivers, receivers, fanout elements and a new amplifier; JJ technology/process, biasing, clocking or pulse timing, temperature/cryogenic environment, wiring, parasitics, fabrication yield, measurement equipment and energy boundary are unspecified.</p>
+<p><strong>Baseline — the comparison method:</strong></p>
+<p>Prior state-of-the-art single-cycle implementation</p>
+<p>Prior state-of-the-art multi-cycle implementation</p>
+<p>Standard retiming</p>
+<p>Fixed cell interfaces</p>
+<p>Same Boolean/sequential function, encoding, cycle/throughput contract, technology/library, timing constraints, fanout, bias/clock assumptions and junction-count boundary are unspecified</p>
+<p><strong>Reported measurements:</strong></p>
+<p>The official description reports 63–71% JJ-count reduction for single-cycle implementations and 41–66% reduction for multi-cycle implementations versus prior state of the art, with the multi-cycle designs claimed to form a Pareto frontier of shorter critical paths and lower JJ counts than best-to-date single-cycle implementations; it does not report absolute JJ count, cycle time, cycles/result, throughput, area, energy, yield, process conditions or per-design results.</p>
+<p><strong>Limits on the conclusion:</strong></p>
+<p>Retiming must preserve sequential behavior, initial-state assumptions, dual-rail polarity, pulse/order semantics, reset, feedback and interface timing. Prove equivalence and check pulse integrity, setup/hold or SFQ timing, hazards, fanout loading and cycle boundaries; a lower JJ count is not useful if the transformed circuit changes the computation or input acceptance contract.</p>
+<p>Single-cycle and multi-cycle results are not directly interchangeable. Report cycle duration, cycles per result, initiation interval, latency, throughput and buffering, in addition to JJ count and critical path.</p><p>State whether the claimed Pareto comparison uses the same function, throughput target, timing model, fanout and cell/interface assumptions; a shorter critical path may require more cycles.</p>
+<p>The amplifier and cell-library result needs process-calibrated characterization across bias, temperature, variation, load, fanout, pulse amplitude/width, wiring and yield. Include driver/receiver/fanout, bias, clock, interconnect, library characterization and cryogenic infrastructure in area and energy boundaries.</p><p>The evidence supports duplication-aware superconducting retiming and interface co-design, not demonstrated portable process yield, energy reduction or complete cryogenic-system benefit.</p>
+<p><strong>Source and location</strong></p>
+<p>Evidence tier: Primary captured official DAC description plus existing authored superconducting logic discussion; no full paper extraction, independent sequential/timing validation, reproduced cell library characterization or fabricated process/yield study. This is the stored source classification; the location and limits below determine what was actually read.</p>
+<p><a href="https://63dac.conference-program.com/?post_type=page&amp;p=16&amp;id=RESEARCH520&amp;sess=sess172">Open the recorded source</a></p>
+<p>DAC 2026 official description; existing emerging-device-design chapter framing; captured Problem, Mechanism / artifact, Workload, Hardware, Baseline, Measurements and Limits fields; no manuscript pages, retiming equivalence trace, amplifier characterization table or process/yield validation.</p>
+<details markdown="1">
+<summary>Original captured fields — superseded for this reading card</summary>
+
+** page source tier:** medium_official_description
+
+**Baselines:** standard retiming
+
+fixed cell interfaces
+
+**Evidence locators:** DAC 2026 official description
+
+**Evidence url:** https://63dac.conference-program.com/?post_type=page&amp;p=16&amp;id=RESEARCH520
+
+**Hardware or process assumptions:** Superconducting logic process with specialized cells and timing; fabrication assumptions are unspecified.
+
+**Limits:** No area, latency, energy, junction count, yield, or process results are reported.
+
+Specialized-device assumptions may not transfer.
+
+Official description only; technology-calibrated validation is required.
+
+**Method or artifact:** Retiming and cell-interface co-optimization for superconducting circuit minimization.
+
+**Metrics:** Circuit minimization is claimed qualitatively
+
+**Problem:** Superconductor circuits have costly timing and cell constraints that make duplication and interface overhead important.
+
+**Workload or benchmark:** Superconductor logic circuits; technology, timing, and baselines are unspecified.
+
+</details>
+<p><span id="paper-dac-2026-research875"></span></p>
+<h3>Jsplace: A Shape-Controllable and Length-Matching Placement for Rapid Single-Flux-Quantum Circuits</h3>
+<p>DAC 2026 · Record: <code>dac-2026-research875</code></p>
+<p><a href="#explanation-dac-2026-research875">Read the step-by-step explanation</a></p>
+<p><strong>Updated source-backed reading card</strong></p>
+<div class="worked"><p class="lm-k">Worked example</p><p>Reviewed 2026-09-09. Deepens the JSPlace treatment into a paper-level reading; separates RSFQ stage folding, MILP column merging, dynamic-programming vertical placement and connectivity refinement from pulse timing, routed-length validity, aspect-ratio feasibility, process constraints and fabrication conclusions, while preserving the qualitative ISCAS85/EPFL area and wirelength claims.</p></div>
+<p>This editorial correction updates the current reading view and connected dossiers, not the historical adjudication or scientific acceptance status. The original captured fields are preserved below.</p>
+<p><a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/data/editorial-paper-corrections-v1.json">Correction register</a></p>
+<p><strong>Problem:</strong></p>
+<p>Clock-driven RSFQ gate-level pipelines can produce layouts whose width grows with logic stages while height is set by the tallest column, creating an undesirable aspect ratio and long or poorly matched interconnects.</p>
+<p><strong>Mechanism / artifact:</strong></p>
+<p>JSPlace folds multi-stage RSFQ placement into three segments, merges columns with mixed-integer linear programming to target a width-to-height ratio, uses dynamic programming for vertical node positions, and applies connectivity-driven repositioning to reduce vertical wirelength; timing model, length-matching tolerance, routing, legality repair and objective weights are unspecified.</p>
+<p><strong>Workload — the work tested:</strong></p>
+<p>RSFQ circuits from ISCAS85 and EPFL benchmarks with staged/pipelined logic; circuit sizes, stage counts, clock period, target aspect ratios, wire-length definition, benchmark preprocessing, placement constraints, train/test or held-out split and baseline tuning are unspecified.</p>
+<p><strong>Hardware and manufacturing assumptions:</strong></p>
+<p>Superconducting Rapid Single Flux Quantum physical-design flow with Josephson-junction cells and clocked pulse interconnects; fabrication process, cell library, wiring layers, vias, bias/clock network, parasitics, pulse model, routing tool, cryogenic operating conditions and measurement boundary are unspecified.</p>
+<p><strong>Baseline — the comparison method:</strong></p>
+<p>State-of-the-art RSFQ placement algorithms</p>
+<p>Generic placement without length matching</p>
+<p>Length-oblivious stage-column placement</p>
+<p>Same circuit netlist, stage/clock constraints, cell library, target aspect ratio, routing/length definition, post-placement legalization and final timing/physical-validation flow are unspecified</p>
+<p><strong>Reported measurements:</strong></p>
+<p>The official description reports effective control of layout width-to-height ratio and qualitative outperformance in layout area and wirelength on ISCAS85 and EPFL benchmarks; it reports no numerical area/wirelength improvement, absolute aspect ratio, pulse timing, delay, routability, runtime, junction count, energy, yield or per-circuit result.</p>
+<p><strong>Limits on the conclusion:</strong></p>
+<p>Geometric length matching is not electrical timing matching. Define which wires must match, tolerance and reference path, then route the actual SFQ interconnect and check pulse delay, skew, setup/hold or synchronization, fanout loading, crossings, vias, bias/clock effects and signal integrity across the intended process corners.</p><p>A low total wirelength or target aspect ratio can still violate a pulse-timing contract.</p>
+<p>The staged folding, MILP and dynamic-programming subproblems need a reproducible feasibility boundary. Expose segment construction, column-merge variables, aspect-ratio constraints, length objective, dynamic-programming state, connectivity refinement, solver time/optimality gap and any repair.</p><p>Compare valid final layouts at matched constraints and include legalization, routing, timing analysis and failed candidates in runtime.</p>
+<p>ISCAS85 and EPFL are benchmark families, not evidence of fabricated RSFQ behavior. Hold out circuit sizes and stage patterns, report per-circuit area, wirelength, aspect ratio, routability, timing margin and runtime, and validate with a technology-calibrated cell/library and pulse model.</p><p>The evidence supports shape-controlled RSFQ placement, not demonstrated clock-safe routed layouts, process portability, fabrication yield or complete superconducting-system benefit.</p>
+<p><strong>Source and location</strong></p>
+<p>Evidence tier: Primary captured official DAC description plus existing authored superconducting placement discussion; no full paper extraction, reproduced milp/dp run, pulse timing validation or fabrication/process study. This is the stored source classification; the location and limits below determine what was actually read.</p>
+<p><a href="https://63dac.conference-program.com/?post_type=page&amp;p=16&amp;id=RESEARCH875&amp;sess=sess169">Open the recorded source</a></p>
+<p>DAC 2026 official description; existing emerging-device-design chapter framing; captured Problem, Mechanism / artifact, Workload, Hardware, Baseline, Measurements and Limits fields; no manuscript pages, placement table, routed timing trace or technology-calibrated validation.</p>
+<details markdown="1">
+<summary>Original captured fields — superseded for this reading card</summary>
+
+** page source tier:** medium_official_description
+
+**Baselines:** generic placement
+
+length-oblivious SFQ placement
+
+**Evidence locators:** DAC 2026 official description
+
+**Evidence url:** https://63dac.conference-program.com/?post_type=page&amp;p=16&amp;id=RESEARCH875
+
+**Hardware or process assumptions:** Superconducting/SFQ physical-design flow with pulse-timing constraints; process assumptions are unspecified.
+
+**Limits:** No timing, area, wiring, yield, runtime, or fabrication results are reported.
+
+Matching constraints may reduce placement flexibility.
+
+Official description only; technology-calibrated validation is required.
+
+**Method or artifact:** Shape-controllable, length-matching SFQ placement.
+
+**Metrics:** SFQ placement quality is claimed qualitatively
+
+**Problem:** SFQ layouts need shape and length matching to preserve pulse timing and manufacturability.
+
+**Workload or benchmark:** Single-flux-quantum circuit layouts; technology, constraints, and baselines are unspecified.
+
+</details>
+<p class="lm-k h-label">What remains to establish</p><h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>What is still unproven here</h2>
+<p>Resolve unspecified workloads, comparison methods, resource budgets, and source locations before generalizing a reported gain. Multiple papers in this selected sample permit comparison of mechanisms, but do not by themselves establish recurrence across years or a long-term trend.</p>
+<p><a href="../guide/expanded-taxonomy-v1.html">All subthemes</a> · <a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/reports/directions/README.md">Research directions</a></p><p class="meta">Written as <a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/reports/observed-subthemes/emerging-device-design.md">reports/observed-subthemes/emerging-device-design.md</a> in the course repository.</p>
+      </article>
+      <nav class="pager" aria-label="Previous and next"><a class="prev" href="device-modeling-and-simulation.html"><span class="pg-k">← Previous</span><span class="pg-t">Device modeling and simulation</span></a><a class="map" href="../subthemes.html"><span class="pg-k">Back to</span><span class="pg-t">Subthemes</span></a><a class="next" href="emerging-memory-and-devices.html"><span class="pg-k">Next →</span><span class="pg-t">Emerging memory and devices</span></a></nav>
+    </section>
+  </main>
+  <footer class="course-foot">
+    <p>Built from 582 paper records coded from ISCA 2026, DAC 2026 and ICCAD 2025 (ICCAD 2026 papers were not yet public). Most records come from official program descriptions; see “How deep the reading went”. The papers belong to their authors.</p>
+    <p class="foot-links"><a href="https://github.com/mehtama1234/course-concept-library">All courses</a><a href="../index.html">This course</a><a href="../course-map.html">Course map</a><a href="../presentation/index.html">Slides</a><a href="../video/index.html">Video</a><a href="../share/index.html">Share</a></p>
+  </footer>
+  <script src="../assets/course-data.js"></script><script src="../assets/icons.js"></script><script src="../assets/icons-extra.js"></script><script src="../assets/icons-course.js"></script><script src="../assets/art.js"></script><script src="../assets/course-art.js"></script><script src="../assets/charts.js"></script><script src="../assets/course-charts.js"></script><script src="../assets/course-site.js"></script>
+</body>
+</html>

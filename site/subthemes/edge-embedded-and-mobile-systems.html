@@ -1,0 +1,542 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#F3ECE1" />
+  <title>Edge embedded and mobile systems · Semiconductor conference atlas</title>
+  <meta name="description" content="Papers: DAC 6. Read from: 6 program descriptions, 0 abstracts or reports, 0 full papers or preprints. The explanations come first; every paper’s record follows at the end." />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Semiconductor conference atlas" />
+  <meta property="og:title" content="Edge embedded and mobile systems · Semiconductor conference atlas" />
+  <meta property="og:description" content="Papers: DAC 6. Read from: 6 program descriptions, 0 abstracts or reports, 0 full papers or preprints. The explanations come first; every paper’s record follows at the end." />
+  <meta property="og:url" content="https://mehtama1234.github.io/semiconductor-conferences/subthemes/edge-embedded-and-mobile-systems.html" />
+  <meta property="og:image" content="https://mehtama1234.github.io/semiconductor-conferences/presentation/slides/01-cover.jpg" />
+  <meta property="og:image:width" content="1920" />
+  <meta property="og:image:height" content="1080" />
+  <meta property="og:image:alt" content="Semiconductor conference atlas: 582 papers from ISCA, DAC and ICCAD, sorted into 10 themes and six directions to watch." />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="canonical" href="https://mehtama1234.github.io/semiconductor-conferences/subthemes/edge-embedded-and-mobile-systems.html" />
+  <link rel="icon" href="../assets/icon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="../assets/base.css" />
+  <link rel="stylesheet" href="../assets/experience.css" />
+  <link rel="stylesheet" href="../assets/theme-atlas.css" />
+  <link rel="stylesheet" href="../assets/styles.css" />
+  <link rel="stylesheet" href="../assets/charts.css" />
+  <link rel="stylesheet" href="../assets/course.css" />
+  
+</head>
+<body class="course-site " data-house="atlas">
+  <aside class="public-demo-banner" aria-label="About this course">A plain-language guide to what ISCA, DAC and ICCAD papers say about chip and computer design · Built from the repository’s own paper records · Not made by the conferences</aside>
+  <a class="skip-link" href="#app">Skip to the page</a>
+  <header>
+    <a class="brand" href="../index.html"><span class="mark" aria-hidden="true">Si</span> Semiconductor conference atlas</a>
+    <span class="header-status"><span class="badge">582 papers</span><span class="badge">10 themes</span><span class="badge">Plain words first</span></span>
+    <a class="header-link" href="../course-map.html">Course map</a>
+  </header>
+  <nav class="course-nav" aria-label="Main sections of the course"><a href="../index.html">The big picture</a><a href="../themes.html">Themes</a><a href="../subthemes.html" aria-current="page">Subthemes</a><a href="../deep-reads.html">Deep reads</a><a href="../directions.html">What to watch</a><a href="../presentation/index.html">Slides</a><a href="../video/index.html">Video</a><a href="../share/index.html">Share</a></nav>
+  <main id="app" tabindex="-1">
+    <section class="screen active landing legacy-page" aria-labelledby="page-title">
+<div class="lm-head"><div class="hj-heading"><nav class="crumbs" aria-label="You are here"><a href="../course-map.html">Course map</a><span aria-hidden="true">›</span><a href="../subthemes.html">Subthemes</a></nav><a class="back-button" href="../subthemes.html">← <span>Subthemes</span></a><p class="eyebrow">Subtheme · 6 papers · Systems, applications, and workloads</p><h1 id="page-title">Edge embedded and mobile systems: what the 6 papers change, and what is still unproven</h1><p class="hj-sub">Papers: DAC 6. Read from: 6 program descriptions, 0 abstracts or reports, 0 full papers or preprints. The explanations come first; every paper’s record follows at the end.</p></div><div class="hj-art" data-art="trio:users,activity,server"></div></div>
+<figure class="course-fig"><div class="loop-wide" data-art="flow:systems-applications-and-workloads"></div><div class="loop-tall" data-art="flowTall:systems-applications-and-workloads"></div><figcaption>The parent theme in one picture: judge a system by the useful work its users get done.</figcaption></figure>
+      <article class="prose">
+
+<p>This subject has 6 records in the selected sample. This page explains where it fits, then presents all captured paper evidence without shortening the measurements or limitations.</p>
+<p><a href="../guide/reading-guide-v1.html">Definitions used in the paper records</a></p>
+<p class="lm-k h-label">Understand the parent subject first</p><h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>The bigger theme this belongs to</h2>
+<ul>
+<li><a href="../themes/systems-applications-and-workloads.html">Systems applications and workloads</a></li>
+</ul>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="file-text"></span>Start with the work that must finish, and the resources available</h2>
+<p>An edge system computes near the place where data is collected or used. An embedded system performs a defined function inside a larger device.</p><p>A mobile system also has changing location, connectivity, or power availability. These descriptions overlap, but none defines a single processor type or research method.</p><p>The relevant question is which work must finish before which resources or opportunities disappear.</p>
+<p>Inference uses an already trained model to produce an answer. Training changes the model using examples and feedback.</p><p>A request deadline constrains one inference result; a training-time budget constrains a sequence of model updates. Faster inference does not establish faster learning.</p><p>Finishing more training rounds does not establish a better model if the rounds use different devices, precision, or data.</p>
+<p>For a request, account for input collection, waiting for service, transfers, computation, and output delivery. Some stages can overlap, but operations that depend on an earlier result cannot start before that result exists.</p><p>A faster processor helps only the stages that use it. Moving a stage to another machine can reduce its execution time while adding transfer and queueing delay.</p><p>If that machine becomes unreachable, the system needs an explicit wait, retry, local fallback, or failure rule.</p>
+<p>The six records here are from the selected DAC 2026 sample. Three recovered version-1 manuscripts provide page-backed evidence: GPU task scheduling, MATCHA, and PHAROS.</p><p>Their equivalence to final conference versions has not been established. Pegasus, RTFL, and SatSFL remain description-backed in this review.</p><p>They should not inherit the evidence depth of their neighbors.</p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="help-circle"></span>Separate the questions before comparing results</h2>
+<table>
+<thead>
+<tr>
+<th>Paper</th>
+<th>Unit of work</th>
+<th>Decision being changed</th>
+<th>Evidence needed for a stronger conclusion</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Pegasus</td>
+<td>Distributed model inference</td>
+<td>Which experts reside locally and which requests run together</td>
+<td>Equal answer quality, query changes, network and placement costs</td>
+</tr>
+<tr>
+<td>RTFL</td>
+<td>Federated training rounds</td>
+<td>Device participation and numerical precision</td>
+<td>Quality reached within time and energy budgets</td>
+</tr>
+<tr>
+<td>GPU scheduling</td>
+<td>One periodically released computation graph</td>
+<td>Concurrent kernel sizes and execution dependencies</td>
+<td>Valid execution-time assumptions and complete response-time bounds</td>
+</tr>
+<tr>
+<td>SatSFL</td>
+<td>Split training across satellites and ground</td>
+<td>Approximate feedback during disconnection and compressed return traffic</td>
+<td>Link traces, approximation error, and deployment boundary</td>
+</tr>
+<tr>
+<td>MATCHA</td>
+<td>Neural-network inference on one chip design</td>
+<td>Operation placement, splitting, memory, and overlap</td>
+<td>Complete model latency including communication and coordination</td>
+</tr>
+<tr>
+<td>PHAROS</td>
+<td>Repeated jobs across an accelerator pipeline</td>
+<td>Hardware partitioning and runtime scheduling</td>
+<td>The precise timing guarantee, arrival assumptions, and preemption cost</td>
+</tr>
+</tbody>
+</table>
+<p><span id="explanation-dac-2026-research1922"></span></p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="target"></span>Pegasus: why distributed edge MoE inference is a placement and communication problem</h2>
+<h3>Start with the computation</h3>
+<p>A mixture-of-experts (MoE) language model has a shared routing step and several alternative expert networks. For one token, the router selects a small subset of experts instead of executing every expert.</p><p>This reduces arithmetic for that token, but it does not make the full model small: the expert parameters still have to be stored somewhere, and the selected expert may not be on the node that received the request.</p>
+<p>That creates three distinct costs. The first is <strong>expert computation</strong>: the selected expert must perform its matrix operations.</p><p>The second is <strong>expert movement</strong>: the token representation may have to cross an edge-to-edge link, and the result may have to return. The third is <strong>queueing</strong>: a node can have the right expert but still be busy serving earlier requests.</p><p>A latency result is meaningful only when these costs are measured over the same request and quality conditions.</p>
+<h3>What the three Pegasus mechanisms change</h3>
+<p>Pegasus addresses different parts of this chain rather than applying one generic speedup.</p>
+<ol>
+<li>
+<p><strong>Similarity-based expert deployment</strong> chooses which experts to place at which nodes using a measure of semantic relevance between queries and experts across nodes and time. This attempts to make the likely expert local. It does not guarantee that the selected expert is always local, because future queries can differ from the history used for placement. It also creates a placement-update problem: moving experts consumes memory bandwidth and communication capacity, and a placement policy can become stale.</p>
+</li>
+<li>
+<p><strong>Personalized gating</strong> fine-tunes part of the routing function separately at each node. The routing decision can therefore reflect local query patterns and local expert availability. This changes model behavior as well as execution location. A lower communication cost is not enough to call the result equivalent to the original model; the evaluation must show the task-quality measure, the amount of local fine-tuning, its training cost, and the behavior when the query distribution changes.</p>
+</li>
+<li>
+<p><strong>Adaptive local batching</strong> groups requests at a node so the hardware can use memory and compute more efficiently. Batching can improve completed requests per unit time, but it can also make an early request wait for later requests. The system must therefore report both per-request latency and throughput, including the time spent waiting to form a batch.</p>
+</li>
+</ol>
+<p>The official description reports 11.8× lower inference latency than unnamed distributed MoE frameworks. It does not identify the models, node count, expert count, link, batch policy, request distribution, quality metric, or baseline resource parity.</p><p>The source therefore supports understanding the proposed mechanism and the question it targets; it does not establish a universal 11.8× result, communication reduction, or quality-preserving substitution. <a href="https://63dac.conference-program.com/presentation/?id=RESEARCH1922&amp;sess=sess176">Source: official DAC description and captured record</a>.</p>
+<h3>The evaluation that would establish the claim</h3>
+<p>Use the same model, prompts, quality criterion, node resources, network conditions, and arrival trace for every baseline. Report at least: expert-local versus remote dispatches; bytes transferred; placement-update traffic; routing fine-tuning time; batch-formation wait; service time; tail latency; throughput; energy; and task quality.</p><p>Evaluate both a stable query distribution and a distribution shift. The first tests whether locality helps when the workload is predictable.</p><p>The second tests whether the placement and personalized gates remain useful when the assumptions that produced them no longer hold.</p>
+<p>The central conceptual boundary is simple: <strong>placing the selected computation nearer to the request can reduce movement, but changing the router can also change which computation is selected</strong>. Those effects must be measured separately.</p><p>Otherwise a latency reduction could come from doing less work, sending less data, waiting differently, or changing the answer-quality tradeoff, and the result would not identify which mechanism produced it.</p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>Distributed inference: the work selected can change the answer</h2>
+<p>A mixture-of-experts model contains alternative computational components called experts. A routing function chooses which components process each input.</p><p>Activating only some experts reduces the arithmetic used for that input, but the complete collection can still exceed one device's memory. Distributing the experts therefore creates a second decision: where the chosen computation happens and how its inputs and outputs get there.</p>
+<p><a href="edge-embedded-and-mobile-systems.html#paper-dac-2026-research1922">Pegasus</a> combines similarity-based expert placement, partial fine-tuning of each node's routing function, and adaptive local batching. The detailed explanation above separates placement, routing, movement, and queueing; this card is the compact evidence record. <a href="https://63dac.conference-program.com/presentation/?id=RESEARCH1922&amp;sess=sess176">Source: official Description, mechanisms and final result</a>.</p>
+<p>The general evaluation problem is to distinguish avoiding communication from avoiding computation that was necessary for the original answer. Hold a quality criterion fixed, then count expert placement, routing training, request transfers, and ongoing updates.</p><p>Test what happens when a node's input distribution changes after placement. Keeping frequently useful experts nearby can help a stable workload while performing poorly when requests become unfamiliar.</p><p>Batching also has two effects: it can make processing more efficient, but waiting to collect a batch increases latency for its earliest request. Report both individual-request delay and completed requests per second.</p>
+<p><span id="explanation-dac-2026-research1936"></span></p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>RTFL: what energy-aware federated scheduling must optimize</h2>
+<h3>Start with one federated-learning round</h3>
+<p>Federated learning keeps training examples on separate devices. In one round, a coordinator selects devices, each selected device computes local model updates, the updates travel to an aggregation point, and the resulting global model is sent back for the next round.</p><p>A device can be slow because of its processor, its radio, its available bandwidth, or its remaining battery. The round is therefore limited by both computation and communication, and the next round cannot use an update that has not arrived.</p>
+<p>The objective is not simply to select more devices or complete more rounds. A useful comparison fixes a model-quality measure and asks how much quality is reached within the same elapsed-time and energy budgets.</p><p>A scheduler can increase the number of aggregation rounds while using lower-precision updates, selecting less representative data, or spending more energy. Those outcomes can move in opposite directions.</p>
+<h3>What RTFL changes</h3>
+<p>RTFL describes an energy-aware real-time federated-learning framework using multi-agent reinforcement learning. Its adaptive-quantization multi-agent scheduling strategy chooses both <strong>which devices participate</strong> and <strong>which model quantization level each selected device uses</strong> for a local-training round.</p>
+<p>Device selection changes the population that contributes data and updates. Quantization changes the numerical representation used during local computation or communication.</p><p>Fewer bits can reduce storage, arithmetic, or transmitted data, but it also changes the update before aggregation. The useful question is not whether a quantized update is cheaper in isolation; it is whether its lower cost produces enough learning progress to justify the numerical error and any change in data participation.</p>
+<p>The multiple agents are a control mechanism for making these choices under state constraints such as remaining battery, compute capability, and communication bandwidth. The source does not establish that the agents solve a globally optimal scheduling problem.</p><p>It establishes the intended decision variables and reports qualitative claims of faster convergence, more participation in aggregation, and better training performance. No numeric convergence curve, accuracy value, energy budget, communication volume, agent count, device population, or baseline configuration is supplied. <a href="https://63dac.conference-program.com/presentation/?id=RESEARCH1936&amp;sess=sess158">Source: official DAC description and captured record</a>.</p>
+<h3>The tradeoffs that must be measured separately</h3>
+<p>There are at least five separate quantities. <strong>Round time</strong> includes local computation, upload, aggregation, and model download. <strong>Energy per round</strong> includes processor and radio activity, not only arithmetic. <strong>Learning progress</strong> requires a defined validation or test measure at a fixed data and model condition. <strong>Participation</strong> must identify which devices and data groups contributed, because a high total count can still exclude slow or rare-data devices. <strong>Scheduler overhead</strong> includes training and running the agents; it cannot be silently assigned to zero cost.</p>
+<p>Compare RTFL with conventional scheduling and fixed-quantization selection at equal model, device population, data partition, network trace, deadline, and energy budget. Report quality versus wall-clock time, quality versus consumed energy, time to a fixed quality, and per-device participation.</p><p>Test battery depletion, intermittent connectivity, non-identically distributed data, and a change in device or traffic conditions. “Real-time” is a training-time constraint in this description; it is not evidence of a hard deadline guarantee for each inference request or each federated round.</p>
+<p>The central boundary is: <strong>more frequent aggregation is a scheduling outcome, not a learning-quality outcome</strong>. The claim becomes meaningful only when the extra rounds, precision choices, device coverage, scheduler cost, and final quality are reported together.</p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="refresh"></span>Distributed training: participation is not a quality measure</h2>
+<p>Federated learning trains across devices while keeping their original examples local. Devices perform local updates, and an aggregation step combines their contributions.</p><p>Devices may differ in compute speed, stored data, radio cost, or remaining battery. A policy that always selects the fastest devices can produce updates quickly while systematically excluding other data.</p>
+<p><a href="edge-embedded-and-mobile-systems.html#paper-dac-2026-research1936">RTFL</a> uses multiple learned scheduling agents to select devices and quantization levels under a training-time constraint. The detailed explanation above separates round time, energy, data participation, numerical precision, learning progress, and scheduler cost; this card is the compact evidence record. <a href="https://63dac.conference-program.com/presentation/?id=RESEARCH1936&amp;sess=sess158">Source: official Description, framework, scheduling, and experimental-summary sentences</a>.</p>
+<p>To evaluate this kind of policy, ask how much useful learning happens before the time or energy budget is exhausted. Compare final quality at the same elapsed time, and time to reach the same quality.</p><p>Count scheduler training and inference costs separately from device training. Report participation by device or data group rather than only the total number of rounds.</p><p>More rounds with heavily reduced precision can be less useful than fewer accurate updates; more selected devices can also spend more energy without improving the final model.</p>
+<p><span id="explanation-dac-2026-research1011"></span></p>
+<h3>SatSFL: split learning must continue when the satellite link disappears</h3>
+<h3>Start with the split-federated path</h3>
+<p>In split federated learning, a satellite-side device keeps its training examples locally and computes the first part of a model. It sends an intermediate activation to a ground-side service, which computes the remaining part and returns gradient information.</p><p>The satellite uses that gradient to update its local part. A training step therefore depends on a sequence of forward values and backward feedback; keeping raw examples onboard does not remove the dependency on the link.</p>
+<p>Satellite links add two constraints. Contact is intermittent, so a satellite may complete local work while the ground-side feedback is unavailable.</p><p>The link can also be asymmetric, so the amount of data that can travel toward the satellite may differ from the amount that can travel in the opposite direction. A method must therefore specify what happens during the outage, what state is retained, and how the system reconciles provisional updates with real feedback later.</p>
+<h3>What SatSFL changes</h3>
+<p>SatSFL describes two mechanisms. <strong>Interpolated gradient approximation</strong> produces an estimated gradient during a disconnection so local training can continue without waiting for the ground service. This is a numerical substitution: the update being applied is not the gradient computed from the current remote forward/backward path.</p><p>The approximation can reduce idle time, but its error can accumulate across multiple local steps or become biased when the data distribution changes.</p>
+<p><strong>Adaptive uplink compression</strong> reduces the bytes sent over the constrained direction of the link while attempting to preserve gradients judged important. Compression introduces a representation error and a selection rule.</p><p>“Critical” must be defined by a measurable criterion, and the result must report the error after decompression, not only the number of bytes removed. The system also needs a recovery rule for gradients delayed, dropped, or made stale by the contact schedule.</p>
+<p>The official description claims evaluation on real-world low-Earth-orbit satellite systems and datasets and reports superior accuracy and convergence speed against unnamed state-of-the-art methods. It does not identify the satellites, processors, contact traces, model partition, dataset, compression ratio, approximation error, numerical accuracy, or boundary between flight operation, ground execution, replay and simulation.</p><p>The description therefore establishes a constrained-system problem and a proposed pair of mechanisms, not a verified deployment or quantified robustness result. <a href="https://63dac.conference-program.com/presentation/?id=RESEARCH1011&amp;sess=sess110">Source: official DAC description and captured record</a>.</p>
+<h3>The evaluation that would establish disconnection tolerance</h3>
+<p>Replay complete orbit-scale contact traces, including outage duration, direction-specific bandwidth, delay, packet loss, and stale-feedback intervals. Compare waiting, local-only updates, exact delayed feedback, gradient approximation, and compression as separate ablations.</p><p>Hold the model partition, data distribution, optimizer, local-step count, and total training wall-clock budget fixed. Report final quality, quality over wall-clock time, convergence to a fixed quality, bytes in each direction, approximation and compression error, energy, and the number of updates later corrected or discarded.</p>
+<p>The central boundary is: <strong>continuing to compute during a disconnection is not the same as continuing with the correct gradient</strong>. A strong result must show both progress during the outage and controlled error after genuine ground feedback returns.</p>
+<h3>SatSFL: local data does not remove the need for intermediate feedback</h3>
+<p>Split learning divides a model between machines. The first machine computes intermediate activations; another processes them and returns gradients, numerical feedback used to update the earlier computation.</p><p>Keeping the original examples on the first machine does not eliminate these transfers. Nor does it, by itself, prove that intermediate activations or gradients reveal no private information.</p>
+<p><a href="edge-embedded-and-mobile-systems.html#paper-dac-2026-research1011">SatSFL</a> proposes interpolated gradient approximation during satellite–ground disconnections and adaptive compression for asymmetric links. The detailed explanation above separates dependency, approximation error, compression error, link asymmetry, and deployment evidence; this card is the compact evidence record. <a href="https://63dac.conference-program.com/presentation/?id=RESEARCH1011&amp;sess=sess110">Source: official Description, system mechanisms and evaluation sentence</a>.</p>
+<p>The technical tradeoff is between waiting for correct feedback and continuing with an approximation. A link can carry data quickly while available and still deliver little over an entire orbit because contact is brief.</p><p>Measure service over that full interval, not only the connected interval. Approximation must be tested under changing data and long outages, including how the method corrects accumulated error when real feedback returns.</p><p>Separate progress measured in update count from progress measured in wall-clock time and final task quality.</p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>Concurrency: more simultaneous work can increase contention</h2>
+<p>A computation graph records operations and their dependencies. A directed acyclic graph, or DAG, has no dependency cycle: a later operation cannot be required to produce its own earlier input.</p><p>Independent operations can run together, but independence of their data does not imply independence of their resources. Two operations can compete for the same arithmetic units, registers, or memory path.</p>
+<p><a href="edge-embedded-and-mobile-systems.html#paper-dac-2026-research1524">The GPU scheduling paper</a> scales kernel parallelism and adds ordering between balanced groups. Its model covers one periodic DAG and assumes a particular execution-time scaling relation.</p><p>Tests use RTX 3060 and Jetson Orin Nano GPUs, with a repeated kernel emulating different node workloads. Table 1 includes a counterexample: Stencil on 30 multiprocessors averages 11.37 ms versus Greedy's 11.09 ms.</p><p>A sampled maximum is not a proven worst case. <a href="https://arxiv.org/pdf/2602.20826v1">Source: Sections 2 and 5, PDF pages 2 and 5–6; Tables 1–2, page 7</a>.</p>
+<p>A kernel is a function executed across many GPU threads. Changing how many execution resources it requests can allow another kernel to make progress at the same time.</p><p>Adding an ordering constraint can also prevent an unfavorable competition. The cost is that some work deliberately waits.</p><p>Thus a tighter upper bound and a lower observed mean are different outcomes: the former can improve predictability even when some runs become slower.</p>
+<p>To apply a scheduling proof, verify its assumptions rather than treating the use of a standard programming interface as sufficient. Are execution costs valid across input values and memory behavior?</p><p>Does the graph include transfers and host work? Can unrelated processes interfere?</p><p>Does numerical computation remain correct after a kernel is split or resized? Those are requirements for extending a model-based result to a deployment, not failures established by this paper.</p>
+<h3>MATCHA: keeping two accelerators busy requires a complete memory schedule</h3>
+<p>A heterogeneous chip contains execution units suited to different work. Assigning every operation to its individually fastest unit can leave other units idle.</p><p>Splitting an operation may expose more parallel work, but it also needs input partitioning, output assembly, memory space, and synchronization. Intermediate buffers cannot be reused until all consumers of their previous contents have finished.</p>
+<p><a href="edge-embedded-and-mobile-systems.html#paper-dac-2026-research1267">MATCHA</a> jointly plans concurrent work and memory. Evaluation uses Carfield on a VCU118 FPGA at 50 MHz, with PULP and Spatz clusters and FP16 data.</p><p>Against MATCH, Table 2 reduces AutoEncoder latency from 20.1 to 13.4 ms but leaves DS-CNN and MobileNet unchanged. The 35.02% reduction concerns a ResNet-50 block, not every complete model. <a href="https://arxiv.org/pdf/2604.09124v1">Source: Section 4, PDF page 5; Table 2 and overhead discussion, page 6</a>.</p>
+<p>The important comparison is complete execution with the same supported operations and numerical format. Faster arithmetic does not help if splitting and joining the data costs more than the saved time.</p><p>A compiler's optimized schedule must also be feasible with actual storage capacities and communication paths. Report compile-time search cost separately from runtime dispatch.</p><p>An FPGA implementation provides hardware execution evidence, but its timing is not automatically the timing of a fabricated chip at another frequency.</p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>Timing guarantees: finite delay is different from meeting every deadline</h2>
+<p>A task describes repeated work; a job is one released instance. A period describes how often jobs arrive.</p><p>A response time runs from release to completion, including waiting. A hard deadline requires every covered job to finish by its specified deadline.</p><p>A bound that allows completion after that deadline can be useful, but it proves a different property. An average latency or a high percentile proves neither property for all jobs.</p>
+<p>For a simple hypothetical resource, jobs requiring 2 ms of service every 10 ms consume 20% of its time. Another stream needing 3 ms every 10 ms consumes 30%.</p><p>Their combined 50% utilization leaves nominal capacity, but does not alone settle deadline correctness: release alignment, blocking, dependencies, and interruption costs still matter. A utilization test becomes sufficient only under the conditions of its associated scheduling theory.</p>
+<p><a href="edge-embedded-and-mobile-systems.html#paper-dac-2026-research1074">PHAROS</a> explicitly allows deadline misses in its soft-real-time model while requiring bounded response times. Its accelerator mapping cannot return to an earlier pipeline stage.</p><p>The VCK5000 prototype and CHARM-based modeling use PointNet and truncated workloads. Crucially, Section 5.2 does not give EDF the same schedulability guarantee as FIFO once preemption overhead is included.</p><p>This qualifies the earlier zero-overhead formulation. <a href="https://arxiv.org/pdf/2604.05308v1">Source: Sections 3.3–3.4, PDF page 3; Sections 5.1–5.3 and 5.5, pages 5–6</a>.</p>
+<p>FIFO serves work in arrival order. EDF prioritizes the earliest deadline.</p><p>Preemption interrupts current work to serve another job, but interruption requires a safe stopping point and preservation of unfinished state. Resuming may require additional transfers.</p><p>A priority policy that is attractive when switching costs nothing may lose that advantage on hardware. A design-space search must therefore select hardware and schedules using costs that agree with the proof, rather than optimize throughput first and assume the result is timely.</p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="file-text"></span>Combined interpretation and the next evidence</h2>
+<p>These papers support a useful organizing distinction: some systems change <strong>which work is performed</strong>, while others change <strong>when and where the same work executes</strong>. Routing personalization, quantization, and gradient approximation can affect numerical or learned behavior.</p><p>Scheduling and placement primarily target execution, but still require correctness checks for transformations. Mixing the two categories under a single speedup hides the condition that makes the result meaningful.</p>
+<p>A testable long-term hypothesis is that joint decisions about computation, storage, communication, and timing will help when workloads and resource availability change. It is not a temporal finding from this one-edition group.</p><p>Test the hypothesis against stable workloads where fixed schedules avoid control overhead, weak links where communication dominates, and workloads too small to repay splitting costs. MATCHA's unchanged cases and the GPU scheduling counterexample already show why universal improvement is the wrong criterion.</p>
+<div class="worked"><p class="lm-k">Worked example</p><p>This review was performed on 2026-09-07. Pegasus's author publication list confirmed its identity but did not expose an active paper link; RTFL's title search yielded its official description without a recovered manuscript.</p><p>A SatSFL preprint was discovered through TechRxiv metadata and an indexed PDF, but the PDF host failed DNS resolution, including a retry, and the DOI route did not produce readable full text. Its experimental pages were not inspected.</p><p>The three recovered manuscripts still need final-version matching and independent challenge. No artifacts were executed, no safety certification was established, and no full-system deadline guarantee was reproduced.</p></div>
+<p class="lm-k h-label">Compare the results carefully</p><h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="route"></span>How to compare these papers’ results fairly</h2>
+<p>First identify the inputs and required output quality. Then identify the limited resource: time, memory, communication, energy, circuit area, or correctness coverage.</p><p>Ask which part of the method reduces that cost and which new cost it adds. Compare numbers only when the experiments hold these conditions sufficiently similar.</p>
+<p>A conference description may explain the proposal while omitting the full experiment. An author preprint link may have been coded from its abstract. The source classification does not by itself establish that every table was read. Missing locations remain visible below.</p>
+<p class="lm-k h-label">Complete captured evidence</p><h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="file-text"></span>Every paper in this subtheme, with what its source shows</h2>
+<p>These are evidence records, not substitutes for the explanations above. Each record preserves its problem, proposed method, measurements, comparison conditions, and source limits. A populated record does not establish that its mechanism has been fully explained or independently verified.</p>
+<p><span id="paper-dac-2026-research1922"></span></p>
+<h3>Pegasus: Personalized and Communication-Efficient Mixture-of-Experts System for Distributed Edge LLM Inference</h3>
+<p>DAC 2026 · Record: <code>dac-2026-research1922</code></p>
+<p><a href="#explanation-dac-2026-research1922">Read the step-by-step explanation</a></p>
+<p><strong>Updated source-backed reading card</strong></p>
+<div class="worked"><p class="lm-k">Worked example</p><p>Reviewed 2026-09-08. Reconciles the Pegasus card with the captured official source; separates expert placement, personalized routing, communication movement and adaptive batching, and prevents the reported 11.8x latency claim from being read as a quality-preserving or universally reproducible result.</p></div>
+<p>This editorial correction updates the current reading view and connected dossiers, not the historical adjudication or scientific acceptance status. The original captured fields are preserved below.</p>
+<p><a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/data/editorial-paper-corrections-v1.json">Correction register</a></p>
+<p><strong>Problem:</strong></p>
+<p>Edge nodes can host only a subset of MoE experts, so query-dependent routing may select experts that are remote while memory, compute and communication are constrained.</p>
+<p><strong>Mechanism / artifact:</strong></p>
+<p>Pegasus combines similarity-based expert deployment across edge nodes, selective local fine-tuning of gating parameters, and adaptive intra-node batching. Placement targets locality; gating changes the routing policy; batching changes queueing and resource use.</p>
+<p><strong>Workload — the work tested:</strong></p>
+<p>Distributed edge MoE LLM inference; model identities, expert count, node count, query distribution, batch policy, quality metric and arrival trace are unspecified.</p>
+<p><strong>Hardware and manufacturing assumptions:</strong></p>
+<p>Constrained multi-edge nodes with inter-node communication; hardware, memory budgets, link capacity, placement-update cost, implementation status and measurement modality are unspecified.</p>
+<p><strong>Baseline — the comparison method:</strong></p>
+<p>Unnamed state-of-the-art distributed MoE frameworks</p>
+<p>Baseline model quality, node resources, network conditions and batching parity are unspecified</p>
+<p><strong>Reported measurements:</strong></p>
+<p>The official description reports 11.8x lower inference latency, but supplies no numeric throughput, communication volume, energy, tail latency or model-quality result.</p>
+<p><strong>Limits on the conclusion:</strong></p>
+<p>Expert placement can reduce movement only when the query distribution matches the placement history; distribution shift can make the selected expert remote or make placement stale.</p>
+<p>Personalized gating can change which experts process a token and therefore may change model quality; latency alone does not establish equivalence to the unmodified router.</p>
+<p>Adaptive batching can improve resource use while adding formation wait to early requests; throughput and individual/tail latency must be reported separately.</p>
+<p>The official description supplies no model identities, expert/node counts, link conditions, quality metric, baseline details or independent execution; the 11.8x claim is not a universal or quality-preserving result.</p>
+<p><strong>Source and location</strong></p>
+<p>Evidence tier: Primary captured official DAC description only; no full paper extraction, edge execution or independent latency/quality validation. This is the stored source classification; the location and limits below determine what was actually read.</p>
+<p><a href="https://63dac.conference-program.com/?post_type=page&amp;p=16&amp;id=RESEARCH1922&amp;sess=sess176">Open the recorded source</a></p>
+<p>DAC 2026 official description and data/review-packets/dac-2026-research1922.json: edge MoE capacity mismatch; similarity-based expert deployment; selective local gate fine-tuning; adaptive local batching; reported 11.8x latency claim.</p>
+<details markdown="1">
+<summary>Original captured fields — superseded for this reading card</summary>
+
+** page source tier:** medium_official_description
+
+**Baselines:** state-of-the-art distributed MoE frameworks
+
+**Evidence locators:** DAC 2026 official description
+
+**Evidence url:** https://63dac.conference-program.com/?post_type=page&amp;p=16&amp;id=RESEARCH1922&amp;sess=sess176
+
+**Hardware or process assumptions:** Multiple resource-constrained edge nodes communicating for MoE inference; network, memory, accelerator, and fine-tuning costs are unspecified.
+
+**Limits:** The description omits model quality, communication volume, node heterogeneity, trace characteristics, and baseline configurations.
+
+Latency claim may depend on expert-cache capacity and query correlation assumptions.
+
+Official description only; system-level claim requires paper-level verification.
+
+**Method or artifact:** Similarity-based expert placement, personalized local gating, and adaptive-batching online scheduling across multi-edge nodes.
+
+**Metrics:** 11.8x lower inference latency
+
+**Problem:** Edge nodes cannot host all MoE experts, causing query-dependent expert mismatches under memory, compute, and communication constraints.
+
+**Workload or benchmark:** Distributed edge LLM inference with spatiotemporal query correlations; models, node count, expert capacity, traces, and quality metrics are unspecified.
+
+</details>
+<p><span id="paper-dac-2026-research1936"></span></p>
+<h3>RTFL: Energy-Aware Federated Learning for AIoT Design Via Adaptive Quantization-Based Multi-Agent Scheduling</h3>
+<p>DAC 2026 · Record: <code>dac-2026-research1936</code></p>
+<p><a href="#explanation-dac-2026-research1936">Read the step-by-step explanation</a></p>
+<p><strong>Updated source-backed reading card</strong></p>
+<div class="worked"><p class="lm-k">Worked example</p><p>Reviewed 2026-09-08. Reconciles the RTFL card with the captured official source; separates device participation, quantization, round time, energy, learning progress and scheduler cost, and prevents qualitative convergence language from being read as a measured deadline or quality guarantee.</p></div>
+<p>This editorial correction updates the current reading view and connected dossiers, not the historical adjudication or scientific acceptance status. The original captured fields are preserved below.</p>
+<p><a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/data/editorial-paper-corrections-v1.json">Correction register</a></p>
+<p><strong>Problem:</strong></p>
+<p>Battery-powered AIoT federated learning has heterogeneous compute, communication and residual-energy constraints that can slow useful global-model improvement.</p>
+<p><strong>Mechanism / artifact:</strong></p>
+<p>RTFL uses multi-agent reinforcement learning with adaptive quantization-based scheduling. The agents select participating devices and quantization levels for each local-training round using battery, compute and bandwidth state.</p>
+<p><strong>Workload — the work tested:</strong></p>
+<p>Federated learning across resource-constrained AIoT devices; model, dataset, device population, data partition, round count, deadline and convergence metric are unspecified.</p>
+<p><strong>Hardware and manufacturing assumptions:</strong></p>
+<p>Heterogeneous battery-powered devices with processors and radios; compute, communication, battery, network trace, aggregation service and scheduler execution cost are unspecified.</p>
+<p><strong>Baseline — the comparison method:</strong></p>
+<p>Conventional federated-learning scheduling</p>
+<p>Fixed-quantization device selection</p>
+<p>Baseline device population, data partition, network trace and energy parity are unspecified</p>
+<p><strong>Reported measurements:</strong></p>
+<p>The official description qualitatively claims faster convergence, more rounds of knowledge aggregation and improved training performance; it supplies no numeric accuracy, time, energy, communication-volume or participation value.</p>
+<p><strong>Limits on the conclusion:</strong></p>
+<p>More aggregation rounds do not by themselves establish more useful learning; quantization can reduce cost while changing update error, and device selection can change which data contributes.</p>
+<p>Participation must be reported by device and data group, not only as a total count; selecting fast devices can exclude slow devices or rare data.</p>
+<p>Energy must include local computation, communication, waiting and the multi-agent scheduler. A training-time constraint is not a hard per-round or per-inference deadline proof.</p>
+<p>The official description supplies no convergence curves, quality criterion, device configuration, agent cost, numerical precision settings or independent execution; no universal energy, accuracy or real-time claim follows.</p>
+<p><strong>Source and location</strong></p>
+<p>Evidence tier: Primary captured official DAC description only; no full paper extraction, federated training execution or independent energy/quality validation. This is the stored source classification; the location and limits below determine what was actually read.</p>
+<p><a href="https://63dac.conference-program.com/?post_type=page&amp;p=16&amp;id=RESEARCH1936&amp;sess=sess158">Open the recorded source</a></p>
+<p>DAC 2026 official description and data/review-packets/dac-2026-research1936.json: heterogeneous battery-powered AIoT devices; real-time training-time constraint; AQMAS device and quantization selection; battery, compute and bandwidth state; qualitative convergence and participation claims.</p>
+<details markdown="1">
+<summary>Original captured fields — superseded for this reading card</summary>
+
+** page source tier:** medium_official_description
+
+**Baselines:** conventional federated-learning scheduling
+
+fixed-quantization device selection
+
+**Evidence locators:** DAC 2026 official description
+
+**Evidence url:** https://63dac.conference-program.com/?post_type=page&amp;p=16&amp;id=RESEARCH1936&amp;sess=sess158
+
+**Hardware or process assumptions:** Heterogeneous battery-powered devices with varying compute, residual energy, and communication bandwidth; radio and processor details are unspecified.
+
+**Limits:** No convergence curves, accuracy, energy budget, communication volume, agent count, or baseline configuration are supplied.
+
+More participation may trade off energy, fairness, and model quality across devices.
+
+Official description only; training and scheduling claims require paper-level verification.
+
+**Method or artifact:** Multi-agent reinforcement-learning scheduler with adaptive quantization and device selection under a training-time constraint.
+
+**Metrics:** Faster convergence claimed qualitatively
+
+More knowledge-aggregation participation claimed qualitatively
+
+**Problem:** Battery-powered AIoT federated learning suffers from slow convergence and poor training performance under heterogeneous compute and communication resources.
+
+**Workload or benchmark:** Federated learning across resource-constrained AIoT devices; dataset, model, device population, rounds, and convergence metric are unspecified.
+
+</details>
+<p><span id="paper-dac-2026-research1524"></span></p>
+<h3>Exploiting Dependency and Parallelism: Real-Time Scheduling and Analysis for GPU Tasks</h3>
+<p>DAC 2026 · Record: <code>dac-2026-research1524</code></p>
+<p><strong>Updated source-backed reading card</strong></p>
+<div class="worked"><p class="lm-k">Worked example</p><p>Reviewed 2026-09-07. Recovered manuscript distinguishes single-DAG timing analysis from measured, emulated workload behavior.</p></div>
+<p>This editorial correction updates the current reading view and connected dossiers, not the historical adjudication or scientific acceptance status. The original captured fields are preserved below.</p>
+<p><a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/data/editorial-paper-corrections-v1.json">Correction register</a></p>
+<p><strong>Problem:</strong></p>
+<p>Concurrent GPU kernels can compete for execution capacity.</p>
+<p><strong>Mechanism / artifact:</strong></p>
+<p>Parallelism scaling, kernel segmentation, and added group dependencies through CUDA Graphs.</p>
+<p><strong>Workload — the work tested:</strong></p>
+<p>Synthetic DAGs; Laplace, Gaussian, Stencil structures with emulated node loads; 100 executions per case.</p>
+<p><strong>Hardware and manufacturing assumptions:</strong></p>
+<p>RTX 3060 and Jetson Orin Nano; single periodic DAG and modeled kernel scaling.</p>
+<p><strong>Baseline — the comparison method:</strong></p>
+<p>Greedy; Graham_para for analytical comparisons.</p>
+<p><strong>Reported measurements:</strong></p>
+<p>Synthetic analytical bound: up to 32.8% reduction versus Greedy. Table 1, 8-SM Gaussian mean: 65.07 to 51.23 ms, about 21.3% lower.</p>
+<p>Table 1, 30-SM Stencil: proposed 11.37 ms average versus Greedy 11.09 ms.</p>
+<p><strong>Limits on the conclusion:</strong></p>
+<p>Some cases are slower. Sample maxima do not prove worst-case bounds or multi-task deployment guarantees.</p>
+<p><strong>Source and location</strong></p>
+<p>Evidence tier: Recovered manuscript; cited sections inspected. This is the stored source classification; the location and limits below determine what was actually read.</p>
+<p><a href="https://arxiv.org/pdf/2602.20826v1">Open the recorded source</a></p>
+<p>Section 2, PDF page 2; Section 5, pages 5–6; Tables 1–2, page 7.</p>
+<details markdown="1">
+<summary>Original captured fields — superseded for this reading card</summary>
+
+** page source tier:** medium_official_description
+
+**Baselines:** existing GPU real-time scheduling and analysis methods
+
+**Evidence locators:** DAC 2026 official description
+
+**Evidence url:** https://63dac.conference-program.com/?post_type=page&amp;p=16&amp;id=RESEARCH1524&amp;sess=sess146
+
+**Hardware or process assumptions:** CUDA-capable GPU with no additional hardware/software support; kernel preemption, streams, memory transfers, and driver version are unspecified.
+
+**Limits:** The description omits graph sizes, utilization, timing deadlines, GPU/driver settings, and baseline tuning.
+
+Measured execution time and safe makespan bounds are distinct metrics with different assumptions.
+
+Official description only; schedulability and safety claims require paper-level verification.
+
+**Method or artifact:** DAG-based GPU scheduler and safe, non-pessimistic makespan analysis implemented through standard CUDA APIs.
+
+**Metrics:** Up to 32.8% lower worst-case makespan
+
+Up to 21.3% lower measured execution time
+
+**Problem:** GPU kernel dependencies and resource contention create unpredictable delays for safety-critical real-time applications.
+
+**Workload or benchmark:** Synthetic and real-world DAG-structured GPU tasks; GPU model, task graphs, utilization, timing constraints, and baseline methods are unspecified.
+
+</details>
+<p><span id="paper-dac-2026-research1011"></span></p>
+<h3>Towards Fast and Robust Split Federated Learning over Satellite-Based Computing Networks</h3>
+<p>DAC 2026 · Record: <code>dac-2026-research1011</code></p>
+<p><a href="#explanation-dac-2026-research1011">Read the step-by-step explanation</a></p>
+<p><strong>Updated source-backed reading card</strong></p>
+<div class="worked"><p class="lm-k">Worked example</p><p>Reviewed 2026-09-08. Reconciles the SatSFL card with the captured official source; separates split-learning dependencies, disconnection-time gradient approximation, asymmetric-link compression and deployment evidence, and prevents qualitative accuracy/convergence language from being read as a quantified satellite deployment result.</p></div>
+<p>This editorial correction updates the current reading view and connected dossiers, not the historical adjudication or scientific acceptance status. The original captured fields are preserved below.</p>
+<p><a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/data/editorial-paper-corrections-v1.json">Correction register</a></p>
+<p><strong>Problem:</strong></p>
+<p>Intermittent and asymmetric satellite-ground links interrupt the feedback path required by split federated learning while onboard resources and data-download latency constrain training.</p>
+<p><strong>Mechanism / artifact:</strong></p>
+<p>SatSFL combines interpolated gradient approximation during link outages with adaptive uplink compression intended to retain important gradient information under asymmetric bandwidth.</p>
+<p><strong>Workload — the work tested:</strong></p>
+<p>Split federated learning over satellite-based computing networks; the source claims real-world LEO systems and datasets but does not identify models, tasks, data partitions, contact traces or training configuration.</p>
+<p><strong>Hardware and manufacturing assumptions:</strong></p>
+<p>Satellite-ground split-learning deployment with constrained onboard compute and asymmetric intermittent links; satellite, ground processor, radio, bandwidth, contact schedule and flight-versus-simulation boundary are unspecified.</p>
+<p><strong>Baseline — the comparison method:</strong></p>
+<p>Unnamed state-of-the-art split/federated-learning methods</p>
+<p>Baseline link traces, model partition, optimizer and resource parity are unspecified</p>
+<p><strong>Reported measurements:</strong></p>
+<p>The official description qualitatively claims superior accuracy and convergence speed; it supplies no numeric accuracy, convergence time, bytes, compression ratio, approximation error, energy or deployment result.</p>
+<p><strong>Limits on the conclusion:</strong></p>
+<p>An interpolated gradient is not the feedback that would have been computed by the remote model path; its error can accumulate or become biased under heterogeneous or changing data.</p>
+<p>Compression can reduce link bytes while changing the gradient; critical-gradient selection needs a defined criterion and error measurement after decompression.</p>
+<p>A real-world LEO-system claim does not identify whether computation, links and results were flight, ground, replay or simulation; deployment status cannot be inferred from the description.</p>
+<p>The official description supplies no link trace, outage distribution, model partition, numerical result or independent execution; no convergence, robustness, privacy or satellite-deployment guarantee follows.</p>
+<p><strong>Source and location</strong></p>
+<p>Evidence tier: Primary captured official DAC description only; no full paper extraction, orbit scale trace replay or independent accuracy/convergence validation. This is the stored source classification; the location and limits below determine what was actually read.</p>
+<p><a href="https://63dac.conference-program.com/?post_type=page&amp;p=16&amp;id=RESEARCH1011&amp;sess=sess110">Open the recorded source</a></p>
+<p>DAC 2026 official description and data/review-packets/dac-2026-research1011.json: intermittent/asymmetric satellite-ground link problem; interpolated gradient approximation during disconnection; adaptive uplink compression; qualitative real-world LEO evaluation, accuracy and convergence claims.</p>
+<details markdown="1">
+<summary>Original captured fields — superseded for this reading card</summary>
+
+** page source tier:** medium_official_description
+
+**Baselines:** state-of-the-art split federated learning methods; names and configurations unspecified
+
+**Evidence locators:** DAC 2026 official description
+
+**Evidence url:** https://63dac.conference-program.com/?post_type=page&amp;p=16&amp;id=RESEARCH1011&amp;sess=sess110
+
+**Hardware or process assumptions:** Satellite-edge and ground split-learning deployment with intermittent asymmetric links; onboard/ground processors, link rates, outage model, and compression costs are unspecified.
+
+**Limits:** The official description supplies no numeric accuracy, convergence, link-trace, heterogeneity, or compression-overhead results.
+
+Real-world LEO wording does not establish flight deployment, trace provenance, or simulation boundaries.
+
+Official description only; no full-text extraction or independent reproduction.
+
+**Method or artifact:** SatSFL combines interpolated gradient approximation to emulate ground feedback during disconnections with adaptive uplink compression that preserves critical gradients under asymmetric bandwidth.
+
+**Metrics:** Not established in the captured evidence.
+
+**Problem:** Intermittent and asymmetric satellite–ground links compromise convergence and robustness in split federated learning under constrained onboard resources and high data-download latency.
+
+**Workload or benchmark:** Split federated learning over real-world low-Earth-orbit satellite systems and datasets; task names, traces, data partitions, and evaluation protocol are unspecified.
+
+</details>
+<p><span id="paper-dac-2026-research1267"></span></p>
+<h3>MATCHA: Efficient Deployment of Deep Neural Networks on Multi-Accelerator Heterogeneous Edge SoCs</h3>
+<p>DAC 2026 · Record: <code>dac-2026-research1267</code></p>
+<p><strong>Updated source-backed reading card</strong></p>
+<div class="worked"><p class="lm-k">Worked example</p><p>Reviewed 2026-09-07. Recovered experimental pages identify the FPGA configuration and workloads without improvement.</p></div>
+<p>This editorial correction updates the current reading view and connected dossiers, not the historical adjudication or scientific acceptance status. The original captured fields are preserved below.</p>
+<p><a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/data/editorial-paper-corrections-v1.json">Correction register</a></p>
+<p><strong>Problem:</strong></p>
+<p>Sequential layer placement leaves heterogeneous compute capacity idle.</p>
+<p><strong>Mechanism / artifact:</strong></p>
+<p>Concurrent scheduling, tiling, and constraint-based memory planning.</p>
+<p><strong>Workload — the work tested:</strong></p>
+<p>MLPerf Tiny models and separate network-block microbenchmarks.</p>
+<p><strong>Hardware and manufacturing assumptions:</strong></p>
+<p>Carfield on VCU118 FPGA, 50 MHz, FP16; PULP and Spatz clusters; 1 MiB shared L2.</p>
+<p><strong>Baseline — the comparison method:</strong></p>
+<p>MATCH; TVM host-only comparison is separate.</p>
+<p><strong>Reported measurements:</strong></p>
+<p>AutoEncoder: 20.1 to 13.4 ms. DS-CNN and MobileNet: no improvement over MATCH.</p>
+<p><strong>Limits on the conclusion:</strong></p>
+<p>35.02% reduction is a ResNet-50 block result. Slicing/concatenation can offset computation savings; no general deadline guarantee.</p>
+<p><strong>Source and location</strong></p>
+<p>Evidence tier: Recovered manuscript; cited sections inspected. This is the stored source classification; the location and limits below determine what was actually read.</p>
+<p><a href="https://arxiv.org/pdf/2604.09124v1">Open the recorded source</a></p>
+<p>Section 4, PDF page 5; Table 2 and discussion, page 6.</p>
+<details markdown="1">
+<summary>Original captured fields — superseded for this reading card</summary>
+
+** page source tier:** medium_official_description
+
+**Baselines:** MATCH compiler
+
+**Evidence locators:** DAC 2026 official description
+
+**Evidence url:** https://63dac.conference-program.com/?post_type=page&amp;p=16&amp;id=RESEARCH1267&amp;sess=sess146
+
+**Hardware or process assumptions:** Multi-accelerator heterogeneous edge SoC with L3/L2 memory hierarchy; accelerator types, memory capacities, clocking, and compiler versions are unspecified.
+
+**Limits:** The description does not give model-by-model latency, utilization, energy, memory traffic, or schedule overhead.
+
+The exact MATCH configuration and hardware platform are not stated.
+
+Official description only; comparative claim requires paper-level verification.
+
+**Method or artifact:** Unified deployment framework combining constraint-programmed memory/schedule optimization with pattern matching, tiling, and per-unit mapping.
+
+**Metrics:** Up to 35% inference-latency reduction relative to MATCH
+
+Improved accelerator utilization (numeric value unspecified)
+
+**Problem:** Existing DNN deployment frameworks do not exploit heterogeneous accelerator engines effectively on edge SoCs.
+
+**Workload or benchmark:** MLPerf Tiny on an SoC containing two heterogeneous accelerators; model suite, SoC details, and latency measurement conditions are unspecified.
+
+</details>
+<p><span id="paper-dac-2026-research1074"></span></p>
+<h3>PHAROS: Pipelined Heterogeneous Accelerators for Real-Time Safety-Critical Systems With Deadline Compliance</h3>
+<p>DAC 2026 · Record: <code>dac-2026-research1074</code></p>
+<p><strong>Updated source-backed reading card</strong></p>
+<div class="worked"><p class="lm-k">Worked example</p><p>Reviewed 2026-09-07. The manuscript's soft-real-time definition allows missed deadlines and its EDF evaluation qualifies the zero-overhead guarantee.</p></div>
+<p>This editorial correction updates the current reading view and connected dossiers, not the historical adjudication or scientific acceptance status. The original captured fields are preserved below.</p>
+<p><a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/data/editorial-paper-corrections-v1.json">Correction register</a></p>
+<p><strong>Problem:</strong></p>
+<p>Throughput-oriented accelerator search need not ensure bounded response times.</p>
+<p><strong>Mechanism / artifact:</strong></p>
+<p>Pipeline-constrained search with FIFO/EDF scheduling and tile-boundary preemption.</p>
+<p><strong>Workload — the work tested:</strong></p>
+<p>PointNet and truncated Point Transformer, MLP-Mixer, Res-MLP, DeiT-T workloads.</p>
+<p><strong>Hardware and manufacturing assumptions:</strong></p>
+<p>VCK5000 prototype plus CHARM modeling; no return to an earlier pipeline stage.</p>
+<p><strong>Baseline — the comparison method:</strong></p>
+<p>Throughput-guided CHARM search.</p>
+<p><strong>Reported measurements:</strong></p>
+<p>Reported 1.44–2.28× feasible configurations across six workload combinations.</p>
+<p><strong>Limits on the conclusion:</strong></p>
+<p>Bounded response is not hard-deadline compliance. Section 5.2 excludes an equivalent EDF guarantee once preemption costs apply; finite simulations are not universal proofs.</p>
+<p><strong>Source and location</strong></p>
+<p>Evidence tier: Recovered manuscript; cited sections inspected. This is the stored source classification; the location and limits below determine what was actually read.</p>
+<p><a href="https://arxiv.org/pdf/2604.05308v1">Open the recorded source</a></p>
+<p>Sections 3.3–3.4, PDF page 3; Sections 5.1–5.3 and 5.5, pages 5–6.</p>
+<details markdown="1">
+<summary>Original captured fields — superseded for this reading card</summary>
+
+** page source tier:** medium_official_description
+
+**Baselines:** throughput-oriented design-space exploration
+
+**Evidence locators:** Not established in the captured evidence.
+
+**Evidence url:** https://63dac.conference-program.com/?post_type=page&amp;p=16&amp;id=RESEARCH1074
+
+**Hardware or process assumptions:** Not established in the captured evidence.
+
+**Limits:** The description does not provide numerical gains, application identities, timing models, or hardware overhead for preemption.
+
+**Method or artifact:** Real-time-centric accelerator framework with preemption, FIFO/EDF scheduling, schedulability analysis, and deadline-constrained DSE.
+
+**Metrics:** number of feasible configurations
+
+real-time performance
+
+deadline/schedulability correctness
+
+**Problem:** Heterogeneous-accelerator design frameworks optimize throughput or QoS while neglecting predictable execution, schedulability, and deadline correctness in safety-critical systems.
+
+**Workload or benchmark:** Diverse embedded and safety-critical applications such as smart transportation task sets.
+
+</details>
+<p class="lm-k h-label">What remains to establish</p><h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>What is still unproven here</h2>
+<p>Resolve unspecified workloads, comparison methods, resource budgets, and source locations before generalizing a reported gain. Multiple papers in this selected sample permit comparison of mechanisms, but do not by themselves establish recurrence across years or a long-term trend.</p>
+<p><a href="../guide/expanded-taxonomy-v1.html">All subthemes</a> · <a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/reports/directions/README.md">Research directions</a></p><p class="meta">Written as <a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/reports/observed-subthemes/edge-embedded-and-mobile-systems.md">reports/observed-subthemes/edge-embedded-and-mobile-systems.md</a> in the course repository.</p>
+      </article>
+      <nav class="pager" aria-label="Previous and next"><a class="prev" href="robotics-and-edge-ai.html"><span class="pg-k">← Previous</span><span class="pg-t">Robotics and edge AI</span></a><a class="map" href="../subthemes.html"><span class="pg-k">Back to</span><span class="pg-t">Subthemes</span></a><a class="next" href="datacenter-and-cloud-systems.html"><span class="pg-k">Next →</span><span class="pg-t">Datacenter and cloud systems</span></a></nav>
+    </section>
+  </main>
+  <footer class="course-foot">
+    <p>Built from 582 paper records coded from ISCA 2026, DAC 2026 and ICCAD 2025 (ICCAD 2026 papers were not yet public). Most records come from official program descriptions; see “How deep the reading went”. The papers belong to their authors.</p>
+    <p class="foot-links"><a href="https://github.com/mehtama1234/course-concept-library">All courses</a><a href="../index.html">This course</a><a href="../course-map.html">Course map</a><a href="../presentation/index.html">Slides</a><a href="../video/index.html">Video</a><a href="../share/index.html">Share</a></p>
+  </footer>
+  <script src="../assets/course-data.js"></script><script src="../assets/icons.js"></script><script src="../assets/icons-extra.js"></script><script src="../assets/icons-course.js"></script><script src="../assets/art.js"></script><script src="../assets/course-art.js"></script><script src="../assets/charts.js"></script><script src="../assets/course-charts.js"></script><script src="../assets/course-site.js"></script>
+</body>
+</html>

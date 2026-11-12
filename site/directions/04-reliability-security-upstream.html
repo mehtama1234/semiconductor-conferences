@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#F3ECE1" />
+  <title>Choosing system designs with faults and attacks in view · Semiconductor conference atlas</title>
+  <meta name="description" content="Performance without a declared fault and threat operating envelope is not a complete system result." />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Semiconductor conference atlas" />
+  <meta property="og:title" content="Choosing system designs with faults and attacks in view · Semiconductor conference atlas" />
+  <meta property="og:description" content="Performance without a declared fault and threat operating envelope is not a complete system result." />
+  <meta property="og:url" content="https://mehtama1234.github.io/semiconductor-conferences/directions/04-reliability-security-upstream.html" />
+  <meta property="og:image" content="https://mehtama1234.github.io/semiconductor-conferences/presentation/slides/01-cover.jpg" />
+  <meta property="og:image:width" content="1920" />
+  <meta property="og:image:height" content="1080" />
+  <meta property="og:image:alt" content="Semiconductor conference atlas: 582 papers from ISCA, DAC and ICCAD, sorted into 10 themes and six directions to watch." />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="canonical" href="https://mehtama1234.github.io/semiconductor-conferences/directions/04-reliability-security-upstream.html" />
+  <link rel="icon" href="../assets/icon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="../assets/base.css" />
+  <link rel="stylesheet" href="../assets/experience.css" />
+  <link rel="stylesheet" href="../assets/theme-atlas.css" />
+  <link rel="stylesheet" href="../assets/styles.css" />
+  <link rel="stylesheet" href="../assets/charts.css" />
+  <link rel="stylesheet" href="../assets/course.css" />
+  
+</head>
+<body class="course-site " data-house="atlas">
+  <aside class="public-demo-banner" aria-label="About this course">A plain-language guide to what ISCA, DAC and ICCAD papers say about chip and computer design · Built from the repository’s own paper records · Not made by the conferences</aside>
+  <a class="skip-link" href="#app">Skip to the page</a>
+  <header>
+    <a class="brand" href="../index.html"><span class="mark" aria-hidden="true">Si</span> Semiconductor conference atlas</a>
+    <span class="header-status"><span class="badge">582 papers</span><span class="badge">10 themes</span><span class="badge">Plain words first</span></span>
+    <a class="header-link" href="../course-map.html">Course map</a>
+  </header>
+  <nav class="course-nav" aria-label="Main sections of the course"><a href="../index.html">The big picture</a><a href="../themes.html">Themes</a><a href="../subthemes.html">Subthemes</a><a href="../deep-reads.html">Deep reads</a><a href="../directions.html" aria-current="page">What to watch</a><a href="../presentation/index.html">Slides</a><a href="../video/index.html">Video</a><a href="../share/index.html">Share</a></nav>
+  <main id="app" tabindex="-1">
+    <section class="screen active landing legacy-page" aria-labelledby="page-title">
+<div class="lm-head"><div class="hj-heading"><nav class="crumbs" aria-label="You are here"><a href="../course-map.html">Course map</a><span aria-hidden="true">›</span><a href="../directions.html">What to watch</a></nav><a class="back-button" href="../directions.html">← <span>What to watch</span></a><p class="eyebrow">Direction 4 of 6 · a hypothesis, not a measured trend</p><h1 id="page-title">Choosing system designs with faults and attacks in view</h1><p class="hj-sub">Performance without a declared fault and threat operating envelope is not a complete system result.</p></div><div class="hj-art" data-art="trio:alert-triangle,shield-check,bolt"></div></div>
+<figure class="course-fig"><div class="loop-wide" data-art="flow:reliability-security-upstream"></div><div class="loop-tall" data-art="flowTall:reliability-security-upstream"></div><figcaption>Faults and attacks shape the design from the start, with their cost shown.</figcaption></figure><section class="landing-problems answer bridge"><p class="lp-energy"><b>The next test:</b> Require threat/fault model, coverage, false negatives, recovery path, and useful performance after protection for each anchor. <a href="../comparisons/reliability-security-upstream.html">Across the conferences →</a></p></section>
+      <article class="prose">
+
+<p>Status: a research hypothesis supported by selected cases. A measured increase across comparable years has not been established.</p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="target"></span>The problem: a result is useful only if it stays valid under faults and attacks</h2>
+<p>A corrupted memory value, a failed component or an attacker can change a result.</p>
+<p>Protection uses resources. It may also limit how the system shares data or runs work.</p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>The change: weigh faults and attacks while choosing the architecture and software</h2>
+<ul>
+<li>Where data is stored decides which errors must be detected and corrected.</li>
+<li>Sharing a resource can raise utilization, but may let one user see timing changes caused by another.</li>
+<li>Recovery can need spare capacity or saved copies of state.</li>
+</ul>
+<p>These choices affect normal operation, not only failure handling.</p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>Reliability and security rest on different assumptions</h2>
+<ul>
+<li>A <strong>random fault</strong> experiment asks how the system behaves under an injected error pattern.</li>
+<li>An <strong>adversarial</strong> experiment asks what a person with stated access and knowledge can cause or observe.</li>
+</ul>
+<p>Success under one set of assumptions does not prove protection against another. A paper must state its assumptions before its protection result can be read.</p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="checklist"></span>The test: useful correct work with protection on, under a fixed threat</h2>
+<ol>
+<li>Compare correct useful work, energy, missed detections and recovery time, with protection switched on.</li>
+<li>Keep the fault model or attacker capability fixed.</li>
+<li>Vary realistic fault rates or attack conditions, and record cases not covered.</li>
+</ol>
+<p>The direction gains support when several independent cases show early design choices improve this combined outcome. A fix for one attack is a narrower result. Today's evidence does not show adoption rates or growth.</p>
+<p class="lm-k h-label">Counterpressure and falsification boundary</p><h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>The paper that pushes back, and what would disprove the direction</h2>
+<p>Challenge paper: <code>dac-2026-research1494</code> (threat_model_extension; source tier <code>official_description</code>). <a href="https://63dac.conference-program.com/?post_type=page&amp;p=16&amp;id=RESEARCH1494&amp;sess=sess122">Open the recorded source</a>.</p>
+<p>Confidentiality and integrity do not imply availability; security claims depend on scheduler trust and resource arbitration.</p>
+<p><strong>What would weaken the direction:</strong> The direction is weakened if an in-scope adversary can still starve or delay an attested workload under the stated admission and scheduler policy, or if the availability guarantee requires an unmodeled trusted component.</p>
+<p><strong>Next evidence:</strong> Inspect adversary powers, trusted computing base, admission policy and contention workload before generalizing availability guarantees.</p>
+<p class="lm-k h-label">Paper evidence and open conditions</p><h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>The papers behind it, and the conditions still unknown</h2>
+<p><a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/reports/directions/evidence/04-reliability-security-upstream-evidence.md">Read the paper evidence dossier</a>. It connects this discussion to the recorded sources and unresolved conditions.</p>
+<p><a href="../comparisons/reliability-security-upstream.html">Read the cross-conference comparison</a>. Different conferences can examine different parts of the problem; their reported numbers are not automatically comparable.</p>
+<p><a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/reports/direction-condition-register-v1.md">Check the condition register</a> for unresolved experimental details and <a href="../guide/direction-review-gate-v1.html">the review gate</a> for the current review status.</p>
+<p class="lm-k h-label">Establishing a long-term trend</p><h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>What it would take to call this a long-term trend</h2>
+<p>A trend needs the same rules applied to comparable years:</p>
+<ol>
+<li>Select comparable editions.</li>
+<li>Apply the same inclusion and coding rules.</li>
+<li>Measure source coverage in each edition.</li>
+<li>Tell apart how many papers discuss a method from evidence that the method improves results.</li>
+</ol>
+<p>The current sample combines DAC and ISCA 2026 with ICCAD 2025 fallback material, and coverage is uneven. That supports comparing cases with stated limits.</p>
+<p><a href="../guide/longitudinal-protocol-v1.html">Read the longitudinal protocol</a> · <a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/reports/directions/README.md">Return to research directions</a></p><p class="meta">Written as <a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/reports/directions/04-reliability-security-upstream.md">reports/directions/04-reliability-security-upstream.md</a> in the course repository.</p>
+      </article>
+      <nav class="pager" aria-label="Previous and next"><a class="prev" href="03-closed-loop-design.html"><span class="pg-k">← Previous</span><span class="pg-t">Improving design choices using measured feedback</span></a><a class="map" href="../directions.html"><span class="pg-k">Back to</span><span class="pg-t">What to watch</span></a><a class="next" href="05-physical-reality-in-the-loop.html"><span class="pg-k">Next →</span><span class="pg-t">Using physical limits while selecting a design</span></a></nav>
+    </section>
+  </main>
+  <footer class="course-foot">
+    <p>Built from 582 paper records coded from ISCA 2026, DAC 2026 and ICCAD 2025 (ICCAD 2026 papers were not yet public). Most records come from official program descriptions; see “How deep the reading went”. The papers belong to their authors.</p>
+    <p class="foot-links"><a href="https://github.com/mehtama1234/course-concept-library">All courses</a><a href="../index.html">This course</a><a href="../course-map.html">Course map</a><a href="../presentation/index.html">Slides</a><a href="../video/index.html">Video</a><a href="../share/index.html">Share</a></p>
+  </footer>
+  <script src="../assets/course-data.js"></script><script src="../assets/icons.js"></script><script src="../assets/icons-extra.js"></script><script src="../assets/icons-course.js"></script><script src="../assets/art.js"></script><script src="../assets/course-art.js"></script><script src="../assets/charts.js"></script><script src="../assets/course-charts.js"></script><script src="../assets/course-site.js"></script>
+</body>
+</html>

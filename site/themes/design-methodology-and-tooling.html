@@ -1,0 +1,332 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#F3ECE1" />
+  <title>Design methodology and tooling · Semiconductor conference atlas</title>
+  <meta name="description" content="The article explains the technical problem step by step first, then links to every subtheme and its papers. Worked numbers are illustrations, not paper results." />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Semiconductor conference atlas" />
+  <meta property="og:title" content="Design methodology and tooling · Semiconductor conference atlas" />
+  <meta property="og:description" content="The article explains the technical problem step by step first, then links to every subtheme and its papers. Worked numbers are illustrations, not paper results." />
+  <meta property="og:url" content="https://mehtama1234.github.io/semiconductor-conferences/themes/design-methodology-and-tooling.html" />
+  <meta property="og:image" content="https://mehtama1234.github.io/semiconductor-conferences/presentation/slides/01-cover.jpg" />
+  <meta property="og:image:width" content="1920" />
+  <meta property="og:image:height" content="1080" />
+  <meta property="og:image:alt" content="Semiconductor conference atlas: 582 papers from ISCA, DAC and ICCAD, sorted into 10 themes and six directions to watch." />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="canonical" href="https://mehtama1234.github.io/semiconductor-conferences/themes/design-methodology-and-tooling.html" />
+  <link rel="icon" href="../assets/icon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="../assets/base.css" />
+  <link rel="stylesheet" href="../assets/experience.css" />
+  <link rel="stylesheet" href="../assets/theme-atlas.css" />
+  <link rel="stylesheet" href="../assets/styles.css" />
+  <link rel="stylesheet" href="../assets/charts.css" />
+  <link rel="stylesheet" href="../assets/course.css" />
+  
+</head>
+<body class="course-site " data-house="atlas">
+  <aside class="public-demo-banner" aria-label="About this course">A plain-language guide to what ISCA, DAC and ICCAD papers say about chip and computer design · Built from the repository’s own paper records · Not made by the conferences</aside>
+  <a class="skip-link" href="#app">Skip to the page</a>
+  <header>
+    <a class="brand" href="../index.html"><span class="mark" aria-hidden="true">Si</span> Semiconductor conference atlas</a>
+    <span class="header-status"><span class="badge">582 papers</span><span class="badge">10 themes</span><span class="badge">Plain words first</span></span>
+    <a class="header-link" href="../course-map.html">Course map</a>
+  </header>
+  <nav class="course-nav" aria-label="Main sections of the course"><a href="../index.html">The big picture</a><a href="../themes.html" aria-current="page">Themes</a><a href="../subthemes.html">Subthemes</a><a href="../deep-reads.html">Deep reads</a><a href="../directions.html">What to watch</a><a href="../presentation/index.html">Slides</a><a href="../video/index.html">Video</a><a href="../share/index.html">Share</a></nav>
+  <main id="app" tabindex="-1">
+    <section class="screen active landing legacy-page" aria-labelledby="page-title">
+<div class="lm-head"><div class="hj-heading"><nav class="crumbs" aria-label="You are here"><a href="../course-map.html">Course map</a><span aria-hidden="true">›</span><a href="../themes.html">Themes</a></nav><a class="back-button" href="../themes.html">← <span>Themes</span></a><p class="eyebrow">Theme · 29 papers · 16 subthemes</p><h1 id="page-title">Design methodology and tooling: how a design is written down decides which choices a tool can see</h1><p class="hj-sub">The article explains the technical problem step by step first, then links to every subtheme and its papers. Worked numbers are illustrations, not paper results.</p></div><div class="hj-art" data-art="trio:file-text,settings,checklist"></div></div>
+<figure class="course-fig"><div class="loop-wide" data-art="flow:design-methodology-and-tooling"></div><div class="loop-tall" data-art="flowTall:design-methodology-and-tooling"></div><figcaption>How a design is written down decides what a tool can change.</figcaption></figure><div class="chart-card"><div data-chart="theme-design-methodology-and-tooling"></div><div><p class="lm-k">In numbers</p><h3>16 subthemes, largest first</h3><p>29 papers: DAC 26, ICCAD 2, ISCA 1.</p><p class="chart-note">A count shows attention in this sample, not importance.</p></div></div>
+      <article class="prose">
+
+<p>This article explains the subject and then connects it to 29 papers in the selected research sample.</p>
+<p>A subtheme groups related technical problems. A mechanism describes the particular change proposed by a paper. The discussion below explains the subject; the linked paper records state the available evidence.</p>
+<p><a href="../guide/reading-guide-v1.html">Definitions used in the paper records</a></p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>Design tools make many small choices that add up</h2>
+<ul>
+<li>A <strong>compiler</strong> turns a program from one form into another while keeping its intended behavior.</li>
+<li>A <strong>synthesis tool</strong> builds a circuit implementation.</li>
+<li>An <strong>optimizer</strong> picks among implementations by a stated goal.</li>
+</ul>
+<p>Together these choices decide run time, memory use, circuit size, and the effort needed to get a result.</p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="route"></span>How a design is written down decides what a tool can see and change</h2>
+<p>A representation makes some properties visible and hides others.</p>
+<ul>
+<li>A <strong>graph</strong> can show which operations depend on which.</li>
+<li>A <strong>schedule</strong> assigns operations to times or resources.</li>
+</ul>
+<p>Removing redundant work can also change memory traffic or available parallelism. So a tool needs two things: a rule for which changes keep the design correct, and a cost model for picking useful ones.</p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="route"></span>The subthemes change the steps, the search, the structure, or the benchmarks</h2>
+<ul>
+<li><strong>Compilation and synthesis</strong> methods change the sequence of transformations.</li>
+<li><strong>Search</strong> methods choose configurations or implementations.</li>
+<li><strong>Graph and partitioning</strong> methods organize connected work.</li>
+<li><strong>Benchmark and artifact</strong> methods publish inputs, expected outputs and steps so others can compare.</li>
+</ul>
+<p>Their shared question: can another designer or user get the claimed benefit by following a defined process?</p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="checklist"></span>A fair test separates tool time from the time the output saves</h2>
+<ol>
+<li>State inputs, versions, settings, hardware, and the total time to get a valid output.</li>
+<li>Separate time spent running the tool from time saved by its output.</li>
+<li>Compare correctness and output quality, not only run time.</li>
+<li>Test on unfamiliar inputs. That is a stronger test than re-tuning on the development examples.</li>
+</ol>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>Follow a design choice through its consequences</h2>
+<p>A design is chosen in stages, and a candidate that looks best early can fail a later limit.</p>
+<p>A design process:</p>
+<ol>
+<li>starts with required behavior and constraints;</li>
+<li>builds candidate implementations;</li>
+<li>evaluates them;</li>
+<li>selects a result.</li>
+</ol>
+<p>Each stage feeds the next. A candidate that looks good in an early representation may turn invalid or expensive once implementation exposes more costs.</p>
+<blockquote>
+<p><strong>Worked example.</strong> An arithmetic block must return a result within 10 nanoseconds and take at most 100 area units.</p>
+<table>
+<thead>
+<tr>
+<th>Candidate</th>
+<th>Area units</th>
+<th>Time (ns)</th>
+<th>Valid?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A</td>
+<td>80</td>
+<td>12</td>
+<td>No: too slow</td>
+</tr>
+<tr>
+<td>B</td>
+<td>95</td>
+<td>9</td>
+<td>Yes</td>
+</tr>
+</tbody>
+</table>
+<p>A is smaller, but not a valid solution. Reporting only the smallest area would pick the wrong one.</p>
+</blockquote>
+<p>A paper must keep three things separate:</p>
+<ul>
+<li>the <strong>required behavior</strong>;</li>
+<li>the <strong>limits</strong> that define acceptable candidates;</li>
+<li>the <strong>objective</strong> used to choose among acceptable candidates.</li>
+</ul>
+<p><strong>Be careful:</strong> the numbers in this discussion are teaching calculations, not measurements from the linked papers.</p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>A representation enables some decisions and hides others</h2>
+<p>How a problem is written down decides which costs a tool can see.</p>
+<ul>
+<li>A <strong>graph</strong> describes objects and links between pairs of them.</li>
+<li>A <strong>hypergraph</strong> lets one link connect several objects.</li>
+</ul>
+<p>In a circuit, one signal can connect a driver to several receivers. Grouping objects into partitions can cut the connections that cross partition boundaries, while respecting capacity limits.</p>
+<p>The representation does not price every implementation effect. One crossing signal driving ten distant receivers and another driving one nearby receiver may each count as one cut.</p><p>Their physical load, traffic and timing can differ. A lower cut count is evidence about that objective, not proof of a faster final system.</p>
+<p>The <a href="../subthemes/optimization-and-search-methods.html">optimization and search chapter</a> links this to Impart's multilevel partitioning and the other captured search methods. Their current descriptions do not establish complete downstream conditions. The useful question is which left-out costs could change the selected solution.</p>
+<p><strong>Coarsening</strong> merges several objects into fewer, larger ones before searching. It makes the problem cheaper, but temporarily hides choices about how the merged objects differ. <strong>Refinement</strong> restores the detail and allows adjustments.</p><p>So a good coarse solution is a starting point. Its quality depends on what the grouping kept, and what refinement can recover.</p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>A transformation needs a validity condition before a cost estimate</h2>
+<p>Before asking whether a changed program is faster, show it still computes the right thing.</p>
+<p>Two implementations can compute the same intended result with different operation orders or storage. Whether they are equivalent depends on the arithmetic and execution rules:</p>
+<ul>
+<li>Reordering exact integer additions, without overflow, keeps the result.</li>
+<li>Reordering finite-precision floating-point additions can change it, through rounding.</li>
+</ul>
+<p>Likewise, a kernel built for contiguous arrays needs a valid alternative, or a rejection path, for an array whose elements are spaced further apart in memory (a larger <strong>stride</strong>). Matching dimensions do not make memory layouts interchangeable.</p><p>A cache key for reusing an implementation must capture every condition that affects validity, not just the handiest label.</p>
+<p><a href="../subthemes/compiler-and-runtime-optimization.html#explanation-dac-2026-research127">DyTuner's expanded explanation</a> uses changing tensor shapes to explain this. The official description gives a proposed adaptive tuning method and named comparisons. Its exact adaptation and reuse rules are not recovered.</p>
+<p><strong>Be careful:</strong> this theme must not fill those gaps by treating a plausible specialization policy as the paper's implementation.</p>
+<p>So validation is not a final decorative step. It shapes how candidates are built and reused. A cost model should rank candidates only after their behavior and conditions are established, or clearly mark rankings that include candidates still awaiting validation.</p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>A fast estimate is useful only if it supports the right decision</h2>
+<p>An estimate's error matters through the decision it changes, especially near a hard limit.</p>
+<p>A <strong>cost model</strong> predicts an expensive quantity, such as run time, area, energy or circuit delay. Small errors near a hard limit can matter more than large errors far from it.</p>
+<blockquote>
+<p><strong>Worked example.</strong> Timing requirement: 100 picoseconds.</p>
+<ul>
+<li>True arrival: 100.2, so the design fails.</li>
+<li>Estimate: 99.9, so the design passes.</li>
+<li>The error is only 0.3 picoseconds, but its direction flips accept to reject.</li>
+</ul>
+<p>For a maximum-delay limit, an estimate that is too early is not interchangeable with one that is safely late.</p>
+</blockquote>
+<p>The manuscript-backed <a href="../subthemes/compiler-and-runtime-optimization.html#explanation-dac-2026-research2566">segment-level timing reuse explanation</a> applies this to sharing timing calculations. Reuse must keep the right electrical context, including the transition behavior that affects later stages. Its discussion keeps discrepancies between the stated checks and unresolved conditions on how error spreads.</p>
+<blockquote>
+<p><strong>The general bound (triangle inequality).</strong></p>
+<ul>
+<li>A stored result differs from a predicted query result by at most <code>τ</code>.</li>
+<li>The predictor's error is at most <code>e</code> over that query domain.</li>
+<li>Then the stored result can differ from the true result by up to <code>τ + e</code>.</li>
+</ul>
+<p>Checking only <code>τ</code> does not establish that total bound.</p>
+</blockquote>
+<p>An average prediction error is not automatically the needed worst-case bound.</p>
+<p>This links tooling to <a href="verification-and-validation.html">verification</a>. The claim must say what was checked, under which assumptions, and whether an unresolved case was rejected, re-checked exactly, or accepted without a guarantee.</p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>Tool runtime and output runtime are different costs</h2>
+<p>Time spent preparing a faster result pays off only if the result is reused enough.</p>
+<p>A compiler can take longer to produce code that runs faster. A search can try more candidates and deliver a better circuit. Whether that trade is worth it depends on how often the result is used, and on the user's budget.</p>
+<blockquote>
+<p><strong>Worked example (illustrative, not DyTuner results).</strong> Tuning costs 10 seconds. It cuts each later run from 5 to 4 milliseconds.</p>
+<ul>
+<li>Break-even: 10 seconds ÷ 1 millisecond saved = <strong>10,000 compatible runs</strong>.</li>
+<li>If the input or hardware changes after 100 runs, and the result cannot be reused: only 100 × 1 ms = <strong>0.1 second</strong> saved.</li>
+</ul>
+</blockquote>
+<p>The same accounting applies to a design tool used once per product versus many times during exploration. Record total preparation and validation costs, as well as the final result's performance.</p><p>Reuse assumptions must name what invalidates the work. Shape, layout, target hardware, constraints, library versions or model parameters may each matter.</p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="alert-triangle"></span>Search quality must include failed and expensive attempts</h2>
+<p>Compare search methods at a stated budget, counting every failed and invalid attempt.</p>
+<p>An optimizer chooses which candidates to evaluate. A cheap predictor can screen many candidates before expensive implementation. Random variation or a learned policy can explore alternatives. A higher predicted score does not, by itself, show a better valid implementation.</p>
+<blockquote>
+<p><strong>Worked example.</strong></p>
+<ul>
+<li>Method A: 100 candidates × 1 minute = <strong>100 minutes</strong> of serial evaluation.</li>
+<li>Method B: 20 candidates × 10 minutes = <strong>200 minutes</strong>.</li>
+<li>B tries fewer candidates but uses twice the serial time.</li>
+<li>On ten machines at once, B finishes sooner in elapsed time, but uses the same resources.</li>
+</ul>
+</blockquote>
+<p>So compare output quality at stated time and resource budgets, rather than picking whichever denominator favors a method.</p>
+<p>Invalid candidates and failed runs belong in the record. If nine runs fail and one gives a good result, reporting only the survivor hides the odds and cost of getting a usable output. To read the variability, record:</p>
+<ul>
+<li>distinct random seeds;</li>
+<li>failures;</li>
+<li>timeout rules;</li>
+<li>how the final result was selected.</li>
+</ul>
+<p>Search also tests a predictor differently from random sampling. Search prefers unusually good predictions, and those can include unusually optimistic errors.</p><p>A random held-out test error does not describe the candidates the optimizer picks. Re-check predicted winners with the intended more trustworthy method, and keep cases where their ranking changes.</p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>Local improvements must survive the rest of the process</h2>
+<p>Each stage gives something new, but leaves something still unproven.</p>
+<table>
+<thead>
+<tr>
+<th>Stage</th>
+<th>What becomes available</th>
+<th>What remains unproven</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Candidate generation</td>
+<td>A proposed representation or implementation</td>
+<td>Valid behavior and constraint satisfaction</td>
+</tr>
+<tr>
+<td>Cheap evaluation</td>
+<td>A ranking under a model or simplified objective</td>
+<td>Accuracy on selected candidates and downstream costs</td>
+</tr>
+<tr>
+<td>Implementation and validation</td>
+<td>A result under stated tools, targets, and checks</td>
+<td>Transfer to different configurations or untested conditions</td>
+</tr>
+<tr>
+<td>Deployment or repeated use</td>
+<td>Measured benefit under the chosen workload</td>
+<td>Broader generality, future workload stability, and independent reproduction</td>
+</tr>
+</tbody>
+</table>
+<p>These stages can loop: a failed implementation can guide a new candidate. The feedback must keep why it failed. If a constraint violation is treated as just a poor score, the search can keep picking invalid outputs whenever another score part makes up for it.</p>
+<p>The <a href="architecture-and-accelerators.html">architecture theme</a> adds the next requirement. A compiler's improved operator, or an accelerator generator's favorable model, must still fit a complete application with data movement, numerical quality and preparation costs.</p>
+<p><strong>Be careful:</strong> gains at several stages cannot be multiplied when they use different baselines or overlapping work.</p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="alert-triangle"></span>Three long-term hypotheses and their limits</h2>
+<p>Three readings are worth testing; each names what would weaken it.</p>
+<table>
+<thead>
+<tr>
+<th>Hypothesis</th>
+<th>Test</th>
+<th>What would weaken it</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Conditional reuse helps more as contexts vary but keep revisiting related cases</td>
+<td>Record reuse frequency, invalidations, lookup cost, preparation cost and output validity</td>
+<td>Contexts change too often, applicability checks dominate, or reuse harms the required result</td>
+</tr>
+<tr>
+<td>Early estimates are worth more when their uncertainty explicitly changes later decisions</td>
+<td>Compare exact evaluation everywhere with screening plus exact fallback, at fixed accepted-result requirements</td>
+<td>Screening rejects valuable candidates, admits invalid ones, or spends the saved budget on rework</td>
+</tr>
+<tr>
+<td>Reusable tooling depends on keeping context across stages, not just exchanging files</td>
+<td>Can an independent user reproduce a result from recorded versions, constraints, representations, seeds and validation steps?</td>
+<td>An undocumented manual fix or unavailable component is still needed</td>
+</tr>
+</tbody>
+</table>
+<p>These are mechanism-based interpretations, not established ISCA–DAC–ICCAD trends. A cross-conference comparison needs compatible problems, objectives, input populations, source depth and budgets.</p>
+<p><strong>Be careful:</strong> a compiler paper, a partitioner paper and a physical implementation paper may add complementary evidence. They do not form an integrated process just because their subjects are related.</p>
+<p>The two <a href="../subthemes/compiler-and-runtime-optimization.html">compiler/runtime explanations</a> give the deepest current reading path used here: timing reuse is manuscript-backed and DyTuner remains description-backed. The other tooling branches below still need fuller paper-level writing, evidence recovery and independent review.</p><p>This synthesis does not close those gaps or establish accepted conclusions over time.</p>
+<p class="lm-k h-label">Subthemes and how to study them</p><h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="books"></span>The subthemes in this theme, and how to read them</h2>
+<p>Each link opens the subtheme discussion and its captured paper records. Explanatory depth varies: some papers have expanded individual explanations; others still have only brief discussion or evidence cards. Source locations and unresolved conditions remain visible.</p>
+<h3><a href="../subthemes/optimization-and-search-methods.html">Optimization and search methods</a></h3>
+<p>7 selected records in this theme. Start with <a href="../subthemes/optimization-and-search-methods.html">Impart: Integration of Memetic Operations into Multi-Level Framework for Large-k-Way Hypergraph Partitioning</a>.</p>
+<h3><a href="../subthemes/graph-and-hypergraph-optimization.html">Graph and hypergraph optimization</a></h3>
+<p>3 selected records in this theme. Start with <a href="../subthemes/graph-and-hypergraph-optimization.html">Compart: Community-Guided Post-Coarsening for High-Quality Hypergraph Partitioning</a>.</p>
+<h3><a href="../subthemes/logic-synthesis-and-optimization.html">Logic synthesis and optimization</a></h3>
+<p>3 selected records in this theme. Start with <a href="../subthemes/logic-synthesis-and-optimization.html">Transsyn: Scalable, Area-Oriented Transistor Network Synthesis via Cut-Based Mapper with SAT-Based Refinement</a>.</p>
+<h3><a href="../subthemes/compiler-and-runtime-optimization.html">Compiler and runtime optimization</a></h3>
+<p>2 selected records in this theme. Start with <a href="../subthemes/compiler-and-runtime-optimization.html">Optimizing Dynamic-Shape Neural Networks: A Unified Approach to Adaptive Tuning</a>.</p>
+<h3><a href="../subthemes/high-level-synthesis-and-compilers.html">High level synthesis and compilers</a></h3>
+<p>2 selected records in this theme. Start with <a href="../subthemes/high-level-synthesis-and-compilers.html">Dataflowgen: An MLIR-Based Compiler for Efficient Dataflow Accelerator Generation</a>.</p>
+<h3><a href="../subthemes/synthesis-and-compilation.html">Synthesis and compilation</a></h3>
+<p>2 selected records in this theme. Start with <a href="../subthemes/synthesis-and-compilation.html">Search Smarter, Not Harder: A Scalable, High-Quality Zoned Neutral Atom Compiler</a>.</p>
+<h3><a href="../subthemes/architecture-modeling-and-exploration.html">Architecture modeling and exploration</a></h3>
+<p>1 selected records in this theme. Start with <a href="../subthemes/architecture-modeling-and-exploration.html">Idealsim: Efficient Ideal Scenario Modeling for Processor Upper-Bound Performance Analysis</a>.</p>
+<h3><a href="../subthemes/cell-and-circuit-design.html">Cell and circuit design</a></h3>
+<p>1 selected records in this theme. Start with <a href="../subthemes/cell-and-circuit-design.html">Celle: Automated Standard Cell Library Extension via Equality Saturation</a>.</p>
+<h3><a href="../subthemes/compilation-and-mapping.html">Compilation and mapping</a></h3>
+<p>1 selected records in this theme. Start with <a href="../subthemes/compilation-and-mapping.html">RAM-CGRA: Reachability-Aware Mapping for CGRAs</a>.</p>
+<h3><a href="../subthemes/cross-layer-design-automation.html">Cross layer design automation</a></h3>
+<p>1 selected records in this theme. Start with <a href="../subthemes/cross-layer-design-automation.html">L2L: Logic to Layout Exploration of Standard Cell Library Design</a>.</p>
+<h3><a href="../subthemes/hardware-generation-and-compilation.html">Hardware generation and compilation</a></h3>
+<p>1 selected records in this theme. Start with <a href="../subthemes/hardware-generation-and-compilation.html">FSGen: Agile Fused and Sparse Accelerator Generator with Accurate Power Model for LLM Applications</a>.</p>
+<h3><a href="../subthemes/partitioning-and-placement.html">Partitioning and placement</a></h3>
+<p>1 selected records in this theme. Start with <a href="../subthemes/partitioning-and-placement.html">Ihyperg: Incremental Hypergraph Partitioning on GPU</a>.</p>
+<h3><a href="../subthemes/power-and-thermal-design.html">Power and thermal design</a></h3>
+<p>1 selected records in this theme. Start with <a href="../subthemes/power-and-thermal-design.html">An Agile and Accurate Energy Estimation Methodology for CGRA-Mapped Algorithms: The Synchoros Approach</a>.</p>
+<h3><a href="../subthemes/reproducibility-artifacts-and-benchmarks.html">Reproducibility artifacts and benchmarks</a></h3>
+<p>1 selected records in this theme. Start with <a href="../subthemes/reproducibility-artifacts-and-benchmarks.html">Capbench: A Multi-PDK Dataset for Machine-Learning-Based Post-Layout Capacitance Extraction</a>.</p>
+<h3><a href="../subthemes/simulation-and-numerical-methods.html">Simulation and numerical methods</a></h3>
+<p>1 selected records in this theme. Start with <a href="../subthemes/simulation-and-numerical-methods.html">EastPCG: An Efficient and Self-Tuning Graph Sparsification Based PCG Solver for Circuit Simulation</a>.</p>
+<h3><a href="../subthemes/verification-and-debugging-tools.html">Verification and debugging tools</a></h3>
+<p>1 selected records in this theme. Start with <a href="../subthemes/verification-and-debugging-tools.html">Schemacoder: Automatic Log Schema Extraction Coder with Residual Q-Tree Boosting</a>.</p>
+<p class="lm-k h-label">Representative source-backed records</p><h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="route"></span>Papers that show the theme well</h2>
+<p>The following reading set spans the available conferences and uses dated corrections where registered. These corrections improve the current reading view but do not change historical adjudication or establish independent acceptance. Each paper link opens its exact evidence card.</p>
+<p class="lm-k h-label">Paper cards: what changes and where it stops</p><h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>Paper cards: what each paper changes, and where it stops</h2>
+<ul>
+<li><a href="../subthemes/high-level-synthesis-and-compilers.html#paper-isca-2026-program-002">CODO: An Automated Compiler for Comprehensive Dataflow Optimization</a> — ISCA 2026.</li>
+<li><a href="../subthemes/hardware-generation-and-compilation.html#paper-dac-2026-research868">FSGen: Agile Fused and Sparse Accelerator Generator with Accurate Power Model for LLM Applications</a> — DAC 2026.</li>
+<li><a href="../subthemes/logic-synthesis-and-optimization.html#paper-dac-2026-research754">Delay-Constrained Area Optimisation Using SAT-Based Local Improvement</a> — DAC 2026.</li>
+<li><a href="../subthemes/architecture-modeling-and-exploration.html#paper-dac-2026-research690">Idealsim: Efficient Ideal Scenario Modeling for Processor Upper-Bound Performance Analysis</a> — DAC 2026.</li>
+<li><a href="../subthemes/logic-synthesis-and-optimization.html#paper-dac-2026-research3091">Shared Logic Unleashed: Multiple-Node Boolean Optimization for Next-Gen Synthesis</a> — DAC 2026.</li>
+<li><a href="../subthemes/optimization-and-search-methods.html#paper-iccad-2025-109">Automated Design Space Exploration in High-Level Physical Synthesis</a> — ICCAD 2025.</li>
+<li><a href="../subthemes/optimization-and-search-methods.html#paper-iccad-2025-437">Orthrus: Dual -Loop Automated Framework for System -Technology Co - Optimization</a> — ICCAD 2025.</li>
+<li><a href="../subthemes/graph-and-hypergraph-optimization.html#paper-dac-2026-research2887">Hyperefs: Adaptive Clique Sampling for Scalable Effective Resistance Estimation in Large Hypergraphs</a> — DAC 2026.</li>
+<li><a href="../subthemes/power-and-thermal-design.html#paper-dac-2026-research2851">An Agile and Accurate Energy Estimation Methodology for CGRA-Mapped Algorithms: The Synchoros Approach</a> — DAC 2026.</li>
+<li><a href="../subthemes/cell-and-circuit-design.html#paper-dac-2026-research278">Celle: Automated Standard Cell Library Extension via Equality Saturation</a> — DAC 2026.</li>
+<li><a href="../subthemes/graph-and-hypergraph-optimization.html#paper-dac-2026-research2694">Hyspecpro: Scalable Hypergraph Partitioning via Spectral Projection Optimization</a> — DAC 2026.</li>
+<li><a href="../subthemes/compiler-and-runtime-optimization.html#paper-dac-2026-research2566">Path-Based Timing Analysis Acceleration via Segment-Level Timing Arc Reuse</a> — DAC 2026.</li>
+</ul>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="file-text"></span>What the evidence supports</h2>
+<p>These records identify proposed methods and the conditions recorded for them. A reported improvement should be interpreted with its comparison method, input size, hardware, and result-quality requirement. Missing fields are evidence gaps; a populated field can also state that a detail is unspecified.</p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="file-text"></span>Limits and next evidence</h2>
+<p>The selected sample is uneven across conferences and source types. It cannot establish how fast a subject is growing. Repeated observations across comparable years, with the same inclusion rules and source depth, are needed for a time trend.</p>
+<p>Every linked evidence article preserves the Problem: and Mechanism / artifact: fields, baseline, unshortened limitations, source URL, and recorded location. Primary text and independent review remain necessary where the record says those checks are open.</p>
+<p><a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/reports/directions/README.md">Research directions</a> · <a href="../guide/expanded-taxonomy-v1.html">All observed subthemes</a></p><p class="meta">Written as <a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/reports/themes/design-methodology-and-tooling.md">reports/themes/design-methodology-and-tooling.md</a> in the course repository.</p>
+      </article>
+      <nav class="pager" aria-label="Previous and next"><a class="prev" href="chiplets-3d-and-packaging.html"><span class="pg-k">← Previous</span><span class="pg-t">Chiplets, 3D integration, and packaging</span></a><a class="map" href="../themes.html"><span class="pg-k">Back to</span><span class="pg-t">Themes</span></a><a class="next" href="memory-interconnect-and-storage.html"><span class="pg-k">Next →</span><span class="pg-t">Memory, interconnect, and storage</span></a></nav>
+    </section>
+  </main>
+  <footer class="course-foot">
+    <p>Built from 582 paper records coded from ISCA 2026, DAC 2026 and ICCAD 2025 (ICCAD 2026 papers were not yet public). Most records come from official program descriptions; see “How deep the reading went”. The papers belong to their authors.</p>
+    <p class="foot-links"><a href="https://github.com/mehtama1234/course-concept-library">All courses</a><a href="../index.html">This course</a><a href="../course-map.html">Course map</a><a href="../presentation/index.html">Slides</a><a href="../video/index.html">Video</a><a href="../share/index.html">Share</a></p>
+  </footer>
+  <script src="../assets/course-data.js"></script><script src="../assets/icons.js"></script><script src="../assets/icons-extra.js"></script><script src="../assets/icons-course.js"></script><script src="../assets/art.js"></script><script src="../assets/course-art.js"></script><script src="../assets/charts.js"></script><script src="../assets/course-charts.js"></script><script src="../assets/course-site.js"></script>
+</body>
+</html>

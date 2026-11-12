@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#F3ECE1" />
+  <title>Device and process modeling · Semiconductor conference atlas</title>
+  <meta name="description" content="Papers: DAC 1. Read from: 1 program descriptions, 0 abstracts or reports, 0 full papers or preprints. The explanations come first; every paper’s record follows at the end." />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Semiconductor conference atlas" />
+  <meta property="og:title" content="Device and process modeling · Semiconductor conference atlas" />
+  <meta property="og:description" content="Papers: DAC 1. Read from: 1 program descriptions, 0 abstracts or reports, 0 full papers or preprints. The explanations come first; every paper’s record follows at the end." />
+  <meta property="og:url" content="https://mehtama1234.github.io/semiconductor-conferences/subthemes/device-and-process-modeling.html" />
+  <meta property="og:image" content="https://mehtama1234.github.io/semiconductor-conferences/presentation/slides/01-cover.jpg" />
+  <meta property="og:image:width" content="1920" />
+  <meta property="og:image:height" content="1080" />
+  <meta property="og:image:alt" content="Semiconductor conference atlas: 582 papers from ISCA, DAC and ICCAD, sorted into 10 themes and six directions to watch." />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="canonical" href="https://mehtama1234.github.io/semiconductor-conferences/subthemes/device-and-process-modeling.html" />
+  <link rel="icon" href="../assets/icon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="../assets/base.css" />
+  <link rel="stylesheet" href="../assets/experience.css" />
+  <link rel="stylesheet" href="../assets/theme-atlas.css" />
+  <link rel="stylesheet" href="../assets/styles.css" />
+  <link rel="stylesheet" href="../assets/charts.css" />
+  <link rel="stylesheet" href="../assets/course.css" />
+  
+</head>
+<body class="course-site " data-house="atlas">
+  <aside class="public-demo-banner" aria-label="About this course">A plain-language guide to what ISCA, DAC and ICCAD papers say about chip and computer design · Built from the repository’s own paper records · Not made by the conferences</aside>
+  <a class="skip-link" href="#app">Skip to the page</a>
+  <header>
+    <a class="brand" href="../index.html"><span class="mark" aria-hidden="true">Si</span> Semiconductor conference atlas</a>
+    <span class="header-status"><span class="badge">582 papers</span><span class="badge">10 themes</span><span class="badge">Plain words first</span></span>
+    <a class="header-link" href="../course-map.html">Course map</a>
+  </header>
+  <nav class="course-nav" aria-label="Main sections of the course"><a href="../index.html">The big picture</a><a href="../themes.html">Themes</a><a href="../subthemes.html" aria-current="page">Subthemes</a><a href="../deep-reads.html">Deep reads</a><a href="../directions.html">What to watch</a><a href="../presentation/index.html">Slides</a><a href="../video/index.html">Video</a><a href="../share/index.html">Share</a></nav>
+  <main id="app" tabindex="-1">
+    <section class="screen active landing legacy-page" aria-labelledby="page-title">
+<div class="lm-head"><div class="hj-heading"><nav class="crumbs" aria-label="You are here"><a href="../course-map.html">Course map</a><span aria-hidden="true">›</span><a href="../subthemes.html">Subthemes</a></nav><a class="back-button" href="../subthemes.html">← <span>Subthemes</span></a><p class="eyebrow">Subtheme · 1 papers · Physical design and manufacturing</p><h1 id="page-title">Device and process modeling: what the 1 papers change, and what is still unproven</h1><p class="hj-sub">Papers: DAC 1. Read from: 1 program descriptions, 0 abstracts or reports, 0 full papers or preprints. The explanations come first; every paper’s record follows at the end.</p></div><div class="hj-art" data-art="trio:affiliate,grid-dots,route"></div></div>
+<figure class="course-fig"><div class="loop-wide" data-art="flow:physical-design-and-manufacturing"></div><div class="loop-tall" data-art="flowTall:physical-design-and-manufacturing"></div><figcaption>The parent theme in one picture: turning connections into geometry: every step pushes on the others.</figcaption></figure>
+      <article class="prose">
+
+<p>This subject has 1 record in the selected sample. This page explains where it fits, then presents all captured paper evidence without shortening the measurements or limitations.</p>
+<p><a href="../guide/reading-guide-v1.html">Definitions used in the paper records</a></p>
+<p class="lm-k h-label">Understand the parent subject first</p><h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>The bigger theme this belongs to</h2>
+<ul>
+<li><a href="../themes/physical-design-and-manufacturing.html">Physical design and manufacturing</a></li>
+</ul>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>A compact model trades detail for repeated use</h2>
+<p>A detailed physical calculation can be too expensive to repeat for every candidate circuit or process choice. A compact model represents selected behavior with a smaller set of equations or computational steps.</p><p>Its purpose is to make repeated analysis practical while preserving the behavior relevant to the intended decision.</p>
+<p>The selected paper, <a href="device-and-process-modeling.html#paper-dac-2026-research2336">Physics-Prior Neural-to-Symbolic Compact Modeling</a>, proposes distilling neural models into symbolic models for back-end-of-line-compatible design–technology co-optimization. Back end of line refers to the fabrication stages forming interconnect structures after the underlying devices.</p><p>Design–technology co-optimization examines circuit or design choices together with technology assumptions.</p>
+<p>The captured record does not identify the modeled device or interconnect quantity, materials, or process range. Its broad title must not be expanded into a particular transistor model or fabrication demonstration.</p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>Neural and symbolic models expose different information</h2>
+<p>A neural model predicts outputs through learned numerical operations. A symbolic model expresses a relationship through explicit mathematical expressions. An explicit expression can make evaluation or inspection easier, but being readable does not make it physically correct.</p>
+<p>Distillation transfers behavior from one model into another representation. Here the source describes a neural-to-symbolic process using EKAN.</p><p>It does not explain that method's architecture, fitting objective, or expression-selection rules. The acronym should therefore remain a named method rather than receiving an invented expansion or implementation description.</p>
+<p>There are at least two distinct fidelity questions. Does the symbolic model reproduce the neural model? And does either reproduce the relevant physical reference? Close agreement between the two models answers only the first question if the neural model itself has unverified errors.</p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="alert-triangle"></span>Physical priors limit some choices, not every error</h2>
+<p>A physical prior introduces knowledge about the expected form or behavior of a model. It can help avoid implausible predictions, particularly where observations are limited. Its scope depends on which relationships are actually encoded and how strictly they are enforced.</p>
+<p>The source does not identify the priors or provide residual violations. It would be unjustified to claim conservation, correct limiting behavior, or reliable extrapolation simply because the title says physics-prior. Each such property needs its own specification and check.</p>
+<p>A constrained symbolic expression can also lose detail represented by the original model. That is a possible approximation tradeoff, not evidence that this framework actually suffers a particular loss. Evaluation must show the resulting errors over the conditions that matter.</p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="math-function"></span>A model's valid range belongs with its equations</h2>
+<p>Inputs can include geometry, material parameters, or operating conditions, depending on the task. A model fitted within one range may not remain useful outside it. Testing new combinations inside the fitted range is different from testing new materials or process regimes.</p>
+<p>The captured description provides no dataset, split procedure, process range, prediction error, or extrapolation results. It therefore does not establish transfer across technologies or calibration against measured silicon.</p><p>A symbolic expression that can be evaluated at an arbitrary input does not establish that the output is meaningful there.</p>
+<p>For use in a larger simulator, further properties can matter, including smoothness and numerical behavior where the simulator evaluates or differentiates the model. The record does not specify such integration or demonstrate complete simulator execution.</p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>Judge the model through the decision it supports</h2>
+<p>Design–technology exploration uses predictions to choose among candidates. A small average error can still misrank close alternatives or miss a violated constraint. Validation should therefore include whether decisions selected using the compact model remain acceptable under a trusted reference analysis.</p>
+<p>Runtime must include the relevant model-building costs as well as repeated evaluation. Neural training and symbolic distillation may be paid once and reused, but that reuse depends on the model's valid scope. The source supplies no construction time, evaluation time, or amortized exploration results.</p>
+<p><span id="explanation-dac-2026-research2336"></span></p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="math-function"></span>Physics-prior neural-to-symbolic modeling: readable equations still need physical validation</h2>
+<h3>A compact model replaces repeated expensive evaluation</h3>
+<p>A detailed device or interconnect calculation may solve many coupled physical quantities for one geometry and operating condition. Design–technology co-optimization needs to evaluate many candidate geometries, materials, or circuit choices.</p><p>A compact model approximates the relation between inputs and outputs so that this evaluation can be repeated more cheaply.</p>
+<p>The inputs might include geometry, material properties, temperature, voltage, frequency or process parameters, and the output might be a delay, capacitance, resistance, current or another device quantity. The paper's captured description does not identify which quantity is modeled, so no specific device equation is attributed to it.</p><p>The central requirement is that the compact model preserve the part of the physical relation that changes the design decision.</p>
+<h3>Distillation has two different fidelity targets</h3>
+<p>A neural model can represent a complicated relation through learned numerical operations. A symbolic model expresses a relation as explicit functions and parameters.</p><p>Distilling one into the other can improve inspection or evaluation cost, but it creates two separate tests. The symbolic expression may reproduce the neural model, while both may still disagree with a trusted physical simulator or measurement.</p>
+<p>The description names EKAN as the neural-to-symbolic method but does not expose its architecture, fitting objective, expression grammar, selection rule or stopping criterion. “Physics-prior” also does not identify which physical laws are encoded, how strongly they are enforced, or what residual violations remain.</p><p>An expression that looks physically plausible can still have the wrong scale, wrong limiting behavior or invalid dependence on an unobserved variable.</p>
+<h3>Validity is a region, not a property of the expression alone</h3>
+<p>Every fitted model has a domain: the geometries, materials, process conditions and operating range represented during construction and validation. Interpolation within that domain is different from extrapolation to a new material, dimension or process node.</p><p>A symbolic expression can be evaluated outside its training range because the mathematics permits the input; that does not show that the prediction is physically meaningful there.</p>
+<p>The model also has to behave well when embedded in a larger optimizer or simulator. If the downstream tool differentiates the model, discontinuities or unstable derivatives can change the search.</p><p>If a design decision depends on a small difference between candidates, an average prediction error can be less informative than ranking errors near a constraint boundary.</p>
+<h3>The downstream design decision is the strongest test</h3>
+<p>The useful question is not only whether the symbolic model has a low prediction error. It is whether designs selected using the compact model remain acceptable when evaluated with a trusted physical reference.</p><p>A complete comparison should report model construction, neural training, symbolic distillation, repeated evaluation, reference simulation, failed candidates and any amortization across designs.</p>
+<p>The stored record names a neural compact model and a traditional analytical model as comparison categories, but gives no process range, dataset, split, prediction error, extrapolation result, runtime, or silicon correlation. These are not minor omissions: they determine whether the model is a usable DTCO component or only a representation of a particular training set.</p>
+<h3>What the paper establishes and what remains open</h3>
+<p>The accessible description establishes a proposed physics-prior neural-to-symbolic compact-model flow for BEOL-compatible DTCO using EKAN. It does not establish the modeled physical quantity, physical-law guarantees, process transfer, measured-silicon agreement, downstream design improvement, or symbolic-model superiority.</p><p>A stronger evaluation would publish inputs/outputs, materials and geometry, priors, expression form, training and distillation budget, process range, train/test split, physical reference, error and ranking metrics, extrapolation tests, simulator integration and design-level outcomes.</p>
+<p><a href="https://63dac.conference-program.com/presentation/?id=RESEARCH2336&amp;sess=sess109">Official DAC description, record RESEARCH2336</a>
+The paper motivates combining physical knowledge with explicit learned expressions for efficient design analysis. The current official description supports that methodological direction, not a verified physical model, a measured process improvement, or a general claim that symbolic models are superior.</p><p>Those conclusions require calibrated references, declared validity ranges, reproducible model construction, and downstream decision checks.</p>
+<p class="lm-k h-label">Compare the results carefully</p><h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="route"></span>How to compare these papers’ results fairly</h2>
+<p>First identify the inputs and required output quality. Then identify the limited resource: time, memory, communication, energy, circuit area, or correctness coverage.</p><p>Ask which part of the method reduces that cost and which new cost it adds. Compare numbers only when the experiments hold these conditions sufficiently similar.</p>
+<p>A conference description may explain the proposal while omitting the full experiment. An author preprint link may have been coded from its abstract. The source classification does not by itself establish that every table was read. Missing locations remain visible below.</p>
+<p class="lm-k h-label">Complete captured evidence</p><h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="file-text"></span>Every paper in this subtheme, with what its source shows</h2>
+<p>These are evidence records, not substitutes for the explanations above. Each record preserves its problem, proposed method, measurements, comparison conditions, and source limits. A populated record does not establish that its mechanism has been fully explained or independently verified.</p>
+<p><span id="paper-dac-2026-research2336"></span></p>
+<h3>A Physics-Prior Intelligent Compact Modeling Framework for BEOL-Compatible DTCO: EKAN-Based Distillation from Neural to Symbolic Models</h3>
+<p>DAC 2026 · Record: <code>dac-2026-research2336</code></p>
+<p><a href="#explanation-dac-2026-research2336">Read the step-by-step explanation</a></p>
+<p><strong>Updated source-backed reading card</strong></p>
+<div class="worked"><p class="lm-k">Worked example</p><p>Reviewed 2026-09-08. Deepens the official-description reading; separates neural-versus-physical fidelity, physics-prior scope, validity range, downstream decision quality and missing process validation.</p></div>
+<p>This editorial correction updates the current reading view and connected dossiers, not the historical adjudication or scientific acceptance status. The original captured fields are preserved below.</p>
+<p><a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/data/editorial-paper-corrections-v1.json">Correction register</a></p>
+<p><strong>Problem:</strong></p>
+<p>Compact models for BEOL-compatible design–technology co-optimization need efficient repeated evaluation while preserving the physical behavior relevant to design decisions.</p>
+<p><strong>Mechanism / artifact:</strong></p>
+<p>Physics-prior neural-to-symbolic compact-model distillation using EKAN.</p>
+<p><strong>Workload — the work tested:</strong></p>
+<p>BEOL-compatible device or interconnect modeling; modeled quantity, inputs/outputs, materials, geometries, process range, reference simulator and dataset are unspecified.</p>
+<p><strong>Hardware and manufacturing assumptions:</strong></p>
+<p>Back-end-of-line process and DTCO simulation flow; technology node, rules, operating corners, calibration conditions and silicon correlation are unspecified.</p>
+<p><strong>Baseline — the comparison method:</strong></p>
+<p>Neural compact model</p>
+<p>Traditional analytical model</p>
+<p><strong>Reported measurements:</strong></p>
+<p>Compact-model efficiency and physical plausibility are claimed qualitatively; no prediction error, ranking error, extrapolation, runtime, amortization or process-correlation result is reported.</p>
+<p><strong>Limits on the conclusion:</strong></p>
+<p>Agreement between symbolic and neural models does not establish agreement with a trusted physical reference.</p>
+<p>The source does not identify the encoded priors, EKAN architecture, fitting objective, expression grammar, validity range or residual violations; a readable expression is not a physical guarantee.</p>
+<p>Official description only; process-calibrated validation, simulator integration and design-level decision checks were not performed.</p>
+<p><strong>Source and location</strong></p>
+<p>Evidence tier: Official DAC description; full manuscript and reproduction not performed. This is the stored source classification; the location and limits below determine what was actually read.</p>
+<p><a href="https://63dac.conference-program.com/?post_type=page&amp;p=16&amp;id=RESEARCH2336&amp;sess=sess109">Open the recorded source</a></p>
+<p>DAC official description, Captured Description and Authors fields; record RESEARCH2336; no manuscript pages.</p>
+<details markdown="1">
+<summary>Original captured fields — superseded for this reading card</summary>
+
+** page source tier:** medium_official_description
+
+**Baselines:** neural compact model
+
+traditional analytical model
+
+**Evidence locators:** DAC 2026 official description
+
+**Evidence url:** https://63dac.conference-program.com/?post_type=page&amp;p=16&amp;id=RESEARCH2336
+
+**Hardware or process assumptions:** Back-end-of-line process and DTCO simulation flow; material and geometry assumptions are unspecified.
+
+**Limits:** No prediction error, extrapolation, runtime, process range, or silicon correlation results are reported.
+
+Symbolic distillation may constrain expressivity.
+
+Official description only; process-calibrated validation is required.
+
+**Method or artifact:** Physics-prior neural-to-symbolic compact-model distillation using EKAN.
+
+**Metrics:** Compact-model efficiency is claimed qualitatively
+
+**Problem:** Compact models for BEOL-compatible DTCO need physical plausibility, interpretability, and efficient evaluation.
+
+**Workload or benchmark:** BEOL-compatible device or interconnect models; process data, nodes, and reference simulators are unspecified.
+
+</details>
+<p class="lm-k h-label">What remains to establish</p><h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>What is still unproven here</h2>
+<p>Resolve unspecified workloads, comparison methods, resource budgets, and source locations before generalizing a reported gain. This subject is represented by one paper and supports a case study, not evidence of recurrence or a long-term trend.</p>
+<p><a href="../guide/expanded-taxonomy-v1.html">All subthemes</a> · <a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/reports/directions/README.md">Research directions</a></p><p class="meta">Written as <a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/reports/observed-subthemes/device-and-process-modeling.md">reports/observed-subthemes/device-and-process-modeling.md</a> in the course repository.</p>
+      </article>
+      <nav class="pager" aria-label="Previous and next"><a class="prev" href="timing-analysis-and-optimization.html"><span class="pg-k">← Previous</span><span class="pg-t">Timing analysis and optimization</span></a><a class="map" href="../subthemes.html"><span class="pg-k">Back to</span><span class="pg-t">Subthemes</span></a><a class="next" href="fpga-and-reconfigurable-design.html"><span class="pg-k">Next →</span><span class="pg-t">FPGA and reconfigurable design</span></a></nav>
+    </section>
+  </main>
+  <footer class="course-foot">
+    <p>Built from 582 paper records coded from ISCA 2026, DAC 2026 and ICCAD 2025 (ICCAD 2026 papers were not yet public). Most records come from official program descriptions; see “How deep the reading went”. The papers belong to their authors.</p>
+    <p class="foot-links"><a href="https://github.com/mehtama1234/course-concept-library">All courses</a><a href="../index.html">This course</a><a href="../course-map.html">Course map</a><a href="../presentation/index.html">Slides</a><a href="../video/index.html">Video</a><a href="../share/index.html">Share</a></p>
+  </footer>
+  <script src="../assets/course-data.js"></script><script src="../assets/icons.js"></script><script src="../assets/icons-extra.js"></script><script src="../assets/icons-course.js"></script><script src="../assets/art.js"></script><script src="../assets/course-art.js"></script><script src="../assets/charts.js"></script><script src="../assets/course-charts.js"></script><script src="../assets/course-site.js"></script>
+</body>
+</html>

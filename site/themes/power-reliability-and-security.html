@@ -1,0 +1,359 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#F3ECE1" />
+  <title>Power, reliability, and security · Semiconductor conference atlas</title>
+  <meta name="description" content="The article explains the technical problem step by step first, then links to every subtheme and its papers. Worked numbers are illustrations, not paper results." />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Semiconductor conference atlas" />
+  <meta property="og:title" content="Power, reliability, and security · Semiconductor conference atlas" />
+  <meta property="og:description" content="The article explains the technical problem step by step first, then links to every subtheme and its papers. Worked numbers are illustrations, not paper results." />
+  <meta property="og:url" content="https://mehtama1234.github.io/semiconductor-conferences/themes/power-reliability-and-security.html" />
+  <meta property="og:image" content="https://mehtama1234.github.io/semiconductor-conferences/presentation/slides/01-cover.jpg" />
+  <meta property="og:image:width" content="1920" />
+  <meta property="og:image:height" content="1080" />
+  <meta property="og:image:alt" content="Semiconductor conference atlas: 582 papers from ISCA, DAC and ICCAD, sorted into 10 themes and six directions to watch." />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="canonical" href="https://mehtama1234.github.io/semiconductor-conferences/themes/power-reliability-and-security.html" />
+  <link rel="icon" href="../assets/icon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="../assets/base.css" />
+  <link rel="stylesheet" href="../assets/experience.css" />
+  <link rel="stylesheet" href="../assets/theme-atlas.css" />
+  <link rel="stylesheet" href="../assets/styles.css" />
+  <link rel="stylesheet" href="../assets/charts.css" />
+  <link rel="stylesheet" href="../assets/course.css" />
+  
+</head>
+<body class="course-site " data-house="atlas">
+  <aside class="public-demo-banner" aria-label="About this course">A plain-language guide to what ISCA, DAC and ICCAD papers say about chip and computer design · Built from the repository’s own paper records · Not made by the conferences</aside>
+  <a class="skip-link" href="#app">Skip to the page</a>
+  <header>
+    <a class="brand" href="../index.html"><span class="mark" aria-hidden="true">Si</span> Semiconductor conference atlas</a>
+    <span class="header-status"><span class="badge">582 papers</span><span class="badge">10 themes</span><span class="badge">Plain words first</span></span>
+    <a class="header-link" href="../course-map.html">Course map</a>
+  </header>
+  <nav class="course-nav" aria-label="Main sections of the course"><a href="../index.html">The big picture</a><a href="../themes.html" aria-current="page">Themes</a><a href="../subthemes.html">Subthemes</a><a href="../deep-reads.html">Deep reads</a><a href="../directions.html">What to watch</a><a href="../presentation/index.html">Slides</a><a href="../video/index.html">Video</a><a href="../share/index.html">Share</a></nav>
+  <main id="app" tabindex="-1">
+    <section class="screen active landing legacy-page" aria-labelledby="page-title">
+<div class="lm-head"><div class="hj-heading"><nav class="crumbs" aria-label="You are here"><a href="../course-map.html">Course map</a><span aria-hidden="true">›</span><a href="../themes.html">Themes</a></nav><a class="back-button" href="../themes.html">← <span>Themes</span></a><p class="eyebrow">Theme · 78 papers · 15 subthemes</p><h1 id="page-title">Power, reliability, and security: protection has a cost, so the fault or attack must be named first</h1><p class="hj-sub">The article explains the technical problem step by step first, then links to every subtheme and its papers. Worked numbers are illustrations, not paper results.</p></div><div class="hj-art" data-art="trio:alert-triangle,shield-check,bolt"></div></div>
+<figure class="course-fig"><div class="loop-wide" data-art="flow:power-reliability-and-security"></div><div class="loop-tall" data-art="flowTall:power-reliability-and-security"></div><figcaption>Name the fault or attack first, then pay for the protection.</figcaption></figure><div class="chart-card"><div data-chart="theme-power-reliability-and-security"></div><div><p class="lm-k">In numbers</p><h3>15 subthemes, largest first</h3><p>78 papers: DAC 73, ISCA 3, ICCAD 2.</p><p class="chart-note">A count shows attention in this sample, not importance.</p></div></div>
+      <article class="prose">
+
+<p>This article explains the subject and then connects it to 78 papers in the selected research sample.</p>
+<p>A subtheme groups related technical problems. A mechanism describes the particular change proposed by a paper. The discussion below explains the subject; the linked paper records state the available evidence.</p>
+<p><a href="../guide/reading-guide-v1.html">Definitions used in the paper records</a></p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="alert-triangle"></span>Reliability, security and power all limit useful work</h2>
+<ul>
+<li><strong>Reliability</strong> asks whether a system keeps producing correct results under faults, such as flipped bits or failing parts.</li>
+<li><strong>Security</strong> asks what an adversary can observe or change.</li>
+<li><strong>Power</strong> is the rate of energy use. It affects electrical supply and temperature.</li>
+</ul>
+<p>They sit together here because protections and operating limits change how much useful work a system can do.</p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>Every protection costs something, so name the threat first</h2>
+<ul>
+<li><strong>Detecting</strong> a wrong value needs extra information, repeated work, or a check against a constraint.</li>
+<li><strong>Correcting</strong> it needs enough information to tell the possible errors apart.</li>
+<li><strong>Isolation</strong> may restrict sharing.</li>
+<li><strong>Recovery</strong> may stop work and restart it.</li>
+</ul>
+<p>So the benefit depends on which error or attack is being considered, and on the cost of the added work.</p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>The subthemes protect against different things</h2>
+<ul>
+<li><strong>Fault tolerance</strong> keeps or recovers computation after faults.</li>
+<li><strong>Side-channel</strong> work studies information leaked through timing, power or shared resources, even when direct access is blocked.</li>
+<li><strong>Privacy-preserving computation</strong> changes how protected inputs are processed.</li>
+<li><strong>Energy</strong> methods change when or how hardware runs.</li>
+</ul>
+<p>Progress in one category does not show protection in another.</p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="checklist"></span>A fair test states the fault or attacker and measures work with protection on</h2>
+<ol>
+<li>State which faults can occur, or which actions an attacker can take.</li>
+<li>Measure undetected failures, false alarms, recovery time, and performance with protection switched on.</li>
+<li>Include energy per correct completed job.</li>
+<li>If faults are injected, say where and how.</li>
+</ol>
+<p>Results from that experiment apply to the tested fault model, until broader evidence exists.</p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>Begin with the result that must remain valid</h2>
+<p>Saving energy, tolerating faults and resisting attacks are three separate requirements on the same result.</p>
+<table>
+<thead>
+<tr>
+<th>Design goal</th>
+<th>What it must still deliver</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Energy saving</td>
+<td>The required work, completed</td>
+</tr>
+<tr>
+<td>Fault tolerance</td>
+<td>The required result, kept or recovered, under a stated <strong>fault model</strong> (what can go wrong)</td>
+</tr>
+<tr>
+<td>Security</td>
+<td>No specified attacker observation or change, under a stated <strong>threat model</strong> (what an attacker can do)</td>
+</tr>
+</tbody>
+</table>
+<p>These are related, but not interchangeable descriptions of "robustness".</p>
+<p>Two examples show why one check cannot prove both:</p>
+<ul>
+<li>A computation returns the right number, but leaks a secret through how long it takes. It is functionally correct, yet fails confidentiality.</li>
+<li>A confidential computation returns corrupted data after an uncorrected hardware fault.</li>
+</ul>
+<p><strong>Be careful:</strong> the examples below are teaching constructions. Linked chapters keep their source locations and limits. This parent discussion does not establish a reproduced protection or a general security guarantee.</p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>Power and energy require different accounting</h2>
+<p>Lower power can still mean more energy per job, because energy also depends on time.</p>
+<p><strong>Power</strong> is energy used per unit of time. At constant power, energy = power × elapsed time.</p>
+<blockquote>
+<p><strong>Worked example.</strong></p>
+<ul>
+<li>100 watts for 1 second: 100 × 1 = <strong>100 joules</strong>.</li>
+<li>70 watts for 1.6 seconds: 70 × 1.6 = <strong>112 joules</strong>.</li>
+</ul>
+<p>The lower-power run uses more energy for the same job.</p>
+</blockquote>
+<p>When power changes over time, add up each interval, or integrate the measured power trace. State the boundary being measured:</p>
+<ul>
+<li>accelerator-only power is not whole-node power;</li>
+<li>whole-node power is not facility power;</li>
+<li>a configured power allowance is not actual consumption.</li>
+</ul>
+<p>The <a href="../subthemes/energy-and-thermal-efficiency.html#lit-silicon-one-gpus-temperature-can-affect-other-gpus-progress">Lit Silicon discussion</a> keeps its power-cap policies, measured and predicted ratios, and throughput definition separate.</p>
+<p><strong>Be careful:</strong> its preprint-backed evidence must not be rewritten as complete-training or facility energy savings. A fair comparison also needs the same amount of useful completed work.</p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>Synchronization can make a local slowdown harmless—or costly</h2>
+<p>When workers wait for each other, slowing one down costs nothing until it becomes the slowest.</p>
+<blockquote>
+<p><strong>Worked example.</strong> Two workers must both finish before a shared next step. Worker A takes 8 milliseconds; B takes 10.</p>
+<ul>
+<li>Lower A's power so it takes 9: the shared step still starts at <strong>10</strong>. No loss.</li>
+<li>Lower it further so A takes 12: A is now the slowest, and completion moves to <strong>12</strong>.</li>
+</ul>
+</blockquote>
+<p>So a power controller needs more than average utilization. It needs:</p>
+<ul>
+<li>the relevant dependency;</li>
+<li>the current workload;</li>
+<li>how the system responds to its action.</li>
+</ul>
+<p>Measurements can go stale, and changing settings can itself cost time. A policy that helps in one phase may hurt in another.</p>
+<p>The <a href="systems-applications-and-workloads.html">systems theme</a> adds queueing and service targets. The <a href="chiplets-3d-and-packaging.html">chiplet theme</a> adds sustained thermal limits.</p>
+<p><strong>Be careful:</strong> temperature prediction, cooler operation and longer lifetime are three different evidence claims. A short favorable power trace does not establish all three.</p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>Define the fault before interpreting the protection</h2>
+<p>A protection result means something only for the faults it was tested against.</p>
+<p>A fault model states:</p>
+<ul>
+<li>which locations can change;</li>
+<li>how many bits or components can be hit;</li>
+<li>how long the effect lasts;</li>
+<li>whether faults can happen together.</li>
+</ul>
+<p>Injecting one isolated bit flip does not show protection against a failing chip, a burst across several words, or a lasting logic defect.</p>
+<p>Three outcomes need separate counts and timing:</p>
+<ol>
+<li><strong>Detection:</strong> noticing something is wrong.</li>
+<li><strong>Correction:</strong> rebuilding an allowed value.</li>
+<li><strong>Recovery:</strong> restoring usable operation, perhaps by retrying or restarting.</li>
+</ol>
+<p>An error that is detected but not corrected is not a correct completed result.</p>
+<blockquote>
+<p><strong>Worked example: parity.</strong> Store one extra bit so the total number of ones is even.</p>
+<ul>
+<li>Flip one bit: parity changes, so the error is detected.</li>
+<li>Flip two bits: parity is unchanged, so the error escapes.</li>
+<li>Even for one flipped bit, parity does not say which bit was wrong.</li>
+</ul>
+<p>Enough redundancy to detect an error is less than enough to correct it.</p>
+</blockquote>
+<p>The expanded <a href="../subthemes/memory-hierarchy-and-persistence.html#explanation-isca-2026-program-004">Cerberus explanation</a> and <a href="../subthemes/memory-hierarchy-and-persistence.html#explanation-dac-2026-research676">CLUE-ECC explanation</a> link code boundaries to where faults occur.</p>
+<p><strong>Be careful:</strong> their current evidence does not make those protections universal or independently reproduced. A code that protects one part of a transfer path does not protect errors introduced elsewhere.</p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>Replication still needs independence and a decision rule</h2>
+<p>Running copies helps only if they fail independently and a sound rule decides between them.</p>
+<ul>
+<li>Running a calculation <strong>twice</strong> can detect a mismatch. But if both copies make the same error, they still agree.</li>
+<li><strong>Three copies with majority voting</strong> can hide one disagreeing output, under a suitable fault model.</li>
+<li>Shared inputs, common software, shared power, or the voter itself can cause common failures.</li>
+</ul>
+<blockquote>
+<p><strong>Worked example.</strong> Each copy fails independently with probability <code>p</code>. Majority voting fails when at least two of three fail:</p>
+<p><code>3p²(1−p) + p³</code></p>
+<p>At <code>p = 0.01</code>: 3 × 0.0001 × 0.99 + 0.000001 = <strong>0.000298</strong>.</p>
+</blockquote>
+<p>The reduction relies on independence and on the assumed voting behavior. It does not hold for one common event that corrupts all three.</p>
+<p><strong>Be careful:</strong> these are mathematical examples, not measured reliability estimates for this corpus.</p>
+<p>Fault-injection results should say where errors were introduced, and whether that matches the physical cause of interest. A fault overwritten before anyone sees it differs from one the protection corrected. Count these separately:</p>
+<ul>
+<li>silent corruption;</li>
+<li>detected failures;</li>
+<li>successful corrections;</li>
+<li>retries;</li>
+<li>incomplete jobs.</li>
+</ul>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>Security needs an adversary and a protected property</h2>
+<p>A security claim names who the attacker is and exactly what stays protected.</p>
+<p>A threat model states what an attacker can access, observe, alter and repeat, and which components are trusted. Blocking direct reads of secret values does not necessarily hide access timing or shared-resource behavior.</p>
+<p>A <strong>side channel</strong> is an observation outside the intended data interface that can reveal something about the protected computation.</p>
+<blockquote>
+<p><strong>Example (conceptual).</strong> Two secret-dependent operations return identical public output, but take different times.</p>
+<p>Whether that difference leaks useful information depends on what an observer can measure, on noise and repetitions, and on what else they know.</p>
+</blockquote>
+<p>Equal functional output alone does not settle confidentiality.</p>
+<p>The <a href="../subthemes/side-channel-and-hardware-security.html">side-channel chapter</a> and <a href="../subthemes/hardware-and-system-security.html">hardware/system-security chapter</a> protect different boundaries under different attack assumptions. Their broad labels cannot show that a defense covers every observer or attack. Deeper source recovery and explicit threat-model comparison are still needed.</p>
+<p>Encryption, likewise, does not give every property at once. These are separate duties:</p>
+<ul>
+<li>hiding message contents;</li>
+<li>detecting unauthorized changes;</li>
+<li>preventing replay;</li>
+<li>hiding access patterns.</li>
+</ul>
+<p>A performance result for one cryptographic computation must keep its parameter choices, correctness conditions and supported operations before being applied to another workload.</p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>Protection costs belong in the completed-result denominator</h2>
+<p>Judge a protection by energy per acceptable result, including failures, not by cost per attempt.</p>
+<p>A protection can add metadata, checks, redundant runs, isolation or recovery work. Its normal-case overhead and its failure-case cost answer different questions. A low average recovery cost can hide rare long outages. A good fault-free benchmark says little about progress during repeated errors.</p>
+<blockquote>
+<p><strong>Worked example (simple repeat-until-success model, independent attempts).</strong></p>
+<ul>
+<li>Unprotected attempt: 10 energy units, but only 90% succeed. Expected energy per success = <code>10/0.9</code> ≈ <strong>11.11 units</strong>.</li>
+<li>Protected attempt: 11 units, always succeeds under the model. Energy per success = <strong>11 units</strong>.</li>
+</ul>
+<p>The protected design costs more per attempt, yet less per acceptable result.</p>
+</blockquote>
+<p>Real systems need measured success conditions and retry policies. Silent corruption may hide when a retry is even needed.</p>
+<p>So reliability, security and efficiency must meet at one defined output requirement. Neither discarded work nor an undetected wrong answer should inflate useful throughput.</p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>What each result can establish</h2>
+<p>Each reported observation supports a narrower claim than the one people often draw from it.</p>
+<table>
+<thead>
+<tr>
+<th>Reported observation</th>
+<th>Stronger claim still requiring evidence</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Lower device power</td>
+<td>Lower energy per acceptable complete job</td>
+</tr>
+<tr>
+<td>Lower simulated temperature</td>
+<td>Validated operating behavior or lifetime improvement</td>
+</tr>
+<tr>
+<td>Detected injected faults</td>
+<td>Coverage of the intended physical fault population</td>
+</tr>
+<tr>
+<td>Successful correction</td>
+<td>Correct operation across the whole protected path</td>
+</tr>
+<tr>
+<td>Reduced leakage in one experiment</td>
+<td>Protection under the stated broader adversary capabilities</td>
+</tr>
+<tr>
+<td>Small fault-free overhead</td>
+<td>Acceptable recovery, availability, and performance under failures</td>
+</tr>
+</tbody>
+</table>
+<p>The <a href="verification-and-validation.html">verification theme</a> explains the shared evidence rules: checks are conditional, agreement may share mistakes, and a timeout is unresolved. The <a href="physical-design-and-manufacturing.html">physical-design theme</a> explains why power delivery and geometry can change the conditions a protection operates under.</p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="checklist"></span>Long-term hypotheses and disconfirming tests</h2>
+<p>Three readings are worth testing; each names what would weaken it.</p>
+<table>
+<thead>
+<tr>
+<th>Hypothesis</th>
+<th>Test</th>
+<th>What would weaken it</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Energy management gains from dependency-aware control, rather than isolated component targets</td>
+<td>Compare complete useful work and energy across changing workload phases, with control overhead included</td>
+<td>Local policies do equally well, or observation delay removes the benefit</td>
+</tr>
+<tr>
+<td>Protection must match the physical and logical boundary where failure occurs</td>
+<td>Test other fault locations, bursts, persistent faults and shared causes within the claimed scope</td>
+<td>Protection works only for convenient injections that do not represent the target failures</td>
+</tr>
+<tr>
+<td>Efficiency comparisons mean more when they count acceptable results under explicit fault and threat models</td>
+<td>Compare full costs with those requirements held fixed</td>
+<td>Gains rely on weaker protection, or leave out recovery and discarded work</td>
+</tr>
+</tbody>
+</table>
+<p>These are bounded interpretations, not demonstrated ISCA–DAC–ICCAD time trends. They still need comparable editions, workloads, fault populations, attacker capabilities, source depth and measurement boundaries.</p>
+<p><strong>Be careful:</strong> this expanded parent discussion does not complete individual-paper writing, source reconciliation, independent review, or scientific acceptance.</p>
+<p class="lm-k h-label">Subthemes and how to study them</p><h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="books"></span>The subthemes in this theme, and how to read them</h2>
+<p>Each link opens the subtheme discussion and its captured paper records. Explanatory depth varies: some papers have expanded individual explanations; others still have only brief discussion or evidence cards. Source locations and unresolved conditions remain visible.</p>
+<h3><a href="../subthemes/side-channel-and-hardware-security.html">Side channel and hardware security</a></h3>
+<p>30 selected records in this theme. Start with <a href="../subthemes/side-channel-and-hardware-security.html">Semi-Virtual Addressing to Enhance Memory Safety on Microcontrollers</a>.</p>
+<h3><a href="../subthemes/hardware-and-system-security.html">Hardware and system security</a></h3>
+<p>11 selected records in this theme. Start with <a href="../subthemes/hardware-and-system-security.html">Stone-Skimming: Attacking Big-Data Analytics Applications with Page Table Walk</a>.</p>
+<h3><a href="../subthemes/accelerator-reliability.html">Accelerator reliability</a></h3>
+<p>10 selected records in this theme. Start with <a href="../subthemes/accelerator-reliability.html">Accshield: Operator-Aware Robust Scheduling for Fault-Tolerant AI Accelerators</a>.</p>
+<h3><a href="../subthemes/reliable-and-secure-ml.html">Reliable and secure ml</a></h3>
+<p>4 selected records in this theme. Start with <a href="../subthemes/reliable-and-secure-ml.html">STAC: Spatial-Temporal Activation Contextualization for Resilient LLM Inference</a>.</p>
+<h3><a href="../subthemes/secure-and-robust-ml.html">Secure and robust ml</a></h3>
+<p>4 selected records in this theme. Start with <a href="../subthemes/secure-and-robust-ml.html">STRAP-ViT: Segregated Tokens with Randomized Transformations for Defense Against Adversarial Patches in ViTs</a>.</p>
+<h3><a href="../subthemes/thermal-and-reliability-modeling.html">Thermal and reliability modeling</a></h3>
+<p>4 selected records in this theme. Start with <a href="../subthemes/thermal-and-reliability-modeling.html">Neural Domain Decomposition for Scalable Multi-Physics: Chip-Scale Thermal-Stress Analysis</a>.</p>
+<h3><a href="../subthemes/privacy-preserving-compute.html">Privacy preserving compute</a></h3>
+<p>3 selected records in this theme. Start with <a href="../subthemes/privacy-preserving-compute.html">Sparsee: Unlocking Sparsities in Encrypted Sparse Matrix Multiplication via Hardware-Software Co-Design</a>.</p>
+<h3><a href="../subthemes/privacy-preserving-computing.html">Privacy preserving computing</a></h3>
+<p>3 selected records in this theme. Start with <a href="../subthemes/privacy-preserving-computing.html">FBS: Accelerating CNN Inference over RNS-CKKS with Fewer Bootstrapping Sparsity</a>.</p>
+<h3><a href="../subthemes/energy-and-thermal-efficiency.html">Energy and thermal efficiency</a></h3>
+<p>2 selected records in this theme. Start with <a href="../subthemes/energy-and-thermal-efficiency.html">Early Design Stage Thermal Prediction and Optimization: Machine-Learning Driven Approach</a>.</p>
+<h3><a href="../subthemes/reliability-and-fault-tolerance.html">Reliability and fault tolerance</a></h3>
+<p>2 selected records in this theme. Start with <a href="../subthemes/reliability-and-fault-tolerance.html">PuDGhost: Experimental Analysis of Computation Result Corruption in Processing-using-DRAM Operations on Real DRAM Chips and Implications for Future Systems</a>.</p>
+<h3><a href="../subthemes/fault-tolerance-and-reliability.html">Fault tolerance and reliability</a></h3>
+<p>1 selected records in this theme. Start with <a href="../subthemes/fault-tolerance-and-reliability.html">SERA-Float: A Soft Error Resilient Approximate Floating-Point Computing Format</a>.</p>
+<h3><a href="../subthemes/power-integrity-and-reliability.html">Power integrity and reliability</a></h3>
+<p>1 selected records in this theme. Start with <a href="../subthemes/power-integrity-and-reliability.html">GEMIR: Graph-Based Joint Modeling of Electromigration and IR Drop for Power Grid</a>.</p>
+<h3><a href="../subthemes/reliable-and-efficient-compute.html">Reliable and efficient compute</a></h3>
+<p>1 selected records in this theme. Start with <a href="../subthemes/reliable-and-efficient-compute.html">Adaptive Multiply-Accumulate Unit with Scalable Critical Path for Aggressive Voltage Underscaling DNN Accelerators</a>.</p>
+<h3><a href="../subthemes/reliable-and-secure-ai-systems.html">Reliable and secure AI systems</a></h3>
+<p>1 selected records in this theme. Start with <a href="../subthemes/reliable-and-secure-ai-systems.html">WFH-BFs: Dynamic Defense Against DNN Bit-Flips via a Weight Function Hierarchy</a>.</p>
+<h3><a href="../subthemes/reliable-and-secure-compute.html">Reliable and secure compute</a></h3>
+<p>1 selected records in this theme. Start with <a href="../subthemes/reliable-and-secure-compute.html">Real-Time, Lightweight, High Coverage Error Detection and Correction for CRYSTALS with Small-Modulus Paths</a>.</p>
+<p class="lm-k h-label">Representative source-backed records</p><h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="route"></span>Papers that show the theme well</h2>
+<p>The following reading set spans the available conferences and uses dated corrections where registered. These corrections improve the current reading view but do not change historical adjudication or establish independent acceptance. Each paper link opens its exact evidence card.</p>
+<p class="lm-k h-label">Paper cards: what changes and where it stops</p><h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>Paper cards: what each paper changes, and where it stops</h2>
+<ul>
+<li><a href="../subthemes/energy-and-thermal-efficiency.html#paper-isca-2026-program-153">Lit Silicon: A Case Where Thermal Imbalance Couples Concurrent Execution in Multiple GPUs</a> — ISCA 2026.</li>
+<li><a href="../subthemes/reliability-and-fault-tolerance.html#paper-isca-2026-program-024">PuDGhost: Experimental Analysis of Computation Result Corruption in Processing-using-DRAM Operations on Real DRAM Chips and Implications for Future Systems</a> — ISCA 2026.</li>
+<li><a href="../subthemes/reliability-and-fault-tolerance.html#paper-isca-2026-program-009">ECC Enabled Reliable and Performant Processing-in-Memory</a> — ISCA 2026.</li>
+<li><a href="../subthemes/privacy-preserving-compute.html#paper-dac-2026-research989">TAMI-MPC: Trusted Acceleration of Minimal-Interaction MPC for Efficient Nonlinear Inference</a> — DAC 2026.</li>
+<li><a href="../subthemes/privacy-preserving-compute.html#paper-dac-2026-research897">MACH: Memory-Aware Configuration Generation for Homomorphically Encrypted Neural Networks</a> — DAC 2026.</li>
+<li><a href="../subthemes/hardware-and-system-security.html#paper-dac-2026-research876">Tdsnap: Enabling Secure Function-as-a-Service with Trusted Domain Snapshots</a> — DAC 2026.</li>
+<li><a href="../subthemes/side-channel-and-hardware-security.html#paper-dac-2026-research848">TT-SEAL: TTD-Aware Selective Encryption for Adversarially-Robust and Low-Latency Edge AI</a> — DAC 2026.</li>
+<li><a href="../subthemes/fault-tolerance-and-reliability.html#paper-iccad-2025-1109">SERA-Float: A Soft Error Resilient Approximate Floating-Point Computing Format</a> — ICCAD 2025.</li>
+<li><a href="../subthemes/side-channel-and-hardware-security.html#paper-iccad-2025-1000">Energon: Unveiling Transformers from GPU Power and Thermal Side-Channels</a> — ICCAD 2025.</li>
+<li><a href="../subthemes/secure-and-robust-ml.html#paper-dac-2026-research821">Runtime-ADAR: Runtime Anomaly Detection and Attack Recovery in Encrypted DNNs</a> — DAC 2026.</li>
+<li><a href="../subthemes/reliable-and-secure-ml.html#paper-dac-2026-research816">DRIFT: Harnessing Inherent Fault Tolerance for Efficient and Reliable Diffusion Model Inference</a> — DAC 2026.</li>
+<li><a href="../subthemes/reliable-and-secure-ml.html#paper-dac-2026-research800">E³-CODE: Embedded and Efficient Error-Correcting Code for Error-Resilient Neural Networks</a> — DAC 2026.</li>
+</ul>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="file-text"></span>What the evidence supports</h2>
+<p>These records identify proposed methods and the conditions recorded for them. A reported improvement should be interpreted with its comparison method, input size, hardware, and result-quality requirement. Missing fields are evidence gaps; a populated field can also state that a detail is unspecified.</p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="file-text"></span>Limits and next evidence</h2>
+<p>The selected sample is uneven across conferences and source types. It cannot establish how fast a subject is growing. Repeated observations across comparable years, with the same inclusion rules and source depth, are needed for a time trend.</p>
+<p>Every linked evidence article preserves the Problem: and Mechanism / artifact: fields, baseline, unshortened limitations, source URL, and recorded location. Primary text and independent review remain necessary where the record says those checks are open.</p>
+<p><a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/reports/directions/README.md">Research directions</a> · <a href="../guide/expanded-taxonomy-v1.html">All observed subthemes</a></p><p class="meta">Written as <a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/reports/themes/power-reliability-and-security.md">reports/themes/power-reliability-and-security.md</a> in the course repository.</p>
+      </article>
+      <nav class="pager" aria-label="Previous and next"><a class="prev" href="physical-design-and-manufacturing.html"><span class="pg-k">← Previous</span><span class="pg-t">Physical design and manufacturing</span></a><a class="map" href="../themes.html"><span class="pg-k">Back to</span><span class="pg-t">Themes</span></a><a class="next" href="systems-applications-and-workloads.html"><span class="pg-k">Next →</span><span class="pg-t">Systems, applications, and workloads</span></a></nav>
+    </section>
+  </main>
+  <footer class="course-foot">
+    <p>Built from 582 paper records coded from ISCA 2026, DAC 2026 and ICCAD 2025 (ICCAD 2026 papers were not yet public). Most records come from official program descriptions; see “How deep the reading went”. The papers belong to their authors.</p>
+    <p class="foot-links"><a href="https://github.com/mehtama1234/course-concept-library">All courses</a><a href="../index.html">This course</a><a href="../course-map.html">Course map</a><a href="../presentation/index.html">Slides</a><a href="../video/index.html">Video</a><a href="../share/index.html">Share</a></p>
+  </footer>
+  <script src="../assets/course-data.js"></script><script src="../assets/icons.js"></script><script src="../assets/icons-extra.js"></script><script src="../assets/icons-course.js"></script><script src="../assets/art.js"></script><script src="../assets/course-art.js"></script><script src="../assets/charts.js"></script><script src="../assets/course-charts.js"></script><script src="../assets/course-site.js"></script>
+</body>
+</html>

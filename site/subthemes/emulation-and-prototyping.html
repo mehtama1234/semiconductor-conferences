@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#F3ECE1" />
+  <title>Emulation and prototyping · Semiconductor conference atlas</title>
+  <meta name="description" content="Papers: DAC 1. Read from: 1 program descriptions, 0 abstracts or reports, 0 full papers or preprints. The explanations come first; every paper’s record follows at the end." />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Semiconductor conference atlas" />
+  <meta property="og:title" content="Emulation and prototyping · Semiconductor conference atlas" />
+  <meta property="og:description" content="Papers: DAC 1. Read from: 1 program descriptions, 0 abstracts or reports, 0 full papers or preprints. The explanations come first; every paper’s record follows at the end." />
+  <meta property="og:url" content="https://mehtama1234.github.io/semiconductor-conferences/subthemes/emulation-and-prototyping.html" />
+  <meta property="og:image" content="https://mehtama1234.github.io/semiconductor-conferences/presentation/slides/01-cover.jpg" />
+  <meta property="og:image:width" content="1920" />
+  <meta property="og:image:height" content="1080" />
+  <meta property="og:image:alt" content="Semiconductor conference atlas: 582 papers from ISCA, DAC and ICCAD, sorted into 10 themes and six directions to watch." />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="canonical" href="https://mehtama1234.github.io/semiconductor-conferences/subthemes/emulation-and-prototyping.html" />
+  <link rel="icon" href="../assets/icon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="../assets/base.css" />
+  <link rel="stylesheet" href="../assets/experience.css" />
+  <link rel="stylesheet" href="../assets/theme-atlas.css" />
+  <link rel="stylesheet" href="../assets/styles.css" />
+  <link rel="stylesheet" href="../assets/charts.css" />
+  <link rel="stylesheet" href="../assets/course.css" />
+  
+</head>
+<body class="course-site " data-house="atlas">
+  <aside class="public-demo-banner" aria-label="About this course">A plain-language guide to what ISCA, DAC and ICCAD papers say about chip and computer design · Built from the repository’s own paper records · Not made by the conferences</aside>
+  <a class="skip-link" href="#app">Skip to the page</a>
+  <header>
+    <a class="brand" href="../index.html"><span class="mark" aria-hidden="true">Si</span> Semiconductor conference atlas</a>
+    <span class="header-status"><span class="badge">582 papers</span><span class="badge">10 themes</span><span class="badge">Plain words first</span></span>
+    <a class="header-link" href="../course-map.html">Course map</a>
+  </header>
+  <nav class="course-nav" aria-label="Main sections of the course"><a href="../index.html">The big picture</a><a href="../themes.html">Themes</a><a href="../subthemes.html" aria-current="page">Subthemes</a><a href="../deep-reads.html">Deep reads</a><a href="../directions.html">What to watch</a><a href="../presentation/index.html">Slides</a><a href="../video/index.html">Video</a><a href="../share/index.html">Share</a></nav>
+  <main id="app" tabindex="-1">
+    <section class="screen active landing legacy-page" aria-labelledby="page-title">
+<div class="lm-head"><div class="hj-heading"><nav class="crumbs" aria-label="You are here"><a href="../course-map.html">Course map</a><span aria-hidden="true">›</span><a href="../subthemes.html">Subthemes</a></nav><a class="back-button" href="../subthemes.html">← <span>Subthemes</span></a><p class="eyebrow">Subtheme · 1 papers · Verification and validation</p><h1 id="page-title">Emulation and prototyping: what the 1 papers change, and what is still unproven</h1><p class="hj-sub">Papers: DAC 1. Read from: 1 program descriptions, 0 abstracts or reports, 0 full papers or preprints. The explanations come first; every paper’s record follows at the end.</p></div><div class="hj-art" data-art="trio:file-text,checklist,search"></div></div>
+<figure class="course-fig"><div class="loop-wide" data-art="flow:verification-and-validation"></div><div class="loop-tall" data-art="flowTall:verification-and-validation"></div><figcaption>The parent theme in one picture: a check proves only what its property and tests cover.</figcaption></figure>
+      <article class="prose">
+
+<p>This subject has 1 record in the selected sample. This page explains where it fits, then presents all captured paper evidence without shortening the measurements or limitations.</p>
+<p><a href="../guide/reading-guide-v1.html">Definitions used in the paper records</a></p>
+<p class="lm-k h-label">Understand the parent subject first</p><h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>The bigger theme this belongs to</h2>
+<ul>
+<li><a href="../themes/verification-and-validation.html">Verification and validation</a></li>
+</ul>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>Execute a hardware model on another machine</h2>
+<p>Hardware emulation uses an execution platform to reproduce specified behavior of a target circuit. The platform and the target are different systems.</p><p>An emulator can execute a target design before that design is fabricated, but the emulator's own speed is not the clock speed the target will eventually achieve.</p>
+<p>The selected record, <a href="emulation-and-prototyping.html#paper-dac-2026-research3153">A Boolean Processor-Based Hardware Emulation System with Reconfigurable Interconnects</a>, proposes a fabric organized around Boolean processing and configurable connections. The captured description identifies this architecture but supplies no measured performance or design-capacity results.</p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>Logic evaluation and state updates must preserve meaning</h2>
+<p>Boolean operations compute logical results from input values. A hardware model also contains state: stored values whose updates depend on the modeled timing and execution rules. Evaluating a collection of Boolean expressions is therefore only part of emulating a sequential circuit.</p>
+<p>A mapping process must decide which model operations the platform executes, where intermediate values reside, and when updated state becomes visible. Independent operations may run concurrently; dependent operations must see the values required by the target's semantics.</p><p>A schedule that is faster but changes those values is not an equivalent emulation.</p>
+<p>The source does not expose the Boolean processor's instruction set, scheduling scheme, state representation, or handling of multiple clocks. Those details must remain unspecified. In particular, the title does not establish full support for every hardware-description-language feature or exact reproduction of analog behavior.</p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="affiliate"></span>Reconfigurable connections address a communication problem</h2>
+<p>A hardware design specifies many dependencies between logic operations. The emulator must carry results from their producers to the processing resources that consume them. This communication can limit execution even when Boolean evaluation itself is inexpensive.</p>
+<p>Reconfigurable interconnects let the platform adapt connections to mapped designs. Their practical benefit depends on the available topology, connection capacity, and cost of configuring or using those paths. A flexible network can still encounter congestion or require multiple transfers for a dependency.</p>
+<p>The captured record does not specify whether configuration occurs once per mapped design or changes during execution. It would be inappropriate to infer a particular dynamic-reconfiguration feature. Likewise, it provides no link bandwidth, buffering, routing algorithm, or communication-cost measurements.</p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="map"></span>Capacity and speed depend on the mapped workload</h2>
+<p>Capacity describes how much target design a platform can accommodate under stated assumptions. Speed describes how quickly it executes that mapped work. Reporting one without the other can conceal a tradeoff: a larger design may require additional scheduling or transfers that reduce effective execution rate.</p>
+<p>A meaningful evaluation should identify target designs, state size, mapping utilization, number of modeled clocks, and the test environment. It should measure simulated target progress per unit of elapsed time rather than confusing the platform clock with useful target execution.</p>
+<p>The source supplies neither capacity nor speed, along with no area, power, compile time, or benchmark results. It therefore does not establish superiority over FPGA emulation or software simulation, even though those are listed as comparison categories in the coding.</p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>Preparation and observation belong in verification cost</h2>
+<p>Before running a test, the design may need compilation, partitioning, scheduling, and configuration. After a failure, the engineer needs enough observable state to identify the cause. Instrumentation, trace collection, and transfers to the host can affect runtime and resource capacity.</p>
+<p>A fast execution platform is useful only in relation to the verification workload. For short tests, preparation can dominate.</p><p>For long tests, sustained execution and observation costs may matter more. Both should be reported, including any limits on what signals can be inspected and how much recompilation is needed after a change.</p>
+<p><span id="explanation-dac-2026-research3153"></span></p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>Boolean-processor emulation: target semantics matter more than platform clock rate</h2>
+<h3>An emulator executes a model, not the final chip</h3>
+<p>Hardware emulation runs a representation of a target circuit on a separate execution platform. The target has its own state, clocks, dependencies and observable behavior.</p><p>The emulator has its own processing elements, memories, interconnect and clock. A platform clock or Boolean-operation rate is therefore not automatically the rate at which the target advances through its modeled cycles.</p>
+<p>The proposed system is organized around Boolean processors and reconfigurable interconnects. A Boolean processor can evaluate logical operations, but a sequential target also requires state updates at the right modeled time.</p><p>If two target operations are independent, the emulator may execute them concurrently. If one consumes the other's result, the schedule must preserve the target's visibility and ordering rules.</p><p>A faster schedule that changes those rules is not a correct emulation.</p>
+<h3>The interconnect is part of the emulation semantics</h3>
+<p>Mapping a hardware model assigns operations and state to emulator resources. Every dependency then needs a path from its producer to its consumer.</p><p>Reconfigurable connections can adapt that path to different designs, but they introduce topology, capacity, routing, configuration and congestion decisions. The source does not state whether configuration is static for a mapped design or changes during execution, nor does it provide the interconnect protocol or buffering model.</p>
+<p>The useful communication metric is not only link bandwidth. A dependency may wait for a route, contend with other transfers, or require multiple hops.</p><p>State may need to be stored until a target clock boundary. These costs can dominate Boolean evaluation when the mapped design is communication-heavy.</p>
+<h3>Capacity, speed and visibility form a three-way constraint</h3>
+<p>Capacity describes the target design that fits: logic operations, state bits, clocks, memories, routing resources and any instrumentation. Speed describes useful target progress over elapsed host/emulator time.</p><p>Visibility describes what internal signals and state can be observed when a test fails. Increasing instrumentation can reduce capacity or speed while making failures diagnosable.</p>
+<p>Preparation also belongs in the measurement. Compilation, partitioning, scheduling and interconnect configuration may be paid before execution.</p><p>For a short test, preparation can dominate; for a long regression, sustained target progress and trace transfer can dominate. FPGA emulation and software simulation are named comparison categories, but no fair workload, observation requirement, or numeric comparison is available.</p>
+<h3>Correctness needs a reference at the target level</h3>
+<p>A Boolean-operation result can match while state-update timing differs. A trustworthy check should compare the emulator with a reference model on defined sequential semantics, multiple clocks if supported, resets, concurrent events, memory behavior and externally visible outputs.</p><p>It should also state which target features are unsupported or approximated.</p>
+<p>The title does not establish full hardware-description-language coverage, analog behavior, or a fabricated implementation. The captured description provides no instruction set, state representation, scheduling algorithm, link capacity, compile time, emulation rate, capacity, area, power or benchmark results.</p>
+<h3>What the paper establishes and what remains open</h3>
+<p>The accessible description establishes a proposed Boolean-processor hardware-emulation organization with reconfigurable interconnects. It does not establish a measured prototype, target-cycle rate, design capacity, correctness coverage, FPGA/software superiority, or complete observability.</p><p>A stronger evaluation would publish target semantics, supported HDL subset, processor and state architecture, mapping/scheduling/configuration flow, topology and communication costs, preparation and trace overhead, capacity/speed/visibility tradeoffs, reference comparisons, and RTL/hardware validation.</p>
+<p><a href="https://63dac.conference-program.com/presentation/?id=RESEARCH3153&amp;sess=sess109">Official DAC description, record RESEARCH3153</a></p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>What would establish the proposed system's value?</h2>
+<p>Correctness evidence would compare its execution with a trusted reference on defined target semantics, including stateful and concurrent behavior. Performance evidence would then use common designs, tests, and observation requirements, counting all necessary preparation and data handling.</p>
+<p>This paper motivates an alternative way to execute hardware models using specialized Boolean processing and configurable communication. The available record does not establish a completed prototype, measured hardware operation, or exhaustive target correctness.</p><p>Its research question is whether this organization improves complete verification throughput while preserving the behavior and visibility needed to find and diagnose real design errors.</p>
+<p class="lm-k h-label">Compare the results carefully</p><h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="route"></span>How to compare these papers’ results fairly</h2>
+<p>First identify the inputs and required output quality. Then identify the limited resource: time, memory, communication, energy, circuit area, or correctness coverage.</p><p>Ask which part of the method reduces that cost and which new cost it adds. Compare numbers only when the experiments hold these conditions sufficiently similar.</p>
+<p>A conference description may explain the proposal while omitting the full experiment. An author preprint link may have been coded from its abstract. The source classification does not by itself establish that every table was read. Missing locations remain visible below.</p>
+<p class="lm-k h-label">Complete captured evidence</p><h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="file-text"></span>Every paper in this subtheme, with what its source shows</h2>
+<p>These are evidence records, not substitutes for the explanations above. Each record preserves its problem, proposed method, measurements, comparison conditions, and source limits. A populated record does not establish that its mechanism has been fully explained or independently verified.</p>
+<p><span id="paper-dac-2026-research3153"></span></p>
+<h3>A Boolean Processor-Based Hardware Emulation System with Reconfigurable Interconnects</h3>
+<p>DAC 2026 · Record: <code>dac-2026-research3153</code></p>
+<p><a href="#explanation-dac-2026-research3153">Read the step-by-step explanation</a></p>
+<p><strong>Updated source-backed reading card</strong></p>
+<div class="worked"><p class="lm-k">Worked example</p><p>Reviewed 2026-09-08. Deepens the official-description reading; separates target semantics, Boolean evaluation, reconfigurable communication, capacity, useful target speed, observability and missing validation.</p></div>
+<p>This editorial correction updates the current reading view and connected dossiers, not the historical adjudication or scientific acceptance status. The original captured fields are preserved below.</p>
+<p><a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/data/editorial-paper-corrections-v1.json">Correction register</a></p>
+<p><strong>Problem:</strong></p>
+<p>Hardware emulation needs flexible interconnect and efficient execution of Boolean workloads while preserving sequential target behavior and useful debugging visibility.</p>
+<p><strong>Mechanism / artifact:</strong></p>
+<p>Boolean processor-based hardware-emulation system with reconfigurable interconnects.</p>
+<p><strong>Workload — the work tested:</strong></p>
+<p>RTL or Boolean hardware designs; target semantics, HDL subset, state size, clock domains, mapped designs and benchmarks are unspecified.</p>
+<p><strong>Hardware and manufacturing assumptions:</strong></p>
+<p>Reconfigurable interconnect and Boolean processing fabric; instruction/state architecture, topology, memory, process, clock and instrumentation assumptions are unspecified.</p>
+<p><strong>Baseline — the comparison method:</strong></p>
+<p>FPGA emulation</p>
+<p>Software simulation</p>
+<p><strong>Reported measurements:</strong></p>
+<p>Emulation efficiency is claimed qualitatively; no target-cycle rate, capacity, power, area, compile time, communication cost, visibility or benchmark result is reported.</p>
+<p><strong>Limits on the conclusion:</strong></p>
+<p>Platform clock or Boolean-operation rate is not target progress; state-update timing, dependencies, configuration and communication must preserve target semantics.</p>
+<p>Reconfigurable interconnect can add routing, buffering, congestion, configuration and trace costs; the source does not expose the protocol or mapping schedule.</p>
+<p>Official description only; RTL correctness, hardware prototype, HDL coverage and comparison with FPGA/software emulation were not validated.</p>
+<p><strong>Source and location</strong></p>
+<p>Evidence tier: Official DAC description; full manuscript and reproduction not performed. This is the stored source classification; the location and limits below determine what was actually read.</p>
+<p><a href="https://63dac.conference-program.com/?post_type=page&amp;p=16&amp;id=RESEARCH3153&amp;sess=sess109">Open the recorded source</a></p>
+<p>DAC official description, Captured Description and Authors fields; record RESEARCH3153; no manuscript pages.</p>
+<details markdown="1">
+<summary>Original captured fields — superseded for this reading card</summary>
+
+** page source tier:** medium_official_description
+
+**Baselines:** FPGA emulation
+
+software simulation
+
+**Evidence locators:** DAC 2026 official description
+
+**Evidence url:** https://63dac.conference-program.com/?post_type=page&amp;p=16&amp;id=RESEARCH3153
+
+**Hardware or process assumptions:** Reconfigurable interconnect and Boolean processing fabric; process and memory assumptions are unspecified.
+
+**Limits:** No emulation speed, capacity, power, area, compile time, or design results are reported.
+
+Reconfigurable interconnect may add configuration overhead.
+
+Official description only; RTL and hardware validation is required.
+
+**Method or artifact:** Boolean processor-based hardware-emulation system.
+
+**Metrics:** Emulation efficiency is claimed qualitatively
+
+**Problem:** Hardware emulation needs flexible interconnect and efficient execution of Boolean workloads.
+
+**Workload or benchmark:** RTL or Boolean hardware designs; capacity, clock, and emulation workloads are unspecified.
+
+</details>
+<p class="lm-k h-label">What remains to establish</p><h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>What is still unproven here</h2>
+<p>Resolve unspecified workloads, comparison methods, resource budgets, and source locations before generalizing a reported gain. This subject is represented by one paper and supports a case study, not evidence of recurrence or a long-term trend.</p>
+<p><a href="../guide/expanded-taxonomy-v1.html">All subthemes</a> · <a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/reports/directions/README.md">Research directions</a></p><p class="meta">Written as <a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/reports/observed-subthemes/emulation-and-prototyping.md">reports/observed-subthemes/emulation-and-prototyping.md</a> in the course repository.</p>
+      </article>
+      <nav class="pager" aria-label="Previous and next"><a class="prev" href="simulation-and-emulation.html"><span class="pg-k">← Previous</span><span class="pg-t">Simulation and emulation</span></a><a class="map" href="../subthemes.html"><span class="pg-k">Back to</span><span class="pg-t">Subthemes</span></a><a class="next" href="physical-verification.html"><span class="pg-k">Next →</span><span class="pg-t">Physical verification</span></a></nav>
+    </section>
+  </main>
+  <footer class="course-foot">
+    <p>Built from 582 paper records coded from ISCA 2026, DAC 2026 and ICCAD 2025 (ICCAD 2026 papers were not yet public). Most records come from official program descriptions; see “How deep the reading went”. The papers belong to their authors.</p>
+    <p class="foot-links"><a href="https://github.com/mehtama1234/course-concept-library">All courses</a><a href="../index.html">This course</a><a href="../course-map.html">Course map</a><a href="../presentation/index.html">Slides</a><a href="../video/index.html">Video</a><a href="../share/index.html">Share</a></p>
+  </footer>
+  <script src="../assets/course-data.js"></script><script src="../assets/icons.js"></script><script src="../assets/icons-extra.js"></script><script src="../assets/icons-course.js"></script><script src="../assets/art.js"></script><script src="../assets/course-art.js"></script><script src="../assets/charts.js"></script><script src="../assets/course-charts.js"></script><script src="../assets/course-site.js"></script>
+</body>
+</html>

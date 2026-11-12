@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#F3ECE1" />
+  <title>Reliable and efficient compute · Semiconductor conference atlas</title>
+  <meta name="description" content="Papers: DAC 1. Read from: 1 program descriptions, 0 abstracts or reports, 0 full papers or preprints. The explanations come first; every paper’s record follows at the end." />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Semiconductor conference atlas" />
+  <meta property="og:title" content="Reliable and efficient compute · Semiconductor conference atlas" />
+  <meta property="og:description" content="Papers: DAC 1. Read from: 1 program descriptions, 0 abstracts or reports, 0 full papers or preprints. The explanations come first; every paper’s record follows at the end." />
+  <meta property="og:url" content="https://mehtama1234.github.io/semiconductor-conferences/subthemes/reliable-and-efficient-compute.html" />
+  <meta property="og:image" content="https://mehtama1234.github.io/semiconductor-conferences/presentation/slides/01-cover.jpg" />
+  <meta property="og:image:width" content="1920" />
+  <meta property="og:image:height" content="1080" />
+  <meta property="og:image:alt" content="Semiconductor conference atlas: 582 papers from ISCA, DAC and ICCAD, sorted into 10 themes and six directions to watch." />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="canonical" href="https://mehtama1234.github.io/semiconductor-conferences/subthemes/reliable-and-efficient-compute.html" />
+  <link rel="icon" href="../assets/icon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="../assets/base.css" />
+  <link rel="stylesheet" href="../assets/experience.css" />
+  <link rel="stylesheet" href="../assets/theme-atlas.css" />
+  <link rel="stylesheet" href="../assets/styles.css" />
+  <link rel="stylesheet" href="../assets/charts.css" />
+  <link rel="stylesheet" href="../assets/course.css" />
+  
+</head>
+<body class="course-site " data-house="atlas">
+  <aside class="public-demo-banner" aria-label="About this course">A plain-language guide to what ISCA, DAC and ICCAD papers say about chip and computer design · Built from the repository’s own paper records · Not made by the conferences</aside>
+  <a class="skip-link" href="#app">Skip to the page</a>
+  <header>
+    <a class="brand" href="../index.html"><span class="mark" aria-hidden="true">Si</span> Semiconductor conference atlas</a>
+    <span class="header-status"><span class="badge">582 papers</span><span class="badge">10 themes</span><span class="badge">Plain words first</span></span>
+    <a class="header-link" href="../course-map.html">Course map</a>
+  </header>
+  <nav class="course-nav" aria-label="Main sections of the course"><a href="../index.html">The big picture</a><a href="../themes.html">Themes</a><a href="../subthemes.html" aria-current="page">Subthemes</a><a href="../deep-reads.html">Deep reads</a><a href="../directions.html">What to watch</a><a href="../presentation/index.html">Slides</a><a href="../video/index.html">Video</a><a href="../share/index.html">Share</a></nav>
+  <main id="app" tabindex="-1">
+    <section class="screen active landing legacy-page" aria-labelledby="page-title">
+<div class="lm-head"><div class="hj-heading"><nav class="crumbs" aria-label="You are here"><a href="../course-map.html">Course map</a><span aria-hidden="true">›</span><a href="../subthemes.html">Subthemes</a></nav><a class="back-button" href="../subthemes.html">← <span>Subthemes</span></a><p class="eyebrow">Subtheme · 1 papers · Power, reliability, and security</p><h1 id="page-title">Reliable and efficient compute: what the 1 papers change, and what is still unproven</h1><p class="hj-sub">Papers: DAC 1. Read from: 1 program descriptions, 0 abstracts or reports, 0 full papers or preprints. The explanations come first; every paper’s record follows at the end.</p></div><div class="hj-art" data-art="trio:alert-triangle,shield-check,bolt"></div></div>
+<figure class="course-fig"><div class="loop-wide" data-art="flow:power-reliability-and-security"></div><div class="loop-tall" data-art="flowTall:power-reliability-and-security"></div><figcaption>The parent theme in one picture: name the fault or attack first, then pay for the protection.</figcaption></figure>
+      <article class="prose">
+
+<p>This subject has 1 record in the selected sample. This page explains where it fits, then presents all captured paper evidence without shortening the measurements or limitations.</p>
+<p><a href="../guide/reading-guide-v1.html">Definitions used in the paper records</a></p>
+<p class="lm-k h-label">Understand the parent subject first</p><h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>The bigger theme this belongs to</h2>
+<ul>
+<li><a href="../themes/power-reliability-and-security.html">Power reliability and security</a></li>
+</ul>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>Lower voltage changes when a result becomes valid</h2>
+<p>A multiply-accumulate unit computes a product and adds it to a running sum. Neural-network accelerators repeat this operation across many processing elements.</p><p>Reducing their supply voltage can reduce switching power, but it generally makes transistor transitions slower. If the clock captures a result before the required signals have settled, the captured value can be wrong even though the Boolean circuit is logically correct.</p>
+<p>The critical path is the path whose delay limits the time available between relevant clock events. Its practical behavior depends on input transitions as well as the implemented gates and wires.</p><p>A design that works for many values at low voltage may still fail for another transition pattern. Average delay is therefore not a guarantee that every operation meets timing.</p>
+<p>This subject contains one paper on adaptive arithmetic width. Its reliability concern is timing under reduced voltage, not all hardware faults. It does not, by its title or taxonomy label, establish protection against permanent defects, memory corruption, malicious inputs, or aging.</p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>Shortening active arithmetic is different from lowering numerical precision</h2>
+<p>In signed binary arithmetic, a small-magnitude value can have repeated high-order sign bits. If the result can be represented using fewer active arithmetic stages, those upper positions may be reconstructed from the sign instead of waiting for a long propagation through every stage.</p><p>This is a range-preservation problem, not necessarily a decision to discard meaningful low-order bits.</p>
+<div class="worked"><p class="lm-k">Worked example</p><p>For example, a signed value representable in eight bits can also be represented in a wider signed word by repeating its sign bit in the added positions. Removing redundant sign-extension work can preserve the value.</p></div><p>Removing a bit needed to represent its magnitude cannot. A valid adaptive design must determine which case applies before its output is used.</p>
+<p>The control circuit is part of the timing problem too. Detecting the required width, selecting a result, and reconstructing the upper bits consume time and power. A shorter adder path is useful only if the complete controlled path meets the intended clock requirement.</p>
+<p><span id="explanation-dac-2026-research2364"></span></p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>What ADA and ADA-Plus demonstrate</h2>
+<p>The complete controlled critical path includes width detection, result selection and upper-bit reconstruction; shortening the arithmetic portion alone does not establish timing correctness.</p>
+<p><a href="reliable-and-efficient-compute.html#paper-dac-2026-research2364">Adaptive Multiply-Accumulate Unit with Scalable Critical Path</a> introduces ADA's input-dependent width selection and ADA-Plus's output-stationary state-based control. Sections 3–4, PDF pages 3–6, use signed 8-bit multiplication and 24-bit accumulation, 28-nm synthesis, and circuit/timing simulation—not measured silicon. ADA/ADA-Plus add 16.1%/12.4% area.</p>
+<p>Section 4.2, pages 5–6, uses an eight-image MNIST workload for circuit-level power evaluation; the separate 1-GHz CNN accuracy evaluation uses 1,000 CIFAR-10 images. Table 1 defines minimum voltage by less than 1% accuracy loss, not zero timing errors.</p><p>Figure 11 reports 50.89% lower power for ADA output-stationary operation versus nominal-voltage baseline, but 19.35% versus the original design at its minimum effective voltage.</p>
+<p>Section 3.2, page 4, assumes unchanged partial-sum sign in higher control modes and inconsistently refers to mode 4 after describing four modes. These assumptions and numbering need reconciliation before claiming unrestricted arithmetic correctness. <a href="https://www.ece.ualberta.ca/~jhan8/publications/2364_Camera_Ready_Paper.pdf">Manuscript, Sections 3–4, Table 1 and Figure 11</a>.</p>
+<p>The captured evidence supports adaptive underscaled MAC operation with simulation-level power and application-accuracy claims, not demonstrated reliable end-to-end DNN quality across process and workload conditions.</p>
+<p>Output-stationary execution retains a partial sum in the same processing element between successive operations. That can make the previous sum useful when deciding how to handle the next operation.</p><p>A scheme relying on that continuity cannot automatically be applied unchanged when unrelated sums arrive from elsewhere. The supported dataflow is part of the correctness boundary.</p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>Three different meanings of “no loss”</h2>
+<p>Bit-exact arithmetic means every supported operation produces the intended numerical value. Timing correctness means the relevant value arrives in time for capture under stated physical conditions.</p><p>Unchanged classification accuracy means the aggregate task score matches a reference on an evaluated dataset. These claims are not interchangeable.</p>
+<p>Two systems can obtain the same number of correct classifications while disagreeing on individual examples. Internal numerical errors can also occur without changing the final selected class. Conversely, a bit-exact arithmetic transformation can still suffer physical timing failures if operated outside its validated conditions.</p>
+<p>For this reason, an application-accuracy result should not be promoted to a guarantee of zero timing errors. A stronger assessment would separately report arithmetic mismatches, late arrivals, per-example prediction agreement, and task accuracy, including rare input transitions that are not well represented by average workload statistics.</p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>Power savings depend on the comparison point</h2>
+<p>Power is energy consumed per unit time. Energy per inference also depends on how long the inference takes and which components are counted.</p><p>When frequency, work, and execution duration are fixed, a power reduction can translate into reduced energy for that same boundary. It does not establish the same percentage at the system boundary if memory, control, or voltage-regulation costs remain unchanged.</p>
+<p>An unmodified design operated at nominal voltage and the same design operated at a lower acceptable voltage are different baselines. Comparing against the first measures the combined benefit of voltage reduction and the new circuit.</p><p>Comparing against the second more directly asks what the added circuit enables beyond voltage scaling already available to the original implementation.</p>
+<p>Neither comparison is inherently invalid. Both must state their voltage, clock, accuracy criterion, and included components. A large headline should not erase the smaller but more demanding comparison.</p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>What still needs verification</h2>
+<p>Process, voltage, and temperature conditions affect delay. Simulated corners sample specified device models; they do not by themselves establish the behavior of every manufactured device or every transient voltage disturbance.</p><p>A complete reliability assessment should test control transitions, large positive-to-negative changes, overflow boundaries, and reset behavior under the intended operating envelope.</p>
+<p>The wider conceptual insight is that data-dependent arithmetic structure can change how far voltage can be reduced while preserving a stated workload result. This is a mechanism-level inference, not a long-term adoption trend or a universal voltage policy for neural accelerators.</p>
+<div class="worked"><p class="lm-k">Worked example</p><p>The manuscript was recovered on 2026-09-07 and supersedes the historical card's missing-result statements. Physical validation, the control-assumption audit, broader workload coverage, and independent reproduction remain open. The article's readable format and passing link checks are not evidence that those scientific checks are complete.</p></div>
+<p class="lm-k h-label">Compare the results carefully</p><h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="route"></span>How to compare these papers’ results fairly</h2>
+<p>First identify the inputs and required output quality. Then identify the limited resource: time, memory, communication, energy, circuit area, or correctness coverage.</p><p>Ask which part of the method reduces that cost and which new cost it adds. Compare numbers only when the experiments hold these conditions sufficiently similar.</p>
+<p>A conference description may explain the proposal while omitting the full experiment. An author preprint link may have been coded from its abstract. The source classification does not by itself establish that every table was read. Missing locations remain visible below.</p>
+<p class="lm-k h-label">Complete captured evidence</p><h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="file-text"></span>Every paper in this subtheme, with what its source shows</h2>
+<p>These are evidence records, not substitutes for the explanations above. Each record preserves its problem, proposed method, measurements, comparison conditions, and source limits. A populated record does not establish that its mechanism has been fully explained or independently verified.</p>
+<p><span id="paper-dac-2026-research2364"></span></p>
+<h3>Adaptive Multiply-Accumulate Unit with Scalable Critical Path for Aggressive Voltage Underscaling DNN Accelerators</h3>
+<p>DAC 2026 · Record: <code>dac-2026-research2364</code></p>
+<p><a href="#explanation-dac-2026-research2364">Read the step-by-step explanation</a></p>
+<p><strong>Updated source-backed reading card</strong></p>
+<div class="worked"><p class="lm-k">Worked example</p><p>Reviewed 2026-09-09. Reconciles the recovered manuscript with the sparse official card; separates adaptive arithmetic-width control from numerical precision, timing correctness, application accuracy and silicon validation, and preserves the reported area, voltage and power claims with their stated comparison boundaries.</p></div>
+<p>This editorial correction updates the current reading view and connected dossiers, not the historical adjudication or scientific acceptance status. The original captured fields are preserved below.</p>
+<p><a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/data/editorial-paper-corrections-v1.json">Correction register</a></p>
+<p><strong>Problem:</strong></p>
+<p>Aggressive supply-voltage underscaling can reduce MAC switching power but lengthen data-dependent paths and cause late or incorrect results in DNN accelerators.</p>
+<p><strong>Mechanism / artifact:</strong></p>
+<p>ADA is an adaptive MAC with input-dependent width selection and sign reconstruction; ADA-Plus adds state-based control for output-stationary systolic arrays. The design uses signed 8-bit multiplication and 24-bit accumulation, with a scalable active critical path; control detection, selection and reconstruction remain part of the timing and power path.</p>
+<p><strong>Workload — the work tested:</strong></p>
+<p>Circuit-level evaluation uses the stated signed MAC configuration, an eight-image MNIST workload for power evaluation, and a separate 1-GHz CNN accuracy evaluation on 1,000 CIFAR-10 images; model, layer coverage, voltage sweep, process corners, transition coverage and statistical treatment are limited or unspecified.</p>
+<p><strong>Hardware and manufacturing assumptions:</strong></p>
+<p>28-nm synthesized digital MACs and output-stationary systolic-array operation evaluated with circuit/timing simulation rather than measured silicon; voltage, frequency, process-voltage-temperature corners, clocking, implementation tools, variation, supply noise and measurement boundary are not fully specified.</p>
+<p><strong>Baseline — the comparison method:</strong></p>
+<p>Nominal-voltage MAC</p>
+<p>Original/fixed-critical-path MAC at its minimum effective voltage</p>
+<p>ADA versus ADA-Plus under the same signed arithmetic, clock, voltage, workload, synthesis and power boundary</p>
+<p>The exact voltage, clock, accuracy criterion, components, seeds, corners and end-to-end inference boundary for each comparison are incompletely specified</p>
+<p><strong>Reported measurements:</strong></p>
+<p>ADA and ADA-Plus add 16.1% and 12.4% area respectively; the source defines minimum voltage using less than 1% accuracy loss, reports 50.89% lower power for ADA output-stationary operation versus a nominal-voltage baseline and 19.35% versus the original design at its minimum effective voltage; the source does not establish zero timing errors, fabricated-silicon behavior, full-system energy or broad workload accuracy.</p>
+<p><strong>Limits on the conclusion:</strong></p>
+<p>Shortening redundant sign-extension or active arithmetic width is not the same as discarding numerical precision. Validate bit-exact arithmetic, overflow and sign transitions, then separately measure late captures and timing-error rate across input patterns; a task-level accuracy result cannot substitute for either check.</p>
+<p>The control path that detects width, selects the result and reconstructs upper bits consumes delay and power. Process, voltage and temperature variation, supply noise, clock assumptions, reset behavior and the output-stationary partial-sum assumption must be tested; the recovered manuscript also requires reconciliation of its higher-mode sign assumption and mode numbering before claiming unrestricted correctness.</p>
+<p>The reported less-than-1% accuracy criterion, 50.89% and 19.35% power comparisons, and area overheads are simulation-level claims with distinct baselines. Include frequency and execution time, control and voltage-regulator costs, energy per inference, timing failures, PVT corners, workload and layer distributions, and silicon or fault-injection evidence.</p><p>The evidence supports adaptive underscaled MAC operation, not demonstrated reliable end-to-end DNN quality across process and workload conditions.</p>
+<p><strong>Source and location</strong></p>
+<p>Evidence tier: Primary recovered manuscript plus captured official DAC description; circuit/timing simulation and synthesis evidence, not independent silicon reproduction or complete pvt/workload validation. This is the stored source classification; the location and limits below determine what was actually read.</p>
+<p><a href="https://www.ece.ualberta.ca/~jhan8/publications/2364_Camera_Ready_Paper.pdf">Open the recorded source</a></p>
+<p>Recovered manuscript, Sections 3–4, PDF pages 3–6; Table 1; Figure 11; existing reliable-and-efficient-compute editorial explanation; official DAC description retained in the original card.</p>
+<details markdown="1">
+<summary>Original captured fields — superseded for this reading card</summary>
+
+** page source tier:** medium_official_description
+
+**Baselines:** nominal-voltage MAC
+
+fixed critical-path MAC
+
+**Evidence locators:** DAC 2026 official description
+
+**Evidence url:** https://63dac.conference-program.com/?post_type=page&amp;p=16&amp;id=RESEARCH2364
+
+**Hardware or process assumptions:** Near-threshold or underscaled digital accelerator; timing and variation assumptions are unspecified.
+
+**Limits:** No voltage, timing-error rate, accuracy, energy, area, or silicon results are reported.
+
+Error behavior depends on process and workload.
+
+Official description only; silicon and fault-injection validation is required.
+
+**Method or artifact:** Adaptive MAC with scalable critical path for underscaled operation.
+
+**Metrics:** Voltage-scaled energy efficiency is claimed qualitatively
+
+**Problem:** Aggressive voltage underscaling saves energy but increases timing errors in DNN MACs.
+
+**Workload or benchmark:** DNN MAC workloads; models, voltage range, error policy, and process are unspecified.
+
+</details>
+<p class="lm-k h-label">What remains to establish</p><h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>What is still unproven here</h2>
+<p>Resolve unspecified workloads, comparison methods, resource budgets, and source locations before generalizing a reported gain. This subject is represented by one paper and supports a case study, not evidence of recurrence or a long-term trend.</p>
+<p><a href="../guide/expanded-taxonomy-v1.html">All subthemes</a> · <a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/reports/directions/README.md">Research directions</a></p><p class="meta">Written as <a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/reports/observed-subthemes/reliable-and-efficient-compute.md">reports/observed-subthemes/reliable-and-efficient-compute.md</a> in the course repository.</p>
+      </article>
+      <nav class="pager" aria-label="Previous and next"><a class="prev" href="power-integrity-and-reliability.html"><span class="pg-k">← Previous</span><span class="pg-t">Power integrity and reliability</span></a><a class="map" href="../subthemes.html"><span class="pg-k">Back to</span><span class="pg-t">Subthemes</span></a><a class="next" href="reliable-and-secure-ai-systems.html"><span class="pg-k">Next →</span><span class="pg-t">Reliable and secure AI systems</span></a></nav>
+    </section>
+  </main>
+  <footer class="course-foot">
+    <p>Built from 582 paper records coded from ISCA 2026, DAC 2026 and ICCAD 2025 (ICCAD 2026 papers were not yet public). Most records come from official program descriptions; see “How deep the reading went”. The papers belong to their authors.</p>
+    <p class="foot-links"><a href="https://github.com/mehtama1234/course-concept-library">All courses</a><a href="../index.html">This course</a><a href="../course-map.html">Course map</a><a href="../presentation/index.html">Slides</a><a href="../video/index.html">Video</a><a href="../share/index.html">Share</a></p>
+  </footer>
+  <script src="../assets/course-data.js"></script><script src="../assets/icons.js"></script><script src="../assets/icons-extra.js"></script><script src="../assets/icons-course.js"></script><script src="../assets/art.js"></script><script src="../assets/course-art.js"></script><script src="../assets/charts.js"></script><script src="../assets/course-charts.js"></script><script src="../assets/course-site.js"></script>
+</body>
+</html>

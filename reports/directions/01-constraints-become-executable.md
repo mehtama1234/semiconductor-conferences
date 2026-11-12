@@ -2,21 +2,40 @@
 
 Status: a research hypothesis supported by selected cases. A measured increase across comparable years has not been established.
 
-## The basic technical problem
+## The problem: a requirement checked only at the end can fail an expensive design
 
-A design requirement states a condition that the result must satisfy. A circuit must compute the required function, fit within an area budget, and deliver signals within a specified time. A design process considers many candidates. If a requirement is checked only after choosing a candidate, an expensive implementation can fail at the end.
+A design requirement is a condition the result must meet. A circuit must:
 
-## What would change in the design process
+- compute the required function;
+- fit within an area budget;
+- deliver signals within a specified time.
 
-The proposed direction is to use checks while constructing or revising a design. A tool measures or tests a candidate, reports a failure or a cost, and the next design decision uses that information. The check must return something useful: which property failed, where the failure occurred, or which resource exceeded its limit. A simple pass or fail may eliminate a candidate without explaining how to improve it.
+A design process considers many candidates. If a requirement is checked only after a candidate is chosen, an expensive implementation can fail at the end.
 
-## Why the details matter
+## The change: run the checks while building, and let the result steer the next attempt
 
-A language model generating circuit code, a compiler arranging operations, and a placement tool choosing component locations can all use this procedure. Their checks differ. Compiling code establishes that a tool accepts its syntax and structure. Simulating selected inputs checks those executions. Proving equivalence establishes a stronger claim within the proof model. These outcomes must remain distinct in an evaluation.
+1. A tool measures or tests a candidate.
+2. It reports a failure or a cost.
+3. The next design decision uses that report.
 
-## What would support or weaken the claim
+The check must return something useful: which property failed, where, or which resource went over its limit. A bare pass or fail may rule a candidate out without saying how to improve it.
 
-Compare methods on the same unseen design tasks with the same total time and computing resources. Count valid completed designs, failures, unresolved checks, and final area, timing, and power. If feedback improves development examples but fails on new designs, the evidence supports a narrower method. To establish a time trend, compare equivalent paper populations across years and code which checks actually influence design decisions.
+## Different checks prove different things, so keep them apart
+
+A language model writing circuit code, a compiler arranging operations, and a placement tool choosing locations can all use this loop. Their checks differ:
+
+- **Compiling** shows a tool accepts the code's syntax and structure.
+- **Simulating** selected inputs checks those runs only.
+- **Proving equivalence** is a stronger claim, within the proof's model.
+
+An evaluation must keep these outcomes separate.
+
+## The test: same unseen tasks, same total budget, count every outcome
+
+1. Compare methods on the same unseen design tasks, with the same total time and computing resources.
+2. Count valid completed designs, failures, unresolved checks, and final area, timing and power.
+3. If feedback helps on development examples but fails on new designs, the evidence supports only a narrower method.
+4. To show a trend over time, compare equivalent sets of papers across years, and code which checks actually change design decisions.
 
 ## Counterpressure and falsification boundary
 
@@ -38,6 +57,13 @@ Tool-grounded generation does not establish general capability if benchmark diff
 
 ## Establishing a long-term trend
 
-To test change over time, select comparable editions, apply the same inclusion and coding rules, and measure source coverage in each edition. Distinguish the number of papers discussing a method from evidence that the method improves results. The current sample combines DAC and ISCA 2026 with ICCAD 2025 fallback material, and coverage is uneven. That supports comparison of cases with stated limits.
+A trend needs the same rules applied to comparable years:
+
+1. Select comparable editions.
+2. Apply the same inclusion and coding rules.
+3. Measure source coverage in each edition.
+4. Tell apart how many papers discuss a method from evidence that the method improves results.
+
+The current sample combines DAC and ISCA 2026 with ICCAD 2025 fallback material, and coverage is uneven. That supports comparing cases with stated limits.
 
 [Read the longitudinal protocol](../longitudinal-protocol-v1.md) · [Return to research directions](README.md)

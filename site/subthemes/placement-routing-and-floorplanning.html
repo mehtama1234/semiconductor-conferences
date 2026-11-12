@@ -1,0 +1,1007 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#F3ECE1" />
+  <title>Placement routing and floorplanning · Semiconductor conference atlas</title>
+  <meta name="description" content="Papers: DAC 12. Read from: 12 program descriptions, 0 abstracts or reports, 0 full papers or preprints. The explanations come first; every paper’s record follows at the end." />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Semiconductor conference atlas" />
+  <meta property="og:title" content="Placement routing and floorplanning · Semiconductor conference atlas" />
+  <meta property="og:description" content="Papers: DAC 12. Read from: 12 program descriptions, 0 abstracts or reports, 0 full papers or preprints. The explanations come first; every paper’s record follows at the end." />
+  <meta property="og:url" content="https://mehtama1234.github.io/semiconductor-conferences/subthemes/placement-routing-and-floorplanning.html" />
+  <meta property="og:image" content="https://mehtama1234.github.io/semiconductor-conferences/presentation/slides/01-cover.jpg" />
+  <meta property="og:image:width" content="1920" />
+  <meta property="og:image:height" content="1080" />
+  <meta property="og:image:alt" content="Semiconductor conference atlas: 582 papers from ISCA, DAC and ICCAD, sorted into 10 themes and six directions to watch." />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="canonical" href="https://mehtama1234.github.io/semiconductor-conferences/subthemes/placement-routing-and-floorplanning.html" />
+  <link rel="icon" href="../assets/icon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="../assets/base.css" />
+  <link rel="stylesheet" href="../assets/experience.css" />
+  <link rel="stylesheet" href="../assets/theme-atlas.css" />
+  <link rel="stylesheet" href="../assets/styles.css" />
+  <link rel="stylesheet" href="../assets/charts.css" />
+  <link rel="stylesheet" href="../assets/course.css" />
+  
+</head>
+<body class="course-site " data-house="atlas">
+  <aside class="public-demo-banner" aria-label="About this course">A plain-language guide to what ISCA, DAC and ICCAD papers say about chip and computer design · Built from the repository’s own paper records · Not made by the conferences</aside>
+  <a class="skip-link" href="#app">Skip to the page</a>
+  <header>
+    <a class="brand" href="../index.html"><span class="mark" aria-hidden="true">Si</span> Semiconductor conference atlas</a>
+    <span class="header-status"><span class="badge">582 papers</span><span class="badge">10 themes</span><span class="badge">Plain words first</span></span>
+    <a class="header-link" href="../course-map.html">Course map</a>
+  </header>
+  <nav class="course-nav" aria-label="Main sections of the course"><a href="../index.html">The big picture</a><a href="../themes.html">Themes</a><a href="../subthemes.html" aria-current="page">Subthemes</a><a href="../deep-reads.html">Deep reads</a><a href="../directions.html">What to watch</a><a href="../presentation/index.html">Slides</a><a href="../video/index.html">Video</a><a href="../share/index.html">Share</a></nav>
+  <main id="app" tabindex="-1">
+    <section class="screen active landing legacy-page" aria-labelledby="page-title">
+<div class="lm-head"><div class="hj-heading"><nav class="crumbs" aria-label="You are here"><a href="../course-map.html">Course map</a><span aria-hidden="true">›</span><a href="../subthemes.html">Subthemes</a></nav><a class="back-button" href="../subthemes.html">← <span>Subthemes</span></a><p class="eyebrow">Subtheme · 12 papers · Physical design and manufacturing</p><h1 id="page-title">Placement routing and floorplanning: what the 12 papers change, and what is still unproven</h1><p class="hj-sub">Papers: DAC 12. Read from: 12 program descriptions, 0 abstracts or reports, 0 full papers or preprints. The explanations come first; every paper’s record follows at the end.</p></div><div class="hj-art" data-art="trio:affiliate,grid-dots,route"></div></div>
+<figure class="course-fig"><div class="loop-wide" data-art="flow:physical-design-and-manufacturing"></div><div class="loop-tall" data-art="flowTall:physical-design-and-manufacturing"></div><figcaption>The parent theme in one picture: turning connections into geometry: every step pushes on the others.</figcaption></figure>
+      <article class="prose">
+
+<p>This subject has 12 records in the selected sample. This page explains where it fits, then presents all captured paper evidence without shortening the measurements or limitations.</p>
+<p><a href="../guide/reading-guide-v1.html">Definitions used in the paper records</a></p>
+<p class="lm-k h-label">Understand the parent subject first</p><h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>The bigger theme this belongs to</h2>
+<ul>
+<li><a href="../themes/physical-design-and-manufacturing.html">Physical design and manufacturing</a></li>
+</ul>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>A circuit needs both components and space</h2>
+<p>A logical circuit identifies components and their connections. A physical implementation assigns locations to those components and paths to the wires.</p><p>Floorplanning decides the broad arrangement of major blocks. Placement assigns more detailed locations.</p><p>Routing constructs the actual connections within the available layers and manufacturing rules.</p>
+<p>These decisions interact. Moving connected components closer can shorten a wire but crowd a region needed by other connections.</p><p>Reserving more space for wires can increase the distance between components. A layout must ultimately meet several conditions together, including legal geometry, connectivity, timing, and power delivery.</p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="chart-dots"></span>Why a connection diagram is insufficient</h2>
+<p>Physical wires have resistance and capacitance. Resistance limits current flow; capacitance stores charge that must change when a signal changes. Their combination contributes delay. The exact behavior depends on wire dimensions, material, surrounding structures, and attached circuits.</p>
+<p>A placement tool often uses an estimate of these effects before detailed routing exists. The estimate is useful if it guides the design toward a final implementation that passes the required checks.</p><p>A lower estimated wirelength or delay does not itself establish that every connection can be routed or that the completed circuit meets timing.</p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>Standard cells make some choices in advance</h2>
+<p>A standard cell is a predesigned small circuit with a defined physical layout and interface. Building from a library of cells limits the choices a placement tool must make.</p><p>A transistor-level placement method instead considers finer-grained structure and can potentially discover arrangements outside those fixed boundaries.</p>
+<p>The cell-structure-independent placement record proposes this finer-grained choice together with routing that accounts for middle-of-line connections near the devices. The current description does not establish its technology rules, final routing legality, or measured timing and power.</p><p>Increased freedom therefore needs to be evaluated alongside implementation and verification costs. <a href="placement-routing-and-floorplanning.html#paper-dac-2026-research2006">Recorded evidence</a></p>
+<p><span id="explanation-dac-2026-research2006"></span></p>
+<h3>Cell-structure-independent placement: removing cell boundaries moves the hard problem into physical legality</h3>
+<h4>What standard-cell boundaries normally provide</h4>
+<p>A standard-cell flow places predesigned cells with known dimensions, pins, power connections and routing abstractions. This limits the search space and gives later tools characterized timing, power and legal interfaces.</p><p>The boundary can also waste space or make pins and low-level connections difficult to access at an advanced node.</p>
+<p>A transistor-level method places individual devices or smaller structures without treating the standard cell as the fixed unit. It can change device sharing, local geometry, pin access and the distance between transistor terminals.</p><p>The added freedom can reduce abstract wirelength or area, but it also removes assumptions that made mapping, routing, extraction and signoff predictable.</p>
+<h4>What MOL-aware routing adds</h4>
+<p>Middle-of-line and M0 connections are local interconnect structures close to transistor and device contacts. They have limited tracks, spacing rules, contact options and access directions.</p><p>A placement that looks good at a higher metal layer can be impossible to connect in these lower-level resources. An MOL-aware router must therefore reason about device adjacency, terminal access, local congestion, design rules and how lower-level choices constrain later wires.</p>
+<p>The objective is not simply to minimize distance. A legal route must connect every required terminal, obey spacing and enclosure rules, avoid shorts, meet manufacturing rules and leave enough resources for power and signal connections.</p><p>Transistor-level placement can also create more unique structures that need extraction and characterization instead of reusing a standard cell's known models.</p>
+<h4>What a complete evaluation needs</h4>
+<p>Fix the technology node, PDK, device rules, voltage, design size, input netlist and signoff flow. Compare the commercial standard-cell flow and prior transistor-level work with the same placement, routing, extraction, timing, power and verification requirements.</p><p>Report wirelength, area, congestion, unrouted nets, design-rule violations, pin-access failures, timing, slew, power, leakage, runtime, memory, repair iterations and signoff yield.</p>
+<p>Test high pin density, shared devices, long wires, irregular structures, high fanout, power-grid interaction and designs of different sizes. A useful result must show that a placement improvement survives MOL/M0 routing, extraction, corner analysis and final checks.</p><p>The captured official description claims qualitative wirelength and area improvement but reports no numeric PPA, timing, power, routability, design-rule or technology-node result. The evidence supports a broader physical-design search direction, not proven signoff-ready improvement.</p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>Three-dimensional placement adds another physical relationship</h2>
+<p>Placing circuits on more than one active layer changes which components can be near one another and which connections cross layers. It also introduces constraints from alignment, connection structures, and thermal behavior.</p><p>A short abstract three-dimensional distance does not automatically describe an available physical wire path.</p>
+<p>The true-3D placement record combines timing-driven choices with treatment of large-block boundaries during initial placement. Its description names a search approach but leaves routing, timing, thermal, and runtime results unresolved.</p><p>The relevant question is whether the resulting physical implementation improves under the same stack and evaluation assumptions. <a href="placement-routing-and-floorplanning.html#paper-dac-2026-research2133">Recorded evidence</a></p>
+<p><span id="explanation-dac-2026-research2133"></span></p>
+<h3>True-3D timing-driven placement: vertical distance is useful only when bonding, routing and timing models agree</h3>
+<h4>What analytical 3D placement is choosing</h4>
+<p>Placement assigns coordinates to cells and larger blocks before detailed routing. An analytical method represents those coordinates as variables and optimizes a mathematical objective, often using smooth approximations so that gradients can guide movement.</p><p>A mixed-size placement must handle small standard cells together with large macros whose shape, orientation, keep-out region and legal location constrain nearby cells.</p>
+<p>In a face-to-face 3D design, circuit regions can occupy multiple dies or active layers. A signal may cross between dies through hybrid bonds or micro-bumps and then continue through local wiring.</p><p>The distance between two coordinates is therefore not the complete wire path. A vertical connection has limited sites, alignment and electrical properties, and may compete with thermal, power-delivery and mechanical constraints.</p>
+<h4>What timing-driven weighting and macro boundaries mean</h4>
+<p>Timing-driven placement gives more influence to connections whose delay affects a critical path. That weight must reflect resistance, capacitance, fanout, driver strength, wire layers, vertical crossings and the current timing slack.</p><p>If the estimate is wrong, the optimizer may move the wrong objects or improve a proxy without improving final timing.</p>
+<p>Macro-boundary-aware initialization tries to prevent large blocks from occupying positions that make the rest of the placement impossible or congested. A differentiable boundary penalty can guide continuous optimization, but it is still an approximation to discrete legal placement, orientation, blockage, power, thermal and bonding rules.</p><p>A smooth objective can produce an attractive intermediate position that must later be snapped, legalized or moved substantially.</p>
+<h4>What a complete 3D evaluation needs</h4>
+<p>Define die stack, bonding technology, vertical-interconnect sites, macro dimensions and orientations, keep-outs, thermal model, power grid, routing layers, RC model, STA version and timing constraints. Compare timing-oblivious analytical placement and prior 3D placement under the same netlist, dies, routing, legalization, extraction and signoff flow.</p><p>Report wirelength, vertical crossings, timing/slack, congestion, macro displacement, thermal distribution, power, runtime, memory, legalization changes, unrouted connections and signoff failures.</p>
+<p>Test different die assignments, macro sizes, bond densities, temperature conditions, critical-path structures, multi-die 2D cases and designs not used to tune the weights. Separate the result of initial placement from detailed routing, extraction and final STA.</p><p>The captured official description identifies timing-driven net weighting and differentiable macro-boundary-aware true-3D initialization but reports no wirelength, timing, congestion, thermal or runtime result. The evidence supports a 3D analytical-placement direction, not demonstrated timing closure or manufacturing-ready 3D quality.</p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="affiliate"></span>Weighting expresses which connections matter more</h2>
+<p>A placement objective can assign different importance to connections. A net is a group of electrically connected terminals; a pin is an individual connection point. A timing-driven method can give greater weight to connections whose delay affects whether a requirement is met.</p>
+<p>The hybrid net–pin weighting paper proposes an analytical way to assign those weights. The benefit depends on how accurately the weights represent the completed circuit's timing needs. The captured record lacks the benchmark and final timing conditions needed to establish that relationship. <a href="placement-routing-and-floorplanning.html#paper-dac-2026-research1290">Recorded evidence</a></p>
+<p><span id="explanation-dac-2026-research1290"></span></p>
+<h3>Hybrid net–pin weighting: a placement weight is useful only when it points toward the actual critical delay</h3>
+<h4>Why a net-level weight is not enough</h4>
+<p>A net connects one driver to one or more receiving pins. A net-level weight gives the whole connection one importance value.</p><p>That can miss an important difference between pins: one sink may lie on a critical path while another sink on the same net has slack, a short local route or a different load. The placement objective may need both the importance of the net and the importance of each pin or sink.</p>
+<p>Placement usually balances a geometric term such as estimated wirelength with timing terms. The weight determines how strongly moving a connection changes the objective.</p><p>An analytical weight tries to derive that value from measurable circuit quantities rather than repeatedly choosing it by a hand-tuned heuristic. The derivation still depends on the timing model, slack, fanout, capacitance, estimated route and how the placement tool represents congestion.</p>
+<h4>What the hybrid objective can and cannot prove</h4>
+<p>The weighting can guide cells that affect critical paths closer together or reduce the estimated cost of important sinks. It cannot guarantee that the same paths remain critical after legalization, detailed routing, buffering, layer assignment, parasitic extraction and timing analysis at operating corners.</p><p>Moving one pin can improve one sink while increasing another sink's load or creating congestion that harms several paths.</p>
+<p>Timing also changes as the design changes. A path that is critical at one placement can become non-critical after an improvement, while another path becomes the limiting path.</p><p>A stable analytical rule should therefore be evaluated across iterations and designs rather than assumed to remain correct because it produced a lower objective value.</p>
+<h4>What a complete evaluation needs</h4>
+<p>Define the wirelength estimate, timing engine, slack and criticality calculation, net/pin weighting formula, congestion model, update frequency and optimization objective. Compare wirelength-driven placement, heuristic timing-weighted placement and the analytical hybrid method on the same netlists, technology, constraints and compute budget.</p><p>Report wirelength, worst negative slack, total negative slack, critical-path delay, congestion, overflow, runtime, memory, convergence and legalization changes.</p>
+<p>Then route and extract the placements and rerun timing. Report how often the ranking predicted by the placement objective survives final STA, how many timing repairs are required and whether wirelength or congestion worsens.</p><p>The captured official description claims qualitative timing and placement improvements but reports no wirelength, worst negative slack, congestion, runtime or benchmark details. The evidence supports analytical net–pin weighting, not established timing closure or universal superiority over heuristic weighting.</p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="file-text"></span>FPGA placement is a discrete resource-assignment problem</h2>
+<p>An FPGA is not an empty rectangle where any logic block can be placed at any coordinate. Its fabric contains discrete site types: lookup-table and register resources, arithmetic blocks, memories, input/output sites and clocking resources.</p><p>A netlist node must be assigned to a compatible site, and its connections must later use available routing tracks and switch resources. A placement can therefore have short geometric distances and still be illegal, unroutable or slow.</p>
+<p>The heterogeneous-FPGA placement record adds a learning-based, slack-aware timing signal to global placement. Slack is the remaining time margin on a timing requirement.</p><p>If a path is required to arrive at time 10 and is estimated to arrive at time 8, it has slack 2. If it arrives at 11, it has slack −1 and violates the requirement.</p><p>A timing-aware placer gives more attention to paths with small or negative margin, but that margin remains an estimate until the design has a concrete route and extracted delay.</p>
+<p><span id="explanation-dac-2026-research1404"></span></p>
+<h3>Learning-based slack-aware FPGA placement: a learned priority is useful only if it survives legal placement and routing</h3>
+<h4>What the placement problem contains</h4>
+<p>Global placement chooses approximate locations for many logic elements before exact sites and routing paths are finalized. In a heterogeneous FPGA, the element must fit one of the fabric's discrete site types, nearby elements must be reachable through the routing fabric, and the resulting paths must satisfy clock and input/output requirements.</p>
+<p>These constraints are not interchangeable. Moving a lookup-table cluster toward a memory block may shorten one data path but consume sites needed by another region.</p><p>Moving logic away from a congested channel may improve routability while making a critical path longer. Carry chains, hard arithmetic blocks, clock regions, fixed package pins and placement exclusions can make a geometrically attractive location illegal or expensive to repair.</p>
+<h4>What slack-aware timing changes</h4>
+<p>Wirelength-driven placement treats distance or estimated routing cost as the main signal. Timing-driven placement adds information about which paths currently limit the design.</p><p>Slack-aware placement tries to distinguish a path with only a small margin from one with abundant margin, so movement on the first path receives greater priority.</p>
+<p>The timing signal must be recomputed as placement changes. Fanout changes the load seen by a driver.</p><p>Congestion can force a longer or higher-layer route. A different site type can change local delay.</p><p>Buffering, clock skew, routing detours and the final FPGA timing model can all change the slack estimated during global placement. A learned model is therefore a policy for deciding which placement changes to try under an approximate state, not a replacement for timing analysis.</p>
+<h4>What “learning-based” must specify</h4>
+<p>A reproducible account must state what the model observes, what action it selects, what objective supplies the training signal and how illegal actions are handled. The state may include cell locations, net connectivity, estimated slack, fanout, site types and congestion.</p><p>The action may move a block, adjust a region weight or choose which critical group to place next. The training objective may reward lower wirelength, improved slack, reduced overflow or a weighted combination.</p><p>Without these definitions, “learning-based” does not identify a reproducible algorithm.</p>
+<p>Training data creates a generalization question. If the model sees circuits from one architecture, device size or design family, it may learn that distribution rather than a rule that transfers to another FPGA.</p><p>A fair test separates training and evaluation circuits, reports FPGA families and resource mixes, fixes placement and routing budgets, and measures seed-to-seed variation. A model that improves only on designs used to tune it has a narrower result than one that transfers to unseen netlists and devices.</p>
+<h4>What a complete evaluation needs</h4>
+<p>Define the FPGA architecture, site capacities, clock regions, routing graph, timing constraints, congestion model, legalization procedure, learning model, training set, held-out set and compute cost. Compare against wirelength-driven placement and heuristic timing-driven placement with the same netlists, seeds, placement time, routing tool and device constraints.</p>
+<p>Report wirelength or the exact proxy, legal-placement failures, routing overflow, unrouted nets, worst negative slack, total negative slack, critical-path delay, power if available, runtime, memory, training cost and seed variance. Then run the complete placement-to-route-to-timing flow.</p><p>A lower global-placement objective or better predicted slack is not enough if legalization moves critical logic, routing fails or final timing degrades.</p>
+<p>The captured official description claims qualitative timing and placement improvement for large heterogeneous FPGA netlists. It reports no slack, wirelength, congestion, runtime, training cost, held-out-device result or cross-architecture generalization result.</p><p>The evidence supports a learning-based slack-aware placement direction, not proven FPGA timing closure or a general advantage over heuristic placement. <a href="placement-routing-and-floorplanning.html#paper-dac-2026-research1404">Recorded evidence</a></p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="affiliate"></span>Detailed routing turns connection intent into legal geometry</h2>
+<p>Placement says which objects should be near one another. Detailed routing must choose the actual path through a discrete grid of tracks, layers, vias and programmable or physical connections.</p><p>A path is useful only if it connects the required terminals, does not collide with other paths, obeys spacing and width rules, and leaves enough resources for the rest of the design.</p>
+<p>The routing record describes a versatile maze-routing algorithm. Maze routing explores a connection graph from a source toward a target.</p><p>Each graph edge represents a possible movement along a routing track, through a layer change, or through a permitted connection. The router assigns costs to edges and to congestion so that a path is not merely short but also feasible in the shared routing graph.</p>
+<p><span id="explanation-dac-2026-research1534"></span></p>
+<h3>DRΛMA maze routing: a pathfinding method must be judged on legal completion, not only on search behavior</h3>
+<h4>What detailed routing is solving</h4>
+<p>After placement, each net has terminals at fixed locations. The router has to connect them using available routing resources.</p><p>A two-terminal connection can be viewed as a path through a graph. Multi-terminal nets require a tree or a sequence of connected paths, and each selected edge consumes capacity that other nets may need.</p>
+<p>The simplest path cost is geometric length. That is not enough in a real layout.</p><p>A short path through a nearly full channel can block several remaining nets. A path with an extra via may be easier to find but add resistance, capacitance, manufacturing risk or timing delay.</p><p>A path on a preferred layer may be lower cost than the same distance on a layer with difficult rules. The router therefore needs a cost model that combines length, congestion, vias, layer preferences, design rules and, where relevant, timing sensitivity.</p>
+<h4>What maze routing means</h4>
+<p>A maze router expands candidate locations from a source until it reaches a target, then backtracks through the lowest-cost predecessor chain to recover a path. In a congested design, the first route can reserve resources needed by later nets.</p><p>Modern routers therefore use negotiated congestion, rip-up and reroute, path-history penalties, net ordering, Steiner-tree construction or other mechanisms to revise earlier decisions.</p>
+<p>“Versatile” must be made concrete. It may mean that the algorithm handles different net shapes, layer rules, congestion conditions, routing objectives or technology constraints.</p><p>Each added rule changes the graph and the cost function. An algorithm that works on a simple uniform grid may fail when tracks have direction restrictions, blockages, nonuniform capacities, via arrays, multi-patterning limits, cut layers, antenna rules or advanced-node spacing constraints.</p>
+<h4>Why legal routing is different from finding a path</h4>
+<p>Finding a graph path does not by itself prove physical legality. The graph must faithfully encode which tracks, vias and layer transitions are allowed.</p><p>After routing, design-rule checking must inspect spacing, width, enclosure, end-of-line, minimum-area, shorts, opens, antenna and other technology-specific conditions. The parasitic extraction step then determines whether the legal geometry meets timing and signal-integrity requirements; that extracted result is part of the routing claim, not an optional later detail.</p>
+<p>Routing choices also interact across nets. Rip-up and reroute can improve one connection while making another unroutable.</p><p>A lower total wirelength can come with more vias, greater congestion concentration or a worse critical path. A router that reports a complete connection set but needs extensive post-route repair has a different practical result from one that reaches signoff with fewer iterations.</p>
+<h4>What a complete evaluation needs</h4>
+<p>Define the routing graph, number and direction of layers, track capacities, via rules, blockages, design rules, net ordering, cost terms, rip-up policy, stopping rule, technology node and signoff tools. Compare classical maze routing and any commercial or open router under the same netlists, constraints, layer stack, design rules, hardware and runtime budget.</p>
+<p>Report routed-net completion, opens, shorts, design-rule violations by type, total wirelength, via count, layer usage, peak and average congestion, overflow, timing slack, signal integrity, runtime, memory, rip-up count and convergence. Test sparse and highly congested designs, high-fanout nets, blockages, irregular rules, long nets, critical nets and designs from more than one technology or rule set.</p><p>Report whether the result remains valid after extraction, timing analysis and signoff checks.</p>
+<p>The captured official description claims qualitative routing quality and runtime improvement. It reports no design-rule count, wirelength, via count, timing, congestion, runtime or signoff result.</p><p>Algorithm behavior may depend strongly on the encoded rule complexity. The evidence supports a versatile maze-routing direction, not demonstrated signoff-scale superiority or universal robustness. <a href="placement-routing-and-floorplanning.html#paper-dac-2026-research1534">Recorded evidence</a></p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>Soft rectilinear modules require both continuous shaping and discrete legality</h2>
+<p>A floorplan assigns each large block a position, width, height and sometimes a non-rectangular outline before detailed placement and routing. A soft module has a required area but can change its aspect ratio.</p><p>A rectilinear module may contain horizontal and vertical edges and may have notches or stepped boundaries. That flexibility can make it easier to pack modules around fixed blocks and routing channels, but it also makes overlap and boundary checks more complex.</p>
+<p>The floorplanning record combines a differentiable polygon-shaping model with flow-based legalization. The two parts solve different problems.</p><p>Differentiable shaping supplies a smooth signal that can move a continuous representation toward lower area, wirelength or constraint cost. Legalization converts that representation into non-overlapping modules with discrete positions, permitted edges and any required boundary or blockage constraints.</p><p>A good relaxed solution can require substantial movement before it becomes legal.</p>
+<p><span id="explanation-dac-2026-research2024"></span></p>
+<h3>Differentiable rectilinear floorplanning: a smooth polygon objective must survive discrete legalization</h3>
+<h4>What a soft rectilinear module represents</h4>
+<p>For each module, the floorplanner must preserve a target area while choosing a shape. A rectangle can vary its width and height subject to an aspect-ratio range.</p><p>A rectilinear polygon adds more possible outlines, but every edge must remain horizontal or vertical and the boundary must form a valid connected region. Notches can help one module fit around another, but they can also create narrow channels that are difficult to route or impossible to manufacture under minimum-width rules.</p>
+<p>The floorplan must satisfy non-overlap, outline, fixed-block, keep-out, power and routing constraints. Wirelength depends on the locations of module terminals, not only on the module centers.</p><p>If a module changes shape, its pins may move or become harder to access even when its area is unchanged. The objective therefore has to represent both module geometry and the connections between modules.</p>
+<h4>Why differentiability is introduced</h4>
+<p>Many floorplanning decisions are discrete: two blocks are either left/right or above/below, a boundary is either inside or outside a region, and two polygons either overlap or do not. Discrete changes make direct gradient optimization difficult.</p><p>A differentiable polygon model replaces hard decisions with continuous parameters or smooth penalties. Gradients can then indicate which shape or position change would reduce an objective.</p>
+<p>The smooth objective is a proxy. A small overlap penalty may allow modules to intersect during optimization; a smooth boundary may permit a corner or edge that is not legal; a wirelength approximation may not match the route produced after legalization.</p><p>The result is useful only if the representation can be converted without large area, wirelength, congestion or timing damage.</p>
+<h4>What flow-based legalization contributes</h4>
+<p>Legalization takes the proposed shapes and positions and assigns them to a valid arrangement. A flow formulation can model movement or assignment through a network whose capacities and costs encode available space, ordering or displacement.</p><p>It must still preserve polygon boundaries, module areas, fixed objects, non-overlap and the floorplan outline. If legalization moves modules far from their relaxed locations, the differentiable optimization was solving a different problem than the final one.</p>
+<p>The cost of legalization is part of the method. It includes displacement, shape changes, new overlaps that must be repaired, routing-channel loss and any iterations needed to recover timing or congestion.</p><p>Reporting only the continuous objective hides the central question: whether the relaxed solution is a good starting point for a legal physical design.</p>
+<h4>What a complete evaluation needs</h4>
+<p>Define the polygon representation, area and aspect-ratio constraints, minimum edge widths, allowed notches, outline, fixed blocks, keep-outs, overlap penalty, wirelength model, routing model, flow network, legalization objective and stopping rule. Compare sequence-pair floorplanning and discrete rectilinear legalization using the same module sets, constraints, seeds and compute budget.</p>
+<p>Report total area, outline utilization, wirelength, overlap before and after legalization, displacement, shape distortion, channel width, congestion, routing failures, timing, runtime and memory. Separate the relaxed result from the legalized result and then evaluate detailed routing, extraction and timing.</p><p>Test fixed macros, narrow channels, high terminal density, irregular module shapes, different module counts and cases where the relaxed optimum is near a hard boundary.</p>
+<p>The captured official description claims qualitative floorplan quality and legalization efficiency. It reports no area, wirelength, overlap, congestion, timing or runtime result.</p><p>The relaxation-to-legalization gap may be substantial. The evidence supports a differentiable polygon-shaping and flow-legalization direction, not demonstrated physical-flow improvement or universal superiority over sequence-pair and discrete methods. <a href="placement-routing-and-floorplanning.html#paper-dac-2026-research2024">Recorded evidence</a></p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="file-text"></span>Dual-side routing adds resources only when the two sides can be connected and manufactured</h2>
+<p>Conventional routing usually treats most signal paths as belonging to one primary side of the device or wafer. A dual-side process permits selected connections to use resources on both sides of the active device structure.</p><p>That can increase the available routing space and shorten some paths, but it also adds interfaces between sides. Those interfaces may have limited locations, resistance, capacitance, alignment tolerances and manufacturing rules.</p>
+<p>The Flip-FET record proposes a congestion-aware dual-side routing framework. The central problem is not simply to move a wire from the front side to the back side.</p><p>The router must decide which nets benefit from the second side, where a net crosses between sides, how the two side-specific routing graphs share capacity, and whether the resulting device and interconnect geometry can be fabricated and verified.</p>
+<p><span id="explanation-dac-2026-research2139"></span></p>
+<h3>Flip-FET dual-side routing: a second routing side is useful only if side changes, rules and yield are modeled</h3>
+<h4>What dual-side routing changes</h4>
+<p>A single-side router assigns a net's path to tracks, layers and vias in one routing domain. A dual-side router has at least two routing domains.</p><p>Each domain can have its own layer directions, track density, blockages, preferred materials and design rules. A connection between domains needs a permitted transition through a contact, via, backside connection or other process-defined structure.</p><p>The exact transition is process-specific and is not established by the captured description.</p>
+<p>This creates a choice for every suitable net. Staying on one side may avoid transition cost but encounter congestion.</p><p>Crossing sides may open a shorter or less crowded path but consume a scarce transition site and add electrical or manufacturing cost. A congestion-aware objective therefore needs more than total wirelength: it needs side-specific occupancy, transition count and location, local capacity, delay, power and rule penalties.</p>
+<h4>Why congestion is coupled across the sides</h4>
+<p>The two routing surfaces are not independent parallel grids. A dense region on one side may force many nets through the same crossing area, creating a bottleneck even if the other side has open tracks.</p><p>A crossing site can also block device contacts, power delivery or neighboring signal paths. Routing decisions must account for both the local capacity on each side and the capacity of the interfaces between them.</p>
+<p>The router may need to reserve crossing resources before all nets are known. If it assigns them greedily to early nets, later critical or high-fanout nets may be left with no legal transition.</p><p>Rip-up and reroute can recover from that decision, but the cost and convergence behavior become part of the framework. A lower two-side wirelength score does not prove lower delay if extra transitions add resistance or capacitance, or if congestion causes detours.</p>
+<h4>Why Flip-FET process assumptions matter</h4>
+<p>The device process determines which side can host which wires and contacts, how a signal crosses the device, what alignment and enclosure rules apply, and how heat, power and mechanical stress are handled. Manufacturing may impose minimum widths, spacing, overlay tolerance, contact redundancy, defect sensitivity and yield limits.</p><p>These are not details that can be inferred from a routing graph after the fact. They determine whether the graph's edges represent realizable structures.</p>
+<p>The framework therefore needs a process-aware mapping from routing decisions to physical shapes. It must distinguish an abstract route, a design-rule-clean route, an extracted route with delay and a fabrication-ready layout.</p><p>A route that is legal under a simplified two-side model may fail when contacts, backside access, power rails or yield constraints are included.</p>
+<h4>What a complete evaluation needs</h4>
+<p>Define the Flip-FET device structure, front- and back-side layers, track directions and capacities, transition structures, contact and via rules, blockages, power network, thermal assumptions, design-rule checker, extraction flow and yield model. Compare single-side routing and the conventional FET flow on the same netlists, constraints, layer budgets and compute hardware.</p>
+<p>Report routed-net completion, wirelength, side-specific utilization, transition count, congestion and overflow, design-rule violations, timing slack, power, area, runtime, memory, rip-up iterations and yield or defect sensitivity. Test critical and high-fanout nets, dense interface regions, asymmetric side capacities, power-grid interaction, process variation, overlay error and designs of different sizes.</p><p>Validate the result through extraction, timing, power, design-rule checking and, where claimed, fabrication or silicon data.</p>
+<p>The captured official description claims qualitative routing and manufacturability benefits. It reports no congestion, timing, area, yield, design-rule or process result.</p><p>Emerging-device assumptions may not transfer to mature flows. The evidence supports a congestion-aware dual-side routing direction for Flip-FET structures, not demonstrated fabrication-ready quality or universal superiority over single-side routing. <a href="placement-routing-and-floorplanning.html#paper-dac-2026-research2139">Recorded evidence</a></p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>Multi-row complementary-FET cells couple device geometry to pin access</h2>
+<p>A standard cell is a reusable layout unit with defined height, power interfaces and signal pins. A complementary-FET cell contains complementary transistor networks that implement the logic function.</p><p>In a multi-row cell, those devices and their routing resources span more than one row or organized device band. This can create more room for devices or allow a more compact arrangement, but it changes which diffusion regions, gates, contacts and wires can be shared or reached.</p>
+<p>Cell synthesis must satisfy two different contracts. The internal geometry must obey device and manufacturing rules.</p><p>The cell boundary must expose pins and power connections in positions that the chip-level placer and router can use. A cell can be area-efficient inside its boundary and still be a poor library element if its pins are blocked, its pin-access directions are restrictive, or its timing and extraction models are not characterized.</p>
+<p><span id="explanation-dac-2026-research2416"></span></p>
+<h3>Multi-row complementary-FET layout synthesis: compact device geometry is useful only when the cell remains routable and reusable</h3>
+<h4>What layout synthesis is choosing</h4>
+<p>The standard cell synthesis process maps a logic function into transistors, diffusion or active regions, gates, contacts, local interconnect and higher-level wires. It chooses device positions, orientations, shared regions, contact locations, pin shapes, power rails and the cell boundary.</p><p>In a multi-row arrangement, a signal may need to cross between rows or between device regions, so row alignment and available access tracks become part of the logic implementation.</p>
+<p>Area is not just the rectangle around the cell. A smaller cell may reduce the footprint of every instance, but it can also reduce the space around pins and power rails.</p><p>If a pin is reachable only from one direction, neighboring cells may block it when abutted. If a shared diffusion or contact saves area, it may couple devices that require different electrical or layout conditions.</p><p>The synthesis objective must therefore include access and reuse constraints, not only cell width or transistor count.</p>
+<h4>Why complementary-FET and multi-row structure matters</h4>
+<p>Complementary device networks have distinct pull-up and pull-down structures and may need different diffusion, well, gate and contact relationships. A multi-row organization changes their relative placement and the path by which local interconnect reaches the cell boundary.</p><p>The legal arrangement depends on the process design rules: minimum dimensions, spacing, enclosure, contact cuts, well or isolation requirements, layer directions, density and permitted device orientations.</p>
+<p>These rules also affect routability. A layout with the right Boolean connectivity can still fail because a contact cannot be placed, a wire cannot leave a pin, a local track is blocked, or a neighboring cell creates a spacing violation.</p><p>A routability-driven synthesizer should model the actual access geometry or a validated proxy for it. A generic count of open terminals is not enough if all terminals compete for the same track or direction.</p>
+<h4>Area optimality and routability can conflict</h4>
+<p>Sharing diffusion or aligning devices can lower area and reduce local parasitic length. The same sharing can force pins into a narrow region or make a critical internal connection longer.</p><p>Adding a track or widening a boundary may improve access while increasing cell area. The relevant comparison is therefore multi-objective: area, pin accessibility, internal and external wirelength, congestion, parasitic delay, power and manufacturability must be evaluated together.</p>
+<p>An “area-optimal” result is meaningful only after the constraints and denominator are fixed. State whether area means cell bounding-box area, active area, routing-inclusive area or a library-level footprint including spacing.</p><p>State whether routability is measured by a pin-access checker, a detailed router, estimated overflow or completed chip-level placement and routing. These measurements answer different questions and must not be substituted for one another.</p>
+<h4>Why library integration is a separate test</h4>
+<p>A synthesized cell becomes useful only if it can be characterized and instantiated repeatedly. Characterization needs extracted parasitics, timing arcs, power behavior, signal slew and load ranges.</p><p>Integration needs compatible height or row structure, power rails, abutment rules, pin naming, legal orientations and a router that understands the cell's access points. A cell that works in isolation may fail when placed beside another cell or when many instances create a repeated congestion pattern.</p>
+<h4>What a complete evaluation needs</h4>
+<p>Define the complementary-FET process, device and routing layers, row organization, cell boundary, power rails, allowed orientations, sharing rules, design-rule checker, extraction tool, characterization flow and library interface. Compare single-row synthesis and area-only synthesis with the same Boolean cells, constraints, process rules and compute budget.</p>
+<p>Report cell area under a stated definition, transistor and contact count, pin-access failures, internal wirelength, external routability, congestion, design-rule violations, extracted delay, slew, power, leakage, runtime and yield or manufacturability checks. Include extracted parasitics, not only geometric distance.</p><p>Test simple and high-fanout cells, dense pin patterns, shared-device opportunities, different drive strengths, abutted neighbors and repeated instances in a placed-and-routed design.</p>
+<p>The captured official description claims qualitative area and routability benefits. It reports no area, pin-access, routing, timing, yield or process result.</p><p>Area-optimal solutions may be difficult to integrate into a library. The evidence supports area- and routability-driven multi-row complementary-FET layout synthesis, not demonstrated signoff-ready library quality or universal superiority over single-row and area-only synthesis. <a href="placement-routing-and-floorplanning.html#paper-dac-2026-research2416">Recorded evidence</a></p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="alert-triangle"></span>Detailed placement must improve timing without breaking legal cell geometry</h2>
+<p>Global placement chooses broad locations; detailed placement makes local changes such as moving a cell to a neighboring site, swapping cells, changing orientation, or compacting whitespace. These changes can improve a critical connection, but they must preserve row alignment, legal orientations, site occupancy, cell overlap rules, density limits and access to power and routing resources.</p>
+<p>The LATTE record combines differentiable timing-driven optimization with a legality guarantee. The two words describe different obligations.</p><p>Differentiability supplies a continuous direction for improving an objective. Legality means that the resulting cell arrangement satisfies discrete placement constraints.</p><p>A smooth optimizer can guide movement, but the method needs a mechanism that prevents or repairs overlaps and density violations rather than assuming that a low objective is automatically legal.</p>
+<p><span id="explanation-dac-2026-research373"></span></p>
+<h3>LATTE detailed placement: a timing gradient matters only when the final cell arrangement remains legal</h3>
+<h4>What detailed placement is changing</h4>
+<p>A standard-cell row provides discrete legal sites with fixed or restricted heights, orientations and power-rail relationships. Detailed placement operates within that structure.</p><p>It may reorder neighboring cells, shift cells within whitespace, or exchange positions so that important pins and drivers become closer. The change must maintain non-overlap, row membership, placement blockages, density limits, well or implant requirements and legal cell orientations.</p>
+<p>Timing is affected by more than center-to-center distance. A cell's drive strength, input capacitance, fanout, pin location, wire layer, buffering and local congestion influence delay.</p><p>Moving one cell can improve one net while crowding another region or changing the load of a neighboring path. A timing-driven objective therefore needs a timing model and a clear definition of what is estimated during placement.</p>
+<h4>What differentiability contributes</h4>
+<p>Many placement variables are discrete, but gradients are easier to use on continuous coordinates or smooth approximations of density, wirelength and timing. A differentiable method can calculate how a small movement is expected to change the objective and repeatedly update cell positions.</p><p>This can make timing optimization more systematic than a sequence of hand-designed swaps.</p>
+<p>The gradient is still a proxy. It may be computed from estimated wirelength and approximate RC rather than the final routed parasitics.</p><p>It may also point through an overlap or into a region that violates a site or density constraint. The method is meaningful only if the legality mechanism is part of the optimization or if any repair step is measured as part of the result.</p>
+<h4>What legality assurance must mean</h4>
+<p>“Legality-assured” should identify the invariant being preserved and the point at which it is checked. Possible conditions include no cell overlap, legal row and site assignment, allowed orientation, density bounds, blockage compliance, pin accessibility and design-rule constraints.</p><p>A penalty that makes violations expensive is not the same as a proof that violations cannot occur. A post-optimization legalizer can produce a legal result, but if it moves cells substantially, the timing objective was evaluated on a different arrangement.</p>
+<p>The evaluation must therefore separate three states: the differentiable intermediate placement, the legal detailed placement, and the routed and extracted design. Timing should be measured at each relevant state, with the final claim based on static timing analysis after routing rather than on the smooth objective alone.</p>
+<h4>What a complete evaluation needs</h4>
+<p>Define the cell rows and sites, legal orientations, blockages, density limits, overlap representation, timing engine, RC model, slack calculation, gradient objective, legality mechanism, legalizer, routing flow and stopping rule. Compare analytic detailed placement and timing-oblivious differentiable placement with the same netlists, libraries, timing constraints, seeds and compute budget.</p>
+<p>Report worst and total negative slack, critical-path delay, wirelength, density and overflow, overlap count, illegal-site count, legalization displacement, pin-access failures, congestion, runtime, memory, convergence and timing-repair iterations. Then route and extract every comparison, rerun STA at stated corners and report whether the ranking survives final timing.</p><p>Test high-density regions, macros and blockages, high-fanout nets, short-path and long-path timing limits, and designs with different cell distributions.</p>
+<p>The captured official description claims qualitative timing and legality benefits. It reports no slack, wirelength, density, legality, runtime or signoff result.</p><p>Differentiable relaxations may miss discrete legal constraints. The evidence supports a legality-aware differentiable detailed-placement direction, not demonstrated final timing closure or universal superiority over analytic and timing-oblivious placement. <a href="placement-routing-and-floorplanning.html#paper-dac-2026-research373">Recorded evidence</a></p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>Gate sizing changes timing and power through the same electrical variables</h2>
+<p>Gate sizing chooses the strength or drive option of a logic cell. A larger cell can charge and discharge a downstream load faster because it can supply more current, but it usually presents more input capacitance and may consume more area, leakage power or dynamic power.</p><p>A smaller cell can save power and area while increasing delay. The choice also changes the load seen by the previous stage, so a local improvement can move the cost to another part of the path.</p>
+<p>The timing-power co-optimization record uses a differentiable method and calls its sizing mechanism “quad-gradient.” The captured description does not define the four gradients or the way they are combined. That name is therefore not treated as a specific mathematical guarantee.</p><p>The important conceptual question is whether the gradient signals represent timing, power and their interactions accurately enough to choose discrete library cells and still improve the extracted, signoff-checked design.</p>
+<p><span id="explanation-dac-2026-research843"></span></p>
+<h3>Differentiable timing–power gate sizing: a continuous gradient must end in a valid discrete cell choice</h3>
+<h4>What gate sizing changes in a circuit</h4>
+<p>Each logic instance usually selects one cell from a library family. The variants implement the same Boolean function with different transistor sizes or drive strengths.</p><p>Selecting a stronger variant can reduce the delay of a heavily loaded transition, but it can increase the input capacitance that the previous cell must drive. It can also increase switching energy, leakage, area and local power density.</p>
+<p>Sizing is therefore a network problem, not an independent choice per cell. The delay of a path depends on gate delay, wire resistance and capacitance, input slew, output load, fanout, buffering and operating corner.</p><p>Power depends on switching activity, capacitance, voltage, frequency, leakage state and the selected cells. A sizing change can improve one critical path, make another path critical, or violate a power budget elsewhere.</p>
+<h4>Why a differentiable sizing model is difficult</h4>
+<p>The library choice is discrete. A cell may have drive options such as X1, X2 and X4, but there is no physical X2.7 cell simply because a continuous optimizer requests it.</p><p>A differentiable method can represent a relaxed mixture, a continuous strength variable or a smooth surrogate for library choices. That representation provides a direction for optimization, but it must eventually be projected or rounded to an actual cell.</p>
+<p>Rounding can change timing and power discontinuously. A relaxed point between two sizes may look attractive because it averages their costs, while either legal cell produces a different slew, load, leakage and path delay.</p><p>The method should therefore report both relaxed optimization and the discrete mapped netlist, including any repair iterations required after mapping.</p>
+<h4>What timing and power gradients must capture</h4>
+<p>A timing gradient should identify how a cell-size change affects path delay and slack through its own output and through the loads it presents upstream. A power gradient should distinguish dynamic switching from leakage and should state the activity, voltage, frequency and corner assumptions.</p><p>If the objective combines them, the weighting or constraint must be explicit: reducing power by a fixed amount is not equivalent to recovering one unit of slack.</p>
+<p>The term “quad-gradient” does not, from the captured source alone, tell us whether the four signals refer to rise/fall timing, setup/hold timing, timing/power components or another decomposition. A reproducible paper-level account must define each gradient, its units, its update schedule, its normalization and how conflicting directions are resolved.</p><p>Without that information, the mechanism can be understood as differentiable timing-power co-optimization, but not independently reconstructed from the title.</p>
+<h4>Why signoff validation is required</h4>
+<p>The optimization may use approximate cell models, wireload estimates or differentiable surrogates. Legal library mapping, buffering, routing and parasitic extraction change the electrical network.</p><p>Final static timing analysis can expose setup or hold violations that the relaxed objective missed. Power analysis can change after real switching activity, clock-tree effects, glitches, leakage corners and routed capacitance are included.</p>
+<h4>What a complete evaluation needs</h4>
+<p>Define the cell library and drive options, timing and power models, activity assumptions, voltage and frequency, corners, setup/hold constraints, gradient decomposition, objective weights or constraints, discrete mapping rule, repair policy, routing flow and extraction tool. Compare heuristic gate sizing and single-objective differentiable sizing with the same netlists, initial cells, constraints, seeds and compute budget.</p>
+<p>Report worst and total negative slack, setup and hold violations, critical-path delay, dynamic and leakage power, area, cell-count changes, slew, capacitance, convergence, runtime, memory, discrete-rounding loss and repair iterations. Route and extract all final netlists, rerun multi-corner STA and power analysis, and report whether the timing-power tradeoff survives.</p><p>Test low- and high-activity designs, fanout-heavy paths, multiple voltage corners, hold-limited paths and designs not used to tune the model.</p>
+<p>The captured official description claims a qualitative timing-power tradeoff. It reports no slack, power, area, convergence, runtime or signoff result, and it does not define the four gradients.</p><p>Continuous gradients may misrepresent discrete library behavior. The evidence supports a differentiable timing-power sizing direction, not demonstrated signoff improvement or universal superiority over heuristic and single-objective sizing. <a href="placement-routing-and-floorplanning.html#paper-dac-2026-research843">Recorded evidence</a></p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="route"></span>Parallel routing depends on how the netlist is divided</h2>
+<p>A netlist records which circuit pins must be connected. A parallel router divides the work among workers or regions so that multiple routing tasks can proceed at the same time.</p><p>The division changes the problem: a net whose terminals fall in different partitions becomes a boundary or cut net, and workers must coordinate to route it without conflicting over shared tracks.</p>
+<p>Partition quality therefore has at least two dimensions. Work must be balanced so that one worker does not become the serial bottleneck.</p><p>Connectivity should remain local so that fewer nets cross partition boundaries and less synchronization is needed. These goals can conflict.</p><p>A balanced partition can cut many long or high-fanout nets; a locality-preserving partition can place most difficult routing work in one region.</p>
+<p><span id="explanation-dac-2026-research320"></span></p>
+<h3>SAAP spatial-aware partitioning: a partition is useful only when locality, balance and boundary routing improve together</h3>
+<h4>What a VLSI netlist partition represents</h4>
+<p>A partition assigns cells or netlist objects to groups. A graph model treats cells as vertices and connections as edges.</p><p>A hypergraph model represents a multi-terminal net directly, because cutting one net can affect several partitions at once. A spatial-aware model adds physical information such as cell coordinates, estimated bounding boxes, routing demand and region capacity.</p>
+<p>The partitioner typically tries to minimize cut cost while keeping group sizes or estimated work within bounds. Cut size alone is not enough.</p><p>Cutting a short low-fanout net may be cheap, while cutting a long timing-critical or high-fanout net may create many boundary connections. A spatial partition should account for the location and routing demand of the cut nets, not merely the number of graph edges.</p>
+<h4>Why parallel routing needs both locality and balance</h4>
+<p>If each worker owns a compact physical region, most local nets can be routed without communication. That reduces shared-state contention and makes memory access more predictable.</p><p>Boundary nets still require coordination: the workers need compatible entry points, reserved tracks, layer assignments and a rule for resolving conflicts.</p>
+<p>If one worker receives a dense region, many high-fanout nets or the most difficult blockages, total runtime is determined by that worker even when other workers finish early. A partitioning objective can therefore include estimated routing work, congestion, net degree, cut penalties and region capacity.</p><p>The weights must be measured against actual routing time; a proxy that balances cell counts may not balance route search or rip-up work.</p>
+<h4>What spatial awareness can and cannot do</h4>
+<p>Spatial coordinates can expose locality that an abstract graph misses. Two cells connected by a net may be adjacent in the layout, while another graph connection may span a large region and require multiple routing resources.</p><p>Spatial information can guide partition boundaries away from dense channels or keep strongly connected nearby objects together.</p>
+<p>It cannot remove the physical coupling at a boundary. A partition line can cut a narrow routing corridor, concentrate crossings at a few pins, or separate a net's terminals even when the cells themselves are balanced.</p><p>Independent local routers can also choose paths that look valid within each region but conflict at the shared boundary. The partitioner must therefore be evaluated with the parallel router and its boundary protocol, not as an isolated graph score.</p>
+<h4>What a complete evaluation needs</h4>
+<p>Define the graph or hypergraph representation, spatial features, partition count, balance constraint, cut-net cost, routing-work estimate, boundary ownership, shared-resource protocol, synchronization method and router. Compare graph partitioning without spatial awareness and serial routing under the same netlists, technology, routing rules, hardware, worker count and termination criteria.</p>
+<p>Report cut size by net class, partition imbalance, boundary crossings, congestion, routing overflow, unrouted nets, design-rule violations, wirelength, timing, parallel speedup, total runtime, worker idle time, memory, communication volume and reproducibility across seeds. Separate algorithm time from data preparation and final verification.</p><p>Test sparse and dense layouts, high-fanout nets, irregular blockages, different partition counts, uneven routing demand and designs larger than the tuning set.</p>
+<p>The captured official description claims qualitative routing scalability and partition quality. It reports no cut size, congestion, routing success, runtime or scale result.</p><p>Partitions may create boundary congestion. The evidence supports a spatial-aware analytic partitioning direction for parallel routing, not demonstrated end-to-end speedup, routing completion or signoff-routing superiority. <a href="placement-routing-and-floorplanning.html#paper-dac-2026-research320">Recorded evidence</a></p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>Backside power delivery moves the power network, not the verification burden</h2>
+<p>Power delivery supplies current to transistors and returns it through a network of metal layers, contacts and sources. The resistance of that network causes voltage loss when current flows.</p><p>This loss is IR drop. A larger local drop reduces the voltage available to a cell and can slow it down or make its behavior less reliable.</p><p>Current density can also create electromigration risk, and the power network interacts with heat and signal routing.</p>
+<p>Backside power delivery places selected power-distribution resources on the side of the die opposite the main signal-routing surface. The intended benefit is to free frontside routing space or shorten parts of the power path.</p><p>The change introduces process-specific connections between the backside network and the device layer, plus constraints from alignment, resistance, thermal flow, mechanical structure and manufacturing yield.</p>
+<p><span id="explanation-dac-2026-research335"></span></p>
+<h3>BSPDN-Elite: a backside power network is useful only when IR drop, timing, routing and process rules are solved together</h3>
+<h4>What a BSPDN design is changing</h4>
+<p>In a conventional frontside power-delivery arrangement, signal interconnect and power rails compete for some of the same routing layers and area. A backside power-distribution network can move selected power paths away from those signal resources.</p><p>This changes the optimization problem: the framework must choose power-network geometry, connections through the device stack, signal-routing resources, placement or cell assumptions and operating conditions together.</p>
+<p>The power network is a spatial electrical network. Each segment has resistance, and each load draws current that varies with activity and time.</p><p>The voltage at a load is the source voltage minus the drops along the current path. If nearby loads share a narrow or resistive path, their drops can interact.</p><p>A design with lower average resistance may still have a local worst-case drop at a high-current region.</p>
+<h4>Why power, timing and routing are coupled</h4>
+<p>IR drop changes the voltage seen by cells, which changes delay and possibly slew. Timing repair may add or resize cells, increasing current and changing the power network's load.</p><p>Moving signal routes to free space for power can increase wirelength, capacitance or congestion. Moving power resources to the backside can require special vias or contacts that consume area and have their own resistance and reliability limits.</p>
+<p>These effects create feedback rather than independent objectives. A framework that minimizes power-network resistance without checking signal routing can create frontside congestion elsewhere.</p><p>A framework that minimizes congestion without solving the current distribution can leave a timing-critical region under-supplied. Combining scores is not enough unless each score is calibrated, constrained and recomputed after the physical design changes.</p>
+<h4>What process assumptions control the result</h4>
+<p>Backside power delivery depends on the process stack: available backside metals, connection structures, contact resistance, alignment tolerance, thermal path, mechanical support, design rules and yield model. The allowed path from the backside network to device power pins determines whether an abstract edge in the optimization graph corresponds to a manufacturable structure.</p><p>Process variation can change both resistance and current distribution.</p>
+<p>The framework must distinguish an estimated power network from a routed and extracted network. It must also state whether the reported timing uses voltage-aware cell models, whether IR drop is static or dynamic, how temperature is modeled, and which corners or workloads are checked.</p><p>Without these conditions, a claimed improvement may be specific to a simplified stack or a particular node.</p>
+<h4>What a complete evaluation needs</h4>
+<p>Define the frontside and backside layer stacks, power sources, load currents, backside-to-device connection structures, resistance and capacitance models, IR-drop analysis, electromigration rules, thermal model, signal-routing constraints, timing corners, extraction tools and process-yield assumptions. Compare frontside power delivery and single-objective BSPDN optimization with the same netlists, placement, activity, voltage, frequency, routing flow and compute budget.</p>
+<p>Report worst and distributional IR drop, current density, electromigration margin, timing slack, setup and hold violations, dynamic and leakage power, area, signal congestion, transition count, thermal distribution, runtime, memory, yield sensitivity and repair iterations. Re-run extraction, voltage-aware timing, power integrity, thermal and design-rule checks on the final routed design.</p><p>Test high-current blocks, uneven activity, dense signal regions, voltage corners, temperature variation and more than one process or stack when transfer is claimed.</p>
+<p>The captured official description claims qualitative timing, power and routing benefits. It reports no IR drop, timing, power, congestion, thermal, yield or runtime result.</p><p>Backside process assumptions may not transfer across nodes. The evidence supports a multi-objective BSPDN design direction, not demonstrated signoff integrity, process portability or universal superiority over frontside delivery and single-objective optimization. <a href="placement-routing-and-floorplanning.html#paper-dac-2026-research335">Recorded evidence</a></p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>Compare completed designs under the same rules</h2>
+<p>Use the same circuit, cell library, physical constraints, and routing flow. State which results come from initial placement, legal placement, detailed routing, and final checks. Report unrouted connections, rule violations, timing failures, and repair effort as well as favorable scores.</p>
+<p>Measure total runtime and resources, including final evaluation and repair. Vary design size and structural difficulty.</p><p>The useful conclusion is that a particular choice improves completed valid designs under stated conditions. A faster intermediate optimization step remains a narrower result until its effect on completion is established.</p>
+<p class="lm-k h-label">Compare the results carefully</p><h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="route"></span>How to compare these papers’ results fairly</h2>
+<p>First identify the inputs and required output quality. Then identify the limited resource: time, memory, communication, energy, circuit area, or correctness coverage.</p><p>Ask which part of the method reduces that cost and which new cost it adds. Compare numbers only when the experiments hold these conditions sufficiently similar.</p>
+<p>A conference description may explain the proposal while omitting the full experiment. An author preprint link may have been coded from its abstract. The source classification does not by itself establish that every table was read. Missing locations remain visible below.</p>
+<p class="lm-k h-label">Complete captured evidence</p><h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="file-text"></span>Every paper in this subtheme, with what its source shows</h2>
+<p>These are evidence records, not substitutes for the explanations above. Each record preserves its problem, proposed method, measurements, comparison conditions, and source limits. A populated record does not establish that its mechanism has been fully explained or independently verified.</p>
+<p><span id="paper-dac-2026-research2006"></span></p>
+<h3>Cell-Structure-Independent Transistor-Level Placement and MOL-Aware Routing Framework Beyond the Standard-Cell Paradigm</h3>
+<p>DAC 2026 · Record: <code>dac-2026-research2006</code></p>
+<p><a href="#explanation-dac-2026-research2006">Read the step-by-step explanation</a></p>
+<p><strong>Updated source-backed reading card</strong></p>
+<div class="worked"><p class="lm-k">Worked example</p><p>Reviewed 2026-09-08. Deepens the existing cell-structure-independent placement treatment into a paper-level reading; defines the standard-cell boundary, transistor-level freedom and MOL/M0 routing constraint, and separates abstract wirelength/area from legal routed and signoff-ready design quality.</p></div>
+<p>This editorial correction updates the current reading view and connected dossiers, not the historical adjudication or scientific acceptance status. The original captured fields are preserved below.</p>
+<p><a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/data/editorial-paper-corrections-v1.json">Correction register</a></p>
+<p><strong>Problem:</strong></p>
+<p>Fixed standard-cell boundaries constrain pin access, M0/MOL routing, wirelength and area optimization at advanced technology nodes.</p>
+<p><strong>Mechanism / artifact:</strong></p>
+<p>Transistor-level placement independent of fixed cell structure coupled to an MOL-aware routing engine; device representation, placement objective, lower-level routing rules, extraction and signoff flow are unspecified.</p>
+<p><strong>Workload — the work tested:</strong></p>
+<p>VLSI designs evaluated against a commercial standard-cell flow and prior transistor-level work; circuit suite, design size, netlist structure, technology node, timing/power constraints and metrics are unspecified.</p>
+<p><strong>Hardware and manufacturing assumptions:</strong></p>
+<p>Advanced-node transistor-level physical design with dense pin access and MOL/M0 routing resources; PDK, design rules, device models, extraction, corners, power grid and signoff assumptions are unspecified.</p>
+<p><strong>Baseline — the comparison method:</strong></p>
+<p>Commercial standard-cell-based design tool</p>
+<p>State-of-the-art transistor-level work</p>
+<p>Netlist, technology, routing, extraction, timing, power, resource and signoff conditions are unspecified</p>
+<p><strong>Reported measurements:</strong></p>
+<p>Wirelength and design-area improvement are claimed qualitatively; no numeric wirelength, area, timing, power, leakage, congestion, unrouted-net, design-rule, runtime, memory or signoff result is reported.</p>
+<p><strong>Limits on the conclusion:</strong></p>
+<p>Removing standard-cell boundaries expands device placement choices but also removes characterized interfaces and predictable routing abstractions. Lower abstract wirelength or transistor area does not guarantee legal MOL/M0 access, lower delay, lower power or final area after routing, extraction and repair.</p>
+<p>MOL-aware routing must handle terminal access, local tracks, contacts, spacing, enclosure, shorts, power connections and later-layer interactions. A higher-level placement score cannot establish that every required transistor connection can be manufactured.</p>
+<p>The official description reports no numeric PPA, timing, power, routability, design-rule or technology-node result. The record supports a broader transistor-level physical-design direction, not proven signoff-ready improvement.</p>
+<p><strong>Source and location</strong></p>
+<p>Evidence tier: Primary captured official DAC description plus existing chapter level cell structure independent placement discussion; no full paper extraction, mol/m0 reproduction or signoff validation. This is the stored source classification; the location and limits below determine what was actually read.</p>
+<p><a href="https://63dac.conference-program.com/?post_type=page&amp;p=16&amp;id=RESEARCH2006&amp;sess=sess132">Open the recorded source</a></p>
+<p>DAC 2026 official description; captured Problem, Mechanism / artifact, Workload, Hardware, Baseline, Measurements and Limits fields; record RESEARCH2006; no manuscript pages.</p>
+<details markdown="1">
+<summary>Original captured fields — superseded for this reading card</summary>
+
+** page source tier:** medium_official_description
+
+**Baselines:** commercial standard-cell-based design tool
+
+state-of-the-art transistor-level work
+
+**Evidence locators:** DAC 2026 official description
+
+**Evidence url:** https://63dac.conference-program.com/?post_type=page&amp;p=16&amp;id=RESEARCH2006&amp;sess=sess132
+
+**Hardware or process assumptions:** Advanced-node transistor-level physical design with dense pin access and MOL/M0 routing resources; PDK, design rules, extraction, and signoff assumptions are unspecified.
+
+**Limits:** The description omits numeric PPA results, timing/power impacts, routability, design-rule compliance, and technology-node details.
+
+Relaxing cell structure may increase design complexity, variability, and verification/signoff cost.
+
+Official description only; physical-design claims require paper-level and signoff-condition verification.
+
+**Method or artifact:** Transistor-level placement independent of fixed cell structure coupled to an MOL-aware routing engine.
+
+**Metrics:** Wirelength improvement claimed qualitatively
+
+Design-area improvement claimed qualitatively
+
+**Problem:** Fixed standard-cell boundaries constrain pin access, M0/MOL routing, wirelength, and area optimization at advanced technology nodes.
+
+**Workload or benchmark:** VLSI designs evaluated against a commercial standard-cell flow and prior transistor-level work; circuit suite, technology node, timing/power constraints, and metrics are unspecified.
+
+</details>
+<p><span id="paper-dac-2026-research2133"></span></p>
+<h3>Toward True-3D Timing-Driven Analytical Global Placement for Mixed-Size Face-to-Face 3D ICs</h3>
+<p>DAC 2026 · Record: <code>dac-2026-research2133</code></p>
+<p><a href="#explanation-dac-2026-research2133">Read the step-by-step explanation</a></p>
+<p><strong>Updated source-backed reading card</strong></p>
+<div class="worked"><p class="lm-k">Worked example</p><p>Reviewed 2026-09-08. Deepens the existing true-3D placement treatment into a paper-level reading; defines mixed-size analytical placement and vertical interconnect, separates timing proxies and differentiable boundaries from legal routed 3D implementation, and makes bonding, thermal, STA and signoff conditions explicit.</p></div>
+<p>This editorial correction updates the current reading view and connected dossiers, not the historical adjudication or scientific acceptance status. The original captured fields are preserved below.</p>
+<p><a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/data/editorial-paper-corrections-v1.json">Correction register</a></p>
+<p><strong>Problem:</strong></p>
+<p>Timing optimization remains underdeveloped in analytical placement for mixed-size face-to-face 3D ICs with vertical interconnects and hybrid bonding.</p>
+<p><strong>Mechanism / artifact:</strong></p>
+<p>Timing-driven net weighting and differentiable macro-boundary-aware true-3D initialization adaptable to 3D and multi-die 2D placement; weighting, boundary penalty, die assignment, bonding, routing and signoff models are unspecified.</p>
+<p><strong>Workload — the work tested:</strong></p>
+<p>Mixed-size face-to-face 3D IC placement with STA and RC timing; designs, die assignments, macro sizes, bond density, timing paths, technology, metrics and baselines are unspecified.</p>
+<p><strong>Hardware and manufacturing assumptions:</strong></p>
+<p>Hybrid-bonded or micro-bump 3D ICs with multi-die placement and vertical interconnect; process, thermal, power, bonding, alignment, routing, extraction, RC and STA assumptions are unspecified.</p>
+<p><strong>Baseline — the comparison method:</strong></p>
+<p>Timing-oblivious analytical placement</p>
+<p>Prior 3D global-placement methods</p>
+<p>Netlist, die stack, routing, legalization, extraction, timing, thermal and signoff conditions are unspecified</p>
+<p><strong>Reported measurements:</strong></p>
+<p>Timing-aware placement capability is claimed qualitatively; no wirelength, vertical-crossing, timing/slack, congestion, thermal, power, runtime, memory, legalization or signoff result is reported.</p>
+<p><strong>Limits on the conclusion:</strong></p>
+<p>In face-to-face 3D placement, coordinate distance is not the full wire path. Hybrid bonds or micro-bumps have sites, alignment, electrical, thermal and mechanical constraints; a smooth analytical position can change during legalization and routing.</p>
+<p>Timing weights depend on RC, fanout, driver, layers, vertical crossings and slack. A differentiable macro-boundary penalty is an approximation to discrete legal placement, blockage, power, thermal and bonding rules; improving the proxy does not establish timing closure.</p>
+<p>The official description reports no wirelength, timing, congestion, thermal or runtime result. The record supports a 3D analytical-placement direction, not demonstrated timing closure or manufacturing-ready 3D quality.</p>
+<p><strong>Source and location</strong></p>
+<p>Evidence tier: Primary captured official DAC description plus existing chapter level true 3d placement discussion; no full paper extraction, 3d routing/thermal validation or signoff experiment. This is the stored source classification; the location and limits below determine what was actually read.</p>
+<p><a href="https://63dac.conference-program.com/?post_type=page&amp;p=16&amp;id=RESEARCH2133&amp;sess=sess132">Open the recorded source</a></p>
+<p>DAC 2026 official description; captured Problem, Mechanism / artifact, Workload, Hardware, Baseline, Measurements and Limits fields; record RESEARCH2133; no manuscript pages.</p>
+<details markdown="1">
+<summary>Original captured fields — superseded for this reading card</summary>
+
+** page source tier:** medium_official_description
+
+**Baselines:** timing-oblivious analytical placement
+
+prior 3D global-placement methods
+
+**Evidence locators:** DAC 2026 official description
+
+**Evidence url:** https://63dac.conference-program.com/?post_type=page&amp;p=16&amp;id=RESEARCH2133&amp;sess=sess132
+
+**Hardware or process assumptions:** Hybrid-bonded or micro-bump 3D ICs with multi-die placement and vertical interconnect; process, thermal, power, and bonding constraints are unspecified.
+
+**Limits:** The description omits wirelength, timing, congestion, thermal, and runtime results.
+
+RC and STA approximations may not capture bonding, thermal, or signoff effects.
+
+Official description only; physical-design claims require paper-level signoff validation.
+
+**Method or artifact:** Timing-driven net weighting and differentiable macro-boundary-aware true-3D initialization adaptable to 3D and multi-die 2D placement.
+
+**Metrics:** Timing-aware placement capability claimed qualitatively
+
+**Problem:** Timing optimization remains underdeveloped in analytical placement for mixed-size face-to-face 3D ICs with vertical interconnects and hybrid bonding.
+
+**Workload or benchmark:** Mixed-size face-to-face 3D IC placement with STA and RC timing; designs, technology, timing metrics, and baselines are unspecified.
+
+</details>
+<p><span id="paper-dac-2026-research1290"></span></p>
+<h3>Analytically-Derived Hybrid Net–pin Weighting for Timing-Driven Global Placement</h3>
+<p>DAC 2026 · Record: <code>dac-2026-research1290</code></p>
+<p><a href="#explanation-dac-2026-research1290">Read the step-by-step explanation</a></p>
+<p><strong>Updated source-backed reading card</strong></p>
+<div class="worked"><p class="lm-k">Worked example</p><p>Reviewed 2026-09-08. Deepens the existing hybrid net–pin weighting treatment into a paper-level reading; defines net/sink criticality, separates analytical placement objective values from post-route timing, and makes timing-model, congestion, convergence and final-STA requirements explicit.</p></div>
+<p>This editorial correction updates the current reading view and connected dossiers, not the historical adjudication or scientific acceptance status. The original captured fields are preserved below.</p>
+<p><a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/data/editorial-paper-corrections-v1.json">Correction register</a></p>
+<p><strong>Problem:</strong></p>
+<p>Timing-driven placement must balance wirelength and critical-path delay while avoiding unstable heuristic weighting.</p>
+<p><strong>Mechanism / artifact:</strong></p>
+<p>Analytical hybrid weighting of nets and pins integrated into global placement optimization; weighting derivation, slack/criticality inputs, timing model, congestion model, update rule and objective are unspecified.</p>
+<p><strong>Workload — the work tested:</strong></p>
+<p>Timing-driven circuit placement benchmarks; netlist size, fanout, critical paths, technology, timing engine, congestion, constraints, convergence and benchmark suite are unspecified.</p>
+<p><strong>Hardware and manufacturing assumptions:</strong></p>
+<p>ASIC global placement with timing constraints and interconnect delay estimation; technology node, cell library, RC model, legalization, routing, extraction and timing corners are unspecified.</p>
+<p><strong>Baseline — the comparison method:</strong></p>
+<p>Wirelength-driven placement</p>
+<p>Heuristic timing-weighted placement</p>
+<p>Netlist, timing model, congestion, compute budget, routing and final-STA conditions are unspecified</p>
+<p><strong>Reported measurements:</strong></p>
+<p>Timing and placement quality improvements are claimed qualitatively; no wirelength, worst negative slack, total negative slack, critical-path delay, congestion, runtime, memory, convergence or benchmark result is reported.</p>
+<p><strong>Limits on the conclusion:</strong></p>
+<p>A net-level weight treats all sinks alike, while one pin may be critical and another may have slack or a different load. Hybrid net–pin weights can guide an estimated objective, but their value depends on slack, fanout, RC, congestion and timing-model assumptions.</p>
+<p>A lower placement objective does not guarantee lower final delay. Legalization, buffering, detailed routing, layer assignment, parasitic extraction and operating corners can change the critical path; improving one sink can increase another sink's load or create congestion.</p>
+<p>The official description reports no wirelength, worst negative slack, congestion, runtime or benchmark details. The record supports analytical net–pin weighting, not established timing closure or universal superiority over heuristic weighting.</p>
+<p><strong>Source and location</strong></p>
+<p>Evidence tier: Primary captured official DAC description plus existing chapter level hybrid net–pin weighting discussion; no full paper extraction, routed timing validation or reproducible benchmark comparison. This is the stored source classification; the location and limits below determine what was actually read.</p>
+<p><a href="https://63dac.conference-program.com/?post_type=page&amp;p=16&amp;id=RESEARCH1290&amp;sess=sess132">Open the recorded source</a></p>
+<p>DAC 2026 official description; captured Problem, Mechanism / artifact, Workload, Hardware, Baseline, Measurements and Limits fields; record RESEARCH1290; no manuscript pages.</p>
+<details markdown="1">
+<summary>Original captured fields — superseded for this reading card</summary>
+
+** page source tier:** medium_official_description
+
+**Baselines:** wirelength-driven placement
+
+heuristic timing-weighted placement
+
+**Evidence locators:** DAC 2026 official description
+
+**Evidence url:** https://63dac.conference-program.com/?post_type=page&amp;p=16&amp;id=RESEARCH1290&amp;sess=sess132
+
+**Hardware or process assumptions:** ASIC global placement with timing constraints and interconnect delay estimation; technology node and congestion model are unspecified.
+
+**Limits:** The description omits wirelength, worst negative slack, congestion, runtime, and benchmark details.
+
+Analytical weighting may depend on timing-model assumptions.
+
+Official description only; placement claims require reproducible benchmark comparisons.
+
+**Method or artifact:** Analytical hybrid weighting of nets and pins integrated into global placement optimization.
+
+**Metrics:** Timing and placement quality improvements are claimed qualitatively
+
+**Problem:** Timing-driven placement must balance wirelength and critical-path delay while avoiding unstable heuristic weighting.
+
+**Workload or benchmark:** Timing-driven circuit placement benchmarks; designs, timing engine, convergence, and comparison flow are unspecified.
+
+</details>
+<p><span id="paper-dac-2026-research1404"></span></p>
+<h3>Learning-Based Slack-Aware Timing-Driven Global Placement for Large-Scale Heterogeneous FPGAs</h3>
+<p>DAC 2026 · Record: <code>dac-2026-research1404</code></p>
+<p><a href="#explanation-dac-2026-research1404">Read the step-by-step explanation</a></p>
+<p><strong>Updated source-backed reading card</strong></p>
+<div class="worked"><p class="lm-k">Worked example</p><p>Reviewed 2026-09-08. Deepens the existing learning-based slack-aware FPGA placement treatment into a paper-level reading; defines heterogeneous site assignment, slack, learned placement policy, legality, routing and generalization, and separates predicted timing from final routed timing closure.</p></div>
+<p>This editorial correction updates the current reading view and connected dossiers, not the historical adjudication or scientific acceptance status. The original captured fields are preserved below.</p>
+<p><a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/data/editorial-paper-corrections-v1.json">Correction register</a></p>
+<p><strong>Problem:</strong></p>
+<p>Large heterogeneous FPGA placement must balance legal resource assignment, timing slack and routability at scale.</p>
+<p><strong>Mechanism / artifact:</strong></p>
+<p>Learning-based slack-aware timing-driven global placement; model inputs, action space, training objective, legality handling, timing model and update rule are unspecified.</p>
+<p><strong>Workload — the work tested:</strong></p>
+<p>Large heterogeneous FPGA netlists; FPGA family, resource mix, device size, timing constraints, training/evaluation split, routing tool and benchmark details are unspecified.</p>
+<p><strong>Hardware and manufacturing assumptions:</strong></p>
+<p>Heterogeneous FPGA fabric containing multiple site types, routing tracks and clocking constraints; architecture, site capacities, routing graph and timing model are unspecified.</p>
+<p><strong>Baseline — the comparison method:</strong></p>
+<p>Wirelength-driven FPGA placement</p>
+<p>Heuristic timing-driven placement</p>
+<p>Netlists, FPGA architectures, seeds, placement/routing budgets and final timing flow are unspecified</p>
+<p><strong>Reported measurements:</strong></p>
+<p>Timing and placement quality improvements are claimed qualitatively; no slack, wirelength, congestion, overflow, unrouted-net, runtime, memory, training-cost, seed-variance or cross-device result is reported.</p>
+<p><strong>Limits on the conclusion:</strong></p>
+<p>FPGA placement assigns logic to discrete heterogeneous site types and must preserve carry, memory, arithmetic, clock, pin and routing constraints. A geometric or predicted timing improvement can be lost during legalization or routing.</p>
+<p>Slack is a timing margin estimated from a timing and routing model. Fanout, congestion, detours, buffering, clock effects and final routed delay can change it; a learned policy guides placement decisions but does not replace final timing analysis.</p>
+<p>A learned policy may encode the architectures and circuits used for training. The official description reports no training split, held-out-device result, slack, wirelength, congestion, runtime or generalization measurement.</p><p>The record supports a learning-based slack-aware placement direction, not proven timing closure or universal superiority over heuristic placement.</p>
+<p><strong>Source and location</strong></p>
+<p>Evidence tier: Primary captured official DAC description plus existing chapter level FPGA placement discussion; no full paper extraction, routed timing validation or cross device experiment. This is the stored source classification; the location and limits below determine what was actually read.</p>
+<p><a href="https://63dac.conference-program.com/?post_type=page&amp;p=16&amp;id=RESEARCH1404">Open the recorded source</a></p>
+<p>DAC 2026 official description; captured Problem, Mechanism / artifact, Workload, Hardware, Baseline, Measurements and Limits fields; record RESEARCH1404; no manuscript pages.</p>
+<details markdown="1">
+<summary>Original captured fields — superseded for this reading card</summary>
+
+** page source tier:** medium_official_description
+
+**Baselines:** wirelength-driven FPGA placement
+
+heuristic timing-driven placement
+
+**Evidence locators:** DAC 2026 official description
+
+**Evidence url:** https://63dac.conference-program.com/?post_type=page&amp;p=16&amp;id=RESEARCH1404
+
+**Hardware or process assumptions:** Heterogeneous FPGA fabric with timing and routing constraints; architecture and process are unspecified.
+
+**Limits:** No slack, wirelength, congestion, runtime, or generalization results are reported.
+
+Learned policies may be architecture-specific.
+
+Official description only; cross-device validation is required.
+
+**Method or artifact:** Learning-based slack-aware timing-driven global placement.
+
+**Metrics:** Timing and placement quality are claimed qualitatively
+
+**Problem:** FPGA placement must balance timing slack, heterogeneity, and routability at scale.
+
+**Workload or benchmark:** Large heterogeneous FPGA netlists; device architecture, timing engine, and baselines are unspecified.
+
+</details>
+<p><span id="paper-dac-2026-research1534"></span></p>
+<h3>DRΛMA: Detailed Routing by a Versatile Maze Routing Algorithm</h3>
+<p>DAC 2026 · Record: <code>dac-2026-research1534</code></p>
+<p><a href="#explanation-dac-2026-research1534">Read the step-by-step explanation</a></p>
+<p><strong>Updated source-backed reading card</strong></p>
+<div class="worked"><p class="lm-k">Worked example</p><p>Reviewed 2026-09-08. Deepens the existing DRΛMA routing treatment into a paper-level reading; defines the routing graph, maze expansion, shared capacity, negotiated congestion, physical legality, extraction and signoff, and separates a found path from a completed valid route.</p></div>
+<p>This editorial correction updates the current reading view and connected dossiers, not the historical adjudication or scientific acceptance status. The original captured fields are preserved below.</p>
+<p><a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/data/editorial-paper-corrections-v1.json">Correction register</a></p>
+<p><strong>Problem:</strong></p>
+<p>Detailed routing must find legal, low-cost paths under congestion and design-rule constraints.</p>
+<p><strong>Mechanism / artifact:</strong></p>
+<p>Versatile maze-routing algorithm for detailed physical design routing; graph construction, cost terms, net ordering, rip-up policy, technology-rule encoding and stopping condition are unspecified.</p>
+<p><strong>Workload — the work tested:</strong></p>
+<p>ASIC detailed-routing benchmarks; netlists, technology node, layer stack, congestion, blockages, design rules, baselines and signoff flow are unspecified.</p>
+<p><strong>Hardware and manufacturing assumptions:</strong></p>
+<p>Advanced-node multi-layer physical routing with layer, track, via, spacing and manufacturing rules; exact process, routing graph and signoff assumptions are unspecified.</p>
+<p><strong>Baseline — the comparison method:</strong></p>
+<p>Classical maze routing</p>
+<p>Commercial detailed router</p>
+<p>Netlists, rule complexity, hardware, runtime budget, extraction and signoff conditions are unspecified</p>
+<p><strong>Reported measurements:</strong></p>
+<p>Routing quality and runtime are claimed qualitatively; no routed-net completion, design-rule count, wirelength, via count, timing, congestion, overflow, runtime, memory or signoff result is reported.</p>
+<p><strong>Limits on the conclusion:</strong></p>
+<p>A graph path is not automatically a legal physical route. The graph must encode track direction, capacity, layer transitions, via and spacing rules; final design-rule checking and extraction can expose failures not visible in path search.</p>
+<p>Routes consume shared resources. A short route can create channel overflow or block later nets, while rip-up and reroute can trade one net's improvement for another net's failure. Wirelength alone does not establish routability, timing or signal integrity.</p>
+<p>The official description reports no design-rule count, wirelength, via count, timing, congestion, runtime or signoff result. Behavior may depend on rule complexity and graph fidelity. The record supports a versatile maze-routing direction, not demonstrated signoff-scale superiority or universal robustness.</p>
+<p><strong>Source and location</strong></p>
+<p>Evidence tier: Primary captured official DAC description plus existing chapter level detailed routing discussion; no full paper extraction, signoff validation or reproducible benchmark comparison. This is the stored source classification; the location and limits below determine what was actually read.</p>
+<p><a href="https://63dac.conference-program.com/?post_type=page&amp;p=16&amp;id=RESEARCH1534">Open the recorded source</a></p>
+<p>DAC 2026 official description; captured Problem, Mechanism / artifact, Workload, Hardware, Baseline, Measurements and Limits fields; record RESEARCH1534; no manuscript pages.</p>
+<details markdown="1">
+<summary>Original captured fields — superseded for this reading card</summary>
+
+** page source tier:** medium_official_description
+
+**Baselines:** classical maze routing
+
+commercial detailed router
+
+**Evidence locators:** DAC 2026 official description
+
+**Evidence url:** https://63dac.conference-program.com/?post_type=page&amp;p=16&amp;id=RESEARCH1534
+
+**Hardware or process assumptions:** Advanced-node routing with multi-layer design rules; layer stack and signoff assumptions are unspecified.
+
+**Limits:** No DRC count, wirelength, vias, timing, congestion, or runtime results are reported.
+
+Algorithm behavior may depend on rule complexity.
+
+Official description only; signoff-scale reproducibility is required.
+
+**Method or artifact:** Versatile maze-routing algorithm for detailed physical design routing.
+
+**Metrics:** Routing quality and runtime are claimed qualitatively
+
+**Problem:** Detailed routing must find legal, low-cost paths under congestion and design-rule constraints.
+
+**Workload or benchmark:** ASIC detailed-routing benchmarks; technology, rules, congestion, and baselines are unspecified.
+
+</details>
+<p><span id="paper-dac-2026-research2024"></span></p>
+<h3>Rectilinear Soft Module Floorplanning via Differentiable Polygon Shaping Model and Flow-Based Legalization</h3>
+<p>DAC 2026 · Record: <code>dac-2026-research2024</code></p>
+<p><a href="#explanation-dac-2026-research2024">Read the step-by-step explanation</a></p>
+<p><strong>Updated source-backed reading card</strong></p>
+<div class="worked"><p class="lm-k">Worked example</p><p>Reviewed 2026-09-08. Deepens the existing rectilinear soft-module floorplanning treatment into a paper-level reading; defines soft polygon shaping, differentiable proxy objectives, flow-based legalization and the gap between relaxed and legal physical designs.</p></div>
+<p>This editorial correction updates the current reading view and connected dossiers, not the historical adjudication or scientific acceptance status. The original captured fields are preserved below.</p>
+<p><a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/data/editorial-paper-corrections-v1.json">Correction register</a></p>
+<p><strong>Problem:</strong></p>
+<p>Rectilinear soft modules are difficult to optimize continuously while maintaining legal, non-overlapping floorplans.</p>
+<p><strong>Mechanism / artifact:</strong></p>
+<p>Differentiable polygon-shaping model with flow-based legalization; polygon representation, smooth penalties, flow network, constraints and legalization objective are unspecified.</p>
+<p><strong>Workload — the work tested:</strong></p>
+<p>Rectilinear floorplanning instances; module counts, fixed blocks, aspect-ratio and polygon constraints, terminal locations, routing model and benchmark details are unspecified.</p>
+<p><strong>Hardware and manufacturing assumptions:</strong></p>
+<p>ASIC floorplanning with rectilinear soft modules and routing constraints; technology, minimum-width rules, blockages, power and signoff assumptions are unspecified.</p>
+<p><strong>Baseline — the comparison method:</strong></p>
+<p>Sequence-pair floorplanning</p>
+<p>Discrete rectilinear legalization</p>
+<p>Module sets, constraints, seeds, compute budget, routing, extraction and timing flow are unspecified</p>
+<p><strong>Reported measurements:</strong></p>
+<p>Floorplan quality and legalization efficiency are claimed qualitatively; no area, wirelength, overlap, displacement, congestion, timing, runtime, memory or post-route result is reported.</p>
+<p><strong>Limits on the conclusion:</strong></p>
+<p>A differentiable polygon model optimizes a continuous proxy for discrete geometry. A low relaxed objective can still contain overlap, invalid edges, narrow channels or inaccessible terminals, and legalization may move or reshape modules substantially.</p>
+<p>Flow-based legalization solves a separate feasibility and movement problem. Its cost must include displacement, shape distortion, lost routing space and later timing or congestion repair; a good pre-legalization score does not establish a good legal floorplan.</p>
+<p>The official description reports no area, wirelength, overlap, congestion, timing or runtime result. The relaxation-to-legalization gap may be substantial. The record supports a differentiable polygon-shaping and flow-legalization direction, not demonstrated physical-flow improvement or universal superiority over sequence-pair and discrete methods.</p>
+<p><strong>Source and location</strong></p>
+<p>Evidence tier: Primary captured official DAC description plus existing chapter level soft module floorplanning discussion; no full paper extraction, physical flow validation or reproducible benchmark comparison. This is the stored source classification; the location and limits below determine what was actually read.</p>
+<p><a href="https://63dac.conference-program.com/?post_type=page&amp;p=16&amp;id=RESEARCH2024">Open the recorded source</a></p>
+<p>DAC 2026 official description; captured Problem, Mechanism / artifact, Workload, Hardware, Baseline, Measurements and Limits fields; record RESEARCH2024; no manuscript pages.</p>
+<details markdown="1">
+<summary>Original captured fields — superseded for this reading card</summary>
+
+** page source tier:** medium_official_description
+
+**Baselines:** sequence-pair floorplanning
+
+discrete rectilinear legalization
+
+**Evidence locators:** DAC 2026 official description
+
+**Evidence url:** https://63dac.conference-program.com/?post_type=page&amp;p=16&amp;id=RESEARCH2024
+
+**Hardware or process assumptions:** ASIC floorplanning with rectilinear modules and routing constraints; technology assumptions are unspecified.
+
+**Limits:** No area, wirelength, overlap, congestion, timing, or runtime results are reported.
+
+Relaxation-to-legalization gaps may be substantial.
+
+Official description only; full physical-flow validation is required.
+
+**Method or artifact:** Differentiable polygon-shaping model with flow-based legalization.
+
+**Metrics:** Floorplan quality and legalization efficiency are claimed qualitatively
+
+**Problem:** Rectilinear soft modules are difficult to optimize continuously while maintaining legal, non-overlapping floorplans.
+
+**Workload or benchmark:** Rectilinear floorplanning instances; module counts, constraints, and baselines are unspecified.
+
+</details>
+<p><span id="paper-dac-2026-research2139"></span></p>
+<h3>Flip-FET-Based VLSI Design Framework with Congestion-Aware Dual-Side Routing</h3>
+<p>DAC 2026 · Record: <code>dac-2026-research2139</code></p>
+<p><a href="#explanation-dac-2026-research2139">Read the step-by-step explanation</a></p>
+<p><strong>Updated source-backed reading card</strong></p>
+<div class="worked"><p class="lm-k">Worked example</p><p>Reviewed 2026-09-08. Deepens the existing Flip-FET dual-side-routing treatment into a paper-level reading; defines side-specific routing resources, inter-side transitions, shared congestion, process-dependent legality, extraction and fabrication/yield boundaries.</p></div>
+<p>This editorial correction updates the current reading view and connected dossiers, not the historical adjudication or scientific acceptance status. The original captured fields are preserved below.</p>
+<p><a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/data/editorial-paper-corrections-v1.json">Correction register</a></p>
+<p><strong>Problem:</strong></p>
+<p>Emerging Flip-FET structures require routing methods that exploit both sides without creating congestion or manufacturing violations.</p>
+<p><strong>Mechanism / artifact:</strong></p>
+<p>Congestion-aware dual-side routing framework for Flip-FET VLSI; side-specific graph, transition structures, cost terms, process rules, extraction and yield model are unspecified.</p>
+<p><strong>Workload — the work tested:</strong></p>
+<p>Flip-FET layouts and routing benchmarks; device structure, front/back layers, track capacities, contacts, blockages, power network, baselines and validation flow are unspecified.</p>
+<p><strong>Hardware and manufacturing assumptions:</strong></p>
+<p>Flip-FET process with dual-side routing; design rules, side transitions, contacts, alignment, thermal, defect and yield assumptions are unspecified.</p>
+<p><strong>Baseline — the comparison method:</strong></p>
+<p>Single-side routing</p>
+<p>Conventional FET routing flow</p>
+<p>Netlists, layer budgets, device rules, extraction, compute budget and fabrication conditions are unspecified</p>
+<p><strong>Reported measurements:</strong></p>
+<p>Routing and manufacturability are claimed qualitatively; no congestion, timing, area, transition count, design-rule, yield, runtime, power or process result is reported.</p>
+<p><strong>Limits on the conclusion:</strong></p>
+<p>The two routing sides are coupled by scarce inter-side transitions. A second side can reduce local congestion while creating a bottleneck at contacts or transition sites; side-specific occupancy and interface capacity must be modeled together.</p>
+<p>A dual-side graph path does not establish a realizable Flip-FET structure. Device contacts, backside access, alignment, spacing, power, thermal and defect rules determine whether transitions and routes can be fabricated; extraction can change timing after routing.</p>
+<p>The official description reports no congestion, timing, area, yield, design-rule or process result. Emerging-device assumptions may not transfer to mature flows. The record supports a congestion-aware dual-side routing direction, not demonstrated fabrication-ready quality or universal superiority over single-side routing.</p>
+<p><strong>Source and location</strong></p>
+<p>Evidence tier: Primary captured official DAC description plus existing chapter level dual side routing discussion; no full paper extraction, fabrication aware validation or reproducible benchmark comparison. This is the stored source classification; the location and limits below determine what was actually read.</p>
+<p><a href="https://63dac.conference-program.com/?post_type=page&amp;p=16&amp;id=RESEARCH2139">Open the recorded source</a></p>
+<p>DAC 2026 official description; captured Problem, Mechanism / artifact, Workload, Hardware, Baseline, Measurements and Limits fields; record RESEARCH2139; no manuscript pages.</p>
+<details markdown="1">
+<summary>Original captured fields — superseded for this reading card</summary>
+
+** page source tier:** medium_official_description
+
+**Baselines:** single-side routing
+
+conventional FET routing flow
+
+**Evidence locators:** DAC 2026 official description
+
+**Evidence url:** https://63dac.conference-program.com/?post_type=page&amp;p=16&amp;id=RESEARCH2139
+
+**Hardware or process assumptions:** Flip-FET process with dual-side routing; design rules, contacts, and yield assumptions are unspecified.
+
+**Limits:** No congestion, timing, area, yield, DRC, or process results are reported.
+
+Emerging-device assumptions may not transfer to mature flows.
+
+Official description only; fabrication-aware validation is required.
+
+**Method or artifact:** Congestion-aware dual-side routing framework for Flip-FET VLSI.
+
+**Metrics:** Routing and manufacturability are claimed qualitatively
+
+**Problem:** Emerging Flip-FET structures require routing methods that exploit both sides without creating congestion or manufacturing violations.
+
+**Workload or benchmark:** Flip-FET layouts and routing benchmarks; device rules, layers, and baselines are unspecified.
+
+</details>
+<p><span id="paper-dac-2026-research2416"></span></p>
+<h3>Area-Optimal and Routability-Driven Layout Synthesis for Multi-Row Complementary-FET Standard Cells</h3>
+<p>DAC 2026 · Record: <code>dac-2026-research2416</code></p>
+<p><a href="#explanation-dac-2026-research2416">Read the step-by-step explanation</a></p>
+<p><strong>Updated source-backed reading card</strong></p>
+<div class="worked"><p class="lm-k">Worked example</p><p>Reviewed 2026-09-08. Deepens the existing multi-row complementary-FET layout-synthesis treatment into a paper-level reading; defines device geometry, cell-boundary and pin-access contracts, area/routability tradeoffs, extraction, characterization and library-integration limits.</p></div>
+<p>This editorial correction updates the current reading view and connected dossiers, not the historical adjudication or scientific acceptance status. The original captured fields are preserved below.</p>
+<p><a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/data/editorial-paper-corrections-v1.json">Correction register</a></p>
+<p><strong>Problem:</strong></p>
+<p>Multi-row complementary-FET cells need compact layouts that remain routable and manufacturable.</p>
+<p><strong>Mechanism / artifact:</strong></p>
+<p>Area-optimal, routability-driven standard-cell layout synthesis; device mapping, row organization, sharing rules, pin-access model, process rules and characterization flow are unspecified.</p>
+<p><strong>Workload — the work tested:</strong></p>
+<p>Multi-row complementary-FET standard cells; logic functions, drive strengths, device rules, libraries, neighbors, routing flow and benchmark details are unspecified.</p>
+<p><strong>Hardware and manufacturing assumptions:</strong></p>
+<p>Complementary-FET standard-cell process with multi-row placement; diffusion, gate, contact, well/isolation, routing, extraction and manufacturability assumptions are unspecified.</p>
+<p><strong>Baseline — the comparison method:</strong></p>
+<p>Single-row standard-cell synthesis</p>
+<p>Area-only layout synthesis</p>
+<p>Cell definitions, process rules, pin-access checker, extraction, characterization and chip-level routing conditions are unspecified</p>
+<p><strong>Reported measurements:</strong></p>
+<p>Area and routability are claimed qualitatively; no area definition, pin-access, routing, timing, yield, design-rule, power, extraction or process result is reported.</p>
+<p><strong>Limits on the conclusion:</strong></p>
+<p>A compact cell can reduce its footprint while blocking pins, power rails or neighboring access. Device sharing, row alignment and contact placement affect both area and the routes that can leave the cell boundary.</p>
+<p>Boolean connectivity is not physical legality. Complementary-FET diffusion, gate, contact, well/isolation, spacing, enclosure and layer rules must be checked; an area or open-pin proxy does not establish a design-rule-clean, extracted cell.</p>
+<p>A cell that routes in isolation may not integrate when abutted, characterized or instantiated repeatedly. The official description reports no area definition, pin-access, routing, timing, yield or process result.</p><p>The record supports multi-row area/routability-driven synthesis, not demonstrated signoff-ready library quality or universal superiority over single-row and area-only methods.</p>
+<p><strong>Source and location</strong></p>
+<p>Evidence tier: Primary captured official DAC description plus existing chapter level multi row complementary fet discussion; no full paper extraction, library characterization or chip level routing validation. This is the stored source classification; the location and limits below determine what was actually read.</p>
+<p><a href="https://63dac.conference-program.com/?post_type=page&amp;p=16&amp;id=RESEARCH2416">Open the recorded source</a></p>
+<p>DAC 2026 official description; captured Problem, Mechanism / artifact, Workload, Hardware, Baseline, Measurements and Limits fields; record RESEARCH2416; no manuscript pages.</p>
+<details markdown="1">
+<summary>Original captured fields — superseded for this reading card</summary>
+
+** page source tier:** medium_official_description
+
+**Baselines:** single-row standard-cell synthesis
+
+area-only layout synthesis
+
+**Evidence locators:** DAC 2026 official description
+
+**Evidence url:** https://63dac.conference-program.com/?post_type=page&amp;p=16&amp;id=RESEARCH2416
+
+**Hardware or process assumptions:** Complementary-FET standard-cell process with multi-row placement; rules and extraction assumptions are unspecified.
+
+**Limits:** No area, pin access, routing, timing, yield, or process results are reported.
+
+Area-optimal solutions may be difficult to integrate into libraries.
+
+Official description only; signoff and fabrication-aware checks are required.
+
+**Method or artifact:** Area-optimal, routability-driven standard-cell layout synthesis.
+
+**Metrics:** Area and routability are claimed qualitatively
+
+**Problem:** Multi-row complementary-FET cells need compact layouts that remain routable and manufacturable.
+
+**Workload or benchmark:** Multi-row complementary-FET standard cells; device rules, libraries, and baselines are unspecified.
+
+</details>
+<p><span id="paper-dac-2026-research373"></span></p>
+<h3>LATTE: Legality-Assured Differentiable Timing-Driven Detailed Placement</h3>
+<p>DAC 2026 · Record: <code>dac-2026-research373</code></p>
+<p><a href="#explanation-dac-2026-research373">Read the step-by-step explanation</a></p>
+<p><strong>Updated source-backed reading card</strong></p>
+<div class="worked"><p class="lm-k">Worked example</p><p>Reviewed 2026-09-08. Deepens the existing LATTE detailed-placement treatment into a paper-level reading; defines timing-driven local movement, differentiable proxy objectives, legality invariants, legalization displacement and the distinction between placement timing and final routed STA.</p></div>
+<p>This editorial correction updates the current reading view and connected dossiers, not the historical adjudication or scientific acceptance status. The original captured fields are preserved below.</p>
+<p><a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/data/editorial-paper-corrections-v1.json">Correction register</a></p>
+<p><strong>Problem:</strong></p>
+<p>Detailed placement optimization must improve timing without producing illegal overlaps or density violations.</p>
+<p><strong>Mechanism / artifact:</strong></p>
+<p>Legality-assured differentiable timing-driven detailed placement; differentiable variables, timing/RC model, legality invariant, repair mechanism and routing/signoff flow are unspecified.</p>
+<p><strong>Workload — the work tested:</strong></p>
+<p>ASIC detailed-placement benchmarks; standard-cell rows, libraries, density, blockages, timing constraints, legalization, routing and baseline details are unspecified.</p>
+<p><strong>Hardware and manufacturing assumptions:</strong></p>
+<p>Standard-cell placement with timing and design-rule constraints; technology node, cell sites, orientations, RC extraction, timing corners and signoff flow are unspecified.</p>
+<p><strong>Baseline — the comparison method:</strong></p>
+<p>Analytic detailed placement</p>
+<p>Timing-oblivious differentiable placement</p>
+<p>Netlists, libraries, timing engine, seeds, compute budget, routing, extraction and signoff conditions are unspecified</p>
+<p><strong>Reported measurements:</strong></p>
+<p>Timing and legality are claimed qualitatively; no worst or total negative slack, wirelength, density, overlap, illegal-site, legalization-displacement, runtime, memory or signoff result is reported.</p>
+<p><strong>Limits on the conclusion:</strong></p>
+<p>Differentiable coordinates and smooth density or timing penalties are proxies for discrete row sites, legal orientations, blockages and overlaps. A low smooth objective can still be illegal or require substantial movement during legalization.</p>
+<p>A legality penalty is not automatically a guarantee. The invariant, enforcement mechanism and check point must be specified; timing measured before legalization can differ from timing after legal placement, routing and extraction.</p>
+<p>The official description reports no slack, wirelength, density, legality, runtime or signoff result. The record supports a legality-aware differentiable detailed-placement direction, not demonstrated final timing closure or universal superiority over analytic and timing-oblivious placement.</p>
+<p><strong>Source and location</strong></p>
+<p>Evidence tier: Primary captured official DAC description plus existing chapter level differentiable placement discussion; no full paper extraction, routed timing validation or reproducible signoff comparison. This is the stored source classification; the location and limits below determine what was actually read.</p>
+<p><a href="https://63dac.conference-program.com/?post_type=page&amp;p=16&amp;id=RESEARCH373">Open the recorded source</a></p>
+<p>DAC 2026 official description; captured Problem, Mechanism / artifact, Workload, Hardware, Baseline, Measurements and Limits fields; record RESEARCH373; no manuscript pages.</p>
+<details markdown="1">
+<summary>Original captured fields — superseded for this reading card</summary>
+
+** page source tier:** medium_official_description
+
+**Baselines:** analytic detailed placement
+
+timing-oblivious differentiable placement
+
+**Evidence locators:** DAC 2026 official description
+
+**Evidence url:** https://63dac.conference-program.com/?post_type=page&amp;p=16&amp;id=RESEARCH373
+
+**Hardware or process assumptions:** Standard-cell placement with timing and design-rule constraints; node and signoff flow are unspecified.
+
+**Limits:** No slack, wirelength, density, legality, runtime, or signoff results are reported.
+
+Differentiable relaxations may miss discrete legal constraints.
+
+Official description only; full-flow placement validation is required.
+
+**Method or artifact:** Legality-assured differentiable timing-driven detailed placement.
+
+**Metrics:** Timing and legality are claimed qualitatively
+
+**Problem:** Detailed placement optimization must improve timing without producing illegal overlaps or density violations.
+
+**Workload or benchmark:** ASIC detailed-placement benchmarks; cells, timing model, legalization, and baselines are unspecified.
+
+</details>
+<p><span id="paper-dac-2026-research843"></span></p>
+<h3>Disentangled Differentiable Timing-Power Co-Optimization with Quad-Gradient Gate Sizing</h3>
+<p>DAC 2026 · Record: <code>dac-2026-research843</code></p>
+<p><a href="#explanation-dac-2026-research843">Read the step-by-step explanation</a></p>
+<p><strong>Updated source-backed reading card</strong></p>
+<div class="worked"><p class="lm-k">Worked example</p><p>Reviewed 2026-09-08. Deepens the existing differentiable timing-power gate-sizing treatment into a paper-level reading; defines discrete library choices, drive strength/load coupling, timing and power gradients, relaxation-to-cell mapping, extraction and signoff limits, and does not infer the meaning of quad-gradient beyond the captured source.</p></div>
+<p>This editorial correction updates the current reading view and connected dossiers, not the historical adjudication or scientific acceptance status. The original captured fields are preserved below.</p>
+<p><a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/data/editorial-paper-corrections-v1.json">Correction register</a></p>
+<p><strong>Problem:</strong></p>
+<p>Gate sizing must improve timing and power simultaneously despite discrete cell choices and nonlinear interactions.</p>
+<p><strong>Mechanism / artifact:</strong></p>
+<p>Differentiable timing-power co-optimization with quad-gradient gate sizing; the four gradients, continuous representation, objective combination, discrete mapping and repair policy are unspecified.</p>
+<p><strong>Workload — the work tested:</strong></p>
+<p>ASIC gate-sizing instances; standard-cell libraries, netlists, activity, timing constraints, corners, routing, extraction and baseline details are unspecified.</p>
+<p><strong>Hardware and manufacturing assumptions:</strong></p>
+<p>Standard-cell ASIC flow with timing and power models; technology node, cell variants, voltage/frequency, parasitics, activity, corners and signoff assumptions are unspecified.</p>
+<p><strong>Baseline — the comparison method:</strong></p>
+<p>Heuristic gate sizing</p>
+<p>Single-objective differentiable sizing</p>
+<p>Libraries, netlists, timing/power models, constraints, seeds, compute budget, routing and signoff conditions are unspecified</p>
+<p><strong>Reported measurements:</strong></p>
+<p>Timing-power tradeoff is claimed qualitatively; no slack, setup/hold violation, power split, area, slew, convergence, runtime, discrete-rounding loss or signoff result is reported.</p>
+<p><strong>Limits on the conclusion:</strong></p>
+<p>Gate-size choices are discrete library cells. A continuous strength, mixture or surrogate can produce a good relaxed point whose rounded cell has different input capacitance, slew, leakage, dynamic power and path delay.</p>
+<p>Sizing is coupled across a path: a stronger cell can improve its output transition while increasing the upstream load, changing another path's criticality or violating power and area limits. Timing and power gradients must state models, units, normalization and objective constraints.</p>
+<p>The captured description does not define the four gradients, and reports no slack, power, area, convergence, runtime or signoff result. Continuous gradients may misrepresent discrete library behavior.</p><p>The record supports a differentiable timing-power sizing direction, not demonstrated signoff improvement or universal superiority over heuristic and single-objective sizing.</p>
+<p><strong>Source and location</strong></p>
+<p>Evidence tier: Primary captured official DAC description plus existing chapter level timing power sizing discussion; no full paper extraction, discrete mapping validation or reproducible signoff comparison. This is the stored source classification; the location and limits below determine what was actually read.</p>
+<p><a href="https://63dac.conference-program.com/?post_type=page&amp;p=16&amp;id=RESEARCH843">Open the recorded source</a></p>
+<p>DAC 2026 official description; captured Problem, Mechanism / artifact, Workload, Hardware, Baseline, Measurements and Limits fields; record RESEARCH843; no manuscript pages.</p>
+<details markdown="1">
+<summary>Original captured fields — superseded for this reading card</summary>
+
+** page source tier:** medium_official_description
+
+**Baselines:** heuristic gate sizing
+
+single-objective differentiable sizing
+
+**Evidence locators:** DAC 2026 official description
+
+**Evidence url:** https://63dac.conference-program.com/?post_type=page&amp;p=16&amp;id=RESEARCH843
+
+**Hardware or process assumptions:** Standard-cell ASIC flow with timing/power models; node and signoff assumptions are unspecified.
+
+**Limits:** No slack, power, area, convergence, runtime, or signoff results are reported.
+
+Continuous gradients may misrepresent discrete library behavior.
+
+Official description only; full-flow validation is required.
+
+**Method or artifact:** Differentiable timing-power co-optimization with quad-gradient gate sizing.
+
+**Metrics:** Timing-power tradeoff is claimed qualitatively
+
+**Problem:** Gate sizing must improve timing and power simultaneously despite discrete cell choices and nonlinear interactions.
+
+**Workload or benchmark:** ASIC gate-sizing instances; libraries, timing, power, and baselines are unspecified.
+
+</details>
+<p><span id="paper-dac-2026-research320"></span></p>
+<h3>SAAP: An Efficient Spatial-Aware Analytic Partitioning Algorithm of VLSI Netlists for Parallel Routing</h3>
+<p>DAC 2026 · Record: <code>dac-2026-research320</code></p>
+<p><a href="#explanation-dac-2026-research320">Read the step-by-step explanation</a></p>
+<p><strong>Updated source-backed reading card</strong></p>
+<div class="worked"><p class="lm-k">Worked example</p><p>Reviewed 2026-09-08. Deepens the existing SAAP partitioning treatment into a paper-level reading; defines graph/hypergraph partitioning, spatial locality, cut nets, work balance, boundary coordination and the distinction between partition quality and end-to-end parallel routing.</p></div>
+<p>This editorial correction updates the current reading view and connected dossiers, not the historical adjudication or scientific acceptance status. The original captured fields are preserved below.</p>
+<p><a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/data/editorial-paper-corrections-v1.json">Correction register</a></p>
+<p><strong>Problem:</strong></p>
+<p>Parallel routing needs partitions that preserve locality while balancing work and cut nets.</p>
+<p><strong>Mechanism / artifact:</strong></p>
+<p>Spatial-aware analytic VLSI netlist partitioning for parallel routing; graph or hypergraph representation, spatial features, balance objective, cut cost, boundary protocol and router are unspecified.</p>
+<p><strong>Workload — the work tested:</strong></p>
+<p>VLSI netlists and routing tasks; netlists, geometry, congestion, partition counts, routers, worker counts, hardware, baselines and benchmark scale are unspecified.</p>
+<p><strong>Hardware and manufacturing assumptions:</strong></p>
+<p>Parallel routing infrastructure with spatial netlist representation; technology, routing layers, shared-resource protocol, synchronization and design-rule assumptions are unspecified.</p>
+<p><strong>Baseline — the comparison method:</strong></p>
+<p>Graph partitioning without spatial awareness</p>
+<p>Serial routing</p>
+<p>Netlists, technology, routing rules, worker count, hardware, termination and final verification conditions are unspecified</p>
+<p><strong>Reported measurements:</strong></p>
+<p>Routing scalability and partition quality are claimed qualitatively; no cut size, imbalance, boundary crossing, congestion, routing success, runtime, speedup, communication, memory or scale result is reported.</p>
+<p><strong>Limits on the conclusion:</strong></p>
+<p>Cut size is not the same as routing difficulty. A long, high-fanout or timing-critical cut net can create more boundary work than several short nets, and balanced cell counts may leave one worker with the hardest congestion.</p>
+<p>Spatial partitions remain coupled at boundaries. Local routers can compete for tracks, vias and entry points or create boundary congestion; partition quality must be measured with the actual router and coordination protocol.</p>
+<p>The official description reports no cut size, congestion, routing success, runtime or scale result. The record supports a spatial-aware analytic partitioning direction, not demonstrated end-to-end parallel speedup, routing completion or signoff-routing superiority.</p>
+<p><strong>Source and location</strong></p>
+<p>Evidence tier: Primary captured official DAC description plus existing chapter level parallel routing partitioning discussion; no full paper extraction, end to end routing validation or reproducible scale comparison. This is the stored source classification; the location and limits below determine what was actually read.</p>
+<p><a href="https://63dac.conference-program.com/?post_type=page&amp;p=16&amp;id=RESEARCH320">Open the recorded source</a></p>
+<p>DAC 2026 official description; captured Problem, Mechanism / artifact, Workload, Hardware, Baseline, Measurements and Limits fields; record RESEARCH320; no manuscript pages.</p>
+<details markdown="1">
+<summary>Original captured fields — superseded for this reading card</summary>
+
+** page source tier:** medium_official_description
+
+**Baselines:** graph partitioning without spatial awareness
+
+serial routing
+
+**Evidence locators:** DAC 2026 official description
+
+**Evidence url:** https://63dac.conference-program.com/?post_type=page&amp;p=16&amp;id=RESEARCH320
+
+**Hardware or process assumptions:** Parallel routing infrastructure with spatial netlist representation; technology and routing assumptions are unspecified.
+
+**Limits:** No cut size, congestion, routing success, runtime, or scale results are reported.
+
+Partitions may create boundary congestion.
+
+Official description only; signoff-routing validation is required.
+
+**Method or artifact:** Spatial-aware analytic VLSI netlist partitioning for parallel routing.
+
+**Metrics:** Routing scalability and partition quality are claimed qualitatively
+
+**Problem:** Parallel routing needs partitions that preserve locality while balancing work and cut nets.
+
+**Workload or benchmark:** VLSI netlists and routing tasks; partition constraints, routers, and baselines are unspecified.
+
+</details>
+<p><span id="paper-dac-2026-research335"></span></p>
+<h3>BSPDN-Elite: A Comprehensive Framework for Optimizing Timing, Power and Routing Resources in BSPDN Designs</h3>
+<p>DAC 2026 · Record: <code>dac-2026-research335</code></p>
+<p><a href="#explanation-dac-2026-research335">Read the step-by-step explanation</a></p>
+<p><strong>Updated source-backed reading card</strong></p>
+<div class="worked"><p class="lm-k">Worked example</p><p>Reviewed 2026-09-08. Deepens the existing BSPDN-Elite treatment into a paper-level reading; defines backside power delivery, IR drop, current-density and timing coupling, signal-routing tradeoffs, process-stack assumptions and final integrity-validation requirements.</p></div>
+<p>This editorial correction updates the current reading view and connected dossiers, not the historical adjudication or scientific acceptance status. The original captured fields are preserved below.</p>
+<p><a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/data/editorial-paper-corrections-v1.json">Correction register</a></p>
+<p><strong>Problem:</strong></p>
+<p>Backside power delivery creates coupled timing, power, routing and manufacturability constraints.</p>
+<p><strong>Mechanism / artifact:</strong></p>
+<p>Comprehensive multi-objective BSPDN design framework; backside stack, connection structures, power model, IR-drop analysis, timing coupling, thermal model, objective constraints and process validation are unspecified.</p>
+<p><strong>Workload — the work tested:</strong></p>
+<p>BSPDN physical-design cases; netlists, placement, load activity, power network, current distribution, process stack, routing, baselines and benchmark details are unspecified.</p>
+<p><strong>Hardware and manufacturing assumptions:</strong></p>
+<p>Backside power distribution and advanced-node ASIC flow; backside metals, vias or contacts, resistance, IR drop, electromigration, thermal, alignment, yield and timing assumptions are unspecified.</p>
+<p><strong>Baseline — the comparison method:</strong></p>
+<p>Frontside power delivery</p>
+<p>Single-objective BSPDN optimization</p>
+<p>Netlists, activity, voltage/frequency, placement, routing, extraction, thermal, compute budget and process conditions are unspecified</p>
+<p><strong>Reported measurements:</strong></p>
+<p>Timing-power-routing quality is claimed qualitatively; no IR drop, current density, timing slack, power, congestion, thermal, yield, runtime, area or integrity result is reported.</p>
+<p><strong>Limits on the conclusion:</strong></p>
+<p>Moving power resources to the backside can free signal-routing space but introduces process-specific connections, resistance, alignment, thermal and yield constraints. An abstract backside edge is not automatically a manufacturable connection.</p>
+<p>IR drop changes cell voltage and timing; timing repair changes current and power demand, while routing and placement changes alter both signal congestion and the power network. Separate or uncalibrated objective scores do not establish a valid coupled solution.</p>
+<p>The official description reports no IR drop, timing, power, congestion, thermal, yield or runtime result. Backside process assumptions may not transfer across nodes. The record supports a multi-objective BSPDN design direction, not demonstrated signoff integrity, process portability or universal superiority.</p>
+<p><strong>Source and location</strong></p>
+<p>Evidence tier: Primary captured official DAC description plus existing chapter level bspdn discussion; no full paper extraction, power integrity validation or cross process comparison. This is the stored source classification; the location and limits below determine what was actually read.</p>
+<p><a href="https://63dac.conference-program.com/?post_type=page&amp;p=16&amp;id=RESEARCH335">Open the recorded source</a></p>
+<p>DAC 2026 official description; captured Problem, Mechanism / artifact, Workload, Hardware, Baseline, Measurements and Limits fields; record RESEARCH335; no manuscript pages.</p>
+<details markdown="1">
+<summary>Original captured fields — superseded for this reading card</summary>
+
+** page source tier:** medium_official_description
+
+**Baselines:** frontside power delivery
+
+single-objective BSPDN optimization
+
+**Evidence locators:** DAC 2026 official description
+
+**Evidence url:** https://63dac.conference-program.com/?post_type=page&amp;p=16&amp;id=RESEARCH335
+
+**Hardware or process assumptions:** Backside power distribution and advanced-node ASIC flow; via, IR-drop, and thermal assumptions are unspecified.
+
+**Limits:** No IR drop, timing, power, congestion, thermal, yield, or runtime results are reported.
+
+Backside process assumptions may not transfer across nodes.
+
+Official description only; signoff and process validation are required.
+
+**Method or artifact:** Comprehensive multi-objective BSPDN design framework.
+
+**Metrics:** Timing-power-routing quality is claimed qualitatively
+
+**Problem:** Backside power delivery creates coupled timing, power, routing, and manufacturability constraints.
+
+**Workload or benchmark:** BSPDN physical-design cases; process, power network, and baselines are unspecified.
+
+</details>
+<p class="lm-k h-label">What remains to establish</p><h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>What is still unproven here</h2>
+<p>Resolve unspecified workloads, comparison methods, resource budgets, and source locations before generalizing a reported gain. Multiple papers in this selected sample permit comparison of mechanisms, but do not by themselves establish recurrence across years or a long-term trend.</p>
+<p><a href="../guide/expanded-taxonomy-v1.html">All subthemes</a> · <a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/reports/directions/README.md">Research directions</a></p><p class="meta">Written as <a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/reports/observed-subthemes/placement-routing-and-floorplanning.md">reports/observed-subthemes/placement-routing-and-floorplanning.md</a> in the course repository.</p>
+      </article>
+      <nav class="pager" aria-label="Previous and next"><a class="prev" href="physical-verification.html"><span class="pg-k">← Previous</span><span class="pg-t">Physical verification</span></a><a class="map" href="../subthemes.html"><span class="pg-k">Back to</span><span class="pg-t">Subthemes</span></a><a class="next" href="process-aware-design.html"><span class="pg-k">Next →</span><span class="pg-t">Process aware design</span></a></nav>
+    </section>
+  </main>
+  <footer class="course-foot">
+    <p>Built from 582 paper records coded from ISCA 2026, DAC 2026 and ICCAD 2025 (ICCAD 2026 papers were not yet public). Most records come from official program descriptions; see “How deep the reading went”. The papers belong to their authors.</p>
+    <p class="foot-links"><a href="https://github.com/mehtama1234/course-concept-library">All courses</a><a href="../index.html">This course</a><a href="../course-map.html">Course map</a><a href="../presentation/index.html">Slides</a><a href="../video/index.html">Video</a><a href="../share/index.html">Share</a></p>
+  </footer>
+  <script src="../assets/course-data.js"></script><script src="../assets/icons.js"></script><script src="../assets/icons-extra.js"></script><script src="../assets/icons-course.js"></script><script src="../assets/art.js"></script><script src="../assets/course-art.js"></script><script src="../assets/charts.js"></script><script src="../assets/course-charts.js"></script><script src="../assets/course-site.js"></script>
+</body>
+</html>

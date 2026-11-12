@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#F3ECE1" />
+  <title>High level synthesis and compilers · Semiconductor conference atlas</title>
+  <meta name="description" content="Papers: DAC 1, ISCA 1. Read from: 1 program descriptions, 0 abstracts or reports, 1 full papers or preprints. The explanations come first; every paper’s record follows at the end." />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Semiconductor conference atlas" />
+  <meta property="og:title" content="High level synthesis and compilers · Semiconductor conference atlas" />
+  <meta property="og:description" content="Papers: DAC 1, ISCA 1. Read from: 1 program descriptions, 0 abstracts or reports, 1 full papers or preprints. The explanations come first; every paper’s record follows at the end." />
+  <meta property="og:url" content="https://mehtama1234.github.io/semiconductor-conferences/subthemes/high-level-synthesis-and-compilers.html" />
+  <meta property="og:image" content="https://mehtama1234.github.io/semiconductor-conferences/presentation/slides/01-cover.jpg" />
+  <meta property="og:image:width" content="1920" />
+  <meta property="og:image:height" content="1080" />
+  <meta property="og:image:alt" content="Semiconductor conference atlas: 582 papers from ISCA, DAC and ICCAD, sorted into 10 themes and six directions to watch." />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="canonical" href="https://mehtama1234.github.io/semiconductor-conferences/subthemes/high-level-synthesis-and-compilers.html" />
+  <link rel="icon" href="../assets/icon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="../assets/base.css" />
+  <link rel="stylesheet" href="../assets/experience.css" />
+  <link rel="stylesheet" href="../assets/theme-atlas.css" />
+  <link rel="stylesheet" href="../assets/styles.css" />
+  <link rel="stylesheet" href="../assets/charts.css" />
+  <link rel="stylesheet" href="../assets/course.css" />
+  
+</head>
+<body class="course-site " data-house="atlas">
+  <aside class="public-demo-banner" aria-label="About this course">A plain-language guide to what ISCA, DAC and ICCAD papers say about chip and computer design · Built from the repository’s own paper records · Not made by the conferences</aside>
+  <a class="skip-link" href="#app">Skip to the page</a>
+  <header>
+    <a class="brand" href="../index.html"><span class="mark" aria-hidden="true">Si</span> Semiconductor conference atlas</a>
+    <span class="header-status"><span class="badge">582 papers</span><span class="badge">10 themes</span><span class="badge">Plain words first</span></span>
+    <a class="header-link" href="../course-map.html">Course map</a>
+  </header>
+  <nav class="course-nav" aria-label="Main sections of the course"><a href="../index.html">The big picture</a><a href="../themes.html">Themes</a><a href="../subthemes.html" aria-current="page">Subthemes</a><a href="../deep-reads.html">Deep reads</a><a href="../directions.html">What to watch</a><a href="../presentation/index.html">Slides</a><a href="../video/index.html">Video</a><a href="../share/index.html">Share</a></nav>
+  <main id="app" tabindex="-1">
+    <section class="screen active landing legacy-page" aria-labelledby="page-title">
+<div class="lm-head"><div class="hj-heading"><nav class="crumbs" aria-label="You are here"><a href="../course-map.html">Course map</a><span aria-hidden="true">›</span><a href="../subthemes.html">Subthemes</a></nav><a class="back-button" href="../subthemes.html">← <span>Subthemes</span></a><p class="eyebrow">Subtheme · 2 papers · Design methodology and tooling</p><h1 id="page-title">High level synthesis and compilers: what the 2 papers change, and what is still unproven</h1><p class="hj-sub">Papers: DAC 1, ISCA 1. Read from: 1 program descriptions, 0 abstracts or reports, 1 full papers or preprints. The explanations come first; every paper’s record follows at the end.</p></div><div class="hj-art" data-art="trio:file-text,settings,checklist"></div></div>
+<figure class="course-fig"><div class="loop-wide" data-art="flow:design-methodology-and-tooling"></div><div class="loop-tall" data-art="flowTall:design-methodology-and-tooling"></div><figcaption>The parent theme in one picture: how a design is written down decides what a tool can change.</figcaption></figure>
+      <article class="prose">
+
+<p>This subject has 2 records in the selected sample. This page explains where it fits, then presents all captured paper evidence without shortening the measurements or limitations.</p>
+<p><a href="../guide/reading-guide-v1.html">Definitions used in the paper records</a></p>
+<p class="lm-k h-label">Understand the parent subject first</p><h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>The bigger theme this belongs to</h2>
+<ul>
+<li><a href="../themes/design-methodology-and-tooling.html">Design methodology and tooling</a></li>
+</ul>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>A program does not uniquely specify a circuit</h2>
+<p>A program describes operations and the behavior required from them. Hardware construction must also decide how many execution units exist, which operations share a unit, where values are stored, and when work proceeds.</p><p>Different choices can implement the same behavior with different area, timing, and energy costs.</p>
+<p>High-level synthesis constructs hardware from a higher-level program description. A compiler transforms representations of the program and selects implementation choices. The result must preserve the required behavior and remain compatible with the target device and tool flow.</p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="alert-triangle"></span>Dependencies limit concurrent execution</h2>
+<p>An operation needs its inputs before it can start. If another operation produces an input, their dependency constrains the schedule. Independent work may run concurrently when hardware and data are available. Repeated work may be pipelined so different iterations occupy different execution stages.</p>
+<p>Pipelining does not remove dependencies or storage limits. A stage can stall if its input is unavailable or its output buffer is full. The compiler needs enough information about communication and resource use to choose a schedule that can actually execute.</p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>Intermediate representations expose different choices</h2>
+<p>An intermediate representation is a structured form used between the original program and final implementation. One form may expose large computational regions, while another exposes individual operations and transfers.</p><p>Transformations can be easier to express and check at the level where the relevant relationships are explicit.</p>
+<p>Dataflowgen's captured description uses a two-level representation within MLIR, a compiler framework supporting multiple representations. It outlines computational regions and applies dataflow transformations and optimization. The record identifies a method, but does not provide target devices, benchmark identities, numerical gains, or compilation cost. <a href="high-level-synthesis-and-compilers.html#paper-dac-2026-research083">Recorded evidence</a></p>
+<p>The missing conditions matter because a transformation that helps one target may add buffering or unsupported operations on another. A compiler architecture alone does not establish a hardware-performance result.</p>
+<p><span id="explanation-dac-2026-research083"></span></p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="chart-bar"></span>Dataflowgen: a richer IR must still lower to correct, closable hardware</h2>
+<p>An intermediate representation (IR) is a structured description between source behavior and generated hardware. A high-level IR can preserve algorithmic regions and loops; a lower-level IR can expose operations, dependencies, buffers and transfers.</p><p>The benefit of multiple levels is that each transformation can operate where its relevant information is visible. The cost is that every conversion must preserve meaning and make target constraints explicit.</p>
+<p>Dataflowgen is described as an open-source MLIR framework with two IR levels for dataflow accelerator generation. It outlines an application kernel, applies dataflow transformations, and derives a hardware-oriented control dataflow graph (H-CDFG).</p><p>This changes the compiler's representation and search space. It does not by itself establish which MLIR dialects are supported, how memory effects are modeled, how the H-CDFG is lowered, or which FPGA/ASIC backends can consume it.</p>
+<h3>Parallel-looking graphs still have dependencies and storage costs</h3>
+<p>The compiler must preserve loop bounds, dependences, memory ordering, side effects, reductions, initialization and numerical precision. A graph may expose independent operations while their operands arrive through a shared buffer or memory port.</p><p>A fused or parallelized region can increase live values, buffering, routing pressure or peak bandwidth. A transformation that removes an apparent dependency must prove that the removed ordering was not required by the source program.</p>
+<p>Check generated behavior against a trusted software or reference implementation on corner cases, including empty or short inputs, aliasing where supported, boundary iterations, reductions, overflow/rounding, variable latency operations and reset/state behavior. Compare intermediate and final values, not only whether synthesis completes.</p><p>Report rejected or repaired transformations and unsupported operations.</p>
+<h3>Compiler IR quality is separate from hardware quality</h3>
+<p>An H-CDFG can be a concise planning representation, but the implementation still needs scheduling, resource binding, memory allocation, buffering, interface generation and backend lowering. The target device determines whether the proposed parallelism fits available compute units, memory ports, interconnect, clock period and routing.</p><p>Resource reduction can coexist with lower frequency or more buffering; higher kernel parallelism can be hidden by memory or initiation-interval limits.</p>
+<p>For each named target, report initiation interval, latency, throughput, frequency, LUT/FF/DSP/BRAM or ASIC area, memory traffic, buffer occupancy, routing/timing closure, power and energy. Include synthesis and place-and-route failures, timing violations, unsupported operations, compiler time, peak memory and manual intervention.</p><p>Separate time to compile from time for the generated accelerator to execute.</p>
+<h3>“State-of-the-art HLS” needs a reproducible boundary</h3>
+<p>The source reports performance improvement, significant resource reduction and effective capture of kernel parallelism relative to state-of-the-art HLS tools, but supplies no numerical values, benchmark identities, target devices or compilation-time cost. A fair comparison must hold source kernels, numerical precision, device, clock/resource limits, backend versions, timeout, optimization effort and correctness checks constant.</p><p>It must say whether preprocessing, kernel outlining, code generation, synthesis, place-and-route and final timing checks are included.</p>
+<p>Test held-out kernels and targets rather than only the cases used to shape the transformations. Report per-kernel results and failures, resource-versus-frequency tradeoffs, design-space search cost, and whether generated designs were measured on hardware or only estimated by tools.</p><p>The evidence supports an open-source MLIR/dataflow accelerator-generation direction, not demonstrated reusable hardware-performance improvement across targets.</p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="affiliate"></span>CODO connects legality, communication, and scheduling</h2>
+<p>CODO's captured evidence describes detection and repair of dataflow violations, optimization of data movement, and automatic scheduling for FPGA accelerators. An FPGA is configurable hardware whose available resources and connections constrain the generated implementation. <a href="high-level-synthesis-and-compilers.html#paper-isca-2026-program-002">Recorded evidence</a></p>
+<p>The conceptual connection is that an attractive schedule is insufficient if the communication structure cannot execute correctly. Repair must restore the required behavior, and the resulting communication and buffering must fit the target. A compiler should account for all these conditions while selecting the implementation.</p>
+<p>The repository's evidence includes author preprint and artifact documentation, but does not establish independent reproduction of every synthesis or board result. Reported kernel, model, and board measurements retain their own scopes.</p><p>A result on one FPGA flow does not by itself establish applicability to all programmable devices or fabricated fixed-function circuits.</p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>Tool speed and generated-hardware speed are separate outcomes</h2>
+<p>A compiler can take longer to produce a faster circuit. It can also compile quickly but miss useful implementation choices. The right objective depends on how often the generated circuit is used and how much design time is available.</p>
+<p>Measure compilation time, synthesis success, hardware resource use, correctness, and application execution separately. Include failed configurations and manual intervention. State which operations or language features are unsupported rather than excluding difficult inputs without explanation.</p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>What would establish a reusable improvement</h2>
+<p>Use the same programs, numerical requirements, device limits, and comparison tools. Preserve tool versions and settings. Check behavior on the generated hardware or a suitable validated model, and report final resource and timing constraints.</p>
+<p>Then test new applications and target configurations. Explain which transformations remain useful and which depend on a specific execution or memory organization. The strongest result is a defined transformation process that repeatedly produces valid, useful implementations under explicit conditions.</p>
+<p class="lm-k h-label">Compare the results carefully</p><h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="route"></span>How to compare these papers’ results fairly</h2>
+<p>First identify the inputs and required output quality. Then identify the limited resource: time, memory, communication, energy, circuit area, or correctness coverage.</p><p>Ask which part of the method reduces that cost and which new cost it adds. Compare numbers only when the experiments hold these conditions sufficiently similar.</p>
+<p>A conference description may explain the proposal while omitting the full experiment. An author preprint link may have been coded from its abstract. The source classification does not by itself establish that every table was read. Missing locations remain visible below.</p>
+<p class="lm-k h-label">Complete captured evidence</p><h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="file-text"></span>Every paper in this subtheme, with what its source shows</h2>
+<p>These are evidence records, not substitutes for the explanations above. Each record preserves its problem, proposed method, measurements, comparison conditions, and source limits. A populated record does not establish that its mechanism has been fully explained or independently verified.</p>
+<p><span id="paper-dac-2026-research083"></span></p>
+<h3>Dataflowgen: An MLIR-Based Compiler for Efficient Dataflow Accelerator Generation</h3>
+<p>DAC 2026 · Record: <code>dac-2026-research083</code></p>
+<p><a href="#explanation-dac-2026-research083">Read the step-by-step explanation</a></p>
+<p><strong>Updated source-backed reading card</strong></p>
+<div class="worked"><p class="lm-k">Worked example</p><p>Reviewed 2026-09-09. Deepens the Dataflowgen treatment into a paper-level reading; separates two-level MLIR representation, kernel outlining, H-CDFG/dataflow transformations and automated optimization from semantic preservation, target-device feasibility, resource/timing results and compiler cost, while preserving the source's qualitative performance/resource claims.</p></div>
+<p>This editorial correction updates the current reading view and connected dossiers, not the historical adjudication or scientific acceptance status. The original captured fields are preserved below.</p>
+<p><a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/data/editorial-paper-corrections-v1.json">Correction register</a></p>
+<p><strong>Problem:</strong></p>
+<p>High-level synthesis must turn algorithmic behavior and microarchitectural choices into efficient dataflow hardware despite dependencies, representation mismatches and target-specific resource constraints.</p>
+<p><strong>Mechanism / artifact:</strong></p>
+<p>Open-source Dataflowgen MLIR compiler with two-level intermediate representations, kernel outlining, dataflow transformations, a hardware-oriented control dataflow graph (H-CDFG) and automated optimization; dialect definitions, legality checks, lowering, scheduling and code-generation targets are unspecified.</p>
+<p><strong>Workload — the work tested:</strong></p>
+<p>High-level-synthesis kernels and generated dataflow accelerators; kernel identities, operation coverage, tensor/dataflow shapes, numerical precision, benchmark split, target devices and generated-design acceptance criteria are unspecified.</p>
+<p><strong>Hardware and manufacturing assumptions:</strong></p>
+<p>Dataflow accelerator generation through an MLIR/HLS flow; FPGA or ASIC target, device resources, clock target, memory/interconnect, synthesis/backend tools, place-and-route, timing model and hardware validation status are unspecified.</p>
+<p><strong>Baseline — the comparison method:</strong></p>
+<p>State-of-the-art HLS tools</p>
+<p>Same source kernels, language/IR semantics, precision, target device, clock/resource constraints, backend versions, optimization effort, synthesis timeout and correctness checks are unspecified</p>
+<p><strong>Reported measurements:</strong></p>
+<p>The source reports performance improvement, significant resource reduction and effective capture of kernel parallelism versus state-of-the-art HLS tools, but provides no numerical performance/resource values, frequency, area, bandwidth, latency, energy, compile time, synthesis success rate or hardware measurement.</p>
+<p><strong>Limits on the conclusion:</strong></p>
+<p>An intermediate representation and H-CDFG expose choices but do not guarantee semantic preservation. Check dependence, memory ordering, loop bounds, side effects, reductions, precision and initialization against a trusted software/reference implementation and inspect generated RTL or equivalent behavior under corner cases.</p>
+<p>Hardware benefit is target-dependent. Report initiation interval, latency, throughput, frequency, LUT/FF/DSP/BRAM or ASIC area, memory traffic, buffering, routing/timing closure, power and failed/unsupported operations on named devices with the same backend and constraints.</p><p>A dataflow graph that looks parallel may be limited by buffers, ports, dependencies or physical routing.</p>
+<p>The official description supports an open-source MLIR/dataflow accelerator-generation direction with qualitative performance and resource claims, not demonstrated reusable hardware-performance improvement. Numerical gains, benchmark identities, target devices, compiler/synthesis cost, semantic checks and measured implementation results remain unresolved.</p>
+<p><strong>Source and location</strong></p>
+<p>Evidence tier: Primary captured official DAC description plus existing authored dataflowgen/HLS explanation; no full paper extraction, reproduced compiler run, synthesis trace or measured accelerator result. This is the stored source classification; the location and limits below determine what was actually read.</p>
+<p><a href="https://63dac.conference-program.com/?post_type=page&amp;p=16&amp;id=RESEARCH083">Open the recorded source</a></p>
+<p>DAC 2026 official description, first and final paragraphs; existing high-level-synthesis-and-compilers explanation; captured Problem, Mechanism / artifact, Workload, Hardware, Baseline, Measurements and Limits fields; no full manuscript, generated RTL, synthesis report or hardware validation.</p>
+<details markdown="1">
+<summary>Original captured fields — superseded for this reading card</summary>
+
+** page source tier:** medium_official_description
+
+**Baselines:** state-of-the-art HLS tools
+
+**Evidence locators:** Not established in the captured evidence.
+
+**Evidence url:** https://63dac.conference-program.com/?post_type=page&amp;p=16&amp;id=RESEARCH083&amp;sess=sess155
+
+**Hardware or process assumptions:** Not established in the captured evidence.
+
+**Limits:** The description does not state numerical gains, benchmark identities, target devices, or compilation-time cost.
+
+**Method or artifact:** Open-source MLIR compiler with two-level intermediate representation, kernel outlining, dataflow transformation, and automated optimization.
+
+**Metrics:** performance improvement
+
+resource reduction
+
+captured kernel parallelism
+
+**Problem:** Existing HLS tools have difficulty mapping data-dependent applications into custom hardware because algorithm and microarchitecture concerns appear at mismatched IR levels.
+
+**Workload or benchmark:** High-level-synthesis kernels and dataflow accelerator generation.
+
+</details>
+<p><span id="paper-isca-2026-program-002"></span></p>
+<h3>CODO: An Automated Compiler for Comprehensive Dataflow Optimization</h3>
+<p>ISCA 2026 · Record: <code>isca-2026-program-002</code></p>
+<p><strong>Problem:</strong></p>
+<p>Manual construction of efficient streaming FPGA dataflow accelerators remains difficult even with high-level synthesis because dataflow legality, communication efficiency, and resource/performance tradeoffs interact.</p>
+<p><strong>Mechanism / artifact:</strong></p>
+<p>CODO compiler built around systematic coarse- and fine-grained dataflow-violation detection and repair, on-chip/off-chip data-movement optimization, automatic scheduling, and a public artifact implementation.</p>
+<p><strong>Workload — the work tested:</strong></p>
+<p>Typical computation kernels, DNN models, CNN models, and GPT-2 evaluated through synthesis and on-board FPGA experiments.</p>
+<p><strong>Hardware and manufacturing assumptions:</strong></p>
+<p>FPGA dataflow accelerators and high-level-synthesis tool flows; the public evidence does not establish applicability to ASIC implementation or all FPGA families.</p>
+<p><strong>Baseline — the comparison method:</strong></p>
+<p>state-of-the-art dataflow/HLS frameworks</p>
+<p><strong>Reported measurements:</strong></p>
+<p>1.45x–4.52x latency speedup on computation kernels</p>
+<p>3.7x–33.8x speedup on DNN models</p>
+<p>7.3x average CNN speedup in on-board evaluation</p>
+<p>2.07x GPT-2 speedup in on-board evaluation</p>
+<p>performance-resource tradeoff</p>
+<p><strong>Limits on the conclusion:</strong></p>
+<p>The evidence is an author arXiv preprint plus public artifact documentation; the repository has not independently reproduced synthesis or board results, extracted every baseline/configuration, or established generalization beyond the reported FPGA flows.</p>
+<p><strong>Source and location</strong></p>
+<p>Evidence tier: High primary preprint. This is the stored source classification; the location and limits below determine what was actually read.</p>
+<p><a href="https://arxiv.org/abs/2604.12618">Open the recorded source</a></p>
+<p>An exact page, section, or table location has not been recorded. Page-level verification remains open.</p>
+<p class="lm-k h-label">What remains to establish</p><h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>What is still unproven here</h2>
+<p>Resolve unspecified workloads, comparison methods, resource budgets, and source locations before generalizing a reported gain. Multiple papers in this selected sample permit comparison of mechanisms, but do not by themselves establish recurrence across years or a long-term trend.</p>
+<p><a href="../guide/expanded-taxonomy-v1.html">All subthemes</a> · <a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/reports/directions/README.md">Research directions</a></p><p class="meta">Written as <a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/reports/observed-subthemes/high-level-synthesis-and-compilers.md">reports/observed-subthemes/high-level-synthesis-and-compilers.md</a> in the course repository.</p>
+      </article>
+      <nav class="pager" aria-label="Previous and next"><a class="prev" href="compiler-and-runtime-optimization.html"><span class="pg-k">← Previous</span><span class="pg-t">Compiler and runtime optimization</span></a><a class="map" href="../subthemes.html"><span class="pg-k">Back to</span><span class="pg-t">Subthemes</span></a><a class="next" href="synthesis-and-compilation.html"><span class="pg-k">Next →</span><span class="pg-t">Synthesis and compilation</span></a></nav>
+    </section>
+  </main>
+  <footer class="course-foot">
+    <p>Built from 582 paper records coded from ISCA 2026, DAC 2026 and ICCAD 2025 (ICCAD 2026 papers were not yet public). Most records come from official program descriptions; see “How deep the reading went”. The papers belong to their authors.</p>
+    <p class="foot-links"><a href="https://github.com/mehtama1234/course-concept-library">All courses</a><a href="../index.html">This course</a><a href="../course-map.html">Course map</a><a href="../presentation/index.html">Slides</a><a href="../video/index.html">Video</a><a href="../share/index.html">Share</a></p>
+  </footer>
+  <script src="../assets/course-data.js"></script><script src="../assets/icons.js"></script><script src="../assets/icons-extra.js"></script><script src="../assets/icons-course.js"></script><script src="../assets/art.js"></script><script src="../assets/course-art.js"></script><script src="../assets/charts.js"></script><script src="../assets/course-charts.js"></script><script src="../assets/course-site.js"></script>
+</body>
+</html>

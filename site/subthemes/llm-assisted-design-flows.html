@@ -1,0 +1,965 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#F3ECE1" />
+  <title>LLM assisted design flows · Semiconductor conference atlas</title>
+  <meta name="description" content="Papers: DAC 6, ICCAD 2. Read from: 6 program descriptions, 0 abstracts or reports, 2 full papers or preprints. The explanations come first; every paper’s record follows at the end." />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Semiconductor conference atlas" />
+  <meta property="og:title" content="LLM assisted design flows · Semiconductor conference atlas" />
+  <meta property="og:description" content="Papers: DAC 6, ICCAD 2. Read from: 6 program descriptions, 0 abstracts or reports, 2 full papers or preprints. The explanations come first; every paper’s record follows at the end." />
+  <meta property="og:url" content="https://mehtama1234.github.io/semiconductor-conferences/subthemes/llm-assisted-design-flows.html" />
+  <meta property="og:image" content="https://mehtama1234.github.io/semiconductor-conferences/presentation/slides/01-cover.jpg" />
+  <meta property="og:image:width" content="1920" />
+  <meta property="og:image:height" content="1080" />
+  <meta property="og:image:alt" content="Semiconductor conference atlas: 582 papers from ISCA, DAC and ICCAD, sorted into 10 themes and six directions to watch." />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="canonical" href="https://mehtama1234.github.io/semiconductor-conferences/subthemes/llm-assisted-design-flows.html" />
+  <link rel="icon" href="../assets/icon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="../assets/base.css" />
+  <link rel="stylesheet" href="../assets/experience.css" />
+  <link rel="stylesheet" href="../assets/theme-atlas.css" />
+  <link rel="stylesheet" href="../assets/styles.css" />
+  <link rel="stylesheet" href="../assets/charts.css" />
+  <link rel="stylesheet" href="../assets/course.css" />
+  
+</head>
+<body class="course-site " data-house="atlas">
+  <aside class="public-demo-banner" aria-label="About this course">A plain-language guide to what ISCA, DAC and ICCAD papers say about chip and computer design · Built from the repository’s own paper records · Not made by the conferences</aside>
+  <a class="skip-link" href="#app">Skip to the page</a>
+  <header>
+    <a class="brand" href="../index.html"><span class="mark" aria-hidden="true">Si</span> Semiconductor conference atlas</a>
+    <span class="header-status"><span class="badge">582 papers</span><span class="badge">10 themes</span><span class="badge">Plain words first</span></span>
+    <a class="header-link" href="../course-map.html">Course map</a>
+  </header>
+  <nav class="course-nav" aria-label="Main sections of the course"><a href="../index.html">The big picture</a><a href="../themes.html">Themes</a><a href="../subthemes.html" aria-current="page">Subthemes</a><a href="../deep-reads.html">Deep reads</a><a href="../directions.html">What to watch</a><a href="../presentation/index.html">Slides</a><a href="../video/index.html">Video</a><a href="../share/index.html">Share</a></nav>
+  <main id="app" tabindex="-1">
+    <section class="screen active landing legacy-page" aria-labelledby="page-title">
+<div class="lm-head"><div class="hj-heading"><nav class="crumbs" aria-label="You are here"><a href="../course-map.html">Course map</a><span aria-hidden="true">›</span><a href="../subthemes.html">Subthemes</a></nav><a class="back-button" href="../subthemes.html">← <span>Subthemes</span></a><p class="eyebrow">Subtheme · 8 papers · AI-assisted EDA</p><h1 id="page-title">LLM assisted design flows: what the 8 papers change, and what is still unproven</h1><p class="hj-sub">Papers: DAC 6, ICCAD 2. Read from: 6 program descriptions, 0 abstracts or reports, 2 full papers or preprints. The explanations come first; every paper’s record follows at the end.</p></div><div class="hj-art" data-art="trio:file-text,sparkles,checklist"></div></div>
+<figure class="course-fig"><div class="loop-wide" data-art="flow:ai-assisted-eda"></div><div class="loop-tall" data-art="flowTall:ai-assisted-eda"></div><figcaption>The parent theme in one picture: a model proposes a design; tools decide whether it counts.</figcaption></figure>
+      <article class="prose">
+
+<p>This subject has 8 records in the selected sample. This page explains where it fits, then presents all captured paper evidence without shortening the measurements or limitations.</p>
+<p><a href="../guide/reading-guide-v1.html">Definitions used in the paper records</a></p>
+<p class="lm-k h-label">Understand the parent subject first</p><h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>The bigger theme this belongs to</h2>
+<ul>
+<li><a href="../themes/ai-assisted-eda.html">AI assisted EDA</a></li>
+</ul>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>A language model proposes an action in a larger design process</h2>
+<p>All eight paper records in this chapter now have expanded individual explanations. This is writing coverage, not independent comprehension acceptance: source depth varies, original-ledger and artifact reconciliation remain open, and the broader collection still needs rewriting.</p><p>The comparison below connects the contributions without ranking incompatible measurements.</p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="books"></span>Read the eight contributions by the decision they change</h2>
+<table>
+<thead>
+<tr>
+<th>Paper explanation</th>
+<th>Decision being changed</th>
+<th>What must be checked separately</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#explanation-dac-2026-research2145">drcAgent</a></td>
+<td>A repair to physical geometry</td>
+<td>Applicable rules, connectivity and newly introduced violations</td>
+</tr>
+<tr>
+<td><a href="#explanation-dac-2026-research2545">Two-tier Verilog generation</a></td>
+<td>RTL describing the requested behavior</td>
+<td>State transitions, output timing and implemented hardware quality</td>
+</tr>
+<tr>
+<td><a href="#explanation-dac-2026-research865">ParetoPilot</a></td>
+<td>Synthesis configurations</td>
+<td>Feasibility, complete search cost and tradeoffs among candidates</td>
+</tr>
+<tr>
+<td><a href="#explanation-dac-2026-research535">MappingEvolve</a></td>
+<td>Code inside a technology mapper</td>
+<td>Produced netlist equivalence, held-out circuits and a validated fallback</td>
+</tr>
+<tr>
+<td><a href="#explanation-dac-2026-research012">ModuPlace</a></td>
+<td>Component grouping and placement relationships</td>
+<td>Realizable geometry, routing and electrical behavior</td>
+</tr>
+<tr>
+<td><a href="#explanation-dac-2026-research1110">FPGA architecture optimization</a></td>
+<td>Connected compute stages and data streams</td>
+<td>Values, ordering, progress, resource fit and integrated throughput</td>
+</tr>
+<tr>
+<td><a href="#explanation-iccad-2025-1222">VeriOpt</a></td>
+<td>RTL implementation choices informed by cost reports</td>
+<td>Unchanged behavior and matched power, timing and area conditions</td>
+</tr>
+<tr>
+<td><a href="#explanation-iccad-2025-110">VERIRL</a></td>
+<td>The trained generator's output distribution</td>
+<td>Independent functional tests and separation of reward from acceptance</td>
+</tr>
+</tbody>
+</table>
+<p>These are not eight interchangeable ways to measure whether a language model is good at chip design. They act on different objects.</p><p>A configuration search chooses within an existing tool interface; changing the tool itself can affect future designs that were never in the search. Generating a learned reward changes training incentives; repairing a routed design changes a physical artifact directly.</p><p>Their failure modes and verification costs therefore differ.</p>
+<p>The common design question is where to place a machine-generated proposal relative to a trusted check. A proposal can narrow the next search or suggest a revision without being accepted as correct.</p><p>The check needs to assess the resulting object under the original requirements. If the requirements, testbench, reward and generated candidate all inherit the same mistaken assumption, agreement among them is weak evidence.</p>
+<p>Three long-term hypotheses follow from this comparison, not from a measured historical increase. First, structured proposals may make failures easier to locate when their fields have explicit meanings and independent validity checks.</p><p>This would weaken if structure merely relocates errors into unchecked relationships. Second, implementation feedback may improve practical choices when the report belongs to the exact candidate and its constraints remain fixed.</p><p>This would weaken if apparent gains disappear after integration or matched evaluation. Third, learned guidance may reduce repeated search work when training cost is reused across sufficiently many unfamiliar tasks.</p><p>This would weaken if gains depend on benchmark familiarity or expensive per-task repairs.</p>
+<p>Testing those hypotheses over time requires comparable task families, source access, tool and model versions, budgets and acceptance rules across editions. This chapter combines ICCAD 2025 fallback records with DAC 2026 records; that difference alone cannot establish a shift from one approach to another.</p><p>Unavailable manuscripts and the selected-paper sample also prevent treating these eight records as field-wide proportions.</p>
+<p>A language model produces text or structured output from its input context. In chip design, that output might be hardware-description code, a tool command, a suggested layout change, or a set of compiler settings.</p><p>The output becomes useful only when the surrounding process can interpret it, execute it, and check the resulting design.</p>
+<p>The design flow therefore includes more than the model. It includes the specification, the information supplied to the model, the permitted actions, the design tools, and the rule for accepting an output. Changing any of these can change the measured success rate.</p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>Information supplied to the model affects the claim</h2>
+<p>Retrieval-augmented generation supplies selected reference material with a request. In a design application, that material could include design rules, examples, or tool documentation. Retrieval can make relevant information available, but it does not establish that the material is complete, current, or correctly applied.</p>
+<p>An evaluation must identify which references the model could access and how they were selected. A method with task-specific examples or manually prepared rules has different preparation costs and transfer assumptions from one evaluated with only a general specification.</p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>Drcagent proposes physical-design repairs</h2>
+<p>Drcagent's captured description combines design-rule information, a language model, and feedback from electronic-design tools to repair violations. A design-rule check evaluates whether physical geometry satisfies specified manufacturing constraints. Repairing one violation can change nearby geometry and create another. <a href="llm-assisted-design-flows.html#paper-dac-2026-research2145">Recorded evidence</a></p>
+<p>The useful outcome is a valid repaired design under the full relevant checks, with the original circuit intent preserved. The record does not establish violation coverage, closure rate, runtime, final layout quality, or transfer across processes.</p><p>A multi-turn repair loop by itself does not establish any of those outcomes.</p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="checklist"></span>Generated code needs several kinds of checking</h2>
+<p>The two-tier Verilog-generation record combines retrieved information, classification, prompting, simulation, review, and hardware-performance checks. Verilog describes circuit behavior and structure. A valid text representation can still implement the wrong function, and a functionally correct description can produce an unsuitable circuit after synthesis. <a href="llm-assisted-design-flows.html#paper-dac-2026-research2545">Recorded evidence</a></p>
+<p>Separate syntax acceptance, simulated correctness, synthesis completion, and implemented hardware quality. Report how many outputs fail each step. A system that accepts fewer but better designs may have a different useful result from a system optimized for generating many syntactically valid candidates.</p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>Paretopilot chooses synthesis settings</h2>
+<p>High-level synthesis constructs hardware from a higher-level program and settings that influence parallelism, resource use, and scheduling. Paretopilot's captured method uses a language model to guide exploration of these choices. <a href="llm-assisted-design-flows.html#paper-dac-2026-research865">Recorded evidence</a></p>
+<p>Several objectives can conflict. A candidate may be faster but larger.</p><p>A Pareto set contains candidates for which no other evaluated candidate is at least as good on every objective and better on one. The quality of that set depends on the objectives, evaluated candidates, and budget.</p><p>The current description does not establish enough of those conditions to interpret its reported improvement as a generally better search.</p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>Count the work needed to obtain an accepted design</h2>
+<p>A complete budget includes preparing references, model calls, tool execution, failed attempts, repairs, and human intervention. If training or task-specific tuning is required, state whether that cost is included and how often the resulting method is reused.</p>
+<p>Compare the same tasks and acceptance rules. Preserve model and tool versions, prompts or interfaces, and failure records.</p><p>Test unfamiliar designs and conditions. The strongest conclusion identifies which part of the design process improved, what feedback caused the improvement, and what work still requires a separate correctness or physical check.</p>
+<p><span id="explanation-iccad-2025-110"></span></p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>VERIRL: improve a generator without confusing its reward with circuit correctness</h2>
+<h3>What the inspected preprint establishes</h3>
+<div class="worked"><p class="lm-k">Worked example</p><p>Selected method and evaluation sections of version 1 were read on 2026-09-08. No training, repository code or generated RTL was executed; conference-version and artifact reconciliation remain open. The current reading card below includes this extraction; the original captured fields remain available in its disclosure.</p></div>
+<p>VERIRL trains a policy with a learned reward model. Its trace-back procedure replaces an internal candidate's score with the mean of its children's scores; sample balancing adjusts learning contributions using probability and reward. <a href="https://arxiv.org/pdf/2508.18462v1#page=5">Sections III, V–VI; trace-back on PDF page 5</a></p>
+<div class="worked"><p class="lm-k">Worked example</p><p>Evaluation uses twenty samples per task and pass@1/pass@5. Table II reports CodeQwen2.5-based VERIRL at 69.3/78.1 on VerilogEval-human and 58.2/66.0 on RTLLM v1.1. Inference selects the best results across three temperatures. <a href="https://arxiv.org/pdf/2508.18462v1#page=7">Sections VII-D–F and Table II, PDF pages 7–8</a></p></div>
+<p>These are functional benchmark results, not measured circuit power, area or timing. The independent examples below explain why training scores, repair success and final acceptance need separate meanings.</p>
+<h3>The trained object is a probability distribution over outputs</h3>
+<p>A language model generates a sequence by assigning probabilities to possible next tokens. For a hardware task, the sequence includes a proposed implementation. Training changes which implementations are likely to be generated; it does not directly change the circuit already produced on a previous attempt.</p>
+<p>A policy is the model used to choose outputs. A reward is a score used to guide learning.</p><p>A reward model is a learned function that predicts a score from the task and candidate. Executing a testbench is a different operation: it runs selected input sequences and checks the circuit's responses.</p><p>Predicted quality and observed test outcome can disagree.</p>
+<div class="worked"><p class="lm-k">Worked example</p><p>Suppose a generator produces two candidates. A receives predicted reward 0.9 but fails a required reset test.</p></div><p>B receives 0.7 but passes all the available checks. The reward ranking prefers A; the observed test outcome favors B.</p><p>Training can improve prediction quality, but calling the score a reward does not make it an authoritative correctness decision.</p>
+<h3>Sparse feedback can hide useful distinctions</h3>
+<p>An all-or-nothing test outcome may assign zero to both a program that does not parse and one that computes nearly every tested case correctly. Their next repairs may be very different.</p><p>More detailed observations can help distinguish missing syntax, incorrect output width, wrong state transitions and output-cycle errors.</p>
+<p>However, counting passed tests does not automatically measure how close a circuit is to correct. Consider ten tests: nine exercise ordinary addition and one checks overflow.</p><p>A circuit passing nine receives 90% test success but still violates a required case. Duplicating the ordinary tests could increase the percentage without improving the implementation.</p><p>Coverage and severity do not arise from the denominator alone.</p>
+<p>The original specification must therefore remain visible when test results become training labels. Multiple generated testbenches can share the same omission. Agreement across tests is more useful when they exercise genuinely different requirements than when they restate one easy case in different code.</p>
+<h3>Repair potential and present correctness answer different questions</h3>
+<p>For an independent tree example, candidate A initially passes none of its tests. Two revised children pass all tests and 80% of tests respectively.</p><p>Averaging the children's scores gives 0.9. That can express usefulness as a starting point for the particular repair process; it is not A's own measured pass rate.</p>
+<p>The distinction matters when constructing preferred and disfavored training pairs. A high score inherited from repairs may encourage outputs that lead to good repairs, rather than outputs that already pass.</p><p>Whether that helps one-shot generation depends on the data representation and the learning procedure. It cannot be settled by changing the score's name.</p>
+<p>To evaluate this boundary, retain candidate identities, original test outcomes, repair histories and inherited scores as separate fields. Test final sampled outputs independently of the scorer used in training.</p><p>These are proposed checks, not claims that the released implementation mislabels its results or that its reported benchmark gains are invalid.</p>
+<h3>Probability and reward are not the same kind of confidence</h3>
+<p>Generation probability says how likely the current model is to emit an output under the sampling process. Reward says how desirable a scorer judges it. A common output may be consistently wrong, while an uncommon output may implement an unusual requirement correctly.</p>
+<p>An adaptive weighting scheme changes how much particular examples influence an update. Increasing attention to promising rare cases may help the model learn beyond frequent patterns.</p><p>Reducing the influence of persistently uninformative cases may reduce noise. But unusual valid behavior can also look rare, and scorer mistakes can make invalid behavior look promising.</p>
+<p>For a simple illustration, suppose a batch has ninety routine cases and ten unusual cases. Optimizing only the overall mean can improve ninety answers while degrading all ten unusual ones.</p><p>A weighted objective can expose that imbalance, but it still needs trustworthy labels and evaluation on the relevant task categories. A balanced numerical objective is not itself a guarantee of generalization.</p>
+<h3>Understand what multiple-attempt success measures</h3>
+<p>Pass@1 concerns one sampled solution; pass@5 concerns whether at least one of five sampled solutions succeeds. A higher multiple-attempt score can be useful when the user can afford to generate and test alternatives.</p><p>It does not say the system can identify the successful candidate without those checks.</p>
+<div class="worked"><p class="lm-k">Worked example</p><p>For an independent finite-sample calculation, suppose twenty generated candidates contain four passes. A uniformly chosen single candidate succeeds with probability <code>4/20 = 0.2</code>. Choosing five distinct candidates from that set has success probability <code>1 − C(16,5)/C(20,5)</code>, approximately 0.718. Here <code>C(n,k)</code> counts the ways to select k objects from n without regard to order. The difference reflects additional chances, not a change in any candidate's correctness.</p></div>
+<p>Do not replace that finite-sample calculation with an assumption that every attempt is independent and has identical success probability unless the measurement supports it. Models can repeat the same wrong structure. Record sampling settings, candidate count, testing cost and selection procedure when comparing methods.</p>
+<p>Choosing the best setting using the evaluation results adds another selection step. A transferable deployment claim should distinguish a setting chosen on separate validation tasks from a best-of-settings result on the reported benchmark. Neither is inherently meaningless; they estimate different procedures and require different budgets.</p>
+<h3>Dataset filtering does not prove independence from evaluation</h3>
+<p>Removing near-identical text helps reduce one form of duplication. It does not ensure two differently worded problems require different circuits. Conversely, similar text can specify importantly different behavior, such as a different reset polarity or output cycle.</p>
+<p>An independence check should follow problem provenance and semantic overlap as far as the evidence allows. It should also distinguish training examples, reward-training pairs, repaired descendants and evaluation tasks.</p><p>A large count of pairs can contain repeated information from a much smaller number of underlying problems.</p>
+<p>Training and evaluation costs also serve different purposes. Preparing testbenches, exploring repair branches and training a scorer are preparation work.</p><p>Generating a new candidate and checking it are per-task work. Any claimed engineering saving needs both, with the intended number and variety of future tasks stated.</p>
+<h3>Connect training improvements to implementation requirements</h3>
+<p><a href="#explanation-iccad-2025-1222">VeriOpt</a> discusses using implementation feedback to improve RTL costs. VERIRL's inspected evaluation concerns functional generation. Better functional sampling can supply more usable starting candidates to a later implementation flow, but does not establish that those candidates satisfy area, power or clock constraints.</p>
+<p>The bounded hypothesis is that informative, correctly interpreted training feedback can increase the chance of obtaining usable RTL on unfamiliar tasks. It weakens if rewards mainly predict benchmark-specific test behavior, if repair-derived labels do not transfer to final outputs, or if gains vanish under matched sampling budgets.</p><p>Source-to-artifact consistency, broader test coverage, dataset independence, reproduced measurements and independent comprehension review remain open.</p>
+<p><span id="explanation-iccad-2025-1222"></span></p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>VeriOpt: improve implementation cost without changing the required behavior</h2>
+<h3>What the manuscript actually supports</h3>
+<div class="worked"><p class="lm-k">Worked example</p><p>The version-1 preprint was inspected on 2026-09-08, including method, evaluation tables and limitations. This is manuscript reading, not execution or verification of a conference camera-ready version. The current reading card below includes the inspected conditions and preserves the original abstract-backed fields in its disclosure.</p></div>
+<p>VeriOpt assigns planning, programming, reviewing and evaluating roles, then supplies optimization context and synthesis reports. Section V-C explicitly describes manual external synthesis feedback. <a href="https://arxiv.org/pdf/2507.14776v1#page=8">Sections III and V-C; limitations on PDF page 8</a></p>
+<div class="worked"><p class="lm-k">Worked example</p><p>Evaluation uses GPT-4o, Icarus Verilog, Design Compiler and RTLLM; Table II reports 25/29 testbench passes. PPA baselines are the flow's functionally passing pre-optimization designs. <a href="https://arxiv.org/pdf/2507.14776v1#page=6">Section IV-A and Table II, PDF pages 6–7</a></p></div>
+<p>Table III's 73.23% is critical-path reduction for the 16-bit divider. Some leakage and slack entries worsen.</p><p>Its 90% slack improvement for the four-bit pipelined multiplier also exceeds the prose's stated 39.44% maximum. Preserve that discrepancy rather than silently harmonizing it. <a href="https://arxiv.org/pdf/2507.14776v1#page=7">Table III and Section IV-C, PDF pages 7–8</a></p>
+<p>The independently constructed examples below explain how to read those boundaries. They are not recreated VeriOpt circuits, simulations, or measurements.</p>
+<h3>Define behavior before optimizing its implementation</h3>
+<p>Register-transfer-level code, or RTL, describes how stored state and combinational logic determine a circuit's outputs. Combinational logic calculates from its current inputs.</p><p>Registers preserve values between specified clock events. For a sequential circuit, correctness concerns a sequence of states and outputs, not just a final arithmetic answer.</p>
+<div class="worked"><p class="lm-k">Worked example</p><p>Suppose a request accepted at clock edge 0 must produce its sum at edge 1. An implementation that produces the same sum at edge 2 violates that timing contract unless the interface explicitly permits the extra cycle.</p></div><p>A faster clock does not automatically make it interchangeable with the original circuit: connected components may still expect the result on a particular edge.</p>
+<p>Width also matters. Adding unsigned eight-bit values 255 and 1 gives 256 mathematically.</p><p>An eight-bit output wraps to zero if that is the specified behavior; a nine-bit output can retain 256. An optimization that drops the carry is correct for one contract and incorrect for the other.</p><p>Natural-language requests and checking code must agree on which result is required.</p>
+<h3>Roles organize work; checks establish what passed</h3>
+<p>A planner can state the intended registers, operations and state transitions. A programmer can implement them.</p><p>A reviewer can compare implementation with plan. An evaluator can use tool outcomes to identify revisions.</p><p>This separation can make a proposed change easier to inspect, but it does not make the plan correct merely because another role followed it.</p>
+<div class="worked"><p class="lm-k">Worked example</p><p>For example, a plan might wrongly give enable priority over reset. Every later role could agree with the implementation, while the required simultaneous-reset-and-enable case remains wrong. The useful external check comes from the specification, not from agreement among generated descriptions.</p></div>
+<p>Simulation applies selected input sequences and compares observed behavior with expected behavior. A passing testbench establishes agreement on those checks, not on every possible sequence.</p><p>Formal equivalence can answer a broader comparison under explicitly modeled assumptions, but should not be inferred from the existence of a reviewer or a successful simulation. A robust account must name the actual check used.</p>
+<h3>Timing slack is a margin, not a pass percentage</h3>
+<p>For a simplified setup check, slack is the required arrival time minus the actual arrival time. If data is required by 2.0ns but arrives at 2.4ns, slack is −0.4ns: the path is late.</p><p>Reducing arrival to 2.2ns improves slack to −0.2ns, yet the requirement still fails. Halving the lateness is not timing closure.</p>
+<p>The critical path is the path that limits the relevant timing objective under the chosen constraints. Shortening it can improve achievable speed, but another path may then become limiting.</p><p>Clock definitions, input arrival assumptions, output requirements and cell-library conditions affect the result. A percentage alone cannot say whether the final design meets its deadline.</p>
+<p>Small starting margins also make percentages unstable. Changing slack from −0.02ns to −0.03ns worsens the magnitude of lateness by 50%, but the absolute change is 0.01ns.</p><p>Neither number should be hidden: the percentage conveys relative change, while the absolute value and required margin determine acceptance. This is a teaching calculation, not a recovered optimized report.</p>
+<h3>Pipelining and sharing change different costs</h3>
+<p>Pipelining places storage between portions of a computation so less logic must finish between adjacent clock events. Consider two serial combinational blocks taking 1.1ns each.</p><p>With 0.2ns of aggregate register overhead, a single-stage timing estimate is 2.4ns. Splitting evenly can give approximately 1.3ns per stage, but now an item crosses two stages and extra registers consume area and clock activity.</p><p>These estimates omit routing and other implementation costs.</p>
+<p>Resource sharing instead lets several operations use one hardware unit at different times. Replacing two adders with one can reduce arithmetic hardware, but adds operand selection, scheduling and possibly storage.</p><p>If both results are required simultaneously, sequential reuse cannot meet that requirement without changing some other part of the architecture.</p>
+<p>The design objective must therefore say which quantities may move. Minimizing area subject to a fixed output schedule is different from minimizing area while allowing arbitrary extra cycles.</p><p>A comparison that changes the functional or timing contract has changed the task, not merely found a cheaper implementation.</p>
+<h3>Power, energy and activity are different measurements</h3>
+<p>Power is energy per unit time. Energy for one task depends on power during the task and the duration of execution.</p><p>A circuit averaging 8W for two seconds uses 16J; a 10W implementation finishing in one second uses 10J. Lower power can accompany higher energy when work takes longer.</p>
+<p>Dynamic power concerns switching activity. Leakage concerns current that can persist even when useful switching stops.</p><p>Suppressing unnecessary register updates may reduce some activity while leaving clock distribution and other logic active. Clock gating controls clock activity; it is not equivalent to disconnecting a region's power supply.</p><p>Neither should be credited with a particular leakage reduction without the corresponding implementation evidence.</p>
+<p>A power estimate also depends on how often signals change. Comparing one design under mostly idle inputs with another under active inputs is not a matched workload comparison.</p><p>The relevant evidence includes activity assumptions, operating conditions, included circuitry and how power was calculated. A synthesis report supplies estimates under a model, not a physical measurement of fabricated hardware.</p>
+<h3>Keep each candidate's results together</h3>
+<div class="worked"><p class="lm-k">Worked example</p><p>Suppose candidate A has power 4, area 10 and delay 3, while candidate B has power 7, area 6 and delay 2, in fixed arbitrary units. Neither dominates the other: A uses less power, B is smaller and faster.</p></div><p>Reporting power 4, area 6 and delay 2 as one design would invent an implementation that neither candidate provides.</p>
+<p>Every result row should therefore identify the exact RTL revision and its correctness outcome, synthesis settings and complete metric set. If separate power-, area- and timing-oriented candidates are generated, retain them separately.</p><p>The best improvement in each column does not establish one candidate achieving all of those improvements simultaneously.</p>
+<p>Failed generation tasks also remain part of the overall outcome even if they cannot enter a PPA comparison. In an illustrative ten-task study, finding correct implementations for six tasks and improving all six does not mean ten tasks were solved.</p><p>Report generation coverage and conditional implementation improvements with their own denominators and search budgets.</p>
+<h3>What this contributes to the larger subject</h3>
+<p>The connection to <a href="#explanation-dac-2026-research2545">two-tier Verilog generation</a> is the separation of behavior generation from implementation quality. The connection to <a href="#explanation-dac-2026-research535">MappingEvolve</a> is that a favorable optimization score still needs a valid accepted result. The edited objects differ: RTL in one case, mapping software in the other.</p>
+<p>The bounded hypothesis is that structured proposals plus implementation feedback can improve design choices when the original contract and acceptance checks remain fixed. It would weaken if gains depended on looser output timing, unmatched activity assumptions, manual work excluded from the budget, or selecting incompatible metrics from different candidates.</p>
+<p>Target-library and operating conditions, complete prompt/retry cost, exact post-optimization checking, per-candidate RTL/report pairing and artifact reproduction remain unresolved in this assessment. Independent review is still required; the new explanation does not establish production readiness or a historical trend.</p>
+<p><span id="explanation-dac-2026-research1110"></span></p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="affiliate"></span>FPGA HLS architecture optimization: make connected stages work at compatible rates</h2>
+<h3>What is available, and what is still missing</h3>
+<p>The official description proposes language-model-driven generation and optimization of system-level HLS architectures and reports an average 11.78× performance improvement. It does not supply the benchmark conditions needed to interpret that average. <a href="https://63dac.conference-program.com/presentation/?id=RESEARCH1110&amp;sess=sess173">Official description</a></p>
+<div class="worked"><p class="lm-k">Worked example</p><p>A fresh title search on 2026-09-08 did not recover the manuscript. The <a href="https://csee.hnu.edu.cn/people/hexu">author's publication entry</a> links HLSArchOpt.</p><p>Its pinned README and top-level source were reread for this explanation. The <a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/dac/data/hlsarchopt-primary-assessment-v1.json">saved primary assessment</a> additionally records selected script and stored synthesis-report inspection; those observations are attributed to that earlier assessment, not to a newly executed experiment.</p><p>No manuscript page citations are available.</p></div>
+<p>The release contains a Fire-module example, not the full optimization framework. Its README names Vivado HLS/Vivado 2019.2, ZCU102 and a 100MHz target, while listing full-model integration and automation as future work. These conditions describe the released example, not every paper benchmark. <a href="https://github.com/Szzer1/HLSArchOpt/blob/999043ab132f984b5b88b26ab9e415221e1198f1/README.md">Pinned README</a></p>
+<h3>Start with a computation, not a generated file</h3>
+<p>An FPGA is a device whose configurable logic, arithmetic resources, memory blocks and connections can implement a chosen digital circuit. High-level synthesis, or HLS, translates a program and implementation directives into a hardware design.</p><p>The same computation can be implemented with different amounts of parallel arithmetic, buffering and resource sharing.</p>
+<p>A convolution computes weighted sums over selected input values. An activation such as ReLU replaces a negative result with zero and retains a nonnegative result.</p><p>These operations define values that must be produced. Their implementation additionally determines when values are available, how they are stored and how subsequent operations receive them.</p>
+<p>For a simple independent example, four products can use one multiplier over several cycles or four multipliers concurrently. The second choice needs enough input delivery capacity and a way to add the products.</p><p>If operands arrive one pair per cycle, installing four multipliers alone cannot sustain four useful products per cycle. Architecture optimization must consider the connected computation rather than count arithmetic units in isolation.</p>
+<h3>The inspected example branches and rejoins</h3>
+<p>The top-level source unpacks 32-bit stream payloads as floating-point values, applies a squeeze convolution and ReLU, duplicates the resulting stream, processes two expand convolution/ReLU branches, concatenates their outputs and packs the result. The function requests HLS dataflow execution. <a href="https://github.com/Szzer1/HLSArchOpt/blob/999043ab132f984b5b88b26ab9e415221e1198f1/fire/sys/top.cpp">Pinned <code>pipeline_top</code> and <code>duplicate_stream</code></a></p>
+<p>Dataflow execution allows connected stages to overlap when dependencies and resources permit. It does not make all operations independent.</p><p>A consumer still needs the correct input values in the expected order. Duplication means each branch receives the required values; it does not mean the branches receive alternating halves of the input.</p>
+<p>Concatenation joins outputs along a specified dimension. It is not addition. If one branch produces channels <code>[a,b]</code> and the other <code>[c,d]</code>, an intended output might be <code>[a,b,c,d]</code>. Returning <code>[a+c,b+d]</code> has different shape and meaning. Returning <code>[a,c,b,d]</code> preserves four values but can still violate the required channel order. A test must check layout and ordering as well as arithmetic.</p>
+<h3>Throughput depends on the slowest sustained rate</h3>
+<p>Latency is the time from starting a particular work item until its output is ready. Initiation interval is the spacing between accepted work items in a repeated schedule. The two can differ because several items can be in progress together.</p>
+<div class="worked"><p class="lm-k">Worked example</p><p>For an idealized example, a pipeline has latency ten cycles and accepts another item every five cycles. Four items finish by cycle <code>10 + 3×5 = 25</code>, assuming the first starts at cycle zero and no stalls occur. Processing them without overlap would take forty cycles. The first item's latency remains ten; overlap improves repeated-work throughput, not necessarily individual response time.</p></div>
+<p>Now consider a producer able to supply one value per cycle and a consumer able to process one every two cycles. A finite queue temporarily absorbs the difference.</p><p>Its occupancy grows until it is full, after which the producer must slow down. More buffer space delays this event but cannot remove a permanent rate mismatch.</p>
+<p>A duplicated stream has two consumers. If both must receive every input value, the slower branch can limit the source's sustained rate even while the faster branch is idle.</p><p>Replicating work at a branch point can therefore create a capacity requirement rather than a free speedup. The relevant optimization may involve balancing branches, changing their parallelism, or reconsidering how intermediate values are stored.</p>
+<h3>A complete stream protocol is part of correctness</h3>
+<p>Backpressure means a receiving stage temporarily prevents its sender from delivering another value, usually because storage is full. This is ordinary flow control, not automatically a deadlock. Deadlock requires a set of waits from which the system cannot advance under the allowed actions.</p>
+<p>For an independent construction, suppose two tasks each insist on reading an empty input queue before writing the value the other task needs. Neither can begin.</p><p>A different schedule or an initial value could change the outcome. This does not show that the released Fire module deadlocks; it shows why testing arithmetic functions separately is insufficient to establish progress of a connected streaming system.</p>
+<p>A useful functional check also needs the expected number of inputs and outputs, tensor dimensions, channel order, end-of-output signaling and numerical tolerance. Floating-point sums can change slightly when their addition order changes.</p><p>A tolerance should express an allowed numerical difference, not silently excuse an incorrect channel permutation or missing output.</p>
+<h3>Read the saved synthesis estimates without turning them into board measurements</h3>
+<p>The saved assessment records top-level latency of 335,494 cycles and interval of 229,703 cycles at a requested 10ns period. Multiplication gives approximately 3.355ms latency and 2.297ms interval.</p><p>The same assessment records an estimated 8.419ns clock period. These are stored HLS estimates, not a fresh synthesis run, achieved post-route frequency, or measured full-model performance. <a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/dac/data/hlsarchopt-primary-assessment-v1.json">Selected text/XML report assessment</a></p>
+<p>At a fixed clock, fewer cycles reduce the corresponding scheduled time. But a design with more parallel logic can become harder to connect physically and fail the requested clock after placement and routing.</p><p>One cannot replace the requested clock with a favorable estimate and call the product an observed speedup.</p>
+<p>Resource fit is another separate question. FPGA lookup-table logic, registers, dedicated arithmetic blocks and memory blocks have distinct capacities.</p><p>Spare registers cannot necessarily replace exhausted memory or arithmetic resources without changing the implementation. Integrating the kernel with data transfer and control logic can consume capacity not represented by an isolated kernel estimate.</p>
+<p>The saved script inspection found synthesis and export enabled, with C simulation and co-simulation commented out. That limits what that script demonstrates; it does not establish that the authors never ran correctness tests elsewhere.</p><p>Generating hardware files is not itself evidence of functional equivalence, timing closure, or successful execution on a board.</p>
+<h3>A faster module does not establish the headline system gain</h3>
+<div class="worked"><p class="lm-k">Worked example</p><p>Suppose a complete workload spends forty time units in an optimized module and sixty elsewhere. Making the module ten times faster changes total time from one hundred to sixty-four, for a speedup of <code>100/64 = 1.5625</code>, not ten. Transfers, other layers and control work can dominate after the improvement. This is an illustrative calculation, not a decomposition of the reported 11.78× result.</p></div>
+<p>An average speedup also needs its aggregation rule and per-model results. The ratio of summed runtimes, the arithmetic mean of individual speedups and their geometric mean answer different questions.</p><p>A paper-level claim needs matched baselines, resource constraints, accepted numerical quality and complete costs before those numbers can be compared across methods.</p>
+<p>Compared with <a href="#explanation-dac-2026-research865">ParetoPilot</a>, which selects synthesis configurations, this record concerns generation and optimization of a connected hardware architecture. The available example helps explain the resulting data path but does not reveal the complete language-model search process.</p><p>Prompts, retries, model versions, rejected designs and the mechanism connecting feedback to architectural edits remain unresolved.</p>
+<p>The bounded insight is that useful automation must jointly preserve values, stream order, progress and feasible rates. Evidence would strengthen with complete model-level comparisons and reproducible optimization histories; it would weaken if local gains disappear after integration or depend on unequal resource budgets.</p><p>The inspected sources do not yet establish that broader result.</p>
+<p>The evidence therefore supports LLM-assisted modular HLS architecture generation and a partial artifact-backed dataflow example, not demonstrated production-ready FPGA acceleration or a reproducible end-to-end 11.78× gain. Prompts/search cost, benchmark aggregation, matched baselines, correctness, post-route/board evidence and resource/quality constraints remain unresolved.</p>
+<p><span id="explanation-dac-2026-research012"></span></p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>ModuPlace: turn placement preferences into relationships that a placer can evaluate</h2>
+<h3>What the recovered manuscript establishes</h3>
+<div class="worked"><p class="lm-k">Worked example</p><p>An author-hosted seven-page manuscript was recovered on 2026-09-08; its title, authors and DOI <code>10.1145/3770743.3803892</code> identify this paper. Text was inspected, including method and evaluation sections; no model, placer or router was executed. The current reading card below includes this recovery and preserves the original description-only fields in its disclosure.</p></div>
+<p>The method partitions components hierarchically, generates weighted relative-position/rotation graphs, and places modules then components. Training combines expert examples and preference optimization. <a href="https://yhhan.com/PDFs/ModuPlace_paper.pdf#page=2">Sections 3.2–3.4, PDF pages 2–5</a></p>
+<p>The evaluation uses Qwen-2.5 7B, 426 training graphs, four 80GB A100s, eleven boards, routing with PcbRouter/Freerouting, and ADS electromagnetic simulation. Table 2 reports mean wirelength 1266.5 versus SA-PCB's 1528.5, and vias 48.6 versus 81.7.</p><p>P8 instead has wirelength 816.2 versus 688.6 and vias 23 versus 12. <a href="https://yhhan.com/PDFs/ModuPlace_paper.pdf#page=5">Section 4.1 and Tables 1–2, PDF pages 5–6</a></p>
+<p>Thus the reported average advantage is not improvement on every board. The explanation below develops independent examples; none is a reconstructed benchmark. Manuscript recovery does not establish reproducibility or independent acceptance.</p>
+<h3>Start with what placement must produce</h3>
+<p>A printed circuit board, or PCB, supports electronic components and conductive connections between their terminals. A schematic states which terminals must connect electrically.</p><p>Placement decides where components sit and how they are oriented. Routing then chooses actual conductive paths, subject to available layers, clearances and obstacles.</p>
+<p>A net is a set of terminals that must be electrically connected. A via connects conductive layers through the board.</p><p>Moving a component can shorten one net while making another harder to route. A geometrically compact placement can therefore require longer routes or more layer changes than a less compact one.</p>
+<div class="worked"><p class="lm-k">Worked example</p><p>Consider two terminals at <code>(0,0)</code> and <code>(10,0)</code>, in arbitrary length units. Their direct horizontal separation is ten. If a blocked region requires a route to rise to <code>y=3</code>, cross, and descend, that route has length sixteen. Both placements can have the same terminal separation while differing in the available paths. This is why an estimate made before routing is not a measurement of completed wiring.</p></div>
+<p>Half-perimeter wirelength, abbreviated HPWL, sums the horizontal and vertical spans of a net's terminals. For terminals at <code>(0,0)</code>, <code>(10,0)</code> and <code>(0,4)</code>, it is fourteen. It summarizes spatial spread; it does not construct legal copper paths, determine layer changes, or certify electrical behavior. The relevant question is whether optimizing the estimate improves the completed board under the same router and rules.</p>
+<h3>Represent a relationship before choosing every coordinate</h3>
+<p>An intermediate representation is an explicit description passed between stages of a design process. Here the important conceptual distinction is between asking for final coordinates and describing relationships that constrain their choice.</p><p>A graph has objects as nodes and relationships as edges. Its usefulness depends on what each relationship means, not on the fact that it is called a graph.</p>
+<p>For an independent example, suppose A should be left of B with a preferred horizontal displacement of four, while C should be above B by three. A coordinate optimizer can compare candidate positions with those requests.</p><p>Translating all three components together preserves the relative displacements. The board boundary and any fixed connector still determine whether the translated arrangement is legal.</p>
+<p>Relative relationships can conflict. Asking for <code>xB−xA=4</code>, <code>xC−xB=4</code>, and <code>xA−xC=4</code> is impossible: adding the left sides gives zero, but adding the requested right sides gives twelve. Valid graph syntax would not detect the geometric impossibility unless a further check examines the relationships. A model can produce a well-formed intermediate representation that has no exact realization.</p>
+<h3>A preference weight is not a hard requirement</h3>
+<p>A hard requirement rejects a candidate when violated. A preference contributes a cost that an optimizer may trade against other costs.</p><p>These roles must be explicit. A very large penalty can discourage overlap, but its numerical size alone is not a proof that overlap is impossible in every returned result.</p>
+<div class="worked"><p class="lm-k">Worked example</p><p>Suppose the desired displacement is four but a candidate provides six. An absolute-error penalty is two.</p></div><p>Giving that relationship weight five makes its contribution ten. A solver could still accept the discrepancy if another term decreases by more than ten.</p><p>This reasoning is illustrative, not a claim about the paper's exact penalty coefficients or solver behavior.</p>
+<p>Distance and angle also have different units. Adding a one-millimeter error to a one-degree error requires a defined scaling choice.</p><p>Otherwise a unit conversion changes the apparent preference. A useful explanation of an optimization result must distinguish user requirements, learned preferences, implementation penalties, and final acceptance checks.</p>
+<h3>Hierarchy reduces a search problem but can restrict its answers</h3>
+<p>Treating related components as a module lets the placer choose a region for a group before resolving every member's location. This reduces the number of details considered simultaneously. It can also prevent a globally useful arrangement if the chosen grouping or boundary is too restrictive.</p>
+<div class="worked"><p class="lm-k">Worked example</p><p>For example, two components in one group might each connect strongly to different external connectors. Keeping the group compact can shorten its internal connection while lengthening both external connections.</p></div><p>The best grouping depends on more than connectivity within the group. Fixed positions, mechanical limits and the intended electrical role can change the decision.</p>
+<p>The question is therefore not simply whether hierarchy is present. It is whether the process can revise an unsuitable partition or allocated region, and how that revision is charged to the total search budget.</p><p>A successful demonstration on one set of boards does not by itself answer how confidently the same grouping procedure transfers to a different class of board.</p>
+<h3>Learning an expert preference does not replace checking the result</h3>
+<p>Training on examples changes which outputs a model tends to generate. Training on pairwise preferences changes which of two candidate outputs it tends to favor. Neither operation turns the learned preference into a manufacturing rule or an electrical proof.</p>
+<p>If a reviewer prefers candidate A to B, that comparison need not mean A is acceptable. Both can violate a required clearance, and A can merely violate it less.</p><p>Similarly, three pairwise judgments can be inconsistent: A preferred to B, B to C, and C to A. A practical evaluation needs to describe how incomplete or conflicting preference information affects the selected result.</p>
+<p>Preparation costs also matter. Expert examples, preference labels, training and inference are different expenses from placing and routing a new board.</p><p>A reusable trained model can spread preparation cost across many tasks, but the number and similarity of those tasks determine whether the total effort falls. A placement-quality comparison alone does not establish a shorter end-to-end engineering process.</p>
+<h3>Read the measurements at the right boundary</h3>
+<p>Wirelength and via count concern the routed geometry. Electrical simulation evaluates a model of that geometry under specified materials, frequencies, ports and other conditions.</p><p>Physical measurement evaluates a fabricated object with instruments. These are different evidence stages, and one must not be silently presented as another.</p>
+<p>A mean can also hide failures or regressions on individual boards. In an illustrative two-board comparison, costs changing from <code>100,100</code> to <code>50,130</code> improve the mean from 100 to 90 while worsening the second board by 30%. Report per-board behavior and complete-routing success alongside aggregate quality. Failed or unfinished routes must not disappear from the denominator.</p>
+<p>The bounded cross-paper idea is that a language model can propose a structured design decision while a separate tool evaluates its physical consequences. <a href="#explanation-dac-2026-research2145">drcAgent</a> concerns repairs to existing geometry; <a href="#explanation-dac-2026-research865">ParetoPilot</a> chooses synthesis settings. These are different actions with different acceptance rules.</p><p>Their shared use of a language model does not make their success percentages comparable.</p>
+<p>The next evidence work is to reconcile this manuscript into the paper record, inspect result-producing artifacts if available, and establish training/test separation, routing configurations, electrical test conditions and total cost. None of those missing checks should be filled in from the explanatory examples above.</p>
+<p><span id="explanation-dac-2026-research535"></span></p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="checklist"></span>MappingEvolve: change the mapper while checking the circuits it produces</h2>
+<h3>Evidence and scope</h3>
+<p>MappingEvolve edits technology-mapping code using Planner, Evolver, and Evaluator roles. The manuscript describes bounded operators, compilation, logical equivalence checking, and area/delay evaluation. <a href="https://arxiv.org/html/2604.26591v1#S2">Version-1 manuscript, Sections 2–3</a></p>
+<p>The existing <a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/dac/data/mappingevolve-primary-assessment-v1.json">primary assessment</a> preserves selected method/evaluation inspection, a visual check of PDF Table 2, pinned control-flow inspection, and selected author logs. The manuscript was reopened for this explanation; no mapping experiment or repository code was executed.</p><p>Examples below are independently constructed reasoning, not reproduced paper cases. Source-to-result reconciliation and independent review remain open.</p>
+<h3>What technology mapping chooses</h3>
+<p>A Boolean network specifies logical relationships independently of a particular cell library. A cell library supplies circuit implementations of functions with characterized costs and behavior. Mapping chooses how to cover the network with compatible cells. The mapped netlist records chosen cells and their connections.</p>
+<div class="worked"><p class="lm-k">Worked example</p><p>For example, <code>y = NOT(a AND b)</code> can be implemented by an AND followed by an inverter, or by one NAND cell if the library provides it. Both compute the same Boolean function. Their area, delay, input load, and available drive strengths can differ. A mapper must preserve the function while choosing among implementations appropriate to the objective.</p></div>
+<p>The mapping program is therefore not the mapped circuit. Changing a heuristic inside that program can alter the circuits produced for many future inputs. A successful output on one benchmark does not prove that every possible output of the changed program remains correct or good.</p>
+<h3>A cut identifies a replaceable region</h3>
+<p>A cut at a node identifies boundary inputs through which the node's relevant upstream dependencies pass. The logic between those inputs and the node computes a function that may match a library cell. Different cuts expose different candidate groupings of the same underlying computation.</p>
+<div class="worked"><p class="lm-k">Worked example</p><p>Consider <code>y = (a AND b) OR c</code>. One implementation uses separate AND and OR cells. A library might contain a compound cell matching the whole three-input function. Selecting that larger grouping can remove an intermediate connection, but it does not automatically minimize delay under every input arrival and load condition.</p></div>
+<p>If <code>a</code> arrives late while <code>b</code> and <code>c</code> arrive early, the path from <code>a</code> can determine completion. A cell's relevant pin delay and the prior arrival time must be combined; gate count alone is insufficient. Matching an inverted output can also require an inverter elsewhere. Local savings need evaluation in the surrounding network.</p>
+<h3>Shared logic makes area accounting nonlocal</h3>
+<div class="worked"><p class="lm-k">Worked example</p><p>Suppose two outputs use a shared subexpression <code>a AND b</code>. Counting the subexpression's area once for each output overstates the implementation area if it remains physically shared. Removing its use from one output does not free that area while the second still needs it.</p></div>
+<p>An approximate accounting scheme can divide a shared cost among its users. A reference-count-based calculation instead asks whether a proposed change removes the last required use.</p><p>These answer different questions: a useful local estimate need not equal the actual incremental area of the final selected network.</p>
+<p>The paper's operator decomposition concerns delay-oriented selection, area accounting, and output phase choices. The exact mutation must preserve their shared assumptions. A locally attractive edit that mishandles references or signal inversion can produce a wrong netlist even if the mapping program compiles.</p>
+<h3>There are two different correctness checks</h3>
+<p>Compilation checks whether the edited mapping program can be built under its programming-language and dependency rules. Logical equivalence checking compares the produced circuit's Boolean behavior with its reference. Passing the former does not establish the latter.</p>
+<div class="worked"><p class="lm-k">Worked example</p><p>For an illustrative combinational comparison, form a signal that is one whenever any corresponding output differs. Proving that this signal cannot become one over the permitted inputs establishes equivalence for that compared pair under the check's model.</p></div><p>It does not prove the mapping algorithm correct for all future circuits.</p>
+<p>The <a href="../themes/verification-and-validation.html">verification theme</a> explains the same boundary: assumptions, compared outputs, and unresolved outcomes matter. A timeout must not silently become an equivalence pass. A regression on a benchmark omitted from validation can remain unseen while the selected suite improves.</p>
+<h3>A combined score can reward a tradeoff</h3>
+<p>The assessed objective weights normalized area and delay reductions equally. Evolution uses eleven ISCAS85 circuits; evaluation uses EPFL and ASAP7 after ABC preprocessing. The recorded budgets are thirty outer rounds with three inner rounds, versus ninety direct-evolution rounds. <a href="https://arxiv.org/html/2604.26591v1#S3.SS1">Manuscript Sections 3.1 and 4.1</a></p>
+<div class="worked"><p class="lm-k">Worked example</p><p>For an independent example, let area change from 100 to 90 and delay from 100 to 104. The equal-weight score is <code>0.5×0.10 + 0.5×(−0.04) = 0.03</code>. A positive score coexists with a slower circuit. A hard delay limit might reject this candidate despite the improved score.</p></div>
+<p>The saved Table 2 transcription reports average area ratio 0.8996 versus ABC for two configurations, with delay ratios 1.0571 and 1.0369 and mapper-runtime ratios 1.755 and 1.6557. <a href="https://arxiv.org/pdf/2604.26591v1#page=6">PDF page 6, Table 2</a>. Thus area reduction coexists with larger average delay and longer mapping runtime; it is not dominance across all dimensions.</p>
+<p>Mapper runtime is time spent producing a netlist. Circuit delay concerns the produced design. Evolution time additionally includes model calls, evaluation, failed candidates, and orchestration. These are three distinct budgets. Equal iteration counts do not establish equal wall-clock cost or equal search opportunity.</p>
+<h3>Preserve a validated fallback separately from the highest score</h3>
+<p>The saved pinned-code assessment identifies an ordering concern: best-state update precedes candidate acceptance, and rejection can restore that best state. It gives a source-level counterexample with initial best reward −1, failed candidate reward −0.45, and acceptance threshold −0.1.</p><p>The candidate improves the stored reward but fails the acceptance threshold.</p>
+<p>If that candidate becomes the stored best state before rejection, restoring best does not necessarily restore a separately validated state. This illustrates why best score and known-valid fallback are different properties. It is not evidence that a published circuit was invalid.</p>
+<p>The same assessment inspected three selected released outer-loop logs and found no outer reversion in them. Those logs therefore do not demonstrate the modeled failure path.</p><p>They are author-provided histories, not independently reproduced runs. This distinction prevents a control-flow concern from becoming an unsupported accusation about reported experiments.</p>
+<h3>Connect the contribution without overstating it</h3>
+<p>Unlike <a href="#explanation-dac-2026-research865">ParetoPilot</a>, which chooses synthesis configurations, MappingEvolve changes code inside the optimization tool. Unlike <a href="#explanation-dac-2026-research2545">two-tier RTL generation</a>, its direct output is not the final user circuit.</p><p>That increases the importance of generalization: a useful evolved mapper should preserve behavior and improve tradeoffs on inputs beyond those that guided evolution.</p>
+<p>The bounded hypothesis is that structured edits and explicit checks can improve reusable optimization software within a controlled budget. It weakens if gains disappear on held-out circuits, violate required delay constraints, or require disproportionate evolution and mapping time.</p><p>The inspected evidence does not establish universal improvement, post-route gains, or a historical trend.</p>
+<p>Full result-producing artifact reconciliation, per-netlist checks, broader held-out evaluation, failure handling, model costs, and independent comprehension review remain open.</p>
+<p><span id="explanation-dac-2026-research865"></span></p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>ParetoPilot: choose synthesis configurations without confusing a search score with a faster circuit</h2>
+<h3>What evidence is available</h3>
+<p>The official description proposes a dedicated language model for HLS exploration, combining directive scheduling and quality-aware optimization. It reports 49.5% better DSE performance, 1.8× efficiency, and 81.4% improvement against an auxiliary DeepSeek-R1 configuration, without defining the metric denominators or full comparison budget. <a href="https://63dac.conference-program.com/presentation/?id=RESEARCH865&amp;sess=sess168">Official Description and Authors</a></p>
+<div class="worked"><p class="lm-k">Worked example</p><p>No target manuscript was recovered in the 2026-09-08 search. The differently titled ParetoPilot diffusion-optimization paper is not this HLS paper. A <a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/dac/data/paretopilot-primary-assessment-v1.json">saved artifact assessment</a> records selected inspection at revision <code>d08173f66903ed466537c9327b63addac223ee95</code>. The entry point was reread for this explanation; no code was executed. Artifact-to-headline experiment correspondence remains unresolved. No manuscript page citations are available.</p></div>
+<h3>Begin with one computation and several implementations</h3>
+<p>High-level synthesis, or HLS, constructs hardware from a higher-level program and implementation settings. A directive instructs the tool about choices such as loop scheduling or array organization.</p><p>Different settings can produce circuits with different resource use and execution schedules while aiming to preserve the program's specified result.</p>
+<div class="worked"><p class="lm-k">Worked example</p><p>Consider summing sixteen independent products. Reusing one multiplier across iterations can save multiplier resources but require multiple cycles.</p></div><p>Replicating multipliers can expose parallel work, but inputs must arrive fast enough and partial results still need a correct reduction. More parallel arithmetic does not establish a proportional speedup.</p>
+<p>Loop unrolling exposes several iterations together. Pipelining overlaps work from successive iterations.</p><p>A pipeline with latency eight cycles and initiation interval two can ideally accept new work every two cycles once started; an individual input still takes eight cycles to emerge. Dependences and available resources can prevent the requested schedule.</p><p>These are teaching examples, not ParetoPilot benchmark configurations.</p>
+<p>Memory organization can become limiting. If four multipliers each need two operands in a cycle while a memory supplies only two operands per cycle, arithmetic capacity alone cannot sustain all four.</p><p>Splitting storage into independently accessible banks may help, but access conflicts, extra resources, and supported mapping determine whether it does. Directives interact rather than contributing independent speed factors.</p>
+<h3>The search space is a set of allowed choices</h3>
+<p>If each of five loops has four candidate settings and three arrays each have three, the Cartesian product contains <code>4⁵ × 3³ = 27,648</code> combinations. Some may be invalid, redundant, or produce identical hardware. The number is an upper count for this constructed search space, not the paper's evaluated population.</p>
+<p>A search method chooses which combinations to spend evaluation time on. A language model can use program structure and prior information to propose candidates, but fluent reasoning is not evidence that a candidate is feasible or globally optimal.</p><p>The evaluation tool and acceptance rules determine its measured properties.</p>
+<h3>Pareto quality describes tradeoffs among evaluated candidates</h3>
+<div class="worked"><p class="lm-k">Worked example</p><p>Suppose both area and latency should be minimized. Candidate A has <code>(area, latency) = (2,8)</code>, B has <code>(5,4)</code>, and C has <code>(8,2)</code>. None is at least as good as another in both dimensions. They form a nondominated set within this evaluated sample. Candidate D at <code>(6,6)</code> is dominated by B because B is smaller and faster.</p></div>
+<p>A Pareto set does not specify which candidate the user should choose. A hard area limit of four makes only A feasible among A, B, and C.</p><p>It also does not prove no unseen candidate dominates them. The word global in a method's name is not a proof of exhaustive search.</p>
+<div class="worked"><p class="lm-k">Worked example</p><p>One possible quality metric is dominated hypervolume: the area covered between the nondominated points and a fixed worse reference point. With reference <code>(10,10)</code>, the example's covered area is <code>3×2 + 3×6 + 2×8 = 40</code>. B alone covers <code>5×6 = 30</code>. That metric improves by one third, but no circuit became one third faster. Changing reference point, units, normalization, or feasibility filtering changes the comparison.</p></div>
+<p>This is an explanation of a possible metric, not an assertion that the paper uses this exact formula. The description does not establish how its 49.5% figure is calculated. Its headline must not be translated into latency, physical area, or hypervolume without recovering the definition.</p>
+<h3>What the inspected entry point actually does</h3>
+<p>At the pinned revision, <code>DSEWorkflow.perform_dse</code> calls <code>llm_sampling_with_metadata</code> once, obtains a set of combinations, and evaluates at most <code>init_samples</code> of them. The declared default for that count is three. Each iteration modifies a synthesis script, runs HLS, extracts results, and persists a result record. <a href="https://github.com/GEAR-SEU/ParetoPilot-DAC-26/blob/d08173f66903ed466537c9327b63addac223ee95/src/DSE_LLM.py">Pinned entry point</a></p>
+<p>Measured results are not passed into a second sampling call in this function. That observation limits what this entry point demonstrates; it does not establish that the complete training procedure or claimed experiments lack other feedback.</p><p>The relationship between the released path and the reported search results still needs reconciliation.</p>
+<p>The saved assessment identifies latency and FPGA-resource fractions extracted from synthesis reports, plus an AES example targeting a specific FPGA part with a ten-nanosecond requested clock. Those are selected artifact conditions, not proof that every headline experiment uses that target.</p><p>Synthesis estimates are not measured board performance, and resource fractions are not physical chip area.</p>
+<h3>Failure records must not become plausible measurements</h3>
+<p>The entry point substitutes <code>1e8</code> for missing latency or utilization and calls a cleanup routine for each trial. A sentinel is a marker for an unavailable result, not a measured design latency or a valid resource estimate. Downstream analysis needs an explicit failure status before ranking, averaging, or plotting the values.</p>
+<p>The saved assessment also records trial/log deletion in the inspected utility. Reproduction would need preserved raw reports, tool exits, configurations, and seeds so failed or surprising results can be checked.</p><p>Merely retaining the final JSON is insufficient if the evidence producing its numbers has been removed.</p>
+<p>This audit did not install dependencies, load model code, invoke an API, run synthesis, or exercise cleanup. The saved assessment identifies external-code loading and broad process-name timeout cleanup as execution cautions. Source inspection must not be described as a successful benchmark run.</p>
+<h3>Compare effort and valid output together</h3>
+<p>Evaluating twenty candidates at ten minutes each costs more serial evaluation time than evaluating one hundred at one minute each. Model preparation, sampling, rejected configurations, synthesis, and result checking belong in the complete budget. Parallel workers can shorten elapsed time while consuming more resources.</p>
+<p>Use matched programs, input semantics, tool versions, target parts, clock constraints, resource limits, stopping rules, and feasible-output checks. Separate performance of the selected circuit from speed of the search producing it.</p><p>Also test unfamiliar programs and disclose training overlap: memorized directive patterns answer a narrower question than generalization to new computation structures.</p>
+<p>ParetoPilot connects to <a href="#explanation-dac-2026-research2545">two-tier generation</a> through evaluated hardware quality and to <a href="#explanation-dac-2026-research2145">drcAgent</a> through candidate/checker boundaries. Its bounded research question is whether learned proposals reach better valid tradeoffs within a complete fixed budget. Current evidence does not settle that question or establish a historical trend.</p>
+<p>Full-paper recovery, metric definitions, author/artifact linkage, experiment correspondence, functional validation, raw trial preservation, and independent comprehension review remain open.</p>
+<p><span id="explanation-dac-2026-research2545"></span></p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="checklist"></span>Two-tier Verilog generation: connect intended behavior to a checked implementation</h2>
+<h3>What the source establishes</h3>
+<p>The official description combines language models, retrieval, classifiers, heuristics, simulation, and reasoning. It connects top-down generation with bottom-up functional and performance evaluation, including parallelism, critical paths, and resource sharing. Comparisons with existing generation methods are stated without numerical results. <a href="https://63dac.conference-program.com/presentation/?id=RESEARCH2545&amp;sess=sess173">Official Description and Authors</a></p>
+<div class="worked"><p class="lm-k">Worked example</p><p>Title/author searches on 2026-09-07 did not recover the manuscript. An author's indexed publication listing corroborated the title, but opening the site returned a JavaScript-only page rather than a readable paper.</p><p>No manuscript page citations are available. Tier interfaces, classifier labels, prompts, tools, benchmarks, and acceptance rules remain unknown.</p><p>The examples below are teaching constructions, not recovered paper experiments.</p></div>
+<h3>Specify a state transition before generating code</h3>
+<div class="worked"><p class="lm-k">Worked example</p><p>Consider the request: make a four-bit counter with reset and enable. Four unsigned bits represent zero through fifteen.</p></div><p>But does reset act only at a clock event? Does reset override enable?</p><p>Does incrementing fifteen wrap to zero or remain at fifteen? When is the output valid?</p>
+<p>An illustrative precise contract could say: at each rising clock edge, reset takes priority and sets state to zero; otherwise enable increments state modulo sixteen; otherwise state remains unchanged. This is one chosen contract, not a universal counter definition.</p>
+<p>Starting at fourteen, enabled events produce fifteen and then zero. With reset and enable both asserted, the next state must be zero. A design that increments instead is wrong even if it compiles. A test that never asserts both inputs cannot reveal that priority error.</p>
+<p>RTL, or register-transfer level, describes stored state and the logic determining its updates. It is not simply a sequential software script. Distinct blocks can operate concurrently, and clock events govern when particular state updates become visible. A generator needs these semantics, not merely plausible syntax.</p>
+<h3>Width and output timing belong to the function</h3>
+<div class="worked"><p class="lm-k">Worked example</p><p>Keeping four unsigned bits of <code>15 + 1</code> gives zero; producing a five-bit value sixteen expresses different behavior. Signed interpretation creates further differences: the same four-bit pattern can represent fifteen unsigned or minus one in two's-complement interpretation. Width and signedness must remain consistent through intermediate expressions and interfaces.</p></div>
+<p>A pipeline can also return the right numerical answer one clock later than required. That can be valid when the interface permits the latency and identifies valid outputs, but wrong for a consumer expecting an earlier result.</p><p>Adding a register to shorten a propagation path is therefore not automatically a valid transformation.</p>
+<p>The required record includes clock/reset behavior, widths, parameter ranges, input-valid conditions, output timing, and exceptional cases. These also determine useful tests. The source does not establish how the proposed method captures them.</p>
+<h3>Connect generation and evaluation without changing the requirement</h3>
+<p>Top-down work starts from requested behavior and proposes structure or code. Retrieval can supply examples; a classifier can choose a prompting path; heuristics can guide selection.</p><p>The description names these components without exposing their decisions. It would be unsupported to invent a module hierarchy or classifier taxonomy.</p>
+<p>Bottom-up work examines the candidate: whether tools accept it, which behavior it exhibits, and what hardware results. A useful feedback message distinguishes syntax failure from reset-priority failure or excessive delay because each needs a different repair.</p>
+<p>Both directions must retain a stable requirement. Editing the test to accept incorrect code can create apparent success without solving the task. Code and tests generated from the same mistaken interpretation can agree; that agreement is not independent confirmation.</p>
+<h3>Keep the acceptance stages separate</h3>
+<table>
+<thead>
+<tr>
+<th>Stage</th>
+<th>What success establishes</th>
+<th>What remains open</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Parsing and elaboration</td>
+<td>The tool can interpret the code and construct the configured model</td>
+<td>Intended behavior</td>
+</tr>
+<tr>
+<td>Simulation</td>
+<td>Selected executions satisfy selected checks</td>
+<td>Untested behaviors</td>
+</tr>
+<tr>
+<td>Formal checking, if used</td>
+<td>A property holds in its model under assumptions</td>
+<td>Unstated requirements and model correspondence</td>
+</tr>
+<tr>
+<td>Synthesis and implementation</td>
+<td>A circuit can be constructed under the flow</td>
+<td>Timing, area, and power unless separately checked</td>
+</tr>
+</tbody>
+</table>
+<p>Formal checking is included as a conceptual distinction, not a verified component of this paper. Code review can expose mistakes but is not interchangeable with exhaustive checking. Preserve failures at every stage rather than treating accepted text as completed hardware.</p>
+<h3>Parallelism and sharing change the implementation</h3>
+<div class="worked"><p class="lm-k">Worked example</p><p>Suppose two independent products are needed. Two multipliers can compute them concurrently; one shared multiplier can compute them in separate cycles. Sharing may save arithmetic hardware while adding scheduling, selection logic, and storage. Validity depends on the required output rate and latency.</p><p>In an illustrative combinational design, one-nanosecond multipliers operating in parallel followed by a half-nanosecond adder give a 1.5-nanosecond arithmetic path, before other delays. Sharing a registered multiplier across cycles changes the schedule.</p><p>Adding isolated gate delays is not sufficient to infer its request latency: clock periods, registers, and handshakes matter.</p></div>
+<p>The critical path is the relevant longest constrained propagation path, not the longest line of source code. Wiring and loading can change it after physical implementation. The description's mention of these properties identifies evaluation dimensions, not measured hardware gains or target-device conditions.</p>
+<h3>Count accepted designs and complete effort</h3>
+<p>If 100 attempts yield 80 parsable candidates, 50 passing functional checks, and 30 satisfying all declared requirements, final acceptance is 30%, not 80%. Whether those 30 are genuinely correct still depends on the checks. Repeated attempts on one task differ from success across independent tasks.</p>
+<p>Report task-level outcomes, attempt limits, model/tool versions, supplied references, test preparation, failed attempts, and human intervention. Compare the same requirements, information access, checking strength, and total budget. Stronger task-specific tests can improve acceptance without establishing that code generation alone improved.</p>
+<p>This paper and <a href="#explanation-dac-2026-research2145">drcAgent</a> concern different outputs—RTL and layout edits—but both need requirements preserved through generation and feedback. The bounded hypothesis is that structured evaluation helps repair the actual failure with fewer complete attempts.</p><p>It weakens if gains depend on relaxed requirements, privileged references, or omitted checking costs.</p>
+<p>No target model, generated RTL, simulator, synthesis flow, or benchmark was executed. Full-paper recovery, precise tier behavior, evaluation conditions, independent checking, and comprehension review remain open.</p>
+<p><span id="explanation-dac-2026-research2145"></span></p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>drcAgent: repair geometry without changing the circuit's required meaning</h2>
+<h3>What the available source establishes</h3>
+<div class="worked"><p class="lm-k">Worked example</p><p>The official description proposes a multimodal language-model agent using retrieved information from a design-rule knowledge graph. Generator and Fixer agents improve through adversarial, multi-turn reinforcement learning with commercial EDA-tool interaction.</p><p>The evaluation is described qualitatively as industrial-scale violation correction. It gives no numerical closure rate, runtime, or final-layout quality. <a href="https://63dac.conference-program.com/presentation/?id=RESEARCH2145&amp;sess=sess166">Official Description and Authors, checked 2026-09-07</a></p></div>
+<p>Title and author searches did not recover the target manuscript or implementation. The reference to 7 nm and below motivates the problem; it does not establish the exact evaluated process.</p><p>Model inputs, action syntax, graph schema, rewards, benchmarks, and checks remain unknown. No manuscript page citations are available.</p><p>The explanations below are independently constructed examples and required conditions, not recovered drcAgent algorithms.</p>
+<h3>Start with the geometry a checker sees</h3>
+<p>A layout contains shapes assigned to manufacturing layers. A wire may be represented by connected metal polygons; a connection between layers needs the permitted connecting structure.</p><p>Design rules constrain properties such as minimum width, spacing, or enclosure. A rule checker reports geometry that violates the rules it was configured to check.</p>
+<div class="worked"><p class="lm-k">Worked example</p><p>For a deliberately simplified one-dimensional cross-section, let three parallel wires occupy horizontal intervals <code>[0,2]</code>, <code>[5,7]</code>, and <code>[11,13]</code>. Assume neighboring wires must be separated by at least four units. The first gap is <code>5−2 = 3</code>, so it fails. The second is <code>11−7 = 4</code>, so it passes.</p></div>
+<p>Moving the middle wire to <code>[6,8]</code> makes the first gap four, but the second becomes three. The selected violation disappears while a new one appears. If the two outer wires cannot move, their inner edges leave a nine-unit region. Two required gaps of four plus middle-wire width two require ten units. No position for that middle wire can satisfy this simplified constraint set.</p>
+<p>That infeasibility matters. Trying more horizontal moves cannot solve it.</p><p>A valid alternative would need some other permitted change, such as moving an outer wire or choosing a different route. Whether those changes are allowed depends on the actual layout, connections, layers, and rules.</p><p>The example does not imply drcAgent uses interval geometry or these actions.</p>
+<h3>A clean rule report is not complete circuit correctness</h3>
+<p>Deleting the middle wire removes the two spacing relationships, but may disconnect terminals that must remain connected. Shortening it can likewise detach an endpoint.</p><p>Adding metal can create an unintended connection. The intended circuit therefore has to survive the repair, not just the selected geometric check.</p>
+<p>Other requirements can change too. A longer detour can add resistance and capacitance; a new connection between layers can add delay and require its own legal surrounding geometry. A repair accepted by a local spacing check can still fail connectivity, timing, or another manufacturing rule.</p>
+<p>A defensible completion condition identifies the required checks, their scope, and any accepted exceptions. It distinguishes a local violation count from acceptance of the whole relevant layout. The official description does not expose enough information to establish drcAgent's complete acceptance predicate.</p>
+<h3>A knowledge graph must connect the rule to its applicability</h3>
+<p>A knowledge graph represents entities and relationships. In this task, useful entities could include rule identifiers, layer types, geometric predicates, and exceptions.</p><p>Useful relationships could indicate which conditions activate a rule or which neighboring rules an edit can affect. These are possible requirements, not the recovered contents of drcAgent's graph.</p>
+<p>Retrieval selects information for the agent's current decision. A spacing rule from a different layer or process revision can be textually relevant yet inapplicable.</p><p>A retrieved threshold without its exception conditions can also lead to a wrong edit. The retrieval result needs enough identity and context to apply the actual rule correctly.</p>
+<p>Multimodal input means more than one kind of representation can be supplied, such as visual and textual information. It does not establish that a model's view contains exact coordinates, connectivity, or every nearby constraint.</p><p>A screenshot can help describe a violation while still omitting information needed for a legal geometry edit. The target's exact input and coordinate interface remain unrecovered.</p>
+<h3>Separate an attempted edit from a checked new state</h3>
+<p>An agent can propose an action, a tool can attempt it, and a checker can evaluate the resulting layout. Those are three different events.</p><p>A tool rejecting an edit must not be recorded as a successfully changed layout. A checker result for the previous layout must not be attached to the new one.</p>
+<p>For a reproducible iteration, retain the starting layout revision, selected violation, retrieved rule revision, proposed edit, tool outcome, resulting layout revision, and relevant check results. This is an evidence checklist, not a claim that the paper logs these fields.</p>
+<p>Repeated repairs can oscillate. In the interval example, moving the middle wire right fixes one gap; moving it left fixes the other.</p><p>Without detecting the incompatible constraints or changing the available action, the process can alternate forever. A termination limit prevents unlimited work but does not turn the last candidate into a valid result.</p><p>Unresolved cases need an explicit failed or incomplete status.</p>
+<h3>What adversarial training must demonstrate</h3>
+<p>The description names a Generator and a Fixer in self-play. Conceptually, one can supply challenging cases while the other learns correction actions.</p><p>That can expose cases missing from a static collection. However, the source does not specify how cases are generated, what they must preserve, or how rewards are computed.</p>
+<p>If generated cases are infeasible under permitted edits, penalizing the Fixer for not solving them measures something different from poor correction. If rewards count only disappearing markers, deleting required geometry could appear favorable to an inadequate objective.</p><p>These are possible failure modes to test, not observed behavior of drcAgent.</p>
+<p>Training and evaluation also need separation. Success on cases produced by the same Generator can reflect shared patterns rather than general repair ability.</p><p>Test unfamiliar layouts, rule classes, and declared process-transfer conditions, while retaining failed cases and any manual preparation. A new process node in the motivation does not establish demonstrated portability.</p>
+<h3>Evaluate closure and effort with stable denominators</h3>
+<div class="worked"><p class="lm-k">Worked example</p><p>Suppose an initial layout has 100 violation markers. A sequence removes 90 but creates 20 elsewhere.</p></div><p>Counting removed original markers gives 90%, while the final layout still contains 30 markers under this simplified accounting. Neither number establishes full closure.</p><p>Real checkers can also split or merge markers, so marker identity and rule class matter when interpreting count changes.</p>
+<p>Across designs, report how many reach all required acceptance conditions, not only an average marker reduction. Include tool failures, infeasible cases, timeouts, retries, and invalid repairs.</p><p>Separate per-iteration time from complete repair time and model inference from commercial-tool execution. Training, knowledge preparation, licenses, and human intervention affect reproducibility and total effort.</p>
+<p>Baselines need the same starting layouts, rule decks, permitted edits, checks, and budgets. A stronger checker or more permissive edit set can change results independently of the model.</p><p>The official description's qualitative result is insufficient to attribute a numerical benefit to retrieval, adversarial training, or the combined workflow.</p>
+<h3>What this adds to the cross-paper story</h3>
+<p>drcAgent connects the <a href="../themes/ai-assisted-eda.html">AI-assisted EDA theme</a> to <a href="../themes/physical-design-and-manufacturing.html">physical design</a>: learning proposes changes, but geometry and circuit requirements determine whether those changes are usable. It also connects to <a href="../themes/verification-and-validation.html">verification</a>, because the checker defines which failures are observable and which properties remain untested.</p>
+<p>The bounded hypothesis is that rule-aware feedback can reduce the effort required to reach a valid repaired layout. It would be weakened if graph preparation, rejected edits, repeated violations, or final cleanup consume the apparent saving.</p><p>The present evidence motivates that test; it does not establish a historical trend, autonomous closure, or superiority over matched baselines.</p>
+<p>No drcAgent model, commercial EDA tool, training loop, layout repair, or benchmark was executed. Full-paper recovery, exact rule/action/reward semantics, complete acceptance checks, quantitative conditions, and independent comprehension review remain open.</p>
+<p class="lm-k h-label">Compare the results carefully</p><h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="route"></span>How to compare these papers’ results fairly</h2>
+<p>First identify the inputs and required output quality. Then identify the limited resource: time, memory, communication, energy, circuit area, or correctness coverage.</p><p>Ask which part of the method reduces that cost and which new cost it adds. Compare numbers only when the experiments hold these conditions sufficiently similar.</p>
+<p>A conference description may explain the proposal while omitting the full experiment. An author preprint link may have been coded from its abstract. The source classification does not by itself establish that every table was read. Missing locations remain visible below.</p>
+<p class="lm-k h-label">Complete captured evidence</p><h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="file-text"></span>Every paper in this subtheme, with what its source shows</h2>
+<p>These are evidence records, not substitutes for the explanations above. Each record preserves its problem, proposed method, measurements, comparison conditions, and source limits. A populated record does not establish that its mechanism has been fully explained or independently verified.</p>
+<p><span id="paper-dac-2026-research2145"></span></p>
+<h3>Drcagent: A Design Rule Aware LLM Agent for DRC Auto-Fix with Adversarial Reinforcement Learning</h3>
+<p>DAC 2026 · Record: <code>dac-2026-research2145</code></p>
+<p><a href="#explanation-dac-2026-research2145">Read the step-by-step explanation</a></p>
+<p><strong>Updated source-backed reading card</strong></p>
+<div class="worked"><p class="lm-k">Worked example</p><p>Reviewed 2026-09-07. Official description rechecked; separates process-node motivation from evaluated conditions and qualitative repair from full closure.</p></div>
+<p>This editorial correction updates the current reading view and connected dossiers, not the historical adjudication or scientific acceptance status. The original captured fields are preserved below.</p>
+<p><a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/data/editorial-paper-corrections-v1.json">Correction register</a></p>
+<p><strong>Problem:</strong></p>
+<p>Complex geometric rule dependencies in physical-design violation correction.</p>
+<p><strong>Mechanism / artifact:</strong></p>
+<p>Multimodal LLM with design-rule knowledge-graph retrieval and Generator/Fixer adversarial multi-turn training using commercial EDA feedback; exact rules, actions and rewards unavailable.</p>
+<p><strong>Workload — the work tested:</strong></p>
+<p>Described as industrial-scale design cases; layouts, violation classes, counts and closure criteria unavailable.</p>
+<p><strong>Hardware and manufacturing assumptions:</strong></p>
+<p>Commercial EDA tools; 7 nm and below is motivating context, not a verified evaluated process. Tool versions and rule decks unavailable.</p>
+<p><strong>Baseline — the comparison method:</strong></p>
+<p>Template and heuristic methods are discussed as motivation; matched evaluated baseline configurations are not supplied.</p>
+<p><strong>Reported measurements:</strong></p>
+<p>Qualitative effective fixing only; no numerical closure rate, runtime or final-layout quality in the official description.</p>
+<p><strong>Limits on the conclusion:</strong></p>
+<p>No manuscript or execution. Connectivity, timing, complete rule checks, generated-case feasibility, process transfer and total preparation/repair costs remain unresolved.</p>
+<p><strong>Source and location</strong></p>
+<p>Evidence tier: Official description only; full manuscript and reproduction missing. This is the stored source classification; the location and limits below determine what was actually read.</p>
+<p><a href="https://63dac.conference-program.com/presentation/?id=RESEARCH2145&amp;sess=sess166">Open the recorded source</a></p>
+<div class="worked"><p class="lm-k">Worked example</p><p>Official Description and Authors checked 2026-09-07; no manuscript page locators available.</p></div>
+<details markdown="1">
+<summary>Original captured fields — superseded for this reading card</summary>
+
+** page source tier:** medium_official_description
+
+**Baselines:** template-based DRC fixing
+
+heuristic correction methods
+
+**Evidence locators:** DAC 2026 official description
+
+**Evidence url:** https://63dac.conference-program.com/?post_type=page&amp;p=16&amp;id=RESEARCH2145&amp;sess=sess166
+
+**Hardware or process assumptions:** Commercial EDA DRC tools and leading-edge design rules at approximately 7 nm and below; foundry, layout size, runtime, and licensing conditions are unspecified.
+
+**Limits:** No violation-closure rate, design-rule coverage, runtime, layout-quality impact, or process portability is supplied.
+
+Commercial-tool interaction and proprietary rule data may constrain reproducibility.
+
+Official description only; correction validity and adversarial-training behavior require paper-level verification.
+
+**Method or artifact:** RAG-grounded multimodal LLM agent, design-rule knowledge graph, and adversarial multi-turn reinforcement-learning loop with EDA-tool feedback.
+
+**Metrics:** Effective violation fixing demonstrated qualitatively
+
+**Problem:** Leading-edge DRC violations have complex geometry and rule dependencies that make template or heuristic correction difficult to adapt across process nodes.
+
+**Workload or benchmark:** Industrial-scale physical-design DRC correction; process node, rule deck, violation classes, starting violation counts, and closure criteria are unspecified.
+
+</details>
+<p><span id="paper-dac-2026-research2545"></span></p>
+<h3>Integrating LLMs into a Two-Tier Traditional Methodology for Automated Verilog Code Generation</h3>
+<p>DAC 2026 · Record: <code>dac-2026-research2545</code></p>
+<p><a href="#explanation-dac-2026-research2545">Read the step-by-step explanation</a></p>
+<p><strong>Updated source-backed reading card</strong></p>
+<div class="worked"><p class="lm-k">Worked example</p><p>Reviewed 2026-09-08. Reconciles the existing two-tier Verilog-generation explanation with the official-description record; separates LLM/RAG proposal generation from functional and implementation acceptance, preserves the qualitative comparison claim, and makes requirements, benchmark, tool, human-effort and synthesis boundaries explicit.</p></div>
+<p>This editorial correction updates the current reading view and connected dossiers, not the historical adjudication or scientific acceptance status. The original captured fields are preserved below.</p>
+<p><a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/data/editorial-paper-corrections-v1.json">Correction register</a></p>
+<p><strong>Problem:</strong></p>
+<p>Natural-language-to-Verilog generation can leave semantic gaps and produce code that is syntactically valid but functionally or physically unsuitable when generation is not coupled to evaluation.</p>
+<p><strong>Mechanism / artifact:</strong></p>
+<p>Two-tier methodology combining LLMs, retrieval-augmented generation, classifiers, heuristics, simulation, reasoning, code review and hardware-performance checks for top-down Verilog generation and bottom-up evaluation; tier interfaces, prompts and acceptance rules are unspecified.</p>
+<p><strong>Workload — the work tested:</strong></p>
+<p>Natural-language hardware specifications and Verilog/VHDL generation tasks; designs, behavioral contracts, prompt set, train/test split, simulator, testbench, synthesis target, output timing and correctness criteria are unspecified.</p>
+<p><strong>Hardware and manufacturing assumptions:</strong></p>
+<p>Generated RTL assessed for parallelism, critical path and resource sharing; target FPGA/ASIC process, clock constraints, synthesis/P&amp;R tools, libraries, model sizes and implementation stage are unspecified.</p>
+<p><strong>Baseline — the comparison method:</strong></p>
+<p>State-of-the-art Verilog generation methods</p>
+<p>State-of-the-art VHDL generation methods</p>
+<p>LLM generation without retrieval/classification/heuristics or bottom-up evaluation</p>
+<p>Same specification, information access, model/tool versions, testbench strength, synthesis flow, constraints, attempt budget and human intervention are unspecified</p>
+<p><strong>Reported measurements:</strong></p>
+<p>Comparative functional and hardware-performance evaluation is claimed; no pass rate, semantic correctness, test coverage, synthesis PPA, critical-path value, resource-sharing measure, generation cost, repair count or human-effort result is supplied.</p>
+<p><strong>Limits on the conclusion:</strong></p>
+<p>Parsing, simulation, formal checking, synthesis and implementation establish different facts. Compilation or selected-test success does not prove the intended state transitions, output timing, corner cases or post-synthesis suitability.</p>
+<p>Retrieval, classifier and heuristic feedback can improve candidate selection while adding model, search, simulation, synthesis and human-review cost. Keep requirements and testbenches independent enough that code and checker do not share the same mistaken interpretation.</p>
+<p>The official description omits benchmark designs, prompts, model/tool versions, testbench coverage, synthesis target, numeric results and acceptance conditions. The evidence supports an integrated generation-and-evaluation methodology, not demonstrated general Verilog capability or hardware-quality improvement.</p>
+<p><strong>Source and location</strong></p>
+<p>Evidence tier: Primary captured official DAC description plus existing chapter level conceptual explanation; no full paper extraction, benchmark reproduction, synthesis trace or independent review. This is the stored source classification; the location and limits below determine what was actually read.</p>
+<p><a href="https://63dac.conference-program.com/?post_type=page&amp;p=16&amp;id=RESEARCH2545&amp;sess=sess173">Open the recorded source</a></p>
+<p>DAC 2026 official description; existing chapter-level two-tier Verilog explanation; captured Problem, Mechanism / artifact, Workload, Hardware, Baseline, Measurements and Limits fields; no manuscript pages or generated-RTL evaluation trace.</p>
+<details markdown="1">
+<summary>Original captured fields — superseded for this reading card</summary>
+
+** page source tier:** medium_official_description
+
+**Baselines:** state-of-the-art Verilog/VHDL code-generation methods
+
+**Evidence locators:** DAC 2026 official description
+
+**Evidence url:** https://63dac.conference-program.com/?post_type=page&amp;p=16&amp;id=RESEARCH2545&amp;sess=sess173
+
+**Hardware or process assumptions:** Generated RTL evaluated for parallelism, critical path, and resource sharing; target FPGA/ASIC process, synthesis tools, and model sizes are unspecified.
+
+**Limits:** No pass rate, synthesis quality, testbench coverage, prompt set, or model/tool configuration is supplied.
+
+Combining simulation and heuristics may improve validity while adding cost and target-specific tuning.
+
+Official description only; generated-RTL correctness and hardware quality require paper-level verification.
+
+**Method or artifact:** Two-tier RAG/classifier/heuristic prompting flow with simulation, reasoning, code review, and hardware-performance checks.
+
+**Metrics:** Comparative functional and performance evaluation claimed; numeric results are not supplied
+
+**Problem:** Natural-language-to-Verilog generation has semantic gaps and can produce functionally or structurally unsuitable hardware when generation is not coupled to evaluation.
+
+**Workload or benchmark:** Natural-language hardware specifications and Verilog/VHDL generation tasks; benchmark designs, simulators, synthesis targets, and correctness criteria are unspecified.
+
+</details>
+<p><span id="paper-dac-2026-research865"></span></p>
+<h3>Paretopilot: Global Optimization Reasoning on HLS Design Space Exploration with LLMs</h3>
+<p>DAC 2026 · Record: <code>dac-2026-research865</code></p>
+<p><a href="#explanation-dac-2026-research865">Read the step-by-step explanation</a></p>
+<p><strong>Updated source-backed reading card</strong></p>
+<div class="worked"><p class="lm-k">Worked example</p><p>Reviewed 2026-09-08. Reconciles current reading with saved pinned-artifact assessment and reread entry point; headline definitions remain unverified.</p></div>
+<p>This editorial correction updates the current reading view and connected dossiers, not the historical adjudication or scientific acceptance status. The original captured fields are preserved below.</p>
+<p><a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/data/editorial-paper-corrections-v1.json">Correction register</a></p>
+<p><strong>Problem:</strong></p>
+<p>Selecting useful HLS directive configurations under limited evaluation budgets.</p>
+<p><strong>Mechanism / artifact:</strong></p>
+<p>LLM-guided HLS directive exploration. Pinned perform_dse samples once before evaluating configurations; no measured-result resampling in that function.</p>
+<p><strong>Workload — the work tested:</strong></p>
+<p>HLS design-space exploration; release contains benchmark configurations, but correspondence to headline program population and budgets is unresolved.</p>
+<p><strong>Hardware and manufacturing assumptions:</strong></p>
+<p>Selected artifact assessment records AES FPGA synthesis example and report-derived latency/resource fractions; not verified headline platform or measured board results.</p>
+<p><strong>Baseline — the comparison method:</strong></p>
+<p>Unnamed state-of-the-art heuristic search and an auxiliary DeepSeek-R1 configuration; matched conditions unavailable.</p>
+<p><strong>Reported measurements:</strong></p>
+<p>Description reports 49.5% DSE performance, 1.8× efficiency and 81.4% versus auxiliary DeepSeek-R1; definitions and experiment correspondence unresolved, not circuit speedup or physical area claims.</p>
+<p><strong>Limits on the conclusion:</strong></p>
+<p>No manuscript or execution. Artifact self-identification is not full experiment validation. Missing measurements use 1e8 sentinels; raw-report preservation, functional checks, budgets, training overlap and headline definitions remain open.</p>
+<p><strong>Source and location</strong></p>
+<p>Evidence tier: Official description and selected pinned artifact inspection; manuscript and reproduction missing. This is the stored source classification; the location and limits below determine what was actually read.</p>
+<p><a href="https://github.com/GEAR-SEU/ParetoPilot-DAC-26/blob/d08173f66903ed466537c9327b63addac223ee95/src/DSE_LLM.py">Open the recorded source</a></p>
+<div class="worked"><p class="lm-k">Worked example</p><p>DSEWorkflow.perform_dse reread 2026-09-08; supplementary assessment dated 2026-09-06 records other selected artifact inspection. Official Description supplies unresolved headlines.</p></div>
+<details markdown="1">
+<summary>Original captured fields — superseded for this reading card</summary>
+
+** page source tier:** medium_official_description
+
+**Baselines:** state-of-the-art heuristic HLS DSE
+
+DeepSeek-R1 auxiliary LLM
+
+**Evidence locators:** Not established in the captured evidence.
+
+**Evidence url:** https://63dac.conference-program.com/?post_type=page&amp;p=16&amp;id=RESEARCH865&amp;sess=sess168
+
+**Hardware or process assumptions:** Not established in the captured evidence.
+
+**Limits:** The description does not disclose prompt/interface design, model size, benchmark suite, search budget, or how Pareto quality is measured; LLM claims require paper-level reproducibility review.
+
+**Method or artifact:** LLM-guided HLS design-space exploration using global optimization reasoning, directive scheduling, and quality-aware Pareto-front shaping.
+
+**Metrics:** 49.5% DSE-performance improvement
+
+1.8x search efficiency
+
+81.4% improvement over DeepSeek-R1
+
+Pareto-front quality
+
+**Problem:** The combinatorial explosion of HLS directives makes it difficult for heuristic search to find Pareto-optimal designs under tight budgets.
+
+**Workload or benchmark:** HLS directive/configuration design spaces evaluated by Pareto-front quality and search efficiency.
+
+</details>
+<h4>Additional source assessment</h4>
+<div class="worked"><p class="lm-k">Worked example</p><p>This separately recorded check is dated 2026-09-06. It supplements the original record above and retains its own scope and uncertainty.</p></div>
+<p><a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/dac/data/paretopilot-primary-assessment-v1.json">Assessment record</a></p>
+<p><a href="https://github.com/GEAR-SEU/ParetoPilot-DAC-26/tree/d08173f66903ed466537c9327b63addac223ee95">Assessed source</a></p>
+<p><strong>Extraction scope</strong></p>
+<p>Read-only README, entry point, HLS utility, selected sampling lines, configuration and AES Tcl; no execution or headline reproduction</p>
+<p><strong>Headline metric status</strong></p>
+<p>withheld_pending_identity_and_experiment_reconciliation</p>
+<p><strong>Independent review status</strong></p>
+<p>pending</p>
+<p><span id="paper-dac-2026-research535"></span></p>
+<h3>Mappingevolve: LLM-Driven Code Evolution for Technology Mapping</h3>
+<p>DAC 2026 · Record: <code>dac-2026-research535</code></p>
+<p><a href="#explanation-dac-2026-research535">Read the step-by-step explanation</a></p>
+<p><strong>Updated source-backed reading card</strong></p>
+<div class="worked"><p class="lm-k">Worked example</p><p>Reviewed 2026-09-08. Reconciles the official card with arXiv version 1, the PDF Table 2 crosscheck and the pinned artifact assessment; makes the mapping objective, evaluation conditions, tradeoffs, runtime boundary and source-level fallback concern explicit without treating them as independently reproduced results.</p></div>
+<p>This editorial correction updates the current reading view and connected dossiers, not the historical adjudication or scientific acceptance status. The original captured fields are preserved below.</p>
+<p><a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/data/editorial-paper-corrections-v1.json">Correction register</a></p>
+<p><strong>Problem:</strong></p>
+<p>Technology mapping heuristics are hand-designed software, and improving their area/delay tradeoff through LLM-guided code evolution requires preserving output equivalence while controlling search and evaluation cost.</p>
+<p><strong>Mechanism / artifact:</strong></p>
+<p>MappingEvolve uses Planner, Evolver and Evaluator roles to propose structured changes to technology-mapping code, compile the candidate mapper, map circuits, check logical equivalence, and score normalized area and delay. The released artifact includes a proactive evolution driver and author-provided run histories.</p>
+<p><strong>Workload — the work tested:</strong></p>
+<p>Eleven ISCAS85 circuits form the evolution suite; EPFL circuits after ABC <code>compress2</code> and ASAP7 evaluation form the reported evaluation suite. The assessed loop uses 30 outer iterations × 3 inner iterations, compared with 90 direct-evolution iterations.</p>
+<p><strong>Hardware and manufacturing assumptions:</strong></p>
+<p>Selected artifact conditions: Ubuntu 22.04, Xeon Gold 6226R and 256 GB memory; ABC <code>&amp;nf</code> and mockturtle <code>map</code> are named baselines. Compilation and ABC CEC equivalence precede QoR evaluation; post-route behavior and process/library transfer are not established.</p>
+<p><strong>Baseline — the comparison method:</strong></p>
+<p>ABC <code>&amp;nf</code></p>
+<p>mockturtle <code>map</code></p>
+<p>Direct code-evolution approach</p>
+<p>Strong technology-mapping baselines named by the official description</p>
+<p><strong>Reported measurements:</strong></p>
+<p>Table 2 average ratios to ABC: DeepSeek-V3 area 0.8996, delay 1.0571, mapper runtime 1.755; GPT-5 area 0.8996, delay 1.0369, mapper runtime 1.6557.</p>
+<p>The assessed objective is 0.5 × normalized area reduction + 0.5 × normalized delay reduction; area reduction therefore can coexist with slower mapped-circuit delay or longer mapper runtime.</p>
+<p>The official description reports 10.04% area reduction versus ABC, 7.93% versus mockturtle, and 46.6%–96.0% S_overall improvement; these headline values remain conditioned on source-to-result reconciliation.</p>
+<p><strong>Limits on the conclusion:</strong></p>
+<p>Table averages show a tradeoff, not dominance: the visually crosschecked ratios reduce area while increasing average delay and mapper runtime. Composite QoR is not execution speedup.</p>
+<p>Equal iteration counts do not establish equal wall-clock time, token/API cost, stochastic search opportunity or total engineering cost. Repeated seeds, dispersion, model versions, held-out protocol and timeout/equivalence-failure handling remain unresolved.</p>
+<p>The pinned driver updates <code>best_state</code> on reward improvement before acceptance and can restore that state after rejection; this is a source-level control-flow concern, not evidence that a published circuit was invalid. The inspected author logs show no outer-loop reversion in three selected runs, but they are not independently authenticated.</p>
+<p>No mapping experiment or repository code was executed here. Equivalence of evaluated netlists does not prove arbitrary future outputs, post-route quality, process transfer or universal mapper improvement.</p>
+<p><strong>Source and location</strong></p>
+<p>Evidence tier: Primary arxiv preprint v1, pdf table crosscheck, public artifact inspection and official DAC description; no experiment execution or independent acceptance. This is the stored source classification; the location and limits below determine what was actually read.</p>
+<p><a href="https://arxiv.org/pdf/2604.26591v1">Open the recorded source</a></p>
+<p>Version 1: Sections 2–4, especially Sections 3.1, 3.2.3 and 4.1; PDF Table 2 page 6 for average area/delay/mapper-runtime ratios; pinned artifact commit 308f5cc41c1d7243c39fd2ddd02253c1343eb889, <code>evolve_single/proactive_single_point_evolve.py</code> lines 107, 378–390, 705–737 and 759–764; official DAC record https://63dac.conference-program.com/?post_type=page&amp;p=16&amp;id=RESEARCH535&amp;sess=sess172.</p>
+<details markdown="1">
+<summary>Original captured fields — superseded for this reading card</summary>
+
+** page source tier:** medium_official_description
+
+**Baselines:** ABC
+
+mockturtle
+
+direct code-evolution approach
+
+strong technology-mapping baselines
+
+**Evidence locators:** Not established in the captured evidence.
+
+**Evidence url:** https://63dac.conference-program.com/?post_type=page&amp;p=16&amp;id=RESEARCH535&amp;sess=sess172
+
+**Hardware or process assumptions:** Not established in the captured evidence.
+
+**Limits:** The description does not disclose model/API costs, evolution budgets, reproducibility details, benchmark split, or how code validity and regression risk are controlled.
+
+**Method or artifact:** Open-source hierarchical agent framework that plans, evolves, and evaluates technology-mapping code through structured optimization operators.
+
+**Metrics:** 10.04% area reduction versus ABC
+
+7.93% area reduction versus mockturtle
+
+46.6%–96.0% S_overall improvement on EPFL benchmarks
+
+area-delay tradeoff
+
+**Problem:** LLMs have been used to generate optimization scripts, but their ability to improve the core technology-mapping algorithm remains underused.
+
+**Workload or benchmark:** Technology-mapping experiments on EPFL benchmark circuits with area-delay tradeoff evaluation.
+
+</details>
+<h4>Additional source assessment</h4>
+<div class="worked"><p class="lm-k">Worked example</p><p>This separately recorded check is dated 2026-09-06. It supplements the original record above and retains its own scope and uncertainty.</p></div>
+<p><a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/dac/data/mappingevolve-primary-assessment-v1.json">Assessment record</a></p>
+<p><a href="https://arxiv.org/html/2604.26591v1">Assessed source</a></p>
+<p><strong>Extraction scope</strong></p>
+<p>Selected method and experimental sections, PDF Table 2 average-ratio visual crosscheck, and selected pinned driver/evaluator control flow; no experimental reproduction</p>
+<p><strong>Conditions</strong></p>
+<p><strong>Locators:</strong> 3.1</p>
+<p>3.2.3</p>
+<p>4.1</p>
+<p>Table 2</p>
+<p><strong>Validation:</strong> Compilation, ABC cec equivalence, then QoR</p>
+<p><strong>Evolution suite:</strong> 11 ISCAS85 circuits</p>
+<p><strong>Evaluation suite:</strong> EPFL with ASAP7 after ABC compress2</p>
+<p><strong>Budget:</strong> <strong>Outer iterations:</strong> 30</p>
+<p><strong>Inner iterations:</strong> 3</p>
+<p><strong>Direct evolution iterations:</strong> 90</p>
+<p><strong>Objective:</strong> 0.5 * normalized area reduction + 0.5 * normalized delay reduction</p>
+<p><strong>Baselines:</strong> ABC &amp;nf</p>
+<p>mockturtle map</p>
+<p><strong>Hardware:</strong> Ubuntu 22.04, Xeon Gold 6226R, 256GB</p>
+<p><strong>Table2 average ratios to abc:</strong> <strong>Deepseek v3:</strong> <strong>Area:</strong> 0.8996</p>
+<p><strong>Delay:</strong> 1.0571</p>
+<p><strong>Mapper runtime:</strong> 1.755</p>
+<p><strong>Gpt5:</strong> <strong>Area:</strong> 0.8996</p>
+<p><strong>Delay:</strong> 1.0369</p>
+<p><strong>Mapper runtime:</strong> 1.6557</p>
+<p><strong>Artifact url:</strong> https://github.com/Flians/MappingEvolve</p>
+<p><strong>Interpretation limits</strong></p>
+<p>Composite QoR improvement is not execution speedup; area, circuit delay and mapper runtime are different metrics.</p>
+<p>Table averages show tradeoffs, not dominance in all objectives.</p>
+<p>Equivalence of evaluated netlists does not prove correctness of arbitrary outputs of the evolved algorithm.</p>
+<p>Iteration parity alone does not establish equal tokens, wall-clock cost or stochastic search opportunity.</p>
+<p>Selected average ratios are visually crosschecked against PDF Table 2; artifact/result reconciliation and independent review remain pending.</p>
+<p><strong>Headline metric status</strong></p>
+<p>withheld_pending_artifact_result_reconciliation_and_review</p>
+<p><strong>Independent review status</strong></p>
+<p>pending</p>
+<p><span id="paper-dac-2026-research012"></span></p>
+<h3>Moduplace: LLM-Assisted Modular PCB Placement via Preference-Optimized Constraint Graph Generation</h3>
+<p>DAC 2026 · Record: <code>dac-2026-research012</code></p>
+<p><a href="#explanation-dac-2026-research012">Read the step-by-step explanation</a></p>
+<p><strong>Updated source-backed reading card</strong></p>
+<div class="worked"><p class="lm-k">Worked example</p><p>Reviewed 2026-09-08. Reconciles the description-only reading card with the author-hosted manuscript inspected for the expanded explanation; historical coding is preserved.</p></div>
+<p>This editorial correction updates the current reading view and connected dossiers, not the historical adjudication or scientific acceptance status. The original captured fields are preserved below.</p>
+<p><a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/data/editorial-paper-corrections-v1.json">Correction register</a></p>
+<p><strong>Problem:</strong></p>
+<p>PCB placement that incorporates modular organization and design preferences.</p>
+<p><strong>Mechanism / artifact:</strong></p>
+<p>Hierarchical component partition, weighted position/rotation constraint graphs, supervised and preference training, then hierarchical placement.</p>
+<p><strong>Workload — the work tested:</strong></p>
+<p>Eleven boards; 426 expert-placement training graphs. Training/test independence needs verification.</p>
+<p><strong>Hardware and manufacturing assumptions:</strong></p>
+<p>Qwen-2.5 7B; four 80GB A100s. PcbRouter/Freerouting routing and ADS electrical simulation, not fabricated-board measurements.</p>
+<p><strong>Baseline — the comparison method:</strong></p>
+<p>SA-PCB, NS-Place, DeepPCB and PCBAgent; matched settings require artifact verification.</p>
+<p><strong>Reported measurements:</strong></p>
+<p>Table 2 means: wirelength 1266.5 versus SA-PCB 1528.5; vias 48.6 versus 81.7. P8 regresses: 816.2 versus 688.6 wirelength and 23 versus 12 vias. Aggregate gains are not per-board dominance.</p>
+<p><strong>Limits on the conclusion:</strong></p>
+<p>Selected manuscript text inspection only. No execution. Routing configurations, electrical conditions, total cost, artifact consistency and independent review remain open.</p>
+<p><strong>Source and location</strong></p>
+<p>Evidence tier: Author hosted manuscript; selected text inspection, not reproduction. This is the stored source classification; the location and limits below determine what was actually read.</p>
+<p><a href="https://yhhan.com/PDFs/ModuPlace_paper.pdf">Open the recorded source</a></p>
+<div class="worked"><p class="lm-k">Worked example</p><p>Sections 3.2–3.4, PDF pages 2–5; Section 4.1/Table 1 page 5; Table 2 page 6. DOI 10.1145/3770743.3803892; captured PDF hash in editorial audit.</p></div>
+<details markdown="1">
+<summary>Original captured fields — superseded for this reading card</summary>
+
+** page source tier:** medium_official_description
+
+**Baselines:** existing automated PCB placement frameworks
+
+**Evidence locators:** Not established in the captured evidence.
+
+**Evidence url:** https://63dac.conference-program.com/?post_type=page&amp;p=16&amp;id=RESEARCH012&amp;sess=sess129
+
+**Hardware or process assumptions:** Not established in the captured evidence.
+
+**Limits:** The description does not provide metric names, numerical gains, board-suite composition, or evidence about generalization beyond the evaluated placement tasks.
+
+**Method or artifact:** LLM-assisted hierarchical modular placement with preference-optimized constraint-graph generation.
+
+**Metrics:** placement quality across all reported metrics
+
+**Problem:** Existing automated PCB placement systems do not express user preferences well and lack modular placement, producing impractical or poor-quality layouts.
+
+**Workload or benchmark:** PCB component placement with user requirements and modular component partitions.
+
+</details>
+<p><span id="paper-dac-2026-research1110"></span></p>
+<h3>LLM-Based Automatic Architecture Optimization for AI Model HLS Implementation on FPGA</h3>
+<p>DAC 2026 · Record: <code>dac-2026-research1110</code></p>
+<p><a href="#explanation-dac-2026-research1110">Read the step-by-step explanation</a></p>
+<p><strong>Updated source-backed reading card</strong></p>
+<div class="worked"><p class="lm-k">Worked example</p><p>Reviewed 2026-09-09. Deepens the LLM-based FPGA HLS architecture treatment into a paper-level reading; separates generated modular dataflow architectures and pattern optimization from functional correctness, HLS/post-route closure, resource fit, model-level throughput and prompt/search cost, while preserving the official 11.78x claim and the partial Fire-module artifact boundary.</p></div>
+<p>This editorial correction updates the current reading view and connected dossiers, not the historical adjudication or scientific acceptance status. The original captured fields are preserved below.</p>
+<p><a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/data/editorial-paper-corrections-v1.json">Correction register</a></p>
+<p><strong>Problem:</strong></p>
+<p>AI-model HLS implementation requires coordinated module partitioning, dataflow orchestration and throughput optimization, while compiler and LLM approaches may not jointly optimize the system architecture.</p>
+<p><strong>Mechanism / artifact:</strong></p>
+<p>LLM-based generation and optimization of modular dataflow HLS architectures with pattern-based transformations and synthesizable FPGA output; model identity, prompts, retries, architecture representation, legality checks, feedback loop and lowering flow are unspecified.</p>
+<p><strong>Workload — the work tested:</strong></p>
+<p>AI model implementations through HLS on FPGA; model suite, kernels, tensor shapes, precision, dataflow partition, baseline designs, accuracy tolerance, device split and aggregation behind the average claim are unspecified. A pinned partial Fire-module artifact uses Vivado HLS/Vivado 2019.2, ZCU102 and a 100 MHz target, but does not establish the paper benchmark suite.</p>
+<p><strong>Hardware and manufacturing assumptions:</strong></p>
+<p>FPGA dataflow architectures with connected streaming stages, buffering and HLS-generated hardware; device/resource budget, clock, memory/interconnect, place-and-route, post-route timing, board execution, power and full-model integration are unspecified. The inspected artifact reports stored HLS estimates only and no executed simulation or co-simulation.</p>
+<p><strong>Baseline — the comparison method:</strong></p>
+<p>Current state-of-the-art compiler-based HLS approaches</p>
+<p>Current LLM-assisted HLS approaches</p>
+<p>Same AI models, source kernels, precision, accuracy, FPGA device, clock/resource constraints, backend versions, optimization budget, correctness checks and end-to-end boundary are unspecified</p>
+<p><strong>Reported measurements:</strong></p>
+<p>The official description reports an average 11.78x performance improvement over current state-of-the-art approaches, but does not define the performance quantity or aggregation, benchmark/model distribution, resource tradeoff, synthesis success rate, compile/LLM cost, post-route timing, board measurement or model-quality result. The selected Fire artifact assessment records 335,494-cycle top-level latency, 229,703-cycle interval, estimated 8.419 ns clock and resource totals, but these are stored HLS estimates for a partial example, not a reproduction of 11.78x or end-to-end model performance.</p>
+<p><strong>Limits on the conclusion:</strong></p>
+<p>Generated dataflow stages must preserve values, tensor order, stream progress, backpressure, deadlock freedom, numerical tolerance and end-of-output behavior. Check generated designs against a trusted software/reference implementation and exercise empty, boundary, variable-rate, reset, branching and concatenation cases; synthesizability alone is not functional equivalence.</p>
+<p>HLS estimates and requested clock periods are not post-route timing or board execution. Report initiation interval versus top-level latency, resource use, buffering, frequency, timing closure, power, host/device transfers, full-model integration and accuracy on named FPGA devices; include failed synthesis, place-and-route, simulation and manual repair costs.</p>
+<p>The official description supports LLM-assisted modular HLS architecture generation and reports an average 11.78x claim, while the pinned artifact is a partial Fire-module release with Vivado 2019.2/ZCU102 conditions and future full integration. The evidence does not establish production-ready FPGA acceleration or a reproducible end-to-end 11.78x gain because prompts/search cost, benchmark aggregation, matched baselines, correctness, post-route/board evidence and resource/quality constraints remain unresolved.</p>
+<p><strong>Source and location</strong></p>
+<p>Evidence tier: Primary captured official DAC description plus author linked partial artifact assessment and existing authored explanation; full paper and complete optimization framework not recovered, no execution, post route timing, board run or independent functional validation. This is the stored source classification; the location and limits below determine what was actually read.</p>
+<p><a href="https://63dac.conference-program.com/?post_type=page&amp;p=16&amp;id=RESEARCH1110">Open the recorded source</a></p>
+<p>DAC 2026 official description, first and final paragraphs; pinned HLSArchOpt artifact assessment at commit 999043ab132f984b5b88b26ab9e415221e1198f1; README, Fire top-level kernel, HLS script and stored synthesis reports; existing LLM-assisted-design-flows explanation; no full manuscript or executed reproduction.</p>
+<details markdown="1">
+<summary>Original captured fields — superseded for this reading card</summary>
+
+** page source tier:** medium_official_description
+
+**Baselines:** current state-of-the-art compiler-based and LLM-assisted HLS approaches
+
+**Evidence locators:** Not established in the captured evidence.
+
+**Evidence url:** https://63dac.conference-program.com/?post_type=page&amp;p=16&amp;id=RESEARCH1110&amp;sess=sess156
+
+**Hardware or process assumptions:** Not established in the captured evidence.
+
+**Limits:** The description does not expose model prompts, synthesis success rate, FPGA devices, benchmark models, resource costs, or quality constraints.
+
+**Method or artifact:** LLM-based generation and optimization of modular dataflow HLS architectures with synthesizable FPGA output.
+
+**Metrics:** 11.78X average performance improvement
+
+**Problem:** AI-model HLS still requires substantial manual work for module partitioning, dataflow orchestration, and throughput optimization.
+
+**Workload or benchmark:** AI model implementations through high-level synthesis on FPGA.
+
+</details>
+<h4>Additional source assessment</h4>
+<div class="worked"><p class="lm-k">Worked example</p><p>This separately recorded check is dated 2026-09-06. It supplements the original record above and retains its own scope and uncertainty.</p></div>
+<p><a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/dac/data/hlsarchopt-primary-assessment-v1.json">Assessment record</a></p>
+<p><a href="https://github.com/Szzer1/HLSArchOpt/tree/999043ab132f984b5b88b26ab9e415221e1198f1">Assessed source</a></p>
+<p><strong>Extraction scope</strong></p>
+<p>Read-only inspection of pinned repository tree, README, HLS script, top-level kernel and stored text/XML synthesis reports; no execution or full-paper recovery</p>
+<p><strong>Interpretation limits</strong></p>
+<p>A released example is not the entire LLM-driven framework.</p>
+<p>README platform configuration cannot be assigned to every paper benchmark without full text.</p>
+<p>Commented simulation commands do not prove authors never tested correctness; they limit what this script reproduces.</p>
+<p>Artifact discovery is not independent acceptance.</p>
+<p><strong>Headline metric status</strong></p>
+<p>withheld_pending_fullpaper_conditions</p>
+<p><strong>Independent review status</strong></p>
+<p>pending</p>
+<p><span id="paper-iccad-2025-1222"></span></p>
+<h3>VeriOpt: PPA-Aware High-Quality Verilog Generation via Multi-Role LLMs</h3>
+<p>ICCAD 2025 · Record: <code>iccad-2025-1222</code></p>
+<p><a href="#explanation-iccad-2025-1222">Read the step-by-step explanation</a></p>
+<p><strong>Updated source-backed reading card</strong></p>
+<div class="worked"><p class="lm-k">Worked example</p><p>Reviewed 2026-09-08. Reconciles the abstract-backed reading card with selected version-1 methods, evaluation and limitations; separates functional testing and PPA conditions.</p></div>
+<p>This editorial correction updates the current reading view and connected dossiers, not the historical adjudication or scientific acceptance status. The original captured fields are preserved below.</p>
+<p><a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/data/editorial-paper-corrections-v1.json">Correction register</a></p>
+<p><strong>Problem:</strong></p>
+<p>Generating functional RTL while improving its implementation costs.</p>
+<p><strong>Mechanism / artifact:</strong></p>
+<p>Planning, programming, reviewing and evaluating roles; optimization context and synthesis reports. Section V-C specifies manual external feedback, not autonomous synthesis access.</p>
+<p><strong>Workload — the work tested:</strong></p>
+<div class="worked"><p class="lm-k">Worked example</p><p>RTLLM's 29 tasks; Table II reports 25/29 testbench passes, not exhaustive correctness.</p></div>
+<p><strong>Hardware and manufacturing assumptions:</strong></p>
+<p>GPT-4o, Icarus Verilog and Design Compiler; target-library, operating/activity assumptions and complete settings unresolved.</p>
+<p><strong>Baseline — the comparison method:</strong></p>
+<p>PPA: functionally passing pre-optimization designs from the same flow. Functional comparisons: Table II's model/method configurations; budgets need reconciliation.</p>
+<p><strong>Reported measurements:</strong></p>
+<p>Table III: 73.23% critical-path reduction for 16-bit divider, not timing-closure rate. Some leakage/slack regress. Table's 90% slack gain conflicts with prose's 39.44% maximum.</p>
+<p><strong>Limits on the conclusion:</strong></p>
+<p>No execution or camera-ready reconciliation. Preserve per-candidate metric pairing, output-cycle requirements, post-optimization checks and complete manual/prompt costs; independent review pending.</p>
+<p><strong>Source and location</strong></p>
+<p>Evidence tier: Primary preprint v1; selected method/evaluation reading, not reproduction. This is the stored source classification; the location and limits below determine what was actually read.</p>
+<p><a href="https://arxiv.org/pdf/2507.14776v1">Open the recorded source</a></p>
+<p>Section III; IV-A and Table II PDF pages 6–7; IV-C/Table III pages 7–8; V-C page 8.</p>
+<details markdown="1">
+<summary>Original captured fields — superseded for this reading card</summary>
+
+** page source tier:** high_primary_preprint
+
+**Baselines:** baseline LLM-generated RTL
+
+**Evidence locators:** Not established in the captured evidence.
+
+**Evidence url:** https://arxiv.org/abs/2507.14776
+
+**Hardware or process assumptions:** RTL synthesis and timing/power/area evaluation with industry-standard EDA tools; process node, constraints, synthesis settings, and baseline prompts are not specified in the abstract.
+
+**Limits:** The preprint abstract reports maximum gains without design-by-design distributions, model details, prompt cost, EDA settings, or leakage controls; PPA claims require full-paper and artifact verification.
+
+**Method or artifact:** Multi-role prompting and iterative PPA-aware optimization loop that combines planning, code generation, review, synthesis feedback, and evaluation.
+
+**Metrics:** up to 88% power reduction
+
+up to 76% area reduction
+
+up to 73% timing-closure improvement
+
+86% functional-evaluation success
+
+**Problem:** LLM-generated Verilog often targets functional correctness while neglecting power, performance, and area constraints required for practical hardware.
+
+**Workload or benchmark:** Synthesizable Verilog generation evaluated for functional correctness and PPA using industry-standard EDA tools; exact design suite and technology conditions require paper review.
+
+</details>
+<p><span id="paper-iccad-2025-110"></span></p>
+<h3>VERIRL: Boosting the LLM-based Verilog Code Generation via Reinforcement Learning</h3>
+<p>ICCAD 2025 · Record: <code>iccad-2025-110</code></p>
+<p><a href="#explanation-iccad-2025-110">Read the step-by-step explanation</a></p>
+<p><strong>Updated source-backed reading card</strong></p>
+<div class="worked"><p class="lm-k">Worked example</p><p>Reviewed 2026-09-08. Reconciles the preprint-backed card with selected method and evaluation sections; distinguishes inherited repair scores from original test outcomes.</p></div>
+<p>This editorial correction updates the current reading view and connected dossiers, not the historical adjudication or scientific acceptance status. The original captured fields are preserved below.</p>
+<p><a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/data/editorial-paper-corrections-v1.json">Correction register</a></p>
+<p><strong>Problem:</strong></p>
+<p>Learning a Verilog generator with informative training feedback.</p>
+<p><strong>Mechanism / artifact:</strong></p>
+<p>Policy/reward-model training; trace-back replaces internal candidate scores with mean child rewards. Sample-balanced weighting uses generation probability and reward.</p>
+<p><strong>Workload — the work tested:</strong></p>
+<p>VerilogEval-human and RTLLM v1.1; additional v2 evaluations. VeriBench-53K supports training, not a 53K held-out evaluation suite.</p>
+<p><strong>Hardware and manufacturing assumptions:</strong></p>
+<p>CodeQwen2.5-based 7B and DeepSeek-Coder-based 6.7B configurations. No implemented-circuit power, area or timing evaluation established here.</p>
+<p><strong>Baseline — the comparison method:</strong></p>
+<p>Table II's general and Verilog-specific models; matched training, sampling and selection budgets require verification.</p>
+<p><strong>Reported measurements:</strong></p>
+<div class="worked"><p class="lm-k">Worked example</p><p>Twenty samples/task; best results across three temperatures. CodeQwen2.5 VERIRL Table II pass@1/pass@5: 69.3/78.1 VerilogEval-human; 58.2/66.0 RTLLM v1.1.</p></div>
+<p><strong>Limits on the conclusion:</strong></p>
+<p>No execution. Reward is not acceptance; repaired descendants do not prove the original candidate correct. Dataset independence, artifacts, complete costs and conference version remain unverified.</p>
+<p><strong>Source and location</strong></p>
+<p>Evidence tier: Primary preprint v1; selected method/evaluation reading, not reproduction. This is the stored source classification; the location and limits below determine what was actually read.</p>
+<p><a href="https://arxiv.org/pdf/2508.18462v1">Open the recorded source</a></p>
+<p>Sections III, V–VI; trace-back PDF page 5; VII-D–F page 7; Table II page 8.</p>
+<details markdown="1">
+<summary>Original captured fields — superseded for this reading card</summary>
+
+** page source tier:** high_primary_preprint
+
+**Baselines:** CraftRTL-style closed-source model distillation
+
+DeepSeek-style approaches with sparse feedback
+
+recent LLM-based Verilog generation methods
+
+**Evidence locators:** Not established in the captured evidence.
+
+**Evidence url:** https://arxiv.org/abs/2508.18462
+
+**Hardware or process assumptions:** LLM-based HDL generation evaluated through compilation, simulation, and functional tests; exact model sizes, hardware, and test-suite composition require full-paper verification.
+
+**Limits:** The evidence is an author preprint and public repository; the repository has not independently reproduced the reported gains or verified benchmark splits, leakage controls, reward validity, and hardware cost.
+
+**Method or artifact:** Reinforcement-learning framework for Verilog generation with a 53K-example dataset, Trace-back based Rescore, adaptive sample-balanced weighting, and co-evolving policy/reward models.
+
+**Metrics:** test pass rate
+
+functional correctness
+
+compilation robustness
+
+53K curated training/evaluation examples from more than 700K problems
+
+**Problem:** Verilog generation is difficult for language models because of concurrency semantics, rigid syntax, simulation complexity, and sparse or noisy correctness feedback.
+
+**Workload or benchmark:** Verilog code-generation tasks with diverse testbenches and complexity labels, curated from more than 700K source problems.
+
+</details>
+<p class="lm-k h-label">What remains to establish</p><h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>What is still unproven here</h2>
+<p>Resolve unspecified workloads, comparison methods, resource budgets, and source locations before generalizing a reported gain. Multiple papers in this selected sample permit comparison of mechanisms, but do not by themselves establish recurrence across years or a long-term trend.</p>
+<p><a href="../guide/expanded-taxonomy-v1.html">All subthemes</a> · <a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/reports/directions/README.md">Research directions</a></p><p class="meta">Written as <a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/reports/observed-subthemes/llm-assisted-design-flows.md">reports/observed-subthemes/llm-assisted-design-flows.md</a> in the course repository.</p>
+      </article>
+      <nav class="pager" aria-label="Previous and next"><a class="prev" href="learned-eda-and-optimization.html"><span class="pg-k">← Previous</span><span class="pg-t">Learned EDA and optimization</span></a><a class="map" href="../subthemes.html"><span class="pg-k">Back to</span><span class="pg-t">Subthemes</span></a><a class="next" href="generative-design-and-synthesis.html"><span class="pg-k">Next →</span><span class="pg-t">Generative design and synthesis</span></a></nav>
+    </section>
+  </main>
+  <footer class="course-foot">
+    <p>Built from 582 paper records coded from ISCA 2026, DAC 2026 and ICCAD 2025 (ICCAD 2026 papers were not yet public). Most records come from official program descriptions; see “How deep the reading went”. The papers belong to their authors.</p>
+    <p class="foot-links"><a href="https://github.com/mehtama1234/course-concept-library">All courses</a><a href="../index.html">This course</a><a href="../course-map.html">Course map</a><a href="../presentation/index.html">Slides</a><a href="../video/index.html">Video</a><a href="../share/index.html">Share</a></p>
+  </footer>
+  <script src="../assets/course-data.js"></script><script src="../assets/icons.js"></script><script src="../assets/icons-extra.js"></script><script src="../assets/icons-course.js"></script><script src="../assets/art.js"></script><script src="../assets/course-art.js"></script><script src="../assets/charts.js"></script><script src="../assets/course-charts.js"></script><script src="../assets/course-site.js"></script>
+</body>
+</html>

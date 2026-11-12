@@ -1,0 +1,418 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#F3ECE1" />
+  <title>AI accelerator microarchitecture · Semiconductor conference atlas</title>
+  <meta name="description" content="Papers: DAC 3, ISCA 1. Read from: 3 program descriptions, 0 abstracts or reports, 1 full papers or preprints. The explanations come first; every paper’s record follows at the end." />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Semiconductor conference atlas" />
+  <meta property="og:title" content="AI accelerator microarchitecture · Semiconductor conference atlas" />
+  <meta property="og:description" content="Papers: DAC 3, ISCA 1. Read from: 3 program descriptions, 0 abstracts or reports, 1 full papers or preprints. The explanations come first; every paper’s record follows at the end." />
+  <meta property="og:url" content="https://mehtama1234.github.io/semiconductor-conferences/subthemes/ai-accelerator-microarchitecture.html" />
+  <meta property="og:image" content="https://mehtama1234.github.io/semiconductor-conferences/presentation/slides/01-cover.jpg" />
+  <meta property="og:image:width" content="1920" />
+  <meta property="og:image:height" content="1080" />
+  <meta property="og:image:alt" content="Semiconductor conference atlas: 582 papers from ISCA, DAC and ICCAD, sorted into 10 themes and six directions to watch." />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="canonical" href="https://mehtama1234.github.io/semiconductor-conferences/subthemes/ai-accelerator-microarchitecture.html" />
+  <link rel="icon" href="../assets/icon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="../assets/base.css" />
+  <link rel="stylesheet" href="../assets/experience.css" />
+  <link rel="stylesheet" href="../assets/theme-atlas.css" />
+  <link rel="stylesheet" href="../assets/styles.css" />
+  <link rel="stylesheet" href="../assets/charts.css" />
+  <link rel="stylesheet" href="../assets/course.css" />
+  
+</head>
+<body class="course-site " data-house="atlas">
+  <aside class="public-demo-banner" aria-label="About this course">A plain-language guide to what ISCA, DAC and ICCAD papers say about chip and computer design · Built from the repository’s own paper records · Not made by the conferences</aside>
+  <a class="skip-link" href="#app">Skip to the page</a>
+  <header>
+    <a class="brand" href="../index.html"><span class="mark" aria-hidden="true">Si</span> Semiconductor conference atlas</a>
+    <span class="header-status"><span class="badge">582 papers</span><span class="badge">10 themes</span><span class="badge">Plain words first</span></span>
+    <a class="header-link" href="../course-map.html">Course map</a>
+  </header>
+  <nav class="course-nav" aria-label="Main sections of the course"><a href="../index.html">The big picture</a><a href="../themes.html">Themes</a><a href="../subthemes.html" aria-current="page">Subthemes</a><a href="../deep-reads.html">Deep reads</a><a href="../directions.html">What to watch</a><a href="../presentation/index.html">Slides</a><a href="../video/index.html">Video</a><a href="../share/index.html">Share</a></nav>
+  <main id="app" tabindex="-1">
+    <section class="screen active landing legacy-page" aria-labelledby="page-title">
+<div class="lm-head"><div class="hj-heading"><nav class="crumbs" aria-label="You are here"><a href="../course-map.html">Course map</a><span aria-hidden="true">›</span><a href="../subthemes.html">Subthemes</a></nav><a class="back-button" href="../subthemes.html">← <span>Subthemes</span></a><p class="eyebrow">Subtheme · 4 papers · Architecture and accelerators</p><h1 id="page-title">AI accelerator microarchitecture: what the 4 papers change, and what is still unproven</h1><p class="hj-sub">Papers: DAC 3, ISCA 1. Read from: 3 program descriptions, 0 abstracts or reports, 1 full papers or preprints. The explanations come first; every paper’s record follows at the end.</p></div><div class="hj-art" data-art="trio:activity,server,cpu"></div></div>
+<figure class="course-fig"><div class="loop-wide" data-art="flow:architecture-and-accelerators"></div><div class="loop-tall" data-art="flowTall:architecture-and-accelerators"></div><figcaption>The parent theme in one picture: extra arithmetic helps only when the data arrives in time.</figcaption></figure>
+      <article class="prose">
+
+<p>This subject has 4 records in the selected sample. This page explains where it fits, then presents all captured paper evidence without shortening the measurements or limitations.</p>
+<p><a href="../guide/reading-guide-v1.html">Definitions used in the paper records</a></p>
+<p class="lm-k h-label">Understand the parent subject first</p><h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>The bigger theme this belongs to</h2>
+<ul>
+<li><a href="../themes/architecture-and-accelerators.html">Architecture and accelerators</a></li>
+</ul>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>Faster inference requires more than faster multiplication</h2>
+<p>An accelerator's microarchitecture is its internal arrangement of arithmetic units, storage, connections, and control. A language model can keep these units busy only if the required data arrive in time and the next operation is ready to execute.</p><p>Faster arithmetic cannot remove a wait for memory or a dependency on an unfinished operation.</p>
+<p>Four papers here change different constraints. AMBER changes how bits are stored and processed.</p><p>MBA changes how much data can remain close to computation. AHASD changes when two cooperating models execute.</p><p>OASIS changes how low-precision numbers are represented and multiplied. These distinctions explain the mechanisms; the reported improvement factors do not form a common ranking.</p>
+<p>Weights are learned model parameters. Activations are intermediate values produced while processing an input.</p><p>The key/value cache stores attention information from earlier tokens so that generation need not recompute it each time. A token is one unit of the model's text representation, which can be a word fragment rather than a complete word.</p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>AMBER: preserve the numbers while changing their encoding</h2>
+<p>Lossless compression preserves every encoded value after decompression. Quantization instead replaces values with a smaller set of representable choices and can introduce numerical error. A lossless compressor applied to an already quantized model preserves that model's values; it does not reverse the earlier quantization error.</p>
+<p><a href="ai-accelerator-microarchitecture.html#paper-dac-2026-research640">AMBER</a> combines bit-transposed compression with a reconfigurable, pipelined bit-serial processing element. The official description covers integer, floating-point, and microscaling formats and reports evaluation on eight models and ten formats.</p><p>It gives 1.17× memory-efficiency and 3.16× compute improvements, naming Olive and Tender, without exposing the exact definitions or per-baseline comparisons. Process, clock, area, format-specific costs, and model-quality conditions remain missing. <a href="https://63dac.conference-program.com/presentation/?id=RESEARCH640&amp;sess=sess156">Official AMBER description</a>.</p>
+<p><span id="explanation-dac-2026-research640"></span></p>
+<h3>AMBER: lossless bit storage and bit-serial arithmetic address different costs</h3>
+<h3>What lossless bit compression preserves</h3>
+<p>An LLM value is represented by bits. Integer values use a signed or unsigned encoding; floating-point values separate sign, exponent and significand fields; microscaling formats add a shared scale or group-level representation.</p><p>These formats place useful information in different bit positions. A compressor must preserve the exact encoded value if decompression is called lossless.</p><p>It does not restore accuracy already lost when a higher-precision value was quantized into a smaller format.</p>
+<p>Bit-transposed encoding changes how bits are grouped before compression. Instead of storing each complete number as one sequence, the representation can group corresponding bit positions or fields across values.</p><p>If a group of values has statistical concentration in particular bit positions, a bit-level compressor can encode that concentration more efficiently. The operation is a representation change: after decoding, the original integer, floating-point or microscaling bits must be recovered exactly.</p>
+<p>The potential benefit applies to weights and key/value (KV) cache data, but the two objects have different lifetimes. Weights are reused across many requests and can justify offline encoding.</p><p>KV data is produced and consumed during serving, so encode/decode latency, memory bandwidth and access granularity affect the result more directly. A compressed byte count alone does not establish lower serving latency unless the accelerator can decode the needed values at the rate computation consumes them.</p>
+<h3>What the bit-serial processing element changes</h3>
+<p>A bit-serial processing element performs arithmetic over successive bit portions rather than requiring a separate full-width datapath for every precision. A precision-agnostic design can reuse the same bit-level hardware for INT, floating-point and microscaling formats while changing the sequence of operations and control.</p><p>A stage-pipelined structure overlaps different inputs or bit stages, which can raise steady-state throughput.</p>
+<p>The trade-off is that bit-serial work takes multiple steps for one arithmetic result. Accumulation, field decoding, sign and exponent handling, scale management, control, and movement of compressed data still consume cycles and energy.</p><p>A pipeline's output rate after it is full is not the same as the latency of one request. The useful comparison must therefore include format-dependent bit counts, pipeline fill and drain, decode overhead, memory traffic and accumulation behavior.</p>
+<h3>What the reported evaluation establishes</h3>
+<p>The official description reports evaluation on eight LLMs and ten formats, with 1.17× memory-efficiency improvement and 3.16× compute improvement, and says AMBER surpasses Olive and Tender in throughput and energy. The description does not define memory efficiency or compute improvement, identify each baseline configuration, report compression ratio by format, or state model-quality constraints.</p><p>It also supplies no area, clock, bandwidth, power or format-specific latency.</p>
+<p>The evidence supports a unified multi-precision representation and compute direction. It does not show that every format gets the same gain, that lossless storage preserves end-to-end model quality under the surrounding quantization choices, or that compute improvement becomes the same inference-throughput improvement.</p><p>Cloud and edge suitability additionally require different memory, thermal and area constraints.</p>
+<h3>The evaluation that would establish end-to-end value</h3>
+<p>Report encoded and decoded size for weights and KV data by format, decode bandwidth, arithmetic latency, pipeline utilization, area, power, clock, memory traffic and control overhead. Compare each model and format with matched Olive and Tender configurations.</p><p>Measure accuracy or task quality before and after any quantization, and separate lossless AMBER effects from quantization effects. Report prefill and decode latency, batch size, sequence length, cache residency and total energy per generated token on a stated hardware implementation or a fully specified simulator.</p>
+<p>The <a href="ai-accelerator-microarchitecture.html#paper-dac-2026-research640">AMBER</a> record describes bit-transposed lossless weight/KV compression and precision-agnostic pipelined bit-serial processing for INT, FP and MX formats. The detailed explanation above separates exact bit preservation from quantization, storage compression from decode cost, bit-serial throughput from request latency, and reported compute/memory factors from end-to-end serving evidence; this card is the compact evidence record.</p>
+<p>The <a href="ai-accelerator-microarchitecture.html#paper-dac-2026-research640">AMBER</a> record therefore concerns both representation and execution: bit-serial computation can share circuitry across widths, but decoding, transfers, accumulation and pipeline latency remain part of the full cost. The detailed explanation above is the paper-level account; this sentence keeps the chapter's cross-paper summary compact.</p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="chart-bar"></span>MBA: retain data close to the arithmetic</h2>
+<p>Storage capacity and transfer bandwidth answer different questions. Capacity determines how much can stay resident; bandwidth determines how quickly data can move.</p><p>Increasing capacity helps when it prevents repeated transfers of useful data. It helps less when the working data still exceed capacity or when another part of execution dominates.</p>
+<p><a href="ai-accelerator-microarchitecture.html#paper-dac-2026-research509">MBA</a> proposes gigabyte-scale embedded dynamic memory with priority for the key/value cache, double buffering, and iteration-aware eviction. Double buffering separates data being consumed from data being prepared for later use. Eviction chooses what to remove when space is needed.</p>
+<p>The official description reports 5.99× speedup and 8.86× energy efficiency against a GPU baseline, versus 3.63× and 4.93× against an accelerator baseline. It does not identify the compared configurations or establish a fabricated gigabyte-buffer chip.</p><p>Technology retention, refresh costs, area, sequence lengths, and complete energy accounting require the manuscript. <a href="https://63dac.conference-program.com/presentation/?id=RESEARCH509&amp;sess=sess157">Official MBA description</a>.</p>
+<p><span id="explanation-dac-2026-research509"></span></p>
+<h3>MBA: a large local buffer helps only when mapping, overlap and eviction preserve useful data</h3>
+<h3>Why capacity and bandwidth are different limits</h3>
+<p>LLM inference repeatedly reads model weights and, during autoregressive decoding, the key/value cache built from earlier tokens. High-bandwidth memory (HBM) can supply data quickly, but transferring data between HBM and the compute die still consumes time and energy.</p><p>A larger local buffer can reduce those transfers if the working set fits or if the most repeatedly used data remain resident.</p>
+<p>Capacity answers how much data can stay close to computation. Bandwidth answers how quickly data can cross a connection.</p><p>A gigabyte-scale buffer improves neither automatically: if the active weights and KV state exceed its capacity, the system still transfers data; if arithmetic or another network link dominates, reducing HBM traffic may not change end-to-end latency.</p>
+<h3>What MBA changes in the memory and execution path</h3>
+<p>MBA uses embedded DRAM (eDRAM) as a large on-chip buffer. Its KV-cache-prioritized mapping (KVP) gives the cache priority when deciding which information should occupy the local buffer.</p><p>The mapping policy is important because KV entries have different reuse and lifetime depending on sequence length, layer, token position and batching. Prioritizing KV data can reduce repeated HBM reads, but it can also displace weights or other state that the next operation needs.</p>
+<p>The architecture co-designs three mechanisms. Double buffering keeps one region available to the compute pipeline while another region is being filled or prepared.</p><p>This can overlap data movement with arithmetic, but only when transfer time, compute time, buffer capacity and synchronization are balanced. If the next data are not ready, the compute units still wait; if production outruns consumption, a buffer fills and backpressure is required.</p>
+<p>Iteration-aware eviction chooses what to remove based on expected future use across iterations. An eviction policy is a prediction about reuse.</p><p>Removing data that will be needed soon creates another HBM transfer; retaining data with little future use consumes capacity that could protect a high-reuse KV or weight block. The policy therefore affects traffic, cache residency, overlap and energy together rather than being an independent memory feature.</p>
+<h3>What the reported comparisons establish</h3>
+<p>The official description reports 5.99× and 3.63× end-to-end speedup and 8.86× and 4.93× energy-efficiency improvement against GPU and LLM-accelerator baselines, respectively. The two baseline pairs must remain separate.</p><p>Speedup is a latency or throughput ratio; energy efficiency is useful work per energy under a defined task. Neither number establishes the other, and neither identifies how much came from eDRAM capacity, KVP mapping, double buffering or eviction.</p>
+<p>The description does not identify the LLMs, sequence lengths, batch sizes, memory capacity, HBM traffic, eDRAM refresh or retention behavior, area, power boundary, accuracy effects or exact baseline configurations. It describes 1T1C IGZO eDRAM integration, but an architectural description is not proof of a fabricated gigabyte-scale buffer.</p><p>Density, retention, endurance, access time, refresh energy, process integration and area must all be evaluated together.</p>
+<h3>The evaluation that would establish end-to-end benefit</h3>
+<p>Report model, sequence and batch conditions; weight and KV-cache sizes; local-buffer capacity; HBM traffic before and after KVP; hit/residency rates; transfer overlap; eviction events; refresh and retention assumptions; area; power; and control overhead. Compare no-buffer, ordinary-buffer and MBA policies under equal compute and memory constraints.</p><p>Report prefill and decode latency, throughput, energy per token, tail behavior and model quality separately, and distinguish modeled eDRAM from synthesized or measured hardware.</p>
+<p>The <a href="ai-accelerator-microarchitecture.html#paper-dac-2026-research509">MBA</a> record describes gigabyte-scale eDRAM buffering with KV-prioritized mapping, double buffering and iteration-aware eviction. The detailed explanation above separates capacity from bandwidth, residency from transfer, overlap from guaranteed utilization, eviction prediction from free reuse, and reported baseline ratios from the missing memory and implementation conditions; this card is the compact evidence record.</p>
+<p>The title's 1T1C means one transistor and one capacitor per memory cell. Its IGZO label identifies the indium-gallium-zinc-oxide material system. A cell technology's potential density is not sufficient evidence that a complete buffer meets an accelerator's capacity, access-time, power, and manufacturing requirements simultaneously.</p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>AHASD: overlap useful work without accumulating rejected work</h2>
+<p>Speculative decoding uses a smaller model to propose tokens and a target model to check them. Only accepted progress should count toward useful output.</p><p>Doing more drafting can waste work when proposals are rejected. Doing less can leave the verifier waiting.</p><p>The acceptance rule also matters to whether the generated-output distribution is preserved.</p>
+<p><a href="ai-accelerator-microarchitecture.html#paper-dac-2026-research384">AHASD</a> separates drafting on processing-in-memory hardware from verification on a neural processing unit. Its official description uses confidence-history and available-time controls to manage drafting and pre-verification, plus attention and task-scheduling hardware within LPDDR5-PIM.</p>
+<p>It reports up to 4.2× throughput and 5.6× energy efficiency against GPU-only execution, and 1.5× and 1.24× against a GPU-plus-PIM baseline. Reported added hardware occupies under 3% of DRAM area, not necessarily under 3% of total system area or power.</p><p>Model pairs, acceptance distributions, absolute latency, correctness conditions, and implementation methodology remain unspecified in this source. <a href="https://63dac.conference-program.com/presentation/?id=RESEARCH384&amp;sess=sess157">Official AHASD description</a>.</p>
+<p><span id="explanation-dac-2026-research384"></span></p>
+<h3>AHASD: speculative decoding needs a policy for deciding which draft work is worth doing</h3>
+<h3>What speculative decoding computes</h3>
+<p>Speculative decoding uses a small draft language model (DLM) to propose several next tokens, then asks a larger target language model (TLM) to verify them in a batch. Accepted draft tokens can reduce the number of expensive TLM steps.</p><p>Rejected tokens are not useful output, although their generation and verification still consumed compute and energy. The useful quantity is accepted progress per unit time and energy, not the raw number of draft tokens produced.</p>
+<p>Adaptive drafting changes the number of proposed tokens as confidence or workload conditions change. A synchronous implementation can leave the NPU idle while the PIM side drafts, or leave the PIM side idle while verification completes.</p><p>A fully asynchronous implementation can instead produce drafts faster than verification can consume them, causing invalid or unnecessary drafts to accumulate. The control problem is to overlap useful DLM and TLM work without turning uncertainty into wasted work.</p>
+<h3>What AHASD changes</h3>
+<p>AHASD decouples DLM drafting on processing-in-memory hardware from TLM verification on a single NPU at task level. This lets drafting and verification proceed in parallel rather than forcing every operator to wait for the other side.</p><p>The task boundary matters: the system can schedule a complete drafting or verification unit, but it must still synchronize the token state and acceptance result between them.</p>
+<p>Entropy-history-aware drafting control uses recent model uncertainty as a signal for how aggressively to draft. Lower confidence can make longer drafts less useful because more tokens may be rejected.</p><p>Time-aware pre-verification control considers available time before starting verification, with the stated goal of suppressing invalid drafting. These controls are policies, not guarantees: their value depends on the entropy distribution, acceptance rule, model pair, request length and thermal state.</p>
+<p>The architecture adds attention algorithm units and gated task scheduling units inside LPDDR5-PIM. Localized attention keeps relevant attention computation near the PIM data, while gated scheduling controls when task execution is allowed to proceed.</p><p>The reported sub-microsecond task switching concerns switching overhead; it does not establish total draft/verify latency, accepted-token rate or end-to-end serving performance by itself.</p>
+<h3>What the reported numbers establish</h3>
+<p>The official description reports up to 4.2× throughput and 5.6× energy-efficiency improvement over GPU-only execution, and 1.5× throughput and 1.24× energy-efficiency improvement over the GPU+PIM baseline. The “up to” values are best cases.</p><p>Throughput must be tied to accepted output tokens and request conditions; energy efficiency must state whether energy includes both DLM and TLM, rejected work, memory traffic, control and idle periods.</p>
+<p>The source reports hardware overhead below 3% of DRAM area. That denominator is not total system area, total power, thermal density, or mobile-device cost.</p><p>It also does not establish LPDDR5-PIM fabrication or the area/energy of the NPU-side additions. The description omits model sizes, acceptance rates, adaptive-draft distributions, absolute latency, correctness conditions, thermal methodology and cross-device generalization.</p>
+<h3>The evaluation that would establish useful speculative execution</h3>
+<p>Report DLM/TLM pairs, draft-length distributions, token acceptance rate, rejected-token work, output-quality equivalence, request lengths, batch and arrival conditions, and control decisions over time. Measure end-to-end time to first token, time per accepted token, tail latency, throughput, energy, memory traffic, PIM/NPU utilization, synchronization, task-switching and queueing overhead.</p><p>Compare synchronous, asynchronous and AHASD policies under the same models, quality rule and hardware budget. Give area and power for the complete system, not only DRAM-area overhead, and test temperature or mobile power limits.</p>
+<p>The <a href="ai-accelerator-microarchitecture.html#paper-dac-2026-research384">AHASD</a> record describes task-level asynchronous DLM drafting on PIM and TLM verification on an NPU with entropy-history and time-aware controls. The detailed explanation above separates proposed tokens from accepted work, overlap from useful progress, policy signals from guarantees, switching overhead from end-to-end latency, and DRAM-area overhead from complete-system cost; this card is the compact evidence record.</p>
+<p>The <a href="ai-accelerator-microarchitecture.html#paper-dac-2026-research384">AHASD</a> record should therefore be read through accepted tokens, rejected work, synchronization time and both models' energy over the same output task; peak drafting rate alone cannot establish shorter user-visible latency.</p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>OASIS: compute using a small set of representative values</h2>
+<p>Non-uniform quantization assigns short codes to representative values that need not be equally spaced. Multiplying the codes as integers would generally give the wrong result: code numbers identify values rather than express their magnitudes.</p><p>One alternative is to precompute the possible products and retrieve the appropriate product using the two codes.</p>
+<div class="worked"><p class="lm-k">Worked example</p><p>For example, two sets of sixteen representative values have 256 possible pairs. This bounds the number of distinct pair products, but not the work of reading input codes, combining repeated contributions, or handling values outside the compact representation.</p></div><p>A small lookup table is not itself an end-to-end speedup.</p>
+<p><a href="ai-accelerator-microarchitecture.html#paper-isca-2026-program-020">OASIS</a> combines product tables with outlier detection and concurrent error compensation. Use version 4; version 1 was KLLM with different comparisons.</p><p>Section V-A, PDF page 9, models hardware through cycle simulation, 28-nm logic synthesis, and memory models—not measured accelerator silicon. Figure 11, page 10, reports 3.00× speed and 1.44× energy efficiency against FIGLUT for four-bit weights/activations in single-batch decoding; FIGLUT uses sixteen-bit activations.</p>
+<div class="worked"><p class="lm-k">Worked example</p><p>Accuracy needs reconciliation: the arXiv abstract says 1.98%, the downloaded version-4 PDF abstract says 1.94%, and Section V-B says 2.05%. Table IV, page 11, gives LLaMA-2-7B averages of 70.49 for FP16 and 68.55 for four-bit OASIS: a 1.94-percentage-point difference for that model, not a universal relative loss. <a href="https://arxiv.org/pdf/2507.23035v4">Version-4 PDF, pages 1 and 9–11</a>, <a href="https://arxiv.org/abs/2507.23035v4">arXiv record</a>.</p></div>
+<p><span id="explanation-isca-2026-program-020"></span></p>
+<h3>OASIS: lookup multiplication must preserve quantization meaning and control outlier error</h3>
+<h3>Why non-uniform quantization does not fit ordinary integer MACs</h3>
+<p>Quantization replaces a continuous numerical value with a code that refers to a representative value. Uniform quantization spaces representatives at regular intervals.</p><p>Non-uniform quantization places them where the model's weights or activations are concentrated, which can represent a skewed or heavy-tailed distribution more efficiently. The code is an index, not necessarily the numerical magnitude.</p>
+<p>This creates a hardware problem. If a weight code and activation code are multiplied as ordinary integers, the result is generally not the product of their represented values.</p><p>Dequantizing before multiplication restores the numerical meaning but adds conversion, storage and data-movement work. OASIS instead precomputes products for pairs of representative values and uses the two codes to select the corresponding product from a lookup table (LUT).</p>
+<h3>What the Cartesian-product LUT changes</h3>
+<p>If there are (N_w) weight representatives and (N_a) activation representatives, a direct product table has (N_wN_a) possible pairs. The table can replace a general multiplier with code decoding and a lookup.</p><p>OASIS uses Cartesian-product LUT organization to reduce LUT size relative to earlier LUT-based GEMM methods and reports 64× lower LUT size and 1024× higher computational parallelism than those methods.</p>
+<p>The table count does not equal total GEMM cost. The accelerator must read codes, select products, accumulate products across the reduction dimension, move partial sums and handle values that are not represented well by the common codebook.</p><p>Lookup parallelism can also increase table bandwidth, read ports, routing and accumulation demand. The reported ratio is therefore a microarchitecture comparison whose usefulness depends on the complete memory and accumulation path.</p>
+<h3>How outlier handling changes the numerical path</h3>
+<p>Aggressive activation quantization can represent common values compactly while poorly representing rare large values. Those outliers can contribute disproportionately to a dot product.</p><p>OASIS identifies activation outliers with the Orizuru top-k detection engine, computes the regular values through LUT-based GEMM, and applies concurrent error compensation for the outlier contribution.</p>
+<p>The top-k engine must decide which values are exceptional under a threshold or ranking rule, then route their correction without stalling the common path. The correction is useful only if the outlier representation, location, sign, scale and accumulation order are preserved.</p><p>Detecting an outlier is not itself a proof that the compensated product matches FP16; the remaining quantization error and the hardware cost of detection and correction must be measured.</p>
+<h3>What the reported results establish</h3>
+<p>The recovered version-4 evaluation models hardware with cycle simulation, 28-nm logic synthesis and memory models. Figure 11 reports 3.00× speed and 1.44× energy efficiency against FIGLUT for four-bit weights and activations in single-batch decoding; FIGLUT uses sixteen-bit activations.</p><p>This is not a measurement of fabricated accelerator silicon, and the precision mismatch is part of the comparison condition.</p>
+<div class="worked"><p class="lm-k">Worked example</p><p>The accuracy claim also has source-version and metric differences: the arXiv abstract reports 1.98%, the version-4 PDF abstract reports 1.94%, and Section V-B reports 2.05%. Table IV's LLaMA-2-7B values of 70.49 for FP16 and 68.55 for four-bit OASIS imply a 1.94-percentage-point difference for that model, not a universal relative loss.</p><p>These values should not be collapsed into one unqualified accuracy number.</p></div>
+<h3>The evaluation that would establish end-to-end value</h3>
+<p>Report representative-value tables, code distributions, outlier rate and threshold, LUT size and bandwidth, detection/compensation cost, accumulation precision, area, frequency, memory traffic and power. Compare OASIS and FIGLUT under matched weight/activation precision, batch, sequence length, model suite and output-quality metric, and separate lookup, outlier, accumulation and memory time.</p><p>Give per-model accuracy and tail error, not only an average, and distinguish cycle simulation, synthesis estimates and measured silicon.</p>
+<p>The <a href="ai-accelerator-microarchitecture.html#paper-isca-2026-program-020">OASIS</a> record describes Cartesian-product LUT GEMM for dual-side non-uniform quantization with outlier-aware compensation and Orizuru detection. The detailed explanation above separates code indices from values, LUT size from total GEMM cost, common quantization error from outlier correction, source-version accuracy discrepancies and modeled hardware from silicon evidence; this card is the compact evidence record.</p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>What the group suggests—and does not establish</h2>
+<p>The shared technical direction is to reduce wasted representation, transfer, or execution work while accounting for the cost introduced by doing so. This is a synthesis of mechanisms, not evidence of a measured long-term adoption trend across conferences.</p>
+<p>Combining these methods would require compatibility checks. A compressed representation needs a compatible arithmetic path. A larger buffer changes the value of compression. Speculative execution changes the pattern of data reuse and useful output. Their individual gains cannot simply be multiplied.</p>
+<p>An end-to-end comparison should hold output-quality requirements, model, input/output lengths, and batch size explicit, then report completed useful work, latency, energy, memory traffic, and area under a stated implementation method. The three DAC manuscripts remain missing.</p><p>OASIS's recovered conditions supersede omissions in its historical card below, but source discrepancies and independent reproduction remain open.</p>
+<p class="lm-k h-label">Compare the results carefully</p><h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="route"></span>How to compare these papers’ results fairly</h2>
+<p>First identify the inputs and required output quality. Then identify the limited resource: time, memory, communication, energy, circuit area, or correctness coverage.</p><p>Ask which part of the method reduces that cost and which new cost it adds. Compare numbers only when the experiments hold these conditions sufficiently similar.</p>
+<p>A conference description may explain the proposal while omitting the full experiment. An author preprint link may have been coded from its abstract. The source classification does not by itself establish that every table was read. Missing locations remain visible below.</p>
+<p class="lm-k h-label">Complete captured evidence</p><h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="file-text"></span>Every paper in this subtheme, with what its source shows</h2>
+<p>These are evidence records, not substitutes for the explanations above. Each record preserves its problem, proposed method, measurements, comparison conditions, and source limits. A populated record does not establish that its mechanism has been fully explained or independently verified.</p>
+<p><span id="paper-dac-2026-research640"></span></p>
+<h3>AMBER: A Unified Accelerator for Multi-Precision LLM Inference Exploiting Bit-Level Redundancy and Reconfigurability</h3>
+<p>DAC 2026 · Record: <code>dac-2026-research640</code></p>
+<p><a href="#explanation-dac-2026-research640">Read the step-by-step explanation</a></p>
+<p><strong>Updated source-backed reading card</strong></p>
+<div class="worked"><p class="lm-k">Worked example</p><p>Reviewed 2026-09-08. Reconciles the AMBER card with the captured official source; explains multi-precision lossless bit encoding and bit-serial processing from first principles and separates exact value preservation, quantization, decode cost, pipeline throughput, compute/memory factors and end-to-end inference evidence.</p></div>
+<p>This editorial correction updates the current reading view and connected dossiers, not the historical adjudication or scientific acceptance status. The original captured fields are preserved below.</p>
+<p><a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/data/editorial-paper-corrections-v1.json">Correction register</a></p>
+<p><strong>Problem:</strong></p>
+<p>LLM deployments use diverse integer, floating-point and microscaling formats while accelerators are often specialized for only a few precisions, limiting reuse and compression across cloud and edge settings.</p>
+<p><strong>Mechanism / artifact:</strong></p>
+<p>Bit-transposed lossless compression for weights and KV caches across INT, FP and MX formats, combined with a precision-agnostic stage-pipelined bit-serial processing element.</p>
+<p><strong>Workload — the work tested:</strong></p>
+<p>Eight LLMs and ten numeric formats across cloud/edge inference; model sizes, precision mix, sequence lengths, batch sizes, accuracy constraints and cache conditions are unspecified.</p>
+<p><strong>Hardware and manufacturing assumptions:</strong></p>
+<p>General-purpose multi-precision LLM accelerator with bit-serial pipeline and compressed weight/KV storage; process, memory hierarchy, area, clock, bandwidth, decode hardware and implementation status are unspecified.</p>
+<p><strong>Baseline — the comparison method:</strong></p>
+<p>Olive</p>
+<p>Tender</p>
+<p>Baseline format, memory, clock, area, power and model-quality parity are unspecified</p>
+<p><strong>Reported measurements:</strong></p>
+<p>The official description reports 1.17x memory-efficiency improvement and 3.16x compute improvement across the stated evaluation, and qualitative throughput/energy superiority over Olive and Tender; metric definitions, per-format mapping, aggregation and accuracy conditions are unspecified.</p>
+<p><strong>Limits on the conclusion:</strong></p>
+<p>Lossless compression preserves the selected encoded values but does not reverse quantization error introduced before compression; model-quality claims need the surrounding quantization conditions.</p>
+<p>Bit-transposed storage can reduce bytes while adding encode/decode, control and access-granularity cost; weights and runtime-produced KV data have different lifetime and bandwidth requirements.</p>
+<p>Bit-serial compute can reuse hardware across formats but takes multiple steps and may add accumulation, field-decoding, pipeline and transfer overhead; compute improvement is not automatically end-to-end inference speedup.</p>
+<p>The official description supplies no compression ratio by format, model accuracy, area, clock, power, memory bandwidth, baseline configurations or independent execution; no universal cloud/edge efficiency claim follows.</p>
+<p><strong>Source and location</strong></p>
+<p>Evidence tier: Primary captured official DAC description only; no full paper extraction, accelerator reproduction or independent quality/throughput/energy validation. This is the stored source classification; the location and limits below determine what was actually read.</p>
+<p><a href="https://63dac.conference-program.com/?post_type=page&amp;p=16&amp;id=RESEARCH640&amp;sess=sess156">Open the recorded source</a></p>
+<p>DAC 2026 official description and data/review-packets/dac-2026-research640.json: diverse INT/FP/MX precision problem; bit-transposed lossless weight/KV compression; precision-agnostic pipelined bit-serial PE; eight LLMs and ten formats; 1.17x memory-efficiency and 3.16x compute claims; Olive/Tender comparison.</p>
+<details markdown="1">
+<summary>Original captured fields — superseded for this reading card</summary>
+
+** page source tier:** medium_official_description
+
+**Baselines:** Olive
+
+Tender
+
+**Evidence locators:** DAC 2026 official description
+
+**Evidence url:** https://63dac.conference-program.com/?post_type=page&amp;p=16&amp;id=RESEARCH640&amp;sess=sess156
+
+**Hardware or process assumptions:** General-purpose multi-precision accelerator with bit-serial PE pipeline and compressed weight/KV storage; process, memory hierarchy, area, and clock are unspecified.
+
+**Limits:** The description omits model accuracy, compression ratio by format, area/power, memory bandwidth, and baseline configurations.
+
+Lossless compression and bit-serial reuse may trade off decode/control overhead and throughput across formats.
+
+Official description only; accelerator and quality claims require paper-level verification.
+
+**Method or artifact:** Bit-transposed lossless weight/KV compression and reconfigurable bit-serial processing elements supporting INT, FP, and MX formats.
+
+**Metrics:** 1.17x memory-efficiency improvement
+
+3.16x compute improvement
+
+**Problem:** LLM deployments use diverse numeric formats while accelerators are usually specialized for only a few precisions, limiting reuse and compression across cloud and edge settings.
+
+**Workload or benchmark:** Eight LLMs and ten precision formats across cloud/edge inference; model sizes, accuracy constraints, hardware target, and format mix are unspecified.
+
+</details>
+<p><span id="paper-dac-2026-research509"></span></p>
+<h3>MBA: Mega-Buffer Architecture Based on 1T1C IGZO eDRAM for Efficient LLM Inference</h3>
+<p>DAC 2026 · Record: <code>dac-2026-research509</code></p>
+<p><a href="#explanation-dac-2026-research509">Read the step-by-step explanation</a></p>
+<p><strong>Updated source-backed reading card</strong></p>
+<div class="worked"><p class="lm-k">Worked example</p><p>Reviewed 2026-09-08. Reconciles the MBA card with the captured official source; explains local-buffer capacity, HBM traffic, KV-cache mapping, double buffering and iteration-aware eviction from first principles and separates overlap, speedup, energy efficiency and fabricated-memory evidence.</p></div>
+<p>This editorial correction updates the current reading view and connected dossiers, not the historical adjudication or scientific acceptance status. The original captured fields are preserved below.</p>
+<p><a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/data/editorial-paper-corrections-v1.json">Correction register</a></p>
+<p><strong>Problem:</strong></p>
+<p>Weight and KV-cache transfers between GPU/HBM constrain LLM inference; compression may reduce traffic but can be task-specific or compromise model accuracy.</p>
+<p><strong>Mechanism / artifact:</strong></p>
+<p>Mega-buffer architecture using gigabyte-scale 1T1C IGZO eDRAM, KV-cache-prioritized mapping, a double-buffered pipeline and iteration-aware eviction/data reuse.</p>
+<p><strong>Workload — the work tested:</strong></p>
+<p>LLM inference with substantial weight and KV-cache traffic; model identities, sequence lengths, batch sizes, cache sizes, phase conditions and traffic traces are unspecified.</p>
+<p><strong>Hardware and manufacturing assumptions:</strong></p>
+<p>Gigabyte-scale on-chip eDRAM integrated with an accelerator; density, retention, endurance, refresh, area, access time, fabrication, memory hierarchy, cooling and power boundary are unspecified.</p>
+<p><strong>Baseline — the comparison method:</strong></p>
+<p>GPU baseline</p>
+<p>Dedicated LLM-accelerator baseline</p>
+<p>Baseline memory capacity, traffic, hardware, workload and energy accounting are unspecified</p>
+<p><strong>Reported measurements:</strong></p>
+<p>The official description reports 5.99x and 3.63x end-to-end speedup and 8.86x and 4.93x energy-efficiency improvement against GPU and LLM-accelerator baselines, respectively; baseline mapping, task definition, aggregation and timing/energy boundaries are unspecified.</p>
+<p><strong>Limits on the conclusion:</strong></p>
+<p>A larger local buffer improves capacity, not necessarily bandwidth or latency; benefit depends on working-set size, KV residency, HBM traffic and the actual bottleneck.</p>
+<p>Double buffering can overlap transfer and compute only when capacity, transfer time, compute time and synchronization permit; it does not guarantee full utilization.</p>
+<p>Iteration-aware eviction predicts future reuse; wrong eviction can add HBM transfers and displace weights or KV state, so policy cost and miss behavior must be measured.</p>
+<p>The official description supplies no LLMs, sequence lengths, traffic, retention/refresh, area, accuracy, power boundary or exact baseline configurations; an eDRAM architecture description does not establish a fabricated gigabyte-scale buffer.</p>
+<p><strong>Source and location</strong></p>
+<p>Evidence tier: Primary captured official DAC description only; no full paper extraction, edram fabrication or independent traffic/energy/quality validation. This is the stored source classification; the location and limits below determine what was actually read.</p>
+<p><a href="https://63dac.conference-program.com/?post_type=page&amp;p=16&amp;id=RESEARCH509&amp;sess=sess157">Open the recorded source</a></p>
+<p>DAC 2026 official description and data/review-packets/dac-2026-research509.json: GPU/HBM weight and KV traffic problem; gigabyte-scale 1T1C IGZO eDRAM; KV-cache-prioritized mapping; double buffering; iteration-aware eviction; 5.99x/3.63x speedups and 8.86x/4.93x energy-efficiency claims.</p>
+<details markdown="1">
+<summary>Original captured fields — superseded for this reading card</summary>
+
+** page source tier:** medium_official_description
+
+**Baselines:** GPU baseline
+
+LLM accelerator baseline
+
+**Evidence locators:** Not established in the captured evidence.
+
+**Evidence url:** https://63dac.conference-program.com/?post_type=page&amp;p=16&amp;id=RESEARCH509&amp;sess=sess157
+
+**Hardware or process assumptions:** Gigabyte-scale on-chip 1T1C IGZO eDRAM integrated with an accelerator; density, retention, endurance, fabrication, and area assumptions require verification.
+
+**Limits:** The description does not identify LLMs, sequence lengths, eDRAM technology assumptions, area cost, accuracy effects, or exact baseline configurations.
+
+**Method or artifact:** Mega-buffer architecture using IGZO eDRAM, KV-cache prioritized mapping, double-buffered pipelines, and iteration-aware eviction/data reuse.
+
+**Metrics:** 5.99x end-to-end speedup
+
+3.63x end-to-end speedup
+
+8.86x energy-efficiency improvement
+
+4.93x energy-efficiency improvement
+
+HBM/KV-cache traffic and compute utilization
+
+**Problem:** Weight and KV-cache transfers between GPU and HBM constrain LLM inference; compression can reduce traffic but may be task-specific or harm accuracy.
+
+**Workload or benchmark:** LLM inference with substantial weight and KV-cache traffic; GPU and dedicated LLM-accelerator comparisons.
+
+</details>
+<p><span id="paper-dac-2026-research384"></span></p>
+<h3>AHASD: Asynchronous Heterogeneous Architecture for LLM Adaptive Drafting Speculative Decoding on Mobile Devices</h3>
+<p>DAC 2026 · Record: <code>dac-2026-research384</code></p>
+<p><a href="#explanation-dac-2026-research384">Read the step-by-step explanation</a></p>
+<p><strong>Updated source-backed reading card</strong></p>
+<div class="worked"><p class="lm-k">Worked example</p><p>Reviewed 2026-09-08. Reconciles the AHASD card with the captured official source; explains speculative decoding and task-level asynchronous DLM/TLM execution from first principles and separates accepted work, draft rejection, control policy, switching overhead, throughput, energy efficiency and complete-system area.</p></div>
+<p>This editorial correction updates the current reading view and connected dossiers, not the historical adjudication or scientific acceptance status. The original captured fields are preserved below.</p>
+<p><a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/data/editorial-paper-corrections-v1.json">Correction register</a></p>
+<p><strong>Problem:</strong></p>
+<p>Adaptive speculative decoding on a mobile single-NPU-PIM system can leave resources idle under synchronous execution or waste draft computation under asynchronous execution when draft lengths fluctuate.</p>
+<p><strong>Mechanism / artifact:</strong></p>
+<p>Task-level asynchronous heterogeneous architecture decoupling DLM drafting on PIM from TLM verification on an NPU, with entropy-history-aware drafting control, time-aware pre-verification, localized attention units and gated task scheduling in LPDDR5-PIM.</p>
+<p><strong>Workload — the work tested:</strong></p>
+<p>Multiple LLMs and adaptive speculative-decoding algorithms on a mobile LPDDR5-PIM/NPU system; model sizes, DLM/TLM pairs, acceptance rates, draft distributions, request lengths, batch and arrival conditions are unspecified.</p>
+<p><strong>Hardware and manufacturing assumptions:</strong></p>
+<p>Single-NPU mobile system with LPDDR5-PIM, attention units and sub-microsecond task switching; DRAM-area overhead is reported, while NPU additions, process, thermal, power and complete-system area are unspecified.</p>
+<p><strong>Baseline — the comparison method:</strong></p>
+<p>GPU-only baseline</p>
+<p>State-of-the-art GPU+PIM baseline</p>
+<p>Synchronous/asynchronous policy constraints, model quality rule, hardware and energy boundary are unspecified</p>
+<p><strong>Reported measurements:</strong></p>
+<p>The official description reports up to 4.2x throughput and 5.6x energy-efficiency improvement versus GPU-only, 1.5x throughput and 1.24x energy-efficiency improvement versus GPU+PIM, and under 3% DRAM-area overhead; accepted-token definition, aggregation, energy scope and area denominator are unspecified.</p>
+<p><strong>Limits on the conclusion:</strong></p>
+<p>Draft tokens are not automatically useful output; rejection consumes DLM, TLM, memory and synchronization work, so throughput must be measured per accepted token and output-quality rule.</p>
+<p>Entropy-history and time-aware controls guide adaptive drafting but do not guarantee acceptance or avoid wasted work under changed model pairs, request lengths or thermal states.</p>
+<p>Sub-microsecond task switching is one overhead component, not end-to-end latency; queueing, synchronization, memory traffic, verification and idle time must be included.</p>
+<p>The official description supplies no model sizes, acceptance distributions, absolute latency, correctness conditions, thermal method, complete area/power or cross-device test; no universal mobile speculative-decoding claim follows.</p>
+<p><strong>Source and location</strong></p>
+<p>Evidence tier: Primary captured official DAC description only; no full paper extraction, speculative decoding reproduction or independent quality/latency/energy/area validation. This is the stored source classification; the location and limits below determine what was actually read.</p>
+<p><a href="https://63dac.conference-program.com/?post_type=page&amp;p=16&amp;id=RESEARCH384&amp;sess=sess157">Open the recorded source</a></p>
+<p>DAC 2026 official description and data/review-packets/dac-2026-research384.json: DLM draft/TLM batch verification; adaptive drafting idle/waste problem; task-level NPU-PIM decoupling; entropy-history and time-aware controls; LPDDR5-PIM attention/task units; throughput, energy and DRAM-area claims.</p>
+<details markdown="1">
+<summary>Original captured fields — superseded for this reading card</summary>
+
+** page source tier:** medium_official_description
+
+**Baselines:** GPU-only baseline
+
+state-of-the-art GPU+PIM baseline
+
+**Evidence locators:** Not established in the captured evidence.
+
+**Evidence url:** https://63dac.conference-program.com/?post_type=page&amp;p=16&amp;id=RESEARCH384&amp;sess=sess157
+
+**Hardware or process assumptions:** Single-NPU mobile system with LPDDR5-PIM, attention units, and sub-microsecond task switching; DRAM-area overhead below 3% is reported.
+
+**Limits:** The description does not expose model sizes, acceptance rates, thermal/area methodology, absolute latency, or adaptive-draft distributions; cross-device generalization remains unverified.
+
+**Method or artifact:** Task-level asynchronous heterogeneous NPU-PIM architecture with DLM/TLM decoupling, entropy-history-aware control, time-aware pre-verification, localized attention, and gated task scheduling.
+
+**Metrics:** up to 4.2x throughput improvement
+
+up to 5.6x energy-efficiency improvement
+
+1.5x throughput improvement over GPU+PIM
+
+1.24x energy-efficiency improvement over GPU+PIM
+
+under 3% DRAM-area overhead
+
+**Problem:** Adaptive speculative decoding on a mobile single-NPU-PIM system suffers from idle time under synchronous execution and wasted work under asynchronous execution when draft lengths fluctuate.
+
+**Workload or benchmark:** Multiple LLMs and adaptive speculative-decoding algorithms on a mobile LPDDR5-PIM/NPU system.
+
+</details>
+<p><span id="paper-isca-2026-program-020"></span></p>
+<h3>OASIS: Outlier-Aware LUT-Based GEMM with Dual-Side Quantization for LLM Inference Acceleration</h3>
+<p>ISCA 2026 · Record: <code>isca-2026-program-020</code></p>
+<p><a href="#explanation-isca-2026-program-020">Read the step-by-step explanation</a></p>
+<p><strong>Updated source-backed reading card</strong></p>
+<div class="worked"><p class="lm-k">Worked example</p><p>Reviewed 2026-09-08. Reconciles the OASIS card with the recovered version-4 preprint and captured abstract; explains non-uniform quantization and Cartesian-product LUT GEMM from first principles and preserves the accuracy-version discrepancy, outlier-compensation boundary and simulation/synthesis versus silicon distinction.</p></div>
+<p>This editorial correction updates the current reading view and connected dossiers, not the historical adjudication or scientific acceptance status. The original captured fields are preserved below.</p>
+<p><a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/data/editorial-paper-corrections-v1.json">Correction register</a></p>
+<p><strong>Problem:</strong></p>
+<p>LLM inference needs lower memory and compute cost, but weight-only quantization adds dequantization overhead, integer weight/activation quantization can reduce quality, and non-uniform codes do not map directly to ordinary low-precision multipliers.</p>
+<p><strong>Mechanism / artifact:</strong></p>
+<p>Dual-side non-uniform weight/activation quantization with Cartesian-product lookup-table GEMM without dequantization, outlier-aware activation handling, concurrent LUT-based error compensation and the Orizuru top-k outlier-detection engine.</p>
+<p><strong>Workload — the work tested:</strong></p>
+<div class="worked"><p class="lm-k">Worked example</p><p>LLM inference including LLaMA-2-7B and the version-4 model suite; four-bit weights/activations, single-batch decoding for the FIGLUT comparison; full model list, sequence lengths, batch conditions and accuracy metric definitions are incomplete in the captured record.</p></div>
+<p><strong>Hardware and manufacturing assumptions:</strong></p>
+<p>Dedicated LUT-based low-precision accelerator; version-4 hardware evaluation uses cycle simulation, 28-nm logic synthesis and memory models, with area, memory, frequency, power, process and fabricated status otherwise unspecified.</p>
+<p><strong>Baseline — the comparison method:</strong></p>
+<p>FP16 baseline</p>
+<p>Atom quantization/accelerator baseline</p>
+<p>FIGLUT accelerator</p>
+<p>Precision, model, batch, memory and quality parity are condition-specific and must remain attached to each result</p>
+<p><strong>Reported measurements:</strong></p>
+<div class="worked"><p class="lm-k">Worked example</p><p>The recovered abstract reports 64x LUT-size reduction and 1024x higher computational parallelism over existing LUT-based GEMM methods, an average accuracy drop of 1.98% versus FP16, 3.00x speedup and 1.44x energy-efficiency improvement versus FIGLUT; version-4 PDF abstract reports 1.94% and Section V-B 2.05%, while LLaMA-2-7B Table IV implies 1.94 percentage points. Definitions and aggregation remain source-specific.</p></div>
+<p><strong>Limits on the conclusion:</strong></p>
+<p>Non-uniform codes identify representative values and cannot generally be multiplied as integer magnitudes; LUT lookup avoids dequantization but still requires code access, product selection, accumulation, memory bandwidth and outlier handling.</p>
+<p>Outlier detection and compensation can reduce error for selected activation values without eliminating residual quantization error or proving quality on every model, token distribution or layer.</p>
+<p>The 64x LUT and 1024x parallelism ratios are not automatically end-to-end speed or energy gains; table bandwidth, read ports, routing, accumulation and control costs must be included.</p>
+<p>The accuracy headline differs across abstract/source versions and the hardware result is simulation/synthesis/modeling rather than measured silicon; full model suite, area/energy accounting, sequence conditions and independent reproduction remain open.</p>
+<p><strong>Source and location</strong></p>
+<p>Evidence tier: Primary author version 4 preprint and captured abstract; no fabricated oasis silicon or independent full paper reproduction. This is the stored source classification; the location and limits below determine what was actually read.</p>
+<p><a href="https://arxiv.org/pdf/2507.23035v4">Open the recorded source</a></p>
+<div class="worked"><p class="lm-k">Worked example</p><p>OASIS version-4 preprint pages 1 and 9–11 plus arXiv record: NU-WAQ and LUT-GEMM problem; Cartesian-product LUT; 64x LUT-size and 1024x parallelism claims; Orizuru top-k and concurrent compensation; 1.94/1.98/2.05% accuracy discrepancy; LLaMA-2-7B Table IV; Figure 11 3.00x/1.44x versus FIGLUT under four-bit single-batch decoding.</p></div>
+<details markdown="1">
+<summary>Original captured fields — superseded for this reading card</summary>
+
+** page source tier:** high_primary_preprint
+
+**Baselines:** FP16 baseline
+
+Atom quantization/accelerator baseline
+
+FIGLUT accelerator
+
+**Evidence locators:** Not established in the captured evidence.
+
+**Evidence url:** https://arxiv.org/abs/2507.23035
+
+**Hardware or process assumptions:** Dedicated low-precision accelerator implementing LUT-based GEMM and real-time outlier detection; area, memory, and technology assumptions require primary-paper table verification.
+
+**Limits:** The evidence is an author preprint abstract; model suite, sequence lengths, area/energy accounting, accuracy metric, and hardware implementation details must be extracted from the full paper before generalizing the reported gains.
+
+**Method or artifact:** Outlier-aware dual-side non-uniform quantization, Cartesian-product LUT-based GEMM without dequantization, concurrent error compensation, and an Orizuru top-k outlier-detection engine.
+
+**Metrics:** 64x LUT-size reduction
+
+1024x higher computational parallelism than existing LUT-based GEMM
+
+1.98% average accuracy drop versus FP16
+
+3.00x average speedup versus FIGLUT
+
+1.44x energy-efficiency improvement versus FIGLUT
+
+**Problem:** LLM inference must reduce memory and compute cost, but weight-only quantization adds dequantization overhead and integer weight/activation quantization can degrade model quality; non-uniform quantization is difficult to map to conventional low-precision units.
+
+**Workload or benchmark:** LLM inference with non-uniformly quantized weights and activations; comparisons against FP16 accuracy and the FIGLUT accelerator.
+
+</details>
+<p class="lm-k h-label">What remains to establish</p><h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>What is still unproven here</h2>
+<p>Resolve unspecified workloads, comparison methods, resource budgets, and source locations before generalizing a reported gain. Multiple papers in this selected sample permit comparison of mechanisms, but do not by themselves establish recurrence across years or a long-term trend.</p>
+<p><a href="../guide/expanded-taxonomy-v1.html">All subthemes</a> · <a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/reports/directions/README.md">Research directions</a></p><p class="meta">Written as <a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/reports/observed-subthemes/ai-accelerator-microarchitecture.md">reports/observed-subthemes/ai-accelerator-microarchitecture.md</a> in the course repository.</p>
+      </article>
+      <nav class="pager" aria-label="Previous and next"><a class="prev" href="memory-and-data-movement.html"><span class="pg-k">← Previous</span><span class="pg-t">Memory and data movement</span></a><a class="map" href="../subthemes.html"><span class="pg-k">Back to</span><span class="pg-t">Subthemes</span></a><a class="next" href="distributed-and-wafer-scale-inference.html"><span class="pg-k">Next →</span><span class="pg-t">Distributed and wafer scale inference</span></a></nav>
+    </section>
+  </main>
+  <footer class="course-foot">
+    <p>Built from 582 paper records coded from ISCA 2026, DAC 2026 and ICCAD 2025 (ICCAD 2026 papers were not yet public). Most records come from official program descriptions; see “How deep the reading went”. The papers belong to their authors.</p>
+    <p class="foot-links"><a href="https://github.com/mehtama1234/course-concept-library">All courses</a><a href="../index.html">This course</a><a href="../course-map.html">Course map</a><a href="../presentation/index.html">Slides</a><a href="../video/index.html">Video</a><a href="../share/index.html">Share</a></p>
+  </footer>
+  <script src="../assets/course-data.js"></script><script src="../assets/icons.js"></script><script src="../assets/icons-extra.js"></script><script src="../assets/icons-course.js"></script><script src="../assets/art.js"></script><script src="../assets/course-art.js"></script><script src="../assets/charts.js"></script><script src="../assets/course-charts.js"></script><script src="../assets/course-site.js"></script>
+</body>
+</html>

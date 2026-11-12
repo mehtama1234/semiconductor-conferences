@@ -6,83 +6,208 @@ A subtheme groups related technical problems. A mechanism describes the particul
 
 [Definitions used in the paper records](../reading-guide-v1.md)
 
-## Define the failure before designing protection
+## Reliability, security and power all limit useful work
 
-Reliability concerns whether a system continues to produce correct results under faults such as corrupted bits or failing components. Security concerns what an adversary can observe or change. Power is the rate of energy use and affects electrical supply and temperature. These topics are grouped here because protections and operating limits change the amount of useful work a system can perform.
+- **Reliability** asks whether a system keeps producing correct results under faults, such as flipped bits or failing parts.
+- **Security** asks what an adversary can observe or change.
+- **Power** is the rate of energy use. It affects electrical supply and temperature.
 
-## Why protection has a cost
+They sit together here because protections and operating limits change how much useful work a system can do.
 
-Detecting a wrong value requires additional information, repeated work, or a check against a constraint. Correcting the value requires enough information to distinguish the possible errors. Isolation may restrict sharing, while recovery may stop work and restart it. The benefit therefore depends on the error or attack being considered and the cost of the added work.
+## Every protection costs something, so name the threat first
 
-## What separates the subthemes
+- **Detecting** a wrong value needs extra information, repeated work, or a check against a constraint.
+- **Correcting** it needs enough information to tell the possible errors apart.
+- **Isolation** may restrict sharing.
+- **Recovery** may stop work and restart it.
 
-Fault-tolerance methods preserve or recover computation after faults. Side-channel methods study information exposed by timing, power, or shared resources even when direct access is forbidden. Privacy-preserving computation changes how protected inputs are processed. Energy methods change when or how hardware operates. An improvement in one category does not establish protection in another.
+So the benefit depends on which error or attack is being considered, and on the cost of the added work.
 
-## A comparison that answers the question
+## The subthemes protect against different things
 
-State which faults can occur or which actions an attacker can take. Measure undetected failures, incorrect alarms, recovery time, and performance with protection enabled. Include energy per correct completed job. If fault injection is used, state where and how faults were introduced. Results from that experiment apply to the tested fault model until broader evidence is available.
+- **Fault tolerance** keeps or recovers computation after faults.
+- **Side-channel** work studies information leaked through timing, power or shared resources, even when direct access is blocked.
+- **Privacy-preserving computation** changes how protected inputs are processed.
+- **Energy** methods change when or how hardware runs.
+
+Progress in one category does not show protection in another.
+
+## A fair test states the fault or attacker and measures work with protection on
+
+1. State which faults can occur, or which actions an attacker can take.
+2. Measure undetected failures, false alarms, recovery time, and performance with protection switched on.
+3. Include energy per correct completed job.
+4. If faults are injected, say where and how.
+
+Results from that experiment apply to the tested fault model, until broader evidence exists.
 
 ## Begin with the result that must remain valid
 
-An energy-saving design is useful only if it still completes the required work. A fault-tolerant design must preserve or recover the required result under a stated fault model. A secure design must prevent specified adversarial observations or changes under a stated threat model. These are related requirements, not interchangeable descriptions of robustness.
+Saving energy, tolerating faults and resisting attacks are three separate requirements on the same result.
 
-Suppose a computation returns the expected numerical answer but reveals a secret through its execution time. Its functional result can be correct while its confidentiality requirement fails. Conversely, a confidential computation can return corrupted data after an uncorrected hardware fault. One successful check cannot establish both properties.
+| Design goal | What it must still deliver |
+| --- | --- |
+| Energy saving | The required work, completed |
+| Fault tolerance | The required result, kept or recovered, under a stated **fault model** (what can go wrong) |
+| Security | No specified attacker observation or change, under a stated **threat model** (what an attacker can do) |
 
-The examples below are teaching constructions. Linked chapters retain their source locations and limitations; this parent discussion does not establish a reproduced protection or a general security guarantee.
+These are related, but not interchangeable descriptions of "robustness".
+
+Two examples show why one check cannot prove both:
+
+- A computation returns the right number, but leaks a secret through how long it takes. It is functionally correct, yet fails confidentiality.
+- A confidential computation returns corrupted data after an uncorrected hardware fault.
+
+**Be careful:** the examples below are teaching constructions. Linked chapters keep their source locations and limits. This parent discussion does not establish a reproduced protection or a general security guarantee.
 
 ## Power and energy require different accounting
 
-Power is energy used per unit time. For constant power, energy equals power multiplied by elapsed time. A device using 100 watts for one second consumes 100 joules. Reducing it to 70 watts while extending execution to 1.6 seconds consumes 112 joules. Lower power can therefore increase energy per completed job.
+Lower power can still mean more energy per job, because energy also depends on time.
 
-With changing power, account for each interval or integrate the measured power trace. Include the components inside the declared boundary: accelerator-only power is not whole-node power, and whole-node power is not facility power. A configured power allowance is also different from actual consumption.
+**Power** is energy used per unit of time. At constant power, energy = power × elapsed time.
 
-The [Lit Silicon discussion](../observed-subthemes/energy-and-thermal-efficiency.md#lit-silicon-one-gpus-temperature-can-affect-other-gpus-progress) preserves separate power-cap policies, measured and predicted ratios, and its throughput definition. Its preprint-backed evidence must not be rewritten as complete-training or facility energy savings. The comparison also needs the same amount of useful completed work.
+> **Worked example.**
+>
+> - 100 watts for 1 second: 100 × 1 = **100 joules**.
+> - 70 watts for 1.6 seconds: 70 × 1.6 = **112 joules**.
+>
+> The lower-power run uses more energy for the same job.
+
+When power changes over time, add up each interval, or integrate the measured power trace. State the boundary being measured:
+
+- accelerator-only power is not whole-node power;
+- whole-node power is not facility power;
+- a configured power allowance is not actual consumption.
+
+The [Lit Silicon discussion](../observed-subthemes/energy-and-thermal-efficiency.md#lit-silicon-one-gpus-temperature-can-affect-other-gpus-progress) keeps its power-cap policies, measured and predicted ratios, and throughput definition separate.
+
+**Be careful:** its preprint-backed evidence must not be rewritten as complete-training or facility energy savings. A fair comparison also needs the same amount of useful completed work.
 
 ## Synchronization can make a local slowdown harmless—or costly
 
-Two workers must finish before a shared next step. Worker A takes eight milliseconds and B takes ten. Reducing A's power while extending its execution to nine can leave the shared completion time at ten. Extending A to twelve makes it the limiting worker and increases completion time.
+When workers wait for each other, slowing one down costs nothing until it becomes the slowest.
 
-This example explains why a controller needs more than average utilization. It needs the relevant dependency, current workload, and response to its action. Measurements can become stale, and changing settings may itself cost time. A policy favorable during one phase may be unfavorable during another.
+> **Worked example.** Two workers must both finish before a shared next step. Worker A takes 8 milliseconds; B takes 10.
+>
+> - Lower A's power so it takes 9: the shared step still starts at **10**. No loss.
+> - Lower it further so A takes 12: A is now the slowest, and completion moves to **12**.
 
-The [systems theme](systems-applications-and-workloads.md) adds queueing and service targets; the [chiplet theme](chiplets-3d-and-packaging.md) adds sustained thermal constraints. Temperature prediction, cooler operation, and longer lifetime remain different evidence claims. A short favorable power trace does not establish all three.
+So a power controller needs more than average utilization. It needs:
+
+- the relevant dependency;
+- the current workload;
+- how the system responds to its action.
+
+Measurements can go stale, and changing settings can itself cost time. A policy that helps in one phase may hurt in another.
+
+The [systems theme](systems-applications-and-workloads.md) adds queueing and service targets. The [chiplet theme](chiplets-3d-and-packaging.md) adds sustained thermal limits.
+
+**Be careful:** temperature prediction, cooler operation and longer lifetime are three different evidence claims. A short favorable power trace does not establish all three.
 
 ## Define the fault before interpreting the protection
 
-A fault model states what can go wrong: which locations can change, how many bits or components can be affected, how long the effect lasts, and whether faults can coincide. An experiment injecting one isolated bit flip does not establish protection against a failing chip, a burst spanning several words, or a persistent logic defect.
+A protection result means something only for the faults it was tested against.
 
-Detection identifies that something is wrong. Correction reconstructs an allowed value. Recovery restores usable operation, perhaps by retrying or restarting. These outcomes need separate counts and timing. An error that is detected but cannot be corrected should not be counted as a correct completed result.
+A fault model states:
 
-For a basic parity example, store an extra bit so the total number of ones is even. Flipping one bit changes parity and can be detected. Flipping two bits preserves parity and can escape this check. Even when a single error is detected, the parity result alone does not identify which bit was wrong. This illustrates the difference between redundant information sufficient for detection and sufficient for correction.
+- which locations can change;
+- how many bits or components can be hit;
+- how long the effect lasts;
+- whether faults can happen together.
 
-The expanded [Cerberus explanation](../observed-subthemes/memory-hierarchy-and-persistence.md#explanation-isca-2026-program-004) and [CLUE-ECC explanation](../observed-subthemes/memory-hierarchy-and-persistence.md#explanation-dac-2026-research676) connect code boundaries to fault location. Their current evidence does not make those protections universal or independently reproduced. A code protecting one part of a transfer path does not automatically protect errors introduced elsewhere.
+Injecting one isolated bit flip does not show protection against a failing chip, a burst across several words, or a lasting logic defect.
+
+Three outcomes need separate counts and timing:
+
+1. **Detection:** noticing something is wrong.
+2. **Correction:** rebuilding an allowed value.
+3. **Recovery:** restoring usable operation, perhaps by retrying or restarting.
+
+An error that is detected but not corrected is not a correct completed result.
+
+> **Worked example: parity.** Store one extra bit so the total number of ones is even.
+>
+> - Flip one bit: parity changes, so the error is detected.
+> - Flip two bits: parity is unchanged, so the error escapes.
+> - Even for one flipped bit, parity does not say which bit was wrong.
+>
+> Enough redundancy to detect an error is less than enough to correct it.
+
+The expanded [Cerberus explanation](../observed-subthemes/memory-hierarchy-and-persistence.md#explanation-isca-2026-program-004) and [CLUE-ECC explanation](../observed-subthemes/memory-hierarchy-and-persistence.md#explanation-dac-2026-research676) link code boundaries to where faults occur.
+
+**Be careful:** their current evidence does not make those protections universal or independently reproduced. A code that protects one part of a transfer path does not protect errors introduced elsewhere.
 
 ## Replication still needs independence and a decision rule
 
-Running a calculation twice can detect a mismatch, but agreement can preserve the same error in both copies. Three copies with majority voting can mask one disagreeing output under an appropriate fault model, yet shared inputs, common software, shared power, or the voter itself can create common failures.
+Running copies helps only if they fail independently and a sound rule decides between them.
 
-If each copy independently fails with probability `p`, the probability of at least two failures among three is `3p²(1−p) + p³`. At `p = 0.01`, this is 0.000298. The reduction relies on independence and on the assumed voting behavior. It is not valid for a common event that corrupts all three together. These are mathematical examples, not measured reliability estimates for this corpus.
+- Running a calculation **twice** can detect a mismatch. But if both copies make the same error, they still agree.
+- **Three copies with majority voting** can hide one disagreeing output, under a suitable fault model.
+- Shared inputs, common software, shared power, or the voter itself can cause common failures.
 
-Fault-injection results should retain where errors were introduced and whether the injection represents the physical cause of interest. A fault that is overwritten before observation differs from one corrected by the protection. Count silent corruption, detected failures, successful correction, retries, and incomplete jobs separately.
+> **Worked example.** Each copy fails independently with probability `p`. Majority voting fails when at least two of three fail:
+>
+> `3p²(1−p) + p³`
+>
+> At `p = 0.01`: 3 × 0.0001 × 0.99 + 0.000001 = **0.000298**.
+
+The reduction relies on independence and on the assumed voting behavior. It does not hold for one common event that corrupts all three.
+
+**Be careful:** these are mathematical examples, not measured reliability estimates for this corpus.
+
+Fault-injection results should say where errors were introduced, and whether that matches the physical cause of interest. A fault overwritten before anyone sees it differs from one the protection corrected. Count these separately:
+
+- silent corruption;
+- detected failures;
+- successful corrections;
+- retries;
+- incomplete jobs.
 
 ## Security needs an adversary and a protected property
 
-A threat model states what an attacker can access, observe, alter, and repeat, and which components are trusted. Protecting secret values from direct reads does not necessarily hide access timing or shared-resource behavior. A side channel is an observation outside the intended data interface that can reveal information about the protected computation.
+A security claim names who the attacker is and exactly what stays protected.
 
-For a conceptual distinction, two secret-dependent operations can return identical public output while taking different times. Whether that difference reveals useful information depends on what an observer can measure, noise, repetitions, and other available knowledge. Functional output equality alone does not settle confidentiality.
+A threat model states what an attacker can access, observe, alter and repeat, and which components are trusted. Blocking direct reads of secret values does not necessarily hide access timing or shared-resource behavior.
 
-The [side-channel chapter](../observed-subthemes/side-channel-and-hardware-security.md) and [hardware/system-security chapter](../observed-subthemes/hardware-and-system-security.md) contain different protected boundaries and attack assumptions. Their broad labels cannot establish that a defense covers every observer or attack. Deeper individual source recovery and explicit threat-model comparison remain necessary.
+A **side channel** is an observation outside the intended data interface that can reveal something about the protected computation.
 
-Encryption likewise does not automatically establish every desired property. Hiding message contents, detecting unauthorized modification, preventing replay, and hiding access patterns are distinct obligations. A performance result for one cryptographic computation must preserve its parameter choices, correctness conditions, and supported operations before being transferred to another workload.
+> **Example (conceptual).** Two secret-dependent operations return identical public output, but take different times.
+>
+> Whether that difference leaks useful information depends on what an observer can measure, on noise and repetitions, and on what else they know.
+
+Equal functional output alone does not settle confidentiality.
+
+The [side-channel chapter](../observed-subthemes/side-channel-and-hardware-security.md) and [hardware/system-security chapter](../observed-subthemes/hardware-and-system-security.md) protect different boundaries under different attack assumptions. Their broad labels cannot show that a defense covers every observer or attack. Deeper source recovery and explicit threat-model comparison are still needed.
+
+Encryption, likewise, does not give every property at once. These are separate duties:
+
+- hiding message contents;
+- detecting unauthorized changes;
+- preventing replay;
+- hiding access patterns.
+
+A performance result for one cryptographic computation must keep its parameter choices, correctness conditions and supported operations before being applied to another workload.
 
 ## Protection costs belong in the completed-result denominator
 
-A protection can add metadata, checks, redundant execution, isolation, or recovery work. Its normal-case overhead and failure-case cost answer different questions. A low average recovery cost can conceal rare long outages; a favorable fault-free benchmark says little about progress during repeated errors.
+Judge a protection by energy per acceptable result, including failures, not by cost per attempt.
 
-Suppose an unprotected attempt costs ten energy units but only 90% of attempts produce an acceptable result. Under a simple repeat-until-success model with independent attempts, expected energy per success is `10/0.9`, about 11.11 units. A protected attempt costing eleven units with guaranteed success under that model uses less expected energy per acceptable result despite higher per-attempt cost. Real systems need measured success conditions and retry policies; silent corruption may prevent knowing when a retry is needed.
+A protection can add metadata, checks, redundant runs, isolation or recovery work. Its normal-case overhead and its failure-case cost answer different questions. A low average recovery cost can hide rare long outages. A good fault-free benchmark says little about progress during repeated errors.
 
-This is why reliability, security, and efficiency must meet at a defined output requirement. Neither discarded work nor an undetected wrong answer should inflate useful throughput.
+> **Worked example (simple repeat-until-success model, independent attempts).**
+>
+> - Unprotected attempt: 10 energy units, but only 90% succeed. Expected energy per success = `10/0.9` ≈ **11.11 units**.
+> - Protected attempt: 11 units, always succeeds under the model. Energy per success = **11 units**.
+>
+> The protected design costs more per attempt, yet less per acceptable result.
+
+Real systems need measured success conditions and retry policies. Silent corruption may hide when a retry is even needed.
+
+So reliability, security and efficiency must meet at one defined output requirement. Neither discarded work nor an undetected wrong answer should inflate useful throughput.
 
 ## What each result can establish
+
+Each reported observation supports a narrower claim than the one people often draw from it.
 
 | Reported observation | Stronger claim still requiring evidence |
 | --- | --- |
@@ -93,17 +218,21 @@ This is why reliability, security, and efficiency must meet at a defined output 
 | Reduced leakage in one experiment | Protection under the stated broader adversary capabilities |
 | Small fault-free overhead | Acceptable recovery, availability, and performance under failures |
 
-The [verification theme](verification-and-validation.md) explains the common evidence discipline: checks are conditional, agreement may share mistakes, and a timeout is unresolved. The [physical-design theme](physical-design-and-manufacturing.md) explains why power delivery and geometry can change the conditions under which the protection operates.
+The [verification theme](verification-and-validation.md) explains the shared evidence rules: checks are conditional, agreement may share mistakes, and a timeout is unresolved. The [physical-design theme](physical-design-and-manufacturing.md) explains why power delivery and geometry can change the conditions a protection operates under.
 
 ## Long-term hypotheses and disconfirming tests
 
-One hypothesis is that energy management benefits from dependency-aware control rather than isolated component targets. Compare complete useful work and energy under changing workload phases with control overhead included. It weakens when local policies perform equally well or observation delay removes the benefit.
+Three readings are worth testing; each names what would weaken it.
 
-A second hypothesis is that protection must be aligned with the physical and logical boundary where failure occurs. Test alternative fault locations, bursts, persistent faults, and shared causes within the claimed scope. It weakens as an established capability when protection succeeds only for convenient injections that do not represent the target failures.
+| Hypothesis | Test | What would weaken it |
+| --- | --- | --- |
+| Energy management gains from dependency-aware control, rather than isolated component targets | Compare complete useful work and energy across changing workload phases, with control overhead included | Local policies do equally well, or observation delay removes the benefit |
+| Protection must match the physical and logical boundary where failure occurs | Test other fault locations, bursts, persistent faults and shared causes within the claimed scope | Protection works only for convenient injections that do not represent the target failures |
+| Efficiency comparisons mean more when they count acceptable results under explicit fault and threat models | Compare full costs with those requirements held fixed | Gains rely on weaker protection, or leave out recovery and discarded work |
 
-A third hypothesis is that efficiency comparisons become more meaningful when they count acceptable results under explicit fault and threat models. Compare full costs while holding those requirements fixed. It weakens as a claimed gain when performance improvements rely on weaker protection or exclude recovery and discarded work.
+These are bounded interpretations, not demonstrated ISCA–DAC–ICCAD time trends. They still need comparable editions, workloads, fault populations, attacker capabilities, source depth and measurement boundaries.
 
-These are bounded interpretations, not demonstrated ISCA–DAC–ICCAD time trends. Comparable editions, workloads, fault populations, adversary capabilities, source depth, and measurement boundaries remain required. This expanded parent discussion does not complete individual-paper writing, source reconciliation, independent review, or scientific acceptance.
+**Be careful:** this expanded parent discussion does not complete individual-paper writing, source reconciliation, independent review, or scientific acceptance.
 
 ## Subthemes and how to study them
 

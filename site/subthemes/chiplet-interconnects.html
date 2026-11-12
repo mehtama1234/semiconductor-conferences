@@ -1,0 +1,230 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#F3ECE1" />
+  <title>Chiplet interconnects · Semiconductor conference atlas</title>
+  <meta name="description" content="Papers: DAC 2. Read from: 2 program descriptions, 0 abstracts or reports, 0 full papers or preprints. The explanations come first; every paper’s record follows at the end." />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Semiconductor conference atlas" />
+  <meta property="og:title" content="Chiplet interconnects · Semiconductor conference atlas" />
+  <meta property="og:description" content="Papers: DAC 2. Read from: 2 program descriptions, 0 abstracts or reports, 0 full papers or preprints. The explanations come first; every paper’s record follows at the end." />
+  <meta property="og:url" content="https://mehtama1234.github.io/semiconductor-conferences/subthemes/chiplet-interconnects.html" />
+  <meta property="og:image" content="https://mehtama1234.github.io/semiconductor-conferences/presentation/slides/01-cover.jpg" />
+  <meta property="og:image:width" content="1920" />
+  <meta property="og:image:height" content="1080" />
+  <meta property="og:image:alt" content="Semiconductor conference atlas: 582 papers from ISCA, DAC and ICCAD, sorted into 10 themes and six directions to watch." />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="canonical" href="https://mehtama1234.github.io/semiconductor-conferences/subthemes/chiplet-interconnects.html" />
+  <link rel="icon" href="../assets/icon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="../assets/base.css" />
+  <link rel="stylesheet" href="../assets/experience.css" />
+  <link rel="stylesheet" href="../assets/theme-atlas.css" />
+  <link rel="stylesheet" href="../assets/styles.css" />
+  <link rel="stylesheet" href="../assets/charts.css" />
+  <link rel="stylesheet" href="../assets/course.css" />
+  
+</head>
+<body class="course-site " data-house="atlas">
+  <aside class="public-demo-banner" aria-label="About this course">A plain-language guide to what ISCA, DAC and ICCAD papers say about chip and computer design · Built from the repository’s own paper records · Not made by the conferences</aside>
+  <a class="skip-link" href="#app">Skip to the page</a>
+  <header>
+    <a class="brand" href="../index.html"><span class="mark" aria-hidden="true">Si</span> Semiconductor conference atlas</a>
+    <span class="header-status"><span class="badge">582 papers</span><span class="badge">10 themes</span><span class="badge">Plain words first</span></span>
+    <a class="header-link" href="../course-map.html">Course map</a>
+  </header>
+  <nav class="course-nav" aria-label="Main sections of the course"><a href="../index.html">The big picture</a><a href="../themes.html">Themes</a><a href="../subthemes.html" aria-current="page">Subthemes</a><a href="../deep-reads.html">Deep reads</a><a href="../directions.html">What to watch</a><a href="../presentation/index.html">Slides</a><a href="../video/index.html">Video</a><a href="../share/index.html">Share</a></nav>
+  <main id="app" tabindex="-1">
+    <section class="screen active landing legacy-page" aria-labelledby="page-title">
+<div class="lm-head"><div class="hj-heading"><nav class="crumbs" aria-label="You are here"><a href="../course-map.html">Course map</a><span aria-hidden="true">›</span><a href="../subthemes.html">Subthemes</a></nav><a class="back-button" href="../subthemes.html">← <span>Subthemes</span></a><p class="eyebrow">Subtheme · 2 papers · Chiplets, 3D integration, and packaging</p><h1 id="page-title">Chiplet interconnects: what the 2 papers change, and what is still unproven</h1><p class="hj-sub">Papers: DAC 2. Read from: 2 program descriptions, 0 abstracts or reports, 0 full papers or preprints. The explanations come first; every paper’s record follows at the end.</p></div><div class="hj-art" data-art="trio:cpu,stack-2,arrows-exchange"></div></div>
+<figure class="course-fig"><div class="loop-wide" data-art="flow:chiplets-3d-and-packaging"></div><div class="loop-tall" data-art="flowTall:chiplets-3d-and-packaging"></div><figcaption>The parent theme in one picture: splitting a chip into dies trades cost for wiring and heat.</figcaption></figure>
+      <article class="prose">
+
+<p>This subject has 2 records in the selected sample. This page explains where it fits, then presents all captured paper evidence without shortening the measurements or limitations.</p>
+<p><a href="../guide/reading-guide-v1.html">Definitions used in the paper records</a></p>
+<p class="lm-k h-label">Understand the parent subject first</p><h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>The bigger theme this belongs to</h2>
+<ul>
+<li><a href="../themes/chiplets-3d-and-packaging.html">Chiplets 3d and packaging</a></li>
+</ul>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="chart-bar"></span>Communication has both a data volume and a physical path</h2>
+<p>Dividing computation across chips or regions creates transfers between them. The time for a transfer includes producing the data, preparing it for the link, waiting for access, crossing the network, and making it usable at the destination.</p><p>Link bandwidth describes a transfer capacity; application latency also depends on dependencies and competition for that capacity.</p>
+<p>The two records here attack different parts of this problem. LEXI changes the representation of transferred values.</p><p>The wafer-scale network paper changes the communication structure enabled by bonded wafers. They should not be treated as competing solutions to an identical problem, nor assumed to have been combined.</p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>LEXI: reduce transmitted bits without changing the values</h2>
+<p><a href="chiplet-interconnects.html#paper-dac-2026-research3121">LEXI</a> proposes lossless exponent coding for inter-chiplet communication in hybrid language models. In a floating-point representation, the exponent contributes to the numerical scale of a value.</p><p>Repeated or otherwise predictable exponent information may admit a shorter representation. Whether it does depends on the actual values and format.</p>
+<p>Lossless coding means the supported input representation can be recovered exactly. That differs from lowering numerical precision, which can alter values.</p><p>The captured description does not specify the formats, coding rule, handling of exceptional values, or traffic distributions. It therefore does not establish exact coverage of all bit patterns or a particular compression ratio.</p>
+<p>The complete path includes encoding, metadata, transmission, and decoding. Fewer transmitted bits help only when the saved communication cost outweighs the added work or when that work can overlap usefully with other execution.</p><p>A small transfer may be dominated by fixed preparation costs, while a large transfer may be limited by sustained encoder or decoder throughput.</p>
+<p>Evaluation should report the distribution of compressed sizes, not just an average over favorable transfers. Poorly compressible data needs defined behavior, potentially including a fallback representation; the source does not describe one.</p><p>Area, buffering, energy, and latency of the codec also belong in the result. None of those numerical measurements is supplied in the captured record.</p>
+<p><span id="explanation-dac-2026-research3121"></span></p>
+<h3>LEXI: lossless exponent coding reduces traffic only when exact reconstruction and codec cost are measured</h3>
+<h4>What exponent coding changes</h4>
+<p>A floating-point value contains a sign, a significand or mantissa, and an exponent that sets the numerical scale. A tensor transfer sends representations of many values between chiplets.</p><p>If exponent values repeat or follow a predictable pattern, an encoder may represent them with fewer bits and send metadata that lets the decoder reconstruct the original representation.</p>
+<p>Lossless means that the decoder recovers the same supported representation. It is not the same as lowering precision, rounding values or changing the model's numerical behavior.</p><p>The method must define the formats it accepts, the exponent alphabet or coding rule, block boundaries, metadata, and how it handles zero, subnormal values, infinities, NaNs, sign and overflow.</p>
+<h4>Why compression ratio is workload-dependent</h4>
+<p>Exponent distributions differ across layers, tensors, models, precision modes and execution phases. A block with repeated exponents may shrink; a block with varied exponents may need nearly the original representation or an escape path.</p><p>An average compression ratio can hide transfers that expand after headers or are poorly compressible.</p>
+<p>The evaluation should report the distribution of encoded sizes by tensor and traffic phase, the fraction using a fallback representation, and exact reconstruction tests for every supported format. A ratio measured only on favorable tensors does not establish link-level benefit for a complete LLM run.</p>
+<h4>The codec is part of the communication path</h4>
+<p>The end-to-end path includes reading the tensor, extracting or grouping exponents, encoding, adding metadata, buffering, waiting for link access, transmitting, decoding and reconstructing the values. The saved link time must exceed the encoder and decoder work and must not create a new queue or memory bottleneck.</p><p>If encoding runs on a shared processor, its contention also belongs in the measurement.</p>
+<p>The comparison must hold the tensor values, numerical format, chiplet topology, link width, clock, traffic schedule and target-model quality fixed. Report codec throughput, latency, metadata bytes, link utilization, queueing, energy, area and any overlap with computation.</p><p>Lower bytes do not establish lower application latency if the link was not the bottleneck.</p>
+<p>The captured DAC description supports lossless exponent coding for inter-chiplet communication in hybrid LLMs. It reports no compression-ratio distribution, link latency, codec throughput, energy, area, traffic trace, fallback behavior or model-accuracy result.</p><p>The evidence supports a representation-aware communication direction, not demonstrated inter-chiplet or end-to-end LLM improvement.</p>
+<p><a href="chiplet-interconnects.html#paper-dac-2026-research3121">Observed paper card</a></p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>Bonded wafers: network structure and physical feasibility</h2>
+<p>The <a href="chiplet-interconnects.html#paper-dac-2026-research363">wafer-scale hybrid-bonding network paper</a> addresses communication across a system with wafer-on-wafer connections. The relevant design choices include which regions connect, where traffic crosses between wafers, and which routes carry long-distance transfers. The source does not expose the actual topology or routing policy.</p>
+<p>Adding connection opportunities does not automatically improve every workload. Traffic concentrated on a few destinations can still overload shared links.</p><p>A topology with fewer logical steps may use physically longer or more expensive connections. A useful evaluation must connect the network model to feasible link capacity, latency, bonding locations, and power.</p>
+<p>Fault assumptions matter because a network must remain useful under the failures it claims to tolerate. A disconnected region, damaged link, or reduced-capacity route changes available paths.</p><p>The captured description gives no fault model, bandwidth, latency, power, thermal, or yield results. It therefore supports identifying a network-design proposal, not measured wafer-scale communication performance.</p>
+<p><span id="explanation-dac-2026-research363"></span></p>
+<h3>Wafer-on-wafer network design: a short logical path must also be a feasible, powered and fault-aware physical path</h3>
+<h4>What a wafer-scale network must provide</h4>
+<p>A wafer-scale system places many compute or memory regions across a large physical surface. A network gives those regions paths for transferring data.</p><p>Its useful behavior depends on the traffic: which regions communicate, how much data they send, whether transfers are bursts or steady streams, and whether several flows share a link.</p>
+<p>A graph can show that two endpoints are connected by a small number of hops. That does not determine application latency.</p><p>Each hop has serialization, propagation, buffering, arbitration and possible contention cost. A route can also require a link with less capacity than the traffic demands.</p><p>The evaluation must connect the logical graph to link width, rate, buffer capacity, routing and workload traffic.</p>
+<h4>What wafer-on-wafer hybrid bonding changes</h4>
+<p>Hybrid bonding can create dense electrical connections between bonded surfaces. The design question is where those connections are placed, which regions are connected, how traffic crosses between wafers and how long-distance paths are routed.</p><p>More possible connections do not automatically provide more useful bandwidth: endpoint demand can be uneven, and a shared link or router can remain the bottleneck.</p>
+<p>Physical feasibility adds constraints that a topology diagram does not show. Bond pitch, alignment, process variation, signal integrity, power delivery, heat removal, wafer warpage, repair strategy and yield affect which links can be built and operated.</p><p>A network result based on ideal links cannot be treated as a fabricated-silicon result without those assumptions.</p>
+<h4>Faults change the available network</h4>
+<p>If the design claims fault tolerance, it must define the fault model: a missing bond, damaged region, reduced-capacity link, dead router or wafer-level defect may remove different paths. The routing policy must detect the condition, find a valid alternative and state whether bandwidth, latency or application progress remains within a bound.</p><p>A connected graph after repair is not enough if the remaining path cannot carry the traffic.</p>
+<h4>What the evaluation must measure</h4>
+<p>Compare the proposed network with the planar or mesh baseline under the same endpoint placement, traffic matrix, link capacity, routing policy, physical resource budget and fault assumptions. Report per-flow and aggregate bandwidth, latency distribution, congestion, buffer occupancy, power, thermal conditions, area or bond count, fault recovery and yield assumptions.</p><p>Include communication collectives, hotspot traffic, long-distance flows, burstiness and reduced-link cases.</p>
+<p>The captured DAC description supports network design for wafer-scale systems with wafer-on-wafer hybrid bonding. It reports no topology, bandwidth, latency, traffic, power, fault, thermal or yield result. The evidence supports a wafer-scale network direction, not demonstrated communication performance or fabrication feasibility.</p>
+<p><a href="chiplet-interconnects.html#paper-dac-2026-research363">Observed paper card</a></p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>Hold the computation constant before comparing costs</h2>
+<p>For LEXI, the reference should perform the same computation with the same numerical representation, differing in communication coding. For the network proposal, candidate networks should execute common traffic or workloads under comparable physical-resource constraints.</p><p>Otherwise a reported improvement may come from changed model accuracy, more links, or a more favorable workload rather than the proposed mechanism.</p>
+<p>The cross-paper research question is whether representation-aware traffic reduction and physically grounded network design can be evaluated together. That is an inference, not a demonstrated integration or a historical trend.</p><p>A complete study would report application completion time and energy, along with codec cost, congestion, physical link assumptions, and failure behavior. Neither of these short records yet supports that end-to-end conclusion.</p>
+<p class="lm-k h-label">Compare the results carefully</p><h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="route"></span>How to compare these papers’ results fairly</h2>
+<p>First identify the inputs and required output quality. Then identify the limited resource: time, memory, communication, energy, circuit area, or correctness coverage.</p><p>Ask which part of the method reduces that cost and which new cost it adds. Compare numbers only when the experiments hold these conditions sufficiently similar.</p>
+<p>A conference description may explain the proposal while omitting the full experiment. An author preprint link may have been coded from its abstract. The source classification does not by itself establish that every table was read. Missing locations remain visible below.</p>
+<p class="lm-k h-label">Complete captured evidence</p><h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="file-text"></span>Every paper in this subtheme, with what its source shows</h2>
+<p>These are evidence records, not substitutes for the explanations above. Each record preserves its problem, proposed method, measurements, comparison conditions, and source limits. A populated record does not establish that its mechanism has been fully explained or independently verified.</p>
+<p><span id="paper-dac-2026-research3121"></span></p>
+<h3>LEXI: Lossless Exponent Coding for Efficient Inter-Chiplet Communication in Hybrid LLMs</h3>
+<p>DAC 2026 · Record: <code>dac-2026-research3121</code></p>
+<p><a href="#explanation-dac-2026-research3121">Read the step-by-step explanation</a></p>
+<p><strong>Updated source-backed reading card</strong></p>
+<div class="worked"><p class="lm-k">Worked example</p><p>Reviewed 2026-09-08. Deepens the existing LEXI treatment into a paper-level reading; separates lossless exponent representation from precision reduction and makes traffic distribution, codec overhead, exceptional values and link-level validation explicit.</p></div>
+<p>This editorial correction updates the current reading view and connected dossiers, not the historical adjudication or scientific acceptance status. The original captured fields are preserved below.</p>
+<p><a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/data/editorial-paper-corrections-v1.json">Correction register</a></p>
+<p><strong>Problem:</strong></p>
+<p>Inter-chiplet tensor traffic in distributed LLM computation consumes link bandwidth and energy, especially when numeric representations carry repeated or predictable exponent information.</p>
+<p><strong>Mechanism / artifact:</strong></p>
+<p>Lossless exponent coding scheme for inter-chiplet tensor communication; supported formats, coding rule, metadata, exceptional-value handling, fallback path and codec hardware are unspecified.</p>
+<p><strong>Workload — the work tested:</strong></p>
+<p>Hybrid LLM tensor transfers; numeric formats, tensor shapes, traffic traces, chiplet topology, compression distribution and model-quality conditions are unspecified.</p>
+<p><strong>Hardware and manufacturing assumptions:</strong></p>
+<p>Chiplet interconnect with encode/decode logic; link width, protocol, latency, bandwidth, buffering, clock, area, energy and process are unspecified.</p>
+<p><strong>Baseline — the comparison method:</strong></p>
+<p>Uncoded tensor communication</p>
+<p>Generic lossless compression</p>
+<p>Traffic, format, link, codec and end-to-end measurement conditions are unspecified</p>
+<p><strong>Reported measurements:</strong></p>
+<p>Communication efficiency is claimed qualitatively; no compression ratio distribution, latency, energy, area, codec throughput or accuracy result is reported.</p>
+<p><strong>Limits on the conclusion:</strong></p>
+<p>Lossless coding must recover the supported input representation exactly. It does not lower numerical precision and cannot claim benefit for values or formats outside the declared coding domain. Repeated exponents may compress well, but the distribution can change by layer, tensor, model, precision and workload.</p>
+<p>The complete path includes exponent extraction, metadata, encoding, buffering, link transfer, decoding and reconstruction. Fewer payload bits reduce communication time only when codec work, fixed headers, queueing and link access do not become the new bottleneck.</p><p>Exceptional values, sign, mantissa, zero, overflow and poorly compressible blocks need defined handling.</p>
+<p>The official description reports no compression-ratio distribution, link latency, codec throughput, energy, area, traffic trace, fallback behavior or model-accuracy result. It supports a representation-aware communication direction, not demonstrated inter-chiplet or end-to-end LLM improvement.</p>
+<p><strong>Source and location</strong></p>
+<p>Evidence tier: Primary captured official DAC description plus existing chapter level lexi discussion; no full paper extraction, codec reproduction or link level traffic/hardware validation. This is the stored source classification; the location and limits below determine what was actually read.</p>
+<p><a href="https://63dac.conference-program.com/?post_type=page&amp;p=16&amp;id=RESEARCH3121">Open the recorded source</a></p>
+<p>DAC 2026 official description; captured Problem, Mechanism / artifact, Workload, Hardware, Baseline, Measurements and Limits fields; record RESEARCH3121; no manuscript pages.</p>
+<details markdown="1">
+<summary>Original captured fields — superseded for this reading card</summary>
+
+** page source tier:** medium_official_description
+
+**Baselines:** uncoded tensor communication
+
+generic lossless compression
+
+**Evidence locators:** DAC 2026 official description
+
+**Evidence url:** https://63dac.conference-program.com/?post_type=page&amp;p=16&amp;id=RESEARCH3121
+
+**Hardware or process assumptions:** Chiplet interconnect supporting encode/decode logic; link width, protocol, latency, and process are unspecified.
+
+**Limits:** No compression ratio, latency, energy, area, or accuracy data are reported.
+
+Coding benefit depends on numeric distribution and decoder cost.
+
+Official description only; link-level claims require traffic and hardware evidence.
+
+**Method or artifact:** Lossless exponent coding scheme for inter-chiplet tensor communication.
+
+**Metrics:** Communication efficiency is claimed qualitatively
+
+**Problem:** Inter-chiplet traffic for distributed LLM computation consumes bandwidth and energy, especially for exponent-rich numeric representations.
+
+**Workload or benchmark:** Hybrid LLM tensor transfers; numeric formats, traffic traces, chiplet topology, and baselines are unspecified.
+
+</details>
+<p><span id="paper-dac-2026-research363"></span></p>
+<h3>Network Design for Wafer-Scale Systems with Wafer-on-Wafer Hybrid Bonding</h3>
+<p>DAC 2026 · Record: <code>dac-2026-research363</code></p>
+<p><a href="#explanation-dac-2026-research363">Read the step-by-step explanation</a></p>
+<p><strong>Updated source-backed reading card</strong></p>
+<div class="worked"><p class="lm-k">Worked example</p><p>Reviewed 2026-09-08. Deepens the existing wafer-network treatment into a paper-level reading; separates logical topology from physical link and bonding feasibility and makes congestion, fault, thermal and yield evidence explicit.</p></div>
+<p>This editorial correction updates the current reading view and connected dossiers, not the historical adjudication or scientific acceptance status. The original captured fields are preserved below.</p>
+<p><a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/data/editorial-paper-corrections-v1.json">Correction register</a></p>
+<p><strong>Problem:</strong></p>
+<p>Wafer-scale systems span a large physical area and need communication paths that provide useful bandwidth and latency despite bonding, routing, fault, thermal and manufacturing constraints.</p>
+<p><strong>Mechanism / artifact:</strong></p>
+<p>Network design for wafer-scale systems with wafer-on-wafer hybrid bonding; topology, routing, link placement, traffic policy, fault handling and physical implementation are unspecified.</p>
+<p><strong>Workload — the work tested:</strong></p>
+<p>Wafer-scale compute traffic; traffic matrix, communication collectives, endpoint placement, burstiness, topology and workload suite are unspecified.</p>
+<p><strong>Hardware and manufacturing assumptions:</strong></p>
+<p>Wafer-on-wafer hybrid bonding with long-range on-wafer or inter-wafer links; bond pitch, link capacity, latency, power, thermal path, process variation, repair and yield are unspecified.</p>
+<p><strong>Baseline — the comparison method:</strong></p>
+<p>Planar wafer-scale network</p>
+<p>Mesh or other interconnect baseline</p>
+<p>Resource matching, traffic, fault, physical and routing conditions are unspecified</p>
+<p><strong>Reported measurements:</strong></p>
+<p>Wafer-scale communication efficiency is claimed qualitatively; no bandwidth, latency, power, fault-tolerance, thermal, yield or workload result is reported.</p>
+<p><strong>Limits on the conclusion:</strong></p>
+<p>A logical topology describes which endpoints can communicate; it does not establish that the required links fit on a wafer, that their capacity is available under contention or that a route has acceptable latency and power. Traffic concentrated on a few destinations can overload a shared link even when the graph has short paths.</p>
+<p>Hybrid bonding changes where electrical connections can be placed, but long-range links still require signal integrity, power delivery, heat removal, alignment, process tolerance and repair assumptions. A network that works in an abstract model may lose capacity or yield when bonding defects, reduced links or thermal limits are included.</p>
+<p>The official description reports no topology, bandwidth, latency, traffic, power, fault, thermal or yield result. It supports a wafer-scale network direction, not demonstrated communication performance or fabrication feasibility.</p>
+<p><strong>Source and location</strong></p>
+<p>Evidence tier: Primary captured official DAC description plus existing chapter level wafer network discussion; no full paper extraction, network reproduction or package/silicon validation. This is the stored source classification; the location and limits below determine what was actually read.</p>
+<p><a href="https://63dac.conference-program.com/?post_type=page&amp;p=16&amp;id=RESEARCH363">Open the recorded source</a></p>
+<p>DAC 2026 official description; captured Problem, Mechanism / artifact, Workload, Hardware, Baseline, Measurements and Limits fields; record RESEARCH363; no manuscript pages.</p>
+<details markdown="1">
+<summary>Original captured fields — superseded for this reading card</summary>
+
+** page source tier:** medium_official_description
+
+**Baselines:** planar wafer-scale network
+
+mesh/interconnect baseline
+
+**Evidence locators:** DAC 2026 official description
+
+**Evidence url:** https://63dac.conference-program.com/?post_type=page&amp;p=16&amp;id=RESEARCH363
+
+**Hardware or process assumptions:** Wafer-on-wafer hybrid bonding with long-range on-wafer/inter-wafer links; process, thermal, and yield assumptions are unspecified.
+
+**Limits:** No bandwidth, latency, power, fault tolerance, thermal, or yield results are reported.
+
+Long-range network assumptions may not survive fabrication variation.
+
+Official description only; package and silicon validation are required.
+
+**Method or artifact:** Network design for wafer-scale hybrid-bonded systems.
+
+**Metrics:** Wafer-scale communication efficiency is claimed qualitatively
+
+**Problem:** Wafer-scale systems require scalable communication despite large physical extent, bonding constraints, and fault exposure.
+
+**Workload or benchmark:** Wafer-scale compute traffic; topology, bonding pitch, fault model, and baselines are unspecified.
+
+</details>
+<p class="lm-k h-label">What remains to establish</p><h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>What is still unproven here</h2>
+<p>Resolve unspecified workloads, comparison methods, resource budgets, and source locations before generalizing a reported gain. Multiple papers in this selected sample permit comparison of mechanisms, but do not by themselves establish recurrence across years or a long-term trend.</p>
+<p><a href="../guide/expanded-taxonomy-v1.html">All subthemes</a> · <a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/reports/directions/README.md">Research directions</a></p><p class="meta">Written as <a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/reports/observed-subthemes/chiplet-interconnects.md">reports/observed-subthemes/chiplet-interconnects.md</a> in the course repository.</p>
+      </article>
+      <nav class="pager" aria-label="Previous and next"><a class="prev" href="advanced-packaging-and-interconnect.html"><span class="pg-k">← Previous</span><span class="pg-t">Advanced packaging and interconnect</span></a><a class="map" href="../subthemes.html"><span class="pg-k">Back to</span><span class="pg-t">Subthemes</span></a><a class="next" href="wafer-scale-and-heterogeneous-integration.html"><span class="pg-k">Next →</span><span class="pg-t">Wafer scale and heterogeneous integration</span></a></nav>
+    </section>
+  </main>
+  <footer class="course-foot">
+    <p>Built from 582 paper records coded from ISCA 2026, DAC 2026 and ICCAD 2025 (ICCAD 2026 papers were not yet public). Most records come from official program descriptions; see “How deep the reading went”. The papers belong to their authors.</p>
+    <p class="foot-links"><a href="https://github.com/mehtama1234/course-concept-library">All courses</a><a href="../index.html">This course</a><a href="../course-map.html">Course map</a><a href="../presentation/index.html">Slides</a><a href="../video/index.html">Video</a><a href="../share/index.html">Share</a></p>
+  </footer>
+  <script src="../assets/course-data.js"></script><script src="../assets/icons.js"></script><script src="../assets/icons-extra.js"></script><script src="../assets/icons-course.js"></script><script src="../assets/art.js"></script><script src="../assets/course-art.js"></script><script src="../assets/charts.js"></script><script src="../assets/course-charts.js"></script><script src="../assets/course-site.js"></script>
+</body>
+</html>

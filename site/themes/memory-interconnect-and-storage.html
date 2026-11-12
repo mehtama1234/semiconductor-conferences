@@ -1,0 +1,346 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#F3ECE1" />
+  <title>Memory, interconnect, and storage · Semiconductor conference atlas</title>
+  <meta name="description" content="The article explains the technical problem step by step first, then links to every subtheme and its papers. Worked numbers are illustrations, not paper results." />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Semiconductor conference atlas" />
+  <meta property="og:title" content="Memory, interconnect, and storage · Semiconductor conference atlas" />
+  <meta property="og:description" content="The article explains the technical problem step by step first, then links to every subtheme and its papers. Worked numbers are illustrations, not paper results." />
+  <meta property="og:url" content="https://mehtama1234.github.io/semiconductor-conferences/themes/memory-interconnect-and-storage.html" />
+  <meta property="og:image" content="https://mehtama1234.github.io/semiconductor-conferences/presentation/slides/01-cover.jpg" />
+  <meta property="og:image:width" content="1920" />
+  <meta property="og:image:height" content="1080" />
+  <meta property="og:image:alt" content="Semiconductor conference atlas: 582 papers from ISCA, DAC and ICCAD, sorted into 10 themes and six directions to watch." />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="canonical" href="https://mehtama1234.github.io/semiconductor-conferences/themes/memory-interconnect-and-storage.html" />
+  <link rel="icon" href="../assets/icon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="../assets/base.css" />
+  <link rel="stylesheet" href="../assets/experience.css" />
+  <link rel="stylesheet" href="../assets/theme-atlas.css" />
+  <link rel="stylesheet" href="../assets/styles.css" />
+  <link rel="stylesheet" href="../assets/charts.css" />
+  <link rel="stylesheet" href="../assets/course.css" />
+  
+</head>
+<body class="course-site " data-house="atlas">
+  <aside class="public-demo-banner" aria-label="About this course">A plain-language guide to what ISCA, DAC and ICCAD papers say about chip and computer design · Built from the repository’s own paper records · Not made by the conferences</aside>
+  <a class="skip-link" href="#app">Skip to the page</a>
+  <header>
+    <a class="brand" href="../index.html"><span class="mark" aria-hidden="true">Si</span> Semiconductor conference atlas</a>
+    <span class="header-status"><span class="badge">582 papers</span><span class="badge">10 themes</span><span class="badge">Plain words first</span></span>
+    <a class="header-link" href="../course-map.html">Course map</a>
+  </header>
+  <nav class="course-nav" aria-label="Main sections of the course"><a href="../index.html">The big picture</a><a href="../themes.html" aria-current="page">Themes</a><a href="../subthemes.html">Subthemes</a><a href="../deep-reads.html">Deep reads</a><a href="../directions.html">What to watch</a><a href="../presentation/index.html">Slides</a><a href="../video/index.html">Video</a><a href="../share/index.html">Share</a></nav>
+  <main id="app" tabindex="-1">
+    <section class="screen active landing legacy-page" aria-labelledby="page-title">
+<div class="lm-head"><div class="hj-heading"><nav class="crumbs" aria-label="You are here"><a href="../course-map.html">Course map</a><span aria-hidden="true">›</span><a href="../themes.html">Themes</a></nav><a class="back-button" href="../themes.html">← <span>Themes</span></a><p class="eyebrow">Theme · 85 papers · 9 subthemes</p><h1 id="page-title">Memory, interconnect, and storage: moving data, not computing it, often sets the time and energy</h1><p class="hj-sub">The article explains the technical problem step by step first, then links to every subtheme and its papers. Worked numbers are illustrations, not paper results.</p></div><div class="hj-art" data-art="trio:server,arrows-exchange,cpu"></div></div>
+<figure class="course-fig"><div class="loop-wide" data-art="flow:memory-interconnect-and-storage"></div><div class="loop-tall" data-art="flowTall:memory-interconnect-and-storage"></div><figcaption>Moving data often costs more time and energy than computing it.</figcaption></figure><div class="chart-card"><div data-chart="theme-memory-interconnect-and-storage"></div><div><p class="lm-k">In numbers</p><h3>9 subthemes, largest first</h3><p>85 papers: DAC 78, ISCA 6, ICCAD 1.</p><p class="chart-note">A count shows attention in this sample, not importance.</p></div></div>
+      <article class="prose">
+
+<p>This article explains the subject and then connects it to 85 papers in the selected research sample.</p>
+<p>A subtheme groups related technical problems. A mechanism describes the particular change proposed by a paper. The discussion below explains the subject; the linked paper records state the available evidence.</p>
+<p><a href="../guide/reading-guide-v1.html">Definitions used in the paper records</a></p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="alert-triangle"></span>Capacity, bandwidth and latency are three different limits</h2>
+<p>A computation reads inputs and writes outputs. Those values take up bytes in memory or storage.</p>
+<ul>
+<li><strong>Capacity</strong> is how many bytes can be held.</li>
+<li><strong>Bandwidth</strong> is how many bytes can be moved per second.</li>
+<li><strong>Latency</strong> is the wait between asking for a value and getting it.</li>
+</ul>
+<p>Enough capacity does not guarantee a fast transfer. High bandwidth does not guarantee a short wait for one request.</p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="chart-bar"></span>Moving data sets a floor on how long a job takes</h2>
+<blockquote>
+<p><strong>The rule.</strong> A job must move <strong>B</strong> bytes. Its connection sustains <strong>W</strong> bytes per second. The transfers alone take at least <strong>B ÷ W</strong> seconds, however fast the arithmetic is.</p>
+</blockquote>
+<p>This simple bound assumes the job gets the stated bandwidth. Shared requests, protocol work and dependencies can make it slower.</p>
+<p>Keeping a value near its next user can cut transfers. But nearby memory is small, so keeping one value there may push out another useful one.</p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="chart-bar"></span>The subthemes move data, move work, or change the path</h2>
+<ul>
+<li><strong>Memory hierarchy</strong> work decides which values sit in faster or slower memory.</li>
+<li><strong>Near-memory or processing-in-memory</strong> work moves some computation toward the stored data.</li>
+<li><strong>Interconnect</strong> work changes the paths between components.</li>
+<li><strong>Storage</strong> work must also ask whether a value survives power loss and whether updates stay consistent.</li>
+</ul>
+<p>Each can cut one transfer while adding scheduling, copying or coordination work somewhere else.</p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="checklist"></span>A fair test measures the whole job, including moving the data</h2>
+<ol>
+<li>Measure the whole job, including placing and migrating data.</li>
+<li>Vary whether the input fits in each memory, and how many other jobs share the connection.</li>
+<li>For approximate search, hold answer quality fixed. For a service, measure slow requests as well as the average.</li>
+</ol>
+<p>Fewer remote bytes is useful evidence about one cost. The final claim needs completion time or energy under the full conditions.</p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="books"></span>Follow a read before comparing memory systems</h2>
+<p>A single read passes through several steps, and each one can cost time.</p>
+<p>A program asks for a value by its <strong>address</strong>, the number that names a storage location. Then:</p>
+<ol>
+<li>The system checks the access is allowed, and finds where the current value lives.</li>
+<li>A nearby cached copy may answer the request. Otherwise the request travels to another memory or storage device.</li>
+<li>The returned bytes must reach the right consumer.</li>
+<li>A dependent operation cannot use them before they arrive.</li>
+</ol>
+<p>Address translation, queueing, routing, fetching, checking and signalling completion can each take time. Steps for independent requests can overlap. Steps for one dependent request cannot be overlapped at will. Moving the bytes elsewhere changes both the physical route and the work done along it.</p>
+<p><strong>Be careful:</strong> the examples below are teaching calculations, not measurements of the linked papers. The paper links lead to individual explanations with source locations and evidence limits. This synthesis connects mechanisms; it does not certify a combined implementation.</p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>Capacity, latency, and bandwidth change different decisions</h2>
+<p>Each of the three limits answers a different question.</p>
+<table>
+<thead>
+<tr>
+<th>Limit</th>
+<th>The question it answers</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Capacity</td>
+<td>Can the needed data stay resident?</td>
+</tr>
+<tr>
+<td>Latency</td>
+<td>How long does one request wait?</td>
+</tr>
+<tr>
+<td>Bandwidth</td>
+<td>How much data can cross an interface per second?</td>
+</tr>
+</tbody>
+</table>
+<p>A system can have enough capacity and high bandwidth, yet still be slow for a chain of small reads that each wait for the last.</p>
+<blockquote>
+<p><strong>Worked example.</strong> One request fetches 64 bytes and takes 100 nanoseconds.</p>
+<ul>
+<li>If each request must wait for the previous value, at most ten million requests finish per second.</li>
+<li>That is 10 million × 64 = <strong>640 million useful bytes per second</strong>.</li>
+<li>A nominal 20-billion-byte-per-second connection does not change this limit.</li>
+<li>Independent requests can overlap. To sustain 20 billion bytes per second with these sizes and this latency, an idealized model needs at least <strong>32 requests in flight</strong>.</li>
+</ul>
+</blockquote>
+<p>Protocol traffic, queueing and implementation limits can raise that number, or stop the rate being reached.</p>
+<p>So one sequential pointer walk cannot show the bandwidth a parallel matrix workload gets. And a large-transfer benchmark cannot show small-read response time. The experiment must match both the access size and how independent the requests are.</p>
+<h3>More capacity can help even when each new access is slower</h3>
+<p>Adding slower memory can beat the real alternatives, but cannot beat the arithmetic of capacity.</p>
+<p>A service must keep 300 GB of data, but local memory holds 240 GB. Its options pay different costs:</p>
+<ul>
+<li>add slower memory;</li>
+<li>fetch missing data from storage;</li>
+<li>compress data;</li>
+<li>recompute some values;</li>
+<li>use more machines.</li>
+</ul>
+<p>The fair comparison is against the real alternative, not an imaginary system with unlimited fast memory.</p>
+<blockquote>
+<p><strong>Worked example.</strong> Local memory holds 240 GB.</p>
+<ul>
+<li>If 180 GB is actively used, ideal placement keeps it all local.</li>
+<li>If 280 GB becomes active, at least 280 − 240 = <strong>40 GB</strong> cannot be local at once.</li>
+</ul>
+</blockquote>
+<p>No better predictor removes that gap. It can only choose which accesses pay the extra cost, and when data moves.</p>
+<p><a href="../subthemes/memory-hierarchy-and-persistence.html#explanation-isca-2026-program-045">Vistara's manuscript-backed explanation</a> separates two experiments:</p>
+<ul>
+<li>adding capacity;</li>
+<li>replacing local memory, at fixed total capacity.</li>
+</ul>
+<p>The second exposes access-cost regressions that the first can hide. Its discussion also keeps a reported throughput regression and unresolved table inconsistencies.</p>
+<p><strong>Be careful:</strong> this is stronger evidence than a claim that all addressable memory acts like local memory. It is not a universal service result.</p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>Placement is a decision with an upfront cost</h2>
+<p>Moving data pays off only if enough later accesses benefit from the move.</p>
+<p>A <strong>placement policy</strong> chooses where data should live. <strong>Migration</strong> is the work of moving it while keeping its contents and accesses correct. Copying bytes is only part of that.</p><p>Readers and writers must never see a half-moved page, or update a copy about to be thrown away.</p>
+<blockquote>
+<p><strong>Worked example (illustrative).</strong> Moving a page costs 10 microseconds. Each later access saves 100 nanoseconds.</p>
+<ul>
+<li>Break-even: 10,000 nanoseconds ÷ 100 = <strong>100 qualifying accesses</strong>.</li>
+<li>Fewer accesses lose time, under this simple accounting.</li>
+</ul>
+</blockquote>
+<p>Contention, tracking, pushing out useful data, or a later move back can make it worse. Count only accesses that would really have reached the slower tier, not ones a processor cache already serves.</p>
+<p>A policy based on past accesses predicts future benefit; it does not know it. A sudden change in active data can cause repeated moves. So measure:</p>
+<ul>
+<li>correct and incorrect placement decisions;</li>
+<li>migration traffic;</li>
+<li>how long the policy takes to adapt.</li>
+</ul>
+<p><a href="../subthemes/memory-hierarchy-and-persistence.html#explanation-dac-2026-research1028">Ctxmem</a> works on a related boundary: software handling versus device-side movement. Its description does not establish the full implementation. Handling work asynchronously can free the processor for other tasks, while the original consumer still waits.</p>
+<p><strong>Be careful:</strong> asynchronous handling is not permission to read data that is not there yet, or to skip access checks.</p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>Compression changes capacity and the path to a usable value</h2>
+<p>Compression frees space, but decoding joins the path to every value.</p>
+<p>Compressed storage can shrink a value, but the next computation may need it decoded. So the decoder becomes part of the dependency path.</p><p>Random access may need metadata marking where valid decoding can start. Storing blocks that decode independently shortens that path, at some cost in compression.</p>
+<blockquote>
+<p><strong>Worked example.</strong> An 80-GB device holds 30 GB of weights and 10 GB of fixed workspace. Each admitted request needs 1 GB of state.</p>
+<ul>
+<li>Room for requests: 80 − 30 − 10 = <strong>40 requests</strong>.</li>
+<li>Shrink the weights to 20 GB: 80 − 20 − 10 = <strong>50 requests</strong>.</li>
+<li>That is 25% more requests, not the one-third cut in weight bytes.</li>
+</ul>
+</blockquote>
+<p>Longer requests, extra workspace or allocator overhead change this bound.</p>
+<p>More capacity does not decide response time. More requests at once can raise total work per second while making each request wait longer. <a href="../subthemes/memory-hierarchy-and-persistence.html#explanation-isca-2026-program-008">The lossless-weight-compression explanation</a> keeps exactly this distinction in its recovered serving results.</p><p>It also notes a conflicting batch count in the manuscript, and separates whole-model serving from a single-projection comparison.</p>
+<p>This links memory design to <a href="architecture-and-accelerators.html">architecture and accelerators</a>. A smaller format helps only if the machine can deliver usable operands fast enough, with the required numerical behavior.</p>
+<p><strong>Be careful:</strong> exact decoding proves the encoded values are recovered. It does not prove an earlier quantization step was correct, or that every application metric improves.</p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="affiliate"></span>An interconnect must make progress, not just move bits quickly</h2>
+<p>Faster links cannot fix a design where requests block each other forever.</p>
+<p>An <strong>interconnect</strong> carries requests and responses between components. Finite buffers hold work waiting for its next step. If requests fill every buffer, responses cannot get space. Then generating requests faster makes things worse.</p>
+<blockquote>
+<p><strong>Example of a dependency cycle (abstract).</strong></p>
+<ul>
+<li>Operation A holds resource X and waits for Y.</li>
+<li>Operation B holds Y and waits for X.</li>
+<li>Neither can finish or release its resource. More link bandwidth does not help.</li>
+</ul>
+</blockquote>
+<p>A design needs rules that prevent the cycle or guarantee a way out. The rules must cover every supported mix of traffic, not just one isolated one-way transfer.</p>
+<p><a href="../subthemes/memory-hierarchy-and-persistence.html#explanation-dac-2026-research1061">OpenSUN's explanation</a> records a specific warning from its artifact documentation, about high-throughput mutual host-memory access. That warning is not a locally reproduced failure, and the abstract cycle above is not its reconstructed internal cause.</p><p>It is still a reason to keep the supported traffic boundary in mind when reading about the platform.</p>
+<p>Being able to address memory does not settle two further questions:</p>
+<ul>
+<li><strong>Coherence:</strong> are cached copies of one location handled consistently?</li>
+<li><strong>Ordering:</strong> which orders of observations across operations are allowed?</li>
+</ul>
+<p>A writer that stores data, then sets a ready flag, needs the right synchronization contract. Only then can a reader trust the flag as proof the data is complete. Physical connectivity alone does not give that proof.</p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>Recovery changes what completion means</h2>
+<p>A durable update promises more than a successful read: after a failure, recovery must give an allowed state.</p>
+<p>A successful read means the consumer got the required value under the access rules. A durable update must also survive a specified failure. Data sitting in a volatile cache may be visible now, and gone after power loss.</p>
+<blockquote>
+<p><strong>Example (conceptual, not taken from a paper in this sample).</strong> An update changes a stored record and an index pointing to it.</p>
+<ul>
+<li>If the index survives a crash but the record does not, recovery finds a pointer to incomplete data.</li>
+<li>If the record survives but the index does not, recovery needs a defined way to handle the unreferenced record.</li>
+</ul>
+</blockquote>
+<p>So the system must specify ordering, all-or-nothing (atomic) updates, and recovery rules. Faster writes alone cannot provide them.</p>
+<p><strong>Error correction</strong> answers another question: can damaged encoded data be detected or rebuilt, within a stated fault model? <a href="../subthemes/memory-hierarchy-and-persistence.html#explanation-isca-2026-program-004">Cerberus</a> and <a href="../subthemes/memory-hierarchy-and-persistence.html#explanation-dac-2026-research676">CLUE-ECC</a> explain why code boundaries and fault location matter.</p>
+<p><strong>Be careful:</strong> correcting some bit errors does not make a multi-write transaction atomic or durable. And a recoverable update protocol does not prove protection against every physical fault.</p>
+<p>The chapter historically named "memory hierarchy and persistence" includes several mechanisms outside crash durability. Its title is a navigation label, not evidence that every paper in it addresses persistence. Classification reconciliation remains open.</p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="affiliate"></span>Connect the mechanisms through explicit tradeoffs</h2>
+<p>Every memory fix has a benefit and a cost that must stay visible.</p>
+<table>
+<thead>
+<tr>
+<th>Proposed change</th>
+<th>Possible benefit</th>
+<th>Cost or obligation that must remain visible</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Add a slower memory tier</td>
+<td>Keep more data resident and avoid storage accesses or additional machines</td>
+<td>Active-set capacity, placement mistakes, migration, response-time limits</td>
+</tr>
+<tr>
+<td>Compress stored values</td>
+<td>Free capacity and reduce selected transfers</td>
+<td>Decoding, metadata, access granularity, quality boundary</td>
+</tr>
+<tr>
+<td>Move computation or fault handling toward data</td>
+<td>Reduce host work or traffic over one interface</td>
+<td>Remaining consumer wait, permissions, completion visibility, new device bottlenecks</td>
+</tr>
+<tr>
+<td>Increase concurrent communication</td>
+<td>Overlap independent waits</td>
+<td>Buffer capacity, congestion, fairness, and guaranteed progress</td>
+</tr>
+<tr>
+<td>Add recovery or correction mechanisms</td>
+<td>Survive specified failures</td>
+<td>Protected boundary, redundancy, update ordering, unsupported faults</td>
+</tr>
+</tbody>
+</table>
+<p>These are not independent fixes whose reported ratios can be multiplied:</p>
+<ul>
+<li>Compression can change which pages are hot, and what migration costs.</li>
+<li>Migration uses the same links as application requests.</li>
+<li>More requests at once can hide latency, until queues clog.</li>
+<li>Recovery metadata can add writes and ordering rules that a bandwidth benchmark leaves out.</li>
+</ul>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="route"></span>Long-term hypotheses and how to challenge them</h2>
+<p>Three readings are worth testing; each names what would weaken it.</p>
+<table>
+<thead>
+<tr>
+<th>Hypothesis</th>
+<th>Test</th>
+<th>What would weaken it</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Usable capacity becomes a joint property of devices and system software, as memory locations diversify</td>
+<td>Do matched systems keep needing placement, migration and admission changes to use device capacity?</td>
+<td>Simple static placement does as well, without real restrictions</td>
+</tr>
+<tr>
+<td>Representation and placement should be judged together for capacity-limited services</td>
+<td>Compare compression alone, placement alone, and both, counting decoding and movement</td>
+<td>One fix already removes the limit, or coordination costs erase the combined gain</td>
+</tr>
+<tr>
+<td>Average transfer efficiency is not enough when systems share memory</td>
+<td>Measure each application's completed work and slow-request latency under competing traffic</td>
+<td>Realistic sharing causes no material interference, or existing isolation meets every service requirement</td>
+</tr>
+</tbody>
+</table>
+<p>A device can expose bytes that an application cannot use safely or efficiently under its allocation and service rules. That is the reason behind the first row.</p>
+<p>These are interpretations to test, not demonstrated ISCA–DAC–ICCAD trends. A cross-conference account must match workloads, source depth, comparison conditions and edition coverage before inferring change over time.</p>
+<p><strong>Be careful:</strong> the current selected sample and missing sources do not support a conference ranking or a claim of historical growth.</p>
+<p>The expanded <a href="../subthemes/memory-hierarchy-and-persistence.html">memory hierarchy chapter</a> gives a deeper reading path for fourteen records. Other memory, storage and interconnect branches below still need fuller explanations and source recovery. This parent discussion does not replace that work, or independent scientific and comprehension review.</p>
+<p class="lm-k h-label">Subthemes and how to study them</p><h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="books"></span>The subthemes in this theme, and how to read them</h2>
+<p>Each link opens the subtheme discussion and its captured paper records. Explanatory depth varies: some papers have expanded individual explanations; others still have only brief discussion or evidence cards. Source locations and unresolved conditions remain visible.</p>
+<h3><a href="../subthemes/data-movement-and-locality.html">Data movement and locality</a></h3>
+<p>34 selected records in this theme. Start with <a href="../subthemes/data-movement-and-locality.html">Marlin: I/O-Efficient Prefix KV Cache Retrieval for Long-Prefix LLM Serving</a>.</p>
+<h3><a href="../subthemes/memory-hierarchy-and-persistence.html">Memory hierarchy and persistence</a></h3>
+<p>14 selected records in this theme. Start with <a href="../subthemes/memory-hierarchy-and-persistence.html">HybriMoE: Hybrid CPU-GPU Scheduling and Cache Management for Efficient MoE Inference</a>.</p>
+<h3><a href="../subthemes/storage-and-data-movement.html">Storage and data movement</a></h3>
+<p>14 selected records in this theme. Start with <a href="../subthemes/storage-and-data-movement.html">HDDB: Efficient In-Storage SQL Database Search Using Hyperdimensional Computing on Ferroelectric NAND Flash</a>.</p>
+<h3><a href="../subthemes/memory-compute-and-reliability.html">Memory compute and reliability</a></h3>
+<p>10 selected records in this theme. Start with <a href="../subthemes/memory-compute-and-reliability.html">DRCA: Reliable Bitwise Logic in DRAM via Dual-Rail Compute and Access</a>.</p>
+<h3><a href="../subthemes/processing-in-memory-and-memory-centric-compute.html">Processing in memory and memory centric compute</a></h3>
+<p>4 selected records in this theme. Start with <a href="../subthemes/processing-in-memory-and-memory-centric-compute.html">Freebit: Unleashing the Performance Potential of Low-Bit LLMs Through PIM</a>.</p>
+<h3><a href="../subthemes/memory-and-data-movement.html">Memory and data movement</a></h3>
+<p>3 selected records in this theme. Start with <a href="../subthemes/memory-and-data-movement.html">Toki: Profiling HBM Performance on FPGA Systems with RISC-V Soft Cores and PCIe Host DMA Traffic</a>.</p>
+<h3><a href="../subthemes/storage-and-memory-systems.html">Storage and memory systems</a></h3>
+<p>3 selected records in this theme. Start with <a href="../subthemes/storage-and-memory-systems.html">From Block to Range: Rethinking the Fundamental Unit of Log-Structured File Systems for ZNS SSDs</a>.</p>
+<h3><a href="../subthemes/chiplet-and-on-chip-interconnect.html">Chiplet and on chip interconnect</a></h3>
+<p>2 selected records in this theme. Start with <a href="../subthemes/chiplet-and-on-chip-interconnect.html">C2C-Explorer: An Exploration Framework for Chip-to-Chip Interconnect Architectures in LLM Cloud Computing Systems</a>.</p>
+<h3><a href="../subthemes/interconnect-and-networking.html">Interconnect and networking</a></h3>
+<p>1 selected records in this theme. Start with <a href="../subthemes/interconnect-and-networking.html">Credix: A Credit-Driven Distributed Buffer Management for Large-Scale Switching Chips</a>.</p>
+<p class="lm-k h-label">Representative source-backed records</p><h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="route"></span>Papers that show the theme well</h2>
+<p>The following reading set spans the available conferences and uses dated corrections where registered. These corrections improve the current reading view but do not change historical adjudication or establish independent acceptance. Each paper link opens its exact evidence card.</p>
+<p class="lm-k h-label">Paper cards: what changes and where it stops</p><h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>Paper cards: what each paper changes, and where it stops</h2>
+<ul>
+<li><a href="../subthemes/data-movement-and-locality.html#paper-isca-2026-program-155">DisDP: Disaggregating Compute, Network, and Storage for Model-Sharded Data-Parallel Training</a> — ISCA 2026.</li>
+<li><a href="../subthemes/memory-hierarchy-and-persistence.html#paper-isca-2026-program-045">Vistara: Making CXL Real—Full Path from ASIC Design and OS Support to Hyperscale Deployment</a> — ISCA 2026.</li>
+<li><a href="../subthemes/chiplet-and-on-chip-interconnect.html#paper-isca-2026-program-044">A Silicon-Proven Unified Low-Latency CXL Controller and Port-Based Routing Switch for Memory-Centric Fabrics</a> — ISCA 2026.</li>
+<li><a href="../subthemes/memory-hierarchy-and-persistence.html#paper-isca-2026-program-008">Approaching Shannon Bound with Lossless LLM Weight Compression</a> — ISCA 2026.</li>
+<li><a href="../subthemes/storage-and-memory-systems.html#paper-dac-2026-research931">WILL: Write Invalidation Skipping for QLC NAND by Leveraging Data Lifespan and Latency Awareness</a> — DAC 2026.</li>
+<li><a href="../subthemes/interconnect-and-networking.html#paper-dac-2026-research837">Credix: A Credit-Driven Distributed Buffer Management for Large-Scale Switching Chips</a> — DAC 2026.</li>
+<li><a href="../subthemes/memory-compute-and-reliability.html#paper-dac-2026-research796">Prism: Reducing Arithmetic for High-Recall Approximate Nearest Neighbor Search on Processing-in-Memory</a> — DAC 2026.</li>
+<li><a href="../subthemes/processing-in-memory-and-memory-centric-compute.html#paper-dac-2026-research752">CQ-CiM: Hardware-Aware Embedding Shaping for Robust CiM-Based Retrieval</a> — DAC 2026.</li>
+<li><a href="../subthemes/storage-and-data-movement.html#paper-iccad-2025-1144">GAIA: Glass-Aware I/O Middleware</a> — ICCAD 2025.</li>
+<li><a href="../subthemes/memory-hierarchy-and-persistence.html#paper-isca-2026-program-004">Cerberus: Cross-Layer ECC Co-Design for Robust and Efficient Memory Protection</a> — ISCA 2026.</li>
+<li><a href="../subthemes/data-movement-and-locality.html#paper-isca-2026-program-003">COSM: A Cooperative Scheduling Framework for Concurrent PIM and CPU Execution on Mobile Devices</a> — ISCA 2026.</li>
+<li><a href="../subthemes/data-movement-and-locality.html#paper-dac-2026-research701">RAGNMP: Leveraging Elimination Tree to Accelerate RAG with Near-Memory Processing</a> — DAC 2026.</li>
+</ul>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="file-text"></span>What the evidence supports</h2>
+<p>These records identify proposed methods and the conditions recorded for them. A reported improvement should be interpreted with its comparison method, input size, hardware, and result-quality requirement. Missing fields are evidence gaps; a populated field can also state that a detail is unspecified.</p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="file-text"></span>Limits and next evidence</h2>
+<p>The selected sample is uneven across conferences and source types. It cannot establish how fast a subject is growing. Repeated observations across comparable years, with the same inclusion rules and source depth, are needed for a time trend.</p>
+<p>Every linked evidence article preserves the Problem: and Mechanism / artifact: fields, baseline, unshortened limitations, source URL, and recorded location. Primary text and independent review remain necessary where the record says those checks are open.</p>
+<p><a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/reports/directions/README.md">Research directions</a> · <a href="../guide/expanded-taxonomy-v1.html">All observed subthemes</a></p><p class="meta">Written as <a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/reports/themes/memory-interconnect-and-storage.md">reports/themes/memory-interconnect-and-storage.md</a> in the course repository.</p>
+      </article>
+      <nav class="pager" aria-label="Previous and next"><a class="prev" href="design-methodology-and-tooling.html"><span class="pg-k">← Previous</span><span class="pg-t">Design methodology and tooling</span></a><a class="map" href="../themes.html"><span class="pg-k">Back to</span><span class="pg-t">Themes</span></a><a class="next" href="physical-design-and-manufacturing.html"><span class="pg-k">Next →</span><span class="pg-t">Physical design and manufacturing</span></a></nav>
+    </section>
+  </main>
+  <footer class="course-foot">
+    <p>Built from 582 paper records coded from ISCA 2026, DAC 2026 and ICCAD 2025 (ICCAD 2026 papers were not yet public). Most records come from official program descriptions; see “How deep the reading went”. The papers belong to their authors.</p>
+    <p class="foot-links"><a href="https://github.com/mehtama1234/course-concept-library">All courses</a><a href="../index.html">This course</a><a href="../course-map.html">Course map</a><a href="../presentation/index.html">Slides</a><a href="../video/index.html">Video</a><a href="../share/index.html">Share</a></p>
+  </footer>
+  <script src="../assets/course-data.js"></script><script src="../assets/icons.js"></script><script src="../assets/icons-extra.js"></script><script src="../assets/icons-course.js"></script><script src="../assets/art.js"></script><script src="../assets/course-art.js"></script><script src="../assets/charts.js"></script><script src="../assets/course-charts.js"></script><script src="../assets/course-site.js"></script>
+</body>
+</html>

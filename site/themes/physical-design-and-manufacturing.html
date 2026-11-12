@@ -1,0 +1,338 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#F3ECE1" />
+  <title>Physical design and manufacturing · Semiconductor conference atlas</title>
+  <meta name="description" content="The article explains the technical problem step by step first, then links to every subtheme and its papers. Worked numbers are illustrations, not paper results." />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Semiconductor conference atlas" />
+  <meta property="og:title" content="Physical design and manufacturing · Semiconductor conference atlas" />
+  <meta property="og:description" content="The article explains the technical problem step by step first, then links to every subtheme and its papers. Worked numbers are illustrations, not paper results." />
+  <meta property="og:url" content="https://mehtama1234.github.io/semiconductor-conferences/themes/physical-design-and-manufacturing.html" />
+  <meta property="og:image" content="https://mehtama1234.github.io/semiconductor-conferences/presentation/slides/01-cover.jpg" />
+  <meta property="og:image:width" content="1920" />
+  <meta property="og:image:height" content="1080" />
+  <meta property="og:image:alt" content="Semiconductor conference atlas: 582 papers from ISCA, DAC and ICCAD, sorted into 10 themes and six directions to watch." />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="canonical" href="https://mehtama1234.github.io/semiconductor-conferences/themes/physical-design-and-manufacturing.html" />
+  <link rel="icon" href="../assets/icon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="../assets/base.css" />
+  <link rel="stylesheet" href="../assets/experience.css" />
+  <link rel="stylesheet" href="../assets/theme-atlas.css" />
+  <link rel="stylesheet" href="../assets/styles.css" />
+  <link rel="stylesheet" href="../assets/charts.css" />
+  <link rel="stylesheet" href="../assets/course.css" />
+  
+</head>
+<body class="course-site " data-house="atlas">
+  <aside class="public-demo-banner" aria-label="About this course">A plain-language guide to what ISCA, DAC and ICCAD papers say about chip and computer design · Built from the repository’s own paper records · Not made by the conferences</aside>
+  <a class="skip-link" href="#app">Skip to the page</a>
+  <header>
+    <a class="brand" href="../index.html"><span class="mark" aria-hidden="true">Si</span> Semiconductor conference atlas</a>
+    <span class="header-status"><span class="badge">582 papers</span><span class="badge">10 themes</span><span class="badge">Plain words first</span></span>
+    <a class="header-link" href="../course-map.html">Course map</a>
+  </header>
+  <nav class="course-nav" aria-label="Main sections of the course"><a href="../index.html">The big picture</a><a href="../themes.html" aria-current="page">Themes</a><a href="../subthemes.html">Subthemes</a><a href="../deep-reads.html">Deep reads</a><a href="../directions.html">What to watch</a><a href="../presentation/index.html">Slides</a><a href="../video/index.html">Video</a><a href="../share/index.html">Share</a></nav>
+  <main id="app" tabindex="-1">
+    <section class="screen active landing legacy-page" aria-labelledby="page-title">
+<div class="lm-head"><div class="hj-heading"><nav class="crumbs" aria-label="You are here"><a href="../course-map.html">Course map</a><span aria-hidden="true">›</span><a href="../themes.html">Themes</a></nav><a class="back-button" href="../themes.html">← <span>Themes</span></a><p class="eyebrow">Theme · 42 papers · 13 subthemes</p><h1 id="page-title">Physical design and manufacturing: placement, wiring, timing and power all push on each other</h1><p class="hj-sub">The article explains the technical problem step by step first, then links to every subtheme and its papers. Worked numbers are illustrations, not paper results.</p></div><div class="hj-art" data-art="trio:affiliate,grid-dots,route"></div></div>
+<figure class="course-fig"><div class="loop-wide" data-art="flow:physical-design-and-manufacturing"></div><div class="loop-tall" data-art="flowTall:physical-design-and-manufacturing"></div><figcaption>Turning connections into geometry: every step pushes on the others.</figcaption></figure><div class="chart-card"><div data-chart="theme-physical-design-and-manufacturing"></div><div><p class="lm-k">In numbers</p><h3>13 subthemes, largest first</h3><p>42 papers: DAC 38, ICCAD 4.</p><p class="chart-note">A count shows attention in this sample, not importance.</p></div></div>
+      <article class="prose">
+
+<p>This article explains the subject and then connects it to 42 papers in the selected research sample.</p>
+<p>A subtheme groups related technical problems. A mechanism describes the particular change proposed by a paper. The discussion below explains the subject; the linked paper records state the available evidence.</p>
+<p><a href="../guide/reading-guide-v1.html">Definitions used in the paper records</a></p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="affiliate"></span>A correct connection can still arrive too late once it becomes a wire</h2>
+<p>A circuit description lists components and their connections. Manufacturing needs real shapes in specified material layers.</p>
+<ol>
+<li><strong>Placement</strong> chooses where each component sits.</li>
+<li><strong>Routing</strong> chooses each wire's path and layer.</li>
+</ol>
+<p>Wires take up space, resist current and store electric charge. Their length and surroundings change how fast a signal switches. So a logically correct connection can still arrive too late.</p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>Every physical fix pushes on another part of the design</h2>
+<ul>
+<li>Moving two communicating components closer shortens a wire, but can crowd another region.</li>
+<li>Adding a buffer can improve signal timing, but adds area and power.</li>
+<li>Manufacturing rules limit widths, spacing and overlaps.</li>
+<li>Changes in fabrication can change how transistors and wires behave.</li>
+</ul>
+<p>An optimizer must meet all these conditions together. Improving one score while quietly breaking another does not count.</p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>The subthemes build geometry, estimate timing, or model manufacturing</h2>
+<ul>
+<li><strong>Placement and routing</strong> methods build the geometry.</li>
+<li><strong>Timing analysis</strong> estimates whether signals switch in time.</li>
+<li><strong>Process models</strong> estimate how fabricated devices behave.</li>
+<li><strong>Manufacturing and yield</strong> methods study defects and variation. Yield is the fraction of manufactured chips that meet requirements.</li>
+</ul>
+<p>A faster estimator and a better final layout are different contributions. They need different evidence.</p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="checklist"></span>A fair test uses the same circuits and rules, and counts violations</h2>
+<ol>
+<li>Use the same circuit set, manufacturing rules, timing requirements and implementation tools.</li>
+<li>Record violations as well as successful outputs.</li>
+<li>Check the chosen designs with an accurate enough final evaluation, and count all search time.</li>
+<li>If a method uses a cheaper approximation, check whether its errors change which design is chosen.</li>
+</ol>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="affiliate"></span>Follow a logical connection into a physical implementation</h2>
+<p>A logical connection says what links to what; the physical version decides how fast and how well it works.</p>
+<p>A <strong>logical circuit</strong> says which outputs depend on which inputs. A <strong>physical implementation</strong> gives sizes and locations to transistors, cells, wires, and connections between material layers. "These two terminals are connected" says nothing about the resistance, capacitance or travel time of the real connection.</p>
+<blockquote>
+<p><strong>Example.</strong> Two placed cells are joined by a wire.</p>
+<ul>
+<li>Moving them closer shortens that connection.</li>
+<li>But each cell also connects to others.</li>
+<li>The shorter route may pass through a region already full of other wires.</li>
+</ul>
+</blockquote>
+<p>So the task is not to shorten one distance on its own. It is to build legal geometry that implements the circuit and meets timing, power and other stated limits.</p>
+<p><strong>Be careful:</strong> the examples below are teaching constructions, not measurements from the linked papers. Most physical-design branches still have incomplete source conditions. Connecting their mechanisms does not replace missing manuscripts or final implementation results.</p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>Placement creates demand; routing must find space for it</h2>
+<p>Where parts are placed decides how many wires must squeeze through each region.</p>
+<ul>
+<li><strong>Placement</strong> gives each component a location.</li>
+<li><strong>Routing</strong> gives each wire a real path and layer, including jumps between layers.</li>
+</ul>
+<p>Early placement may estimate wire length with a simple distance. Final routing may need detours around obstacles or crowded areas, so that estimate is optimistic.</p>
+<blockquote>
+<p><strong>Worked example (simplified: one track per connection).</strong> A corridor has room for 8 parallel tracks. 10 connections need to cross it.</p>
+<ul>
+<li>At least 10 − 8 = <strong>2</strong> cannot use the corridor as assigned.</li>
+<li>They need another route, another layer if one exists, or a placement change.</li>
+<li>A low average wire length does not remove this local shortage.</li>
+</ul>
+</blockquote>
+<p>Extra layers or different spacing are not always available. The technology and design rules limit both.</p><p>A route that looks short in a drawing can break rules on minimum spacing, width, enclosure or allowed layer changes. The final result must meet the real rule set, not the optimizer's simplified geometry.</p>
+<p>The <a href="../subthemes/placement-routing-and-floorplanning.html">placement and routing chapter</a> and <a href="../subthemes/physical-design-and-routing.html">routing chapter</a> group proposals for these decisions. Their labels name the stage being changed.</p>
+<p><strong>Be careful:</strong> they do not show that every proposed placement can be fully routed, or accepted for manufacturing.</p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="chart-bar"></span>Timing depends on both data and clock arrival</h2>
+<p>A signal is on time only relative to when the clock arrives, and the clock travels too.</p>
+<p>A synchronous circuit stores values at clock events. In a simplified maximum-delay check, data must arrive early enough before the receiving clock event.</p>
+<p><strong>Slack</strong> = allowed arrival time − actual (or estimated) arrival time.</p>
+<blockquote>
+<p><strong>Worked example.</strong> Required: 100 picoseconds. Arrival: 103.</p>
+<ul>
+<li>Slack = 100 − 103 = <strong>−3 picoseconds</strong>.</li>
+<li>Negative slack is a violation, under this simplified setup.</li>
+</ul>
+</blockquote>
+<p>Clock signals also travel through real wires and buffers, so they arrive at different places at different times. That difference changes how much time data has to travel between storage elements.</p><p>A change that helps one maximum-delay check can hurt a minimum-delay check. So fixing one path is not complete <strong>timing closure</strong> (meeting every timing check at once).</p>
+<ul>
+<li>The <a href="../subthemes/placement-routing-and-timing.html#the-clock-also-has-to-arrive-on-time">DCTS discussion</a> links clock layout and buffer sizing. Its record still lacks complete final wiring and comparison conditions.</li>
+<li>The <a href="../subthemes/compiler-and-runtime-optimization.html#explanation-dac-2026-research2566">manuscript-backed timing-reuse explanation</a>, in the tooling theme, shows why arrival estimates must keep their electrical context and error direction.</li>
+</ul>
+<p>A faster timing calculation and a faster built circuit are different contributions.</p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="affiliate"></span>Cell sizing moves costs between connected components</h2>
+<p>Making one cell stronger can slow the cell that drives it.</p>
+<p>A stronger driver may charge its load faster. It can also take more area, use more energy, and present a bigger load to the cell before it. So swapping a small cell for a larger one changes more than that cell's own delay.</p>
+<blockquote>
+<p><strong>Worked example (illustrative chain, not a device model).</strong></p>
+<ul>
+<li>Strengthening the second cell cuts its delay by <strong>4</strong> time units.</li>
+<li>The extra load adds <strong>3</strong> units to the first cell's delay. Net saving: 4 − 3 = <strong>1</strong> unit, not 4.</li>
+<li>If the new size shifts placement and adds <strong>2</strong> units of wiring delay: −4 + 3 + 2 = <strong>1 unit worse</strong>.</li>
+</ul>
+</blockquote>
+<p><a href="../subthemes/placement-routing-and-timing.html#paper-dac-2026-research1317">HyPAS's recorded method</a> argues for choosing placement and sizing together. Its current evidence does not establish complete prediction error, repair cost or final gain.</p><p>Optimizing jointly opens up more choices, but makes credit harder to assign. An evaluation must separate the combined result from each part's contribution.</p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>Power delivery changes the conditions used for timing</h2>
+<p>Timing analysis assumes a supply voltage that the power network may not actually deliver.</p>
+<p>The supply network has electrical resistance.</p>
+<blockquote>
+<p><strong>Worked example (simple resistive model).</strong></p>
+<ul>
+<li>Current 0.1 ampere through 0.2 ohm: voltage drop = 0.1 × 0.2 = <strong>0.02 volt</strong>.</li>
+<li>A nominal 0.8-volt source then supplies 0.8 − 0.02 = <strong>0.78 volt</strong> past that element, ignoring other effects.</li>
+</ul>
+<p>Real networks spread current over many paths, and change with switching activity. This is only a basic illustration.</p>
+</blockquote>
+<p>Placing many cells that switch at once in one area concentrates demand. Enlarging drivers to fix timing can raise it further. If delay analysis assumes a supply the network cannot provide, the timing gain may not survive real operation.</p>
+<p>The <a href="../subthemes/placement-routing-and-timing.html#paper-dac-2026-research2297">IR-drop-aware placement record</a> links placement, supply-network changes and voltage analysis. Its description does not establish all activity assumptions or final power-integrity checks. A useful comparison says which switching patterns and operating conditions were tested, and which lie outside the model.</p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="affiliate"></span>Extraction connects geometry back to electrical analysis</h2>
+<p>Two layouts with the same connections can behave differently, so geometry must be turned back into electrical numbers.</p>
+<p><strong>Extraction</strong> estimates electrical properties of the physical geometry, such as wire resistance and capacitance. These affect signal delay, coupling between wires, and energy.</p>
+<p>A fast learned or simplified extractor lets you evaluate more candidates. Judge its error where it changes decisions:</p>
+<ul>
+<li>choosing a different route;</li>
+<li>accepting a path that only looks valid;</li>
+<li>missing an interaction.</li>
+</ul>
+<p>A small average error does not show the critical region is accurate enough.</p>
+<p>This links physical design to the <a href="ai-assisted-eda.html">AI-assisted EDA theme</a> and <a href="design-methodology-and-tooling.html">tooling theme</a>. Prediction, search and final checking need compatible definitions. A design chosen with a cheap model still needs a more trustworthy evaluation. Otherwise the process tends to select the model's optimistic mistakes.</p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="checklist"></span>Manufacturing checks and yield answer different questions</h2>
+<p>Each manufacturing check answers its own question, and none alone predicts yield.</p>
+<table>
+<thead>
+<tr>
+<th>Check</th>
+<th>What it determines</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Design-rule check</td>
+<td>Whether geometry meets the specified rules</td>
+</tr>
+<tr>
+<td>Pattern matching</td>
+<td>Whether arrangements matching its query definitions are present</td>
+</tr>
+<tr>
+<td>Lithography simulation</td>
+<td>How a pattern is likely to print through the modeled process</td>
+</tr>
+<tr>
+<td>Inspection</td>
+<td>Whether manufactured material shows observable deviations</td>
+</tr>
+<tr>
+<td>Functional testing</td>
+<td>Whether produced devices show the specified behavior</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><a href="../subthemes/manufacturing-and-yield.html#searching-for-known-problematic-geometry">G-Matcher's explanation</a> separates faster pattern search from evidence that unknown patterns are safe.</li>
+<li>The <a href="../subthemes/manufacturing-and-yield.html#scheduling-the-computation-that-produces-a-mask">clip-wise optimization discussion</a> separates sharing computation among regions from making the simulator more accurate. Improvements in separate regions must also hold at their boundaries when joined.</li>
+</ul>
+<p><strong>Yield</strong> is the fraction of manufactured devices that meet the acceptance requirements. A higher inspection-classifier score is not automatically higher yield. A process or design change needs evidence that more acceptable devices result, under comparable production conditions.</p>
+<p>Rare defects also change what a classifier result means.</p>
+<blockquote>
+<p><strong>Worked example (illustrative counts, not from a captured paper).</strong> 10,000 items are inspected; 100 are defective.</p>
+<ul>
+<li>The classifier finds 90 defects: <strong>recall</strong> = 90 ÷ 100 = <strong>90%</strong>.</li>
+<li>It also flags 99 good items. Flags total 90 + 99 = 189.</li>
+<li><strong>Precision</strong> = 90 ÷ 189 ≈ <strong>47.6%</strong> of flags are real defects.</li>
+</ul>
+<p>A high detection rate can still leave a large investigation burden.</p>
+</blockquote>
+<p>The <a href="../subthemes/manufacturing-and-yield.html#rare-defects-and-incomplete-labels">inspection discussion</a> keeps two differences visible:</p>
+<ul>
+<li>synthetic training examples versus real evaluation defects;</li>
+<li>incomplete labels versus established ground truth.</li>
+</ul>
+<p>Test splits should reflect transfer across wafers, time periods or conditions, not just nearby images from the same source.</p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>What a complete physical result must preserve</h2>
+<p>Each claimed gain needs companion evidence before it counts as a finished result.</p>
+<table>
+<thead>
+<tr>
+<th>Claimed improvement</th>
+<th>Necessary companion evidence</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Shorter estimated wires</td>
+<td>Legal detailed routes, congestion, and extracted effects</td>
+</tr>
+<tr>
+<td>Faster critical paths</td>
+<td>Other timing checks, clock assumptions, area, and power</td>
+</tr>
+<tr>
+<td>Lower predicted voltage drop</td>
+<td>Activity assumptions and final supply-network conditions</td>
+</tr>
+<tr>
+<td>Faster physical estimation</td>
+<td>Decision-relevant errors and validation of selected candidates</td>
+</tr>
+<tr>
+<td>Better inspection scores</td>
+<td>Real defect ground truth, false alarms, and separate yield evidence</td>
+</tr>
+</tbody>
+</table>
+<p>The full flow also includes failed candidates and repair. An optimizer that takes ten minutes but needs ninety minutes of cleanup is not a ten-minute path to an accepted layout.</p><p>Fixing geometry can change electrical behavior, and fixing electrical behavior can need new geometry. Done means the chosen result meets every applicable requirement together, under stated conditions.</p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="file-text"></span>Long-term hypotheses and disconfirming evidence</h2>
+<p>Three readings are worth testing; each names what would weaken it.</p>
+<table>
+<thead>
+<tr>
+<th>Hypothesis</th>
+<th>Test</th>
+<th>What would weaken it</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Considering placement, wiring, timing and supply demand together, early, reduces later repair</td>
+<td>Compare with step-by-step optimization, using the same final checks and total budget</td>
+<td>Early models are inaccurate enough to cause extra rework, or staged methods do as well more cheaply</td>
+</tr>
+<tr>
+<td>Faster estimation helps most when paired with decision-aware validation</td>
+<td>Measure ranking changes, false feasibility calls and final accepted outputs, not just average error</td>
+<td>The cheap model cannot safely filter candidates, or exact fallback eats the saving</td>
+</tr>
+<tr>
+<td>Manufacturing learning needs evidence across the design-to-production boundary</td>
+<td>Do predicted or detected patterns match verified physical or electrical effects, under independent conditions?</td>
+<td>Gains stay inside simulation or image scores, without the claimed production outcome</td>
+</tr>
+</tbody>
+</table>
+<p>These are bounded interpretations, not established ISCA–DAC–ICCAD time trends. Comparable processes, rule sets, circuits, operating assumptions, tool budgets, source depth and editions are still needed.</p>
+<p><strong>Be careful:</strong> this parent synthesis does not complete the deeper individual-paper writing, manufacturing validation, source recovery, or independent review still needed below.</p>
+<p class="lm-k h-label">Subthemes and how to study them</p><h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="books"></span>The subthemes in this theme, and how to read them</h2>
+<p>Each link opens the subtheme discussion and its captured paper records. Explanatory depth varies: some papers have expanded individual explanations; others still have only brief discussion or evidence cards. Source locations and unresolved conditions remain visible.</p>
+<h3><a href="../subthemes/placement-routing-and-floorplanning.html">Placement routing and floorplanning</a></h3>
+<p>12 selected records in this theme. Start with <a href="../subthemes/placement-routing-and-floorplanning.html">Cell-Structure-Independent Transistor-Level Placement and MOL-Aware Routing Framework Beyond the Standard-Cell Paradigm</a>.</p>
+<h3><a href="../subthemes/process-aware-design.html">Process aware design</a></h3>
+<p>7 selected records in this theme. Start with <a href="../subthemes/process-aware-design.html">Design Technology Co-Optimization for Network on Chip in High Performance CPUs at 3nm Node Using Monolithic 3D and Backside Interconnect Technologies</a>.</p>
+<h3><a href="../subthemes/placement-routing-and-timing.html">Placement routing and timing</a></h3>
+<p>6 selected records in this theme. Start with <a href="../subthemes/placement-routing-and-timing.html">IR-Drop Aware Global Placement with PDN Optimization and GPU-Accelerated Analysis for Mitigating Global and Local IR-Drop</a>.</p>
+<h3><a href="../subthemes/manufacturing-and-yield.html">Manufacturing and yield</a></h3>
+<p>4 selected records in this theme. Start with <a href="../subthemes/manufacturing-and-yield.html">G-Matcher: GPU-Accelerated Multi-Level, Multi-Stage Framework for Large-Scale Layout Pattern Matching</a>.</p>
+<h3><a href="../subthemes/manufacturing-and-lithography.html">Manufacturing and lithography</a></h3>
+<p>2 selected records in this theme. Start with <a href="../subthemes/manufacturing-and-lithography.html">N3Litho: A GPU-Native Numerical-Neural Framework for 3D Mask Modeling, 3D Propagation, and 3D Aerial Image Simulation</a>.</p>
+<h3><a href="../subthemes/partitioning-and-placement.html">Partitioning and placement</a></h3>
+<p>2 selected records in this theme. Start with <a href="../subthemes/partitioning-and-placement.html">ATOM-3D: Analytical Three-Dimensional Orientation-Aware Mixed-Size Placer</a>.</p>
+<h3><a href="../subthemes/physical-design-and-routing.html">Physical design and routing</a></h3>
+<p>2 selected records in this theme. Start with <a href="../subthemes/physical-design-and-routing.html">LRTA: Routability-Driven 3D-Aware Track Assignment with Layer Reassignment</a>.</p>
+<h3><a href="../subthemes/timing-analysis-and-optimization.html">Timing analysis and optimization</a></h3>
+<p>2 selected records in this theme. Start with <a href="../subthemes/timing-analysis-and-optimization.html">Warp-STAR: High-Performance, Differentiable GPU-Accelerated Static Timing Analysis Through Warp-Oriented Parallel Orchestration</a>.</p>
+<h3><a href="../subthemes/cell-and-circuit-design.html">Cell and circuit design</a></h3>
+<p>1 selected records in this theme. Start with <a href="../subthemes/cell-and-circuit-design.html">B-Flex: Exploration of Broader Flip-Flop Design Space Based on FSM Exhaustive Search</a>.</p>
+<h3><a href="../subthemes/device-and-process-modeling.html">Device and process modeling</a></h3>
+<p>1 selected records in this theme. Start with <a href="../subthemes/device-and-process-modeling.html">A Physics-Prior Intelligent Compact Modeling Framework for BEOL-Compatible DTCO: EKAN-Based Distillation from Neural to Symbolic Models</a>.</p>
+<h3><a href="../subthemes/fpga-and-reconfigurable-design.html">FPGA and reconfigurable design</a></h3>
+<p>1 selected records in this theme. Start with <a href="../subthemes/fpga-and-reconfigurable-design.html">Dynamic-Cost Area Recovery for Fracturable LUT-Based FPGAs</a>.</p>
+<h3><a href="../subthemes/manufacturing-monitoring-and-yield.html">Manufacturing monitoring and yield</a></h3>
+<p>1 selected records in this theme. Start with <a href="../subthemes/manufacturing-monitoring-and-yield.html">STAMP: Semiconductor Tool-Chain Attestation Through Wafer-Level Machine Learning-Based Process Monitoring</a>.</p>
+<h3><a href="../subthemes/parasitic-extraction-and-modeling.html">Parasitic extraction and modeling</a></h3>
+<p>1 selected records in this theme. Start with <a href="../subthemes/parasitic-extraction-and-modeling.html">Capacitance Extraction via Machine Learning with Application to Interconnect Geometry Exploration</a>.</p>
+<p class="lm-k h-label">Representative source-backed records</p><h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="route"></span>Papers that show the theme well</h2>
+<p>The following reading set spans the available conferences and uses dated corrections where registered. These corrections improve the current reading view but do not change historical adjudication or establish independent acceptance. Each paper link opens its exact evidence card.</p>
+<p class="lm-k h-label">Paper cards: what changes and where it stops</p><h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>Paper cards: what each paper changes, and where it stops</h2>
+<ul>
+<li><a href="../subthemes/partitioning-and-placement.html#paper-dac-2026-research954">Module-Level Placement Using Force-Based Deformation for Efficient Early Design Estimation</a> — DAC 2026.</li>
+<li><a href="../subthemes/partitioning-and-placement.html#paper-dac-2026-research934">ATOM-3D: Analytical Three-Dimensional Orientation-Aware Mixed-Size Placer</a> — DAC 2026.</li>
+<li><a href="../subthemes/placement-routing-and-floorplanning.html#paper-dac-2026-research843">Disentangled Differentiable Timing-Power Co-Optimization with Quad-Gradient Gate Sizing</a> — DAC 2026.</li>
+<li><a href="../subthemes/manufacturing-and-yield.html#paper-dac-2026-research838">Separate: Segmenting Patterns from Defects in Wafer Manufacturing Using Weak Supervision</a> — DAC 2026.</li>
+<li><a href="../subthemes/placement-routing-and-timing.html#paper-iccad-2025-1155">COPA: A Congestion-Oriented Pin Assignment Framework for Intra-Block Physical Design Optimization</a> — ICCAD 2025.</li>
+<li><a href="../subthemes/process-aware-design.html#paper-iccad-2025-1080">RSizing: Robust Bayesian Optimization for Analog Circuit Sizing Under Process Variations</a> — ICCAD 2025.</li>
+<li><a href="../subthemes/parasitic-extraction-and-modeling.html#paper-iccad-2025-1142">Capacitance Extraction via Machine Learning with Application to Interconnect Geometry Exploration</a> — ICCAD 2025.</li>
+<li><a href="../subthemes/placement-routing-and-timing.html#paper-iccad-2025-1111">Parallel Non-Integer Multiple-Cell-Height Node Remapping</a> — ICCAD 2025.</li>
+<li><a href="../subthemes/manufacturing-and-lithography.html#paper-dac-2026-research827">DR. OPC: Differentiable Rasterization for Advanced Optical Proximity Correction</a> — DAC 2026.</li>
+<li><a href="../subthemes/physical-design-and-routing.html#paper-dac-2026-research732">Unified Rail-Signal Co-Design for Multilayer PCBs: Resource Allocation, IR-Drop, and Routability</a> — DAC 2026.</li>
+<li><a href="../subthemes/manufacturing-and-yield.html#paper-dac-2026-research649">Mask-Guided Diffusion with Process-Aware Metric Optimization for Long-Tailed Wafer Defect Analysis</a> — DAC 2026.</li>
+<li><a href="../subthemes/process-aware-design.html#paper-dac-2026-research648">Differentiable Fill Insertion with Explicit Delay Optimization</a> — DAC 2026.</li>
+</ul>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="file-text"></span>What the evidence supports</h2>
+<p>These records identify proposed methods and the conditions recorded for them. A reported improvement should be interpreted with its comparison method, input size, hardware, and result-quality requirement. Missing fields are evidence gaps; a populated field can also state that a detail is unspecified.</p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="file-text"></span>Limits and next evidence</h2>
+<p>The selected sample is uneven across conferences and source types. It cannot establish how fast a subject is growing. Repeated observations across comparable years, with the same inclusion rules and source depth, are needed for a time trend.</p>
+<p>Every linked evidence article preserves the Problem: and Mechanism / artifact: fields, baseline, unshortened limitations, source URL, and recorded location. Primary text and independent review remain necessary where the record says those checks are open.</p>
+<p><a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/reports/directions/README.md">Research directions</a> · <a href="../guide/expanded-taxonomy-v1.html">All observed subthemes</a></p><p class="meta">Written as <a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/reports/themes/physical-design-and-manufacturing.md">reports/themes/physical-design-and-manufacturing.md</a> in the course repository.</p>
+      </article>
+      <nav class="pager" aria-label="Previous and next"><a class="prev" href="memory-interconnect-and-storage.html"><span class="pg-k">← Previous</span><span class="pg-t">Memory, interconnect, and storage</span></a><a class="map" href="../themes.html"><span class="pg-k">Back to</span><span class="pg-t">Themes</span></a><a class="next" href="power-reliability-and-security.html"><span class="pg-k">Next →</span><span class="pg-t">Power, reliability, and security</span></a></nav>
+    </section>
+  </main>
+  <footer class="course-foot">
+    <p>Built from 582 paper records coded from ISCA 2026, DAC 2026 and ICCAD 2025 (ICCAD 2026 papers were not yet public). Most records come from official program descriptions; see “How deep the reading went”. The papers belong to their authors.</p>
+    <p class="foot-links"><a href="https://github.com/mehtama1234/course-concept-library">All courses</a><a href="../index.html">This course</a><a href="../course-map.html">Course map</a><a href="../presentation/index.html">Slides</a><a href="../video/index.html">Video</a><a href="../share/index.html">Share</a></p>
+  </footer>
+  <script src="../assets/course-data.js"></script><script src="../assets/icons.js"></script><script src="../assets/icons-extra.js"></script><script src="../assets/icons-course.js"></script><script src="../assets/art.js"></script><script src="../assets/course-art.js"></script><script src="../assets/charts.js"></script><script src="../assets/course-charts.js"></script><script src="../assets/course-site.js"></script>
+</body>
+</html>

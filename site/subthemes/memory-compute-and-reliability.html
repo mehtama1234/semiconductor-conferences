@@ -1,0 +1,945 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#F3ECE1" />
+  <title>Memory compute and reliability · Semiconductor conference atlas</title>
+  <meta name="description" content="Papers: DAC 10. Read from: 10 program descriptions, 0 abstracts or reports, 0 full papers or preprints. The explanations come first; every paper’s record follows at the end." />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Semiconductor conference atlas" />
+  <meta property="og:title" content="Memory compute and reliability · Semiconductor conference atlas" />
+  <meta property="og:description" content="Papers: DAC 10. Read from: 10 program descriptions, 0 abstracts or reports, 0 full papers or preprints. The explanations come first; every paper’s record follows at the end." />
+  <meta property="og:url" content="https://mehtama1234.github.io/semiconductor-conferences/subthemes/memory-compute-and-reliability.html" />
+  <meta property="og:image" content="https://mehtama1234.github.io/semiconductor-conferences/presentation/slides/01-cover.jpg" />
+  <meta property="og:image:width" content="1920" />
+  <meta property="og:image:height" content="1080" />
+  <meta property="og:image:alt" content="Semiconductor conference atlas: 582 papers from ISCA, DAC and ICCAD, sorted into 10 themes and six directions to watch." />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="canonical" href="https://mehtama1234.github.io/semiconductor-conferences/subthemes/memory-compute-and-reliability.html" />
+  <link rel="icon" href="../assets/icon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="../assets/base.css" />
+  <link rel="stylesheet" href="../assets/experience.css" />
+  <link rel="stylesheet" href="../assets/theme-atlas.css" />
+  <link rel="stylesheet" href="../assets/styles.css" />
+  <link rel="stylesheet" href="../assets/charts.css" />
+  <link rel="stylesheet" href="../assets/course.css" />
+  
+</head>
+<body class="course-site " data-house="atlas">
+  <aside class="public-demo-banner" aria-label="About this course">A plain-language guide to what ISCA, DAC and ICCAD papers say about chip and computer design · Built from the repository’s own paper records · Not made by the conferences</aside>
+  <a class="skip-link" href="#app">Skip to the page</a>
+  <header>
+    <a class="brand" href="../index.html"><span class="mark" aria-hidden="true">Si</span> Semiconductor conference atlas</a>
+    <span class="header-status"><span class="badge">582 papers</span><span class="badge">10 themes</span><span class="badge">Plain words first</span></span>
+    <a class="header-link" href="../course-map.html">Course map</a>
+  </header>
+  <nav class="course-nav" aria-label="Main sections of the course"><a href="../index.html">The big picture</a><a href="../themes.html">Themes</a><a href="../subthemes.html" aria-current="page">Subthemes</a><a href="../deep-reads.html">Deep reads</a><a href="../directions.html">What to watch</a><a href="../presentation/index.html">Slides</a><a href="../video/index.html">Video</a><a href="../share/index.html">Share</a></nav>
+  <main id="app" tabindex="-1">
+    <section class="screen active landing legacy-page" aria-labelledby="page-title">
+<div class="lm-head"><div class="hj-heading"><nav class="crumbs" aria-label="You are here"><a href="../course-map.html">Course map</a><span aria-hidden="true">›</span><a href="../subthemes.html">Subthemes</a></nav><a class="back-button" href="../subthemes.html">← <span>Subthemes</span></a><p class="eyebrow">Subtheme · 10 papers · Memory, interconnect, and storage</p><h1 id="page-title">Memory compute and reliability: what the 10 papers change, and what is still unproven</h1><p class="hj-sub">Papers: DAC 10. Read from: 10 program descriptions, 0 abstracts or reports, 0 full papers or preprints. The explanations come first; every paper’s record follows at the end.</p></div><div class="hj-art" data-art="trio:server,arrows-exchange,cpu"></div></div>
+<figure class="course-fig"><div class="loop-wide" data-art="flow:memory-interconnect-and-storage"></div><div class="loop-tall" data-art="flowTall:memory-interconnect-and-storage"></div><figcaption>The parent theme in one picture: moving data often costs more time and energy than computing it.</figcaption></figure>
+      <article class="prose">
+
+<p>This subject has 10 records in the selected sample. This page explains where it fits, then presents all captured paper evidence without shortening the measurements or limitations.</p>
+<p><a href="../guide/reading-guide-v1.html">Definitions used in the paper records</a></p>
+<p class="lm-k h-label">Understand the parent subject first</p><h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>The bigger theme this belongs to</h2>
+<ul>
+<li><a href="../themes/memory-interconnect-and-storage.html">Memory interconnect and storage</a></li>
+</ul>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>Storage and computation impose different demands on a device</h2>
+<p>A memory device must distinguish stored states when reading and preserve or restore the required state when writing. Using that device for computation can impose additional operations, access combinations, or timing requirements.</p><p>A device that stores values adequately under ordinary use may behave differently under those operations.</p>
+<p>The central question is how the proposed computation affects correctness under variation, noise, temperature, supply conditions, and repeated use. Performance has meaning only alongside the probability and consequence of producing an incorrect result under the stated conditions.</p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>Three kinds of error must remain separate</h2>
+<p>A stored bit can be corrupted. An arithmetic operation can produce an inaccurate result. A deliberately approximate representation can change a value even when the hardware operates as designed. These are different causes and may need different detection, correction, or application tolerances.</p>
+<p>Adding protection does not remove the need to measure them separately. A code designed to correct certain storage errors may not establish the accuracy of an analog arithmetic operation. A model that tolerates some numerical approximation may still be vulnerable to particular correlated failures.</p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="help-circle"></span>Why the surrounding circuitry matters</h2>
+<p>A memory array requires address selection, signal generation, sensing, and transfer circuits. A compute-capable array may require additional arithmetic, conversion, and control. These circuits can determine total area and energy even when the core array operation appears inexpensive.</p>
+<p>For this reason, compare both the array operation and the complete unit that makes its output usable. State whether input and output circuits are included.</p><p>If a proposed improvement relies on a particular manufacturing process, account for that condition when comparing it with a different implementation.</p>
+<p><span id="explanation-dac-2026-research796"></span></p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>Prism: reducing nearest-neighbor arithmetic must preserve the recall target while coordinating PIM and host work</h2>
+<h3>What approximate nearest-neighbor search computes</h3>
+<p>Nearest-neighbor search compares a query vector with database vectors using a distance or similarity function and returns the closest results. Exact search evaluates every relevant vector.</p><p>Approximate search reduces work by pruning candidates, using an index or evaluating distances only partly, accepting that some true neighbors may be missed.</p>
+<p>Recall measures how many of the reference nearest neighbors appear in the returned set. A throughput improvement without a recall target is incomplete because discarding more candidates can make the search faster while returning worse results.</p>
+<h3>Why PIM changes the arithmetic tradeoff</h3>
+<p>Vector search moves many vector values and performs many distance operations. PIM can provide high internal bandwidth by placing computation near stored vectors, but its arithmetic resources and local storage are limited.</p><p>A design that computes every distance fully can exhaust PIM arithmetic, while a design that prunes aggressively can damage recall.</p>
+<p>Prism is described as co-optimizing vector pruning, distance evaluation and host-PIM orchestration. The relevant boundary includes index access, vector loading, partial distance computation, candidate transfer and global ranking, not only the PIM arithmetic kernel.</p>
+<h3>What proximity-aware pruning and dual affiliations do</h3>
+<p>A proximity-aware pruner uses the query and an index relationship to exclude vectors unlikely to be close. The quality of this decision depends on the cluster geometry, distance metric, data distribution and approximation bound.</p>
+<p>Dual-cluster affiliations associate a vector with two neighborhoods instead of forcing it into one. This can reduce false exclusion near cluster boundaries, but it adds metadata, storage, pruning checks and possibly duplicate candidate handling.</p><p>The evaluation must report pruning rate, candidate overlap and recall after deduplication.</p>
+<h3>What sensitivity-ordered distance computation changes</h3>
+<p>Distance can be accumulated in dimension segments. Prism evaluates segments in an order expected to reveal whether a candidate is promising. If a partial distance already exceeds a valid bound, the remaining segments need not be evaluated.</p>
+<p>Early termination is safe only when the bound is valid for the metric, remaining dimensions and numerical precision. An empirical threshold can reduce work but may exclude a true neighbor.</p><p>The system should report the fraction of candidates terminated at each stage, arithmetic saved, ranking changes and recall across query and dataset distributions.</p>
+<h3>How host-PIM overlap affects throughput</h3>
+<p>The stall-free pipeline overlaps query preparation on the host, PIM execution and global ranking. This requires queues, buffers, transfer scheduling, completion signaling and backpressure.</p><p>A stage can be mathematically independent and still stall because its buffer is full, a host link is busy or one PIM partition returns late.</p>
+<p>End-to-end throughput should include query preparation, index access, host-PIM transfer, PIM computation, candidate return and global ranking. Peak stage throughput is not enough if pipeline fill, drain or tail behavior dominates short query batches.</p>
+<h3>How to interpret the reported result</h3>
+<p>The captured description reports 2.7–19.8× higher throughput than state-of-the-art systems. It does not expose recall, dataset, vector dimension, distance metric, index construction, pruning rate, precision, PIM capacity, energy, area, latency or host-transfer boundaries.</p>
+<p>The range may depend strongly on dataset geometry, query distribution, recall target and baseline implementation. A high-recall result needs exact-reference construction and a declared returned-neighbor count. Throughput and recall must be reported together for each configuration.</p>
+<h3>What the record establishes and where it stops</h3>
+<p>The official description establishes a PIM-based ANNS co-design using proximity-aware pruning, dual-cluster affiliations, sensitivity-ordered distance evaluation, early termination and a host-PIM pipeline. It reports a throughput range over state-of-the-art systems. It does not expose recall, datasets, precision, capacity, absolute throughput, PPA or transfer conditions.</p>
+<p>The <a href="memory-compute-and-reliability.html#paper-dac-2026-research796">Prism</a> record is evidence of a reported arithmetic-reduced PIM search system, not a recall-preserving general speedup. The explanation separates nearest-neighbor correctness, pruning, partial distance bounds, pipeline overlap and the conditions needed for a fair throughput comparison.</p>
+<p><span id="explanation-dac-2026-research529"></span></p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>Onyx: PIM transaction processing must preserve commit semantics while moving records and work close to memory</h2>
+<h3>What a transaction has to guarantee</h3>
+<p>A transaction groups reads and writes into one logical operation. Atomicity means the operation commits as a whole or has no visible partial effect.</p><p>Consistency means the committed state satisfies the database and application rules. Isolation defines what concurrent transactions can observe.</p><p>Durability requires committed state to survive the specified failures.</p>
+<p>PIM changes where the reads, writes and parts of the transaction execute. It does not remove the transaction protocol.</p><p>A faster memory-side operation is not a valid transaction result if a concurrent client can observe an intermediate write, if two partitions commit inconsistently or if recovery loses a committed update.</p>
+<h3>Why transaction processing is memory-bound</h3>
+<p>Many transaction workloads perform numerous dependent reads and writes. A record lookup may determine the next lookup, and a write can change the state seen by another transaction.</p><p>The arithmetic per record is often small, while address generation, data movement, synchronization, cache or memory access dominates.</p>
+<p>PIM offers aggregate bandwidth by placing processing units near memory. Onyx is described as running on a real UPMEM prototype.</p><p>The benefit depends on where records reside, how transactions are partitioned, how a DPU reaches remote data and how results return to the host or another rank.</p>
+<h3>What local-access orchestration changes</h3>
+<p>Onyx orchestrates transaction execution to maximize local accesses while balancing work across PIM processors. A local access stays within a DPU or rank's memory and avoids an inter-DPU or host transfer.</p><p>Partitioning can reduce movement, but a transaction that spans partitions needs coordination and a rule for ownership and visibility.</p>
+<p>The system must decide whether to move a transaction to its records, replicate records, send remote requests or split the transaction. Each choice affects contention, ordering, buffer use, communication and commit latency. A local-work percentage alone does not prove end-to-end transaction efficiency.</p>
+<h3>Why load balance is more than transaction count</h3>
+<p>Transactions differ in the number of records they touch, the probability of conflicts, the amount of index work and the number of remote accesses. A skewed key or hot record can make one DPU a bottleneck even when transaction counts are equal.</p>
+<p>Load-aware scheduling can use expected record count, locality, contention or transaction type to distribute work. Scheduling itself consumes metadata and may move work or state.</p><p>If a transaction is reassigned after it has acquired locks or read a version, the system needs a safe handoff and visibility rule.</p>
+<h3>What rank-level asynchronous transfer changes</h3>
+<p>Asynchronous transfer can overlap communication with computation that is ready on another rank. Rank-level queues can hold requests and completions so a DPU does not wait for every transfer before doing independent work.</p>
+<p>The system needs ordering, backpressure, completion, retry and failure handling. A transaction cannot commit until all required reads are valid and all writes are made visible according to the isolation and durability model.</p><p>Overlap can reduce idle time, but queues and coordination can increase tail latency or memory use under contention.</p>
+<h3>How YCSB and TPC-C frame the workload</h3>
+<p>YCSB commonly represents key-value access patterns with configurable read, update, insert and scan mixes. TPC-C represents a more relational transaction workload with multiple operations, dependencies and contention. They exercise different locality, conflict and coordination behavior.</p>
+<p>A comparison must state dataset size, request distribution, transaction mix, concurrency, isolation level, persistence, indexing, warm-up, failure behavior and whether host transfers and preprocessing are included. Average throughput can hide abort rate, tail latency or correctness failures.</p>
+<h3>What the record establishes and where it stops</h3>
+<p>The official description establishes Onyx as a full-stack transaction-processing system on a real UPMEM PIM prototype. It identifies local-access orchestration, load balancing and rank-level asynchronous data transfer and names YCSB and TPC-C evaluation.</p><p>It qualitatively claims significant outperformance but reports no throughput, latency, energy, abort, consistency, isolation, recovery or configuration results.</p>
+<p>The <a href="memory-compute-and-reliability.html#paper-dac-2026-research529">Onyx</a> record is evidence of a reported PIM transaction system, not a quantified transactional-correctness or general performance conclusion. The explanation separates ACID guarantees, data placement, load balance, asynchronous communication, workload semantics and complete transaction measurement.</p>
+<p><span id="explanation-dac-2026-research2631"></span></p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>ARC-SRAM: local addressing saves energy only when the access pattern and complete memory boundary are explicit</h2>
+<h3>Why random-access SRAM can waste energy on regular work</h3>
+<p>An SRAM read selects a row, develops a bitline signal and uses sensing circuitry to produce the stored value. A write drives the bitlines and activates the selected row to change the cell state.</p><p>Address decoding, wordline drivers, precharge, bitline charging and output circuitry all consume energy.</p>
+<p>Conventional SRAM is designed to permit arbitrary row selection. Image processing, computer vision, deep learning and dense linear algebra often access rows in regular loop nests.</p><p>Repeating predictable address and activation work can consume a large part of the access energy even when the useful data movement is unchanged.</p>
+<h3>What local address generation changes</h3>
+<p>ARC-SRAM moves address generation toward the memory periphery or subarray so a local controller can generate a sequence of row selections. The controller can exploit consecutive or otherwise regular accesses without repeatedly activating a global address path.</p>
+<p>The local sequence must still preserve the requested order and handle loop boundaries, stride changes, random jumps, bank conflicts, resets and external requests. Local control adds state and logic and may become less useful when the workload loses regularity.</p><p>A comparison must include the address generator and its synchronization, not only the row decoder it replaces.</p>
+<h3>How the read schemes reduce activity</h3>
+<p>The design uses one wordline pulse per row and minimizes precharge activity to suppress half-selection energy. A shorter or more selective activation schedule can reduce wordline and bitline switching, but the sense amplifier must still receive a sufficient signal within the timing limit.</p><p>Unselected cells must not be disturbed.</p>
+<p>Read energy should be partitioned into address generation, decoder, wordline driver, precharge, bitline development, sense amplifier, output transfer and control. A cell-array-level result can omit or simplify periphery that determines the energy seen by the system.</p>
+<h3>How the write scheme reuses bitline charge</h3>
+<p>The write method reuses bitline charge across consecutive rows. Instead of rebuilding the full electrical condition for every row, the design carries useful charge from one write to the next.</p><p>The mechanism must specify how the charge is isolated, refreshed or reset and how it behaves for different data patterns and row distances.</p>
+<p>Write correctness depends on write margin, leakage, device mismatch, voltage, temperature and timing. Charge reuse can lower switching energy while increasing state dependence or requiring control circuitry. The evaluation must test consecutive and non-consecutive rows, both data polarities, worst-case patterns and retention or disturb conditions.</p>
+<h3>How to interpret the reported instance</h3>
+<p>The captured description reports a 64 KB ARC-SRAM instance in an advanced gate-all-around nanosheet 1.4-nm research PDK. At the cell-array level, it reports 63–76% read-energy reduction and 68–72% write-energy reduction for loop-nest-dominated applications, with 4% area overhead.</p>
+<p>The exact baseline, absolute energy, latency, density, wire model, voltage, frequency, process corners and area boundary are not exposed. The 1.4-nm research-PDK result should not be treated as a measured production-silicon result or assumed to transfer to another SRAM cell, array size or process.</p>
+<h3>What regularity means for the conclusion</h3>
+<p>The reported benefit is conditional on access regularity. A loop nest with predictable row progression can use local sequencing. A workload with random accesses, short bursts, frequent branch changes or interleaved requesters may spend more time switching control modes or falling back to global addressing.</p>
+<p>Evaluation should report read/write mix, stride, burst length, row reuse, bank conflicts and the fraction of accesses handled by the optimized sequence. It should compare the same capacity, data, timing and complete peripheral boundary against global and banked SRAM.</p>
+<h3>What the record establishes and where it stops</h3>
+<p>The official description establishes a local-address SRAM subarray that combines address-generation relocation, reduced read wordline/precharge activity and write bitline-charge reuse. It reports modeled cell-array energy reductions and area overhead for a 64 KB 1.4-nm research-PDK instance.</p><p>It does not expose absolute energy, latency, density, capacity scaling, variation, yield, silicon status or full-periphery accounting.</p>
+<p>The <a href="memory-compute-and-reliability.html#paper-dac-2026-research2631">ARC-SRAM</a> record is evidence of a regular-access SRAM architecture, not proof of lower energy for arbitrary memory traffic or a production-process result. The explanation separates address locality, read activation, write charge reuse, cell correctness and the complete measurement boundary.</p>
+<p><span id="explanation-dac-2026-research2378"></span></p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>UBFP-IMC: wide floating-point in digital CIM moves the bottleneck from memory access into alignment, reduction and bit width</h2>
+<h3>What wide floating point has to preserve</h3>
+<p>A floating-point value stores a signed significand and an exponent. The significand carries precision; the exponent sets scale. Multiplication combines significands and adds exponents. Addition is more demanding: the operands must be shifted until their exponents match, then added or subtracted, normalized and rounded.</p>
+<p>Scientific calculations often need more precision and range than low-bit AI inference. Increasing the mantissa width reduces rounding error, but it increases storage, partial-product count, carry handling, accumulation width and switching activity.</p><p>The design must state the representation and numerical error target before an efficiency comparison has meaning.</p>
+<h3>What bit-serial mantissa MACs change</h3>
+<p>UBFP-IMC processes mantissa bits over time rather than using a full-width parallel multiplier. A smaller repeated datapath can reduce area and local movement, but the number of cycles grows with the mantissa width and the bit schedule.</p><p>The system must account for bit-plane reads, sign handling, partial-product accumulation and final normalization.</p>
+<p>Five-signal Booth encoding recodes signed input groups to reduce the number of partial products. It can lower adder activity, but the encoding must preserve sign extension, correction terms and exact product semantics.</p><p>The reduced partial-product count does not remove the cost of serial control or wide final accumulation.</p>
+<h3>What carry-save accumulation contributes</h3>
+<p>A carry-save adder represents an intermediate result with separate sum and carry vectors. It postpones carry propagation, allowing several partial products to be combined without waiting for a full-width carry chain at every step.</p>
+<p>A two-step carry-save structure can shorten an intermediate path, but a final carry-propagate operation is still needed. The full result also needs overflow handling, normalization, rounding and possibly sign correction. An accumulation-latency claim must say whether those operations and memory transfers are included.</p>
+<h3>Why exponent alignment is a separate bottleneck</h3>
+<p>To add floating-point products, the smaller-exponent significand is shifted relative to the larger-exponent value. The exponent difference determines that shift. Large differences can discard low-order bits or create a value too small to affect the result, while close exponents require wider accurate addition.</p>
+<p>UBFP-IMC uses an exponent-difference generator and FIFO adder tree for exponent-aligned accumulation. The FIFO can hold values until the reduction order and alignment conditions are ready.</p><p>It also introduces storage, ordering, queue occupancy and possible stalls. A MAC array can be full while the accumulation module waits for compatible values or memory access.</p>
+<h3>What the 28-nm design claim establishes</h3>
+<p>The captured description reports a 28-nm design with 168 MAC units and one accumulation module. It reports 4.43×, 4.46×, 4.30× and 8.53× energy-efficiency-factor improvements, 27× lower accumulation latency and an area advantage.</p>
+<p>The exact reference point for each ratio, mantissa and exponent width, frequency, voltage, memory traffic, area boundary, process library and numerical error condition are not exposed. “Energy-efficiency factor” needs its numerator and denominator; accumulation latency needs the amount of work and whether bit-serial MAC, exponent alignment, FIFO wait, normalization and output access are included.</p>
+<h3>What scientific-kernel validation must report</h3>
+<p>Scientific workloads should be evaluated using defined numerical error, convergence or solution-quality criteria, not only a local MAC error. Matrix dimensions, conditioning, accumulation order, precision, input range, overflow behavior and comparison implementation affect the result.</p>
+<p>A wide-FP CIM macro can have an attractive arithmetic density while losing system efficiency to data movement, alignment storage, clocking or memory capacity. The evaluation should report those costs and compare the same numerical result and precision requirement against CPU/GPU and narrow-CIM baselines.</p>
+<h3>What the record establishes and where it stops</h3>
+<p>The official description establishes a digital CIM architecture for wide floating-point mantissa MAC and exponent-aligned accumulation, with Booth encoding, carry-save reduction, a FIFO adder tree and a reported 28-nm 168-MAC implementation. It reports relative efficiency, latency and area claims.</p><p>It does not expose bit widths, numerical accuracy, absolute throughput/energy/area, frequency, memory movement, FIFO behavior or baseline parity.</p>
+<p>The <a href="memory-compute-and-reliability.html#paper-dac-2026-research2378">UBFP-IMC</a> record is evidence of a reported wide-floating-point CIM architecture, not proof of scientific-kernel accuracy or general system advantage. The explanation separates floating-point representation, serial mantissa work, carry handling, exponent alignment, memory hierarchy and the required numerical validation.</p>
+<p><span id="explanation-dac-2026-research2425"></span></p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>COM-BNN/RES-BNN: serial binary MRAM-CIM trades instantaneous power for time and must expose its sensing conditions</h2>
+<h3>What binary convolution still has to compute</h3>
+<p>A convolution multiplies a local input window by weights and accumulates the products before producing an output. In a binary neural network, weights and activations take two encoded values.</p><p>The multiply can be reduced to a bit comparison or XNOR-like operation, followed by a count and a signed transformation.</p>
+<p>Binary arithmetic is simpler than full-precision multiplication, but the system still moves windows, reuses weights and activations, forms partial sums and applies the network's scaling or threshold. The representation and encoding determine whether an equality count maps directly to the required signed convolution result.</p>
+<h3>What the MRAM-CIM array changes</h3>
+<p>MRAM stores a state through magnetic device behavior and produces a read signal that a sense circuit must distinguish. An MRAM-CIM array combines stored weights and incoming input signals near the memory cells.</p><p>This can reduce movement to a separate arithmetic unit, but it makes device read margin, reference generation, variation, temperature, retention, write cost and endurance part of computation correctness.</p>
+<p>The compute cell must deliver a reliable binary result across the intended current or voltage range. A low-power read that reduces the sense margin can increase error.</p><p>A write or reconfiguration operation can consume more energy than the binary computation itself. Array efficiency therefore needs separate accounting for read, write, sense, control, input loading and output transfer.</p>
+<h3>What serial operation changes</h3>
+<p>The captured source describes serial BNN computation with a temporal reconfigurable input and an Integrate-and-Fire adder. Instead of resolving a wide accumulation in one operation, the design processes contributions across time and accumulates them in a narrower state.</p>
+<p>Temporal input reconfiguration selects which input contribution is presented at each step. The Integrate-and-Fire accumulator integrates those contributions and emits or infers a result when a defined threshold or complete sequence condition is reached.</p><p>The exact threshold, reset behavior, bit encoding and output timing are not exposed in the captured evidence.</p>
+<p>Serial computation can reduce parallel hardware, ADC width or instantaneous switching activity. It increases the number of cycles and may increase leakage, clock energy, buffering and input movement.</p><p>Latency-power tradeoffs must therefore report mode, serial length, clock, completion condition, throughput and total energy per valid convolution.</p>
+<h3>What Exact Result Inferring needs to define</h3>
+<p>The source names an Exact Result Inferring method for binary convolution. An exact result method must specify how the encoded binary products, signed offset and accumulated contributions map to the final convolution output.</p><p>It must also state whether the method avoids an ADC, narrows the accumulator, predicts a threshold crossing or changes the schedule.</p>
+<p>“Exact” describes mathematical equivalence under declared assumptions. It does not mean the MRAM sense operation is error-free.</p><p>Device variation, a wrong binary read, temporal accumulation error or an incorrect reset can still produce a wrong output. The method's hardware overhead and error sensitivity need independent measurement.</p>
+<h3>Why the name discrepancy remains visible</h3>
+<p>The catalog record is titled COM-BNN, while the captured official source calls the proposed design RES-BNN. Until the full paper or an authoritative program record reconciles the names, the explanation preserves both labels.</p><p>A name mismatch can affect citation, source retrieval and comparison with other artifacts; it should not be silently normalized.</p>
+<h3>How to interpret the reported power claims</h3>
+<p>The captured source reports up to 85% energy reduction and 83% power reduction versus ADC-based CIM baselines, dynamic latency-power tradeoffs and serial-mode power as low as 0.03%. It does not provide absolute power, energy per inference, accuracy, area, frequency, read/write cost, endurance, variation or silicon conditions.</p>
+<p>The 0.03% figure especially requires the mode's execution time and work completed. Instantaneous power can fall while energy or latency rises.</p><p>The baseline must use the same binary model, output correctness, memory movement, precision, clock and measurement boundary. ADC-based CIM also needs a complete peripheral comparison, including whether the proposed serial design moves conversion or accumulation cost elsewhere.</p>
+<h3>What the record establishes and where it stops</h3>
+<p>The official description establishes a reported reconfigurable MRAM-CIM direction for binary convolution using serial computation, temporal input control, an Integrate-and-Fire accumulator and Exact Result Inferring. It reports relative power and energy claims and exposes a COM-BNN/RES-BNN naming discrepancy.</p><p>It does not expose accuracy, absolute PPA, sensing margin, process variation, endurance, write cost or silicon validation.</p>
+<p>The <a href="memory-compute-and-reliability.html#paper-dac-2026-research2425">COM-BNN/RES-BNN</a> record is evidence of a reported low-power binary-CIM proposal, not proof of a complete edge-inference advantage. The explanation separates binary mathematical work, MRAM sensing, serial latency, exact-result logic, naming uncertainty and the boundary of the power comparison.</p>
+<p><span id="explanation-dac-2026-research2123"></span></p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>DyPamear: dynamic graph mining on PIM must balance irregular work, update visibility and DPU movement</h2>
+<h3>What dynamic graph pattern mining computes</h3>
+<p>A graph contains vertices and edges. A pattern query asks whether a specified arrangement of vertices and relationships occurs in the graph, and may enumerate or count the matching subgraphs. Dynamic mining repeats this work while edges or vertices are inserted, deleted or changed.</p>
+<p>The computation is irregular because the number of neighbors differs by vertex and because candidate matches branch differently. A high-degree vertex can create many candidate intersections while another task finishes quickly.</p><p>The data is also scattered in adjacency structures, so memory access, queueing and synchronization can dominate the set-intersection arithmetic.</p>
+<h3>Why practical PIM changes the system boundary</h3>
+<p>Processing-in-memory places computation near stored graph data. DyPamear is built on UPMEM, a practical PIM platform with many data-processing units. The benefit depends on which graph structures reside in DPU memory, how tasks reach them, how DPUs communicate and how updates become visible.</p>
+<p>PIM does not remove movement automatically. Graph loading, partition metadata, pattern inputs, intermediate candidates and final matches may cross the host–DPU or DPU–DPU boundary. A complete latency and energy result must state whether preprocessing, partitioning, loading, update propagation and result collection are included.</p>
+<h3>What load-aware task distribution controls</h3>
+<p>Load-aware distribution assigns graph-pattern work using a cost estimate such as vertex degree, candidate count, intersection size or update activity. The purpose is to prevent one DPU from processing a large irregular task while other DPUs are idle.</p>
+<p>The estimate can be stale when the graph changes. Computing it also costs memory access and control.</p><p>Work may need to be split, migrated or combined, which adds queues and communication. Equal numbers of assigned tasks do not imply equal time because the tasks can have different degree and intersection behavior.</p>
+<h3>What data-driven asynchronous execution changes</h3>
+<p>In a synchronous design, workers wait for a phase or barrier before starting dependent work. Data-driven asynchronous execution starts a task when its inputs and a suitable DPU resource are ready. This can hide memory latency and keep independent work active.</p>
+<p>The design needs dependency tracking, queues, buffer limits, completion signals and an ordering rule for graph updates. Asynchrony cannot bypass a true dependency.</p><p>If a newly inserted edge changes an adjacency list while a query is reading it, the system needs a snapshot, lock, version or another consistency rule. Otherwise a result may combine states from different graph versions.</p>
+<h3>Why degree-adaptive set intersection matters</h3>
+<p>Pattern mining often intersects neighbor sets to find vertices satisfying multiple relationships. Intersecting a small set with a large set can use a different method from intersecting two large sets.</p><p>The kernel can choose scan, merge, lookup or another granularity according to degree and expected work.</p>
+<p>The adaptive choice must preserve duplicate handling, ordering, update visibility and result completeness. A method that reduces scans for static sorted lists may need extra work when updates make the representation unsorted or when version metadata is checked.</p><p>The kernel's benefit should be reported by degree distribution and update pattern, not only as one average.</p>
+<h3>How to interpret the reported speedups and scaling</h3>
+<p>The captured description reports average speedups of 267.38×, 82.52× and 8.78× over Cheetah, PimPam and PSMiner on real UPMEM hardware, and near-linear scaling to 20,480 DPUs. It also names a public source-code repository.</p>
+<p>These large ratios need the graph sizes, pattern queries, update traces, baseline implementations, DPU count, preprocessing, host transfers, output collection, DPU utilization and consistency conditions. Near-linear scaling requires a definition of the measured work and an explanation of how graph partitioning, communication and memory capacity scale.</p><p>A result on one degree distribution may not transfer to a graph with hubs or rapid updates.</p>
+<h3>What the record establishes and where it stops</h3>
+<p>The official description establishes a full-stack UPMEM PIM co-design for dynamic graph pattern mining using load-aware distribution, data-driven asynchronous execution and degree-adaptive intersection. It reports real-hardware speedups and scaling claims and identifies public source code.</p><p>It does not expose graph/update conditions, absolute throughput, preprocessing or transfer boundaries, energy, consistency, utilization or independent code reproduction.</p>
+<p>The <a href="memory-compute-and-reliability.html#paper-dac-2026-research2123">DyPamear</a> record is evidence of a reported dynamic-graph PIM system, not a graph-distribution-independent speedup or a complete dynamic-consistency result. The explanation separates irregular graph work, PIM placement, load balancing, asynchronous scheduling, adaptive intersection and end-to-end measurement.</p>
+<p><span id="explanation-dac-2026-research2282"></span></p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>BS-KMQ: nonlinear ADC references must follow activation distributions without hiding outliers or conversion cost</h2>
+<h3>What ADC quantization does in an IMC array</h3>
+<p>An in-memory-computing array produces an analog signal from stored values and applied activations. An analog-to-digital converter maps that signal range to a finite set of digital codes. The number and position of the ADC levels determine the reconstruction error.</p>
+<p>A uniform quantizer divides the input range into equal intervals. That is simple, but it can waste levels where few values occur and create large error where the distribution changes rapidly.</p><p>A nonlinear quantizer places narrower or wider intervals according to the observed distribution. Its quality depends on the calibration data and on whether deployment values follow the same distribution.</p>
+<h3>Why ReLU and clamping create boundary mass</h3>
+<p>ReLU maps negative values to zero. Clamping maps values outside a permitted range to a boundary. Both operations can produce many repeated or nearly repeated values at an edge of the activation distribution.</p>
+<p>If those edge values dominate clustering, K-means can place centers around the boundary mass and leave fewer useful centers for the interior range. The resulting quantizer may have low average error for calibration samples while poorly representing less frequent values that matter to later layers or rare inputs.</p>
+<h3>What BS-KMQ changes</h3>
+<p>Boundary Suppressed K-Means Quantization removes selected boundary outliers before clustering so the retained samples provide more informative quantization levels. The resulting nonlinear references are implemented in a reconfigurable in-memory nonlinear ADC.</p>
+<p>The method needs a defined boundary rule: which values are removed, how thresholds are chosen, whether the zero or clamp code is retained separately, and how deployment values outside the calibration range are handled. Removing an outlier during calibration does not make it impossible during inference.</p><p>The ADC must still map, saturate or signal that value.</p>
+<h3>What reconfigurable references cost</h3>
+<p>An in-memory nonlinear ADC changes comparator references or another transfer-function element so the code intervals are nonuniform. Reconfiguration requires reference storage, selection, switching and possibly calibration. The cost includes conversion time, comparator activity, reference-generation energy and control.</p>
+<p>Fewer levels can reduce ADC area, conversion work or data movement. That benefit is valid only if quantization error, analog noise, mismatch, nonlinearity and drift remain within the network's tolerance. The evaluation must measure the ADC and the reference circuitry, not only count output levels.</p>
+<h3>How quantization error becomes model accuracy</h3>
+<p>Quantization error is a local numerical difference. Model accuracy is an end-to-end task result after many layers use the quantized values. A local error can be amplified by a later normalization, attention operation or nonlinear function, while another layer may tolerate a larger error.</p>
+<p>Post-training quantization uses a calibration and evaluation procedure without changing the trained weights. Low-bit finetuning can adapt the model to the quantization error, so post-training and finetuned results answer different questions.</p><p>A fair comparison must keep model, dataset, calibration, bit allocation, training budget and accuracy metric explicit.</p>
+<h3>How to interpret the reported results</h3>
+<div class="worked"><p class="lm-k">Worked example</p><p>The captured description reports at least 3× lower quantization error than linear, Lloyd–Max, CDF and K-means methods; a 7× area improvement over two prior works; post-training accuracy gains up to 66.8%, 25.4%, 66.6% and 67.7% on ResNet-18, VGG-16, Inception-V3 and DistilBERT versus linear quantization; competitive finetuned accuracy with 3/3/4/4-bit ADC levels; and ResNet-18 6/2/3-bit simulation up to 4× speedup and 24× energy efficiency over existing IMC accelerators.</p></div>
+<p>These ratios need the absolute errors, accuracy definition, layer-wise bit allocation, ADC conversion cost, calibration, model list, process and variation conditions, reference-generation overhead and complete system boundary. A simulated system-level result is not the same as a measured ADC or silicon result.</p>
+<h3>What the record establishes and where it stops</h3>
+<p>The official description establishes BS-KMQ as a boundary-aware nonlinear quantization method coupled to a reconfigurable in-memory nonlinear ADC. It reports quantization, area, model-accuracy and simulated system-level claims across named networks and bit settings.</p><p>It does not expose calibration, variation, absolute ADC/macro PPA, reference overhead, silicon status or complete energy accounting.</p>
+<p>The <a href="memory-compute-and-reliability.html#paper-dac-2026-research2282">BS-KMQ</a> record is evidence of a reported quantizer/ADC co-design, not proof of a universal IMC efficiency or accuracy advantage. The explanation separates distribution modeling, ADC transfer levels, local quantization error, end-to-end model quality and system cost.</p>
+<p><span id="explanation-dac-2026-research155"></span></p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="chart-bar"></span>AccelCIM: SRAM-CIM dataflow must include the memory hierarchy, not only the array operation</h2>
+<h3>What a CIM dataflow decides</h3>
+<p>Compute-in-memory places part of an operation inside or next to the memory that stores operands. In an SRAM CIM accelerator, a macro contains storage cells, wordlines, bitlines and compute or sensing circuits.</p><p>The macro can process many values in parallel, but it has finite capacity, precision, bandwidth and conversion resources.</p>
+<p>A model larger than the macro must be divided into tiles. The dataflow decides which weights, activations and partial sums remain local, when they move to another macro, and when they move to a larger memory or host.</p><p>This determines whether the array spends time computing or waiting for data and whether intermediate results are repeatedly converted and transferred.</p>
+<h3>Why macro and macro-array choices are different</h3>
+<p>At the macro level, the design may choose operand stationarity, bit-plane order, precision, row and column use, accumulation mode and conversion schedule. These choices affect valid-lane utilization, ADC/DAC activity, local storage and partial-sum accuracy.</p>
+<p>At the macro-array level, the system chooses tile placement, inter-macro communication, reduction order, buffer sizes, multicast or broadcast paths and the assignment of layers or tensor dimensions. A macro can be efficient in isolation while the array is limited by links, buffers, synchronization or an uneven tile distribution.</p>
+<p>The two levels interact. Increasing macro parallelism can raise arithmetic capacity while increasing interconnect traffic and conversion activity. Making a tile larger can improve reuse while exceeding local storage. A dataflow result must therefore state both the macro configuration and the array organization.</p>
+<h3>Why large models expose the movement cost</h3>
+<p>If a DNN fits completely in the available CIM storage, weights may be loaded once and reused locally. Large LLMs generally exceed one macro or one on-chip array.</p><p>Weight tiles must be loaded, activations may cross memory levels, and partial sums may be reduced across macros or retained until later stages.</p>
+<p>Sequence length, batch, layer shape and reuse determine how often those transfers occur. A dataflow selected for a small model or one layer can become poor when the same model is partitioned across macros.</p><p>The total result must include weight loading, activation movement, partial-sum movement, output transfer, conversion and idle cycles.</p>
+<h3>What systematic exploration and simulation provide</h3>
+<p>AccelCIM is described as a framework that spans macro configurations and macro-array organizations. Cycle-accurate architectural simulation can model issue timing, stalls, buffers, transfers, synchronization and operation latency for a specified architecture. It can reveal bottlenecks that a peak TOPS calculation hides.</p>
+<p>Post-layout PPA analysis estimates physical area, timing and power after a particular implementation has been laid out. It can capture effects absent from an abstract macro model, but it remains conditional on the process library, extraction, voltage, frequency, peripheral design, ADC/DAC model and activity assumptions.</p>
+<p>The framework's conclusions are therefore bounded by its design space and models. A search cannot find a configuration it does not represent.</p><p>A simulator cannot validate a macro model whose noise, conversion cost, calibration or memory behavior has not been measured. A post-layout estimate is not a silicon measurement.</p>
+<h3>How to interpret the LLM application claim</h3>
+<p>The captured description says AccelCIM is applied to representative LLM applications and provides practical dataflow-design insights. It does not report numerical TOPS/W, area, accuracy, search cost, peripheral overhead or a ranking of specific dataflows.</p>
+<p>The LLM study should identify model sizes, layers, sequence lengths, precision, sparsity, memory hierarchy, tiling, calibration, dataflow, hardware configuration and baseline mapping. It should separate compute time from weight movement, activation movement, partial-sum reduction, conversion and control.</p><p>Without those details, “practical insights” establishes the study's purpose, not a universal best dataflow.</p>
+<h3>What the record establishes and where it stops</h3>
+<p>The official description establishes a systematic SRAM-CIM dataflow-exploration framework covering CIM macro configurations and macro-array organizations, with cycle-accurate simulation, post-layout PPA analysis and representative LLM applications. It does not expose numerical PPA, search cost, peripheral overhead, calibrated macro behavior or specific mapping results.</p>
+<p>The <a href="memory-compute-and-reliability.html#paper-dac-2026-research155">AccelCIM</a> record is evidence of a design-space methodology, not proof that one dataflow is optimal across CIM technologies, models or memory capacities. The explanation separates local array work, hierarchy-level movement, simulation, post-layout modeling and the limits of unreported results.</p>
+<p><span id="explanation-dac-2026-research1605"></span></p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>MANTIS: microscaled block floating point must carry scale information through an analog SRAM-compatible MAC</h2>
+<h3>Why reduced precision needs a scale</h3>
+<p>Floating-point values represent a magnitude with a significand and a scale. Reducing the significand width saves storage and arithmetic, but a fixed narrow integer range cannot represent values whose magnitudes vary widely.</p><p>Block floating point addresses this by sharing a scale across a group of values and storing lower-precision members relative to that scale.</p>
+<p>Microscaling applies this idea to small vectors or blocks. The integer values can be processed efficiently, while a scale value preserves part of the dynamic range.</p><p>The scale is not optional metadata: the group size, scale format, rounding, saturation and accumulation width determine the numerical result.</p>
+<h3>What MANTIS separates</h3>
+<p>MANTIS performs vector integer multiply-accumulate operations in the analog charge domain and applies per-vector FP8 scaling digitally through microscaling. The analog array handles the repeated integer accumulation; the digital path supplies the scale needed to interpret the result.</p>
+<p>This separation can make the analog operation simpler than directly implementing floating-point arithmetic in the array. It also creates a complete data path that includes scale storage, scale alignment, zero handling, overflow or saturation, accumulation range and conversion.</p><p>TOPS/W for the integer MAC is not the same boundary as energy for a correctly scaled neural-network layer.</p>
+<h3>What charge-domain accumulation means</h3>
+<p>In a charge-domain MAC, weighted contributions affect charge on capacitive nodes before an ADC converts the accumulated signal into a digital value. This can reduce repeated movement between memory and arithmetic, but the signal is affected by capacitor mismatch, thermal noise, reference accuracy, settling, nonlinearity and input range.</p>
+<p>The ADC's effective number of bits describes usable resolution under a measurement condition, not simply the nominal code width. Accumulation depth and precision mode change the signal range and the required separation between adjacent results.</p><p>Calibration and operating voltage can change the usable result, so the evaluation must state whether the reported ENOB is measured, simulated, calibrated and representative of the full MAC sequence.</p>
+<h3>Why reusing the SAR ADC DAC matters</h3>
+<p>A successive-approximation-register ADC uses a DAC and a comparison sequence to resolve an analog input. MANTIS reuses the DAC in that ADC as both a bit-plane charge-domain accumulator and part of the conversion path.</p><p>Reuse can reduce duplicated capacitors and circuitry, but it couples accumulation timing, capacitor settling, DAC linearity, reference generation and ADC scheduling.</p>
+<p>The macro must define when the DAC accumulates, when it is reset, when the ADC begins conversion and how the partial state is isolated from the next operation. These phases contribute to latency and energy.</p><p>Reusing the circuit also means that an error affecting conversion may affect accumulation, so the error budget must cover both functions.</p>
+<h3>What SRAM compatibility does and does not prove</h3>
+<p>The description calls the design foundry-SRAM-compatible and reports a 4 kb macro in a commercially available 12-nm process operating at 0.8 V. Compatibility means the design is intended to fit the process and memory integration constraints; it does not automatically mean equal density, yield, retention, access timing or reliability to a conventional SRAM.</p>
+<p>The added compute cells, DAC/ADC circuitry, references, calibration, control and input/output paths can dominate area and energy. A complete comparison must state whether TOPS/W includes ADC conversion, scaling, data movement, calibration and all active peripherals, and whether the 4 kb capacity includes metadata and unused cells.</p>
+<h3>How to interpret the model results</h3>
+<p>The captured description reports 22.5 TOPS/W for MXINT3×MXINT3 through 6.43 TOPS/W for MXINT8×MXINT3, an 8-bit ADC with 7.62 ENOB, and 0.15 percentage-point accuracy degradation across multiple open-weight LLMs on MMLU 5-shot and HellaSwag 0-shot versus an MXINT8-activation × MXINT3-weight quantized baseline. It also reports MXINT6 or MXINT3 plus an FP8 scalar within ±0.3% of quantized models.</p>
+<p>Those results need model names, calibration data, sequence lengths, layer coverage, token counts, precision conversion, ADC and peripheral energy, and the definition of the accuracy comparison. A small average model-quality change does not establish that every layer or distribution is equally robust, and a macro efficiency result does not establish complete accelerator efficiency.</p>
+<h3>What the record establishes and where it stops</h3>
+<p>The official description establishes a 12-nm, 4 kb, 0.8 V mixed-signal SRAM-compatible CNM/CIM macro that combines analog integer MAC, digital microscaling and SAR ADC/DAC reuse. It reports ENOB, precision-dependent efficiency and end-to-end language-model evaluation.</p><p>It does not expose frequency, area, calibration, process corners, yield, total peripheral accounting, silicon status or complete system comparison.</p>
+<p>The <a href="memory-compute-and-reliability.html#paper-dac-2026-research1605">MANTIS</a> record is evidence of a reported mixed-signal macro and model evaluation, not proof that analog computation is invisible to all reduced-precision workloads or that the macro beats a full digital accelerator. The explanation separates scale metadata, analog accumulation, conversion resolution, SRAM integration and end-to-end quality.</p>
+<p><span id="explanation-dac-2026-research544"></span></p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>DRCA: dual-rail DRAM logic must preserve sensing margin while adding compute and access circuitry</h2>
+<h3>What a DRAM bitline pair normally does</h3>
+<p>A DRAM cell stores charge in a capacitor. During a read, the cell shares charge with a bitline, creating a small voltage change.</p><p>A complementary bitline and reference condition allow a sense amplifier to detect the difference, drive the signals to full levels and restore the cell.</p>
+<p>The bitline pair is therefore part of both storage access and signal resolution. Its capacitance, leakage, coupling, device mismatch, activation timing and supply voltage affect whether the sense amplifier makes the correct decision.</p><p>Using the pair for logic changes the sequence of activations and the electrical states that must remain distinguishable.</p>
+<h3>What dual-rail compute changes</h3>
+<p>Dual-rail logic represents complementary information on both rails of the bitline pair. DRCA is described as using the two rails for both computation and data access instead of leaving one naturally available rail underused.</p><p>Full-swing signaling can provide a larger logical separation after sensing, but it requires matched paths and additional control so the rails do not load or disturb one another unevenly.</p>
+<p>The hardware cost is not limited to the compute cell. Contacts, transistor sizing, wordline control, sense-amplifier timing, restore behavior and peripheral drivers all affect area, energy and reliability.</p><p>A dual-rail result must be checked during the operation and after the cell is restored for ordinary DRAM use.</p>
+<h3>What DRCA-OR and DRCA-XOR provide</h3>
+<p>The description names DRCA-OR and DRCA-XOR as dual-contact compute cells. An OR cell must produce a one when either encoded input is one.</p><p>An XOR cell must produce a one when the encoded inputs differ. The circuit implements these truth tables through charge sharing, transistor conduction or another array-level signal operation; the captured evidence does not disclose the exact sequence.</p>
+<p>For each cell, a complete explanation needs the input encoding, activated rows or columns, intermediate voltage, sense threshold, output restore and behavior under repeated access. The truth table describes logical intent, but it does not establish that the voltage distributions remain separated under process, voltage, temperature, coupling and disturbance conditions.</p>
+<h3>Why concurrent operations matter</h3>
+<p>Compound bitwise logic can require several intermediate operations. If the same bitline pair can perform compatible operations concurrently, the design may reduce activation count and intermediate transfers.</p><p>That benefit depends on whether the intermediate signals remain distinguishable and whether inputs needed by later operations are preserved.</p>
+<p>The control schedule must specify which wordlines are active, when sensing occurs, when state is restored and how the next operation receives the correct operands. A concurrent sequence that saves cycles but overwrites an input or leaves a disturbed cell unrestored is not a valid computation.</p><p>Throughput must include initialization, sensing, restore, row activation and output access.</p>
+<h3>How to interpret the reliability result</h3>
+<p>The captured description reports a 2.29× reduction in failure rate versus the most robust prior PIM design and superior average performance on basic bitwise operations. The absolute failure rates, failure definition, fault-injection or physical-variation model, voltage margins, temperature, process, timing, energy, area and peripheral boundaries are not exposed.</p>
+<p>Failure rate must be tied to a defined operation and condition. A result under a simulated voltage sweep is different from measured silicon failures under process and temperature variation.</p><p>Performance on basic OR or XOR operations is different from end-to-end compound logic when intermediate restore, data movement and error accumulation are included.</p>
+<h3>What the record establishes and where it stops</h3>
+<p>The official description establishes a dual-rail DRAM compute-and-access direction using DRCA-OR and DRCA-XOR cells, full-swing complementary signaling and concurrent bitline-pair operations. It reports a relative failure-rate reduction and average basic-bitwise performance benefit.</p><p>It does not expose absolute error, voltage margin, process/temperature coverage, latency, energy, area or complete peripheral cost.</p>
+<p>The <a href="memory-compute-and-reliability.html#paper-dac-2026-research544">DRCA</a> record is evidence of a reported DRAM-PIM circuit scheme, not proof of silicon-level reliability or complete memory-system efficiency. The explanation separates bitline sensing, dual-rail representation, cell-level logic, concurrent scheduling and the physical conditions required for a reliability claim.</p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>What the selected records reveal</h2>
+<p>DRCA proposes a dual-rail compute-and-access scheme for bitwise logic in DRAM. The captured description names the scheme but does not establish its detailed encoding or measured error behavior.</p><p>The useful evidence would identify which failure conditions it handles and the additional activation, storage, or circuit cost. <a href="memory-compute-and-reliability.html#paper-dac-2026-research544">Recorded evidence</a></p>
+<p>The 12-nm SRAM-compatible macro record concerns computation near memory using a microscaled block-floating-point format. Such a format groups numerical values with scale information.</p><p>Its cost and output quality depend on the grouping and on hardware used around the array. The current description does not provide measured accuracy, area, energy, or yield sufficient to establish the combined result. <a href="memory-compute-and-reliability.html#paper-dac-2026-research1605">Recorded evidence</a></p>
+<p>Accelcim instead examines dataflow choices for SRAM-based computation. A dataflow specifies where intermediate values remain and when operations use them.</p><p>A search can select different configurations depending on which array, transfer, and surrounding-circuit costs its model includes. Those modeling assumptions need calibration before interpreting the selected design as an improvement. <a href="memory-compute-and-reliability.html#paper-dac-2026-research155">Recorded evidence</a></p>
+<p>The ADC-based nonlinear-activation record changes how a nonlinear output is converted and quantized. Combining operations can reduce some steps, but the comparison must still establish the transfer function, numerical error, conversion cost, and sensitivity to device conditions. <a href="memory-compute-and-reliability.html#paper-dac-2026-research2282">Recorded evidence</a></p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="route"></span>How to assess the complete result</h2>
+<p>Specify the intended operation and its correct output, including any explicitly allowed approximation. Test relevant input distributions and difficult values. Sweep the physical conditions identified by the design and report error distributions, rather than only average numerical accuracy.</p>
+<p>Measure throughput and energy for valid outputs with protection or correction enabled. Include extra information, retries, calibration, conversion, and fallback computation. If some behavior is simulated and other behavior is measured, preserve those boundaries in the results.</p>
+<p>The research connection across these records is that memory-side efficiency depends on both data organization and valid physical operation. Their shared category does not establish that one paper's protection or accuracy result applies to another device.</p><p>That transfer requires a common operating model and a checked mapping between the operations.</p>
+<p class="lm-k h-label">Compare the results carefully</p><h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="route"></span>How to compare these papers’ results fairly</h2>
+<p>First identify the inputs and required output quality. Then identify the limited resource: time, memory, communication, energy, circuit area, or correctness coverage.</p><p>Ask which part of the method reduces that cost and which new cost it adds. Compare numbers only when the experiments hold these conditions sufficiently similar.</p>
+<p>A conference description may explain the proposal while omitting the full experiment. An author preprint link may have been coded from its abstract. The source classification does not by itself establish that every table was read. Missing locations remain visible below.</p>
+<p class="lm-k h-label">Complete captured evidence</p><h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="file-text"></span>Every paper in this subtheme, with what its source shows</h2>
+<p>These are evidence records, not substitutes for the explanations above. Each record preserves its problem, proposed method, measurements, comparison conditions, and source limits. A populated record does not establish that its mechanism has been fully explained or independently verified.</p>
+<p><span id="paper-dac-2026-research544"></span></p>
+<h3>DRCA: Reliable Bitwise Logic in DRAM via Dual-Rail Compute and Access</h3>
+<p>DAC 2026 · Record: <code>dac-2026-research544</code></p>
+<p><a href="#explanation-dac-2026-research544">Read the step-by-step explanation</a></p>
+<p><strong>Updated source-backed reading card</strong></p>
+<div class="worked"><p class="lm-k">Worked example</p><p>Reviewed 2026-09-08. Reconciles the DRCA card with the captured official DAC description; explains DRAM bitline-pair operation, dual-rail complementary signaling, compute-and-access cells, concurrent bitwise operations and the distinction between simulated reliability claims and complete memory-system cost.</p></div>
+<p>This editorial correction updates the current reading view and connected dossiers, not the historical adjudication or scientific acceptance status. The original captured fields are preserved below.</p>
+<p><a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/data/editorial-paper-corrections-v1.json">Correction register</a></p>
+<p><strong>Problem:</strong></p>
+<p>In-DRAM bitwise logic can be sensitive to voltage variation, coupling, sensing margin and disturbance because the operation uses storage-array signals for computation rather than only reading a stored bit.</p>
+<p><strong>Mechanism / artifact:</strong></p>
+<p>DRCA: dual-rail compute-and-access scheme using both complementary rails of a DRAM bitline pair, with DRCA-OR and DRCA-XOR dual-contact compute cells, full-swing signaling and concurrent operations on one bitline pair.</p>
+<p><strong>Workload — the work tested:</strong></p>
+<p>Basic bitwise OR and XOR and complex bitwise logic processing; process, voltage, temperature, disturbance pattern, data distribution, timing and operation mix are unspecified.</p>
+<p><strong>Hardware and manufacturing assumptions:</strong></p>
+<p>DRAM array with dual-contact compute cells and dual-rail access; cell geometry, sense amplifiers, bitline capacitance, process node, voltage, timing, area, activation energy and peripheral circuitry are unspecified.</p>
+<p><strong>Baseline — the comparison method:</strong></p>
+<p>Most robust prior PIM design</p>
+<p>Single-rail DRAM compute</p>
+<p>Host-side bitwise logic</p>
+<p>Cell, voltage, timing, fault-injection, peripheral-cost and measurement boundaries are unspecified</p>
+<p><strong>Reported measurements:</strong></p>
+<p>The captured official description reports a 2.29× reduction in failure rate versus the most robust prior PIM design and superior average performance on basic bitwise operations; it does not report absolute error rate, voltage margin, latency, energy, area or temperature results.</p>
+<p><strong>Limits on the conclusion:</strong></p>
+<p>A DRAM bitline pair carries complementary signals associated with a cell and its reference or sensing path. A normal access uses the pair to develop a small voltage difference that a sense amplifier resolves and restores.</p><p>In-memory computation changes the activation and combination sequence so the electrical state represents a logic result, making charge sharing, leakage, coupling and timing part of logical correctness.</p>
+<p>Dual-rail signaling uses both complementary rails instead of leaving one rail underused. Full-swing signals can create a larger sensing margin than a small analog difference under some conditions, but the two rails require matched devices, additional contacts and control.</p><p>Mismatch or unequal loading can reduce the expected benefit.</p>
+<p>DRCA-OR and DRCA-XOR are named dual-contact compute cells. The evaluation must show the input encoding, activation sequence, sense-amplifier decision, restore behavior and how the cell's physical changes affect retention and ordinary DRAM access.</p><p>A logic truth table is not enough to establish operation across process, voltage, temperature and disturbance conditions.</p>
+<p>Concurrent operations on one bitline pair can reduce the number of sequential activations needed for a compound bitwise function. Concurrency is valid only if intermediate states remain distinguishable and the sense/restore sequence does not corrupt inputs needed by later operations.</p><p>The timing schedule, reset or restore policy and data dependencies determine whether the throughput benefit survives in a full array.</p>
+<p>The source reports a 2.29× failure-rate reduction and better average basic-bitwise performance against a prior PIM design, but does not expose absolute failure rates, voltage margins, fault distribution, temperature, process variation, latency, energy, area or peripheral costs. Dual rails and extra contacts may increase array area and activation energy; the record establishes a reported DRAM-PIM scheme, not silicon-level reliability or complete system efficiency.</p>
+<p><strong>Source and location</strong></p>
+<p>Evidence tier: Primary captured official DAC description only; no full paper extraction, dram cell/sense amplifier artifact reproduction or independent process variation, voltage margin, temperature, silicon, energy and peripheral cost validation. This is the stored source classification; the location and limits below determine what was actually read.</p>
+<p><a href="https://63dac.conference-program.com/?post_type=page&amp;p=16&amp;id=RESEARCH544">Open the recorded source</a></p>
+<p>DAC 2026 official description and data/review-packets/dac-2026-research544.json: single-bitline PIM limitation; complementary bitline-pair rails; DRCA-OR and DRCA-XOR dual-contact cells; full-swing dual-rail signaling; concurrent operations; 2.29× failure-rate reduction versus most robust prior PIM; superior average basic-bitwise performance; omitted absolute error, voltage, process, energy, area and temperature conditions.</p>
+<details markdown="1">
+<summary>Original captured fields — superseded for this reading card</summary>
+
+** page source tier:** medium_official_description
+
+**Baselines:** single-rail DRAM compute
+
+host-side bitwise logic
+
+**Evidence locators:** DAC 2026 official description
+
+**Evidence url:** https://63dac.conference-program.com/?post_type=page&amp;p=16&amp;id=RESEARCH544
+
+**Hardware or process assumptions:** DRAM array supporting compute-in-memory operations and dual-rail access; technology and timing assumptions are unspecified.
+
+**Limits:** No error rate, voltage margin, latency, energy, area, or temperature results are reported.
+
+Dual-rail design may increase area and activation energy.
+
+Official description only; silicon-level variation testing is required.
+
+**Method or artifact:** Dual-rail compute-and-access scheme for reliable DRAM logic.
+
+**Metrics:** Bitwise reliability and efficiency are claimed qualitatively
+
+**Problem:** In-DRAM bitwise operations can be sensitive to variation, coupling, and reduced voltage margins.
+
+**Workload or benchmark:** DRAM bitwise operations; process, voltage, disturbance, and baseline cells are unspecified.
+
+</details>
+<p><span id="paper-dac-2026-research1605"></span></p>
+<h3>Foundry-SRAM-Compatible Compute-Near-Memory Macro for Microscaled Block-FP in 12-nm CMOS</h3>
+<p>DAC 2026 · Record: <code>dac-2026-research1605</code></p>
+<p><a href="#explanation-dac-2026-research1605">Read the step-by-step explanation</a></p>
+<p><strong>Updated source-backed reading card</strong></p>
+<div class="worked"><p class="lm-k">Worked example</p><p>Reviewed 2026-09-08. Reconciles the MANTIS card with the captured official DAC description; explains microscaled block floating point, MXINT arithmetic, FP8 scale handling, analog charge-domain accumulation, SAR ADC/DAC reuse, SRAM compatibility and the reported macro efficiency and end-to-end accuracy conditions.</p></div>
+<p>This editorial correction updates the current reading view and connected dossiers, not the historical adjudication or scientific acceptance status. The original captured fields are preserved below.</p>
+<p><a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/data/editorial-paper-corrections-v1.json">Correction register</a></p>
+<p><strong>Problem:</strong></p>
+<p>Reduced-precision transformer inference needs both efficient integer arithmetic and enough dynamic range. Analog compute-in/near-memory methods must handle floating-point scale information without losing the efficiency of local accumulation or requiring an incompatible memory macro.</p>
+<p><strong>Mechanism / artifact:</strong></p>
+<p>MANTIS: a foundry-SRAM-compatible mixed-signal 12-nm CNM/CIM macro that performs vector integer MACs in the analog charge domain and applies per-vector FP8 scaling digitally through microscaling. It reuses the SAR ADC DAC as a bit-plane charge-domain accumulator and as part of the ADC.</p>
+<p><strong>Workload — the work tested:</strong></p>
+<p>Reduced-precision transformer workloads and open-weight LLMs evaluated on MMLU 5-shot and HellaSwag 0-shot; exact models, sequence lengths, calibration, token counts, layer coverage and software stack are unspecified.</p>
+<p><strong>Hardware and manufacturing assumptions:</strong></p>
+<p>Commercially available 12-nm CMOS, 4 kb SRAM-compatible macro operating at 0.8 V, 8-bit ADC with 7.62 ENOB; frequency, area, power boundary, peripheral overhead, process corners, yield and silicon measurement conditions are unspecified.</p>
+<p><strong>Baseline — the comparison method:</strong></p>
+<p>MXINT8 activation × MXINT3 weight quantized baseline</p>
+<p>Digital SRAM-near-memory compute</p>
+<p>Floating-point accelerator</p>
+<p>Model, calibration, precision, memory traffic, peripheral inclusion and system measurement boundaries are unspecified</p>
+<p><strong>Reported measurements:</strong></p>
+<p>The captured official description reports 22.5 TOPS/W for MXINT3×MXINT3 through 6.43 TOPS/W for MXINT8×MXINT3, an 8-bit ADC with 7.62 ENOB, 0.15 percentage-point accuracy degradation across multiple open-weight LLMs versus an MXINT8×MXINT3 quantized baseline, and reduced-precision MXINT6/MXINT3 plus FP8-scalar results within ±0.3% of quantized models; exact measurement and model conditions are not fully exposed.</p>
+<p><strong>Limits on the conclusion:</strong></p>
+<p>Block floating point stores a shared scale for a group of values and lower-precision mantissas or integers for the members. Microscaling makes the scale metadata explicit: the integer MAC produces a local result, and the digital scale factors restore the represented magnitude.</p><p>The group size, scale format, rounding, saturation and accumulation range determine the numerical error.</p>
+<p>MANTIS uses MXINT values for the analog MAC and applies FP8 scaling digitally. This separates high-throughput integer accumulation from dynamic-range adjustment, but the scale path must remain synchronized with the vector, handle zero and overflow, and account for scale storage and movement.</p><p>A result for the integer MAC alone does not establish the cost of the complete scaled operation.</p>
+<p>Charge-domain accumulation combines analog charge contributions before the ADC resolves the result. The ADC's effective number of bits, capacitor mismatch, thermal noise, nonlinearity, reference accuracy and input range determine whether the accumulated value is distinguishable.</p><p>The 8-bit nominal ADC and 7.62 ENOB must be interpreted with the accumulation depth, calibration, voltage and operating conditions.</p>
+<p>Reusing the SAR ADC DAC as both a bit-plane accumulator and part of conversion can reduce duplicated circuitry, but it couples accumulation timing, capacitor settling, DAC linearity and ADC conversion scheduling. SRAM compatibility also requires the macro to fit the foundry memory constraints while adding compute cells and mixed-signal peripherals; compatibility alone does not establish equal density, yield or reliability to a standard SRAM.</p>
+<p>The description reports a 4 kb, 0.8 V, 12-nm macro, 22.5 to 6.43 TOPS/W across precision modes, 7.62 ENOB and end-to-end MMLU/HellaSwag accuracy deltas. It does not expose frequency, area, total peripheral energy, calibration, process corners, yield, model list, layer coverage or silicon measurement boundary.</p><p>The results establish a reported mixed-signal macro and model evaluation, not a complete system-level advantage over digital or floating-point accelerators.</p>
+<p><strong>Source and location</strong></p>
+<p>Evidence tier: Primary captured official DAC description only; no full paper extraction, macro/adc artifact reproduction or independent mixed signal, calibration, ppa, yield, silicon and end to end model validation. This is the stored source classification; the location and limits below determine what was actually read.</p>
+<p><a href="https://63dac.conference-program.com/?post_type=page&amp;p=16&amp;id=RESEARCH1605">Open the recorded source</a></p>
+<p>DAC 2026 official description and data/review-packets/dac-2026-research1605.json: MANTIS; 12-nm foundry-SRAM-compatible 4 kb macro at 0.8 V; analog charge-domain vector integer MAC; digital per-vector FP8 scaling via MXFP; SAR ADC DAC reuse; 8-bit ADC and 7.62 ENOB; 22.5 to 6.43 TOPS/W precision range; MMLU/HellaSwag accuracy results; omitted frequency, area, calibration, yield, peripheral and silicon conditions.</p>
+<details markdown="1">
+<summary>Original captured fields — superseded for this reading card</summary>
+
+** page source tier:** medium_official_description
+
+**Baselines:** digital SRAM-near-memory compute
+
+floating-point accelerator
+
+**Evidence locators:** DAC 2026 official description
+
+**Evidence url:** https://63dac.conference-program.com/?post_type=page&amp;p=16&amp;id=RESEARCH1605
+
+**Hardware or process assumptions:** 12-nm foundry SRAM-compatible macro; voltage, frequency, precision, and measured silicon conditions are unspecified.
+
+**Limits:** No TOPS/W, area, frequency, accuracy, yield, or peripheral overhead results are reported.
+
+Block-FP scaling may introduce accuracy variation.
+
+Official description only; measured silicon evidence is required.
+
+**Method or artifact:** 12-nm CMOS compute-near-memory SRAM macro supporting microscaled block-FP.
+
+**Metrics:** Macro efficiency and compatibility are claimed qualitatively
+
+**Problem:** Efficient block-floating-point computation near standard SRAM requires compatibility with foundry processes and manageable peripheral cost.
+
+**Workload or benchmark:** Neural-network block-FP workloads; macro dimensions, ADC/DAC, accuracy, and baselines are unspecified.
+
+</details>
+<p><span id="paper-dac-2026-research155"></span></p>
+<h3>Accelcim: Systematic Dataflow Exploration for SRAM Compute-in-Memory Accelerator</h3>
+<p>DAC 2026 · Record: <code>dac-2026-research155</code></p>
+<p><a href="#explanation-dac-2026-research155">Read the step-by-step explanation</a></p>
+<p><strong>Updated source-backed reading card</strong></p>
+<div class="worked"><p class="lm-k">Worked example</p><p>Reviewed 2026-09-08. Reconciles the AccelCIM card with the captured official DAC description; explains SRAM-CIM capacity limits, macro and macro-array dataflow choices, off/on-chip movement, cycle-accurate simulation, post-layout PPA analysis and the limits of unreported exploration results.</p></div>
+<p>This editorial correction updates the current reading view and connected dossiers, not the historical adjudication or scientific acceptance status. The original captured fields are preserved below.</p>
+<p><a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/data/editorial-paper-corrections-v1.json">Correction register</a></p>
+<p><strong>Problem:</strong></p>
+<p>SRAM CIM can execute many operations near stored weights, but macro capacity is limited. Large DNN and LLM workloads therefore require transfers between macros, larger memory and possibly the host, making dataflow and placement central to total performance and energy.</p>
+<p><strong>Mechanism / artifact:</strong></p>
+<p>AccelCIM: systematic SRAM-CIM dataflow exploration spanning CIM macro configurations and macro-array organizations, evaluated with cycle-accurate architectural simulation and post-layout PPA analysis, and applied to representative LLM applications.</p>
+<p><strong>Workload — the work tested:</strong></p>
+<p>Representative LLM applications and DNN workloads; model sizes, layers, tensor shapes, precision, sparsity, sequence lengths, memory capacity and mapping constraints are unspecified.</p>
+<p><strong>Hardware and manufacturing assumptions:</strong></p>
+<p>SRAM CIM macros and macro arrays with analog/digital compute, on-chip memory hierarchy and off-chip movement; macro capacity, array dimensions, process, ADC/DAC, interconnect, frequency, voltage and peripheral models are unspecified.</p>
+<p><strong>Baseline — the comparison method:</strong></p>
+<p>Fixed SRAM-CIM dataflow</p>
+<p>Digital accelerator mapping</p>
+<p>DNN/CIM macro, precision, memory, process, simulator and PPA measurement boundaries are unspecified</p>
+<p><strong>Reported measurements:</strong></p>
+<p>The captured official description reports systematic design-space exploration, cycle-accurate architectural simulation, post-layout PPA analysis and LLM application study, but no TOPS/W, area, accuracy, search cost, peripheral result or numerical dataflow ranking is reported.</p>
+<p><strong>Limits on the conclusion:</strong></p>
+<p>A CIM macro performs part of a neural operation inside or next to the memory array. The macro has finite rows, columns, precision and conversion capacity, so a model larger than the available storage must be tiled and its weights, activations and partial sums moved between macros or external memory.</p>
+<p>A dataflow defines where weights, activations and partial sums reside and when each moves. At the macro level it can choose which operand is stationary and how bit planes are processed.</p><p>At the macro-array level it can choose tiling, placement, interconnect routes, reduction order and reuse across macros. These choices change array utilization, buffer occupancy, transfer volume, conversion count and synchronization.</p>
+<p>Systematic exploration is useful only when the search space contains the relevant hardware and mapping choices. A cycle-accurate simulator can estimate stalls and movement for a defined architecture, while post-layout PPA analysis can estimate physical area, timing and power for a defined implementation.</p><p>Neither result is independent of the macro model, peripheral assumptions, calibration and technology library.</p>
+<p>Large LLMs make off-chip movement important because weights and activations may not fit in the CIM array. An efficient mapping must include weight loading, activation movement, partial-sum accumulation, sequence or batch reuse and output transfer.</p><p>A dataflow that is best for a model fitting on chip may be poor when the model is partitioned across memory levels.</p>
+<p>The description establishes a framework and evaluation method but reports no numerical TOPS/W, area, accuracy, search cost, peripheral overhead or dataflow ranking. Results may depend on model, precision, array capacity, technology and calibrated macro behavior; the record is evidence of a systematic exploration proposal, not a universal CIM dataflow conclusion.</p>
+<p><strong>Source and location</strong></p>
+<p>Evidence tier: Primary captured official DAC description only; no full paper extraction, simulator/design space artifact reproduction, calibrated cim macro, post layout database or independent ppa and LLM mapping validation. This is the stored source classification; the location and limits below determine what was actually read.</p>
+<p><a href="https://63dac.conference-program.com/?post_type=page&amp;p=16&amp;id=RESEARCH155">Open the recorded source</a></p>
+<p>DAC 2026 official description and data/review-packets/dac-2026-research155.json: SRAM-CIM density/efficiency; limited capacity and on/off-chip movement; macro-configuration and macro-array dataflow design space; cycle-accurate architectural simulation; post-layout PPA analysis; representative LLM applications; omitted numerical PPA, search, peripheral and ranking results.</p>
+<details markdown="1">
+<summary>Original captured fields — superseded for this reading card</summary>
+
+** page source tier:** medium_official_description
+
+**Baselines:** fixed CIM dataflow
+
+digital accelerator mapping
+
+**Evidence locators:** DAC 2026 official description
+
+**Evidence url:** https://63dac.conference-program.com/?post_type=page&amp;p=16&amp;id=RESEARCH155
+
+**Hardware or process assumptions:** SRAM CIM macro with analog/digital compute and memory hierarchy; process and peripheral models are unspecified.
+
+**Limits:** No TOPS/W, area, accuracy, search cost, or peripheral results are reported.
+
+Dataflow rankings may be model- and technology-specific.
+
+Official description only; calibrated macro evaluation is required.
+
+**Method or artifact:** Systematic dataflow design-space exploration for SRAM CIM.
+
+**Metrics:** Dataflow quality and exploration efficiency are claimed qualitatively
+
+**Problem:** SRAM CIM dataflow choices couple array utilization, movement, precision, and peripheral overhead.
+
+**Workload or benchmark:** Neural workloads mapped to SRAM CIM; array, precision, and search-space assumptions are unspecified.
+
+</details>
+<p><span id="paper-dac-2026-research2282"></span></p>
+<h3>In-Memory ADC-Based Nonlinear Activation Quantization for Efficient In-Memory Computing</h3>
+<p>DAC 2026 · Record: <code>dac-2026-research2282</code></p>
+<p><a href="#explanation-dac-2026-research2282">Read the step-by-step explanation</a></p>
+<p><strong>Updated source-backed reading card</strong></p>
+<div class="worked"><p class="lm-k">Worked example</p><p>Reviewed 2026-09-08. Reconciles the BS-KMQ card with the captured official DAC description; explains ReLU/clamping edge accumulation, boundary-suppressed K-means levels, nonlinear in-memory ADC references, post-training and finetuning accuracy, and the distinction between ADC-level efficiency and complete IMC-system results.</p></div>
+<p>This editorial correction updates the current reading view and connected dossiers, not the historical adjudication or scientific acceptance status. The original captured fields are preserved below.</p>
+<p><a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/data/editorial-paper-corrections-v1.json">Correction register</a></p>
+<p><strong>Problem:</strong></p>
+<p>In-memory computing produces analog values that must be quantized by an ADC. ReLU and clamping can concentrate values near distribution boundaries, making ordinary clustering spend levels poorly and increasing quantization error.</p>
+<p><strong>Mechanism / artifact:</strong></p>
+<p>BS-KMQ: Boundary Suppressed K-Means Quantization that removes activation outliers near distribution boundaries before clustering to derive nonlinear quantization levels, implemented in a reconfigurable in-memory nonlinear ADC.</p>
+<p><strong>Workload — the work tested:</strong></p>
+<div class="worked"><p class="lm-k">Worked example</p><p>ResNet-18, VGG-16, Inception-V3 and DistilBERT; reported post-training quantization and low-bit finetuning settings include 6/2/3-bit ResNet-18 system simulation and 3/3/4/4-bit ADC levels, but calibration, layer coverage and data conditions are unspecified.</p></div>
+<p><strong>Hardware and manufacturing assumptions:</strong></p>
+<p>CIM macro with reconfigurable nonlinear ADC references; ADC resolution, array, process, voltage, frequency, conversion latency, variation, calibration, digital control and peripheral energy are unspecified.</p>
+<p><strong>Baseline — the comparison method:</strong></p>
+<p>Linear quantization</p>
+<p>Lloyd–Max quantization</p>
+<p>CDF quantization</p>
+<p>K-means quantization</p>
+<p>Two prior nonlinear-ADC works</p>
+<p>Existing IMC accelerators</p>
+<p>Model calibration, finetuning, ADC, array, system boundary and accuracy conditions are unspecified</p>
+<p><strong>Reported measurements:</strong></p>
+<div class="worked"><p class="lm-k">Worked example</p><p>The captured official description reports at least 3× lower quantization error than linear, Lloyd–Max, CDF and K-means methods; 7× area improvement over two prior works; up to 66.8%/25.4%/66.6%/67.7% higher post-training accuracy on ResNet-18/VGG-16/Inception-V3/DistilBERT versus linear quantization; competitive low-bit-finetuned accuracy at 3/3/4/4-bit ADC levels; and ResNet-18 6/2/3-bit system simulation up to 4× speedup and 24× energy efficiency over existing IMC accelerators. Exact boundaries are not exposed.</p></div>
+<p><strong>Limits on the conclusion:</strong></p>
+<p>An ADC maps a continuous or analog signal range to discrete digital codes. With a fixed number of levels, quantization error depends on where the levels are placed and on the distribution of values.</p><p>A uniform quantizer allocates equal intervals; a learned quantizer places levels according to observed values.</p>
+<p>ReLU maps negative values to zero and clamping limits values to a range. These operations can accumulate samples near zero or a clamp boundary.</p><p>If those boundary samples dominate clustering, the learned centers may describe the boundary mass while giving too few useful levels to the interior or to less frequent but important values.</p>
+<p>BS-KMQ removes boundary outliers before K-means clustering and derives nonlinear references for the ADC. That can make the level placement more informative for the retained distribution, but the removal rule, threshold, calibration distribution and treatment of values returned at inference must be specified.</p><p>An outlier removed during calibration can still occur during deployment and saturate or map to a poor code.</p>
+<p>A reconfigurable in-memory nonlinear ADC changes its reference levels or transfer function while staying coupled to the CIM array. The implementation must account for reference storage, switching, calibration, conversion time, comparator behavior, input range, noise, mismatch and the energy of the reconfiguration.</p><p>Fewer ADC levels can reduce conversion cost, but only if the quantization error and analog nonidealities remain within the model's tolerance.</p>
+<p>The description reports large quantization-error, area, accuracy, speedup and energy-efficiency improvements across named models and bit settings, but does not expose layer-wise calibration, ADC conversion cost, process/voltage variation, absolute area or energy, reference-generation overhead, accuracy definitions or complete system boundaries. The claims establish a reported quantization and ADC co-design, not a universal IMC advantage.</p>
+<p><strong>Source and location</strong></p>
+<p>Evidence tier: Primary captured official DAC description only; no full paper extraction, quantizer/adc artifact reproduction or independent calibrated macro, variation, accuracy, latency, area and system energy validation. This is the stored source classification; the location and limits below determine what was actually read.</p>
+<p><a href="https://63dac.conference-program.com/?post_type=page&amp;p=16&amp;id=RESEARCH2282">Open the recorded source</a></p>
+<div class="worked"><p class="lm-k">Worked example</p><p>DAC 2026 official description and data/review-packets/dac-2026-research2282.json: BS-KMQ boundary-suppressed K-means; ReLU/clamping edge accumulation; ≥3× quantization-error reduction; reconfigurable in-memory NL-ADC; 7× area improvement; ResNet-18/VGG-16/Inception-V3/DistilBERT post-training accuracy gains; 3/3/4/4-bit finetuned levels; ResNet-18 6/2/3-bit system simulation; up to 4× speedup and 24× energy efficiency; omitted ADC, calibration, variation and system boundaries.</p></div>
+<details markdown="1">
+<summary>Original captured fields — superseded for this reading card</summary>
+
+** page source tier:** medium_official_description
+
+**Baselines:** digital activation computation
+
+separate CIM activation unit
+
+**Evidence locators:** DAC 2026 official description
+
+**Evidence url:** https://63dac.conference-program.com/?post_type=page&amp;p=16&amp;id=RESEARCH2282
+
+**Hardware or process assumptions:** CIM macro with integrated ADC and nonlinear quantization; process and peripheral assumptions are unspecified.
+
+**Limits:** No accuracy, TOPS/W, area, latency, ADC overhead, or variation results are reported.
+
+Quantized activations may amplify analog nonidealities.
+
+Official description only; calibrated macro evaluation is required.
+
+**Method or artifact:** ADC-based in-memory nonlinear activation quantization.
+
+**Metrics:** CIM activation efficiency is claimed qualitatively
+
+**Problem:** Nonlinear activation functions and conversion overhead limit efficient in-memory computing.
+
+**Workload or benchmark:** Neural-network activation workloads; ADC, precision, array, and baselines are unspecified.
+
+</details>
+<p><span id="paper-dac-2026-research2123"></span></p>
+<h3>Dypamear: Efficient and Scalable Dynamic Graph Pattern Mining on Practical Processing-in-Memory Architecture</h3>
+<p>DAC 2026 · Record: <code>dac-2026-research2123</code></p>
+<p><a href="#explanation-dac-2026-research2123">Read the step-by-step explanation</a></p>
+<p><strong>Updated source-backed reading card</strong></p>
+<div class="worked"><p class="lm-k">Worked example</p><p>Reviewed 2026-09-08. Reconciles the DyPamear card with the captured official DAC description; explains dynamic graph pattern matching, irregular adjacency access, UPMEM DPU placement, load-aware distribution, asynchronous execution, degree-adaptive intersection and the boundaries of the reported real-hardware speedups and scaling.</p></div>
+<p>This editorial correction updates the current reading view and connected dossiers, not the historical adjudication or scientific acceptance status. The original captured fields are preserved below.</p>
+<p><a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/data/editorial-paper-corrections-v1.json">Correction register</a></p>
+<p><strong>Problem:</strong></p>
+<p>Dynamic graph pattern mining repeatedly traverses irregular adjacency structures while graph edges and vertices change. The computation is often limited by memory access, synchronization and load imbalance rather than arithmetic throughput.</p>
+<p><strong>Mechanism / artifact:</strong></p>
+<p>DyPamear: full-stack hardware-software co-design on UPMEM PIM, combining load-aware task distribution, data-driven asynchronous execution and a degree-adaptive set-intersection kernel to use DPU bandwidth and parallelism while handling architectural constraints.</p>
+<p><strong>Workload — the work tested:</strong></p>
+<p>Dynamic graph streams and graph-pattern queries; graph sizes, update rates, pattern types, degree distributions, correctness/consistency rules and query mix are unspecified.</p>
+<p><strong>Hardware and manufacturing assumptions:</strong></p>
+<p>Commercial UPMEM PIM platform with up to 20,480 DPUs; DPU memory capacity, inter-DPU communication, update consistency, host transfers, clock, energy, endurance and platform configuration are unspecified.</p>
+<p><strong>Baseline — the comparison method:</strong></p>
+<p>Cheetah</p>
+<p>PimPam</p>
+<p>PSMiner</p>
+<p>CPU/GPU graph mining</p>
+<p>Static PIM graph mining</p>
+<p>Graph size, pattern, update trace, implementation, DPU count, preprocessing and end-to-end boundary are unspecified</p>
+<p><strong>Reported measurements:</strong></p>
+<p>The captured official description reports average speedups of 267.38×, 82.52× and 8.78× over Cheetah, PimPam and PSMiner, respectively, on real UPMEM hardware, and nearly linear scaling to 20,480 DPUs; it does not expose absolute throughput, update latency, energy, graph scale, consistency overhead or pattern-accuracy conditions.</p>
+<p><strong>Limits on the conclusion:</strong></p>
+<p>A graph-pattern query searches for a specified structural relationship among vertices and edges. Dynamic mining must incorporate inserted, deleted or changed edges without treating the graph as a static adjacency structure. The work includes irregular neighbor access, candidate generation, intersection and result maintenance.</p>
+<p>Load-aware task distribution assigns work according to graph degree, candidate count or another cost estimate. This can prevent one DPU from receiving a high-degree or high-update task while others are idle, but the estimator and redistribution work consume memory access, control and communication.</p><p>A balanced task count does not guarantee balanced execution time.</p>
+<p>Data-driven asynchronous execution allows a DPU to issue work when its data and resources are ready instead of waiting for a global phase. It needs dependency tracking, queues, buffer capacity and a defined ordering for graph updates and results.</p><p>Asynchrony can hide latency, but it cannot remove a true data dependency or an inter-DPU communication bottleneck.</p>
+<p>Set intersection is central when a pattern query combines neighbor sets. A degree-adaptive kernel can choose different algorithms or granularities for small and large sets, reducing wasted scans. The choice must preserve duplicate handling, ordering, update visibility and result correctness under changing adjacency lists.</p>
+<p>The source reports large average speedups over Cheetah, PimPam and PSMiner on real UPMEM hardware and near-linear scaling to 20,480 DPUs, but does not expose graph sizes, update traces, absolute throughput, preprocessing, host transfer, DPU utilization, energy, consistency or pattern-validation conditions. The results establish a reported full-stack PIM system, not a general speedup independent of graph distribution and dynamic-update workload.</p>
+<p><strong>Source and location</strong></p>
+<p>Evidence tier: Primary captured official DAC description and named public source code url; no full paper extraction, code execution, dynamic trace reproduction or independent throughput, consistency, energy and scaling validation. This is the stored source classification; the location and limits below determine what was actually read.</p>
+<p><a href="https://63dac.conference-program.com/?post_type=page&amp;p=16&amp;id=RESEARCH2123">Open the recorded source</a></p>
+<p>DAC 2026 official description and data/review-packets/dac-2026-research2123.json: dynamic graph pattern mining; irregular/data-intensive memory bottleneck; UPMEM practical PIM; load-aware task distribution; data-driven asynchronous execution; degree-adaptive set intersection; real UPMEM hardware; 267.38×/82.52×/8.78× average speedups over Cheetah/PimPam/PSMiner; near-linear scaling to 20,480 DPUs; source-code URL; omitted graph, update, throughput, energy, consistency and boundary conditions.</p>
+<details markdown="1">
+<summary>Original captured fields — superseded for this reading card</summary>
+
+** page source tier:** medium_official_description
+
+**Baselines:** CPU/GPU graph mining
+
+static PIM graph mining
+
+**Evidence locators:** DAC 2026 official description
+
+**Evidence url:** https://63dac.conference-program.com/?post_type=page&amp;p=16&amp;id=RESEARCH2123
+
+**Hardware or process assumptions:** Processing-in-memory array with graph storage and update support; technology and consistency assumptions are unspecified.
+
+**Limits:** No throughput, update latency, energy, area, graph scale, or pattern accuracy results are reported.
+
+PIM updates may complicate consistency and endurance.
+
+Official description only; dynamic-trace validation is required.
+
+**Method or artifact:** PIM architecture for scalable dynamic graph pattern mining.
+
+**Metrics:** Graph-mining efficiency is claimed qualitatively
+
+**Problem:** Dynamic graph pattern mining is dominated by irregular traversal and data movement.
+
+**Workload or benchmark:** Dynamic graph streams and pattern queries; graph sizes, memory technology, and baselines are unspecified.
+
+</details>
+<p><span id="paper-dac-2026-research2425"></span></p>
+<h3>COM-BNN: A Configurable Low Power MRAM-Based Computing-in-Memory Accelerator for Binary Convolutional Computations</h3>
+<p>DAC 2026 · Record: <code>dac-2026-research2425</code></p>
+<p><a href="#explanation-dac-2026-research2425">Read the step-by-step explanation</a></p>
+<p><strong>Updated source-backed reading card</strong></p>
+<div class="worked"><p class="lm-k">Worked example</p><p>Reviewed 2026-09-08. Reconciles the COM-BNN card with the captured official DAC description, which calls the artifact RES-BNN; explains binary convolution, MRAM-CIM sensing, serial computation, temporal input reconfiguration, Integrate-and-Fire accumulation, Exact Result Inferring and the limits of the reported power/energy reductions.</p></div>
+<p>This editorial correction updates the current reading view and connected dossiers, not the historical adjudication or scientific acceptance status. The original captured fields are preserved below.</p>
+<p><a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/data/editorial-paper-corrections-v1.json">Correction register</a></p>
+<p><strong>Problem:</strong></p>
+<p>Tiny edge devices have limited power, memory bandwidth and compute resources, while convolutional neural networks require repeated weight and activation operations. Binary neural networks simplify values and arithmetic, but still need efficient movement and accumulation hardware.</p>
+<p><strong>Mechanism / artifact:</strong></p>
+<p>The captured source calls the design RES-BNN, while the catalog card title calls it COM-BNN. It describes a lightweight reconfigurable MRAM-based CIM accelerator with serial BNN computation, temporal reconfigurable input, an Integrate-and-Fire adder for serial MACs and an Exact Result Inferring method for binary convolutions.</p>
+<p><strong>Workload — the work tested:</strong></p>
+<p>Binary convolutional neural networks on resource-constrained edge devices; model, layer shapes, bit encoding, serial length, accuracy, MRAM array size and workload schedule are unspecified.</p>
+<p><strong>Hardware and manufacturing assumptions:</strong></p>
+<p>MRAM-based CIM macro with configurable dataflow and serial sensing/accumulation; MRAM technology, write/read energy, sense margin, process, voltage, frequency, area, endurance and variation conditions are unspecified.</p>
+<p><strong>Baseline — the comparison method:</strong></p>
+<p>ADC-based CIM</p>
+<p>Digital binary accelerator</p>
+<p>Fixed-function MRAM CIM</p>
+<p>Model, precision, serial mode, peripheral inclusion, clock, power and energy boundaries are unspecified</p>
+<p><strong>Reported measurements:</strong></p>
+<p>The captured official description reports up to 85% energy reduction and 83% power reduction versus ADC-based CIM baselines, dynamic latency-power tradeoffs and serial-mode power as low as 0.03%; it does not expose absolute power, energy, accuracy, area, frequency, endurance or silicon conditions.</p>
+<p><strong>Limits on the conclusion:</strong></p>
+<p>A binary neural network represents weights and activations with two values, so a binary multiply can become an equality or XNOR-like bit operation followed by a population count or signed accumulation. The simplification reduces arithmetic complexity but does not remove convolutional data movement, partial sums, input reuse or output scaling.</p>
+<p>MRAM stores state through a magnetic device whose read signal and write operation have distinct energy, timing, variation and endurance behavior. An MRAM-CIM design must sense the stored state and combine it with input signals without making the read margin too small.</p><p>Array-level binary logic does not establish correct operation across device variation, temperature, retention or repeated writes.</p>
+<p>Serial BNN computation processes bits or input contributions over multiple time steps instead of resolving all contributions in one wide parallel conversion. Temporal input reconfiguration selects which input information is presented at each step, while an Integrate-and-Fire adder accumulates the partial result and emits or infers a result when a threshold or complete sequence is reached.</p>
+<p>Serial operation can lower instantaneous power and hardware width while increasing latency. A dynamic latency-power tradeoff requires a defined mode, serial length, completion condition, clock, throughput and quality target.</p><p>Power falling to 0.03% in serial mode cannot be interpreted as an end-to-end energy result without the longer execution time, input/output movement, control and memory access included.</p>
+<p>Exact Result Inferring is described as improving binary-convolution efficiency, but the captured source does not define the inference rule, operand encoding, error behavior or hardware cost. The source also names RES-BNN while the catalog title says COM-BNN, so the alias must remain visible until reconciled against the full paper.</p><p>No accuracy, TOPS/W, area, endurance, variation or silicon result is reported; the record establishes a reported low-power BNN-CIM direction, not a complete edge inference advantage.</p>
+<p><strong>Source and location</strong></p>
+<p>Evidence tier: Primary captured official DAC description only; title/artifact alias unresolved; no full paper extraction, mram macro artifact reproduction or independent binary accuracy, sensing, variation, endurance, ppa and silicon validation. This is the stored source classification; the location and limits below determine what was actually read.</p>
+<p><a href="https://63dac.conference-program.com/?post_type=page&amp;p=16&amp;id=RESEARCH2425">Open the recorded source</a></p>
+<p>DAC 2026 official description and data/review-packets/dac-2026-research2425.json: source title/artifact name RES-BNN versus catalog COM-BNN; MRAM-based CIM; serial BNN; temporal reconfigurable input; Integrate-and-Fire adder; Exact Result Inferring; 85% energy and 83% power reduction versus ADC-based CIM; 0.03% serial-mode power; omitted accuracy, absolute PPA, area, endurance, variation and silicon conditions.</p>
+<details markdown="1">
+<summary>Original captured fields — superseded for this reading card</summary>
+
+** page source tier:** medium_official_description
+
+**Baselines:** digital binary accelerator
+
+fixed-function MRAM CIM
+
+**Evidence locators:** DAC 2026 official description
+
+**Evidence url:** https://63dac.conference-program.com/?post_type=page&amp;p=16&amp;id=RESEARCH2425
+
+**Hardware or process assumptions:** MRAM CIM macro with configurable dataflow; device variation, sensing, and process assumptions are unspecified.
+
+**Limits:** No accuracy, TOPS/W, area, endurance, variation, or silicon results are reported.
+
+MRAM sensing and write costs may dominate.
+
+Official description only; measured macro validation is required.
+
+**Method or artifact:** Configurable MRAM-based binary CIM accelerator.
+
+**Metrics:** Low-power BNN efficiency is claimed qualitatively
+
+**Problem:** Binary neural networks need configurable, energy-efficient memory-centric convolution hardware.
+
+**Workload or benchmark:** Binary convolutional networks; MRAM technology, models, precision, and baselines are unspecified.
+
+</details>
+<p><span id="paper-dac-2026-research2378"></span></p>
+<h3>UBFP-IMC: Ultralarge Bit-Width Digital Floating-Point In-Memory Computing Accelerator for Scientific Computing</h3>
+<p>DAC 2026 · Record: <code>dac-2026-research2378</code></p>
+<p><a href="#explanation-dac-2026-research2378">Read the step-by-step explanation</a></p>
+<p><strong>Updated source-backed reading card</strong></p>
+<div class="worked"><p class="lm-k">Worked example</p><p>Reviewed 2026-09-08. Reconciles the UBFP-IMC card with the captured official DAC description; explains wide floating-point mantissa cost, bit-serial MAC structure, Booth encoding, carry-save accumulation, exponent alignment, FIFO reduction and the limits of the reported EEF, latency and area claims.</p></div>
+<p>This editorial correction updates the current reading view and connected dossiers, not the historical adjudication or scientific acceptance status. The original captured fields are preserved below.</p>
+<p><a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/data/editorial-paper-corrections-v1.json">Correction register</a></p>
+<p><strong>Problem:</strong></p>
+<p>Scientific computing needs a wider numerical range and precision than low-precision AI workloads, but wide floating-point mantissas increase arithmetic area, switching and latency, while exponent alignment and accumulation add peripheral work.</p>
+<p><strong>Mechanism / artifact:</strong></p>
+<p>UBFP-IMC: digital SRAM-CIM accelerator using an ultralarge-bit-width bit-serial mantissa MAC with 5-signal Booth encoding and a two-step carry-save adder, plus an exponent-aligned accumulation module with an exponent-difference generator and FIFO adder tree.</p>
+<p><strong>Workload — the work tested:</strong></p>
+<p>Scientific computing and numerical matrix kernels; mantissa/exponent widths, numerical error target, matrix shapes, sparsity, memory hierarchy and baseline implementations are unspecified.</p>
+<p><strong>Hardware and manufacturing assumptions:</strong></p>
+<p>28-nm digital CIM design with 168 MAC units and one accumulation module; SRAM organization, voltage, frequency, area boundary, memory capacity, interconnect and process-library conditions are unspecified.</p>
+<p><strong>Baseline — the comparison method:</strong></p>
+<p>CPU/GPU floating-point compute</p>
+<p>Narrow-precision CIM</p>
+<p>Conventional wide floating-point MAC</p>
+<p>Bit width, frequency, workload, memory traffic, area, energy and accuracy boundaries are unspecified</p>
+<p><strong>Reported measurements:</strong></p>
+<p>The captured official description reports 4.43×, 4.46×, 4.30× and 8.53× energy-efficiency-factor improvements, 27× lower accumulation latency and an area advantage for a 28-nm design with 168 MAC units and one accumulation module; exact reference points and conditions are not exposed.</p>
+<p><strong>Limits on the conclusion:</strong></p>
+<p>A floating-point value combines a signed significand with an exponent. Multiplication combines significands and adds exponents; addition first aligns exponents, shifts one significand, adds or subtracts, then normalizes and rounds. Increasing mantissa width improves representational precision but increases storage, partial-product and reduction work.</p>
+<p>Bit-serial mantissa MACs process mantissa bits across cycles instead of building a full-width parallel multiplier. The approach can reuse a smaller datapath and control switching, but latency grows with bit width and the input/weight bit schedule.</p><p>A 5-signal Booth encoding can reduce partial products by recoding signed groups, while the encoding, sign extension and correction terms must preserve the exact product.</p>
+<p>A carry-save adder stores a sum and carry without propagating carries at every intermediate step. A two-step carry-save structure can shorten the critical path and defer carry propagation, but the final carry resolution, bit width, overflow, normalization and rounding remain part of the full MAC result.</p>
+<p>Exponent-aligned accumulation needs the exponent difference to determine a shift before combining significands. A FIFO adder tree can hold values until compatible alignment and reduction occur, but it adds storage, control, ordering and possible stalls when exponents vary.</p><p>Alignment traffic and queue occupancy can dominate even when the mantissa MAC is efficient.</p>
+<p>The description reports relative EEF, accumulation-latency and area improvements for a 28-nm 168-MAC design, but does not expose bit widths, numerical accuracy, frequency, absolute throughput/energy/area, memory movement, FIFO occupancy, process/voltage conditions or baseline parity. The result establishes a reported wide-FP digital-CIM architecture, not proof of scientific-kernel accuracy or general system advantage.</p>
+<p><strong>Source and location</strong></p>
+<p>Evidence tier: Primary captured official DAC description only; no full paper extraction, wide fp cim artifact reproduction or independent numerical kernel, timing, ppa, memory and process validation. This is the stored source classification; the location and limits below determine what was actually read.</p>
+<p><a href="https://63dac.conference-program.com/?post_type=page&amp;p=16&amp;id=RESEARCH2378">Open the recorded source</a></p>
+<p>DAC 2026 official description and data/review-packets/dac-2026-research2378.json: scientific wide-FP challenge; ultralarge mantissa; bit-serial mantissa MAC; 5-signal Booth encoding; two-step carry-save adder; exponent-difference generator; FIFO adder tree; 28 nm; 168 MAC units and one accumulation module; 4.43×/4.46×/4.30×/8.53× EEF, 27× accumulation latency and area claims; omitted bit width, numerical, PPA, memory and baseline conditions.</p>
+<details markdown="1">
+<summary>Original captured fields — superseded for this reading card</summary>
+
+** page source tier:** medium_official_description
+
+**Baselines:** CPU/GPU floating-point compute
+
+narrow-precision CIM
+
+**Evidence locators:** DAC 2026 official description
+
+**Evidence url:** https://63dac.conference-program.com/?post_type=page&amp;p=16&amp;id=RESEARCH2378
+
+**Hardware or process assumptions:** Digital CIM array supporting wide floating-point operations; area, voltage, and process assumptions are unspecified.
+
+**Limits:** No numerical accuracy, throughput, energy, area, or bit-width results are reported.
+
+Wide arithmetic may dominate area and switching cost.
+
+Official description only; numerical-kernel validation is required.
+
+**Method or artifact:** Digital floating-point in-memory accelerator with ultralarge bit widths.
+
+**Metrics:** Scientific-computing efficiency is claimed qualitatively
+
+**Problem:** Scientific workloads need wide precision while memory movement limits digital accelerators.
+
+**Workload or benchmark:** Scientific matrix and numerical kernels; precision, memory, and baselines are unspecified.
+
+</details>
+<p><span id="paper-dac-2026-research2631"></span></p>
+<h3>ARC-SRAM: A Memory Subarray with Local Addressing and Reduced Access Energy</h3>
+<p>DAC 2026 · Record: <code>dac-2026-research2631</code></p>
+<p><a href="#explanation-dac-2026-research2631">Read the step-by-step explanation</a></p>
+<p><strong>Updated source-backed reading card</strong></p>
+<div class="worked"><p class="lm-k">Worked example</p><p>Reviewed 2026-09-08. Reconciles the ARC-SRAM card with the captured official DAC description; explains regular-access energy waste, local address generation, one-pulse wordline reads, precharge/half-selection suppression, bitline-charge reuse for writes and the boundaries of the reported 64-KB, 1.4-nm PDK energy and area claims.</p></div>
+<p>This editorial correction updates the current reading view and connected dossiers, not the historical adjudication or scientific acceptance status. The original captured fields are preserved below.</p>
+<p><a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/data/editorial-paper-corrections-v1.json">Correction register</a></p>
+<p><strong>Problem:</strong></p>
+<p>Conventional random-access SRAM can activate global address and row circuitry even when an application accesses rows in a regular loop. Decoder, wordline, precharge and bitline activity then consumes energy unrelated to the useful data transfer.</p>
+<p><strong>Mechanism / artifact:</strong></p>
+<p>ARC-SRAM: a local-addressing SRAM subarray combining periphery-relocated address generation, one-wordline-pulse-per-row reads, reduced precharge and half-selection activity, bitline-charge reuse across consecutive-row writes and reduced wordline activation.</p>
+<p><strong>Workload — the work tested:</strong></p>
+<p>Loop-nest-dominated image processing, computer vision, deep learning and dense linear algebra access patterns; array dimensions, stride, burst length, read/write mix, data retention and workload traces are unspecified.</p>
+<p><strong>Hardware and manufacturing assumptions:</strong></p>
+<p>64 KB SRAM instance using an advanced gate-all-around nanosheet 1.4-nm research PDK; cell array, local decoder, voltage, frequency, wire model, variation, density and peripheral boundaries are unspecified.</p>
+<p><strong>Baseline — the comparison method:</strong></p>
+<p>Conventional globally addressed SRAM</p>
+<p>Banked SRAM</p>
+<p>The same capacity, access sequence, voltage, frequency, wire, decoder, precharge, peripheral and area boundaries are unspecified</p>
+<p><strong>Reported measurements:</strong></p>
+<p>The captured official description reports 63–76% cell-array-level read-energy reduction, 68–72% write-energy reduction in loop-nest-dominated applications and 4% area overhead for a 64 KB 1.4-nm-PDK instance; it does not report absolute energy, latency, density, yield or silicon results.</p>
+<p><strong>Limits on the conclusion:</strong></p>
+<p>A conventional SRAM is designed for arbitrary row selection. A global decoder drives the selected wordline and associated precharge, sense and bitline circuits.</p><p>Under a regular loop, neighboring rows may be accessed repeatedly, so decoder and activation work can be repeated even when the access pattern could be predicted.</p>
+<p>Relocating address generation to the memory periphery or subarray can exploit locality by generating a local sequence of row selections. The control must preserve the requested order, handle loop boundaries, random jumps, bank conflicts and interactions with external addresses.</p><p>Local control can reduce activity while adding state, synchronization and capacity-specific logic.</p>
+<p>For reads, one wordline pulse per row and reduced precharge activity aim to avoid repeated activation and half-selection energy. The sense path must still develop and resolve the bitline signal within the timing budget, and unselected cells must remain undisturbed.</p><p>Read energy should separate wordline, decoder, precharge, bitline, sense-amplifier, output and address-control components.</p>
+<p>For writes, reusing bitline charge across consecutive rows can reduce the energy needed to establish the next write condition. The design must state how the charge is retained, isolated and reset, and how leakage, data pattern, row distance, write polarity and consecutive-row timing affect correctness.</p><p>Minimizing wordline activation can lower energy but may change write margin and disturb behavior.</p>
+<p>The description reports 63–76% read and 68–72% write cell-array-level energy reduction with 4% area overhead in a 64 KB 1.4-nm research-PDK instance. It does not expose absolute energy, latency, density, capacity-scaling cost, variation, yield, silicon status or complete periphery accounting.</p><p>The result establishes a regular-access SRAM architecture and modeled claims, not a general random-access or production-process advantage.</p>
+<p><strong>Source and location</strong></p>
+<p>Evidence tier: Primary captured official DAC description only; no full paper extraction, sram circuit artifact reproduction or independent voltage, variation, timing, density, yield, silicon and complete periphery validation. This is the stored source classification; the location and limits below determine what was actually read.</p>
+<p><a href="https://63dac.conference-program.com/?post_type=page&amp;p=16&amp;id=RESEARCH2631">Open the recorded source</a></p>
+<p>DAC 2026 official description and data/review-packets/dac-2026-research2631.json: regular access energy waste; address generation moved to memory periphery; one wordline pulse per row; minimized precharge/half-selection; bitline charge reuse across writes; minimized wordline activation; 64 KB; 1.4-nm gate-all-around nanosheet research PDK; 63–76% read and 68–72% write cell-array energy reduction; 4% area overhead; omitted absolute, latency, density, yield and silicon conditions.</p>
+<details markdown="1">
+<summary>Original captured fields — superseded for this reading card</summary>
+
+** page source tier:** medium_official_description
+
+**Baselines:** conventional globally addressed SRAM
+
+banked SRAM
+
+**Evidence locators:** DAC 2026 official description
+
+**Evidence url:** https://63dac.conference-program.com/?post_type=page&amp;p=16&amp;id=RESEARCH2631
+
+**Hardware or process assumptions:** SRAM subarray and local decoder; voltage, frequency, process, and variation assumptions are unspecified.
+
+**Limits:** No access energy, area, density, latency, yield, or silicon results are reported.
+
+Local addressing may complicate capacity scaling and control.
+
+Official description only; measured macro validation is required.
+
+**Method or artifact:** SRAM subarray with local addressing and reduced activation.
+
+**Metrics:** Access-energy reduction is claimed qualitatively
+
+**Problem:** Global wordline and decoder activity contributes substantially to SRAM access energy.
+
+**Workload or benchmark:** SRAM read/write workloads; technology, density, and baselines are unspecified.
+
+</details>
+<p><span id="paper-dac-2026-research529"></span></p>
+<h3>Onyx: Efficient Transaction Processing with Real Processing-in-Memory Prototypes</h3>
+<p>DAC 2026 · Record: <code>dac-2026-research529</code></p>
+<p><a href="#explanation-dac-2026-research529">Read the step-by-step explanation</a></p>
+<p><strong>Updated source-backed reading card</strong></p>
+<div class="worked"><p class="lm-k">Worked example</p><p>Reviewed 2026-09-08. Reconciles the Onyx card with the captured official DAC description; explains transaction atomicity, consistency, isolation and recovery concerns, UPMEM PIM placement, local-access orchestration, load balancing, rank-level asynchronous transfer and the limits of the unquantified YCSB/TPC-C comparison.</p></div>
+<p>This editorial correction updates the current reading view and connected dossiers, not the historical adjudication or scientific acceptance status. The original captured fields are preserved below.</p>
+<p><a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/data/editorial-paper-corrections-v1.json">Correction register</a></p>
+<p><strong>Problem:</strong></p>
+<p>Transaction processing performs many reads and writes that must appear as an all-or-nothing operation, creating memory-bandwidth, synchronization and data-movement bottlenecks. PIM offers bandwidth but can lose the benefit through imbalance and transfers among processors.</p>
+<p><strong>Mechanism / artifact:</strong></p>
+<p>Onyx: a high-throughput transaction-processing system running on a real UPMEM PIM prototype, orchestrating transaction workflow for local accesses and balanced PIM-processor work, with rank-level asynchronous data transfer to reduce communication overhead.</p>
+<p><strong>Workload — the work tested:</strong></p>
+<p>Real-world YCSB and TPC-C transaction benchmarks; dataset size, transaction mix, contention, skew, isolation level, durability model, DPU count and result-validation method are unspecified.</p>
+<p><strong>Hardware and manufacturing assumptions:</strong></p>
+<p>Real UPMEM PIM prototype with memory-side transaction execution and rank-level transfer; DPU memory, interconnect, host involvement, persistence, coherence, fault recovery, clock, energy and capacity conditions are unspecified.</p>
+<p><strong>Baseline — the comparison method:</strong></p>
+<p>State-of-the-art transaction-processing systems</p>
+<p>CPU database processing</p>
+<p>Simulated PIM transaction engine</p>
+<p>Database configuration, data set, concurrency, isolation, persistence, hardware and end-to-end measurement boundaries are unspecified</p>
+<p><strong>Reported measurements:</strong></p>
+<p>The captured official description qualitatively claims that Onyx significantly outperforms state-of-the-art transaction-processing systems on YCSB and TPC-C using real UPMEM hardware; no throughput, latency, energy, transaction-abort, consistency or capacity numbers are reported.</p>
+<p><strong>Limits on the conclusion:</strong></p>
+<p>A transaction groups reads and writes so other clients observe an allowed state transition rather than a partial update. Atomicity requires commit or rollback behavior; consistency requires application and database invariants; isolation defines what concurrent transactions can observe; durability requires recovery after failure.</p><p>Moving execution into memory does not remove these requirements.</p>
+<p>PIM transaction processing must place records and transaction work so most reads and writes remain local to a DPU or rank. Locality can reduce host and inter-DPU traffic, but partitioning creates ownership, remote-access and hot-record problems.</p><p>A transaction touching multiple partitions needs an ordering, coordination or commit protocol that can become the bottleneck.</p>
+<p>Onyx uses workflow orchestration to maximize local accesses while balancing PIM processors. Load balance is not only equal transaction counts: transaction sizes, record locality, contention, abort probability and skew determine work.</p><p>Moving a hot record or transaction can improve compute balance while increasing communication and consistency coordination.</p>
+<p>Rank-level asynchronous data transfer can overlap communication with ready computation. It requires queues, ordering, backpressure, completion and failure handling. Asynchronous transfer must not allow a transaction to commit before all required writes are visible under the stated consistency and durability model.</p>
+<p>YCSB represents key-value transaction access patterns, while TPC-C represents a more relational, multi-operation workload with dependencies and contention. The source names both real-world benchmarks and a real UPMEM prototype but reports no throughput, latency, energy, abort rate, isolation level, persistence, recovery, capacity or configuration.</p><p>The result establishes a reported PIM transaction system and qualitative comparison, not a quantified transactional correctness or general performance conclusion.</p>
+<p><strong>Source and location</strong></p>
+<p>Evidence tier: Primary captured official DAC description only; no full paper extraction, upmem code execution or independent transactional correctness, isolation, recovery, throughput, energy and scaling validation. This is the stored source classification; the location and limits below determine what was actually read.</p>
+<p><a href="https://63dac.conference-program.com/?post_type=page&amp;p=16&amp;id=RESEARCH529">Open the recorded source</a></p>
+<p>DAC 2026 official description and data/review-packets/dac-2026-research529.json: all-or-nothing transactions; read/write memory bandwidth bottleneck; PIM bandwidth; load imbalance and PIM-processor transfer cost; Onyx real UPMEM prototype; local-access workflow orchestration; load balance; rank-level asynchronous transfer; YCSB/TPC-C evaluation; qualitative outperformance claim; omitted transaction, consistency, recovery, throughput and energy conditions.</p>
+<details markdown="1">
+<summary>Original captured fields — superseded for this reading card</summary>
+
+** page source tier:** medium_official_description
+
+**Baselines:** CPU database processing
+
+simulated PIM transaction engine
+
+**Evidence locators:** DAC 2026 official description
+
+**Evidence url:** https://63dac.conference-program.com/?post_type=page&amp;p=16&amp;id=RESEARCH529
+
+**Hardware or process assumptions:** Real PIM prototype with memory-side transaction operations; persistence and coherence assumptions are unspecified.
+
+**Limits:** No throughput, latency, energy, consistency, capacity, or prototype details are reported.
+
+PIM execution may complicate isolation and recovery.
+
+Official description only; transactional correctness validation is required.
+
+**Method or artifact:** Processing-in-memory transaction-processing prototype.
+
+**Metrics:** Transaction efficiency is claimed qualitatively
+
+**Problem:** Transaction processing is limited by data movement and synchronization across memory and compute.
+
+**Workload or benchmark:** Database transaction workloads; PIM technology, consistency, and baselines are unspecified.
+
+</details>
+<p><span id="paper-dac-2026-research796"></span></p>
+<h3>Prism: Reducing Arithmetic for High-Recall Approximate Nearest Neighbor Search on Processing-in-Memory</h3>
+<p>DAC 2026 · Record: <code>dac-2026-research796</code></p>
+<p><a href="#explanation-dac-2026-research796">Read the step-by-step explanation</a></p>
+<p><strong>Updated source-backed reading card</strong></p>
+<div class="worked"><p class="lm-k">Worked example</p><p>Reviewed 2026-09-08. Reconciles the Prism card with the captured official DAC description; explains approximate nearest-neighbor ranking, proximity-aware pruning, dual-cluster affiliation, sensitivity-ordered distance evaluation, early termination and host-PIM pipeline overlap while preserving the missing recall and hardware conditions.</p></div>
+<p>This editorial correction updates the current reading view and connected dossiers, not the historical adjudication or scientific acceptance status. The original captured fields are preserved below.</p>
+<p><a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/data/editorial-paper-corrections-v1.json">Correction register</a></p>
+<p><strong>Problem:</strong></p>
+<p>Large-scale approximate nearest-neighbor search is limited by moving many vectors and computing distances. PIM supplies internal bandwidth but has limited arithmetic, so reducing unnecessary distance work must not remove true nearest neighbors at the target recall.</p>
+<p><strong>Mechanism / artifact:</strong></p>
+<p>Prism: PIM-based ANNS system co-optimizing vector pruning, distance evaluation and host-PIM orchestration, using a proximity-aware vector pruner, dual-cluster affiliations, sensitivity-ordered dimension segments, early candidate termination and a stall-free pipeline for query preparation, PIM execution and global ranking.</p>
+<p><strong>Workload — the work tested:</strong></p>
+<p>High-recall approximate nearest-neighbor vector search; dataset, vector dimension, distance metric, query count, cluster structure, recall target, candidate count and index construction are unspecified.</p>
+<p><strong>Hardware and manufacturing assumptions:</strong></p>
+<p>PIM array with host orchestration and approximate distance computation; PIM capacity, compute precision, memory bandwidth, host link, process, frequency, energy and area conditions are unspecified.</p>
+<p><strong>Baseline — the comparison method:</strong></p>
+<p>State-of-the-art ANN systems</p>
+<p>GPU/CPU ANN search</p>
+<p>Full-arithmetic PIM search</p>
+<p>Dataset, index, distance metric, recall target, hardware, precision, preprocessing, ranking and measurement boundaries are unspecified</p>
+<p><strong>Reported measurements:</strong></p>
+<p>The captured official description reports 2.7–19.8× higher throughput than state-of-the-art systems; it does not report recall, latency, energy, area, capacity, dataset, precision or absolute throughput results.</p>
+<p><strong>Limits on the conclusion:</strong></p>
+<p>Nearest-neighbor search ranks database vectors by distance to a query and returns the closest candidates. Approximation reduces work by pruning candidates or evaluating distances incompletely, but a discarded vector can be the true neighbor.</p><p>Recall must therefore be measured against an exact or declared reference at the same query and dataset.</p>
+<p>A proximity-aware pruner uses an index or cluster relationship to remove vectors that are unlikely to be close to the query. Dual-cluster affiliations can give a vector more than one neighborhood association, reducing false exclusion when cluster boundaries are ambiguous, but they also add metadata, storage and pruning checks.</p>
+<p>Sensitivity-ordered distance computation evaluates dimension segments in an order expected to distinguish candidates quickly. Early termination can stop a candidate when a partial distance already exceeds a valid exclusion bound or when remaining dimensions cannot change the ranking.</p><p>The bound must be mathematically safe under the distance metric and precision; an empirical threshold changes recall.</p>
+<p>A stall-free host-PIM pipeline overlaps query preparation, PIM distance work and global ranking. The stages need buffers, backpressure, completion and a consistent candidate set.</p><p>If global ranking waits for data from a slow PIM partition or query preparation cannot keep up, the pipeline's peak overlap does not equal end-to-end throughput.</p>
+<p>The source reports 2.7–19.8× throughput improvement but does not expose recall, dataset, vector dimension, metric, index construction, pruning rate, precision, capacity, energy, area, latency or host-transfer boundaries. Arithmetic reduction can alter ranking at high recall; the record establishes a reported PIM ANNS co-design and throughput claim, not a recall-preserving general speedup.</p>
+<p><strong>Source and location</strong></p>
+<p>Evidence tier: Primary captured official DAC description only; no full paper extraction, prism/index artifact reproduction or independent recall, dataset, precision, throughput, energy and PIM hardware validation. This is the stored source classification; the location and limits below determine what was actually read.</p>
+<p><a href="https://63dac.conference-program.com/?post_type=page&amp;p=16&amp;id=RESEARCH796">Open the recorded source</a></p>
+<p>DAC 2026 official description and data/review-packets/dac-2026-research796.json: ANNS memory wall; PIM bandwidth/compute tradeoff; proximity-aware vector pruning; dual-cluster affiliations; sensitivity-ordered distance segments; early termination; stall-free host-PIM pipeline; 2.7–19.8× throughput claim; omitted recall, datasets, precision, capacity, PPA and absolute throughput conditions.</p>
+<details markdown="1">
+<summary>Original captured fields — superseded for this reading card</summary>
+
+** page source tier:** medium_official_description
+
+**Baselines:** GPU/CPU ANN search
+
+full-arithmetic PIM search
+
+**Evidence locators:** DAC 2026 official description
+
+**Evidence url:** https://63dac.conference-program.com/?post_type=page&amp;p=16&amp;id=RESEARCH796
+
+**Hardware or process assumptions:** PIM array with approximate distance computation; precision, capacity, and process assumptions are unspecified.
+
+**Limits:** No recall, latency, energy, area, capacity, or dataset results are reported.
+
+Arithmetic reduction can alter ranking at high recall.
+
+Official description only; dataset and precision sweeps are required.
+
+**Method or artifact:** Arithmetic-reduced PIM architecture for high-recall ANN search.
+
+**Metrics:** Recall-efficiency tradeoff is claimed qualitatively
+
+**Problem:** Approximate nearest-neighbor search is dominated by distance arithmetic and memory movement.
+
+**Workload or benchmark:** Vector-search datasets; distance metric, PIM technology, and baselines are unspecified.
+
+</details>
+<p class="lm-k h-label">What remains to establish</p><h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>What is still unproven here</h2>
+<p>Resolve unspecified workloads, comparison methods, resource budgets, and source locations before generalizing a reported gain. Multiple papers in this selected sample permit comparison of mechanisms, but do not by themselves establish recurrence across years or a long-term trend.</p>
+<p><a href="../guide/expanded-taxonomy-v1.html">All subthemes</a> · <a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/reports/directions/README.md">Research directions</a></p><p class="meta">Written as <a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/reports/observed-subthemes/memory-compute-and-reliability.md">reports/observed-subthemes/memory-compute-and-reliability.md</a> in the course repository.</p>
+      </article>
+      <nav class="pager" aria-label="Previous and next"><a class="prev" href="storage-and-data-movement.html"><span class="pg-k">← Previous</span><span class="pg-t">Storage and data movement</span></a><a class="map" href="../subthemes.html"><span class="pg-k">Back to</span><span class="pg-t">Subthemes</span></a><a class="next" href="processing-in-memory-and-memory-centric-compute.html"><span class="pg-k">Next →</span><span class="pg-t">Processing in memory and memory centric compute</span></a></nav>
+    </section>
+  </main>
+  <footer class="course-foot">
+    <p>Built from 582 paper records coded from ISCA 2026, DAC 2026 and ICCAD 2025 (ICCAD 2026 papers were not yet public). Most records come from official program descriptions; see “How deep the reading went”. The papers belong to their authors.</p>
+    <p class="foot-links"><a href="https://github.com/mehtama1234/course-concept-library">All courses</a><a href="../index.html">This course</a><a href="../course-map.html">Course map</a><a href="../presentation/index.html">Slides</a><a href="../video/index.html">Video</a><a href="../share/index.html">Share</a></p>
+  </footer>
+  <script src="../assets/course-data.js"></script><script src="../assets/icons.js"></script><script src="../assets/icons-extra.js"></script><script src="../assets/icons-course.js"></script><script src="../assets/art.js"></script><script src="../assets/course-art.js"></script><script src="../assets/charts.js"></script><script src="../assets/course-charts.js"></script><script src="../assets/course-site.js"></script>
+</body>
+</html>

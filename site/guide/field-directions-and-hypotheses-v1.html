@@ -1,0 +1,317 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#F3ECE1" />
+  <title>Where the field may be heading — mechanisms and testable hypotheses · Semiconductor conference atlas</title>
+  <meta name="description" content="Worked example Assessment date: 2026-09-07. Status: provisional researcher synthesis; independent review pending. This is a reading of the collected evidence, not a measured growth trend, adoption for" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Semiconductor conference atlas" />
+  <meta property="og:title" content="Where the field may be heading — mechanisms and testable hypotheses · Semiconductor conference atlas" />
+  <meta property="og:description" content="Worked example Assessment date: 2026-09-07. Status: provisional researcher synthesis; independent review pending. This is a reading of the collected evidence, not a measured growth trend, adoption for" />
+  <meta property="og:url" content="https://mehtama1234.github.io/semiconductor-conferences/guide/field-directions-and-hypotheses-v1.html" />
+  <meta property="og:image" content="https://mehtama1234.github.io/semiconductor-conferences/presentation/slides/01-cover.jpg" />
+  <meta property="og:image:width" content="1920" />
+  <meta property="og:image:height" content="1080" />
+  <meta property="og:image:alt" content="Semiconductor conference atlas: 582 papers from ISCA, DAC and ICCAD, sorted into 10 themes and six directions to watch." />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="canonical" href="https://mehtama1234.github.io/semiconductor-conferences/guide/field-directions-and-hypotheses-v1.html" />
+  <link rel="icon" href="../assets/icon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="../assets/base.css" />
+  <link rel="stylesheet" href="../assets/experience.css" />
+  <link rel="stylesheet" href="../assets/theme-atlas.css" />
+  <link rel="stylesheet" href="../assets/styles.css" />
+  <link rel="stylesheet" href="../assets/charts.css" />
+  <link rel="stylesheet" href="../assets/course.css" />
+  
+</head>
+<body class="course-site " data-house="atlas">
+  <aside class="public-demo-banner" aria-label="About this course">A plain-language guide to what ISCA, DAC and ICCAD papers say about chip and computer design · Built from the repository’s own paper records · Not made by the conferences</aside>
+  <a class="skip-link" href="#app">Skip to the page</a>
+  <header>
+    <a class="brand" href="../index.html"><span class="mark" aria-hidden="true">Si</span> Semiconductor conference atlas</a>
+    <span class="header-status"><span class="badge">582 papers</span><span class="badge">10 themes</span><span class="badge">Plain words first</span></span>
+    <a class="header-link" href="../course-map.html">Course map</a>
+  </header>
+  <nav class="course-nav" aria-label="Main sections of the course"><a href="../index.html">The big picture</a><a href="../themes.html">Themes</a><a href="../subthemes.html">Subthemes</a><a href="../deep-reads.html">Deep reads</a><a href="../directions.html">What to watch</a><a href="../presentation/index.html">Slides</a><a href="../video/index.html">Video</a><a href="../share/index.html">Share</a></nav>
+  <main id="app" tabindex="-1">
+    <section class="screen active landing legacy-page" aria-labelledby="page-title">
+<div class="lm-head"><div class="hj-heading"><nav class="crumbs" aria-label="You are here"><a href="../course-map.html">Course map</a><span aria-hidden="true">›</span><a href="../guide.html">How to read the atlas</a></nav><a class="back-button" href="../guide.html">← <span>How to read the atlas</span></a><p class="eyebrow">How to read the atlas</p><h1 id="page-title">Where the field may be heading — mechanisms and testable hypotheses</h1></div></div>
+<figure class="course-fig"><div class="loop-wide" data-art="flow:deep-read"></div><div class="loop-tall" data-art="flowTall:deep-read"></div><figcaption>Every record says how deep its source goes. Most reached only the first step.</figcaption></figure>
+      <article class="prose">
+
+<div class="worked"><p class="lm-k">Worked example</p><p>Assessment date: 2026-09-07. Status: provisional researcher synthesis; independent
+review pending. This is a reading of the collected evidence, not a measured
+growth trend, adoption forecast, or prediction of commercial winners.</p></div>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>The central interpretation</h2>
+<p>The selected papers suggest an important research question: <strong>how much of a
+system's constraints can be made explicit while choosing its algorithm,
+architecture, mapping and runtime policy?</strong> Optimizing arithmetic alone leaves
+data movement, physical feasibility, correctness and search cost unresolved.
+The six directions below are different responses to that question—not six
+independent markets, and not a partition for counting papers.</p>
+<p>The evidence base is asymmetric. All 543 DAC 2026 descriptions have initial
+coding, but most lack full-paper conditions.</p><p>The original cross-conference sample
+began with 72 records; current coding contains 582 (544 DAC, 17 ISCA, 21 ICCAD),
+none independently accepted here. ICCAD technical evidence uses the explicit 2025 fallback.</p><p>The
+<a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/data/technology-direction-evidence-v1.json">source-linked direction map</a>
+and <a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/reports/research-work-queue.md">coverage queue</a> identify the supporting records.</p>
+<p>A <a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/reports/direction-challenges-v1.md">six-case challenge batch</a> now extends the reading
+beyond the original anchors. It adds evaluation counterpressure, alternative
+mechanisms and explicit validation boundaries; all six cases remain
+description-level and independently unreviewed, not measured falsifications.</p><p>The <a href="../deep-reads/notsotiny-primary-assessment-v1.html">NotSoTiny follow-up</a> now
+adds selected preprint conditions without promoting the original description:
+task selection, checker semantics and benchmark version must accompany any
+capability comparison. Its quantitative conclusions remain pending review.</p><p>Pinned evaluator inspection also found a timeout-as-success scoring path. This is a concrete implementation caveat, not demonstrated inflation of the
+paper's scores; matched run provenance and timeout incidence are still missing.</p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>1. AI-assisted design → tool-grounded generation → verified iteration</h2>
+<p><strong>Observed mechanisms.</strong> HLSArchOpt supplies an author-linked partial hardware
+example; the ICCAD fallback includes generation, optimization and debugging
+cases (VeriOpt, VERIRL, HLSDebugger). Their common concern is how proposed changes
+interact with executable design tools, not just whether generated text looks
+plausible.</p><p>See the <a href="../deep-reads/hlsarchopt-primary-assessment-v1.html">HLSArchOpt assessment</a>
+and <a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/iccad/pages/topical-capability-map-2025-fallback.md">ICCAD capability map</a>.</p>
+<p><strong>Directional hypothesis.</strong> A valuable unit of progress may be a verified design
+change under a fixed engineering budget, rather than a generated RTL/HLS file.
+The associated subthemes are specification decomposition, tool feedback,
+counterexample-guided repair, resource-aware search and reproducible execution.</p>
+<p><strong>Pressure against that hypothesis.</strong> Synthesis success is weaker than functional
+equivalence. HLSArchOpt's inspected script disables simulation checks; the
+Exact-T artifact's basis-state checker leaves relative-phase correctness open.
+These are validation gaps, not demonstrated failures of every generated design.</p>
+<p><a href="../deep-reads/mappingevolve-primary-assessment-v1.html">MappingEvolve's primary assessment</a>
+adds a concrete tradeoff: its extracted average area gains coexist with delay
+and mapper-runtime regressions. This supports evaluating constrained outcomes,
+not interpreting a composite optimization score as improvement in every metric.</p>
+<p>The pinned MappingEvolve driver also has a source-level fallback path that can
+retain a rejected first candidate. This is not a demonstrated published-result
+failure, but sharpens the hypothesis: correctness checks must govern state
+transitions and fallback selection, not merely produce a score or diagnostic.</p><p>Countercheck: the three inspected released outer-loop histories log 90 accepted
+steps and no reversions; they do not demonstrate that source-level fallback risk
+occurring in those runs. Artifact concerns must not become unsupported claims
+that published experimental results failed.</p>
+<p><strong>Test next.</strong> Compare systems on held-out designs with the same correctness
+oracle, synthesis budget, model-call cost and retry limit. Count failed attempts
+and regressions, not only successful outputs.</p><p>Evidence of better accepted designs
+per unit budget would strengthen this hypothesis; expensive retries without
+transfer would weaken it. This does not establish autonomous signoff today.</p>
+<p>NotSoTiny sharpens the measurement subtheme: a benchmark should report task
+selection, dataset revision, solver proof state, timeout/tool-error outcomes, and
+contamination checks separately. A living benchmark score is not comparable across
+time unless those boundaries are version-matched.</p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>2. Memory-centric execution → placement and locality → workload contracts</h2>
+<p><strong>Observed mechanisms.</strong> CANNON moves ANN execution toward CXL memory; CtxMem
+co-designs OS handling and tiered memory; RAF addresses local and remote traffic;
+ISCA's COSM addresses CPU/PIM scheduling. These methods solve different parts of
+movement and contention, not interchangeable versions of one accelerator.</p><p>See <a href="../deep-reads/cannon-primary-recovery-v1.html">CANNON</a>,
+<a href="../deep-reads/ctxmem-primary-recovery-v1.html">CtxMem</a>,
+<a href="../deep-reads/raf-primary-recovery-v1.html">RAF</a>, and the
+<a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/isca/pages/memory-ecc-pim-reliability.md">ISCA memory analysis</a>.</p>
+<p><strong>Directional hypothesis.</strong> More useful interfaces may expose workload structure
+to placement and scheduling: access locality, capacity pressure, operator
+boundaries and contention. Subthemes include near-memory execution, tiering,
+operator fusion, KV-cache management and cooperative host/device scheduling.</p>
+<p><strong>Boundary and counterpressure.</strong> A capacity-limited baseline can make offload
+appear exceptionally fast without establishing superiority when both systems
+fit in memory. RAF's remote-access elimination does not eliminate local traffic.</p><p>CANNON's numerical source discrepancy is unresolved; CtxMem's description reports
+simulation, not deployment. No evidence here establishes CXL replacing HBM or PIM.</p>
+<p>The BusyBarn artifact adds a fault-aware wafer-scale communication mechanism to
+the reading set, but only at artifact depth. Its one completed AllGather case is
+useful for checking that the released code can execute after environment
+normalization; it is not evidence that the proposed routing wins against a
+matched baseline or generalizes across workloads and fault patterns.</p>
+<p><strong>Test next.</strong> Sweep resident and nonresident working sets, locality changes and
+contention under equal capacity/bandwidth budgets. For ANN, hold recall constant.
+Include migration and host overhead. Benefits that survive those controls support
+a general interface opportunity; narrow capacity cliffs support a narrower one.</p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="alert-triangle"></span>3. Reliability and security → explicit failure models → constrained execution</h2>
+<p><strong>Observed mechanisms.</strong> Strix couples NPU reliability across system layers;
+ISCA's ECC/PIM cases make correction and interference relevant to execution.
+The HybriMoE/Icarus comparison raises a separate question: what happens when
+locality assumptions are adversarially disrupted? See
+<a href="../deep-reads/strix-primary-assessment-v1.html">Strix</a>,
+<a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/isca/pages/memory-ecc-pim-reliability.md">memory/ECC/PIM</a>, and the
+<a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/reports/temporal-mechanism-comparison-v1.md">temporal mechanism comparison</a>.</p>
+<p><strong>Directional hypothesis.</strong> Performance policies may increasingly need an explicit
+operating envelope: which faults, interference patterns and adversarial inputs
+they tolerate, at what correction or monitoring cost. Subthemes are fault
+detection versus recovery, ECC-aware scheduling, physical interference and
+adversarial workload robustness.</p>
+<p><strong>Boundary.</strong> This is not one combined robustness score. Strix's measured or
+modeled detection scope is not universal correction coverage. Icarus has not been
+shown here to attack HybriMoE specifically. Neither establishes safety certification.</p>
+<p>The <a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/iccad/reports/sera-float-primary-assessment-v1.md">SERA-Float manuscript follow-up</a>
+adds a representation-level subtheme: trading mantissa precision for selective
+protection within a fixed 32-bit word. Its exponent corrects two flips only when
+they occupy separate protected halves; mantissa parity detects rather than
+corrects.</p><p>This sharpens the need for explicit operating envelopes, but neither
+establishes universal fault tolerance nor converts synthesized multiplication
+energy into whole-inference savings. This supplementary case is independently
+unreviewed and does not increase the original synthesis-anchor count.</p>
+<p><strong>Test next.</strong> Measure useful throughput after detection/recovery costs under
+declared fault and threat models, including cases outside the nominal assumptions.
+Report coverage failures separately from performance regressions. A mechanism
+that only works under a narrow injected-fault model should retain that scope.</p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>4. Physical integration → fast physical models → design/runtime feedback</h2>
+<p><strong>Observed mechanisms.</strong> FLASH3D proposes a fast steady-state thermal solver;
+LegoTherm addresses modular thermal modeling; ICCAD's Tasa links stacked inference
+placement with thermal/bandwidth concerns, while ISCA's Lit Silicon links thermal
+imbalance with runtime stragglers. Source paths are in
+<a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/reports/technology-direction-synthesis-v1.md#direction-4--physical-integration-becomes-an-optimization-variable">direction 4</a>.</p>
+<p><strong>Directional hypothesis.</strong> Fast physical models may become inner-loop inputs to
+architecture search and workload placement, not just late checks. Subthemes are
+reduced-order models, geometry-aware solvers, coupled interfaces and thermal-aware
+scheduling. This connects EDA model-building with architecture and runtime choices.</p>
+<p><strong>Boundary.</strong> FLASH3D's current evidence is steady-state and description-level.
+Faster simulation is not automatically better design, transient fidelity or
+manufacturable integration. Geometry and material changes can invalidate a model.</p>
+<p><strong>Test next.</strong> Optimize designs with the fast model, then evaluate selected and
+rejected candidates using a held-out higher-fidelity solver or measurements.
+Count ranking errors and constraint violations. The decisive result is improved
+feasible designs within a fixed search budget, not solver speed alone.</p>
+<p>An additional coded physical-design example is
+<a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/iccad/data/copa-primary-recovery-v1.json">COPA</a>, an ICCAD 2025 fallback paper
+supported here by its institutional abstract. It adjusts feedthrough-pin positions
+using a routing-demand objective rather than treating wirelength as a sufficient
+proxy.</p><p>Our interpretation: choices made at block interfaces can affect internal
+routing feasibility, so local geometric improvements need downstream validation. The abstract does not establish final timing closure, detailed-route success, or
+equal-budget comparison.</p><p>This follow-up is not an independently accepted anchor
+or evidence of increasing prevalence.</p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>5. Design-space exploration → fidelity management → decision reliability</h2>
+<p><strong>Observed mechanisms.</strong> HYPER-CIM connects a surrogate to design exploration and
+selected fabricated macros. XSearch proposes multi-fidelity Bayesian exploration
+for XiangShan; its description contains no quantitative evaluation.</p><p>Exact-T is
+a contrasting exact, resource-specific mapping case—not evidence of learned search. See <a href="../deep-reads/hyper-cim-primary-recovery-v1.html">HYPER-CIM</a>,
+<a href="../deep-reads/xsearch-primary-recovery-v1.html">XSearch's source assessment</a>, and
+<a href="../deep-reads/exact-t-primary-assessment-v1.html">Exact-T</a>.</p>
+<p><strong>Directional hypothesis.</strong> Choosing when to spend expensive evaluation may matter
+as much as choosing a search algorithm. Subthemes are uncertainty calibration,
+multi-fidelity acquisition, feasible Pareto search and final-candidate verification.</p>
+<p>The <a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/iccad/reports/uglms-primary-assessment-v1.md">UGLMS follow-up</a> extends this
+question to adaptive measurement in ADC testing. It is a supplementary,
+independently unreviewed case—not an added accepted anchor.</p><p>Its distinction between
+sample count and elapsed test time makes acquisition/compute overlap and setup
+amortization relevant to the hypothesis; production behavior remains unverified.</p>
+<p><strong>Counterexample and boundary.</strong> Exact-T's assessed figure contains a modeled
+space-time regression, illustrating that improving one objective need not improve
+another. HYPER-CIM's predicted configurations are not fabricated designs.</p><p>Cross-simulator calibration is not silicon validation. XSearch's low-/high-fidelity
+only comparators in the original coding are inferred ideas, not reported experiments.</p>
+<p><a href="../deep-reads/paretopilot-primary-assessment-v1.html">ParetoPilot's inspected entry point</a>
+samples a batch before synthesis rather than feeding measured results into further
+sampling. Learned proposal quality and online adaptive search are distinct
+mechanisms; neither a reasoning label nor synthesis estimates establish verified
+Pareto improvements under equal budgets.</p>
+<p>The <a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/iccad/data/orthrus-primary-recovery-v1.json">Orthrus primary follow-up</a>
+provides another case for examining how optimization levels communicate. Its
+assessment now has a coded record and prepared review packet, but is not an
+independently accepted synthesis anchor.</p><p>The key
+comparison to investigate is the value of cross-layer guidance under a matched
+total evaluation budget—not merely whether expanding the allowed design space
+can produce a better frontier.</p>
+<p>Its inspected PDF also prevents reading the direction as uniform dominance:
+a selected power-saving step trades away delay, and some plotted guidance
+directions have negative alignment. These are scoped counterexamples, not proof
+that the overall Pareto result fails.</p><p>The open question remains net search value
+under comparable evaluation costs.</p>
+<p>The <a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/iccad/data/hlps-dse-primary-recovery-v1.json">HLPS exploration follow-up</a>
+adds a denominator caution: one baseline case has no successful implementation,
+so the reported frequency ratio compares means over unequal case sets. Its
+table also separates retained best frequency from continued search time.</p><p>A
+useful design-search comparison must report failures, comparable populations and
+evaluation cost alongside outcome quality. This case now has technical coding
+and a source-backed packet; independent review is pending, not a new accepted anchor.</p>
+<p><strong>Test next.</strong> Compare final independently evaluated feasible solutions at equal
+wall-clock and simulator budgets, including calibration data costs. Report
+misranked candidates and out-of-distribution errors. Small average prediction
+error alone cannot prove better search decisions.</p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>6. Specialized acceleration → representation-aware arithmetic → net benefit</h2>
+<p><strong>Observed mechanisms.</strong> FuseDot exploits repeated low-bit weights; OASIS and
+related ISCA cases explore representation-sensitive execution. The distinguishing
+question is what structure makes work avoidable, and what it costs to expose
+that structure. See <a href="../deep-reads/fusedot-primary-recovery-v1.html">FuseDot</a> and
+<a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/isca/pages/primary-evidence-llm-systems.md">ISCA primary LLM cases</a>.</p>
+<p><strong>Directional hypothesis.</strong> Useful specializations may couple quantization,
+data layout and scheduling with arithmetic, rather than optimizing MAC count
+alone. Subthemes include repeated-value fusion, LUT computation, outlier handling,
+structured sparsity and routing-aware execution.</p>
+<p>The <a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/iccad/data/adder-dcim-primary-recovery-v1.json">ICCAD fallback follow-up</a>
+adds Adder-DCIM as an institutional-evidence coded case, not a new accepted anchor. The methodological question is whether representation changes remain beneficial
+after conversion costs and system overhead are counted.</p><p>Its available evidence
+does not yet resolve that question. It remains inside the 582-record coded sample,
+but its headline numbers remain outside accepted quantitative comparisons.</p>
+<p>The <a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/iccad/data/squat-primary-recovery-v1.json">Squat recovery assessment</a>
+adds a coded deployment-focused follow-up, with independent review pending. It sharpens the
+evaluation question: does specialization improve latency at an acceptable
+accuracy loss, and do published ratios reconcile with the underlying timings?</p><p>The recorded arithmetic discrepancy must be resolved before using those cells
+as quantitative support. The original PDF confirms the same two mismatches,
+which cannot be explained by rounding to the displayed precision under a
+nearest-rounding assumption.</p><p>A third, smaller arithmetic difference is compatible
+with rounding and is not classified as an error. The two robust discrepancies
+are not just an HTML extraction artifact.</p><p>This is not a demonstrated failure
+of the overall method.</p>
+<p>The pinned Squat artifact exposes a further validation boundary: inspected QAT
+uses rescaled tensors with PyTorch linear operations, while the mobile kernel
+and timing harness were not located in that revision. Its selector ranks
+batch-shared pre-softmax scores.</p><p>These findings call for implementation/run
+provenance before equating the released training path with measured deployment;
+they do not demonstrate invalid published results.</p>
+<p><strong>Boundary.</strong> Reordering and metadata can consume the saved work. Equal integer
+codes across different quantization groups need not denote equal weights;
+finite-precision regrouping requires accuracy checks. A changed model distribution
+may erase the repetition or sparsity on which a design depends.</p>
+<p><strong>Test next.</strong> Sweep structure strength and model families at matched accuracy,
+including preprocessing, memory and area costs. A specialization that degrades
+gracefully outside its favored distribution is stronger evidence than a peak gain.</p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="books"></span>Late DAC anchor tranche: mechanism breadth without trend support</h2>
+<p>The final routed DAC anchors widen the mechanism map but do not change the
+directional conclusions. CANNON targets CXL near-memory ANN processing; XSearch
+uses Bayesian search with multi-fidelity simulation; MappingEvolve and ParetoPilot
+use language-model-guided code/design-space exploration; ATTINA targets spatial
+NTT acceleration for edge zkSNARKs; Procyon targets fine-grained tenancy in sparse
+streaming accelerators; TAMI-MPC targets trusted nonlinear MPC execution; and
+GalaxyDiT targets guidance/proxy choices in diffusion-transformer video
+generation.</p><p>These records are linked in
+<a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/reports/condition-extraction-batch-7-2026-09-07.md">condition extraction batch 7</a>.</p>
+<p>The evidence tiers are asymmetric: CANNON is official-description/company
+context; XSearch, ATTINA, Procyon, TAMI-MPC, and GalaxyDiT remain description
+routes; MappingEvolve has an author preprint and pinned artifact; ParetoPilot has
+a pinned artifact without execution. Therefore this tranche supports a broader
+hypothesis that design automation and specialized execution are increasingly
+co-designed around workload structure, search fidelity, and trust constraints,
+but it does not establish prevalence, superiority, or temporal growth.</p>
+<p><strong>Test next.</strong> Recover matched manuscripts and compare these mechanisms using
+common budgets: CXL ANN recall and tail latency, optimizer fidelity and wall time,
+zkSNARK correctness and proof cost, tenant QoS under interference, MPC security
+and communication overhead, and video quality at fixed sampling cost. Keep
+artifact estimates, company claims, and paper measurements in separate strata.</p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>Cross-conference implication and temporal verdict</h2>
+<p>The research opportunity suggested by these cases is <strong>closing constrained
+engineering loops</strong>: generation needs verification; specialization needs movement
+and accuracy accounting; physical modeling needs decision validation; scheduling
+needs failure and contention assumptions. These are interpretive connections,
+not proof that the cited authors implemented a common integrated system.</p>
+<p>DAC supplies broad description-level candidates; selected ISCA sources expose
+system interactions; ICCAD's 2025 fallback supplies design-method depth. Those
+roles describe this collection, not intrinsic rankings of the conferences.</p>
+<p><strong>Temporal evidence is insufficient for all six rising/declining claims.</strong> The
+three purposeful DAC pairs control broad question and description tier, not
+workloads or hardware. Only 24 of 419 historical DAC descriptions are captured;
+missing historical evidence cannot be treated as absence.</p><p>No independent review
+has accepted these directions. The next synthesis pass must challenge them with
+the remaining coded corpus, contradictory cases and matched historical subsets.</p>
+<p>No direction above establishes adoption, market share, commercial viability, a
+winning platform or a date by which it will become dominant. The practical output
+is a set of technical hypotheses and experiments that can strengthen or reject
+them—not a forecast disguised as a paper count.</p><p class="meta">Written as <a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/reports/field-directions-and-hypotheses-v1.md">reports/field-directions-and-hypotheses-v1.md</a> in the course repository.</p>
+      </article>
+      <nav class="pager" aria-label="Previous and next"><a class="prev" href="expanded-taxonomy-v1.html"><span class="pg-k">← Previous</span><span class="pg-t">Expanded taxonomy atlas v1</span></a><a class="map" href="../guide.html"><span class="pg-k">Back to</span><span class="pg-t">How to read the atlas</span></a><a class="next" href="research-atlas-index-v1.html"><span class="pg-k">Next →</span><span class="pg-t">Semiconductor research atlas v1</span></a></nav>
+    </section>
+  </main>
+  <footer class="course-foot">
+    <p>Built from 582 paper records coded from ISCA 2026, DAC 2026 and ICCAD 2025 (ICCAD 2026 papers were not yet public). Most records come from official program descriptions; see “How deep the reading went”. The papers belong to their authors.</p>
+    <p class="foot-links"><a href="https://github.com/mehtama1234/course-concept-library">All courses</a><a href="../index.html">This course</a><a href="../course-map.html">Course map</a><a href="../presentation/index.html">Slides</a><a href="../video/index.html">Video</a><a href="../share/index.html">Share</a></p>
+  </footer>
+  <script src="../assets/course-data.js"></script><script src="../assets/icons.js"></script><script src="../assets/icons-extra.js"></script><script src="../assets/icons-course.js"></script><script src="../assets/art.js"></script><script src="../assets/course-art.js"></script><script src="../assets/charts.js"></script><script src="../assets/course-charts.js"></script><script src="../assets/course-site.js"></script>
+</body>
+</html>

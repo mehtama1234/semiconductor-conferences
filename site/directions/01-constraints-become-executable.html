@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#F3ECE1" />
+  <title>Using design requirements to choose the next design · Semiconductor conference atlas</title>
+  <meta name="description" content="A candidate is useful only when executable constraints can reject, repair, or rank it." />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Semiconductor conference atlas" />
+  <meta property="og:title" content="Using design requirements to choose the next design · Semiconductor conference atlas" />
+  <meta property="og:description" content="A candidate is useful only when executable constraints can reject, repair, or rank it." />
+  <meta property="og:url" content="https://mehtama1234.github.io/semiconductor-conferences/directions/01-constraints-become-executable.html" />
+  <meta property="og:image" content="https://mehtama1234.github.io/semiconductor-conferences/presentation/slides/01-cover.jpg" />
+  <meta property="og:image:width" content="1920" />
+  <meta property="og:image:height" content="1080" />
+  <meta property="og:image:alt" content="Semiconductor conference atlas: 582 papers from ISCA, DAC and ICCAD, sorted into 10 themes and six directions to watch." />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="canonical" href="https://mehtama1234.github.io/semiconductor-conferences/directions/01-constraints-become-executable.html" />
+  <link rel="icon" href="../assets/icon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="../assets/base.css" />
+  <link rel="stylesheet" href="../assets/experience.css" />
+  <link rel="stylesheet" href="../assets/theme-atlas.css" />
+  <link rel="stylesheet" href="../assets/styles.css" />
+  <link rel="stylesheet" href="../assets/charts.css" />
+  <link rel="stylesheet" href="../assets/course.css" />
+  
+</head>
+<body class="course-site " data-house="atlas">
+  <aside class="public-demo-banner" aria-label="About this course">A plain-language guide to what ISCA, DAC and ICCAD papers say about chip and computer design · Built from the repository’s own paper records · Not made by the conferences</aside>
+  <a class="skip-link" href="#app">Skip to the page</a>
+  <header>
+    <a class="brand" href="../index.html"><span class="mark" aria-hidden="true">Si</span> Semiconductor conference atlas</a>
+    <span class="header-status"><span class="badge">582 papers</span><span class="badge">10 themes</span><span class="badge">Plain words first</span></span>
+    <a class="header-link" href="../course-map.html">Course map</a>
+  </header>
+  <nav class="course-nav" aria-label="Main sections of the course"><a href="../index.html">The big picture</a><a href="../themes.html">Themes</a><a href="../subthemes.html">Subthemes</a><a href="../deep-reads.html">Deep reads</a><a href="../directions.html" aria-current="page">What to watch</a><a href="../presentation/index.html">Slides</a><a href="../video/index.html">Video</a><a href="../share/index.html">Share</a></nav>
+  <main id="app" tabindex="-1">
+    <section class="screen active landing legacy-page" aria-labelledby="page-title">
+<div class="lm-head"><div class="hj-heading"><nav class="crumbs" aria-label="You are here"><a href="../course-map.html">Course map</a><span aria-hidden="true">›</span><a href="../directions.html">What to watch</a></nav><a class="back-button" href="../directions.html">← <span>What to watch</span></a><p class="eyebrow">Direction 1 of 6 · a hypothesis, not a measured trend</p><h1 id="page-title">Using design requirements to choose the next design</h1><p class="hj-sub">A candidate is useful only when executable constraints can reject, repair, or rank it.</p></div><div class="hj-art" data-art="trio:file-text,sparkles,checklist"></div></div>
+<figure class="course-fig"><div class="loop-wide" data-art="flow:constraints-become-executable"></div><div class="loop-tall" data-art="flowTall:constraints-become-executable"></div><figcaption>Requirements become checks that steer the next design, not just judge the last one.</figcaption></figure><section class="landing-problems answer bridge"><p class="lp-energy"><b>The next test:</b> Compare accepted designs, failed attempts, regressions, checker state, and transfer at equal synthesis, model-call, retry, and wall-clock budgets. <a href="../comparisons/constraints-become-executable.html">Across the conferences →</a></p></section>
+      <article class="prose">
+
+<p>Status: a research hypothesis supported by selected cases. A measured increase across comparable years has not been established.</p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="alert-triangle"></span>The problem: a requirement checked only at the end can fail an expensive design</h2>
+<p>A design requirement is a condition the result must meet. A circuit must:</p>
+<ul>
+<li>compute the required function;</li>
+<li>fit within an area budget;</li>
+<li>deliver signals within a specified time.</li>
+</ul>
+<p>A design process considers many candidates. If a requirement is checked only after a candidate is chosen, an expensive implementation can fail at the end.</p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="checklist"></span>The change: run the checks while building, and let the result steer the next attempt</h2>
+<ol>
+<li>A tool measures or tests a candidate.</li>
+<li>It reports a failure or a cost.</li>
+<li>The next design decision uses that report.</li>
+</ol>
+<p>The check must return something useful: which property failed, where, or which resource went over its limit. A bare pass or fail may rule a candidate out without saying how to improve it.</p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="checklist"></span>Different checks prove different things, so keep them apart</h2>
+<p>A language model writing circuit code, a compiler arranging operations, and a placement tool choosing locations can all use this loop. Their checks differ:</p>
+<ul>
+<li><strong>Compiling</strong> shows a tool accepts the code's syntax and structure.</li>
+<li><strong>Simulating</strong> selected inputs checks those runs only.</li>
+<li><strong>Proving equivalence</strong> is a stronger claim, within the proof's model.</li>
+</ul>
+<p>An evaluation must keep these outcomes separate.</p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="checklist"></span>The test: same unseen tasks, same total budget, count every outcome</h2>
+<ol>
+<li>Compare methods on the same unseen design tasks, with the same total time and computing resources.</li>
+<li>Count valid completed designs, failures, unresolved checks, and final area, timing and power.</li>
+<li>If feedback helps on development examples but fails on new designs, the evidence supports only a narrower method.</li>
+<li>To show a trend over time, compare equivalent sets of papers across years, and code which checks actually change design decisions.</li>
+</ol>
+<p class="lm-k h-label">Counterpressure and falsification boundary</p><h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>The paper that pushes back, and what would disprove the direction</h2>
+<p>Challenge paper: <code>dac-2026-research2760</code> (evaluation_counterpressure; source tier <code>official_description</code>). <a href="https://63dac.conference-program.com/?post_type=page&amp;p=16&amp;id=RESEARCH2760&amp;sess=sess166">Open the recorded source</a>.</p>
+<p>Tool-grounded generation does not establish general capability if benchmark difficulty and contamination differ.</p>
+<p><strong>What would weaken the direction:</strong> The direction is weakened if matched held-out designs under equal compute produce no higher valid-completion or equivalence rate than the baseline, or if the apparent gain disappears after contamination controls.</p>
+<p><strong>Next evidence:</strong> Recover task-level results, held-out dates, contamination tests and equivalence assumptions; compare matched models and budgets.</p>
+<p class="lm-k h-label">Paper evidence and open conditions</p><h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>The papers behind it, and the conditions still unknown</h2>
+<p><a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/reports/directions/evidence/01-constraints-become-executable-evidence.md">Read the paper evidence dossier</a>. It connects this discussion to the recorded sources and unresolved conditions.</p>
+<p><a href="../comparisons/constraints-become-executable.html">Read the cross-conference comparison</a>. Different conferences can examine different parts of the problem; their reported numbers are not automatically comparable.</p>
+<p><a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/reports/direction-condition-register-v1.md">Check the condition register</a> for unresolved experimental details and <a href="../guide/direction-review-gate-v1.html">the review gate</a> for the current review status.</p>
+<p class="lm-k h-label">Establishing a long-term trend</p><h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>What it would take to call this a long-term trend</h2>
+<p>A trend needs the same rules applied to comparable years:</p>
+<ol>
+<li>Select comparable editions.</li>
+<li>Apply the same inclusion and coding rules.</li>
+<li>Measure source coverage in each edition.</li>
+<li>Tell apart how many papers discuss a method from evidence that the method improves results.</li>
+</ol>
+<p>The current sample combines DAC and ISCA 2026 with ICCAD 2025 fallback material, and coverage is uneven. That supports comparing cases with stated limits.</p>
+<p><a href="../guide/longitudinal-protocol-v1.html">Read the longitudinal protocol</a> · <a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/reports/directions/README.md">Return to research directions</a></p><p class="meta">Written as <a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/reports/directions/01-constraints-become-executable.md">reports/directions/01-constraints-become-executable.md</a> in the course repository.</p>
+      </article>
+      <nav class="pager" aria-label="Previous and next"><span class="prev empty"></span><a class="map" href="../directions.html"><span class="pg-k">Back to</span><span class="pg-t">What to watch</span></a><a class="next" href="02-data-movement-as-contract.html"><span class="pg-k">Next →</span><span class="pg-t">Designing computation around the cost of moving data</span></a></nav>
+    </section>
+  </main>
+  <footer class="course-foot">
+    <p>Built from 582 paper records coded from ISCA 2026, DAC 2026 and ICCAD 2025 (ICCAD 2026 papers were not yet public). Most records come from official program descriptions; see “How deep the reading went”. The papers belong to their authors.</p>
+    <p class="foot-links"><a href="https://github.com/mehtama1234/course-concept-library">All courses</a><a href="../index.html">This course</a><a href="../course-map.html">Course map</a><a href="../presentation/index.html">Slides</a><a href="../video/index.html">Video</a><a href="../share/index.html">Share</a></p>
+  </footer>
+  <script src="../assets/course-data.js"></script><script src="../assets/icons.js"></script><script src="../assets/icons-extra.js"></script><script src="../assets/icons-course.js"></script><script src="../assets/art.js"></script><script src="../assets/course-art.js"></script><script src="../assets/charts.js"></script><script src="../assets/course-charts.js"></script><script src="../assets/course-site.js"></script>
+</body>
+</html>

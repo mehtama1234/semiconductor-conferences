@@ -1,0 +1,281 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#F3ECE1" />
+  <title>Privacy preserving compute · Semiconductor conference atlas</title>
+  <meta name="description" content="Papers: DAC 3. Read from: 3 program descriptions, 0 abstracts or reports, 0 full papers or preprints. The explanations come first; every paper’s record follows at the end." />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Semiconductor conference atlas" />
+  <meta property="og:title" content="Privacy preserving compute · Semiconductor conference atlas" />
+  <meta property="og:description" content="Papers: DAC 3. Read from: 3 program descriptions, 0 abstracts or reports, 0 full papers or preprints. The explanations come first; every paper’s record follows at the end." />
+  <meta property="og:url" content="https://mehtama1234.github.io/semiconductor-conferences/subthemes/privacy-preserving-compute.html" />
+  <meta property="og:image" content="https://mehtama1234.github.io/semiconductor-conferences/presentation/slides/01-cover.jpg" />
+  <meta property="og:image:width" content="1920" />
+  <meta property="og:image:height" content="1080" />
+  <meta property="og:image:alt" content="Semiconductor conference atlas: 582 papers from ISCA, DAC and ICCAD, sorted into 10 themes and six directions to watch." />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="canonical" href="https://mehtama1234.github.io/semiconductor-conferences/subthemes/privacy-preserving-compute.html" />
+  <link rel="icon" href="../assets/icon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="../assets/base.css" />
+  <link rel="stylesheet" href="../assets/experience.css" />
+  <link rel="stylesheet" href="../assets/theme-atlas.css" />
+  <link rel="stylesheet" href="../assets/styles.css" />
+  <link rel="stylesheet" href="../assets/charts.css" />
+  <link rel="stylesheet" href="../assets/course.css" />
+  
+</head>
+<body class="course-site " data-house="atlas">
+  <aside class="public-demo-banner" aria-label="About this course">A plain-language guide to what ISCA, DAC and ICCAD papers say about chip and computer design · Built from the repository’s own paper records · Not made by the conferences</aside>
+  <a class="skip-link" href="#app">Skip to the page</a>
+  <header>
+    <a class="brand" href="../index.html"><span class="mark" aria-hidden="true">Si</span> Semiconductor conference atlas</a>
+    <span class="header-status"><span class="badge">582 papers</span><span class="badge">10 themes</span><span class="badge">Plain words first</span></span>
+    <a class="header-link" href="../course-map.html">Course map</a>
+  </header>
+  <nav class="course-nav" aria-label="Main sections of the course"><a href="../index.html">The big picture</a><a href="../themes.html">Themes</a><a href="../subthemes.html" aria-current="page">Subthemes</a><a href="../deep-reads.html">Deep reads</a><a href="../directions.html">What to watch</a><a href="../presentation/index.html">Slides</a><a href="../video/index.html">Video</a><a href="../share/index.html">Share</a></nav>
+  <main id="app" tabindex="-1">
+    <section class="screen active landing legacy-page" aria-labelledby="page-title">
+<div class="lm-head"><div class="hj-heading"><nav class="crumbs" aria-label="You are here"><a href="../course-map.html">Course map</a><span aria-hidden="true">›</span><a href="../subthemes.html">Subthemes</a></nav><a class="back-button" href="../subthemes.html">← <span>Subthemes</span></a><p class="eyebrow">Subtheme · 3 papers · Power, reliability, and security</p><h1 id="page-title">Privacy preserving compute: what the 3 papers change, and what is still unproven</h1><p class="hj-sub">Papers: DAC 3. Read from: 3 program descriptions, 0 abstracts or reports, 0 full papers or preprints. The explanations come first; every paper’s record follows at the end.</p></div><div class="hj-art" data-art="trio:alert-triangle,shield-check,bolt"></div></div>
+<figure class="course-fig"><div class="loop-wide" data-art="flow:power-reliability-and-security"></div><div class="loop-tall" data-art="flowTall:power-reliability-and-security"></div><figcaption>The parent theme in one picture: name the fault or attack first, then pay for the protection.</figcaption></figure>
+      <article class="prose">
+
+<p>This subject has 3 records in the selected sample. This page explains where it fits, then presents all captured paper evidence without shortening the measurements or limitations.</p>
+<p><a href="../guide/reading-guide-v1.html">Definitions used in the paper records</a></p>
+<p class="lm-k h-label">Understand the parent subject first</p><h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>The bigger theme this belongs to</h2>
+<ul>
+<li><a href="../themes/power-reliability-and-security.html">Power reliability and security</a></li>
+</ul>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>Three ways to reduce the cost of private inference</h2>
+<p>This subject groups sparse encrypted matrix operations, memory-aware encrypted-network configuration, and trusted acceleration of multiparty computation. These target different costs: arithmetic that may be unnecessary, storage required by the encrypted representation, and communication needed by a privacy protocol.</p><p>Reducing one cost can increase another or change who must be trusted.</p>
+<p>The closely named <a href="privacy-preserving-computing.html">privacy-preserving computing article</a> covers another three records. The two labels are preserved from the coding, not presented as separate established fields. Read them together, while keeping each paper's actual privacy assumptions distinct.</p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="message-circle"></span>Sparse plaintext does not necessarily mean sparse encrypted work</h2>
+<p>A sparse matrix has many zero entries. An ordinary multiplication can sometimes avoid storing or multiplying those entries.</p><p>Encrypted computation adds a question: is the position of each zero public, or is it itself sensitive? Revealing which entries are skipped could disclose structure even if the nonzero values remain hidden.</p>
+<p><a href="privacy-preserving-compute.html#paper-dac-2026-research2265">Sparsee</a> proposes hardware-software co-design for encrypted sparse matrix multiplication. Its potential contribution is a representation and execution strategy that turns permitted sparsity information into less work.</p><p>The captured description does not identify the encryption scheme, what structure is public, or the accelerator. Consequently it cannot support a claim that the method hides the sparsity pattern, nor that it exposes it.</p><p>That boundary is unresolved.</p>
+<p><span id="explanation-dac-2026-research2265"></span></p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>Sparsee: encrypted sparsity is useful only when privacy, FHE correctness, and the full cost boundary remain intact</h2>
+<p>Fully homomorphic encryption (FHE) lets a party compute on ciphertexts without first seeing plaintext values, but ciphertext arithmetic and movement are substantially more expensive than ordinary arithmetic. Sparse matrix multiplication has a second privacy question: if the locations of zeros or nonzeros are visible, the sparsity pattern may itself reveal sensitive structure.</p><p>Hiding the pattern can force the implementation toward dense work unless the encrypted representation supplies a safe way to select and move only the needed values.</p>
+<p>Sparsee is described as a secure Scatter-Gather-Apply formulation. A homomorphic permutation network gathers data using encrypted indices; a Benes topology and pipelined Radix-k multi-dimensional circular architecture implement the Homomorphic Permutation Engine; a Homomorphic Expansion Engine expands compressed selector ciphertexts on the fly.</p><p>These mechanisms target encrypted indexing, routing and storage. The captured description does not specify the FHE scheme, packing, security parameters, selector format, key-switching/rotation costs, leakage model, noise budget or hardware implementation status.</p>
+<p>The first gate is privacy. State which values, indices, access patterns, lengths, timing, traffic and metadata are public, and define the adversary.</p><p>Show that selector compression, encrypted permutation, expansion, routing and output behavior do not reveal the sparse pattern beyond the allowed leakage. A protocol can hide numerical values while exposing which positions were selected; conversely, padding or oblivious routing can preserve privacy while erasing the claimed sparsity benefit.</p>
+<p>The second gate is FHE correctness. Track ciphertext noise/modulus levels, rotations, key switching, multiplication depth, packing and decryption error.</p><p>Compare decrypted outputs with plaintext SpMM and a dense encrypted reference across density, dimensions and batches; report numerical error, failure rate and remaining noise margin. Include permutation, selector expansion, accumulation and unsupported operations.</p><p>Faster encrypted execution is not equivalent if the result changes or the noise budget is exhausted.</p>
+<p>The source reports 401.8× average speedup and 2594.3× average energy reduction versus state-of-the-art solutions. It does not expose absolute latency, throughput, energy, memory, ciphertext expansion, FHE operation counts, security parameters, correctness/noise margin, leakage analysis or per-workload results.</p><p>A fair boundary includes encryption/decryption where applicable, packing, selector compression/expansion, permutation, memory, host transfers, control and output materialization.</p>
+<p>The evidence supports privacy-aware encrypted sparse-SpMM co-design, not demonstrated security preservation, leakage resistance, FHE correctness across workloads or universal 401.8×/2594.3× end-to-end benefit.</p>
+<p>Evaluation should state matrix dimensions and sparsity structure, the encrypted and plaintext operands, the information disclosed, and the cost of arranging data for computation. A speed comparison against dense encrypted multiplication is informative only when both methods meet the same correctness and privacy requirements.</p><p>The source provides no security parameters, numerical accuracy, memory, or performance measurements.</p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="refresh"></span>Memory is a constraint on the whole encrypted configuration</h2>
+<p><span id="explanation-dac-2026-research897"></span></p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>MACH: make encrypted inference fit memory without confusing configuration feasibility with privacy or accuracy</h2>
+<p><a href="privacy-preserving-compute.html#paper-dac-2026-research897">MACH</a> is described as a memory-aware design framework for homomorphically encrypted neural-network inference. It uses a static model of memory footprint and latency and explores cryptographic, bootstrapping and encoding configurations, trading extra computation for a smaller footprint under a GPU-memory limit.</p><p>Encrypted representations carry more structure than the original numeric values: a usable configuration must fit live ciphertexts, temporary values, keys and supporting state, not merely the network weights.</p>
+<p>The precise configuration choices are absent from the captured record. It would be inappropriate to assert a particular packing strategy, parameter search, precision, modulus schedule or refresh policy.</p><p>A valid configuration must state the FHE scheme and security parameter, ciphertext modulus and levels, packing, scale/precision, multiplication depth, rotations, key switching, bootstrapping and noise margin. Compare decrypted outputs with a trusted plaintext and encrypted reference, reporting accuracy/error and failure rates.</p>
+<p>Memory capacity and memory traffic are different quantities. Recomputing or choosing a more expensive cryptographic path can lower peak footprint while increasing operations, transfers or energy.</p><p>Count preprocessing, key generation/management, encryption/decryption, bootstrapping, host-device movement and output materialization, and define whether latency includes them. Report peak/live memory, bandwidth, latency, throughput and energy under the same security and accuracy contract.</p>
+<p>The source reports up to 4.97× speedup and 91.88% memory-footprint reduction for encrypted ResNet-20 and ResNet-18 across various GPUs. It also reports a 128-bit-security full-fledged deployment on an RTX 4060 Ti with 16 GB of device memory.</p><p>These are bounded source claims: the record does not expose per-model results, GPU list, accuracy, noise margin, FHE operation counts, transfer boundary, energy or independent security validation. A memory reduction is not automatically a privacy, accuracy or end-to-end performance result.</p>
+<p>The evidence supports memory-aware HE-NN configuration generation, not demonstrated secure, accuracy-preserving end-to-end improvement across deployments.</p>
+<p><span id="explanation-dac-2026-research989"></span></p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>TAMI-MPC: fewer rounds can move the security boundary into the TEE</h2>
+<p><a href="privacy-preserving-compute.html#paper-dac-2026-research989">TAMI-MPC</a> is described as a trusted-execution-environment (TEE)-accelerated framework for nonlinear secure multiparty computation. It redesigns leaf-comparison and merge primitives so each completes in one interaction round in the stated setting, uses synchronized seeds inside the TEE to avoid oblivious transfer for most designs, reuses correlated randomness, and maps the dataflow to a streaming, highly parallel accelerator.</p><p>These are protocol and system mechanisms; they do not by themselves define the security guarantee.</p>
+<p>Nonlinear operations do not simply preserve addition and scaling, so comparison semantics, approximation, fixed-point representation, truncation and failure behavior must be specified. Reducing rounds can matter on a high-latency link, but it does not necessarily reduce bytes, local cryptographic work, preprocessing or setup.</p><p>Report per-primitive and end-to-end rounds, messages, bytes, seed generation/distribution, cryptographic operations, network conditions, input sharing, output reconstruction and model loading under the same MPC baseline.</p>
+<p>The source reports a reduction from log(n) to 1 round per described operation, OT elimination for the vast majority of designs, up to 4.86× speedup on ResNet-50 and up to 7.44× on bert-base. It does not identify the MPC protocol, adversary, model/dataset, accuracy, sequence or batch size, communication trace, setup boundary, TEE technology, area, power or security proof.</p><p>“Minimal-interaction” must not be expanded into “no communication,” and a TEE must not be presented as removing trust.</p>
+<p>The changed trust boundary needs its own evaluation: define host and TEE compromise assumptions, remote attestation, key/seed lifecycle, freshness and replay protection, memory disclosure, rollback, side channels and behavior under TEE compromise. Validate privacy and integrity for nonlinear comparison and correlated-randomness reuse in both the claimed and stronger adversary models.</p><p>Then compare secure accuracy and complete end-to-end cost, including accelerator overhead.</p>
+<p>The evidence supports TEE-assisted low-interaction MPC acceleration, not demonstrated security-preserving deployment across networks and models.</p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>What would make the cross-paper comparison useful?</h2>
+<p>First state the same computation, acceptable error, private information, and adversary capabilities. Then identify whether each candidate actually meets those requirements.</p><p>Only the candidates that do should be ranked by complete resource costs. The three records suggest useful optimization targets, but contain no quantitative evidence sufficient for that ranking.</p><p>Their long-term implication is a question to investigate: which resource savings remain when privacy assumptions and final output quality are held fixed?</p>
+<p class="lm-k h-label">Compare the results carefully</p><h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="route"></span>How to compare these papers’ results fairly</h2>
+<p>First identify the inputs and required output quality. Then identify the limited resource: time, memory, communication, energy, circuit area, or correctness coverage.</p><p>Ask which part of the method reduces that cost and which new cost it adds. Compare numbers only when the experiments hold these conditions sufficiently similar.</p>
+<p>A conference description may explain the proposal while omitting the full experiment. An author preprint link may have been coded from its abstract. The source classification does not by itself establish that every table was read. Missing locations remain visible below.</p>
+<p class="lm-k h-label">Complete captured evidence</p><h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="file-text"></span>Every paper in this subtheme, with what its source shows</h2>
+<p>These are evidence records, not substitutes for the explanations above. Each record preserves its problem, proposed method, measurements, comparison conditions, and source limits. A populated record does not establish that its mechanism has been fully explained or independently verified.</p>
+<p><span id="paper-dac-2026-research2265"></span></p>
+<h3>Sparsee: Unlocking Sparsities in Encrypted Sparse Matrix Multiplication via Hardware-Software Co-Design</h3>
+<p>DAC 2026 · Record: <code>dac-2026-research2265</code></p>
+<p><a href="#explanation-dac-2026-research2265">Read the step-by-step explanation</a></p>
+<p><strong>Updated source-backed reading card</strong></p>
+<div class="worked"><p class="lm-k">Worked example</p><p>Reviewed 2026-09-09. Deepens the Sparsee treatment into a paper-level reading; separates secure Scatter-Gather-Apply, encrypted-index homomorphic permutation, Benes/Radix-k permutation hardware and selector-ciphertext expansion from FHE security, ciphertext correctness, sparsity leakage, parameter/noise growth, memory and full encrypted-SpMM cost, while preserving the 401.8x and 2594.3x source claims.</p></div>
+<p>This editorial correction updates the current reading view and connected dossiers, not the historical adjudication or scientific acceptance status. The original captured fields are preserved below.</p>
+<p><a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/data/editorial-paper-corrections-v1.json">Correction register</a></p>
+<p><strong>Problem:</strong></p>
+<p>Fully homomorphic encryption hides sparse-matrix structure in ciphertexts, causing sparse matrix multiplication to resemble dense computation and making ciphertext arithmetic, movement and storage expensive.</p>
+<p><strong>Mechanism / artifact:</strong></p>
+<p>Sparsee recasts encrypted SpMM as secure Scatter-Gather-Apply, uses a homomorphic permutation network to gather using encrypted indices, maps that network to a hardware-friendly Benes topology with a pipelined Radix-k MDC Homomorphic Permutation Engine, and expands compressed selector ciphertexts on the fly in a Homomorphic Expansion Engine; FHE scheme, packing, selector format, security parameters, permutation proof and hardware precision are unspecified.</p>
+<p><strong>Workload — the work tested:</strong></p>
+<p>Encrypted sparse matrix multiplication with hidden sparsity pattern; matrix dimensions, nonzero distribution, density, index/value confidentiality, operand packing, ciphertext modulus/level, rotations/multiplications, batch/RHS count, datasets, correctness/error tolerance and compared software/hardware systems are unspecified.</p>
+<p><strong>Hardware and manufacturing assumptions:</strong></p>
+<p>Dedicated encrypted-compute accelerator with Benes permutation network, Radix-k multi-dimensional circular pipeline and on-the-fly selector-ciphertext expansion; technology, clock, memory capacity/bandwidth, on-chip storage, host link, area, power, security implementation, noise/precision and FPGA/ASIC status are unspecified.</p>
+<p><strong>Baseline — the comparison method:</strong></p>
+<p>Dense encrypted matrix multiplication</p>
+<p>Software encrypted SpMM</p>
+<p>State-of-the-art encrypted sparse-compute solution</p>
+<p>Same FHE scheme/security level, matrix, packing, ciphertext parameters, correctness/privacy contract, hardware, preprocessing, data transfer and end-to-end timing/energy boundary are unspecified</p>
+<p><strong>Reported measurements:</strong></p>
+<p>The official description reports 401.8x average speedup and 2594.3x average energy reduction versus state-of-the-art solutions; it does not report absolute latency, throughput, energy, memory, ciphertext expansion, FHE operation count, security parameters, correctness/noise margin, leakage analysis or per-workload results.</p>
+<p><strong>Limits on the conclusion:</strong></p>
+<p>Encrypted indices and a homomorphic permutation can preserve sparsity without revealing the pattern only under a stated FHE scheme, security parameter, key/ciphertext handling and leakage model. Define which values, indices, access patterns, lengths, timing and metadata are public; prove or measure that selector compression, permutation routing and output behavior do not expose the sparse structure to the allowed adversary.</p>
+<p>FHE correctness requires tracking ciphertext noise/modulus levels, rotations, key switching, multiplication depth, packing and decryption error. Compare decrypted outputs with plaintext SpMM and a dense encrypted reference, report failure/noise margin and parameter sets, and include selector expansion, permutation, accumulation and unsupported operations.</p><p>A faster encrypted kernel is not valid if it changes the computation or exhausts the noise budget.</p>
+<p>Speed and energy must include key generation/management where relevant, encryption/decryption, packing, selector compression/expansion, host-device transfers, memory, control, preprocessing and final output materialization. Hold security, correctness, matrix density, hardware and baseline optimization constant.</p><p>The evidence supports privacy-aware encrypted sparse-SpMM co-design, not demonstrated security preservation, leakage resistance, FHE correctness across workloads or universal 401.8x/2594.3x end-to-end benefit.</p>
+<p><strong>Source and location</strong></p>
+<p>Evidence tier: Primary captured official DAC description plus existing authored privacy preserving compute discussion; no full paper extraction, independent fhe security/correctness validation, hardware implementation report or complete latency/energy accounting. This is the stored source classification; the location and limits below determine what was actually read.</p>
+<p><a href="https://63dac.conference-program.com/?post_type=page&amp;p=16&amp;id=RESEARCH2265&amp;sess=sess108">Open the recorded source</a></p>
+<p>DAC 2026 official description; existing privacy-preserving-compute chapter framing; captured Problem, Mechanism / artifact, Workload, Hardware, Baseline, Measurements and Limits fields; no manuscript pages, FHE parameter table, leakage/security proof, decrypted-correctness report or reproduced accelerator benchmark.</p>
+<details markdown="1">
+<summary>Original captured fields — superseded for this reading card</summary>
+
+** page source tier:** medium_official_description
+
+**Baselines:** dense encrypted multiplication
+
+software encrypted SpMM
+
+**Evidence locators:** DAC 2026 official description
+
+**Evidence url:** https://63dac.conference-program.com/?post_type=page&amp;p=16&amp;id=RESEARCH2265
+
+**Hardware or process assumptions:** Homomorphic or encrypted-compute accelerator; ciphertext precision and memory assumptions are unspecified.
+
+**Limits:** No security parameters, latency, throughput, memory, energy, or accuracy results are reported.
+
+Sparsity may interact with ciphertext expansion and leakage.
+
+Official description only; cryptographic and hardware validation is required.
+
+**Method or artifact:** Hardware-software co-design exploiting sparsity in encrypted SpMM.
+
+**Metrics:** Encrypted sparse-compute efficiency is claimed qualitatively
+
+**Problem:** Encrypted sparse matrix multiplication often loses sparsity benefits because ciphertext operations and formats are costly.
+
+**Workload or benchmark:** Encrypted sparse matrix workloads; scheme, matrices, and accelerator are unspecified.
+
+</details>
+<p><span id="paper-dac-2026-research897"></span></p>
+<h3>MACH: Memory-Aware Configuration Generation for Homomorphically Encrypted Neural Networks</h3>
+<p>DAC 2026 · Record: <code>dac-2026-research897</code></p>
+<p><a href="#explanation-dac-2026-research897">Read the step-by-step explanation</a></p>
+<p><strong>Updated source-backed reading card</strong></p>
+<div class="worked"><p class="lm-k">Worked example</p><p>Reviewed 2026-09-09. Deepens the MACH treatment into a paper-level reading; separates memory-aware configuration search and its static memory/latency model from FHE security, accuracy, noise margin, bootstrapping correctness and full end-to-end cost, while preserving the 4.97x, 91.88%, 128-bit and RTX 4060 Ti/16-GB claims.</p></div>
+<p>This editorial correction updates the current reading view and connected dossiers, not the historical adjudication or scientific acceptance status. The original captured fields are preserved below.</p>
+<p><a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/data/editorial-paper-corrections-v1.json">Correction register</a></p>
+<p><strong>Problem:</strong></p>
+<p>Fully homomorphic encryption makes neural-network inference privacy-preserving but expands ciphertext storage and computation; on GPU HENN inference the bottleneck can shift from arithmetic to memory transfer when live encrypted state exceeds device capacity.</p>
+<p><strong>Mechanism / artifact:</strong></p>
+<p>MACH is described as a memory-aware design framework with a static model for memory footprint and latency and automatic design-space exploration over cryptographic, bootstrapping and encoding configurations. The objective trades computation against reduced memory footprint under a GPU-capacity constraint; scheme, packing, parameter-search, precision and refresh details are unspecified.</p>
+<p><strong>Workload — the work tested:</strong></p>
+<p>Homomorphically encrypted ResNet-20 and ResNet-18 across various GPU devices, including a reported 128-bit-security deployment on an RTX 4060 Ti with 16 GB device memory; FHE scheme, datasets, model accuracy target, batch size, ciphertext parameters, GPU list, baselines, preprocessing and end-to-end timing boundary are unspecified.</p>
+<p><strong>Hardware and manufacturing assumptions:</strong></p>
+<p>GPU-accelerated homomorphically encrypted neural-network inference with limited device memory; the source reports an RTX 4060 Ti with 16 GB for the 128-bit deployment, but GPU architecture, host system, memory hierarchy, software stack, frequency/power, transfer path and accelerator or ASIC status are unspecified.</p>
+<p><strong>Baseline — the comparison method:</strong></p>
+<p>Memory-oblivious HE configuration</p>
+<p>Plaintext neural-network inference</p>
+<p>Same FHE scheme, security level, model, accuracy/error target, ciphertext parameters, GPU, memory capacity, preprocessing, host-device transfers, bootstrapping policy and end-to-end timing boundary are unspecified</p>
+<p><strong>Reported measurements:</strong></p>
+<div class="worked"><p class="lm-k">Worked example</p><p>The source reports up to 4.97x speedup and 91.88% memory-footprint reduction for encrypted ResNet-20/18 across various GPUs, plus a first reported full-fledged 128-bit-security deployment on an RTX 4060 Ti with 16 GB device memory; it does not expose per-model/configuration results, accuracy, latency definition, throughput, energy, peak-versus-live memory, FHE operation counts, noise margin or security validation.</p></div>
+<p><strong>Limits on the conclusion:</strong></p>
+<p>A memory-aware configuration model can choose a feasible point in a search space, but feasibility requires a stated FHE scheme, security parameter, ciphertext modulus/levels, packing, scale/precision, multiplication depth, rotations, key switching, bootstrapping and noise margin. Compare decrypted outputs with a trusted plaintext and encrypted reference and report accuracy/error and failure rates across models and inputs.</p>
+<p>Lower peak footprint can come from recomputation or extra ciphertext operations and does not by itself imply lower memory traffic, latency or energy. Define peak/live memory, transfers, preprocessing, key generation/management, encryption/decryption, bootstrapping, host-device movement and output materialization; report Pareto tradeoffs rather than one selected configuration.</p>
+<p>The 4.97x, 91.88%, 128-bit and RTX 4060 Ti/16-GB claims do not establish universal encrypted-inference speedup, privacy preservation, accuracy retention, security compliance or hardware efficiency. Hold security, correctness, model, GPU capacity and timing boundary constant and report per-device results.</p><p>The evidence supports memory-aware HE-NN configuration generation, not demonstrated secure, accuracy-preserving end-to-end improvement across deployments.</p>
+<p><strong>Source and location</strong></p>
+<p>Evidence tier: Primary captured official DAC description plus existing authored privacy preserving compute discussion; no full paper extraction, reproduced fhe security/correctness validation or complete end to end accounting. This is the stored source classification; the location and limits below determine what was actually read.</p>
+<p><a href="https://63dac.conference-program.com/?post_type=page&amp;p=16&amp;id=RESEARCH897">Open the recorded source</a></p>
+<p>DAC 2026 official description; existing privacy-preserving-compute editorial explanation; captured Problem, Mechanism / artifact, Workload, Hardware, Baseline, Measurements and Limits fields; no manuscript pages, cryptographic parameter table, decrypted-accuracy matrix, noise/failure trace or independent reproduction.</p>
+<details markdown="1">
+<summary>Original captured fields — superseded for this reading card</summary>
+
+** page source tier:** medium_official_description
+
+**Baselines:** memory-oblivious HE configuration
+
+plaintext neural network
+
+**Evidence locators:** DAC 2026 official description
+
+**Evidence url:** https://63dac.conference-program.com/?post_type=page&amp;p=16&amp;id=RESEARCH897
+
+**Hardware or process assumptions:** FHE accelerator or software runtime; ciphertext memory and security assumptions are unspecified.
+
+**Limits:** No security parameters, accuracy, memory, latency, energy, or configuration results are reported.
+
+Memory constraints may trade against precision or security.
+
+Official description only; cryptographic and hardware validation is required.
+
+**Method or artifact:** Memory-aware configuration generation for HE neural networks.
+
+**Metrics:** HE-NN configuration efficiency is claimed qualitatively
+
+**Problem:** Encrypted neural networks require configurations balancing memory expansion, precision, and computation.
+
+**Workload or benchmark:** Homomorphically encrypted neural networks; schemes, models, and hardware are unspecified.
+
+</details>
+<p><span id="paper-dac-2026-research989"></span></p>
+<h3>TAMI-MPC: Trusted Acceleration of Minimal-Interaction MPC for Efficient Nonlinear Inference</h3>
+<p>DAC 2026 · Record: <code>dac-2026-research989</code></p>
+<p><a href="#explanation-dac-2026-research989">Read the step-by-step explanation</a></p>
+<p><strong>Updated source-backed reading card</strong></p>
+<div class="worked"><p class="lm-k">Worked example</p><p>Reviewed 2026-09-09. Deepens the TAMI-MPC treatment into a paper-level reading; separates single-round comparison/merge primitives, TEE-synchronized seeds, correlated-randomness reuse and streaming acceleration from the changed trust model, MPC security, nonlinear correctness and end-to-end communication accounting, while preserving the log(n)-to-1, 4.86x and 7.44x claims.</p></div>
+<p>This editorial correction updates the current reading view and connected dossiers, not the historical adjudication or scientific acceptance status. The original captured fields are preserved below.</p>
+<p><a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/data/editorial-paper-corrections-v1.json">Correction register</a></p>
+<p><strong>Problem:</strong></p>
+<p>Secure nonlinear inference in MPC relies on communication- and computation-intensive primitives such as secure comparison, which can be impractical on resource-constrained edge platforms.</p>
+<p><strong>Mechanism / artifact:</strong></p>
+<p>TAMI-MPC redesigns leaf-comparison and merge primitives so each uses one interaction round in the described setting, replaces most oblivious-transfer use with synchronized seeds inside a trusted execution environment, reuses correlated randomness, and uses a specialized streaming/high-parallelism accelerator to reduce memory overhead. Protocol, seed provisioning, TEE isolation/attestation, malicious-security handling, precision and accelerator microarchitecture are unspecified.</p>
+<p><strong>Workload — the work tested:</strong></p>
+<p>Secure inference for ResNet-50 and bert-base; source reports comparison with state-of-the-art CNN and LLM frameworks, but does not identify MPC protocol, model variants, datasets, batch/sequence sizes, security adversary, network latency/bandwidth, communication payloads, preprocessing, accuracy/error or whether all layers and setup are included.</p>
+<p><strong>Hardware and manufacturing assumptions:</strong></p>
+<p>Edge secure-inference system with a TEE and specialized streaming accelerator; TEE technology, memory hierarchy, host/network interface, clock, area, power, process, accelerator implementation status, seed storage/provisioning, side-channel protections and failure/recovery behavior are unspecified.</p>
+<p><strong>Baseline — the comparison method:</strong></p>
+<p>Prior interactive MPC secure inference</p>
+<p>Software MPC or state-of-the-art CNN/LLM frameworks</p>
+<p>Same model, accuracy, cryptographic security, threat model, network, preprocessing, setup, communication accounting, hardware resources and end-to-end timing boundary are unspecified</p>
+<p><strong>Reported measurements:</strong></p>
+<p>The source claims leaf-comparison and merge round complexity reduced from log(n) to 1 per operation, OT eliminated for the vast majority of designs through synchronized TEE seeds, up to 4.86x speedup on ResNet-50 and up to 7.44x on bert-base; it reports no communication bytes, total rounds, setup/preprocessing, latency, throughput, accuracy, energy, area, security proof or TEE measurement.</p>
+<p><strong>Limits on the conclusion:</strong></p>
+<p>Reducing interaction rounds does not by itself reduce communication bytes or computation. Report per-primitive and end-to-end rounds, bytes, messages, preprocessing, seed generation/distribution, cryptographic operations, network latency/bandwidth and whether setup, input sharing, output reconstruction and model loading are included; compare against an equivalent MPC implementation under the same threat model.</p>
+<p>Synchronized seeds and a TEE change what must be trusted. Define the adversary, compromised host/TEE assumptions, remote attestation, key/seed lifecycle, replay/freshness, memory disclosure, side channels, rollback and behavior under TEE compromise; establish privacy and integrity for nonlinear comparisons and correlated-randomness reuse rather than treating trust as free.</p>
+<p>The log(n)-to-1, 4.86x and 7.44x claims do not establish secure, accurate, or universally faster end-to-end inference. Verify nonlinear approximation/exactness, model accuracy, malicious and semi-honest security, leakage, setup and communication cost, and accelerator area/power/latency.</p><p>The evidence supports TEE-assisted low-interaction MPC acceleration, not demonstrated security-preserving deployment across networks and models.</p>
+<p><strong>Source and location</strong></p>
+<p>Evidence tier: Primary captured official DAC description plus existing authored privacy preserving compute discussion; no full paper extraction, reproduced cryptographic validation, tee security assessment or complete end to end accounting. This is the stored source classification; the location and limits below determine what was actually read.</p>
+<p><a href="https://63dac.conference-program.com/?post_type=page&amp;p=16&amp;id=RESEARCH989">Open the recorded source</a></p>
+<p>DAC 2026 official description; existing privacy-preserving-compute editorial explanation; captured Problem, Mechanism / artifact, Workload, Hardware, Baseline, Measurements and Limits fields; no manuscript pages, protocol transcript, security proof, communication trace, TEE attestation result or hardware reproduction.</p>
+<details markdown="1">
+<summary>Original captured fields — superseded for this reading card</summary>
+
+** page source tier:** medium_official_description
+
+**Baselines:** software MPC
+
+interactive secure inference
+
+**Evidence locators:** DAC 2026 official description
+
+**Evidence url:** https://63dac.conference-program.com/?post_type=page&amp;p=16&amp;id=RESEARCH989
+
+**Hardware or process assumptions:** Trusted hardware or accelerator for MPC; cryptographic parameters and threat model are unspecified.
+
+**Limits:** No security proof, communication, latency, energy, area, or model results are reported.
+
+Trusted hardware changes the threat model.
+
+Official description only; cryptographic and hardware validation is required.
+
+**Method or artifact:** Trusted accelerator or protocol for minimal-interaction MPC inference.
+
+**Metrics:** Secure inference efficiency is claimed qualitatively
+
+**Problem:** Secure nonlinear inference under MPC is communication- and computation-intensive.
+
+**Workload or benchmark:** Nonlinear secure inference; MPC protocol, models, and trust assumptions are unspecified.
+
+</details>
+<p class="lm-k h-label">What remains to establish</p><h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>What is still unproven here</h2>
+<p>Resolve unspecified workloads, comparison methods, resource budgets, and source locations before generalizing a reported gain. Multiple papers in this selected sample permit comparison of mechanisms, but do not by themselves establish recurrence across years or a long-term trend.</p>
+<p><a href="../guide/expanded-taxonomy-v1.html">All subthemes</a> · <a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/reports/directions/README.md">Research directions</a></p><p class="meta">Written as <a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/reports/observed-subthemes/privacy-preserving-compute.md">reports/observed-subthemes/privacy-preserving-compute.md</a> in the course repository.</p>
+      </article>
+      <nav class="pager" aria-label="Previous and next"><a class="prev" href="thermal-and-reliability-modeling.html"><span class="pg-k">← Previous</span><span class="pg-t">Thermal and reliability modeling</span></a><a class="map" href="../subthemes.html"><span class="pg-k">Back to</span><span class="pg-t">Subthemes</span></a><a class="next" href="privacy-preserving-computing.html"><span class="pg-k">Next →</span><span class="pg-t">Privacy preserving computing</span></a></nav>
+    </section>
+  </main>
+  <footer class="course-foot">
+    <p>Built from 582 paper records coded from ISCA 2026, DAC 2026 and ICCAD 2025 (ICCAD 2026 papers were not yet public). Most records come from official program descriptions; see “How deep the reading went”. The papers belong to their authors.</p>
+    <p class="foot-links"><a href="https://github.com/mehtama1234/course-concept-library">All courses</a><a href="../index.html">This course</a><a href="../course-map.html">Course map</a><a href="../presentation/index.html">Slides</a><a href="../video/index.html">Video</a><a href="../share/index.html">Share</a></p>
+  </footer>
+  <script src="../assets/course-data.js"></script><script src="../assets/icons.js"></script><script src="../assets/icons-extra.js"></script><script src="../assets/icons-course.js"></script><script src="../assets/art.js"></script><script src="../assets/course-art.js"></script><script src="../assets/charts.js"></script><script src="../assets/course-charts.js"></script><script src="../assets/course-site.js"></script>
+</body>
+</html>

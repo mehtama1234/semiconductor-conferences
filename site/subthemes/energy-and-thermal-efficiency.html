@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#F3ECE1" />
+  <title>Energy and thermal efficiency · Semiconductor conference atlas</title>
+  <meta name="description" content="Papers: DAC 1, ISCA 1. Read from: 1 program descriptions, 0 abstracts or reports, 1 full papers or preprints. The explanations come first; every paper’s record follows at the end." />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Semiconductor conference atlas" />
+  <meta property="og:title" content="Energy and thermal efficiency · Semiconductor conference atlas" />
+  <meta property="og:description" content="Papers: DAC 1, ISCA 1. Read from: 1 program descriptions, 0 abstracts or reports, 1 full papers or preprints. The explanations come first; every paper’s record follows at the end." />
+  <meta property="og:url" content="https://mehtama1234.github.io/semiconductor-conferences/subthemes/energy-and-thermal-efficiency.html" />
+  <meta property="og:image" content="https://mehtama1234.github.io/semiconductor-conferences/presentation/slides/01-cover.jpg" />
+  <meta property="og:image:width" content="1920" />
+  <meta property="og:image:height" content="1080" />
+  <meta property="og:image:alt" content="Semiconductor conference atlas: 582 papers from ISCA, DAC and ICCAD, sorted into 10 themes and six directions to watch." />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="canonical" href="https://mehtama1234.github.io/semiconductor-conferences/subthemes/energy-and-thermal-efficiency.html" />
+  <link rel="icon" href="../assets/icon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="../assets/base.css" />
+  <link rel="stylesheet" href="../assets/experience.css" />
+  <link rel="stylesheet" href="../assets/theme-atlas.css" />
+  <link rel="stylesheet" href="../assets/styles.css" />
+  <link rel="stylesheet" href="../assets/charts.css" />
+  <link rel="stylesheet" href="../assets/course.css" />
+  
+</head>
+<body class="course-site " data-house="atlas">
+  <aside class="public-demo-banner" aria-label="About this course">A plain-language guide to what ISCA, DAC and ICCAD papers say about chip and computer design · Built from the repository’s own paper records · Not made by the conferences</aside>
+  <a class="skip-link" href="#app">Skip to the page</a>
+  <header>
+    <a class="brand" href="../index.html"><span class="mark" aria-hidden="true">Si</span> Semiconductor conference atlas</a>
+    <span class="header-status"><span class="badge">582 papers</span><span class="badge">10 themes</span><span class="badge">Plain words first</span></span>
+    <a class="header-link" href="../course-map.html">Course map</a>
+  </header>
+  <nav class="course-nav" aria-label="Main sections of the course"><a href="../index.html">The big picture</a><a href="../themes.html">Themes</a><a href="../subthemes.html" aria-current="page">Subthemes</a><a href="../deep-reads.html">Deep reads</a><a href="../directions.html">What to watch</a><a href="../presentation/index.html">Slides</a><a href="../video/index.html">Video</a><a href="../share/index.html">Share</a></nav>
+  <main id="app" tabindex="-1">
+    <section class="screen active landing legacy-page" aria-labelledby="page-title">
+<div class="lm-head"><div class="hj-heading"><nav class="crumbs" aria-label="You are here"><a href="../course-map.html">Course map</a><span aria-hidden="true">›</span><a href="../subthemes.html">Subthemes</a></nav><a class="back-button" href="../subthemes.html">← <span>Subthemes</span></a><p class="eyebrow">Subtheme · 2 papers · Power, reliability, and security</p><h1 id="page-title">Energy and thermal efficiency: what the 2 papers change, and what is still unproven</h1><p class="hj-sub">Papers: DAC 1, ISCA 1. Read from: 1 program descriptions, 0 abstracts or reports, 1 full papers or preprints. The explanations come first; every paper’s record follows at the end.</p></div><div class="hj-art" data-art="trio:alert-triangle,shield-check,bolt"></div></div>
+<figure class="course-fig"><div class="loop-wide" data-art="flow:power-reliability-and-security"></div><div class="loop-tall" data-art="flowTall:power-reliability-and-security"></div><figcaption>The parent theme in one picture: name the fault or attack first, then pay for the protection.</figcaption></figure>
+      <article class="prose">
+
+<p>This subject has 2 records in the selected sample. This page explains where it fits, then presents all captured paper evidence without shortening the measurements or limitations.</p>
+<p><a href="../guide/reading-guide-v1.html">Definitions used in the paper records</a></p>
+<p class="lm-k h-label">Understand the parent subject first</p><h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>The bigger theme this belongs to</h2>
+<ul>
+<li><a href="../themes/power-reliability-and-security.html">Power reliability and security</a></li>
+</ul>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="help-circle"></span>Power, energy, and temperature answer different questions</h2>
+<p>Power is the rate at which a system uses energy. Energy is the accumulated use over time.</p><p>Temperature depends on where heat is produced, how it spreads, and how effectively it leaves the system. A lower peak temperature does not automatically mean less energy was used, and a lower power reading does not establish lower energy for a job that now runs longer.</p>
+<div class="worked"><p class="lm-k">Worked example</p><p>For a constant-power example, energy equals power multiplied by duration. If a hypothetical workload uses 10% less power but takes 20% longer, its energy becomes 0.9 times 1.2, or 1.08 times the original.</p><p>That is an 8% increase. This arithmetic is illustrative, not a result from either paper.</p></div>
+<p>Spatial distribution also matters. Concentrating heat production in a small region can create a hot spot even when total chip power is unchanged.</p><p>Conversely, two processors receiving the same power allowance can run at different temperatures because their cooling paths or operating characteristics differ. Thermal optimization therefore needs both the amount and location of power, plus the conditions under which heat escapes.</p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>Early thermal placement: predict before positions are final</h2>
+<p>Placement assigns circuit elements to physical positions. A power-density map estimates how much power is produced per unit area across those positions.</p><p>Turning that map into temperature requires a thermal model, including the material and cooling conditions. Steady-state temperature describes the settled result under a sustained condition; it does not describe every short burst of activity.</p>
+<p><a href="energy-and-thermal-efficiency.html#paper-dac-2026-research706">Early Design Stage Thermal Prediction and Optimization</a> predicts power density during global placement, uses physics-guided interpolation for steady-state temperatures, and changes placement to reduce hot spots. The official description reports 49.0% better power-density prediction accuracy, 34.9% better thermal prediction accuracy, and a 9.97°C reduction in maximum temperature while retaining equivalent timing and area.</p><p>It does not define the accuracy metrics, circuit suite, process, training split, or thermal boundary conditions. <a href="https://63dac.conference-program.com/presentation/?id=RESEARCH706&amp;sess=sess112">Official thermal-placement description</a>.</p>
+<p>Prediction improvement and physical improvement must stay separate. A better temperature estimate can reveal an existing hot spot without changing the circuit at all.</p><p>A cooler predicted placement needs validation with an independent thermal calculation or measurement. Neither an undefined relative accuracy improvement nor a temperature difference supplies that validation by itself.</p>
+<p>A useful comparison would hold the workload activity, package, ambient condition, timing target, and area budget fixed. It would check the final routed design because moving cells also changes wiring and its electrical costs.</p><p>Reliability requires further evidence: a lower maximum temperature is relevant but is not a measured lifetime extension.</p>
+<p><span id="explanation-dac-2026-research706"></span></p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>Early-stage ML thermal placement: a cooler prediction is not yet a cooler chip</h2>
+<p>Thermal behavior follows a chain from switching activity to power density, heat conduction and heat removal. Placement changes the spatial distribution of cells and therefore the location of power sources; wiring, package materials, heat spreaders, ambient conditions and cooling boundaries determine how that distribution becomes temperature.</p><p>Peak steady-state temperature is only one outcome and is distinct from transient temperature, energy, electromigration and lifetime.</p>
+<p>The described framework has three stages. It predicts a power-density map during global placement, interpolates a steady-state thermal map with physics guidance, and uses an ML optimization engine to change placement while attempting to preserve timing.</p><p>This can move thermal reasoning earlier in the physical-design loop. It does not make the learned power map an activity measurement, the interpolated map a full thermal solver, or a placement objective a guarantee about the routed and packaged design.</p>
+<p>The first gate is prediction fidelity. Define the power quantity, spatial resolution, activity and workload assumptions, thermal state, reference solver or measurement, and whether the test set contains unseen designs, placements, technologies and operating conditions.</p><p>Report absolute error, bias, hotspot recall, maximum-temperature error and spatial error—not only a relative “accuracy improvement.” A model can improve an aggregate score while missing the local hotspot that controls reliability.</p>
+<p>The second gate is closed-loop physical validity. After optimization, legalize and route the placement, update parasitics and power, and recompute thermal behavior with the same package, ambient, voltage, frequency, process and temperature assumptions.</p><p>Check timing, congestion, wirelength, area, power, IR drop, electromigration and thermal cycling. If timing remains equivalent only under a surrogate or an early placement estimate, the claim is not timing closure.</p>
+<p>The reported results claim 49.0% and 34.9% prediction-accuracy improvements over tool estimation, a 9.97°C maximum-temperature reduction, and equivalent timing and area. The official description does not define the accuracy metrics, designs, technology, training split, activity traces, thermal boundary, reference tool, timing corners or final-route validation.</p><p>The evidence supports early ML-assisted thermal prediction and placement optimization, not demonstrated package- or silicon-level thermal reliability improvement.</p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>Lit Silicon: one GPU's temperature can affect other GPUs' progress</h2>
+<p>Parallel training divides work across processors that must exchange results. A processor arriving early at a required exchange cannot always proceed independently.</p><p>Meanwhile, communication and computation can share local resources. It is therefore necessary to inspect the interaction between processors rather than optimize each one's isolated execution rate.</p>
+<p><a href="energy-and-thermal-efficiency.html#paper-isca-2026-program-153">Lit Silicon</a> links thermal imbalance to interference during overlapped computation and communication. Section V adjusts individual GPU power caps; Table I distinguishes reducing faster GPUs' power, reallocating GPU power, and transferring CPU power allowance to GPUs.</p>
+<p>Section VI evaluates two nodes, each with eight MI300X GPUs and two EPYC 9684X CPUs, using Llama 3.1 8B and Mistral 7B with FSDP variants. Section VII-A's default cases report 4% lower average GPU power without throughput change, 3% higher throughput with GPU reallocation, and 4% higher throughput with 3% more GPU power under CPU reallocation.</p><p>These are different policies, not simultaneous benefits to combine.</p>
+<p>Table III's predicted throughput factors are 1.06 and 1.10 for the two reallocation cases, versus measured 1.03 and 1.04. Figure 9 defines throughput through summed kernel durations.</p><p>These results do not directly establish complete-training energy savings, facility power savings, or dollar savings. <a href="https://arxiv.org/html/2511.09861v1">Version-1 manuscript, Tables I–III and Sections V–VII</a>.</p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="help-circle"></span>Why power allocation needs a system boundary</h2>
+<p>Reducing a fast participant's power can be useful if it still reaches the required synchronization point in time. If the reduction makes it the new slow participant, overall completion can worsen.</p><p>A controller must therefore detect the current limiting participant and account for the time taken to change settings and observe the response.</p>
+<p>Moving a power allowance is also not equivalent to moving consumed energy. An unused CPU budget need not represent that much actual CPU power draw.</p><p>Measure the CPU, GPU, and relevant other components before claiming node-level savings. Cooling and power-conversion losses introduce another boundary when extending the claim to a facility.</p>
+<p>The thermal condition must be stable enough for a comparison, or its evolution must be recorded. Compare warm-up periods, workload phases, and repeated runs.</p><p>A brief trace can capture a favorable transition without representing sustained behavior. Conversely, a controller that needs time to settle can look ineffective if evaluation stops too early.</p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="file-text"></span>Cross-paper interpretation and evidence status</h2>
+<p>The two papers act at different times: one changes a design before fabrication, while the other changes operation on existing hardware. My synthesis is that thermal behavior belongs in the decision process at both stages.</p><p>They do not establish one common optimization algorithm or a universal benefit from machine learning.</p>
+<div class="worked"><p class="lm-k">Worked example</p><p>The source check on 2026-09-07 recovered section- and table-backed conditions from Lit Silicon's November 2025 preprint version associated with the ISCA record. Equivalence to the final conference version remains unchecked.</p><p>The placement paper remains official-description evidence. Its missing manuscript conditions, Lit Silicon's broader hardware applicability, and a comparable multi-edition trend analysis remain open; neither article count nor a successful browser render closes those gaps.</p></div>
+<p class="lm-k h-label">Compare the results carefully</p><h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="route"></span>How to compare these papers’ results fairly</h2>
+<p>First identify the inputs and required output quality. Then identify the limited resource: time, memory, communication, energy, circuit area, or correctness coverage.</p><p>Ask which part of the method reduces that cost and which new cost it adds. Compare numbers only when the experiments hold these conditions sufficiently similar.</p>
+<p>A conference description may explain the proposal while omitting the full experiment. An author preprint link may have been coded from its abstract. The source classification does not by itself establish that every table was read. Missing locations remain visible below.</p>
+<p class="lm-k h-label">Complete captured evidence</p><h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="file-text"></span>Every paper in this subtheme, with what its source shows</h2>
+<p>These are evidence records, not substitutes for the explanations above. Each record preserves its problem, proposed method, measurements, comparison conditions, and source limits. A populated record does not establish that its mechanism has been fully explained or independently verified.</p>
+<p><span id="paper-dac-2026-research706"></span></p>
+<h3>Early Design Stage Thermal Prediction and Optimization: Machine-Learning Driven Approach</h3>
+<p>DAC 2026 · Record: <code>dac-2026-research706</code></p>
+<p><a href="#explanation-dac-2026-research706">Read the step-by-step explanation</a></p>
+<p><strong>Updated source-backed reading card</strong></p>
+<div class="worked"><p class="lm-k">Worked example</p><p>Reviewed 2026-09-08. Deepens the existing early thermal-placement treatment into a paper-level reading; separates ML power-density prediction, physics-guided thermal interpolation and placement optimization from activity modeling, thermal-boundary fidelity, routed-design timing and physical reliability, preserves the 49.0%, 34.9% and 9.97-degree claims, and makes validation boundaries explicit.</p></div>
+<p>This editorial correction updates the current reading view and connected dossiers, not the historical adjudication or scientific acceptance status. The original captured fields are preserved below.</p>
+<p><a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/data/editorial-paper-corrections-v1.json">Correction register</a></p>
+<p><strong>Problem:</strong></p>
+<p>Advanced-node power density makes thermal behavior a first-order physical-design concern, while early thermal estimates can be inaccurate and late mitigation can be costly.</p>
+<p><strong>Mechanism / artifact:</strong></p>
+<p>ML power-density prediction during global placement, physics-guided interpolation of steady-state temperature, and ML-driven placement optimization to reduce hotspots while targeting unchanged timing; model inputs, reference solver, objective and update loop are unspecified.</p>
+<p><strong>Workload — the work tested:</strong></p>
+<p>Modern SoC placement and thermal prediction/optimization; circuits, netlists, technology node, activity traces, power maps, training/test split, placement constraints, timing corners and package conditions are unspecified.</p>
+<p><strong>Hardware and manufacturing assumptions:</strong></p>
+<p>ASIC physical-design flow with global placement, thermal modeling and timing evaluation; PDK, cell library, parasitics, package/material stack, cooling, ambient, voltage/frequency, process/temperature corners and final-route/signoff tools are unspecified.</p>
+<p><strong>Baseline — the comparison method:</strong></p>
+<p>Tool power/thermal estimation</p>
+<p>Thermal-aware coarse-grained floorplanning</p>
+<p>Post-route thermal-aware cell adjustment</p>
+<p>Same designs, activity, package, ambient, timing target, area budget, technology, reference solver, routing/extraction flow and measurement boundary are unspecified</p>
+<p><strong>Reported measurements:</strong></p>
+<p>The official description reports 49.0% power-density prediction-accuracy improvement, 34.9% thermal prediction-accuracy improvement, 9.97 degrees Celsius lower maximum temperature, and equivalent timing and area; it supplies no metric definitions, absolute errors, hotspot recall, design values, corners or routed/signoff validation.</p>
+<p><strong>Limits on the conclusion:</strong></p>
+<p>Prediction accuracy must be defined against an independent thermal/power reference with spatial and hotspot errors, unseen designs/placements, activity, technology and operating conditions. Aggregate accuracy can improve while the reliability-critical hotspot is missed.</p>
+<p>A placement that is cooler under an early surrogate must be legalized, routed and reevaluated with updated parasitics, power, package, ambient, voltage, frequency, process and temperature assumptions. Check timing closure, congestion, wirelength, area, power, IR drop, electromigration and thermal cycling.</p>
+<p>The 49.0%, 34.9% and 9.97-degree claims lack designs, technology, training split, activity, accuracy definitions, thermal boundaries, reference tool, corners and final-route conditions. The evidence supports early ML-assisted thermal prediction and placement optimization, not demonstrated package- or silicon-level thermal reliability improvement.</p>
+<p><strong>Source and location</strong></p>
+<p>Evidence tier: Primary captured DAC official description plus existing chapter level conceptual discussion; no full paper extraction, thermal trace, routed validation or independent review. This is the stored source classification; the location and limits below determine what was actually read.</p>
+<p><a href="https://63dac.conference-program.com/?post_type=page&amp;p=16&amp;id=RESEARCH706&amp;sess=sess112">Open the recorded source</a></p>
+<p>DAC 2026 official description; existing chapter-level early thermal-placement discussion; captured Problem, Mechanism / artifact, Workload, Hardware, Baseline, Measurements and Limits fields; no manuscript pages or reproduced thermal-placement run.</p>
+<details markdown="1">
+<summary>Original captured fields — superseded for this reading card</summary>
+
+** page source tier:** medium_official_description
+
+**Baselines:** tool thermal/power estimation
+
+thermal-aware coarse floorplanning
+
+post-route cell adjustment
+
+**Evidence locators:** Not established in the captured evidence.
+
+**Evidence url:** https://63dac.conference-program.com/?post_type=page&amp;p=16&amp;id=RESEARCH706&amp;sess=sess112
+
+**Hardware or process assumptions:** Not established in the captured evidence.
+
+**Limits:** The description does not define accuracy metrics, circuits, technology, training data, timing constraints, or transfer across placements; claimed reliability improvements need full-paper validation.
+
+**Method or artifact:** ML power-density prediction, physics-guided thermal-map interpolation, and ML-driven placement optimization for early thermal mitigation.
+
+**Metrics:** 49.0% power-density prediction-accuracy improvement
+
+34.9% thermal prediction-accuracy improvement
+
+9.97 degree Celsius maximum-temperature reduction
+
+equivalent timing and area
+
+**Problem:** Advanced-node power density makes thermal effects first-order, but traditional thermal mitigation is inaccurate early or expensive after fabrication/post-route.
+
+**Workload or benchmark:** Modern SoC physical-design placement and thermal prediction/optimization; exact circuit suites and technology nodes require paper-level extraction.
+
+</details>
+<p><span id="paper-isca-2026-program-153"></span></p>
+<h3>Lit Silicon: A Case Where Thermal Imbalance Couples Concurrent Execution in Multiple GPUs</h3>
+<p>ISCA 2026 · Record: <code>isca-2026-program-153</code></p>
+<p><strong>Problem:</strong></p>
+<p>Thermal imbalance across GPUs can create hotter, slower stragglers that slow cooler leader GPUs during overlapped computation and communication, reducing node-level efficiency.</p>
+<p><strong>Mechanism / artifact:</strong></p>
+<p>Lit Silicon performance/power models, detection and mitigation techniques, and evaluation of TDP-constrained power optimization, node-level GPU power capping, and CPU power sloshing.</p>
+<p><strong>Workload — the work tested:</strong></p>
+<p>Two workloads on two AMD Instinct MI300X GPU systems using two LLM training frameworks.</p>
+<p><strong>Hardware and manufacturing assumptions:</strong></p>
+<p>Single-node multi-GPU LLM training with concurrent computation and communication; evidence is specific to evaluated AMD MI300X systems and management policies.</p>
+<p><strong>Baseline — the comparison method:</strong></p>
+<p>unmitigated concurrent execution</p>
+<p>alternative power-management strategies</p>
+<p><strong>Reported measurements:</strong></p>
+<p>up to 6% performance improvement</p>
+<p>up to 4% power improvement</p>
+<p>thermal and node-level performance variation</p>
+<p><strong>Limits on the conclusion:</strong></p>
+<p>The evidence is an author preprint abstract; workload details, thermal traces, statistical variance, absolute energy, and the claimed datacenter cost implications require full-paper verification and broader hardware replication.</p>
+<p><strong>Source and location</strong></p>
+<p>Evidence tier: High primary preprint. This is the stored source classification; the location and limits below determine what was actually read.</p>
+<p><a href="https://arxiv.org/abs/2511.09861">Open the recorded source</a></p>
+<p>An exact page, section, or table location has not been recorded. Page-level verification remains open.</p>
+<p class="lm-k h-label">What remains to establish</p><h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>What is still unproven here</h2>
+<p>Resolve unspecified workloads, comparison methods, resource budgets, and source locations before generalizing a reported gain. Multiple papers in this selected sample permit comparison of mechanisms, but do not by themselves establish recurrence across years or a long-term trend.</p>
+<p><a href="../guide/expanded-taxonomy-v1.html">All subthemes</a> · <a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/reports/directions/README.md">Research directions</a></p><p class="meta">Written as <a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/reports/observed-subthemes/energy-and-thermal-efficiency.md">reports/observed-subthemes/energy-and-thermal-efficiency.md</a> in the course repository.</p>
+      </article>
+      <nav class="pager" aria-label="Previous and next"><a class="prev" href="privacy-preserving-computing.html"><span class="pg-k">← Previous</span><span class="pg-t">Privacy preserving computing</span></a><a class="map" href="../subthemes.html"><span class="pg-k">Back to</span><span class="pg-t">Subthemes</span></a><a class="next" href="reliability-and-fault-tolerance.html"><span class="pg-k">Next →</span><span class="pg-t">Reliability and fault tolerance</span></a></nav>
+    </section>
+  </main>
+  <footer class="course-foot">
+    <p>Built from 582 paper records coded from ISCA 2026, DAC 2026 and ICCAD 2025 (ICCAD 2026 papers were not yet public). Most records come from official program descriptions; see “How deep the reading went”. The papers belong to their authors.</p>
+    <p class="foot-links"><a href="https://github.com/mehtama1234/course-concept-library">All courses</a><a href="../index.html">This course</a><a href="../course-map.html">Course map</a><a href="../presentation/index.html">Slides</a><a href="../video/index.html">Video</a><a href="../share/index.html">Share</a></p>
+  </footer>
+  <script src="../assets/course-data.js"></script><script src="../assets/icons.js"></script><script src="../assets/icons-extra.js"></script><script src="../assets/icons-course.js"></script><script src="../assets/art.js"></script><script src="../assets/course-art.js"></script><script src="../assets/charts.js"></script><script src="../assets/course-charts.js"></script><script src="../assets/course-site.js"></script>
+</body>
+</html>

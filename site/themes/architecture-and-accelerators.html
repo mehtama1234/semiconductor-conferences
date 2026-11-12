@@ -1,0 +1,314 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#F3ECE1" />
+  <title>Architecture and accelerators · Semiconductor conference atlas</title>
+  <meta name="description" content="The article explains the technical problem step by step first, then links to every subtheme and its papers. Worked numbers are illustrations, not paper results." />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Semiconductor conference atlas" />
+  <meta property="og:title" content="Architecture and accelerators · Semiconductor conference atlas" />
+  <meta property="og:description" content="The article explains the technical problem step by step first, then links to every subtheme and its papers. Worked numbers are illustrations, not paper results." />
+  <meta property="og:url" content="https://mehtama1234.github.io/semiconductor-conferences/themes/architecture-and-accelerators.html" />
+  <meta property="og:image" content="https://mehtama1234.github.io/semiconductor-conferences/presentation/slides/01-cover.jpg" />
+  <meta property="og:image:width" content="1920" />
+  <meta property="og:image:height" content="1080" />
+  <meta property="og:image:alt" content="Semiconductor conference atlas: 582 papers from ISCA, DAC and ICCAD, sorted into 10 themes and six directions to watch." />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="canonical" href="https://mehtama1234.github.io/semiconductor-conferences/themes/architecture-and-accelerators.html" />
+  <link rel="icon" href="../assets/icon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="../assets/base.css" />
+  <link rel="stylesheet" href="../assets/experience.css" />
+  <link rel="stylesheet" href="../assets/theme-atlas.css" />
+  <link rel="stylesheet" href="../assets/styles.css" />
+  <link rel="stylesheet" href="../assets/charts.css" />
+  <link rel="stylesheet" href="../assets/course.css" />
+  
+</head>
+<body class="course-site " data-house="atlas">
+  <aside class="public-demo-banner" aria-label="About this course">A plain-language guide to what ISCA, DAC and ICCAD papers say about chip and computer design · Built from the repository’s own paper records · Not made by the conferences</aside>
+  <a class="skip-link" href="#app">Skip to the page</a>
+  <header>
+    <a class="brand" href="../index.html"><span class="mark" aria-hidden="true">Si</span> Semiconductor conference atlas</a>
+    <span class="header-status"><span class="badge">582 papers</span><span class="badge">10 themes</span><span class="badge">Plain words first</span></span>
+    <a class="header-link" href="../course-map.html">Course map</a>
+  </header>
+  <nav class="course-nav" aria-label="Main sections of the course"><a href="../index.html">The big picture</a><a href="../themes.html" aria-current="page">Themes</a><a href="../subthemes.html">Subthemes</a><a href="../deep-reads.html">Deep reads</a><a href="../directions.html">What to watch</a><a href="../presentation/index.html">Slides</a><a href="../video/index.html">Video</a><a href="../share/index.html">Share</a></nav>
+  <main id="app" tabindex="-1">
+    <section class="screen active landing legacy-page" aria-labelledby="page-title">
+<div class="lm-head"><div class="hj-heading"><nav class="crumbs" aria-label="You are here"><a href="../course-map.html">Course map</a><span aria-hidden="true">›</span><a href="../themes.html">Themes</a></nav><a class="back-button" href="../themes.html">← <span>Themes</span></a><p class="eyebrow">Theme · 103 papers · 12 subthemes</p><h1 id="page-title">Architecture and accelerators: more arithmetic units help only when data arrives in time</h1><p class="hj-sub">The article explains the technical problem step by step first, then links to every subtheme and its papers. Worked numbers are illustrations, not paper results.</p></div><div class="hj-art" data-art="trio:activity,server,cpu"></div></div>
+<figure class="course-fig"><div class="loop-wide" data-art="flow:architecture-and-accelerators"></div><div class="loop-tall" data-art="flowTall:architecture-and-accelerators"></div><figcaption>Extra arithmetic helps only when the data arrives in time.</figcaption></figure><div class="chart-card"><div data-chart="theme-architecture-and-accelerators"></div><div><p class="lm-k">In numbers</p><h3>12 subthemes, largest first</h3><p>103 papers: DAC 95, ISCA 7, ICCAD 1.</p><p class="chart-note">A count shows attention in this sample, not importance.</p></div></div>
+      <article class="prose">
+
+<p>This article explains the subject and then connects it to 103 papers in the selected research sample.</p>
+<p>A subtheme groups related technical problems. A mechanism describes the particular change proposed by a paper. The discussion below explains the subject; the linked paper records state the available evidence.</p>
+<p><a href="../guide/reading-guide-v1.html">Definitions used in the paper records</a></p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>A processor fetches values, computes, and passes results on</h2>
+<p>A program performs operations on stored values. For each operation the processor must:</p>
+<ol>
+<li>obtain the input values;</li>
+<li>execute the operation;</li>
+<li>store or forward the result.</li>
+</ol>
+<p>An operation that depends on an earlier result must wait for it. Independent operations can run at the same time, if enough hardware and data are available.</p>
+<p>An <strong>accelerator</strong> is hardware arranged for one kind of computation. Its benefit comes from one of three things: less work, fewer data transfers, or more useful operations at once.</p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>More arithmetic units help only if their inputs arrive in time</h2>
+<p>An operation needs its inputs. If they have not arrived, the arithmetic unit waits.</p>
+<p>Adding units raises the possible rate of computation. It also raises the rate at which inputs must arrive. So the time to finish a job is limited by both computation and data supply.</p>
+<p>Some operations cannot run in parallel at all. That is why good performance on one large matrix calculation does not show good performance on a whole application.</p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>The subthemes differ in what they change</h2>
+<ul>
+<li><strong>Precision methods</strong> change how many bits represent a number, and how much numerical error the application accepts.</li>
+<li><strong>Sparse computation</strong> skips values or operations known to be unnecessary. It must still find the remaining values and share out the uneven work.</li>
+<li><strong>Dataflow methods</strong> choose when operations run and where intermediate results stay.</li>
+<li><strong>Hardware and software co-design</strong> changes the machine and the program together. The evaluation must then show which change caused the improvement.</li>
+</ul>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="checklist"></span>A fair test holds the job fixed and measures the whole cost</h2>
+<ol>
+<li>Hold the application, the required answer quality and the input sizes fixed.</li>
+<li>Compare completion time, energy per completed job, memory use and hardware cost.</li>
+<li>Vary the inputs that affect reuse or parallelism.</li>
+</ol>
+<p>If a specialized design wins only when all inputs fit in a small memory, that capacity condition is part of the result. The evidence cards below keep the reported conditions. Read them before applying a result to a different application.</p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>Follow one result through the machine</h2>
+<p>One small sum shows the four choices every accelerator makes.</p>
+<p>A <strong>dot product</strong> multiplies matching entries of two lists, then adds the products.</p>
+<blockquote>
+<p><strong>Worked example.</strong> For <code>[2, 3]</code> and <code>[5, 7]</code>: <code>2·5 + 3·7 = 10 + 21 = 31</code>.</p>
+</blockquote>
+<p>To compute it, the hardware must hold four inputs, find them, move them to arithmetic units, multiply, and add. A later operation that uses 31 must get the finished sum, not just the first product, 10.</p>
+<table>
+<thead>
+<tr>
+<th>Choice</th>
+<th>What it decides</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Representation</td>
+<td>How many bits, and which decoding rules, describe each value</td>
+</tr>
+<tr>
+<td>Data placement</td>
+<td>Where those bits are stored</td>
+</tr>
+<tr>
+<td>Scheduling</td>
+<td>When each operation runs</td>
+</tr>
+<tr>
+<td>Arithmetic</td>
+<td>How the stored inputs become a stored output</td>
+</tr>
+</tbody>
+</table>
+<p>A paper can improve one choice while making another more expensive.</p>
+<p><strong>Be careful:</strong> the explanations below link paper evidence through these choices. They do not show a historical trend or a ranking across unrelated applications. The numbers in this theme are teaching calculations, not paper measurements.</p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="alert-triangle"></span>Separate three limits before selecting an accelerator</h2>
+<p>A job is held back by arithmetic, by data traffic, or by a chain of steps that must wait for each other.</p>
+<blockquote>
+<p><strong>Worked example.</strong> A job needs 100 million operations and moves 200 million bytes through its slowest memory interface.</p>
+<ul>
+<li>Arithmetic at ten billion useful operations per second: at least 100 million ÷ 10 billion = <strong>10 milliseconds</strong>.</li>
+<li>Traffic at ten billion bytes per second: at least 200 million ÷ 10 billion = <strong>20 milliseconds</strong>.</li>
+<li>If the two overlap perfectly, 20 milliseconds is a lower bound, not a prediction.</li>
+<li>With no overlap, they could take 10 + 20 = <strong>30 milliseconds</strong>, before other costs.</li>
+</ul>
+</blockquote>
+<p>Now suppose a chain of dependent operations takes thirty milliseconds. Unlimited extra arithmetic cannot finish that chain sooner. Only changing the operations, or how long each one takes, can. This is the third limit: the time along the longest chain of required steps.</p>
+<p>So different fixes solve different problems:</p>
+<ul>
+<li>more multipliers help the arithmetic limit;</li>
+<li>wider memory interfaces help the traffic limit;</li>
+<li>faster task start-up helps the waiting limit.</li>
+</ul>
+<p>A useful evaluation measures actual work, actual traffic at a named interface, and actual waiting. Counting operations in the source program, or bytes in a stored model, does not give those numbers.</p>
+<h3>Representation can save transfers while adding execution work</h3>
+<p>Fewer bits per value save storage and traffic only if the extra description and decoding cost less.</p>
+<blockquote>
+<p><strong>Worked example.</strong> Four 8-bit integer weights take 4 bytes, before any metadata.</p>
+<ul>
+<li>At 4 bits each, they take 2 bytes. This works only if 4 bits can express the needed values, or approximation is acceptable.</li>
+<li>Add a 2-byte group descriptor, and the saving for this tiny group is gone: 2 + 2 = 4 bytes.</li>
+<li>Larger groups spread the descriptor cost over more values. But one representation then has to suit more values.</li>
+</ul>
+</blockquote>
+<p>Decoding also uses hardware and time. A compact format pays off when its storage or traffic saving is bigger than the decoding and coordination cost. The evidence that counts is bytes actually stored and moved, not the nominal bits per weight.</p>
+<p>Two papers show this question from different angles:</p>
+<ul>
+<li><a href="../subthemes/approximate-and-precision-aware-compute.html#explanation-dac-2026-research1999">HAP's individual explanation</a> separates exactly recovering an already quantized activation from preserving the original floating-point result. Its evaluation uses synthesis and simulation, not measured fabricated silicon.</li>
+<li><a href="../subthemes/sparse-and-irregular-compute.html#explanation-dac-2026-research1419">Duet</a> asks the same at bit level: which digits are redundant, how are signs and positions recovered, and what work remains after skipping? Its manuscript is still missing.</li>
+</ul>
+<p><strong>Be careful:</strong> HAP and Duet raise a shared question. Their evidence is not equally complete, and their results are not interchangeable.</p>
+<h3>Sparse values require addresses and completed reductions</h3>
+<p>Skipping zeros saves arithmetic, but the hardware must still know where each kept value belongs.</p>
+<p>In the dot product above, replace 3 with zero. The second multiplication disappears.</p><p>But the sparse format must record which position remains, so 2 is still multiplied by 5, not 7. If finding one kept value costs more than the skipped arithmetic, sparsity makes the job slower.</p>
+<p>Matrix operations add a second issue. Several kept products may feed one output, so running them at once needs correct adding-up. Reordering independent products is allowed. Dropping a contribution, or reading an unfinished result, is not.</p>
+<ul>
+<li><a href="../subthemes/sparse-and-irregular-compute.html#explanation-dac-2026-research138">PFGEMM</a> handles compressed positions and execution order.</li>
+<li><a href="../subthemes/sparse-and-irregular-compute.html#explanation-dac-2026-research149">TRIDENT</a> keeps intermediate sparse products near the operations that use them next.</li>
+</ul>
+<p>Both currently rely on descriptions, not recovered manuscripts. Together they pose a question: can the saved addressing or traffic pay for the added control and stored state?</p>
+<h3>Ready work and nearby data are not always the same work</h3>
+<p>A scheduler must trade keeping workers busy against keeping data close.</p>
+<p>An idle worker can run a ready task only after fetching its inputs.</p>
+<ul>
+<li>Sending the task elsewhere may keep workers busier, but adds transfers.</li>
+<li>Keeping it near its inputs may improve reuse, but leaves another worker idle.</li>
+</ul>
+<p>Neither busy workers nor cache reuse is the goal. The goal is finishing the job within time, energy and correctness limits.</p>
+<ul>
+<li><a href="../subthemes/sparse-and-irregular-compute.html#explanation-dac-2026-research935">SALUT</a> makes dependency readiness explicit in sparse factorization.</li>
+<li><a href="../subthemes/sparse-and-irregular-compute.html#explanation-dac-2026-research1242">BSGCN</a> and <a href="../subthemes/sparse-and-irregular-compute.html#explanation-dac-2026-research240">LTMiner</a> make request order and kept data explicit.</li>
+</ul>
+<p><strong>Be careful:</strong> these papers do not prove one best scheduler. They name competing costs a scheduler must count, for different computations, with source evidence still incomplete.</p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>Do not merge exact compression and approximation into one claim</h2>
+<p>"Preserving the answer" has at least three meanings, and proving one does not prove the others.</p>
+<table>
+<thead>
+<tr>
+<th>Kind of preservation</th>
+<th>What it means</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Exact codec</td>
+<td>Recovers exactly the bits it received</td>
+</tr>
+<tr>
+<td>Exact arithmetic</td>
+<td>Keeps the result defined for those bits</td>
+</tr>
+<tr>
+<td>Application quality</td>
+<td>Keeps an acceptable quality score, even if many outputs change</td>
+</tr>
+</tbody>
+</table>
+<p>Two examples:</p>
+<ul>
+<li>Compressing and exactly recovering the integer 7 says nothing about whether rounding the original real value to 7 was acceptable.</li>
+<li>Two generated videos can both score well on quality while showing different content.</li>
+</ul>
+<p>So a speed claim must come with the benchmark's definition of quality.</p>
+<p><a href="../subthemes/sparse-and-irregular-compute.html#explanation-dac-2026-research680">SPADE's manuscript-backed explanation</a> shows why. Its standard and Turbo settings use different sparse-step schedules.</p><p>The recovered table reports their timing and output fidelity separately. A higher perceptual-quality score does not show closer similarity to the dense reference.</p><p>So this evidence cannot be squeezed into one claim of "faster, unchanged inference".</p>
+<p>This is also why the taxonomy needs secondary links. Sparse attention may drop chosen interactions approximately. Bit-level sparsity may remove redundant digits exactly, within an integer format. Both sit under sparsity, but their correctness duties differ.</p>
+<p><strong>Be careful:</strong> navigation keeps the historical classifications. These conceptual links do not quietly reclassify records or count them twice.</p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="checklist"></span>Three long-term hypotheses worth testing</h2>
+<p>These are bounded readings of the linked mechanisms, not accepted longitudinal findings. Each says what evidence would weaken it.</p>
+<table>
+<thead>
+<tr>
+<th>Hypothesis</th>
+<th>Why the mechanism could matter</th>
+<th>Evidence that would weaken it</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Representation and scheduling increasingly need joint evaluation when arithmetic becomes a smaller cost</td>
+<td>Fewer stored bits or indices can alter decoding, task size, and available parallelism</td>
+<td>Matched workloads where decoding and coordination outweigh transfer savings, or where traffic was already insignificant</td>
+</tr>
+<tr>
+<td>Fine-grained readiness helps primarily when broad synchronization hides substantial independent work</td>
+<td>A task can start after its own inputs finish without waiting for unrelated tasks</td>
+<td>Dependency chains that dominate runtime, too few ready tasks, or completion-notification cost exceeding removed waiting</td>
+</tr>
+<tr>
+<td>Quality-constrained performance is more transferable than unconstrained peak speed for approximate methods</td>
+<td>An application needs a usable result, not simply fewer executed operations</td>
+<td>Gains disappearing at the required quality threshold or under shifted inputs, longer contexts, or different models</td>
+</tr>
+</tbody>
+</table>
+<p>Finding more papers with matching titles is not enough to test them. Within each application:</p>
+<ol>
+<li>compare equivalent input sets, numerical requirements and hardware budgets;</li>
+<li>measure the complete job, with the same boundaries;</li>
+<li>report spreads and regressions, not only good averages;</li>
+<li>across editions, use the same collection rules, and tell missing manuscripts apart from measured negative results.</li>
+</ol>
+<p><strong>Be careful:</strong> the current sample cannot show that ISCA, DAC or ICCAD leads a trend, or that a mechanism is growing. Conference identity is not an experimental control.</p><p>A useful cross-conference link asks whether separately tested parts can meet one compatible set of requirements. A compiler result, an accelerator result and a physical implementation result stay separate evidence until their interfaces, formats, capacities and measurement conditions line up.</p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>What an end-to-end comparison must retain</h2>
+<p>A fast middle step speeds up the whole job only as much as the other steps allow.</p>
+<blockquote>
+<p><strong>Worked example.</strong> A baseline job takes 100 milliseconds: 20 for preparation, 50 for accelerated computation, 30 for everything else.</p>
+<ul>
+<li>Make the middle stage five times faster: <code>20 + 10 + 30 = 60</code> milliseconds, about <strong>1.67×</strong> overall.</li>
+<li>Add 15 milliseconds of format conversion: 75 milliseconds, about <strong>1.33×</strong> overall.</li>
+<li>Reusing preparation changes the comparison again, and must be reported.</li>
+</ul>
+</blockquote>
+<p>So a connected account follows one input through preparation, conversion, execution, output handling and quality checking. It states:</p>
+<ul>
+<li>which steps are timed;</li>
+<li>which costs are reused;</li>
+<li>where bytes cross an interface;</li>
+<li>which failure conditions remain.</li>
+</ul>
+<p>Faster arithmetic stays a component result until this accounting supports an application result.</p>
+<p>The <a href="../subthemes/approximate-and-precision-aware-compute.html">precision-aware chapter</a> and <a href="../subthemes/sparse-and-irregular-compute.html">sparse/irregular chapter</a> now give expanded explanations for each of their papers. Other architecture branches below are still uneven in depth. This theme synthesis does not complete their rewrites, source recovery, classification reconciliation, or independent review.</p>
+<p class="lm-k h-label">Subthemes and how to study them</p><h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="books"></span>The subthemes in this theme, and how to read them</h2>
+<p>Each link opens the subtheme discussion and its captured paper records. Explanatory depth varies: some papers have expanded individual explanations; others still have only brief discussion or evidence cards. Source locations and unresolved conditions remain visible.</p>
+<h3><a href="../subthemes/specialized-accelerators-and-dataflow.html">Specialized accelerators and dataflow</a></h3>
+<p>35 selected records in this theme. Start with <a href="../subthemes/specialized-accelerators-and-dataflow.html">Leveraging AI-Inspired Hardware Architecture to Enhance LPN Acceleration in Post-Quantum Cryptography</a>.</p>
+<h3><a href="../subthemes/approximate-and-precision-aware-compute.html">Approximate and precision aware compute</a></h3>
+<p>14 selected records in this theme. Start with <a href="../subthemes/approximate-and-precision-aware-compute.html">Algorithm and Hardware Co-Design for Efficient Complex-Valued Uncertainty Estimation</a>.</p>
+<h3><a href="../subthemes/architecture-software-co-design.html">Architecture software co design</a></h3>
+<p>13 selected records in this theme. Start with <a href="../subthemes/architecture-software-co-design.html">UniNL: Unifying Fragmented Non-Linear Operators for Efficient Edge LLM Inference</a>.</p>
+<h3><a href="../subthemes/sparse-and-irregular-compute.html">Sparse and irregular compute</a></h3>
+<p>11 selected records in this theme. Start with <a href="../subthemes/sparse-and-irregular-compute.html">BSGCN: Taming Diverse Sparsities in GCNs via Adaptive Band-Segmentation and Tailored Caching</a>.</p>
+<h3><a href="../subthemes/quantum-architectures-and-control.html">Quantum architectures and control</a></h3>
+<p>9 selected records in this theme. Start with <a href="../subthemes/quantum-architectures-and-control.html">Compiler Framework for Directional Transport in Zoned Neutral-Atom Systems with AOD Assistance: A Hybrid Remote CZ Approach</a>.</p>
+<h3><a href="../subthemes/specialized-ai-accelerators.html">Specialized AI accelerators</a></h3>
+<p>9 selected records in this theme. Start with <a href="../subthemes/specialized-ai-accelerators.html">DIA-CIM: A Dynamic Iterative Aggregation Graph Neural Network and Its Hardware Co-Design for Energy-Efficient Graph Processing</a>.</p>
+<h3><a href="../subthemes/ai-accelerator-microarchitecture.html">AI accelerator microarchitecture</a></h3>
+<p>4 selected records in this theme. Start with <a href="../subthemes/ai-accelerator-microarchitecture.html">AMBER: A Unified Accelerator for Multi-Precision LLM Inference Exploiting Bit-Level Redundancy and Reconfigurability</a>.</p>
+<h3><a href="../subthemes/memory-and-data-movement.html">Memory and data movement</a></h3>
+<p>3 selected records in this theme. Start with <a href="../subthemes/memory-and-data-movement.html">REACT: Rapid Error-Tolerant Activation Compressor for Efficient Transformer Training</a>.</p>
+<h3><a href="../subthemes/emerging-and-nonvon-neumann-compute.html">Emerging and nonvon neumann compute</a></h3>
+<p>2 selected records in this theme. Start with <a href="../subthemes/emerging-and-nonvon-neumann-compute.html">PMTPA: An Ising Model-Based Parallel-Momentum Tempering Processing Architecture for Combinatorial Optimization</a>.</p>
+<h3><a href="../subthemes/distributed-and-wafer-scale-inference.html">Distributed and wafer scale inference</a></h3>
+<p>1 selected records in this theme. Start with <a href="../subthemes/distributed-and-wafer-scale-inference.html">Mapping and Communication Optimizations with Fault Tolerance for Wafer-Scale LLM Inference</a>.</p>
+<h3><a href="../subthemes/edge-ai-and-deployment.html">Edge AI and deployment</a></h3>
+<p>1 selected records in this theme. Start with <a href="../subthemes/edge-ai-and-deployment.html">Tsetlinwisard: On-Chip Training of Weightless Neural Networks Using Tsetlin Automata on FPGAs</a>.</p>
+<h3><a href="../subthemes/neuromorphic-and-emerging-architectures.html">Neuromorphic and emerging architectures</a></h3>
+<p>1 selected records in this theme. Start with <a href="../subthemes/neuromorphic-and-emerging-architectures.html">Unispike: Accelerating Spiking Neural Networks on Neuromorphic Systems via Eliminating Address Redundancy</a>.</p>
+<p class="lm-k h-label">Representative source-backed records</p><h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="route"></span>Papers that show the theme well</h2>
+<p>The following reading set spans the available conferences and uses dated corrections where registered. These corrections improve the current reading view but do not change historical adjudication or establish independent acceptance. Each paper link opens its exact evidence card.</p>
+<p class="lm-k h-label">Paper cards: what changes and where it stops</p><h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>Paper cards: what each paper changes, and where it stops</h2>
+<ul>
+<li><a href="../subthemes/architecture-software-co-design.html#paper-isca-2026-program-069">MTIA 300: Meta’s First Training Chip Featuring Built-in NICs and Collective Offloading Engines</a> — ISCA 2026.</li>
+<li><a href="../subthemes/distributed-and-wafer-scale-inference.html#paper-isca-2026-program-060">Mapping and Communication Optimizations with Fault Tolerance for Wafer-Scale LLM Inference</a> — ISCA 2026.</li>
+<li><a href="../subthemes/architecture-software-co-design.html#paper-isca-2026-program-058">Accelerating MoE with Dynamic In-Switch Computing on Multi-GPUs</a> — ISCA 2026.</li>
+<li><a href="../subthemes/ai-accelerator-microarchitecture.html#paper-isca-2026-program-020">OASIS: Outlier-Aware LUT-Based GEMM with Dual-Side Quantization for LLM Inference Acceleration</a> — ISCA 2026.</li>
+<li><a href="../subthemes/specialized-accelerators-and-dataflow.html#paper-dac-2026-research983">ATTINA: Spatial Acceleration of Additive Number Theoretic Transform for Energy-Efficient zkSNARKs at the Edge</a> — DAC 2026.</li>
+<li><a href="../subthemes/specialized-accelerators-and-dataflow.html#paper-dac-2026-research946">UNICON: A Unified Reconfigurable Nonlinear Architecture for Efficient Neural Network Inference</a> — DAC 2026.</li>
+<li><a href="../subthemes/sparse-and-irregular-compute.html#paper-dac-2026-research935">SALUT: Efficient Sparse LU Factorization via Asynchronous Task Triggering on HBM FPGAs</a> — DAC 2026.</li>
+<li><a href="../subthemes/specialized-accelerators-and-dataflow.html#paper-dac-2026-research885">Chimera: A Unified FHE Accelerator with Enhanced Compatibility for TFHE</a> — DAC 2026.</li>
+<li><a href="../subthemes/architecture-software-co-design.html#paper-iccad-2025-105">Squat: Quant Small Language Models on the Edge</a> — ICCAD 2025.</li>
+<li><a href="../subthemes/architecture-software-co-design.html#paper-isca-2026-program-007">Combating the Memory Walls: Optimization Pathways for Long-Context Agentic LLM Inference</a> — ISCA 2026.</li>
+<li><a href="../subthemes/architecture-software-co-design.html#paper-isca-2026-program-006">Cassandra: Enabling Reasoning LLMs at Edge via Self-Speculative Decoding</a> — ISCA 2026.</li>
+<li><a href="../subthemes/architecture-software-co-design.html#paper-isca-2026-program-005">Patterns Behind Chaos: Forecasting Data Movement for Efficient Large-Scale MoE LLM Inference</a> — ISCA 2026.</li>
+</ul>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="file-text"></span>What the evidence supports</h2>
+<p>These records identify proposed methods and the conditions recorded for them. A reported improvement should be interpreted with its comparison method, input size, hardware, and result-quality requirement. Missing fields are evidence gaps; a populated field can also state that a detail is unspecified.</p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="file-text"></span>Limits and next evidence</h2>
+<p>The selected sample is uneven across conferences and source types. It cannot establish how fast a subject is growing. Repeated observations across comparable years, with the same inclusion rules and source depth, are needed for a time trend.</p>
+<p>Every linked evidence article preserves the Problem: and Mechanism / artifact: fields, baseline, unshortened limitations, source URL, and recorded location. Primary text and independent review remain necessary where the record says those checks are open.</p>
+<p><a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/reports/directions/README.md">Research directions</a> · <a href="../guide/expanded-taxonomy-v1.html">All observed subthemes</a></p><p class="meta">Written as <a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/reports/themes/architecture-and-accelerators.md">reports/themes/architecture-and-accelerators.md</a> in the course repository.</p>
+      </article>
+      <nav class="pager" aria-label="Previous and next"><a class="prev" href="analog-mixed-signal-and-emerging-devices.html"><span class="pg-k">← Previous</span><span class="pg-t">Analog, mixed-signal, and emerging devices</span></a><a class="map" href="../themes.html"><span class="pg-k">Back to</span><span class="pg-t">Themes</span></a><a class="next" href="chiplets-3d-and-packaging.html"><span class="pg-k">Next →</span><span class="pg-t">Chiplets, 3D integration, and packaging</span></a></nav>
+    </section>
+  </main>
+  <footer class="course-foot">
+    <p>Built from 582 paper records coded from ISCA 2026, DAC 2026 and ICCAD 2025 (ICCAD 2026 papers were not yet public). Most records come from official program descriptions; see “How deep the reading went”. The papers belong to their authors.</p>
+    <p class="foot-links"><a href="https://github.com/mehtama1234/course-concept-library">All courses</a><a href="../index.html">This course</a><a href="../course-map.html">Course map</a><a href="../presentation/index.html">Slides</a><a href="../video/index.html">Video</a><a href="../share/index.html">Share</a></p>
+  </footer>
+  <script src="../assets/course-data.js"></script><script src="../assets/icons.js"></script><script src="../assets/icons-extra.js"></script><script src="../assets/icons-course.js"></script><script src="../assets/art.js"></script><script src="../assets/course-art.js"></script><script src="../assets/charts.js"></script><script src="../assets/course-charts.js"></script><script src="../assets/course-site.js"></script>
+</body>
+</html>

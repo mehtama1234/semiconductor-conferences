@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#F3ECE1" />
+  <title>Manufacturing monitoring and yield · Semiconductor conference atlas</title>
+  <meta name="description" content="Papers: DAC 1. Read from: 1 program descriptions, 0 abstracts or reports, 0 full papers or preprints. The explanations come first; every paper’s record follows at the end." />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Semiconductor conference atlas" />
+  <meta property="og:title" content="Manufacturing monitoring and yield · Semiconductor conference atlas" />
+  <meta property="og:description" content="Papers: DAC 1. Read from: 1 program descriptions, 0 abstracts or reports, 0 full papers or preprints. The explanations come first; every paper’s record follows at the end." />
+  <meta property="og:url" content="https://mehtama1234.github.io/semiconductor-conferences/subthemes/manufacturing-monitoring-and-yield.html" />
+  <meta property="og:image" content="https://mehtama1234.github.io/semiconductor-conferences/presentation/slides/01-cover.jpg" />
+  <meta property="og:image:width" content="1920" />
+  <meta property="og:image:height" content="1080" />
+  <meta property="og:image:alt" content="Semiconductor conference atlas: 582 papers from ISCA, DAC and ICCAD, sorted into 10 themes and six directions to watch." />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="canonical" href="https://mehtama1234.github.io/semiconductor-conferences/subthemes/manufacturing-monitoring-and-yield.html" />
+  <link rel="icon" href="../assets/icon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="../assets/base.css" />
+  <link rel="stylesheet" href="../assets/experience.css" />
+  <link rel="stylesheet" href="../assets/theme-atlas.css" />
+  <link rel="stylesheet" href="../assets/styles.css" />
+  <link rel="stylesheet" href="../assets/charts.css" />
+  <link rel="stylesheet" href="../assets/course.css" />
+  
+</head>
+<body class="course-site " data-house="atlas">
+  <aside class="public-demo-banner" aria-label="About this course">A plain-language guide to what ISCA, DAC and ICCAD papers say about chip and computer design · Built from the repository’s own paper records · Not made by the conferences</aside>
+  <a class="skip-link" href="#app">Skip to the page</a>
+  <header>
+    <a class="brand" href="../index.html"><span class="mark" aria-hidden="true">Si</span> Semiconductor conference atlas</a>
+    <span class="header-status"><span class="badge">582 papers</span><span class="badge">10 themes</span><span class="badge">Plain words first</span></span>
+    <a class="header-link" href="../course-map.html">Course map</a>
+  </header>
+  <nav class="course-nav" aria-label="Main sections of the course"><a href="../index.html">The big picture</a><a href="../themes.html">Themes</a><a href="../subthemes.html" aria-current="page">Subthemes</a><a href="../deep-reads.html">Deep reads</a><a href="../directions.html">What to watch</a><a href="../presentation/index.html">Slides</a><a href="../video/index.html">Video</a><a href="../share/index.html">Share</a></nav>
+  <main id="app" tabindex="-1">
+    <section class="screen active landing legacy-page" aria-labelledby="page-title">
+<div class="lm-head"><div class="hj-heading"><nav class="crumbs" aria-label="You are here"><a href="../course-map.html">Course map</a><span aria-hidden="true">›</span><a href="../subthemes.html">Subthemes</a></nav><a class="back-button" href="../subthemes.html">← <span>Subthemes</span></a><p class="eyebrow">Subtheme · 1 papers · Physical design and manufacturing</p><h1 id="page-title">Manufacturing monitoring and yield: what the 1 papers change, and what is still unproven</h1><p class="hj-sub">Papers: DAC 1. Read from: 1 program descriptions, 0 abstracts or reports, 0 full papers or preprints. The explanations come first; every paper’s record follows at the end.</p></div><div class="hj-art" data-art="trio:affiliate,grid-dots,route"></div></div>
+<figure class="course-fig"><div class="loop-wide" data-art="flow:physical-design-and-manufacturing"></div><div class="loop-tall" data-art="flowTall:physical-design-and-manufacturing"></div><figcaption>The parent theme in one picture: turning connections into geometry: every step pushes on the others.</figcaption></figure>
+      <article class="prose">
+
+<p>This subject has 1 record in the selected sample. This page explains where it fits, then presents all captured paper evidence without shortening the measurements or limitations.</p>
+<p><a href="../guide/reading-guide-v1.html">Definitions used in the paper records</a></p>
+<p class="lm-k h-label">Understand the parent subject first</p><h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>The bigger theme this belongs to</h2>
+<ul>
+<li><a href="../themes/physical-design-and-manufacturing.html">Physical design and manufacturing</a></li>
+</ul>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="route"></span>Identifying a manufacturing route is not the same as measuring yield</h2>
+<p>The single record in this group concerns whether wafers were produced using an approved sequence of manufacturing tools. That is a process-origin question.</p><p>A wafer can meet electrical requirements yet have an unapproved production history; an approved production route can also produce a defective wafer. Approval and product quality must therefore remain separate outputs.</p>
+<p>The existing taxonomy places this record under manufacturing monitoring and yield, but one paper does not establish a broad yield-improvement result. Its specific contribution belongs to tool-chain attestation: evidence supporting a claim about which manufacturing route was used.</p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>What STAMP observes</h2>
+<p><a href="manufacturing-monitoring-and-yield.html#paper-dac-2026-research3145">STAMP</a> uses measurements of physical dimensions and electrical characteristics to distinguish sanctioned from unsanctioned tool chains. The captured official description reports a demonstration using 7,000 wafers, multiple tool-chain variants, and GlobalFoundries 12LP FinFET manufacturing.</p>
+<p>Inline measurements are taken during production. Electrical tests measure selected device or circuit properties.</p><p>A monitoring model can use systematic differences in these observations as evidence about process history. The description refers to relationships between tool exchanges and the resulting silicon characteristics, but does not identify the measurement features, sampling schedule, or experimental controls in enough detail to verify a causal interpretation.</p>
+<p>The wafer count describes the size of the demonstration. It is not a classification-accuracy result, and it does not state how many independently varied tools, production periods, or manufacturing routes were tested. The captured source supplies no false-accept or false-reject rates.</p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>Two errors have different operational consequences</h2>
+<p>A false acceptance occurs when an unapproved route is classified as approved. A false rejection occurs when an approved route is classified as unapproved.</p><p>The former weakens the origin claim; the latter may trigger unnecessary investigation or interrupt production. Overall accuracy can hide either problem when the two categories have very different frequencies.</p>
+<p>An operational evaluation should therefore report both errors under specified class frequencies and decision thresholds. It should also distinguish a model declining to decide from confidently accepting a route. These are requirements for interpreting deployment value, not capabilities established by the available description.</p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="route"></span>Separating route information from production drift</h2>
+<p>If one route was used earlier and another later, a classifier might learn a time-related change rather than the tool substitution of interest. Likewise, wafers processed together can share conditions that make random train/test splits easier than predicting a later production batch.</p><p>Testing on held-out production periods and controlled route changes would provide stronger evidence about what the model has learned.</p>
+<p>Normal process drift also matters after deployment. A changed measurement distribution could indicate an unapproved tool change, an approved maintenance event, or another process change.</p><p>A classification result needs an investigation procedure and contextual records before it becomes an operational conclusion. The source leaves temporal holdouts, drift behavior, and transfer to other factories or technologies unspecified.</p>
+<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="file-text"></span>Measurement-based evidence needs trustworthy measurements</h2>
+<p>The attestation claim also depends on how observations are collected and associated with wafers. If measurement provenance or wafer identity is unreliable, a good classifier cannot repair that missing link by itself.</p><p>The captured description does not specify chain-of-custody controls or an adversarial threat model, so resistance to manipulated measurements must remain unestablished.</p>
+<p>The longer-term research question is whether process measurements can supplement manufacturing records with independently useful origin evidence. Answering it requires controlled substitutions, trustworthy data collection, temporal evaluation, and explicit error costs.</p><p>STAMP's reported industrial-scale dataset makes that question concrete, but the available official description does not establish a general manufacturing-security guarantee or improved yield.</p>
+<p><span id="explanation-dac-2026-research3145"></span></p>
+<h3>STAMP: wafer measurements can support tool-chain attestation only when process history is separated from ordinary manufacturing variation</h3>
+<h4>What attestation is trying to establish</h4>
+<p>Manufacturing attestation is a claim about origin or process history: a specified sequence of tools, recipes, and process steps produced a wafer or device. This is different from a yield claim.</p><p>Yield asks how many manufactured units meet electrical or physical specifications. Attestation asks whether the units came through an approved route.</p><p>An approved route can produce defective wafers, and an unapproved route can sometimes produce wafers that pass ordinary acceptance tests.</p>
+<p>STAMP is described as a machine-learning process-monitoring model that uses wafer-level metrology and wafer-acceptance-test measurements to distinguish sanctioned from unsanctioned semiconductor tool chains. The model is inferring a hidden process-history label from physical observations.</p><p>The security value depends on whether the observed differences are caused by the tool-chain change, rather than by time, lot, operator, wafer position, maintenance, recipe drift, measurement equipment or another correlated factor.</p>
+<h4>Classify the measurements and labels</h4>
+<p>Inline metrology measures physical properties during production. Electrical testing measures selected device or circuit behavior after some process steps.</p><p>Each measurement has a location, time, instrument, calibration state, wafer coordinate and association with a lot or process history. A model needs reliable labels linking those observations to the actual tool chain used.</p>
+<p>The evaluation should list the measured dimensions and electrical features, sampling cadence, wafer regions, measurement noise, missing values, instrument calibration, normalization, and the exact label assigned to each wafer. It should state which tool exchange is controlled, which tools remain fixed, and whether the changed tool affects a physical step that can plausibly leave the measured signature.</p><p>A classifier can separate two datasets without proving that it has learned the intended process cause.</p>
+<h4>False acceptance and false rejection have different costs</h4>
+<p>False acceptance means an unapproved tool chain is accepted as sanctioned. That weakens the attestation boundary.</p><p>False rejection means an approved wafer or route is rejected as unsanctioned. That can trigger investigation, delay shipment, or interrupt production.</p><p>The two rates must be reported separately by route, lot, production period, and decision threshold.</p>
+<p>The system may also abstain when evidence is ambiguous. Abstention is different from acceptance and rejection and may be operationally valuable if suspicious wafers receive additional testing.</p><p>Report the confusion matrix, class frequencies, calibration, confidence intervals, threshold selection procedure, and cost-weighted operating points. The number 7,000 describes the demonstration population; it is not a classification accuracy or a guarantee that 7,000 independent process substitutions were observed.</p>
+<h4>Prevent the model from learning the wrong cause</h4>
+<p>Randomly splitting wafers can leak information. Wafers from the same lot or production period may share conditions, and near-duplicate measurements can appear in training and test sets.</p><p>A stronger evaluation uses held-out complete lots, production periods, tool instances, maintenance events, and, where possible, factories. It should test a controlled tool substitution while keeping time and other process variables balanced.</p>
+<p>Process drift after deployment can change the measurement distribution. A model might label an approved maintenance change as an unauthorized tool exchange, or fail to detect a new unsanctioned route because it has not seen that type of variation.</p><p>Use temporal monitoring, drift alarms, recalibration rules, and an investigation path. Report performance before and after recalibration rather than silently retraining on future labels.</p>
+<h4>Chain of custody is part of the security claim</h4>
+<p>Wafer-level measurements are useful only if the association between a wafer, its process records, its measurement files, and its label is trustworthy. This chain of custody is part of the security boundary.</p><p>An attacker or accidental data error could replace a measurement, alter a label, replay a prior wafer’s record, or disconnect the sample from its production history. Machine learning cannot repair an untrusted measurement-to-wafer link.</p>
+<p>The operational design should define signed or access-controlled records, time synchronization, instrument identity, calibration history, sample identity, audit logs, retention, replay detection and the response to missing or conflicting records. It should state whether the adversary can alter tool logs, measurement data, model files, thresholds or the wafer itself.</p><p>Without that boundary, the result is process classification, not a complete supply-chain attestation system.</p>
+<h4>Generalization and deployment evidence</h4>
+<p>The captured description identifies GlobalFoundries 12LP FinFET manufacturing, multiple tool-chain variants, inline measurements and electrical tests, and a 7,000-wafer demonstration. That is meaningful industrial scale, but it remains one foundry, node and measurement environment unless other settings are shown.</p><p>A cross-fab transfer to another fab, node, tool family, recipe, instrument or product requires new evidence.</p>
+<p>The baselines should include ordinary process monitoring, a classifier using only time or lot metadata, and sanctioned-versus-unsanctioned classification with matched class balance and temporal splits. Report accuracy only alongside false acceptance, false rejection, abstention, drift, calibration, inference latency, labeling cost and investigation workload.</p><p>The evidence supports a concrete wafer-level tool-chain attestation direction, not a general manufacturing-security guarantee or improved yield result.</p>
+<p class="lm-k h-label">Compare the results carefully</p><h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="route"></span>How to compare these papers’ results fairly</h2>
+<p>First identify the inputs and required output quality. Then identify the limited resource: time, memory, communication, energy, circuit area, or correctness coverage.</p><p>Ask which part of the method reduces that cost and which new cost it adds. Compare numbers only when the experiments hold these conditions sufficiently similar.</p>
+<p>A conference description may explain the proposal while omitting the full experiment. An author preprint link may have been coded from its abstract. The source classification does not by itself establish that every table was read. Missing locations remain visible below.</p>
+<p class="lm-k h-label">Complete captured evidence</p><h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="file-text"></span>Every paper in this subtheme, with what its source shows</h2>
+<p>These are evidence records, not substitutes for the explanations above. Each record preserves its problem, proposed method, measurements, comparison conditions, and source limits. A populated record does not establish that its mechanism has been fully explained or independently verified.</p>
+<p><span id="paper-dac-2026-research3145"></span></p>
+<h3>STAMP: Semiconductor Tool-Chain Attestation Through Wafer-Level Machine Learning-Based Process Monitoring</h3>
+<p>DAC 2026 · Record: <code>dac-2026-research3145</code></p>
+<p><a href="#explanation-dac-2026-research3145">Read the step-by-step explanation</a></p>
+<p><strong>Updated source-backed reading card</strong></p>
+<div class="worked"><p class="lm-k">Worked example</p><p>Reviewed 2026-09-08. Deepens the existing STAMP treatment into a paper-level reading; separates tool-chain origin attestation from yield, defines measurement/label provenance and false-accept/reject costs, and makes temporal drift, controlled substitutions, chain of custody and cross-fab generalization explicit.</p></div>
+<p>This editorial correction updates the current reading view and connected dossiers, not the historical adjudication or scientific acceptance status. The original captured fields are preserved below.</p>
+<p><a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/data/editorial-paper-corrections-v1.json">Correction register</a></p>
+<p><strong>Problem:</strong></p>
+<p>Manufacturing organizations need wafer-level evidence that a sanctioned or ratified semiconductor tool chain produced the silicon, despite subtle process-variation signatures.</p>
+<p><strong>Mechanism / artifact:</strong></p>
+<p>Machine-learning process-monitoring model for wafer-level tool-chain attestation using metrology and wafer-acceptance-test measurements; features, labels, controlled substitution, decision protocol, chain of custody and adversary boundary are unspecified.</p>
+<p><strong>Workload — the work tested:</strong></p>
+<p>7,000 wafers, multiple tool-chain variants, inline and e-test measurements, GlobalFoundries 12LP FinFET; tool identities, substitutions, lots/periods, class balance, feature cadence, temporal splits, accuracy and attack model are unspecified.</p>
+<p><strong>Hardware and manufacturing assumptions:</strong></p>
+<p>12LP FinFET manufacturing flow with inline metrology and electrical testing; foundry process, instruments, calibration, measurement association, tool maintenance, recipe drift, model deployment, record access and chain-of-custody controls are unspecified.</p>
+<p><strong>Baseline — the comparison method:</strong></p>
+<p>Ordinary process monitoring without tool-chain attestation</p>
+<p>Sanctioned versus unsanctioned tool-chain classification baselines</p>
+<p>Time/lot-only controls, controlled substitutions, held-out lots/periods/tools, threshold, class balance, drift and operational cost conditions are unspecified</p>
+<p><strong>Reported measurements:</strong></p>
+<p>A 7,000-wafer demonstration and qualitative tool-chain distinction are reported; no classification accuracy, false-accept/reject rate, abstention, calibration, temporal holdout, process drift, transfer, measurement integrity or investigation-cost result is supplied.</p>
+<p><strong>Limits on the conclusion:</strong></p>
+<p>Tool-chain attestation is an origin claim, not a yield result. A classifier can separate lots, time periods, operators or instruments instead of the intended tool substitution unless controlled changes and held-out production periods are used.</p>
+<p>False acceptance of an unsanctioned route and false rejection of a sanctioned route have different operational costs. Measurement-to-wafer identity, labels, calibration, audit records and adversarial modification must be protected before model output can serve as attestation evidence.</p>
+<p>The description omits classification accuracy, false-accept/reject rates, temporal holdout, process drift, and adversarial adaptation. A single technology node and foundry dataset may not generalize to other fabs, nodes, or tool substitutions; the evidence supports a case study, not a general manufacturing-security guarantee or improved yield.</p>
+<p><strong>Source and location</strong></p>
+<p>Evidence tier: Primary captured official DAC description plus existing chapter level stamp discussion; no full paper extraction, reproduced classifier, temporal validation or operational chain of custody test. This is the stored source classification; the location and limits below determine what was actually read.</p>
+<p><a href="https://63dac.conference-program.com/?post_type=page&amp;p=16&amp;id=RESEARCH3145&amp;sess=sess111">Open the recorded source</a></p>
+<p>DAC 2026 official description; existing chapter-level STAMP discussion; captured Problem, Mechanism / artifact, Workload, Hardware, Baseline, Measurements and Limits fields; no manuscript pages.</p>
+<details markdown="1">
+<summary>Original captured fields — superseded for this reading card</summary>
+
+** page source tier:** medium_official_description
+
+**Baselines:** ordinary process monitoring without tool-chain attestation
+
+sanctioned versus unsanctioned tool-chain classification baselines
+
+**Evidence locators:** DAC 2026 official description
+
+**Evidence url:** https://63dac.conference-program.com/?post_type=page&amp;p=16&amp;id=RESEARCH3145&amp;sess=sess111
+
+**Hardware or process assumptions:** 12LP FinFET manufacturing flow with inline metrology and electrical testing; foundry process, measurement cadence, model features, and chain-of-custody controls are unspecified.
+
+**Limits:** The description omits classification accuracy, false-accept/reject rates, temporal holdout, process drift, and adversarial adaptation.
+
+A single technology node and foundry dataset may not generalize to other fabs, nodes, or tool substitutions.
+
+Official description only; supply-chain attestation claims require paper-level and operational validation.
+
+**Method or artifact:** Machine-learning process-monitoring model for wafer-level tool-chain attestation using metrology and wafer-acceptance-test measurements.
+
+**Metrics:** 7,000-wafer demonstration
+
+Tool-chain distinction demonstrated qualitatively
+
+**Problem:** Manufacturing organizations need wafer-level evidence that a sanctioned or ratified semiconductor tool chain produced the silicon, despite subtle process-variation signatures.
+
+**Workload or benchmark:** 7,000 wafers, multiple tool-chain variants, inline and e-test measurements, GlobalFoundries 12LP FinFET; accuracy, splits, tool variants, and attack model are unspecified.
+
+</details>
+<p class="lm-k h-label">What remains to establish</p><h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>What is still unproven here</h2>
+<p>Resolve unspecified workloads, comparison methods, resource budgets, and source locations before generalizing a reported gain. This subject is represented by one paper and supports a case study, not evidence of recurrence or a long-term trend.</p>
+<p><a href="../guide/expanded-taxonomy-v1.html">All subthemes</a> · <a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/reports/directions/README.md">Research directions</a></p><p class="meta">Written as <a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/reports/observed-subthemes/manufacturing-monitoring-and-yield.md">reports/observed-subthemes/manufacturing-monitoring-and-yield.md</a> in the course repository.</p>
+      </article>
+      <nav class="pager" aria-label="Previous and next"><a class="prev" href="fpga-and-reconfigurable-design.html"><span class="pg-k">← Previous</span><span class="pg-t">FPGA and reconfigurable design</span></a><a class="map" href="../subthemes.html"><span class="pg-k">Back to</span><span class="pg-t">Subthemes</span></a><a class="next" href="parasitic-extraction-and-modeling.html"><span class="pg-k">Next →</span><span class="pg-t">Parasitic extraction and modeling</span></a></nav>
+    </section>
+  </main>
+  <footer class="course-foot">
+    <p>Built from 582 paper records coded from ISCA 2026, DAC 2026 and ICCAD 2025 (ICCAD 2026 papers were not yet public). Most records come from official program descriptions; see “How deep the reading went”. The papers belong to their authors.</p>
+    <p class="foot-links"><a href="https://github.com/mehtama1234/course-concept-library">All courses</a><a href="../index.html">This course</a><a href="../course-map.html">Course map</a><a href="../presentation/index.html">Slides</a><a href="../video/index.html">Video</a><a href="../share/index.html">Share</a></p>
+  </footer>
+  <script src="../assets/course-data.js"></script><script src="../assets/icons.js"></script><script src="../assets/icons-extra.js"></script><script src="../assets/icons-course.js"></script><script src="../assets/art.js"></script><script src="../assets/course-art.js"></script><script src="../assets/charts.js"></script><script src="../assets/course-charts.js"></script><script src="../assets/course-site.js"></script>
+</body>
+</html>
