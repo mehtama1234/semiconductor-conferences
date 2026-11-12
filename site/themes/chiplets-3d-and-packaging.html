@@ -1,60 +1,53 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="theme-color" content="#F3ECE1" />
-  <title>Chiplets, 3D integration, and packaging · Semiconductor conference atlas</title>
-  <meta name="description" content="The article explains the technical problem step by step first, then links to every subtheme and its papers. Worked numbers are illustrations, not paper results." />
-  <meta property="og:type" content="website" />
-  <meta property="og:site_name" content="Semiconductor conference atlas" />
-  <meta property="og:title" content="Chiplets, 3D integration, and packaging · Semiconductor conference atlas" />
-  <meta property="og:description" content="The article explains the technical problem step by step first, then links to every subtheme and its papers. Worked numbers are illustrations, not paper results." />
-  <meta property="og:url" content="https://mehtama1234.github.io/semiconductor-conferences/themes/chiplets-3d-and-packaging.html" />
-  <meta property="og:image" content="https://mehtama1234.github.io/semiconductor-conferences/presentation/slides/01-cover.jpg" />
-  <meta property="og:image:width" content="1920" />
-  <meta property="og:image:height" content="1080" />
-  <meta property="og:image:alt" content="Semiconductor conference atlas: 582 papers from ISCA, DAC and ICCAD, sorted into 10 themes and six directions to watch." />
-  <meta name="twitter:card" content="summary_large_image" />
-  <link rel="canonical" href="https://mehtama1234.github.io/semiconductor-conferences/themes/chiplets-3d-and-packaging.html" />
-  <link rel="icon" href="../assets/icon.svg" type="image/svg+xml" />
-  <link rel="stylesheet" href="../assets/base.css" />
-  <link rel="stylesheet" href="../assets/experience.css" />
-  <link rel="stylesheet" href="../assets/theme-atlas.css" />
-  <link rel="stylesheet" href="../assets/styles.css" />
-  <link rel="stylesheet" href="../assets/charts.css" />
-  <link rel="stylesheet" href="../assets/course.css" />
-  
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#3a2e26">
+<title>Chiplets, 3D integration, and packaging · Semiconductor conference atlas</title>
+<meta name="description" content="Splitting a chip into pieces trades cost for heat and wiring between dies. The article explains the problem step by step first. Then it links every subtheme and its papers. Worked numbers are illustra">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Semiconductor conference atlas">
+<meta property="og:title" content="Chiplets, 3D integration, and packaging · Semiconductor conference atlas">
+<meta property="og:description" content="Splitting a chip into pieces trades cost for heat and wiring between dies. The article explains the problem step by step first. Then it links every subtheme and its papers. Worked numbers are illustra">
+<meta property="og:url" content="https://mehtama1234.github.io/semiconductor-conferences/themes/chiplets-3d-and-packaging.html">
+<meta property="og:image" content="https://mehtama1234.github.io/semiconductor-conferences/presentation/slides/01-cover.jpg">
+<meta property="og:image:width" content="1920">
+<meta property="og:image:height" content="1080">
+<meta property="og:image:alt" content="Semiconductor conference atlas: 582 papers from ISCA, DAC and ICCAD, sorted into 10 themes and six directions to watch.">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://mehtama1234.github.io/semiconductor-conferences/themes/chiplets-3d-and-packaging.html">
+<link rel="icon" href="../assets/icon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../kit/tokens.css">
+<link rel="stylesheet" href="../kit/boards.css">
+<link rel="stylesheet" href="../kit/course.css">
+<link rel="stylesheet" href="../kit/slides.css">
+<link rel="stylesheet" href="../kit/math/katex.min.css">
+<link rel="stylesheet" href="../kit/site.css">
+<script>try{var t=localStorage.getItem('course-kit-theme');if(t)document.documentElement.setAttribute('data-theme',t)}catch(e){}</script>
 </head>
-<body class="course-site " data-house="atlas">
-  <aside class="public-demo-banner" aria-label="About this course">A plain-language guide to what ISCA, DAC and ICCAD papers say about chip and computer design · Built from the repository’s own paper records · Not made by the conferences</aside>
-  <a class="skip-link" href="#app">Skip to the page</a>
-  <header>
-    <a class="brand" href="../index.html"><span class="mark" aria-hidden="true">Si</span> Semiconductor conference atlas</a>
-    <span class="header-status"><span class="badge">582 papers</span><span class="badge">10 themes</span><span class="badge">Plain words first</span></span>
-    <a class="header-link" href="../course-map.html">Course map</a>
-  </header>
-  <nav class="course-nav" aria-label="Main sections of the course"><a href="../index.html">The big picture</a><a href="../themes.html" aria-current="page">Themes</a><a href="../subthemes.html">Subthemes</a><a href="../deep-reads.html">Deep reads</a><a href="../directions.html">What to watch</a><a href="../presentation/index.html">Slides</a><a href="../video/index.html">Video</a><a href="../share/index.html">Share</a></nav>
-  <main id="app" tabindex="-1">
-    <section class="screen active landing legacy-page" aria-labelledby="page-title">
-<div class="lm-head"><div class="hj-heading"><nav class="crumbs" aria-label="You are here"><a href="../course-map.html">Course map</a><span aria-hidden="true">›</span><a href="../themes.html">Themes</a></nav><a class="back-button" href="../themes.html">← <span>Themes</span></a><p class="eyebrow">Theme · 25 papers · 9 subthemes</p><h1 id="page-title">Chiplets, 3D integration, and packaging: splitting a chip into pieces trades cost for heat and wiring between dies</h1><p class="hj-sub">The article explains the technical problem step by step first, then links to every subtheme and its papers. Worked numbers are illustrations, not paper results.</p></div><div class="hj-art" data-art="trio:cpu,stack-2,arrows-exchange"></div></div>
-<figure class="course-fig"><div class="loop-wide" data-art="flow:chiplets-3d-and-packaging"></div><div class="loop-tall" data-art="flowTall:chiplets-3d-and-packaging"></div><figcaption>Splitting a chip into dies trades cost for wiring and heat.</figcaption></figure><div class="chart-card"><div data-chart="theme-chiplets-3d-and-packaging"></div><div><p class="lm-k">In numbers</p><h3>9 subthemes, largest first</h3><p>25 papers: DAC 23, ICCAD 2.</p><p class="chart-note">A count shows attention in this sample, not importance.</p></div></div>
-      <article class="prose">
+<body data-kit="boards">
+<a class="ck-skip" href="#main">Skip to the content</a>
+<div class="root">
+<header class="rs-hero"><div class="rs-top"><a class="rs-brand" href="../index.html"><i>Si</i>Semiconductor conference atlas</a><span class="rs-r"><nav class="ck-nav" aria-label="Main sections of the site"><a href="../index.html">The big picture</a><a href="../themes.html" aria-current=page>Themes</a><a href="../subthemes.html">Subthemes</a><a href="../deep-reads.html">Deep reads</a><a href="../directions.html">What to watch</a><a href="../presentation/index.html">Slides</a><a href="../video/index.html">Video</a><a href="../share/index.html">Share</a></nav><button type="button" class="ck-theme" aria-label="Change colour theme">Theme: auto</button></span></div><div class="rs-hg"><div><p class="eb">Theme · 25 papers · 9 subthemes</p><h1 class="rs-h1 long" id="page-title">What do the 25 papers on chiplets, 3D integration, and packaging work on? <i>Splitting a chip into pieces trades cost for heat and wiring between dies.</i></h1><p class="rs-lede">The article explains the problem step by step first. Then it links every subtheme and its papers. Worked numbers are illustrations, not paper results.</p></div><ol class="ck-cards" aria-label="The numbers this page turns on"><svg viewBox="0 0 520 380" aria-hidden="true" preserveAspectRatio="none"><path d="M236 78 C 260 84, 260 128, 284 134"/><path d="M398 198 C 378 238, 196 152, 166 182"/><path d="M240 246 C 264 252, 262 296, 286 302"/></svg><li class="ck-card"><p class="k">1 · Papers</p><b>25</b><span>in this theme</span></li><li class="ck-card"><p class="k">2 · Subthemes</p><b>9</b><span>narrower problems</span></li><li class="ck-card"><p class="k">3 · Largest subtheme</p><b>7 papers</b><span>3D stacking and thermal management</span></li><li class="ck-card"><p class="k">4 · Top conference</p><b>DAC 23</b><span>all: DAC 23 · ICCAD 2</span></li></ol></div></header>
+<main id="main" class="ck-main" tabindex="-1">
+<nav class="rs-selbar" aria-label="About this page"><span class="rs-sel"><b>You are here</b><a href="../course-map.html">Every page</a> › <a href="../themes.html">Themes</a></span><span class="rs-crumb">Theme · 25 papers · 9 subthemes</span></nav><section class="ck-pagefig ck-wide"><figure class="rs-media ck-scene"><div class="rs-mh"><span>The problem in one drawing</span><span class="t t-oc">our drawing</span></div><div class="rs-mb"><div class="ck-scene-pan" tabindex="0" role="group" aria-label="Drawing; scroll sideways on a small screen" style="--min:900px"><svg class="ck-art" viewBox="0 0 1000 330" role="img" aria-labelledby="tchiplets3dandp-t" font-family="IBM Plex Sans Condensed, sans-serif"><title id="tchiplets3dandp-t">A package cut open: two compute dies and a memory stack sit on a thin wiring layer, short links join them, the memory dies are stacked with vertical wires, heat flows up into a heat sink, and the package joins the board</title><defs><marker id="tchiplets3dandp-a" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5 0 10z" fill="#2b2622"/></marker><marker id="tchiplets3dandp-r" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5 0 10z" fill="#9a4a22"/></marker><pattern id="tchiplets3dandp-h" width="8" height="8" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><path d="M0 0V8" stroke="#cdbfa9" stroke-width="3"/></pattern></defs><rect x="100" y="40" width="520" height="34" fill="#ece4d5" stroke="#2b2622" stroke-width="2"/><rect x="112" y="14" width="18" height="28" fill="#ece4d5" stroke="#2b2622" stroke-width="1.4"/><rect x="154" y="14" width="18" height="28" fill="#ece4d5" stroke="#2b2622" stroke-width="1.4"/><rect x="196" y="14" width="18" height="28" fill="#ece4d5" stroke="#2b2622" stroke-width="1.4"/><rect x="238" y="14" width="18" height="28" fill="#ece4d5" stroke="#2b2622" stroke-width="1.4"/><rect x="280" y="14" width="18" height="28" fill="#ece4d5" stroke="#2b2622" stroke-width="1.4"/><rect x="322" y="14" width="18" height="28" fill="#ece4d5" stroke="#2b2622" stroke-width="1.4"/><rect x="364" y="14" width="18" height="28" fill="#ece4d5" stroke="#2b2622" stroke-width="1.4"/><rect x="406" y="14" width="18" height="28" fill="#ece4d5" stroke="#2b2622" stroke-width="1.4"/><rect x="448" y="14" width="18" height="28" fill="#ece4d5" stroke="#2b2622" stroke-width="1.4"/><rect x="490" y="14" width="18" height="28" fill="#ece4d5" stroke="#2b2622" stroke-width="1.4"/><rect x="532" y="14" width="18" height="28" fill="#ece4d5" stroke="#2b2622" stroke-width="1.4"/><rect x="574" y="14" width="18" height="28" fill="#ece4d5" stroke="#2b2622" stroke-width="1.4"/><path d="M170 120V84" fill="none" stroke="#9a4a22" stroke-width="2.2" marker-end="url(#tchiplets3dandp-r)"/><path d="M270 120V84" fill="none" stroke="#9a4a22" stroke-width="2.2" marker-end="url(#tchiplets3dandp-r)"/><path d="M370 120V84" fill="none" stroke="#9a4a22" stroke-width="2.2" marker-end="url(#tchiplets3dandp-r)"/><path d="M470 120V84" fill="none" stroke="#9a4a22" stroke-width="2.2" marker-end="url(#tchiplets3dandp-r)"/><rect x="120" y="126" width="170" height="54" fill="#e3b98f" stroke="#2b2622" stroke-width="2"/><text x="205" y="159" font-size="15" text-anchor="middle" fill="#2b2622">compute die</text><rect x="320" y="126" width="170" height="54" fill="#e3b98f" stroke="#2b2622" stroke-width="2"/><text x="405" y="159" font-size="15" text-anchor="middle" fill="#2b2622">compute die</text><rect x="520" y="102" width="92" height="18" fill="#fbf7f0" stroke="#2b2622" stroke-width="1.6"/><rect x="520" y="122" width="92" height="18" fill="#ece4d5" stroke="#2b2622" stroke-width="1.6"/><rect x="520" y="142" width="92" height="18" fill="#fbf7f0" stroke="#2b2622" stroke-width="1.6"/><rect x="520" y="162" width="92" height="18" fill="#ece4d5" stroke="#2b2622" stroke-width="1.6"/><path d="M538 104V180" stroke="#2b2622" stroke-width="2.4"/><path d="M566 104V180" stroke="#2b2622" stroke-width="2.4"/><path d="M594 104V180" stroke="#2b2622" stroke-width="2.4"/><circle cx="126" cy="186" r="5" fill="#2b2622"/><circle cx="148" cy="186" r="5" fill="#2b2622"/><circle cx="170" cy="186" r="5" fill="#2b2622"/><circle cx="192" cy="186" r="5" fill="#2b2622"/><circle cx="214" cy="186" r="5" fill="#2b2622"/><circle cx="236" cy="186" r="5" fill="#2b2622"/><circle cx="258" cy="186" r="5" fill="#2b2622"/><circle cx="280" cy="186" r="5" fill="#2b2622"/><circle cx="302" cy="186" r="5" fill="#2b2622"/><circle cx="324" cy="186" r="5" fill="#2b2622"/><circle cx="346" cy="186" r="5" fill="#2b2622"/><circle cx="368" cy="186" r="5" fill="#2b2622"/><circle cx="390" cy="186" r="5" fill="#2b2622"/><circle cx="412" cy="186" r="5" fill="#2b2622"/><circle cx="434" cy="186" r="5" fill="#2b2622"/><circle cx="456" cy="186" r="5" fill="#2b2622"/><circle cx="478" cy="186" r="5" fill="#2b2622"/><circle cx="500" cy="186" r="5" fill="#2b2622"/><circle cx="522" cy="186" r="5" fill="#2b2622"/><circle cx="544" cy="186" r="5" fill="#2b2622"/><circle cx="566" cy="186" r="5" fill="#2b2622"/><circle cx="588" cy="186" r="5" fill="#2b2622"/><rect x="100" y="192" width="540" height="30" fill="#f5e6d3" stroke="#2b2622" stroke-width="2"/><path d="M270 204H340M470 210H540" stroke="#2b2622" stroke-width="3"/><rect x="60" y="226" width="620" height="34" fill="#ece4d5" stroke="#2b2622" stroke-width="2"/><circle cx="90" cy="270" r="8" fill="#fbf7f0" stroke="#2b2622" stroke-width="1.6"/><circle cx="123" cy="270" r="8" fill="#fbf7f0" stroke="#2b2622" stroke-width="1.6"/><circle cx="156" cy="270" r="8" fill="#fbf7f0" stroke="#2b2622" stroke-width="1.6"/><circle cx="189" cy="270" r="8" fill="#fbf7f0" stroke="#2b2622" stroke-width="1.6"/><circle cx="222" cy="270" r="8" fill="#fbf7f0" stroke="#2b2622" stroke-width="1.6"/><circle cx="255" cy="270" r="8" fill="#fbf7f0" stroke="#2b2622" stroke-width="1.6"/><circle cx="288" cy="270" r="8" fill="#fbf7f0" stroke="#2b2622" stroke-width="1.6"/><circle cx="321" cy="270" r="8" fill="#fbf7f0" stroke="#2b2622" stroke-width="1.6"/><circle cx="354" cy="270" r="8" fill="#fbf7f0" stroke="#2b2622" stroke-width="1.6"/><circle cx="387" cy="270" r="8" fill="#fbf7f0" stroke="#2b2622" stroke-width="1.6"/><circle cx="420" cy="270" r="8" fill="#fbf7f0" stroke="#2b2622" stroke-width="1.6"/><circle cx="453" cy="270" r="8" fill="#fbf7f0" stroke="#2b2622" stroke-width="1.6"/><circle cx="486" cy="270" r="8" fill="#fbf7f0" stroke="#2b2622" stroke-width="1.6"/><circle cx="519" cy="270" r="8" fill="#fbf7f0" stroke="#2b2622" stroke-width="1.6"/><circle cx="552" cy="270" r="8" fill="#fbf7f0" stroke="#2b2622" stroke-width="1.6"/><circle cx="585" cy="270" r="8" fill="#fbf7f0" stroke="#2b2622" stroke-width="1.6"/><circle cx="618" cy="270" r="8" fill="#fbf7f0" stroke="#2b2622" stroke-width="1.6"/><circle cx="651" cy="270" r="8" fill="#fbf7f0" stroke="#2b2622" stroke-width="1.6"/><path d="M20 282H700" stroke="#2b2622" stroke-width="4"/><path d="M630 50H744" stroke="#5a5047" stroke-width="1" stroke-dasharray="3 4"/><text x="752" y="34" font-size="15" fill="#2b2622" font-weight="600" letter-spacing="1">4 · THE HEAT PATH</text><text x="752" y="53" font-size="14" fill="#5a5047">heat must escape upward</text><path d="M620 140H744" stroke="#5a5047" stroke-width="1" stroke-dasharray="3 4"/><text x="752" y="92" font-size="15" fill="#2b2622" font-weight="600" letter-spacing="1">3 · STACKED DIES</text><text x="752" y="111" font-size="14" fill="#5a5047">vertical wires through the stack</text><path d="M500 150H744" stroke="#5a5047" stroke-width="1" stroke-dasharray="3 4"/><text x="752" y="150" font-size="15" fill="#2b2622" font-weight="600" letter-spacing="1">1 · SPLIT INTO DIES</text><text x="752" y="169" font-size="14" fill="#5a5047">small dies are cheaper to make</text><path d="M550 207H744" stroke="#5a5047" stroke-width="1" stroke-dasharray="3 4"/><text x="752" y="208" font-size="15" fill="#2b2622" font-weight="600" letter-spacing="1">2 · LINKS BETWEEN DIES</text><text x="752" y="227" font-size="14" fill="#5a5047">slower than wires on one die</text><path d="M690 255H744" stroke="#5a5047" stroke-width="1" stroke-dasharray="3 4"/><text x="752" y="266" font-size="15" fill="#2b2622" font-weight="600" letter-spacing="1">5 · THE PACKAGE</text><text x="752" y="285" font-size="14" fill="#5a5047">joins it all to the board</text><text x="500.0" y="318" font-size="18" fill="#9a4a22" text-anchor="middle" font-family="Fraunces, Georgia, serif" font-style="italic">Splitting a chip trades making cost for links and heat.</text></svg></div><figcaption class="ck-cap">Each numbered part is one place where this theme's papers act. The subtheme pages ring the part they work on.</figcaption></div></figure><figure class="rs-media"><div class="rs-mh"><span>Try it: why small dies are cheaper to make</span><span class="t t-il">illustration</span></div><div class="rs-mb"><div data-chart><script type="application/json">{"type":"line","title":"Share of dies that work, by die area","desc":"Share = e^(−D × A), with D = 0.1 defects per cm². An 8 cm² die works 0.45 of the time; a 2 cm² quarter works 0.82 of the time.","x":{"min":0.5,"max":8,"label":"die area A, cm²","ticks":[1,2,4,6,8]},"y":{"min":0,"max":1,"label":"share of dies that work"},"series":[{"name":"share that work","points":[[0.5,0.951],[1.0,0.905],[1.5,0.861],[2.0,0.819],[2.5,0.779],[3.0,0.741],[3.5,0.705],[4.0,0.67],[4.5,0.638],[5.0,0.607],[5.5,0.577],[6.0,0.549],[6.5,0.522],[7.0,0.497],[7.5,0.472],[8.0,0.449]],"decimals":2}],"slider":{"label":"Die area, cm²","min":0.5,"max":8,"step":0.5,"value":2,"decimals":1}}</script><noscript><p class="ck-cap">Share of dies that work, by die area. Share = e^(−D × A), with D = 0.1 defects per cm². An 8 cm² die works 0.45 of the time; a 2 cm² quarter works 0.82 of the time.</p></noscript></div><figcaption class="ck-cap">Worked out from the simple yield model, share = e^(−D × A). The defect density 0.1 per cm² is a made-up value.</figcaption></div></figure><figure class="rs-media"><div class="rs-mh"><span>Papers in each subtheme, largest 9 of 9</span><span class="t t-wo">counted</span></div><div class="rs-mb"><div data-chart><script type="application/json">{"type":"bars","title":"Papers per subtheme","desc":"3d stacking and thermal management has the most, 7.","max":7,"items":[{"label":"3D stacking and thermal management","value":7,"em":true},{"label":"3D integration and thermal management","value":6},{"label":"Chiplet system architecture","value":3},{"label":"Advanced packaging and interconnect","value":2},{"label":"Chiplet interconnects","value":2},{"label":"Wafer scale and heterogeneous integration","value":2},{"label":"Chiplet partitioning and integration","value":1},{"label":"Chiplets and heterogeneous integration","value":1},{"label":"Package system co design","value":1}]}</script><noscript><p class="ck-cap">Papers per subtheme. 3d stacking and thermal management has the most, 7.</p></noscript></div><figcaption class="ck-cap">Counted from data/taxonomy-expanded-v1.json: 25 papers in 9 subthemes. A count shows where this sample's papers went, not how important a subject is.</figcaption></div></figure></section><div class="ck-doc"> 
+
 
 <p>This article explains the subject and then connects it to 25 papers in the selected research sample.</p>
 <p>A subtheme groups related technical problems. A mechanism describes the particular change proposed by a paper. The discussion below explains the subject; the linked paper records state the available evidence.</p>
 <p><a href="../guide/reading-guide-v1.html">Definitions used in the paper records</a></p>
-<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="chart-bar"></span>Splitting a system into several dies adds boundaries data must cross</h2>
+<div class="rs-sh"><h2 class="rs-h2">Splitting a system into several dies adds boundaries data must cross</h2></div>
 <p>A <strong>die</strong> is a piece of semiconductor carrying circuits. A package can connect several dies. When they are designed as parts of one larger system they are often called <strong>chiplets</strong>. A <strong>three-dimensional (3D)</strong> design stacks active layers or dies on top of each other.</p>
 <p>Splitting lets different functions use different manufacturing processes. The cost is that communication must cross extra physical boundaries.</p>
-<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>Each boundary costs area, energy, time and heat</h2>
+<div class="rs-sh"><h2 class="rs-h2">Each boundary costs area, energy, <i>time and heat</i></h2></div>
 <ul>
 <li>A link between dies uses area, energy and time.</li>
 <li>The package must deliver current to, and remove heat from, every active part.</li>
 <li>Stacked parts can sit far from a good cooling path.</li>
 </ul>
 <p>So moving computation between dies changes communication and temperature together. A system choice cannot be judged from the speed of one die alone.</p>
-<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="affiliate"></span>The subthemes split, connect, cool, or design the package</h2>
+<div class="rs-sh"><h2 class="rs-h2">The subthemes split, connect, cool, <i>or design the package</i></h2></div>
 <ul>
 <li><strong>Partitioning</strong> decides which functions belong together.</li>
 <li><strong>Interconnect</strong> designs the communication between the parts.</li>
@@ -62,13 +55,13 @@
 <li><strong>Package co-design</strong> studies these choices together with power delivery and physical assembly.</li>
 </ul>
 <p>One paper may address several of these.</p>
-<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="checklist"></span>A fair test states the physical setup and compares whole systems</h2>
+<div class="rs-sh"><h2 class="rs-h2">A fair test states the physical setup and compares whole systems</h2></div>
 <ol>
 <li>State die sizes, link rates, cooling, power assumptions, workload placement and the manufacturing assumptions used for cost.</li>
 <li>Compare the full system under the same temperature and performance limits.</li>
 </ol>
 <p>A thermal simulation supports a temperature prediction under its model. Reliability and yield of manufactured parts need their own evidence.</p>
-<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>Follow the information crossing a die boundary</h2>
+<div class="rs-sh"><h2 class="rs-h2">Follow the information crossing a die boundary</h2></div>
 <p>Splitting work across dies makes each part cheaper or faster, but adds a cost wherever data crosses between them.</p>
 <p><strong>Partitioning</strong> a computation assigns operations and storage to different physical parts. A producer on one die may need to send its result to a consumer on another.</p><p>The consumer cannot use it until the bytes arrive. The connection also takes space and energy, and both ends need power and cooling.</p>
 <blockquote>
@@ -77,11 +70,11 @@
 <li>One implementation: 3 + 3 = <strong>6 milliseconds</strong>.</li>
 <li>Partitioned: each stage drops to 2 milliseconds, but a 3-millisecond transfer sits between them: 2 + 3 + 2 = <strong>7 milliseconds</strong>.</li>
 </ul>
-<p>Overlapping different requests may raise throughput. It does not remove the dependency inside this request.</p>
+<p>Overlapping different requests may raise throughput<span class="ck-gloss"> (how much work is finished per second)</span>. It does not remove the dependency inside this request.</p>
 </blockquote>
 <p>So the starting question for chiplets is: which costs shrink inside each part, and which appear at the boundaries?</p>
 <p><strong>Be careful:</strong> linked articles keep their source-specific conditions and gaps. This parent synthesis does not establish a manufactured system.</p>
-<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="affiliate"></span>A physical boundary needs more than a logical connection</h2>
+<div class="rs-sh"><h2 class="rs-h2">A physical boundary needs more than a logical connection</h2></div>
 <p>A link between dies needs real hardware and rules, and a shorter link is not automatically faster for the application.</p>
 <p>A circuit connection describes how signals should relate. Building it needs transmitters, receivers, wiring, timing rules, and a way to match requests with responses where needed.</p>
 <p>A package can:</p>
@@ -90,13 +83,13 @@
 <li>stack active dies or layers on top of each other.</li>
 </ul>
 <p>These differ in distance, connection density, assembly needs and heat paths.</p>
-<p>Shorter distance alone does not mean lower application latency. A link may need buffering, conversion between interfaces, or coordination across different clocks. More bandwidth helps only when the workload offers enough independent transfers, and both ends can keep up.</p>
+<p>Shorter distance alone does not mean lower application latency<span class="ck-gloss"> (the wait for one result)</span>. A link may need buffering, conversion between interfaces, or coordination across different clocks. More bandwidth<span class="ck-gloss"> (how many bytes a link can move per second)</span> helps only when the workload offers enough independent transfers, and both ends can keep up.</p>
 <ul>
 <li>The <a href="../subthemes/chiplet-interconnects.html">interconnect chapter</a> groups representation and network-design proposals.</li>
 <li>The <a href="../subthemes/advanced-packaging-and-interconnect.html">advanced-packaging chapter</a> covers physical connection structures.</li>
 </ul>
 <p><strong>Be careful:</strong> their results concern different parts of the path. A shared word such as "bandwidth" cannot rank them unless the transferred work and measurement boundary match.</p>
-<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>Partition according to communication, not component count alone</h2>
+<div class="rs-sh"><h2 class="rs-h2">Partition according to communication, <i>not component count alone</i></h2></div>
 <p>What matters at a cut is how much data crosses it and when, not how many wires it cuts.</p>
 <p>Two partitions can cut the same number of logical connections, yet move very different amounts of data:</p>
 <ul>
@@ -109,11 +102,11 @@
 <p>100,000,000 ÷ 50,000,000,000 = 0.002 seconds = <strong>2 milliseconds</strong>.</p>
 </blockquote>
 <p>That excludes request setup, contention, protocol overhead outside the stated useful bandwidth, and any wait before the transfer starts. A peak physical signaling rate is not automatically the sustained useful byte rate.</p>
-<p><a href="../subthemes/chiplet-system-architecture.html#chiplanner-partition-with-an-estimate-of-the-physical-consequences">ChiPlanner's discussion</a> ties partitioning to rough placement and timing. Its description-level evidence leaves absolute timing and cost-model conditions open. The real question: do early estimates pick partitions that stay good after physical implementation, not just score better inside the partitioner?</p>
+<p><a href="../subthemes/chiplet-system-architecture.html#chiplanner-partition-with-an-estimate-of-the-physical-consequences">ChiPlanner's discussion</a> ties partitioning to rough placement and timing. Its description-level evidence leaves absolute timing and cost-model conditions open. The real question: do early estimates pick splits that stay good once the chip is laid out? Scoring well inside the splitting tool is not enough.</p>
 <p>This links to the <a href="physical-design-and-manufacturing.html">physical-design theme</a>. Legal geometry, extracted effects, clock behavior and power delivery must all survive the partition. A good early partition stays a candidate until those checks are applied to the assembled result.</p>
-<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>Phase-specific hardware adds a scheduling obligation</h2>
+<div class="rs-sh"><h2 class="rs-h2">Phase-specific hardware adds a scheduling obligation</h2></div>
 <p>Giving each phase its own hardware only pays if the phases stay balanced and the hand-off is counted.</p>
-<p>Language-model prompt processing and later token generation can offer different amounts of parallel work and data reuse. Specializing hardware for each phase may make each more efficient on its own. The design must then pass the needed state between them, and balance demand.</p>
+<p>Language-model prompt processing and later token generation can offer different amounts of parallel work and data reuse. Specializing hardware for each phase may make each use less time or energy on its own.</p><p>The design must then pass the needed state between them, and balance demand.</p>
 <blockquote>
 <p><strong>Worked example.</strong> Under the same request mix:</p>
 <ul>
@@ -127,12 +120,12 @@
 <ul>
 <li>the study assumes matched phase throughput, without an explicit multi-request scheduler;</li>
 <li>it uses simulation and synthesis;</li>
-<li>it models its baseline rather than measuring a complete baseline service.</li>
+<li>it models its baseline<span class="ck-gloss"> (the existing method a new result is compared against)</span> rather than measuring a complete baseline service.</li>
 </ul>
-<p>Its chiplet area scaling is not evidence from a fabricated package.</p>
+<p>Its chiplet<span class="ck-gloss"> (a small die that is combined with others in one package)</span> area scaling is not evidence from a fabricated package.</p>
 <p><strong>Be careful:</strong> this DUET is the phase-specific hybrid-model architecture, not the bit-sparsity Duet in the architecture chapter. Similar names must not merge their mechanisms or results.</p>
 <p>The <a href="systems-applications-and-workloads.html">systems theme</a> adds a further duty: judge queueing, admission, first response and generation pace together.</p>
-<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>Thermal feasibility is spatial and time-dependent</h2>
+<div class="rs-sh"><h2 class="rs-h2">Thermal feasibility is spatial and time-dependent</h2></div>
 <p>Temperature depends on where heat is made and how it escapes, not only on total power.</p>
 <p><strong>Power</strong> is the rate of energy use. <strong>Temperature</strong> depends on where heat is produced and how it flows through materials to the surroundings. Two designs with the same total power can have different hot spots.</p><p>Grouping power-dense parts together can raise local temperature, even at fixed total power.</p>
 <blockquote>
@@ -144,10 +137,10 @@
 <li><strong>Steady-state</strong> analysis describes settled conditions.</li>
 <li>A changing workload also needs a <strong>transient</strong> model of how temperatures evolve.</li>
 </ul>
-<p>A predictor accurate for one cooling setup or power map is not validated for a different stack or a sudden power change.</p>
+<p>A predictor tested on one cooling setup or power map is not tested on another. A different stack or a sudden power change needs its own check.</p>
 <p>The <a href="../subthemes/3d-stacking-and-thermal-management.html">thermal chapter</a> separates prediction, reconstruction from observations, and control. LegoTherm's reduced models, learned predictors and analytical solvers there have different recorded scopes and error definitions.</p>
 <p><strong>Be careful:</strong> a low average temperature error does not bound the error at the hottest spot. A faster prediction does not prove safe control.</p>
-<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>Cooling and throttling belong in performance accounting</h2>
+<div class="rs-sh"><h2 class="rs-h2">Cooling and throttling belong in performance accounting</h2></div>
 <p>If heat forces a slowdown, the slower rate is the real performance.</p>
 <p>A design may lower its clock frequency to stay within a temperature limit. That keeps it running, but cuts sustained work per second. Reporting performance before the thermal response settles hides this trade-off.</p>
 <blockquote>
@@ -161,7 +154,7 @@
 <p>A fair comparison states start-up conditions, cooling, workload length, and the temperature rule that changes operation.</p>
 <p>Moving work to a cooler region can also move its data, break reuse, or overload another connection. The thermal benefit must be weighed with those costs.</p>
 <p><strong>Be careful:</strong> temperature simulation supports a prediction under its model. It does not, alone, establish long-term reliability of manufactured parts.</p>
-<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="checklist"></span>Assembly and testing change the cost denominator</h2>
+<div class="rs-sh"><h2 class="rs-h2">Assembly and testing change the cost denominator</h2></div>
 <p>Count the cost per working package delivered, not per package attempted.</p>
 <p>Smaller, separately made parts can be tested and selected before assembly. But the package brings its own cost and failures. A useful cost model states:</p>
 <ul>
@@ -177,7 +170,7 @@
 </blockquote>
 <p>Recovery, linked failures, different die populations and test coverage all change this.</p>
 <p><strong>Be careful:</strong> do not multiply generic die-yield numbers to predict package yield without justified independence and assembly assumptions. A passed test covers only the properties it checks, under its conditions. Connectivity testing, functional testing, thermal behavior and lifetime qualification each address different failure mechanisms.</p>
-<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>Keep the comparison at the complete-system boundary</h2>
+<div class="rs-sh"><h2 class="rs-h2">Keep the comparison at the complete-system boundary</h2></div>
 <p>Each local gain needs one more condition before it counts for the whole system.</p>
 <table>
 <thead>
@@ -210,7 +203,7 @@
 </tbody>
 </table>
 <p>These conditions link the papers without pretending they are already integrated. The <a href="design-methodology-and-tooling.html">tooling theme</a> covers preparation and search budgets. The <a href="memory-interconnect-and-storage.html">memory theme</a> covers data availability and progress. Both still apply when resources are reorganized inside a package instead of across servers.</p>
-<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="checklist"></span>Long-term hypotheses with explicit tests</h2>
+<div class="rs-sh"><h2 class="rs-h2">Long-term hypotheses with explicit tests</h2></div>
 <p>Three readings are worth testing; each names what would weaken it.</p>
 <table>
 <thead>
@@ -239,8 +232,8 @@
 </tbody>
 </table>
 <p>These are bounded interpretations, not established ISCA–DAC–ICCAD time trends or evidence of commercial adoption. Matched editions, workloads, technology assumptions, cooling, cost models and source depth are still needed.</p>
-<p><strong>Be careful:</strong> this parent discussion does not complete individual-paper source recovery, deeper writing, manufactured validation, or independent scientific and comprehension review.</p>
-<p class="lm-k h-label">Subthemes and how to study them</p><h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="books"></span>The subthemes in this theme, and how to read them</h2>
+<p><strong>Be careful:</strong> this overview is not the end of the work. Full sources, deeper write-ups, checks on made chips and independent review are still open.</p>
+<p class="rs-k">Subthemes and how to study them</p><div class="rs-sh"><h2 class="rs-h2">The subthemes in this theme, <i>and how to read them</i></h2></div>
 <p>Each link opens the subtheme discussion and its captured paper records. Explanatory depth varies: some papers have expanded individual explanations; others still have only brief discussion or evidence cards. Source locations and unresolved conditions remain visible.</p>
 <h3><a href="../subthemes/3d-stacking-and-thermal-management.html">3d stacking and thermal management</a></h3>
 <p>7 selected records in this theme. Start with <a href="../subthemes/3d-stacking-and-thermal-management.html">COOL: A Cooling-Aware Point Transformer Framework for Thermal Prediction in Advanced 3D/3.5D IC Packaging</a>.</p>
@@ -260,9 +253,9 @@
 <p>1 selected records in this theme. Start with <a href="../subthemes/chiplets-and-heterogeneous-integration.html">Hbspec: A Hybrid-Bonding-Based Heterogeneous Accelerator for Efficient Tree-Structured Speculative Decoding</a>.</p>
 <h3><a href="../subthemes/package-system-co-design.html">Package system co design</a></h3>
 <p>1 selected records in this theme. Start with <a href="../subthemes/package-system-co-design.html">BLADE: Bi-Level Bayesian Optimization for Metal-Density-Constrained Multi-Layer Package Power/ground Plane Synthesis</a>.</p>
-<p class="lm-k h-label">Representative source-backed records</p><h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="route"></span>Papers that show the theme well</h2>
+<p class="rs-k">Representative source-backed records</p><div class="rs-sh"><h2 class="rs-h2">Papers that show the theme well</h2></div>
 <p>The following reading set spans the available conferences and uses dated corrections where registered. These corrections improve the current reading view but do not change historical adjudication or establish independent acceptance. Each paper link opens its exact evidence card.</p>
-<p class="lm-k h-label">Paper cards: what changes and where it stops</p><h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>Paper cards: what each paper changes, and where it stops</h2>
+<p class="rs-k">Paper cards: what changes and where it stops</p><div class="rs-sh"><h2 class="rs-h2">Paper cards: <i>what each paper changes, and where it stops</i></h2></div>
 <ul>
 <li><a href="../subthemes/3d-integration-and-thermal-management.html#paper-dac-2026-research900">Integrated Timing-Driven Placement for Hybrid-Bonding-Based Face-to-Face 3D ICs</a> — DAC 2026.</li>
 <li><a href="../subthemes/advanced-packaging-and-interconnect.html#paper-dac-2026-research799">Mixed-Structure Double-Sided Redistribution Layer Routing for Glass Interposer-Based 5.5D ICs</a> — DAC 2026.</li>
@@ -277,20 +270,20 @@
 <li><a href="../subthemes/chiplet-interconnects.html#paper-dac-2026-research3121">LEXI: Lossless Exponent Coding for Efficient Inter-Chiplet Communication in Hybrid LLMs</a> — DAC 2026.</li>
 <li><a href="../subthemes/chiplet-system-architecture.html#paper-dac-2026-research3120">DUET: Disaggregated Hybrid Mamba-Transformer LLMs with Prefill and Decode-Specific Packages</a> — DAC 2026.</li>
 </ul>
-<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="file-text"></span>What the evidence supports</h2>
+<div class="rs-sh"><h2 class="rs-h2">What the evidence supports</h2></div>
 <p>These records identify proposed methods and the conditions recorded for them. A reported improvement should be interpreted with its comparison method, input size, hardware, and result-quality requirement. Missing fields are evidence gaps; a populated field can also state that a detail is unspecified.</p>
-<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="file-text"></span>Limits and next evidence</h2>
+<div class="rs-sh"><h2 class="rs-h2">Limits and next evidence</h2></div>
 <p>The selected sample is uneven across conferences and source types. It cannot establish how fast a subject is growing. Repeated observations across comparable years, with the same inclusion rules and source depth, are needed for a time trend.</p>
 <p>Every linked evidence article preserves the Problem: and Mechanism / artifact: fields, baseline, unshortened limitations, source URL, and recorded location. Primary text and independent review remain necessary where the record says those checks are open.</p>
-<p><a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/reports/directions/README.md">Research directions</a> · <a href="../guide/expanded-taxonomy-v1.html">All observed subthemes</a></p><p class="meta">Written as <a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/reports/themes/chiplets-3d-and-packaging.md">reports/themes/chiplets-3d-and-packaging.md</a> in the course repository.</p>
-      </article>
-      <nav class="pager" aria-label="Previous and next"><a class="prev" href="architecture-and-accelerators.html"><span class="pg-k">← Previous</span><span class="pg-t">Architecture and accelerators</span></a><a class="map" href="../themes.html"><span class="pg-k">Back to</span><span class="pg-t">Themes</span></a><a class="next" href="design-methodology-and-tooling.html"><span class="pg-k">Next →</span><span class="pg-t">Design methodology and tooling</span></a></nav>
-    </section>
-  </main>
-  <footer class="course-foot">
-    <p>Built from 582 paper records coded from ISCA 2026, DAC 2026 and ICCAD 2025 (ICCAD 2026 papers were not yet public). Most records come from official program descriptions; see “How deep the reading went”. The papers belong to their authors.</p>
-    <p class="foot-links"><a href="https://github.com/mehtama1234/course-concept-library">All courses</a><a href="../index.html">This course</a><a href="../course-map.html">Course map</a><a href="../presentation/index.html">Slides</a><a href="../video/index.html">Video</a><a href="../share/index.html">Share</a></p>
-  </footer>
-  <script src="../assets/course-data.js"></script><script src="../assets/icons.js"></script><script src="../assets/icons-extra.js"></script><script src="../assets/icons-course.js"></script><script src="../assets/art.js"></script><script src="../assets/course-art.js"></script><script src="../assets/charts.js"></script><script src="../assets/course-charts.js"></script><script src="../assets/course-site.js"></script>
+<p><a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/reports/directions/README.md">Research directions</a> · <a href="../guide/expanded-taxonomy-v1.html">All observed subthemes</a></p><p class="mut">Written as <a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/reports/themes/chiplets-3d-and-packaging.md">reports/themes/chiplets-3d-and-packaging.md</a> in the course repository.</p>
+
+
+</div>
+</main>
+<footer class="rs-close"><p class="eb">This page, in one line</p><p class="rs-h2" style="max-width:26em">Splitting a chip into pieces trades cost for heat and wiring between dies.</p><div class="ck-next"><a href="architecture-and-accelerators.html"><span class="rs-k" style="color:var(--peach)">Previous</span><b>Architecture and accelerators</b></a><a class="r" href="design-methodology-and-tooling.html"><span class="rs-k" style="color:var(--peach)">Next</span><b>Design methodology and tooling</b></a></div><div class="rs-btns"><a class="ck-btn pri" href="../themes.html">Back to Themes</a></div><p class="rs-src">Built from 582 paper records coded from ISCA 2026, DAC 2026 and ICCAD 2025 (ICCAD 2026 papers were not yet public). Most records come from official program descriptions; see “How deep the reading went”. The papers belong to their authors.</p><p class="ck-footlinks"><a href="https://github.com/mehtama1234/semiconductor-conferences">Source on GitHub</a><a href="../index.html">The big picture</a><a href="../course-map.html">Every page</a><a href="../presentation/index.html">Slides</a><a href="../video/index.html">Video</a><a href="../share/index.html">Share</a></p></footer>
+</div>
+<script src="../kit/charts.js"></script>
+<script src="../kit/course.js"></script>
+<script src="../kit/site.js"></script>
 </body>
 </html>

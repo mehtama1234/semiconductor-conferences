@@ -7,8 +7,7 @@ and headline reproduction remain unresolved. The
 
 The inspected entry point samples configurations once, then synthesizes the
 batch. It does not implement measured-result feedback into further sampling in
-that function. This does not rule out learned reasoning or other research flows;
-it prevents describing this entry point as demonstrated adaptive closed-loop DSE.
+that function. This does not rule out learned reasoning or other research flows. It does stop us calling this entry point a demonstrated search that learns from its results.
 
 Its extracted metrics are synthesis-estimated latency and separate FPGA resource
 fractions. They do not establish physical area, board speed, or a particular

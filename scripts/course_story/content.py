@@ -6,7 +6,7 @@ Sources: the repository's own coded paper records (data/taxonomy-expanded-v1.jso
 (data/long-term-direction-atlas-v1.json) and the Markdown articles in reports/ and dac/reports/."""
 from __future__ import annotations
 
-import json, re, shutil
+import json, re, shutil, sys
 from collections import Counter
 from pathlib import Path
 
@@ -306,77 +306,56 @@ DEMO = [
 
 
 def landing(kit):
-    k = kit
-    found = "".join(f'<li><p class="lp-k">{a}</p><h3>{h}</h3><p class="lp-pain evidence-line">{e}</p><p class="lp-fix"><a href="{href}">{link} →</a></p></li>' for a, h, e, href, link in SENTENCES)
-    art = k.landing_art([("1 · THE PAPERS", f"{N_REC} papers", "ISCA, DAC, ICCAD", "sorted by problem"), ("2 · THE THEMES", f"{N_THEME} subjects", f"{N_SUB} subthemes", "each explained"),
-                         ("3 · THE LOOP", "Propose, check", "learn, try again", "with costs counted"), ("4 · THE TEST", "What to watch", "6 directions, each", "with its disproof")])
-    dirs = "".join(f'<li><div class="lm-top">{"<span class=lm-icon data-icon=" + DIR_ICON[d] + "></span>"}<p class="lm-k">Direction {i}</p></div><h3><a href="{DIR_FILE[d]}">{DIR_SHORT[d]}</a></h3><p>{DIR_BY[d]["first_principle"]}</p></li>' for i, d in enumerate(DIR_ORDER, 1))
-    k.write("index.html", f"{NAME} · what ISCA, DAC and ICCAD say about where chip design is going", f"{QUESTION} {N_REC} papers from ISCA 2026, DAC 2026 and ICCAD 2025 sorted into {N_THEME} themes and {N_SUB} subthemes, six directions to watch, slides and a short video.", f"""    <section id="home" class="screen active landing" aria-labelledby="home-title">
-      <div class="landing-hero">
-        <div class="landing-hero-text">
-          <p class="landing-kicker">ISCA 2026 · DAC 2026 · ICCAD 2025 · {N_REC} papers</p>
-          <h1 id="home-title">{QUESTION}</h1>
-          <p class="landing-lede">Three conferences publish most new research on how chips and computers are designed, checked and built. This atlas sorts {N_REC} of their papers by the problem each one tackles. It explains each problem in plain words. Then it asks what the papers together say about the next few years. <b>Here is the whole story in three sentences.</b></p>
-          <div class="landing-actions">
-            <a class="button primary" href="#found">The three sentences <span aria-hidden="true">→</span></a>
-            <a class="button secondary" href="themes.html">Start with the themes</a>
-          </div>
-          <p class="landing-try-note">Also as <a href="presentation/index.html">slides</a> and a <a href="video/index.html">four-minute video</a>, all on <a href="share/index.html">one page to share</a>.</p>
-        </div>
-        {art}
-      </div>
-
-      <section class="landing-problems no-swipe" aria-labelledby="who-title">
-        <h2 class="landing-subhead" id="who-title">Who this is for, and what you need before you start</h2>
-        <div class="who-for">
-          <div><b>Who it is for</b><p>Engineers, researchers, students and technical leaders. You want to know what chip and system design research is working on, without reading hundreds of papers.</p></div>
-          <div><b>What you need first</b><p>A rough idea of what a processor and memory are. Each term is explained where it first appears. For example, EDA is the software that turns a circuit description into a chip layout.</p></div>
-          <div><b>What you will be able to do</b><p>Name the main research directions, find the papers behind each one, and say what evidence would confirm or disprove it.</p></div>
-        </div>
-      </section>
-
-      <section class="landing-problems" id="found" aria-labelledby="found-title">
-        <h2 class="landing-subhead" id="found-title">The whole story in three sentences</h2>
-        <p class="lp-lead">Each sentence stands on its own. The line under it gives the numbers behind it.</p>
-        <ol aria-label="Three sentences" tabindex="0">{found}</ol>
-      </section>
-
-      <section class="landing-problems no-swipe" aria-labelledby="path-title">
-        <h2 class="landing-subhead" id="path-title">The atlas in five steps: papers, themes, subthemes, deep reads, what to watch</h2>
-        <p class="lp-lead">Follow it left to right the first time. After that, jump to whatever you need.</p>
-        <div class="method-figure"><div class="loop-wide" data-art="path"></div><div class="loop-tall" data-art="pathTall"></div></div>
-      </section>
-
-      <h2 class="landing-subhead" id="themes-title">Accelerators, memory and reliability are the three biggest themes</h2>
-      {k.chart('themes', 'Papers per theme', f'{T1["label"]} leads with {T1["record_count"]} papers.', f'Together the top three hold {T1["record_count"] + T2["record_count"] + T3["record_count"]} of {N_REC} papers. A count shows where this sample of papers spends its attention, not which subject matters most.', 'Each paper is placed in one theme by what it changes.')}
-
-      <h2 class="landing-subhead" id="conf-title">DAC supplies {N_DAC} of the {N_REC} papers, so the atlas leans toward design automation</h2>
-      {k.chart('confs', 'Where the papers come from', f'DAC 2026 is most of the sample.', f'ISCA 2026 adds {N_ISCA} selected architecture papers. ICCAD 2026 papers were not public yet, so {N_ICCAD} papers come from ICCAD 2025.', 'Counts are for this selected sample, not the full programs.')}
-
-      <section class="landing-problems no-swipe" aria-labelledby="dirs-title">
-        <h2 class="landing-subhead" id="dirs-title">Six directions to watch, each a hypothesis with a stated test</h2>
-        <p class="lp-lead">These come up again and again across themes and conferences. None is proven: each page names the paper that pushes back and the result that would disprove it.</p>
-        <ul class="lm-grid">{dirs}</ul>
-      </section>
-
-      <section class="landing-problems no-swipe" aria-labelledby="loop-title">
-        <h2 class="landing-subhead" id="loop-title">The common thread: design becomes a loop of measure, learn, decide and recheck</h2>
-        <figure class="course-fig"><div class="loop-wide" data-art="flow:closed-loop-design"></div><div class="loop-tall" data-art="flowTall:closed-loop-design"></div><figcaption>{FLOWS['closed-loop-design'][0]} A fast estimate is only useful if the final design is rechecked accurately.</figcaption></figure>
-      </section>
-
-      <h2 class="landing-subhead" id="depth-title">How deep the reading went: {N_FULL} of {N_REC} papers were read in full</h2>
-      {k.chart('depth', 'What each record was coded from', f'{N_DESC} records rest on the short official program description.', f'Those give the problem and the claimed method, but rarely the test conditions. {N_DEEP} papers were checked in depth against their full text or released files. See <a href="deep-reads.html">the deep reads</a>.', 'So every direction here is a hypothesis to test, not a measured trend.')}
-
-      <section class="landing-more" id="doors" aria-labelledby="doors-title">
-        {k.section_head('doors-title', 'Where do you want to go next?', 'Pick the question you have. Each page answers it in its headings.', 'trio:route,cpu,checklist')}
-        {k.grid(DOORS)}
-      </section>
-
-      <div class="landing-facts">
-        <div class="landing-fact"><h2>Built from the repository’s own paper records</h2><p>Every number on this page is read from the coded records at build time. Each paper card keeps its source link, what the source shows and what it leaves open. <a href="guide/research-atlas-index-v1.html">How the atlas was built</a>.</p></div>
-        <div class="landing-fact landing-fact-not"><h2>Not an official conference page, and not a ranking</h2><p>A paper count is not market share, adoption or importance. The sample is selected, and most records come from short descriptions.</p></div>
-      </div>
-    </section>""")
+    """The big picture, laid out natively on the board kit."""
+    from course_story import boards, visuals as V
+    R, esc = boards.R, boards.esc
+    me = sys.modules[__name__]
+    cards = [{"label": "Papers", "value": str(N_REC), "note": "ISCA, DAC and ICCAD"},
+             {"label": "Themes", "value": str(N_THEME), "note": f"{N_SUB} subthemes"},
+             {"label": "From DAC", "value": f"{N_DAC} of {N_REC}", "note": "design tools lead"},
+             {"label": "Read in full", "value": str(N_FULL), "note": f"{N_DESC} from short descriptions"}]
+    h1 = f'{esc(QUESTION)} <i>Toward a loop: propose a design, check it with tools, learn, try again.</i>'
+    lede = (f"Three conferences publish much of the new research on how chips and computers are designed, checked and built. "
+            f"This atlas sorts {N_REC} of their papers by the problem each one tackles, and explains each problem in plain words.")
+    extra = ('<div class="rs-btns" style="margin-top:22px"><a class="ck-btn pri" href="themes.html">Start with the themes</a>'
+             '<a class="ck-btn" href="#three">The story in three sentences</a></div>')
+    hero = boards.hero(me, "index.html", f"ISCA 2026 · DAC 2026 · ICCAD 2025 · {N_REC} papers", h1, lede, cards, extra, long=True)
+    parts = [R.strip_html([{"label": "Who it is for", "value": "engineers, researchers, students, technical leaders"},
+                           {"label": "You need", "value": "a rough idea of what a processor and memory are"},
+                           {"label": "Each term", "value": "is explained where it first appears"}], "The big picture")]
+    three = "".join(f'<article class="card"><p class="rs-k">{a}</p><h3>{h}</h3><p>{e}</p><p class="ck-links"><a href="{href}">{link} →</a></p></article>' for a, h, e, href, link in SENTENCES)
+    parts.append('<section class="ck-sec" id="three">' + R.section_head("The whole story", "What is the whole story in three sentences?", "Each sentence stands on its own. The line under it gives the numbers behind it.") + f'<div class="ck-grid g3">{three}</div></section>')
+    parts.append('<section class="ck-sec">' + R.section_head("The common thread", "Design is becoming a loop: measure, learn, decide, recheck",
+                 "Many papers feed a check, a measurement or a physical limit back into the next design choice. The fair question is what each turn of the loop costs.")
+                 + V.scene_panel(V.d_wheel("home-wheel"), "Four steps and a meter", "our drawing", "A fast predictor is only useful if the final design still passes the slow, accurate check. A fair claim counts every simulation, the recheck included.")["html"] + "</section>")
+    parts.append('<section class="ck-sec">' + R.section_head("Why data movement matters", "More arithmetic units help only when the data arrives in time",
+                 "An accelerator is a chip built to do one kind of work fast. Its compute units sit idle when memory cannot feed them.")
+                 + V.scene_panel(V.s_accel("home-accel"), "An accelerator, from memory to result", "our drawing", "Numbers travel from big, far memory (DRAM) through small, near buffers (SRAM) into a grid of units. Pale units are waiting.")["html"]
+                 + R.panel_html({"panel": "Try it: when memory, not arithmetic, sets the speed", "chip": "illustration", "chart": V.roofline_chart(),
+                                 "caption": "Worked out from one formula: speed = the smaller of peak and bandwidth × operations per byte. Peak 100 and bandwidth 10 are made-up units, not a real chip."}) + "</section>")
+    th = [(t["label"], t["record_count"]) for t in THEMES]
+    parts.append('<section class="ck-sec">' + R.section_head("Where the papers go", f"Accelerators, memory and reliability draw the most papers",
+                 f"Together the top three themes hold {T1['record_count'] + T2['record_count'] + T3['record_count']} of {N_REC} papers. A count shows where this sample's papers went. It is not market share or importance.")
+                 + '<div class="ck-pagefig">' + R.panel_html({"panel": f"Papers in each of the {N_THEME} themes", "chip": "counted",
+                    "chart": V.bars("Papers per theme", f"{T1['label']} leads with {T1['record_count']}.", th, em=th[0][0]),
+                    "caption": f"Counted from data/taxonomy-expanded-v1.json. Each of the {N_REC} records sits in one theme."})
+                 + R.panel_html({"panel": "Papers from each conference", "chip": "counted",
+                    "chart": V.bars("Papers per conference", f"DAC 2026 gives {N_DAC} of {N_REC}.", [("DAC 2026", N_DAC), ("ICCAD 2025", N_ICCAD), ("ISCA 2026", N_ISCA)], em="DAC 2026"),
+                    "caption": f"ICCAD 2026 papers were not public yet, so its {N_ICCAD} papers come from 2025. ISCA adds {N_ISCA} selected architecture papers."}) + "</div></section>")
+    dirs = "".join(f'<a class="ck-row" href="{DIR_FILE[d]}"><span class="rs-n">{i}</span><b>{DIR_SHORT[d]}</b><span>{DIR_BY[d]["first_principle"]}</span></a>' for i, d in enumerate(DIR_ORDER, 1))
+    parts.append('<section class="ck-sec">' + R.section_head("What to watch", "Six directions, each a hypothesis with a stated test",
+                 "None is proven. Each page names the paper that pushes back and the result that would disprove it.") + f'<div class="ck-rows">{dirs}</div></section>')
+    parts.append('<section class="ck-sec">' + R.section_head("How sure we are", f"Only {N_FULL} of {N_REC} papers were read from a full paper or preprint",
+                 "A program description gives the problem and the claimed method, but rarely the test conditions. So every direction here is a question to test.")
+                 + V.scene_panel(V.depth_ladder("home-depth", N_DESC, N_ABS, N_FULL, N_DEEP), "How deep the reading went", "counted", f"Counted from the source of each record: {N_DESC} program descriptions, {N_ABS} abstracts or reports, {N_FULL} full papers or preprints. {N_DEEP} papers have a deep-read page.")["html"] + "</section>")
+    rows = "".join(f'<a class="ck-row" href="{h}"><span class="rs-n">{i + 1}</span><b>{q}</b><span>{re.sub("<[^>]+>", "", d).replace(" →", "")}</span></a>' for i, (_, k2, q, d) in enumerate(DOORS) for h in [re.search(r'href="([^"]+)"', d).group(1)])
+    parts.append('<section class="ck-sec">' + R.section_head("Where next", "Which question do you have?") + f'<div class="ck-rows">{rows}</div></section>')
+    parts.append('<section class="ck-sec"><div class="ck-grid g2"><article class="card"><h3>Built from the repository’s own paper records</h3><p>Every number here is counted from the coded records when the site is built. Each paper card keeps its source link, what the source shows and what it leaves open.</p></article>'
+                 '<article class="card warn"><h3>Not an official conference page, and not a ranking</h3><p>A paper count is not market share, adoption or importance. The sample is selected, and most records come from short descriptions.</p></article></div></section>')
+    close = boards.close_band(me, "index.html", "The big picture, in one line", "Chip design is turning into a loop of propose, check, learn and try again; most of the evidence is still short descriptions.", None, ("themes.html", "The ten themes"), [("themes.html", "Start with the themes"), ("presentation/index.html", "Slides"), ("video/index.html", "Video")])
+    page = boards.shell(me, "index.html", f"{NAME} · what ISCA, DAC and ICCAD say about where chip design is going",
+                        f"{QUESTION} {N_REC} papers from ISCA 2026, DAC 2026 and ICCAD 2025 sorted into {N_THEME} themes and {N_SUB} subthemes, with six directions to watch.", hero, "\n".join(parts), close)
+    (kit.site / "index.html").write_text(page, encoding="utf-8")
 
 
 # ---------------------------------------------------------------- the restyled pages
@@ -458,11 +437,9 @@ def page_hook(kit, rel, soup, main, info):
     if m and m.group(1) in THEME_BY:
         t = THEME_BY[m.group(1)]
         info["eyebrow"] = f"Theme · {t['record_count']} papers · {t['subtheme_count']} subthemes"
-        info["h1"] = f"{t['label']}: {THEME_POINT[t['theme_id']]}"
-        info["sub"] = "The article explains the technical problem step by step first, then links to every subtheme and its papers. Worked numbers are illustrations, not paper results."
-        info["art"] = "trio:" + ",".join(s[0] for s in FLOWS[t["theme_id"]][1][:3])
-        info["top"] = kit.figure(f"flow:{t['theme_id']}", f"flowTall:{t['theme_id']}", FLOWS[t["theme_id"]][0])
-        info["top"] += kit.chart(f"theme-{t['theme_id']}", "In numbers", f"{t['subtheme_count']} subthemes, largest first", f"{t['record_count']} papers: " + ", ".join(f"{k.upper()} {v}" for k, v in sorted(t['conference_counts'].items(), key=lambda kv: -kv[1])) + ".", "A count shows attention in this sample, not importance.")
+        pt = THEME_POINT[t['theme_id']]
+        info["h1"] = f"What do the {t['record_count']} papers on {t['label'][0].lower() + t['label'][1:] if t['label'][:2] != 'AI' else t['label']} work on?"
+        info["sub"] = f"{pt[0].upper() + pt[1:]}. The article explains the problem step by step first. Then it links every subtheme and its papers. Worked numbers are illustrations, not paper results."
     m = re.match(r"subthemes/([a-z0-9-]+)\.html$", rel)
     if m and m.group(1) in SUB:
         s, t = SUB[m.group(1)], SUB_THEME[m.group(1)]
@@ -471,37 +448,41 @@ def page_hook(kit, rel, soup, main, info):
         for k2, v in s["source_tier_counts"].items():
             dd[depth(k2)] += v
         info["eyebrow"] = f"Subtheme · {s['record_count']} papers · {t['label']}"
-        info["h1"] = f"{info['h1']}: what the {s['record_count']} papers change, and what is still unproven"
-        info["sub"] = f"Papers: {c}. Read from: {dd['desc']} program descriptions, {dd['abs']} abstracts or reports, {dd['full']} full papers or preprints. The explanations come first; every paper’s record follows at the end."
-        info["art"] = "trio:" + ",".join(x[0] for x in FLOWS[t["theme_id"]][1][:3])
-        info["top"] = kit.figure(f"flow:{t['theme_id']}", f"flowTall:{t['theme_id']}", f"The parent theme in one picture: {FLOWS[t['theme_id']][0][0].lower() + FLOWS[t['theme_id']][0][1:]}")
+        from course_story import visuals as V
+        at, a, b = V.SUBNOTE[m.group(1)]
+        info["h1"] = f"What do the {s['record_count']} papers on {s['label'][0].lower() + s['label'][1:]} change?"
+        pl = lambda n, one, many: f"{n} {one if n == 1 else many}"
+        src = ", ".join(x for x in (pl(dd['desc'], "program description", "program descriptions") if dd['desc'] else "", pl(dd['abs'], "abstract or report", "abstracts or reports") if dd['abs'] else "",
+                                    pl(dd['full'], "full paper or preprint", "full papers or preprints") if dd['full'] else "") if x)
+        info["sub"] = f"{a} {b} Papers: {c}. Read from: {src}. The explanations come first; every paper’s record follows at the end."
     if rel.startswith("deep-reads/"):
         info["eyebrow"] = "Deep read · a paper checked against its full source"
-        info["h1"] = clean_deep(info["h1"])
-        info["top"] = kit.figure("flow:deep-read", "flowTall:deep-read", "Most papers in the atlas reached only the first step. This one went further.")
+        from course_story import visuals as V
+        key = rel.split("/")[-1].split("-primary")[0]
+        name = re.split(r"[ :]", re.sub(r"\s*[—-]\s*2026-\d\d-\d\d$", "", info["h1"]), maxsplit=1)[0]
+        info["h1"] = f"What did a closer read of {name} show?"
+        if key in V.DEEP:
+            a, b = V.DEEP[key][2]
+            info["sub"] = f"{b} The paper: {a[0].lower() + a[1:]}"
     m = re.match(r"directions/0\d-([a-z-]+)\.html$", rel)
     if m and m.group(1) in DIR_BY:
         d = m.group(1)
         i = DIR_ORDER.index(d) + 1
         info["eyebrow"] = f"Direction {i} of 6 · a hypothesis, not a measured trend"
         info["sub"] = DIR_BY[d]["first_principle"]
-        info["art"] = "trio:" + ",".join(x[0] for x in FLOWS[d][1][:3])
-        info["top"] = kit.figure(f"flow:{d}", f"flowTall:{d}", FLOWS[d][0]) + kit.bridge("The next test:", DIR_BY[d]["next_evidence_action"], f"../comparisons/{d}.html", "Across the conferences")
     m = re.match(r"comparisons/([a-z-]+)\.html$", rel)
     if m and m.group(1) in DIR_BY:
         d = m.group(1)
         info["eyebrow"] = "Across the three conferences"
-        info["h1"] = f"{DIR_SHORT[d]}: how ISCA, DAC and ICCAD each meet it"
-        info["top"] = kit.figure(f"flow:{d}", f"flowTall:{d}", FLOWS[d][0])
+        info["h1"] = f"How do ISCA, DAC and ICCAD each meet “{DIR_SHORT[d].lower()}”?"
+        info["sub"] = "Each conference meets it at a different layer of the stack. A shared pressure is not a shared result, so each page names the fair comparison still needed."
     if rel.startswith("guide/"):
         info["eyebrow"] = "How to read the atlas"
-        if not info["top"]:
-            info["top"] = kit.figure("flow:deep-read", "flowTall:deep-read", "Every record says how deep its source goes. Most reached only the first step.")
     relabel(soup, main)
 
 
 # ---------------------------------------------------------------- slides and the narration
-def slides(kit):
+def _old_slides(kit):
     k = kit
     out = []
 
@@ -551,6 +532,53 @@ def slides(kit):
     slide("start", "Where to start: themes, subthemes, deep reads and the six directions.", f"""{head('Your turn', 'Start with a theme, then follow its papers.', 'Every page explains the problem before the papers, and says how deep its sources go.')}
 <div class="method-figure"><div class="loop-wide" data-art="path"></div></div>""",
           f"To explore it yourself, start with a theme. Each one explains the technical problem in plain words, then links to its subthemes and every paper in them. Check the deep reads for papers read in full. Then open the six directions. Everything is linked from the big picture page.")
+    return out
+
+
+def slides(kit):
+    """The deck in the boards' slide frame (kit/components.slide). Narration (notes) is unchanged from the house deck."""
+    sys.path.insert(0, str(ROOT / "kit"))
+    import components as K
+    import render_lecture
+    from course_story import visuals as V
+    R_glyph = render_lecture.glyph
+    old = {s["key"]: s for s in _old_slides(kit)}
+    keys = ["cover", "three", "path", "confs", "themes", "loop", "data", "physical", "measure", "depth", "watch", "start"]
+    n, src = len(keys), "Counted from the repository’s paper records"
+    fit = lambda svg, h=560: svg.replace('class="ck-art"', f'class="ck-art" style="width:100%;height:{h}px;display:block"', 1)
+    B = NAME
+    body = {
+        "cover": K.slide("title", B, 1, n, f"ISCA 2026 · DAC 2026 · ICCAD 2025 · {N_REC} papers", (QUESTION, ""),
+                         lead="Toward a loop: propose a design, check it with tools, learn, try again.", src="An independent reading of public programs and papers",
+                         cards=[{"label": "Papers", "value": str(N_REC), "note": "ISCA, DAC and ICCAD"}, {"label": "Themes", "value": str(N_THEME), "note": f"{N_SUB} subthemes"},
+                                {"label": "From DAC", "value": f"{N_DAC} of {N_REC}", "note": "design tools lead"}, {"label": "Read in full", "value": str(N_FULL), "note": f"{N_DESC} from short descriptions"}]),
+        "three": K.slide("number", B, 2, n, "The whole story", ("In three sentences.", "Each stands alone."), value=str(N_REC), label="papers behind three sentences",
+                         text="Design becomes a loop; accelerators, memory and reliability lead; most evidence is still short descriptions.",
+                         cards=[{"label": a, "value": v, "note": h} for (a, h, e, _, _), v in zip(SENTENCES, ["A loop", "Three lead", "Hypotheses"])], src=src),
+        "path": K.slide("diagram", B, 3, n, "How the atlas is built", ("From papers to directions,", "and how deep each was read."), svg=fit(V.depth_ladder("sl-depth0", N_DESC, N_ABS, N_FULL, N_DEEP), 600), src=src),
+        "confs": K.slide("number", B, 4, n, "Where the papers come from", (f"DAC is {N_DAC} of {N_REC} papers.", "The atlas leans toward design tools."), value=str(N_DAC), label="papers from DAC 2026",
+                         text=f"ISCA 2026 adds {N_ISCA} selected architecture papers. ICCAD 2026 papers were not public yet, so {N_ICCAD} come from ICCAD 2025.",
+                         cards=[{"label": "DAC 2026", "value": str(N_DAC), "note": "design automation", "key": True}, {"label": "ICCAD 2025", "value": str(N_ICCAD), "note": "design algorithms"}, {"label": "ISCA 2026", "value": str(N_ISCA), "note": "computer architecture"}], src=src),
+        "themes": K.slide("diagram", B, 5, n, "Where the attention goes", ("Accelerators, memory and reliability", "lead."), svg=fit(V.s_accel("sl-accel"), 330),
+                          cards=[{"svg": R_glyph(g).replace("<svg", "<svg style=\"height:110px;width:auto\"", 1), "label": f"{t['record_count']} papers", "title": t["label"], "note": THEME_POINT[t["theme_id"]][:1].upper() + THEME_POINT[t["theme_id"]][1:] + "."} for t, g in zip(TOP3, ["more/chip-bold", "more/memory-module", "more/shield-tick"])], src=src),
+        "loop": K.slide("diagram", B, 6, n, "The common thread", ("Design becomes a loop.", "Checks steer the next try."), svg=fit(V.d_sieve("sl-sieve"), 700), src="Our drawing; the quoted messages are made-up examples"),
+        "data": K.slide("diagram", B, 7, n, "Data movement", ("Moving data is often", "the real cost."), svg=fit(V.d_move("sl-move"), 640), src="Our drawing"),
+        "physical": K.slide("compare", B, 8, n, "Physics and protection", ("Heat, wires, faults and attacks", "move earlier."),
+                            left={"label": "Physical reality", "value": "Heat, wires, power", "points": ["A fast estimate guides early choices.", "An accurate check confirms the final design."], "note": "The fast model must agree with the slow one where it matters."},
+                            right={"label": "Faults and attacks", "value": "Named first", "points": ["The threat or fault is stated in the requirement.", "Its cost is shown with protection on."], "note": "Useful correct work, not raw speed."},
+                            band=("The test", "Does the early estimate still hold after the full, accurate check?"), src="Our reading of directions 4 and 5"),
+        "measure": K.slide("diagram", B, 9, n, "Measurement", ("Better ways", "to measure results."), svg=fit(V.d_bench("sl-bench"), 620), src="Our drawing; task names are made-up examples"),
+        "depth": K.slide("number", B, 10, n, "How sure we are", (f"{N_DESC} of {N_REC} records", "come from short descriptions."), value=str(N_FULL), label="papers read from a full paper or preprint",
+                         text=f"A program description gives the problem and the claim, rarely the test conditions. {N_DEEP} papers were checked in depth. None was repeated independently.",
+                         cards=[{"label": "Descriptions", "value": str(N_DESC), "note": "short program text", "key": True}, {"label": "Abstracts, reports", "value": str(N_ABS), "note": "the claim"}, {"label": "Full papers", "value": str(N_FULL), "note": "methods and limits"}, {"label": "Deep reads", "value": str(N_DEEP), "note": "a page each"}], src=src),
+        "watch": K.slide("diagram", B, 11, n, "What to watch", ("Six directions,", "each with its disproof."),
+                         svg=fit(V.hbar_svg("sl-dirs", "Evidence papers per direction", [(DIR_SHORT[d], len(DIR_BY[d]["evidence"])) for d in DIR_ORDER]), 560), src="Evidence papers per direction, counted from data/long-term-direction-atlas-v1.json"),
+        "start": K.slide("quote", B, 12, n, "Your turn", ("Start with a theme,", "then follow its papers."), text=("Every page explains the problem before the papers,", "and says how deep its sources go."), who=SITE_URL),
+    }
+    out = []
+    for kk in keys:
+        o = old[kk]
+        out.append({"key": kk, "alt": o["alt"], "notes": o["notes"], "body": body[kk], "cls": ""})
     return out
 
 

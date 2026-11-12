@@ -25,9 +25,7 @@ implementation is defective.
 
 At commit `308f5cc41c1d7243c39fd2ddd02253c1343eb889`, the driver updates
 best state before applying acceptance, then copies best state on rejection.
-Its initial best reward is -1. A first candidate with equivalence-failure reward
--0.45 therefore becomes best, fails the default -0.1 acceptance threshold, and
-is nevertheless copied back as the fallback state. The delay alternative cannot
+Its initial best reward is -1. So a first candidate with equivalence-failure reward -0.45 becomes the best so far. It fails the default -0.1 acceptance threshold. Even so, it is copied back as the fallback state. The delay alternative cannot
 accept that reward either. Exact source locators are in the assessment.
 
 This source-level path qualifies the claim that failed modifications are always

@@ -90,7 +90,7 @@ They may also sit on different dependency paths. Counting crossings can guide de
 
 That excludes request setup, contention, protocol overhead outside the stated useful bandwidth, and any wait before the transfer starts. A peak physical signaling rate is not automatically the sustained useful byte rate.
 
-[ChiPlanner's discussion](../observed-subthemes/chiplet-system-architecture.md#chiplanner-partition-with-an-estimate-of-the-physical-consequences) ties partitioning to rough placement and timing. Its description-level evidence leaves absolute timing and cost-model conditions open. The real question: do early estimates pick partitions that stay good after physical implementation, not just score better inside the partitioner?
+[ChiPlanner's discussion](../observed-subthemes/chiplet-system-architecture.md#chiplanner-partition-with-an-estimate-of-the-physical-consequences) ties partitioning to rough placement and timing. Its description-level evidence leaves absolute timing and cost-model conditions open. The real question: do early estimates pick splits that stay good once the chip is laid out? Scoring well inside the splitting tool is not enough.
 
 This links to the [physical-design theme](physical-design-and-manufacturing.md). Legal geometry, extracted effects, clock behavior and power delivery must all survive the partition. A good early partition stays a candidate until those checks are applied to the assembled result.
 
@@ -136,7 +136,7 @@ This does not describe a full stacked package. Real temperature fields depend on
 - **Steady-state** analysis describes settled conditions.
 - A changing workload also needs a **transient** model of how temperatures evolve.
 
-A predictor accurate for one cooling setup or power map is not validated for a different stack or a sudden power change.
+A predictor tested on one cooling setup or power map is not tested on another. A different stack or a sudden power change needs its own check.
 
 The [thermal chapter](../observed-subthemes/3d-stacking-and-thermal-management.md) separates prediction, reconstruction from observations, and control. LegoTherm's reduced models, learned predictors and analytical solvers there have different recorded scopes and error definitions.
 
@@ -206,7 +206,7 @@ Three readings are worth testing; each names what would weaken it.
 
 These are bounded interpretations, not established ISCA–DAC–ICCAD time trends or evidence of commercial adoption. Matched editions, workloads, technology assumptions, cooling, cost models and source depth are still needed.
 
-**Be careful:** this parent discussion does not complete individual-paper source recovery, deeper writing, manufactured validation, or independent scientific and comprehension review.
+**Be careful:** this overview is not the end of the work. Full sources, deeper write-ups, checks on made chips and independent review are still open.
 
 ## Subthemes and how to study them
 

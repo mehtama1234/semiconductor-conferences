@@ -61,7 +61,5 @@ The full machine-readable gates, required fields, and current boundary are in
 ## Current verdict
 
 The current repository supports capability-level and mechanism-level synthesis.
-It does not yet support directional prevalence or comparative-impact claims:
-source depth is asymmetric, DAC 2025 has substantial missingness, selected
-populations are not equivalent, and independent verdicts remain zero. This is a
+It cannot yet support claims about how common a direction is, or which matters more. Sources differ in depth, many DAC 2025 records are missing, the samples differ, and there are no independent verdicts yet. This is a
 result of the protocol, not an invitation to fill gaps with assumptions.

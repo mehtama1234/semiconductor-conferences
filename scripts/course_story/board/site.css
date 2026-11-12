@@ -1,0 +1,130 @@
+/* Course site on the board kit: the pieces this course adds to kit/course.css. Tokens only; no colours of its own.
+   1. mathematics  2. section links in the top bar  3. page bodies from the generator  4. step-through drawings
+   5. the ideas jump bar  6. small parts */
+
+/* ---------- 1. mathematics: Latin Modern Math (subset) supplies the symbols the text faces lack ---------- */
+@font-face{font-family:'CK Math';font-display:swap;src:url(fonts/latinmodern-math-subset.woff2) format('woff2');unicode-range:U+0370-03FF,U+2032-2033,U+2070-209F,U+2102-2135,U+2190-21FF,U+2200-22FF,U+27E8-27E9,U+2A00-2A02}
+:root{--font-body:'Source Serif 4','CK Math',Georgia,serif;--font-display:Fraunces,'CK Math',Georgia,serif;--font-label:'IBM Plex Sans Condensed','CK Math',sans-serif}
+.root{font-family:var(--font-body)}
+.rs-h1,.rs-h2,.card h3,.ck-card b{font-family:var(--font-display)}
+.eb,.lab,.rs-k,.t,th,.rs-mh{font-family:var(--font-label)}
+
+.ck-sym{overflow-x:auto;margin-top:8px;background:var(--espresso);color:var(--on-espresso);border-radius:var(--radius-research);padding:12px 16px;font:400 19px/1.7 var(--font-body);font-variant-numeric:lining-nums;overflow-wrap:anywhere}
+.ck-sym .lab{display:block;color:var(--peach);margin-bottom:2px}
+.ck-sym var,.ck-math var{font-style:italic;font-family:var(--font-body)}
+.ck-sym sup,.ck-sym sub,.ck-math sup,.ck-math sub{font-size:.72em;line-height:0}
+.ck-frac{display:inline-flex;flex-direction:column;vertical-align:middle;text-align:center;font-size:.82em;line-height:1.15;margin:0 .12em}
+.ck-frac>span:first-child{border-bottom:1.3px solid currentColor;padding:0 .25em}
+.ck-frac>span:last-child{padding:0 .25em}
+:root[data-theme="dark"] .ck-sym{border:1px solid var(--espresso-rule)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .ck-sym{border:1px solid var(--espresso-rule)}}
+.ck-defs{margin:0;display:flex;flex-direction:column;gap:0;border-top:1px solid var(--line)}
+.ck-defs>div{padding:12px 0;border-bottom:1px solid var(--line)}
+.ck-defs dt{font:600 13px/1.3 var(--font-label);letter-spacing:.14em;text-transform:uppercase;color:var(--rust);margin-bottom:4px}
+.ck-defs dd{margin:0;font-size:17px;line-height:1.5}
+.ck-uses{display:block;margin-top:3px;font:500 14px/1.4 var(--font-label);color:var(--muted)}
+.ck-bg>b:first-child{color:var(--muted)}
+
+/* ---------- 2. top bar ---------- */
+.ck-nav{display:flex;flex-wrap:wrap;gap:4px 18px;align-items:center}
+.ck-nav a{color:var(--on-espresso-muted);text-decoration:none;padding:6px 0;border-bottom:2px solid transparent}
+.ck-nav a:hover{color:var(--peach)}
+.ck-nav a[aria-current]{color:var(--on-espresso);border-bottom-color:var(--peach)}
+@media (max-width:1100px){.rs-top{flex-direction:column;align-items:flex-start}.rs-top .rs-r{width:100%;justify-content:space-between;flex-wrap:nowrap;align-items:flex-start}
+  .ck-nav{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;gap:16px;min-width:0;mask-image:linear-gradient(90deg,#000 88%,transparent)}.ck-nav::-webkit-scrollbar{display:none}.ck-nav a{white-space:nowrap;min-height:36px;display:inline-flex;align-items:center}
+  .ck-theme{flex:none}}
+.ck-main{display:contents}
+.ck-main:focus{outline:none}
+.rs-selbar a{color:var(--link)}
+.ck-footlinks{margin:14px 0 0;display:flex;flex-wrap:wrap;gap:6px 20px;font:600 14px/1.4 var(--font-label);letter-spacing:.04em}
+.ck-footlinks a,.rs-close .rs-src a{color:var(--on-espresso)}
+.ck-footlinks a:hover{color:var(--peach)}
+.rs-close .rs-btns{margin-top:22px}
+.ck-next a b{overflow-wrap:anywhere}
+
+/* ---------- 3. page bodies from the generator ---------- */
+.ck-doc{display:flex;flex-direction:column;gap:18px;min-width:0}
+.ck-doc>p,.ck-doc>ul,.ck-doc>ol:not(.ck-steps),.ck-doc>div>p{margin:0;font-size:18px;line-height:1.55;max-width:var(--measure)}
+.ck-doc>ul,.ck-doc>ol:not(.ck-steps){padding-left:22px}
+.ck-doc li{margin:4px 0}
+.ck-doc h3{margin:6px 0 0;font:500 22px/1.25 var(--font-display)}
+.ck-doc .card h3{margin:0;font-size:20px}
+.ck-doc .rs-sh{margin-top:22px;padding-top:22px;border-top:2px solid var(--ink)}
+.ck-doc .rs-in{margin:0;font-size:18px;line-height:1.5;color:var(--muted);max-width:900px}
+.ck-doc .card p{margin:0;font-size:16.5px;line-height:1.5}
+.ck-doc .card ul{margin:0;padding-left:20px;font-size:16.5px;line-height:1.5}
+.ck-doc .card .rs-ans{margin-top:auto}
+.ck-doc .ck-steps,.ck-doc .ck-ledger,.ck-doc .ck-careful,.ck-doc .ck-reveal,.ck-doc .ck-kv,.ck-doc .ck-fold{max-width:var(--measure-wide,900px)}
+.ck-grid{display:grid;gap:16px}
+.ck-grid.g3{grid-template-columns:repeat(3,minmax(0,1fr))}
+.ck-grid.g2{grid-template-columns:repeat(2,minmax(0,1fr))}
+@media (max-width:900px){.ck-grid.g3{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:600px){.ck-grid.g3,.ck-grid.g2{grid-template-columns:minmax(0,1fr)}}
+.ck-lesson>li h3{margin:3px 0 4px;font:500 21px/1.25 var(--font-display)}
+.ck-lesson>li p{margin:0;font-size:17px;line-height:1.5}
+.ck-kv{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;border-top:1px solid var(--line)}
+.ck-kv>li{margin:0;padding:10px 0;border-bottom:1px solid var(--line);font-size:16.5px;line-height:1.5;display:grid;grid-template-columns:minmax(0,190px) minmax(0,1fr);gap:4px 18px}
+.ck-kv>li>b:first-child{font:600 13px/1.5 var(--font-label);letter-spacing:.12em;text-transform:uppercase;color:var(--rust)}
+.ck-kv>li:not(:has(>b:first-child)){display:block}
+.card .ck-kv>li{grid-template-columns:minmax(0,1fr)}
+@media (max-width:700px){.ck-kv>li{grid-template-columns:minmax(0,1fr)}}
+.ck-fold{background:var(--paper);border:1px solid var(--line);border-left:4px solid var(--mark-1)}
+.ck-fold>summary{cursor:pointer;padding:14px 16px;min-height:44px;font:500 19px/1.3 var(--font-display)}
+.ck-fold>:not(summary){margin-left:16px;margin-right:16px}
+.ck-fig{margin:0;background:var(--paper);border:1px solid var(--line);padding:16px;display:flex;flex-direction:column;gap:10px;max-width:640px}
+.ck-fig svg{display:block;width:100%;height:auto}
+.ck-fig figcaption{font-size:15px;line-height:1.45;color:var(--muted)}
+.ck-links{display:flex;flex-wrap:wrap;gap:8px 20px;font:600 15px/1.4 var(--font-label)}
+.ck-doc video{width:100%;height:auto;border:1px solid var(--line);background:var(--espresso)}
+.ck-doc img{max-width:100%;height:auto}
+.ck-doc canvas{max-width:100%}
+.ck-pagefig{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:20px;align-items:start}
+.ck-scene .rs-media{max-width:none}
+.ck-where .ck-row b a{color:inherit;text-decoration:none}
+.ck-where .ck-row b a:hover{color:var(--rust)}
+
+/* ---------- 4. drawings: scenes and step-through ---------- */
+.sc text{font:500 15.5px var(--font-label);fill:var(--muted)}
+.sc .tn{font:400 19px var(--font-display);fill:var(--ink)}
+.sc .tu{font-size:13.5px}
+.sc .big{font:400 30px var(--font-display);fill:var(--ink)}
+.sc .f-taupe{fill:var(--art-taupe)}
+.ck-tile>svg.sc{width:min(100%,var(--w,520px))}
+.ck-legacy-art{display:block;width:100%;height:auto;font-family:var(--font-label)}
+.ck-stepper{display:flex;flex-direction:column;gap:10px;min-width:0}
+.ck-frame{display:flex;flex-direction:column;gap:8px}
+.ck-frame svg{display:block;width:100%;max-width:560px;height:auto;margin:0 auto}
+.ck-stepper.js .ck-frame[hidden]{display:none}
+.ck-stepper .ck-note{min-height:3em}
+.ck-stepctl{display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:10px;align-items:center;padding:8px 10px;background:var(--sand)}
+.ck-stepctl output{font:600 14px/1.3 var(--font-label);letter-spacing:.08em;text-transform:uppercase;text-align:center;color:var(--ink)}
+.ck-sbtn{min-height:44px;padding:0 16px;border:1.5px solid var(--line-strong);border-radius:6px;background:var(--paper);color:var(--ink);font:600 15px/1 var(--font-label);cursor:pointer}
+.ck-sbtn.pri{background:var(--rust);border-color:var(--rust);color:var(--on-rust)}
+.ck-sbtn:disabled{opacity:.45;cursor:default}
+.ck-stepper:not(.js) .ck-stepctl,.ck-stepper:not(.js) .ck-lens{display:none}
+
+/* ---------- 5. small parts ---------- */
+.ck-jump{margin:0 calc(-1*var(--rs-px))}
+@media (max-width:600px){.rs-media .rs-mb{padding:12px 10px}.rs-media .rs-mb>.ck-tile{margin:-12px -10px 0}}
+.video-list{display:flex;flex-direction:column;border-top:1px solid var(--line)}
+.video-list a{padding:10px 0;border-bottom:1px solid var(--line);font-size:16.5px;line-height:1.4;text-decoration:none}
+.video-list a:hover{color:var(--rust)}
+.ck-doc>ol:not(.ck-steps)>li>h3{margin:0}
+.qr-row{list-style:none;padding:0!important;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;max-width:none!important}
+.qr-row li{display:flex;flex-direction:column;gap:6px;font:500 14px/1.4 var(--font-label)}
+@media (max-width:700px){.qr-row{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.deck-list{list-style:none;padding:0!important;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;max-width:none!important}
+.deck-list li{background:var(--paper);border-top:4px solid var(--rust);padding:12px;display:flex;flex-direction:column;gap:8px}
+.deck-list img{border:1px solid var(--line)}
+@media (max-width:800px){.deck-list{grid-template-columns:minmax(0,1fr)}}
+
+/* recsys: a single drawing or a scene spans the content column */
+.ck-pagefig.ck-wide{grid-template-columns:minmax(0,1fr)}
+.ck-pagefig{margin:8px 0 28px}
+.ck-pagefig{max-width:none!important;width:100%}
+.ck-scene-pan>svg.ck-art{min-width:var(--min,760px)!important;width:100%;height:auto;display:block}
+.ck-doc>*{min-width:0;max-width:100%}
+.table-scroll{max-width:100%;overflow-x:auto}
+
+/* semiconductor atlas: the plain meaning given after a field term's first use on a page */
+.ck-gloss{color:var(--muted);font-style:italic}

@@ -12,7 +12,7 @@
 The course's own generator calls build_pages() at the end of its build, so a normal rebuild keeps the style."""
 from __future__ import annotations
 
-import os, re, sys
+import json, os, re, sys
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
@@ -38,6 +38,10 @@ def build_pages() -> Kit:
         if len(files) == len(slides):
             kit.presentation_index(list(zip(files, slides)))
     kit.manifest()
+    from course_story import boards
+    if boards.GLOSSED:
+        (kit.root / "analysis/clarity").mkdir(parents=True, exist_ok=True)
+        (kit.root / "analysis/clarity/glossed-terms.json").write_text(json.dumps(dict(sorted(boards.GLOSSED.items())), indent=1), encoding="utf-8")
     print(f"course story pages built · {md} Markdown notes rendered · {n} existing pages restyled")
     return kit
 

@@ -128,7 +128,7 @@ Finding more papers with matching titles is not enough to test them. Within each
 3. report spreads and regressions, not only good averages;
 4. across editions, use the same collection rules, and tell missing manuscripts apart from measured negative results.
 
-**Be careful:** the current sample cannot show that ISCA, DAC or ICCAD leads a trend, or that a mechanism is growing. Conference identity is not an experimental control. A useful cross-conference link asks whether separately tested parts can meet one compatible set of requirements. A compiler result, an accelerator result and a physical implementation result stay separate evidence until their interfaces, formats, capacities and measurement conditions line up.
+**Be careful:** the current sample cannot show that ISCA, DAC or ICCAD leads a trend, or that a mechanism is growing. Conference identity is not an experimental control. A useful cross-conference link asks whether separately tested parts can meet one compatible set of requirements. A compiler result, an accelerator result and a layout result are separate evidence. They join up only when their interfaces, formats, sizes and test conditions match.
 
 ## What an end-to-end comparison must retain
 

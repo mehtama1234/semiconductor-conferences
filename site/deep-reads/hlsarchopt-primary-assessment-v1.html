@@ -1,50 +1,43 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="theme-color" content="#F3ECE1" />
-  <title>HLSArchOpt partial-artifact assessment — 2026-09-06 · Semiconductor conference atlas</title>
-  <meta name="description" content="The author faculty page links this exact paper to HLSArchOpt at the inspected commit . The release supplies a Fire-module example, not a demonstrated full optimization workflow. README lists Vivado/HL" />
-  <meta property="og:type" content="website" />
-  <meta property="og:site_name" content="Semiconductor conference atlas" />
-  <meta property="og:title" content="HLSArchOpt partial-artifact assessment — 2026-09-06 · Semiconductor conference atlas" />
-  <meta property="og:description" content="The author faculty page links this exact paper to HLSArchOpt at the inspected commit . The release supplies a Fire-module example, not a demonstrated full optimization workflow. README lists Vivado/HL" />
-  <meta property="og:url" content="https://mehtama1234.github.io/semiconductor-conferences/deep-reads/hlsarchopt-primary-assessment-v1.html" />
-  <meta property="og:image" content="https://mehtama1234.github.io/semiconductor-conferences/presentation/slides/01-cover.jpg" />
-  <meta property="og:image:width" content="1920" />
-  <meta property="og:image:height" content="1080" />
-  <meta property="og:image:alt" content="Semiconductor conference atlas: 582 papers from ISCA, DAC and ICCAD, sorted into 10 themes and six directions to watch." />
-  <meta name="twitter:card" content="summary_large_image" />
-  <link rel="canonical" href="https://mehtama1234.github.io/semiconductor-conferences/deep-reads/hlsarchopt-primary-assessment-v1.html" />
-  <link rel="icon" href="../assets/icon.svg" type="image/svg+xml" />
-  <link rel="stylesheet" href="../assets/base.css" />
-  <link rel="stylesheet" href="../assets/experience.css" />
-  <link rel="stylesheet" href="../assets/theme-atlas.css" />
-  <link rel="stylesheet" href="../assets/styles.css" />
-  <link rel="stylesheet" href="../assets/charts.css" />
-  <link rel="stylesheet" href="../assets/course.css" />
-  
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#3a2e26">
+<title>HLSArchOpt partial-artifact assessment — 2026-09-06 · Semiconductor conference atlas</title>
+<meta name="description" content="The released files hold one example, not the whole method. The paper: tunes code that is turned into hardware.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Semiconductor conference atlas">
+<meta property="og:title" content="HLSArchOpt partial-artifact assessment — 2026-09-06 · Semiconductor conference atlas">
+<meta property="og:description" content="The released files hold one example, not the whole method. The paper: tunes code that is turned into hardware.">
+<meta property="og:url" content="https://mehtama1234.github.io/semiconductor-conferences/deep-reads/hlsarchopt-primary-assessment-v1.html">
+<meta property="og:image" content="https://mehtama1234.github.io/semiconductor-conferences/presentation/slides/01-cover.jpg">
+<meta property="og:image:width" content="1920">
+<meta property="og:image:height" content="1080">
+<meta property="og:image:alt" content="Semiconductor conference atlas: 582 papers from ISCA, DAC and ICCAD, sorted into 10 themes and six directions to watch.">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://mehtama1234.github.io/semiconductor-conferences/deep-reads/hlsarchopt-primary-assessment-v1.html">
+<link rel="icon" href="../assets/icon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../kit/tokens.css">
+<link rel="stylesheet" href="../kit/boards.css">
+<link rel="stylesheet" href="../kit/course.css">
+<link rel="stylesheet" href="../kit/slides.css">
+<link rel="stylesheet" href="../kit/math/katex.min.css">
+<link rel="stylesheet" href="../kit/site.css">
+<script>try{var t=localStorage.getItem('course-kit-theme');if(t)document.documentElement.setAttribute('data-theme',t)}catch(e){}</script>
 </head>
-<body class="course-site " data-house="atlas">
-  <aside class="public-demo-banner" aria-label="About this course">A plain-language guide to what ISCA, DAC and ICCAD papers say about chip and computer design · Built from the repository’s own paper records · Not made by the conferences</aside>
-  <a class="skip-link" href="#app">Skip to the page</a>
-  <header>
-    <a class="brand" href="../index.html"><span class="mark" aria-hidden="true">Si</span> Semiconductor conference atlas</a>
-    <span class="header-status"><span class="badge">582 papers</span><span class="badge">10 themes</span><span class="badge">Plain words first</span></span>
-    <a class="header-link" href="../course-map.html">Course map</a>
-  </header>
-  <nav class="course-nav" aria-label="Main sections of the course"><a href="../index.html">The big picture</a><a href="../themes.html">Themes</a><a href="../subthemes.html">Subthemes</a><a href="../deep-reads.html" aria-current="page">Deep reads</a><a href="../directions.html">What to watch</a><a href="../presentation/index.html">Slides</a><a href="../video/index.html">Video</a><a href="../share/index.html">Share</a></nav>
-  <main id="app" tabindex="-1">
-    <section class="screen active landing legacy-page" aria-labelledby="page-title">
-<div class="lm-head"><div class="hj-heading"><nav class="crumbs" aria-label="You are here"><a href="../course-map.html">Course map</a><span aria-hidden="true">›</span><a href="../deep-reads.html">Deep reads</a></nav><a class="back-button" href="../deep-reads.html">← <span>Deep reads</span></a><p class="eyebrow">Deep read · a paper checked against its full source</p><h1 id="page-title">HLSArchOpt: what reading the full source showed</h1></div></div>
-<figure class="course-fig"><div class="loop-wide" data-art="flow:deep-read"></div><div class="loop-tall" data-art="flowTall:deep-read"></div><figcaption>Most papers in the atlas reached only the first step. This one went further.</figcaption></figure>
-      <article class="prose">
+<body data-kit="boards">
+<a class="ck-skip" href="#main">Skip to the content</a>
+<div class="root">
+<header class="rs-hero"><div class="rs-top"><a class="rs-brand" href="../index.html"><i>Si</i>Semiconductor conference atlas</a><span class="rs-r"><nav class="ck-nav" aria-label="Main sections of the site"><a href="../index.html">The big picture</a><a href="../themes.html">Themes</a><a href="../subthemes.html">Subthemes</a><a href="../deep-reads.html" aria-current=page>Deep reads</a><a href="../directions.html">What to watch</a><a href="../presentation/index.html">Slides</a><a href="../video/index.html">Video</a><a href="../share/index.html">Share</a></nav><button type="button" class="ck-theme" aria-label="Change colour theme">Theme: auto</button></span></div><div class="rs-hg"><div><p class="eb">Deep read · a paper checked against its full source</p><h1 class="rs-h1" id="page-title">What did a closer read of HLSArchOpt show? <i>The released files hold one example, not the whole method.</i></h1><p class="rs-lede">The paper: tunes code that is turned into hardware.</p></div><ol class="ck-cards" aria-label="The numbers this page turns on"><svg viewBox="0 0 520 380" aria-hidden="true" preserveAspectRatio="none"><path d="M236 78 C 260 84, 260 128, 284 134"/><path d="M398 198 C 378 238, 196 152, 166 182"/><path d="M240 246 C 264 252, 262 296, 286 302"/></svg><li class="ck-card"><p class="k">1 · Conference</p><b>DAC 2026</b><span>where it was presented</span></li><li class="ck-card"><p class="k">2 · Deepest source</p><b>released code</b><span>found in a bounded search</span></li><li class="ck-card"><p class="k">3 · Part it changes</p><b>Part 1</b><span>The description</span></li><li class="ck-card"><p class="k">4 · Repeated by us</p><b>no</b><span>nothing rerun</span></li></ol></div></header>
+<main id="main" class="ck-main" tabindex="-1">
+<nav class="rs-selbar" aria-label="About this page"><span class="rs-sel"><b>You are here</b><a href="../course-map.html">Every page</a> › <a href="../deep-reads.html">Deep reads</a></span><span class="rs-crumb">Deep read · a paper checked against its full source</span></nav><section class="ck-pagefig ck-wide"><figure class="rs-media ck-scene"><div class="rs-mh"><span>Where this paper acts: part 1 of design methodology and tooling</span><span class="t t-oc">our drawing</span></div><div class="rs-mb"><div class="ck-scene-pan" tabindex="0" role="group" aria-label="Drawing; scroll sideways on a small screen" style="--min:900px"><svg class="ck-art" viewBox="0 0 1000 440" role="img" aria-labelledby="dhlsarchoptprim-t" font-family="IBM Plex Sans Condensed, sans-serif"><title id="dhlsarchoptprim-t">A design rewritten through a graph: a written description becomes a graph of operations, a tool rewrites the graph, a check confirms it computes the same thing, and only then is the cost compared; ringed: part 1, the description</title><defs><marker id="dhlsarchoptprim-a" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5 0 10z" fill="#2b2622"/></marker><marker id="dhlsarchoptprim-r" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5 0 10z" fill="#9a4a22"/></marker><pattern id="dhlsarchoptprim-h" width="8" height="8" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><path d="M0 0V8" stroke="#cdbfa9" stroke-width="3"/></pattern></defs><rect x="10" y="16" width="180" height="268" rx="12" fill="none" stroke="#9a4a22" stroke-width="3" stroke-dasharray="9 6"/><rect x="22" y="36" width="156" height="150" rx="6" fill="#3a2e26"/><text x="34" y="70" font-size="16" fill="#f3ede2">for i in 0..n:</text><text x="34" y="100" font-size="16" fill="#f3ede2">  y += a[i]*b[i]</text><text x="34" y="130" font-size="16" fill="#f3ede2">out = y</text><text x="100" y="236" font-size="15" fill="#9a4a22" text-anchor="middle" font-weight="600" letter-spacing="1">1 · THE DESCRIPTION</text><text x="100" y="257" font-size="15" fill="#2b2622" text-anchor="middle">code a person writes</text><path d="M182 110H218" fill="none" stroke="#2b2622" stroke-width="2" marker-end="url(#dhlsarchoptprim-a)"/><path d="M382 110H418" fill="none" stroke="#2b2622" stroke-width="2" marker-end="url(#dhlsarchoptprim-a)"/><path d="M582 110H618" fill="none" stroke="#2b2622" stroke-width="2" marker-end="url(#dhlsarchoptprim-a)"/><path d="M782 110H818" fill="none" stroke="#2b2622" stroke-width="2" marker-end="url(#dhlsarchoptprim-a)"/><path d="M265 46L265 112" stroke="#5a5047" stroke-width="1.6"/><path d="M335 46L265 112" stroke="#5a5047" stroke-width="1.6"/><path d="M265 112L300 178" stroke="#5a5047" stroke-width="1.6"/><path d="M265 46L335 112" stroke="#5a5047" stroke-width="1.6"/><path d="M335 46L335 112" stroke="#5a5047" stroke-width="1.6"/><path d="M335 112L300 178" stroke="#5a5047" stroke-width="1.6"/><circle cx="265" cy="46" r="18" fill="#f5e6d3" stroke="#2b2622" stroke-width="1.6"/><text x="265" y="52" font-size="17" text-anchor="middle" fill="#2b2622">a</text><circle cx="335" cy="46" r="18" fill="#f5e6d3" stroke="#2b2622" stroke-width="1.6"/><text x="335" y="52" font-size="17" text-anchor="middle" fill="#2b2622">b</text><circle cx="265" cy="112" r="18" fill="#f5e6d3" stroke="#2b2622" stroke-width="1.6"/><text x="265" y="118" font-size="17" text-anchor="middle" fill="#2b2622">×</text><circle cx="335" cy="112" r="18" fill="#f5e6d3" stroke="#2b2622" stroke-width="1.6"/><text x="335" y="118" font-size="17" text-anchor="middle" fill="#2b2622">×</text><circle cx="300" cy="178" r="18" fill="#f5e6d3" stroke="#2b2622" stroke-width="1.6"/><text x="300" y="184" font-size="17" text-anchor="middle" fill="#2b2622">+</text><text x="300" y="236" font-size="15" fill="#2b2622" text-anchor="middle" font-weight="600" letter-spacing="1">2 · THE GRAPH</text><text x="300" y="257" font-size="15" fill="#2b2622" text-anchor="middle">operations and their order</text><path d="M479 124C530 132 526 148 512 164" fill="none" stroke="#5a5047" stroke-width="1.6"/><path d="M465 46L465 112" stroke="#5a5047" stroke-width="1.6"/><path d="M535 46L465 112" stroke="#5a5047" stroke-width="1.6"/><path d="M465 112L500 178" stroke="#5a5047" stroke-width="1.6"/><circle cx="465" cy="46" r="18" fill="#f5e6d3" stroke="#2b2622" stroke-width="1.6"/><text x="465" y="52" font-size="17" text-anchor="middle" fill="#2b2622">a</text><circle cx="535" cy="46" r="18" fill="#f5e6d3" stroke="#2b2622" stroke-width="1.6"/><text x="535" y="52" font-size="17" text-anchor="middle" fill="#2b2622">b</text><circle cx="465" cy="112" r="18" fill="#e3b98f" stroke="#2b2622" stroke-width="1.6"/><text x="465" y="118" font-size="17" text-anchor="middle" fill="#2b2622">×</text><circle cx="500" cy="178" r="18" fill="#f5e6d3" stroke="#2b2622" stroke-width="1.6"/><text x="500" y="184" font-size="17" text-anchor="middle" fill="#2b2622">+</text><text x="500" y="236" font-size="15" fill="#2b2622" text-anchor="middle" font-weight="600" letter-spacing="1">3 · A REWRITE</text><text x="500" y="257" font-size="15" fill="#2b2622" text-anchor="middle">one multiplier, used twice</text><path d="M660 90h80M660 112h80" stroke="#2b2622" stroke-width="5"/><text x="700" y="160" font-size="16" text-anchor="middle" fill="#2b2622">still equal?</text><text x="700" y="236" font-size="15" fill="#2b2622" text-anchor="middle" font-weight="600" letter-spacing="1">4 · SAME FUNCTION?</text><text x="700" y="257" font-size="15" fill="#2b2622" text-anchor="middle">checked, not assumed</text><rect x="864" y="80" width="30" height="100" fill="#cdbfa9"/><rect x="908" y="114" width="30" height="66" fill="#9a4a22"/><path d="M850 180h100" stroke="#2b2622" stroke-width="2"/><text x="900" y="202" font-size="14" fill="#5a5047" text-anchor="middle">before · after</text><text x="900" y="236" font-size="15" fill="#2b2622" text-anchor="middle" font-weight="600" letter-spacing="1">5 · THE COST ESTIMATE</text><text x="900" y="257" font-size="15" fill="#2b2622" text-anchor="middle">area, time, power</text><rect x="10" y="334" width="980" height="96" rx="8" fill="#3a2e26"/><text x="30" y="362" font-size="15" fill="#e3b98f" font-weight="600" letter-spacing="1.5">PART 1 · THE DESCRIPTION · RINGED ABOVE</text><text x="30" y="390" font-size="20" fill="#f3ede2">Tunes code that is turned into hardware.</text><text x="30" y="416" font-size="20" fill="#f3ede2">The released files hold one example, not the whole method.</text></svg></div><figcaption class="ck-cap">The rust ring marks the part this paper changes. The first line in the box says what it does; the second says what reading the full source found.</figcaption></div></figure></section><div class="ck-doc"> 
+
 
 <p>The <a href="https://csee.hnu.edu.cn/people/hexu">author faculty page</a> links this exact
 paper to <a href="https://github.com/Szzer1/HLSArchOpt/tree/999043ab132f984b5b88b26ab9e415221e1198f1">HLSArchOpt at the inspected commit</a>.
 The release supplies a Fire-module example, not a demonstrated full optimization
-workflow. README lists Vivado/HLS 2019.2, ZCU102 and a 100 MHz target.</p>
+workflow. README lists Vivado/HLS<span class="ck-gloss"> (high-level synthesis: turning ordinary program code into hardware)</span> 2019.2, ZCU102 and a 100 MHz target.</p>
 <p>Selected source inspection shows a dataflow pipeline with squeeze and parallel
 expand branches. The HLS script selects a 10 ns clock and enables synthesis/export,
 but comments out C simulation and co-simulation.</p><p>This is not evidence that the
@@ -53,28 +46,28 @@ checks. No code was executed in this assessment.</p>
 <p>The <a href="https://63dac.conference-program.com/presentation/?id=RESEARCH1110&amp;sess=sess173">official description</a>
 does not supply enough conditions to reconstruct the reported average gain.
 Do not extrapolate this example's platform to all benchmarks or treat its release
-as replication. Full-model coverage, LLM prompts/budgets, functional tests,
+as replication. Full-model coverage, LLM<span class="ck-gloss"> (large language model: an AI model that reads and writes text)</span> prompts/budgets, functional tests,
 resource limits and measurement modality remain unresolved.</p>
 <p>The <a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/dac/data/hlsarchopt-primary-assessment-v1.json">structured assessment</a>
 pins the tree and inspected paths. Review remains pending; numerical synthesis
 is withheld until comparable benchmark conditions are available.</p>
-<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>Stored synthesis reports</h2>
-<p>The pinned text and XML reports agree on selected fields: latency 335,494 cycles
+<div class="rs-sh"><h2 class="rs-h2">Stored synthesis reports</h2></div>
+<p>The pinned text and XML reports agree on selected fields: latency<span class="ck-gloss"> (the wait for one result)</span> 335,494 cycles
 (reported as 3.355 ms at a 10 ns target), interval 229,703 cycles, and estimated
 clock period 8.419 ns. Resource estimates are 1,122 BRAM_18K, 1,840 DSP48E,
-214,730 FF and 172,278 LUT.</p><p>File hashes and locators are in the assessment.</p>
+214,730 FF and 172,278 LUT<span class="ck-gloss"> (look-up table: a small memory that stores a function's answers)</span>.</p><p>File hashes and locators are in the assessment.</p>
 <p>These are stored HLS estimates, not post-route timing or fresh measurements. Latency and launch interval must remain distinct; neither includes a demonstrated
 full-model or host-transfer boundary.</p><p>The report timestamp is May 2, 2025, before
 the pinned release; source-to-report reproducibility remains unverified. There
-is no matched baseline here from which to recover the paper's average speedup.</p><p class="meta">Written as <a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/dac/reports/hlsarchopt-primary-assessment-v1.md">dac/reports/hlsarchopt-primary-assessment-v1.md</a> in the course repository.</p>
-      </article>
-      <nav class="pager" aria-label="Previous and next"><a class="prev" href="gemir-primary-recovery-v1.html"><span class="pg-k">← Previous</span><span class="pg-t">GEMIR primary recovery — 2026-09-06</span></a><a class="map" href="../deep-reads.html"><span class="pg-k">Back to</span><span class="pg-t">Deep reads</span></a><a class="next" href="hybrimoe-primary-conditions-v1.html"><span class="pg-k">Next →</span><span class="pg-t">HybriMoE: primary-condition supplement</span></a></nav>
-    </section>
-  </main>
-  <footer class="course-foot">
-    <p>Built from 582 paper records coded from ISCA 2026, DAC 2026 and ICCAD 2025 (ICCAD 2026 papers were not yet public). Most records come from official program descriptions; see “How deep the reading went”. The papers belong to their authors.</p>
-    <p class="foot-links"><a href="https://github.com/mehtama1234/course-concept-library">All courses</a><a href="../index.html">This course</a><a href="../course-map.html">Course map</a><a href="../presentation/index.html">Slides</a><a href="../video/index.html">Video</a><a href="../share/index.html">Share</a></p>
-  </footer>
-  <script src="../assets/course-data.js"></script><script src="../assets/icons.js"></script><script src="../assets/icons-extra.js"></script><script src="../assets/icons-course.js"></script><script src="../assets/art.js"></script><script src="../assets/course-art.js"></script><script src="../assets/charts.js"></script><script src="../assets/course-charts.js"></script><script src="../assets/course-site.js"></script>
+is no matched baseline<span class="ck-gloss"> (the existing method a new result is compared against)</span> here from which to recover the paper's average speedup.</p><p class="mut">Written as <a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/dac/reports/hlsarchopt-primary-assessment-v1.md">dac/reports/hlsarchopt-primary-assessment-v1.md</a> in the course repository.</p>
+
+
+</div>
+</main>
+<footer class="rs-close"><p class="eb">This page, in one line</p><p class="rs-h2" style="max-width:26em">The released files hold one example, not the whole method.</p><div class="ck-next"><a href="gemir-primary-recovery-v1.html"><span class="rs-k" style="color:var(--peach)">Previous</span><b>GEMIR primary recovery — 2026-09-06</b></a><a class="r" href="hybrimoe-primary-conditions-v1.html"><span class="rs-k" style="color:var(--peach)">Next</span><b>HybriMoE: primary-condition supplement</b></a></div><div class="rs-btns"><a class="ck-btn pri" href="../deep-reads.html">Back to Deep reads</a></div><p class="rs-src">Built from 582 paper records coded from ISCA 2026, DAC 2026 and ICCAD 2025 (ICCAD 2026 papers were not yet public). Most records come from official program descriptions; see “How deep the reading went”. The papers belong to their authors.</p><p class="ck-footlinks"><a href="https://github.com/mehtama1234/semiconductor-conferences">Source on GitHub</a><a href="../index.html">The big picture</a><a href="../course-map.html">Every page</a><a href="../presentation/index.html">Slides</a><a href="../video/index.html">Video</a><a href="../share/index.html">Share</a></p></footer>
+</div>
+<script src="../kit/charts.js"></script>
+<script src="../kit/course.js"></script>
+<script src="../kit/site.js"></script>
 </body>
 </html>

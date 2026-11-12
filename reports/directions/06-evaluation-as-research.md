@@ -9,7 +9,7 @@ A reported result answers one question under one experiment.
 - A **speedup** is the ratio of two completion times.
 - A **correctness rate** is the fraction of stated tasks that passed a stated check.
 
-Changing the input set, the comparison method or the rule for success can change the number, even when the method is the same.
+Change the input set, the comparison or the rule for success, and the number can change. The method itself may be the same.
 
 ## The change: treat the measurement procedure as a research contribution
 

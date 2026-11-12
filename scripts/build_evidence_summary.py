@@ -187,7 +187,7 @@ def build(root: Path) -> tuple[dict, str]:
         "## Field completeness",
         "",
         f"{summary['records_with_all_required_technical_fields']} of {len(records)} records have all required technical fields populated.",
-        "Missing-field counts are recorded in the machine-readable JSON; an empty field means the evidence did not support a claim, not that the paper lacks the property.",
+        "Missing-field counts are in the JSON file. An empty field means the evidence did not show the property. It does not mean the paper lacks it.",
         "",
         "## Limits",
         "",

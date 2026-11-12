@@ -29,7 +29,7 @@ Some operations cannot run in parallel at all. That is why good performance on o
 2. Compare completion time, energy per completed job, memory use and hardware cost.
 3. Vary the inputs that affect reuse or parallelism.
 
-If a specialized design wins only when all inputs fit in a small memory, that capacity condition is part of the result. The evidence cards below keep the reported conditions. Read them before applying a result to a different application.''')],
+Suppose a specialized design wins only when all inputs fit in a small memory. Then that memory size is part of the result. The evidence cards below keep the reported conditions. Read them before applying a result to a different application.''')],
  'memory-interconnect-and-storage': [
  ('Capacity, bandwidth and latency are three different limits', '''A computation reads inputs and writes outputs. Those values take up bytes in memory or storage.
 
@@ -221,7 +221,7 @@ All selected records in this theme come from DAC. So they cannot show a three-co
 - **Optical** computation uses properties of light.
 - **Quantum** computation uses quantum states and operations.
 
-These differ greatly. But each needs a precise account of how the physical state stands for the input, and how the output is read.'''),
+These differ greatly. But each must say exactly how a physical state stands for the input. It must also say how the output is read.'''),
  ('The device is only part of the cost: conversion and correction count too', '''Inputs may need converting from digital values. Outputs may need measuring and converting back.
 
 Noise, temperature, differences between devices, and measurement precision can all change the result. **Calibration** adjusts operation using measured device behavior, and it also costs time or hardware.
