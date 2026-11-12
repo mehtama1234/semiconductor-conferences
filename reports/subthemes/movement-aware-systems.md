@@ -14,21 +14,40 @@ The papers change data placement, reuse, routing, storage, or scheduling so that
 
 The useful test reports traffic, data size, topology, contention, capacity, and end-to-end time or energy against a stated baseline.
 
-## What the system must move
+## Capacity, bandwidth and latency are three different limits
 
-A computation reads inputs and produces outputs. Those values occupy bytes in memory or storage. Capacity is the number of bytes that can be held. Bandwidth is the number of bytes that can be transferred per second. Latency is the time between requesting a value and receiving it. These are different limits: enough capacity does not guarantee a fast transfer, and high bandwidth does not guarantee a short wait for one request.
+A computation reads inputs and writes outputs. Those values take up bytes in memory or storage.
 
-## How movement sets a lower limit on time
+- **Capacity** is how many bytes can be held.
+- **Bandwidth** is how many bytes can be moved per second.
+- **Latency** is the wait between asking for a value and getting it.
 
-If a job must transfer B bytes through a connection that sustains W bytes per second, those transfers alone require at least B/W seconds. This simplified bound assumes the stated bandwidth is available to the job. Shared requests, protocol work, and dependencies can increase the time. Keeping a value near its next user can reduce transfers, but the nearby memory has limited capacity and may need to discard another useful value.
+Enough capacity does not guarantee a fast transfer. High bandwidth does not guarantee a short wait for one request.
 
-## What separates the subthemes
+## Moving data sets a floor on how long a job takes
 
-Memory hierarchy work decides which values occupy faster and slower memories. Near-memory or processing-in-memory work moves some computation toward the stored data. Interconnect work changes the communication paths between components. Storage work must also consider whether a value survives a power loss and whether updates remain consistent. All these methods can reduce a particular transfer while adding scheduling, copying, or coordination work elsewhere.
+> **The rule.** A job must move **B** bytes. Its connection sustains **W** bytes per second. The transfers alone take at least **B ÷ W** seconds, however fast the arithmetic is.
 
-## A comparison that answers the question
+This simple bound assumes the job gets the stated bandwidth. Shared requests, protocol work and dependencies can make it slower.
 
-Measure the whole job, including placement and migration of data. Vary whether the input fits in each memory and how many other jobs use the connection. For approximate search, keep answer quality fixed; for a service, measure slow requests as well as the average. A reduction in remote bytes is useful evidence about one cost, but the final claim requires completion time or energy under the full conditions.
+Keeping a value near its next user can cut transfers. But nearby memory is small, so keeping one value there may push out another useful one.
+
+## The subthemes move data, move work, or change the path
+
+- **Memory hierarchy** work decides which values sit in faster or slower memory.
+- **Near-memory or processing-in-memory** work moves some computation toward the stored data.
+- **Interconnect** work changes the paths between components.
+- **Storage** work must also ask whether a value survives power loss and whether updates stay consistent.
+
+Each can cut one transfer while adding scheduling, copying or coordination work somewhere else.
+
+## A fair test measures the whole job, including moving the data
+
+1. Measure the whole job, including placing and migrating data.
+2. Vary whether the input fits in each memory, and how many other jobs share the connection.
+3. For approximate search, hold answer quality fixed. For a service, measure slow requests as well as the average.
+
+Fewer remote bytes is useful evidence about one cost. The final claim needs completion time or energy under the full conditions.
 
 ## The individual subjects
 

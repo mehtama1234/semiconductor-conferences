@@ -1,128 +1,121 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="theme-color" content="#F3ECE1" />
-  <title>Optimization and search methods · Semiconductor conference atlas</title>
-  <meta name="description" content="Papers: DAC 5, ICCAD 2. Read from: 5 program descriptions, 0 abstracts or reports, 2 full papers or preprints. The explanations come first; every paper’s record follows at the end." />
-  <meta property="og:type" content="website" />
-  <meta property="og:site_name" content="Semiconductor conference atlas" />
-  <meta property="og:title" content="Optimization and search methods · Semiconductor conference atlas" />
-  <meta property="og:description" content="Papers: DAC 5, ICCAD 2. Read from: 5 program descriptions, 0 abstracts or reports, 2 full papers or preprints. The explanations come first; every paper’s record follows at the end." />
-  <meta property="og:url" content="https://mehtama1234.github.io/semiconductor-conferences/subthemes/optimization-and-search-methods.html" />
-  <meta property="og:image" content="https://mehtama1234.github.io/semiconductor-conferences/presentation/slides/01-cover.jpg" />
-  <meta property="og:image:width" content="1920" />
-  <meta property="og:image:height" content="1080" />
-  <meta property="og:image:alt" content="Semiconductor conference atlas: 582 papers from ISCA, DAC and ICCAD, sorted into 10 themes and six directions to watch." />
-  <meta name="twitter:card" content="summary_large_image" />
-  <link rel="canonical" href="https://mehtama1234.github.io/semiconductor-conferences/subthemes/optimization-and-search-methods.html" />
-  <link rel="icon" href="../assets/icon.svg" type="image/svg+xml" />
-  <link rel="stylesheet" href="../assets/base.css" />
-  <link rel="stylesheet" href="../assets/experience.css" />
-  <link rel="stylesheet" href="../assets/theme-atlas.css" />
-  <link rel="stylesheet" href="../assets/styles.css" />
-  <link rel="stylesheet" href="../assets/charts.css" />
-  <link rel="stylesheet" href="../assets/course.css" />
-  
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#3a2e26">
+<title>Optimization and search methods · Semiconductor conference atlas</title>
+<meta name="description" content="Papers improve the search a tool runs, and compare at the same time budget. Papers: DAC 5, ICCAD 2. Read from: 5 program descriptions, 0 abstracts or reports, 2 full papers or preprints. The explanati">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Semiconductor conference atlas">
+<meta property="og:title" content="Optimization and search methods · Semiconductor conference atlas">
+<meta property="og:description" content="Papers improve the search a tool runs, and compare at the same time budget. Papers: DAC 5, ICCAD 2. Read from: 5 program descriptions, 0 abstracts or reports, 2 full papers or preprints. The explanati">
+<meta property="og:url" content="https://mehtama1234.github.io/semiconductor-conferences/subthemes/optimization-and-search-methods.html">
+<meta property="og:image" content="https://mehtama1234.github.io/semiconductor-conferences/presentation/slides/01-cover.jpg">
+<meta property="og:image:width" content="1920">
+<meta property="og:image:height" content="1080">
+<meta property="og:image:alt" content="Semiconductor conference atlas: 582 papers from ISCA, DAC and ICCAD, sorted into 10 themes and six directions to watch.">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://mehtama1234.github.io/semiconductor-conferences/subthemes/optimization-and-search-methods.html">
+<link rel="icon" href="../assets/icon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../kit/tokens.css">
+<link rel="stylesheet" href="../kit/boards.css">
+<link rel="stylesheet" href="../kit/course.css">
+<link rel="stylesheet" href="../kit/slides.css">
+<link rel="stylesheet" href="../kit/math/katex.min.css">
+<link rel="stylesheet" href="../kit/site.css">
+<script>try{var t=localStorage.getItem('course-kit-theme');if(t)document.documentElement.setAttribute('data-theme',t)}catch(e){}</script>
 </head>
-<body class="course-site " data-house="atlas">
-  <aside class="public-demo-banner" aria-label="About this course">A plain-language guide to what ISCA, DAC and ICCAD papers say about chip and computer design · Built from the repository’s own paper records · Not made by the conferences</aside>
-  <a class="skip-link" href="#app">Skip to the page</a>
-  <header>
-    <a class="brand" href="../index.html"><span class="mark" aria-hidden="true">Si</span> Semiconductor conference atlas</a>
-    <span class="header-status"><span class="badge">582 papers</span><span class="badge">10 themes</span><span class="badge">Plain words first</span></span>
-    <a class="header-link" href="../course-map.html">Course map</a>
-  </header>
-  <nav class="course-nav" aria-label="Main sections of the course"><a href="../index.html">The big picture</a><a href="../themes.html">Themes</a><a href="../subthemes.html" aria-current="page">Subthemes</a><a href="../deep-reads.html">Deep reads</a><a href="../directions.html">What to watch</a><a href="../presentation/index.html">Slides</a><a href="../video/index.html">Video</a><a href="../share/index.html">Share</a></nav>
-  <main id="app" tabindex="-1">
-    <section class="screen active landing legacy-page" aria-labelledby="page-title">
-<div class="lm-head"><div class="hj-heading"><nav class="crumbs" aria-label="You are here"><a href="../course-map.html">Course map</a><span aria-hidden="true">›</span><a href="../subthemes.html">Subthemes</a></nav><a class="back-button" href="../subthemes.html">← <span>Subthemes</span></a><p class="eyebrow">Subtheme · 7 papers · Design methodology and tooling</p><h1 id="page-title">Optimization and search methods: what the 7 papers change, and what is still unproven</h1><p class="hj-sub">Papers: DAC 5, ICCAD 2. Read from: 5 program descriptions, 0 abstracts or reports, 2 full papers or preprints. The explanations come first; every paper’s record follows at the end.</p></div><div class="hj-art" data-art="trio:file-text,settings,checklist"></div></div>
-<figure class="course-fig"><div class="loop-wide" data-art="flow:design-methodology-and-tooling"></div><div class="loop-tall" data-art="flowTall:design-methodology-and-tooling"></div><figcaption>The parent theme in one picture: how a design is written down decides what a tool can change.</figcaption></figure>
-      <article class="prose">
+<body data-kit="boards">
+<a class="ck-skip" href="#main">Skip to the content</a>
+<div class="root">
+<header class="rs-hero"><div class="rs-top"><a class="rs-brand" href="../index.html"><i>Si</i>Semiconductor conference atlas</a><span class="rs-r"><nav class="ck-nav" aria-label="Main sections of the site"><a href="../index.html">The big picture</a><a href="../themes.html">Themes</a><a href="../subthemes.html" aria-current=page>Subthemes</a><a href="../deep-reads.html">Deep reads</a><a href="../directions.html">What to watch</a><a href="../presentation/index.html">Slides</a><a href="../video/index.html">Video</a><a href="../share/index.html">Share</a></nav><button type="button" class="ck-theme" aria-label="Change colour theme">Theme: auto</button></span></div><div class="rs-hg"><div><p class="eb">Subtheme · 7 papers · Design methodology and tooling</p><h1 class="rs-h1 long" id="page-title">What do the 7 papers on optimization and search methods change? <i>Papers improve the search a tool runs, and compare at the same time budget.</i></h1><p class="rs-lede">Papers: DAC 5, ICCAD 2. Read from: 5 program descriptions, 0 abstracts or reports, 2 full papers or preprints. The explanations come first; every paper’s record follows at the end.</p></div><ol class="ck-cards" aria-label="The numbers this page turns on"><svg viewBox="0 0 520 380" aria-hidden="true" preserveAspectRatio="none"><path d="M236 78 C 260 84, 260 128, 284 134"/><path d="M398 198 C 378 238, 196 152, 166 182"/><path d="M240 246 C 264 252, 262 296, 286 302"/></svg><li class="ck-card"><p class="k">1 · Papers</p><b>7</b><span>DAC 5 · ICCAD 2</span></li><li class="ck-card"><p class="k">2 · Read from</p><b>5 of 7</b><span>short program descriptions</span></li><li class="ck-card"><p class="k">3 · Part it changes</p><b>Part 5</b><span>The cost estimate</span></li><li class="ck-card"><p class="k">4 · Parent theme</p><b>29 papers</b><span>Design methodology and tooling</span></li></ol></div></header>
+<main id="main" class="ck-main" tabindex="-1">
+<nav class="rs-selbar" aria-label="About this page"><span class="rs-sel"><b>You are here</b><a href="../course-map.html">Every page</a> › <a href="../subthemes.html">Subthemes</a></span><span class="rs-crumb">Subtheme · 7 papers · Design methodology and tooling</span></nav><section class="ck-pagefig ck-wide"><figure class="rs-media ck-scene"><div class="rs-mh"><span>Where these papers act: part 5 of design methodology and tooling</span><span class="t t-oc">our drawing</span></div><div class="rs-mb"><div class="ck-scene-pan" tabindex="0" role="group" aria-label="Drawing; scroll sideways on a small screen" style="--min:900px"><svg class="ck-art" viewBox="0 0 1000 440" role="img" aria-labelledby="soptimizationan-t" font-family="IBM Plex Sans Condensed, sans-serif"><title id="soptimizationan-t">A design rewritten through a graph: a written description becomes a graph of operations, a tool rewrites the graph, a check confirms it computes the same thing, and only then is the cost compared; ringed: part 5, the cost estimate</title><defs><marker id="soptimizationan-a" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5 0 10z" fill="#2b2622"/></marker><marker id="soptimizationan-r" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5 0 10z" fill="#9a4a22"/></marker><pattern id="soptimizationan-h" width="8" height="8" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><path d="M0 0V8" stroke="#cdbfa9" stroke-width="3"/></pattern></defs><rect x="22" y="36" width="156" height="150" rx="6" fill="#3a2e26"/><text x="34" y="70" font-size="16" fill="#f3ede2">for i in 0..n:</text><text x="34" y="100" font-size="16" fill="#f3ede2">  y += a[i]*b[i]</text><text x="34" y="130" font-size="16" fill="#f3ede2">out = y</text><text x="100" y="236" font-size="15" fill="#2b2622" text-anchor="middle" font-weight="600" letter-spacing="1">1 · THE DESCRIPTION</text><text x="100" y="257" font-size="15" fill="#2b2622" text-anchor="middle">code a person writes</text><path d="M182 110H218" fill="none" stroke="#2b2622" stroke-width="2" marker-end="url(#soptimizationan-a)"/><path d="M382 110H418" fill="none" stroke="#2b2622" stroke-width="2" marker-end="url(#soptimizationan-a)"/><path d="M582 110H618" fill="none" stroke="#2b2622" stroke-width="2" marker-end="url(#soptimizationan-a)"/><path d="M782 110H818" fill="none" stroke="#2b2622" stroke-width="2" marker-end="url(#soptimizationan-a)"/><path d="M265 46L265 112" stroke="#5a5047" stroke-width="1.6"/><path d="M335 46L265 112" stroke="#5a5047" stroke-width="1.6"/><path d="M265 112L300 178" stroke="#5a5047" stroke-width="1.6"/><path d="M265 46L335 112" stroke="#5a5047" stroke-width="1.6"/><path d="M335 46L335 112" stroke="#5a5047" stroke-width="1.6"/><path d="M335 112L300 178" stroke="#5a5047" stroke-width="1.6"/><circle cx="265" cy="46" r="18" fill="#f5e6d3" stroke="#2b2622" stroke-width="1.6"/><text x="265" y="52" font-size="17" text-anchor="middle" fill="#2b2622">a</text><circle cx="335" cy="46" r="18" fill="#f5e6d3" stroke="#2b2622" stroke-width="1.6"/><text x="335" y="52" font-size="17" text-anchor="middle" fill="#2b2622">b</text><circle cx="265" cy="112" r="18" fill="#f5e6d3" stroke="#2b2622" stroke-width="1.6"/><text x="265" y="118" font-size="17" text-anchor="middle" fill="#2b2622">×</text><circle cx="335" cy="112" r="18" fill="#f5e6d3" stroke="#2b2622" stroke-width="1.6"/><text x="335" y="118" font-size="17" text-anchor="middle" fill="#2b2622">×</text><circle cx="300" cy="178" r="18" fill="#f5e6d3" stroke="#2b2622" stroke-width="1.6"/><text x="300" y="184" font-size="17" text-anchor="middle" fill="#2b2622">+</text><text x="300" y="236" font-size="15" fill="#2b2622" text-anchor="middle" font-weight="600" letter-spacing="1">2 · THE GRAPH</text><text x="300" y="257" font-size="15" fill="#2b2622" text-anchor="middle">operations and their order</text><path d="M479 124C530 132 526 148 512 164" fill="none" stroke="#5a5047" stroke-width="1.6"/><path d="M465 46L465 112" stroke="#5a5047" stroke-width="1.6"/><path d="M535 46L465 112" stroke="#5a5047" stroke-width="1.6"/><path d="M465 112L500 178" stroke="#5a5047" stroke-width="1.6"/><circle cx="465" cy="46" r="18" fill="#f5e6d3" stroke="#2b2622" stroke-width="1.6"/><text x="465" y="52" font-size="17" text-anchor="middle" fill="#2b2622">a</text><circle cx="535" cy="46" r="18" fill="#f5e6d3" stroke="#2b2622" stroke-width="1.6"/><text x="535" y="52" font-size="17" text-anchor="middle" fill="#2b2622">b</text><circle cx="465" cy="112" r="18" fill="#e3b98f" stroke="#2b2622" stroke-width="1.6"/><text x="465" y="118" font-size="17" text-anchor="middle" fill="#2b2622">×</text><circle cx="500" cy="178" r="18" fill="#f5e6d3" stroke="#2b2622" stroke-width="1.6"/><text x="500" y="184" font-size="17" text-anchor="middle" fill="#2b2622">+</text><text x="500" y="236" font-size="15" fill="#2b2622" text-anchor="middle" font-weight="600" letter-spacing="1">3 · A REWRITE</text><text x="500" y="257" font-size="15" fill="#2b2622" text-anchor="middle">one multiplier, used twice</text><path d="M660 90h80M660 112h80" stroke="#2b2622" stroke-width="5"/><text x="700" y="160" font-size="16" text-anchor="middle" fill="#2b2622">still equal?</text><text x="700" y="236" font-size="15" fill="#2b2622" text-anchor="middle" font-weight="600" letter-spacing="1">4 · SAME FUNCTION?</text><text x="700" y="257" font-size="15" fill="#2b2622" text-anchor="middle">checked, not assumed</text><rect x="810" y="16" width="180" height="268" rx="12" fill="none" stroke="#9a4a22" stroke-width="3" stroke-dasharray="9 6"/><rect x="864" y="80" width="30" height="100" fill="#cdbfa9"/><rect x="908" y="114" width="30" height="66" fill="#9a4a22"/><path d="M850 180h100" stroke="#2b2622" stroke-width="2"/><text x="900" y="202" font-size="14" fill="#5a5047" text-anchor="middle">before · after</text><text x="900" y="236" font-size="15" fill="#9a4a22" text-anchor="middle" font-weight="600" letter-spacing="1">5 · THE COST ESTIMATE</text><text x="900" y="257" font-size="15" fill="#2b2622" text-anchor="middle">area, time, power</text><rect x="10" y="334" width="980" height="96" rx="8" fill="#3a2e26"/><text x="30" y="362" font-size="15" fill="#e3b98f" font-weight="600" letter-spacing="1.5">PART 5 · THE COST ESTIMATE · RINGED ABOVE</text><text x="30" y="390" font-size="20" fill="#f3ede2">Papers improve the search a tool runs,</text><text x="30" y="416" font-size="20" fill="#f3ede2">and compare at the same time budget.</text></svg></div><figcaption class="ck-cap">The drawing shows the whole design methodology and tooling problem; the rust ring marks part 5, the cost estimate. The words in the box are ours, from the explanation below.</figcaption></div></figure><figure class="rs-media"><div class="rs-mh"><span>What the 7 paper records were read from</span><span class="t t-wo">counted</span></div><div class="rs-mb"><div data-chart><script type="application/json">{"type":"bars","title":"Records by source","desc":"5 of 7 come from the short program description.","max":5,"items":[{"label":"Program description","value":5},{"label":"Full paper or preprint","value":2,"em":true}]}</script><noscript><p class="ck-cap">Records by source. 5 of 7 come from the short program description.</p></noscript></div><figcaption class="ck-cap">Counted from the source tier of each record in data/taxonomy-expanded-v1.json. A program description gives the claim, rarely the test conditions.</figcaption></div></figure></section><div class="ck-doc"> 
+
 
 <p>This subject has 7 records in the selected sample. This page explains where it fits, then presents all captured paper evidence without shortening the measurements or limitations.</p>
 <p><a href="../guide/reading-guide-v1.html">Definitions used in the paper records</a></p>
-<p class="lm-k h-label">Understand the parent subject first</p><h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>The bigger theme this belongs to</h2>
+<p class="rs-k">Understand the parent subject first</p><div class="rs-sh"><h2 class="rs-h2">The bigger theme this belongs to</h2></div>
 <ul>
 <li><a href="../themes/design-methodology-and-tooling.html">Design methodology and tooling</a></li>
 </ul>
-<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="target"></span>An optimization problem needs a choice, an objective, and constraints</h2>
+<div class="rs-sh"><h2 class="rs-h2">An optimization problem needs a choice, an objective, and constraints</h2></div>
 <p>A design tool chooses among possible implementations. The objective states what should improve, such as area or execution time.</p><p>Constraints state which candidates are acceptable, such as balance between partitions, correctness, or a resource limit. Without these definitions, a reported better score is difficult to interpret.</p>
 <p>The search procedure decides which candidates to evaluate and how to use the results. Some procedures systematically explore a representation. Others use estimates, random variation, learned policies, or combinations of these. The useful outcome is the valid solution obtained with a stated total budget.</p>
-<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>Representation determines what the search can see</h2>
+<div class="rs-sh"><h2 class="rs-h2">Representation determines what the search can see</h2></div>
 <p>A graph represents objects and pairwise connections. A hypergraph permits a connection to involve more than two objects.</p><p>This can represent relationships such as one signal connecting several circuit terminals. Partitioning divides the objects into groups while trying to satisfy size or resource limits and control the connections crossing between groups.</p>
 <p>A different representation can expose useful structure, but it can also omit costs that become important in implementation. A partition with fewer crossing connections may still place too much traffic on one physical link or create a timing problem.</p><p>The objective must be connected to the intended downstream use.</p>
-<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>Impart combines coarse and fine search</h2>
+<div class="rs-sh"><h2 class="rs-h2">Impart combines coarse and fine search</h2></div>
 <p>Impart's captured method combines candidates and mutates choices inside a multilevel partitioning process. A multilevel method first combines objects into a smaller representation, solves a simpler problem, and refines the solution as detail is restored. <a href="optimization-and-search-methods.html#paper-dac-2026-research1292">Recorded evidence</a></p>
 <p>Combining solutions can reuse favorable parts of earlier candidates. Mutation introduces alternative choices.</p><p>These operations may improve solution quality, but they consume evaluation time and can make outcomes depend on random choices. The current description does not establish partition balance, cut quality, runtime, problem sizes, or comparison settings.</p>
 <p><span id="explanation-dac-2026-research1292"></span></p>
-<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>Impart: integrated memetic search must improve partition quality within a measured total budget</h2>
+<div class="rs-sh"><h2 class="rs-h2">Impart: <i>integrated memetic search must improve partition quality within a measured total budget</i></h2></div>
 <p>Hypergraph partitioning assigns vertices to <code>k</code> parts while minimizing a stated cut objective and satisfying balance constraints. A hyperedge can connect more than two vertices, so cutting one net can affect several parts. In VLSI, the cut may approximate communication or connectivity cost; in scientific computing, it may affect exchanged boundary data. That interpretation must be preserved when comparing a partition score with downstream execution.</p>
 <p>Impart is described as integrating memetic recombination and mutation into the uncoarsening phase of one multilevel framework. Coarsening builds a smaller hypergraph, initial partitioning solves that reduced problem, and uncoarsening restores detail while refining assignments.</p><p>Recombination can combine promising parent partitions and mutation can explore alternatives at multiple granularities. Integrating them may avoid repeatedly launching standalone partitioners, but it does not establish that the resulting candidates are balanced or that the added search work is cheaper.</p>
 <p>The first gate is a precise objective. State the cut metric, balance tolerance, part weights, fixed vertices, connectivity rules, seed, number of parents, mutation/recombination operators and acceptance policy.</p><p>Verify that every output assigns each vertex exactly once, honors balance and produces the claimed cut. A lower cut under a changed imbalance tolerance or a different hyperedge convention is not an apples-to-apples improvement.</p>
-<p>The second gate is search-cost and scalability accounting. Report input vertices and hyperedges, <code>k</code>, coarsening ratios, memory peak, candidate evaluations, refinement iterations, wall time, timeout behavior and run-to-run variation. Compare one integrated framework against a standard multilevel baseline and standalone memetic approaches with the same objective, balance, seeds, stopping rule, hardware and total time or memory budget. Show quality-versus-time curves and worst cases, not only the best partition or average claim.</p>
+<p>The second gate is search-cost and scalability accounting. Report input vertices and hyperedges, <code>k</code>, coarsening ratios, memory peak, candidate evaluations, refinement iterations, wall time, timeout behavior and run-to-run variation. Compare one integrated framework against a standard multilevel baseline<span class="ck-gloss"> (the existing method a new result is compared against)</span> and standalone memetic approaches with the same objective, balance, seeds, stopping rule, hardware and total time or memory budget. Show quality-versus-time curves and worst cases, not only the best partition or average claim.</p>
 <p>The official description claims that standard benchmarks show higher-quality large-<code>k</code> partitions and better escape from local optima, but supplies no cut quality, balance, runtime, memory, <code>k</code> range, benchmark identities or baseline values. The evidence supports integrated memetic multilevel search, not demonstrated scalable partition quality or an end-to-end VLSI/scientific-computing benefit.</p>
 <p><span id="explanation-dac-2026-research068"></span></p>
-<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="books"></span>DiffPart: a learned partition must become a legal, thread-efficient simulation schedule</h2>
-<p>RTL simulation evaluates a hardware design over time. Its work can be represented as dependent tasks: a task may read state produced by another task, and tasks that are independent may run concurrently.</p><p>Partitioning assigns tasks to threads or scheduling domains. A partition with equal task counts can still be slow if one thread receives a long dependency chain, if the critical path crosses threads, or if synchronization and queueing dominate the useful work.</p>
+<div class="rs-sh"><h2 class="rs-h2">DiffPart: <i>a learned partition must become a legal, thread-efficient simulation schedule</i></h2></div>
+<p>RTL<span class="ck-gloss"> (register-transfer level: hardware written as code, before it becomes gates)</span> simulation evaluates a hardware design over time. Its work can be represented as dependent tasks: a task may read state produced by another task, and tasks that are independent may run concurrently.</p><p>Partitioning assigns tasks to threads or scheduling domains. A partition with equal task counts can still be slow if one thread receives a long dependency chain, if the critical path crosses threads, or if synchronization and queueing dominate the useful work.</p>
 <p>DiffPart is described as a differentiable task-graph partitioning framework that learns partitions under real operating conditions, with RTL simulation as the case study. The key change is the partition proposal and objective: the method attempts to expose threading costs that general-purpose heuristics may omit.</p><p>A differentiable relaxation does not itself produce a runnable schedule. The implementation must define the task graph, features, cost model, relaxed assignment, discrete projection, dependency handling, scheduler interface and how training data or operating conditions are collected.</p>
 <h3>A graph partition is not yet a correct simulator execution</h3>
 <p>The partition must preserve the simulator's dependency semantics. Every task needs an owner or legal execution route; reads must observe the required state version; events must not be duplicated or lost; and concurrent updates must retain the simulator's ordering rules.</p><p>If a relaxed assignment places communicating tasks on different threads, the resulting synchronization is part of the schedule cost. If it places dependent tasks together, it may reduce communication but create a long serial region.</p>
 <p>Validate the generated partition against a trusted sequential or reference simulator on the same RTL design, inputs, reset behavior, event semantics and output traces. Check state transitions, assertions, cycle/time ordering, waveform values and termination, not only final exit status.</p><p>A faster run with missing events or altered race behavior is not a simulation speedup. Report invalid-partition rate, repair/fallback rate, synchronization stalls and any design features that require special handling.</p>
 <h3>Differentiable objectives must match discrete thread costs</h3>
-<p>A continuous objective can estimate load balance, cut edges or communication, but the simulator pays discrete costs: barriers, locks, queues, cache coherence, task granularity, thread wakeups, affinity and the longest dependency-constrained path. The surrogate may rank two relaxed partitions correctly while their projected schedules reverse that ranking.</p><p>Measure the correlation between objective values and actual simulator runtime on held-out designs, and report how often projection or repair changes the learned choice.</p>
-<p>The comparison should hold the number of threads, CPU affinity, runtime, compiler, simulator version, input trace, design build, warm-up and correctness checks constant. Report task count, dependency edges, partition sizes, critical-path length, cross-thread edges, synchronization events, queueing, utilization, cache or memory effects, compile time, partition-generation time and run-to-run variance.</p><p>Compare per-design results and worst cases, not only the maximum speedup.</p>
+<p>A continuous objective can estimate load balance, cut edges or communication, but the simulator pays discrete costs: barriers, locks, queues, cache coherence, task granularity, thread wakeups, affinity and the longest dependency-constrained path. The surrogate<span class="ck-gloss"> (a fast model that stands in for a slow simulation)</span> may rank two relaxed partitions correctly while their projected schedules reverse that ranking.</p><p>Measure the correlation between objective values and actual simulator runtime on held-out designs, and report how often projection or repair changes the learned choice.</p>
+<p>The comparison should hold the number of threads, CPU<span class="ck-gloss"> (the general-purpose processor that runs ordinary programs)</span> affinity, runtime, compiler, simulator version, input trace, design build, warm-up and correctness checks constant. Report task count, dependency edges, partition sizes, critical-path length, cross-thread edges, synchronization events, queueing, utilization, cache or memory effects, compile time, partition-generation time and run-to-run variance.</p><p>Compare per-design results and worst cases, not only the maximum speedup.</p>
 <h3>The wide runtime range needs its denominator and boundary</h3>
-<p>The official description reports up to 1.22×–55.25× faster simulation across diverse designs than Verilator's partitioning. The description does not map the range to individual designs, thread counts or input traces, and it does not state whether graph extraction, DiffPart training or inference, partition materialization, compilation, initialization, output handling and retries are included.</p><p>“Up to” is therefore a maximum claim, not a typical improvement.</p>
+<p>The official description reports up to 1.22×–55.25× faster simulation across diverse designs than Verilator's partitioning. The description does not map the range to individual designs, thread counts or input traces, and it does not state whether graph extraction, DiffPart training or inference<span class="ck-gloss"> (running a trained AI model to get answers)</span>, partition materialization, compilation, initialization, output handling and retries are included.</p><p>“Up to” is therefore a maximum claim, not a typical improvement.</p>
 <p>A complete end-to-end measurement should include the cost to obtain and apply the partition as well as the steady-state simulation. It should report absolute runtime and p50/p95/p99 behavior across design sizes, dependency densities, event rates and thread counts.</p><p>If training is amortized, state the number of designs and runs needed to amortize it; if the model adapts online, include adaptation and instability costs.</p>
-<p>The evidence supports learned task-graph partitioning for RTL simulation, not demonstrated reproducible general RTL-simulation acceleration or verification throughput. The design/thread mapping, host/runtime conditions, correctness checks, training cost and per-design speedup distribution remain unresolved.</p>
+<p>The evidence supports learned task-graph partitioning for RTL simulation, not demonstrated reproducible general RTL-simulation acceleration or verification throughput<span class="ck-gloss"> (how much work is finished per second)</span>. The design/thread mapping, host/runtime conditions, correctness checks, training cost and per-design speedup distribution remain unresolved.</p>
 <p><span id="explanation-dac-2026-research1042"></span></p>
-<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>Gearls: zero-shot logic optimization must transfer timing behavior, not just policy features</h2>
-<p>Logic optimization rewrites a Boolean network or circuit representation before technology mapping. The desired result is usually a tradeoff among timing, area, power, and sometimes buffering or routability.</p><p>A reinforcement-learning (RL) agent selects transformations and receives a reward from the resulting circuit or a proxy. If the reward or state representation omits a physical effect, the agent can learn a policy that looks successful while worsening the final mapped design.</p>
+<div class="rs-sh"><h2 class="rs-h2">Gearls: <i>zero-shot logic optimization must transfer timing behavior, not just policy features</i></h2></div>
+<p>Logic optimization rewrites a Boolean network or circuit representation before technology mapping. The desired result is usually a tradeoff among timing, area, power, and sometimes buffering or routability.</p><p>A reinforcement-learning (RL<span class="ck-gloss"> (reinforcement learning: learning by trial, from rewards)</span>) agent selects transformations and receives a reward from the resulting circuit or a proxy. If the reward or state representation omits a physical effect, the agent can learn a policy that looks successful while worsening the final mapped design.</p>
 <p>Gearls is described as a generalizable RL framework with three relevant mechanisms: logic-cone extraction reduces the state and reward-estimation problem; cut weighting attempts to represent global timing effects using local subgraphs; and a Policy Similarity Metric (PSM) enriches the state representation to support zero-shot transfer to unseen circuits. These mechanisms change what the agent observes and how it compares states.</p><p>The captured description does not specify the action library, synthesis flow, cut definition, PSM construction, reward, training corpus, policy architecture, or transfer boundary.</p>
 <h3>Local cones are not the whole timing graph</h3>
 <p>A logic cone contains the logic contributing to a selected node or cut under a stated direction. It can make a large circuit manageable, but timing also depends on reconvergent paths, fanout, wire/load effects, buffering, mapping choices, sequential boundaries and constraints elsewhere in the design.</p><p>Cut weighting may approximate those effects; it must be calibrated against the downstream timing engine rather than assumed to encode them.</p>
-<p>Validate each selected rewrite after the same synthesis, technology mapping, buffering and timing-analysis flow. Check Boolean or sequential equivalence, fanout and library legality, then measure slack on critical and near-critical paths, not only the local reward.</p><p>Report cases where the local metric and mapped WNS/TNS disagree, invalid-action or repair rates, and whether policy decisions depend on circuit names or leaked design-family features.</p>
+<p>Validate each selected rewrite after the same synthesis, technology mapping, buffering and timing-analysis flow. Check Boolean or sequential equivalence, fanout and library legality, then measure slack<span class="ck-gloss"> (time to spare before a signal would arrive too late)</span> on critical and near-critical paths, not only the local reward.</p><p>Report cases where the local metric and mapped WNS<span class="ck-gloss"> (worst negative slack: how late the single worst timing path is)</span>/TNS<span class="ck-gloss"> (total negative slack: how late all the failing timing paths are, added up)</span> disagree, invalid-action or repair rates, and whether policy decisions depend on circuit names or leaked design-family features.</p>
 <h3>“Zero-shot” has a precise boundary</h3>
 <p>Zero-shot transfer means that the policy is applied without circuit-specific retraining, but it does not mean that the new circuits, libraries, constraints, scale, representation or synthesis flow are unrelated to training data. State the circuit-family split, preprocessing, technology library, clock and I/O constraints, action vocabulary, number of optimization steps, stopping rule and whether any calibration or search occurs at test time.</p><p>Hold out designs and, where claimed, technology libraries or synthesis conditions.</p>
 <p>The PSM needs an ablation and a failure analysis. Compare the full state with logic-cone features alone, cut weighting alone, conventional RL state, supervised or heuristic policies, and per-circuit retraining.</p><p>Report policy similarity distributions, action coverage, convergence, seed variation, invalid transformations and the cost of generating features and rewards. A similarity score can improve transfer while also causing two circuits with different timing sensitivities to receive overly similar actions.</p>
 <h3>WNS, TNS, and runtime are separate measurements</h3>
-<p>The official description reports 31.7% lower worst negative slack (WNS), 32.5% lower total negative slack (TNS), and runtime equal to 13% of prior approaches on unseen benchmark circuits. It does not identify the circuit suite, absolute slack units, PPA tradeoffs, technology library, synthesis conditions, per-circuit distribution, timing-analysis boundary or whether training and feature/reward construction are included in runtime.</p><p>WNS and TNS are not interchangeable: one captures the worst violation, while the other aggregates negative slack across violating endpoints.</p>
-<p>Report absolute WNS/TNS, area, power, leakage, clock period, endpoint counts, mapped netlist validity, compile/inference/search time, and timeout or regression cases. Include synthesis, mapping, timing analysis, reward generation and final verification under the same wall-clock boundary for every baseline.</p><p>The evidence supports a policy-similarity-guided RL direction for logic optimization, not demonstrated technology-independent zero-shot PPA improvement or universal timing benefit.</p>
+<p>The official description reports 31.7% lower worst negative slack (WNS), 32.5% lower total negative slack (TNS), and runtime equal to 13% of prior approaches on unseen benchmark circuits. It does not identify the circuit suite, absolute slack units, PPA<span class="ck-gloss"> (power, performance and area: the three main costs of a chip design)</span> tradeoffs, technology library, synthesis conditions, per-circuit distribution, timing-analysis boundary or whether training and feature/reward construction are included in runtime.</p><p>WNS and TNS are not interchangeable: one captures the worst violation, while the other aggregates negative slack across violating endpoints.</p>
+<p>Report absolute WNS/TNS, area, power, leakage, clock period, endpoint counts, mapped netlist<span class="ck-gloss"> (the list of a circuit's parts and the wires joining them)</span> validity, compile/inference/search time, and timeout or regression cases. Include synthesis, mapping, timing analysis, reward generation and final verification under the same wall-clock boundary for every baseline.</p><p>The evidence supports a policy-similarity-guided RL direction for logic optimization, not demonstrated technology-independent zero-shot PPA improvement or universal timing benefit.</p>
 <p><span id="explanation-dac-2026-research1052"></span></p>
-<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>Quantum template matching: locality can accelerate search without proving a better circuit</h2>
+<div class="rs-sh"><h2 class="rs-h2">Quantum template matching: <i>locality can accelerate search without proving a better circuit</i></h2></div>
 <p>The quantum-template-matching record represents circuit relationships with a hypergraph and updates matches locally after changes. A template describes a structure for which a valid transformation is known.</p><p>Finding a match can allow a compiler to replace part of a circuit while preserving the intended behavior under the transformation's assumptions. <a href="optimization-and-search-methods.html#paper-dac-2026-research1052">Recorded evidence</a></p>
 <p>The proposed representation collapses commuting gates into a super-node while retaining local connectivity. This changes what the matcher must revisit after a circuit edit: a local replacement can update the immediate neighborhood instead of searching the rest of a DAG.</p><p>That is a plausible mechanism for reducing matching work. It is not itself a proof that the replacement is valid, that all relevant commutation cases are represented, or that the resulting circuit is cheaper on a physical processor.</p>
 <p>The correctness gate is circuit equivalence. For each proposed template replacement, define the gate semantics, qubit order, parameter ranges, boundary wires, ancilla behavior and whether equality is exact up to global phase.</p><p>Check small instances exhaustively or with a formal/statevector method, then test held-out larger circuits. Report unmatched, invalid and repaired candidates.</p><p>A graph-level match can still be wrong if a parameterized gate, directional operation, nonlocal dependency or boundary condition was omitted.</p>
 <p>The performance gate is broader than matcher time. Compare gate count by type, circuit depth, two-qubit operations, mapped and routed operations, compilation memory and total time including representation construction, matching, replacement, equivalence checking and routing.</p><p>Keep the template library, circuit distribution, machine, parallelism, target coupling graph and native gate set fixed. A faster matcher can leave the executable circuit unchanged; conversely, a replacement can reduce abstract gates while increasing routing or noise exposure.</p>
 <p>The official description reports 11–606x speedup over the Qiskit DAG implementation on random and arithmetic benchmarks while maintaining the same optimization quality, with acceleration increasing with circuit size. The captured evidence does not expose absolute runtimes, memory, circuit counts, gate/template conditions, equivalence failures, final depth or gate-type distributions, mapping overhead, or hardware execution.</p><p>The evidence supports a locality-preserving quantum template-matching direction, not demonstrated hardware-aware compilation or end-to-end quantum execution improvement.</p>
 <p>The method's matching time is separate from the quality of the resulting executable circuit. Faster recognition can reduce compilation cost without changing the final operation count or device execution.</p><p>The record lacks the circuit population, gate set, memory use, and hardware-compilation effects needed to connect those results.</p>
-<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="school"></span>Learned placement policies need a validated reward</h2>
+<div class="rs-sh"><h2 class="rs-h2">Learned placement policies need a validated reward</h2></div>
 <p>Agent-Per-Qubit's captured description assigns a learned agent to each logical qubit and uses reward shaping to guide placement. A logical qubit represents encoded quantum information at the program's chosen abstraction. Placement assigns that information to locations or resources in the target organization. <a href="optimization-and-search-methods.html#paper-dac-2026-research1312">Recorded evidence</a></p>
 <p>A reward tells the learning procedure which actions are favorable. It needs to correspond to the final execution objective, and constraints must prevent invalid assignments.</p><p>The current description leaves processor topology, circuit sizes, error assumptions, training cost, and outcome definitions unresolved. Learning a higher reward does not alone establish a better valid placement.</p>
 <p><span id="explanation-dac-2026-research1312"></span></p>
-<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>Agent-Per-Qubit: reward shaping must survive legal routing and fault-tolerant execution</h2>
+<div class="rs-sh"><h2 class="rs-h2">Agent-Per-Qubit: <i>reward shaping must survive legal routing and fault-tolerant execution</i></h2></div>
 <p>A logical-qubit placement assigns abstract qubits to physical locations, but the assignment is only useful if the circuit can execute on the target coupling graph. Interactions between distant locations require routing, and a fault-tolerant compiler may add encoded operations, ancillas, syndrome extraction, measurements, resets and decoding.</p><p>Placement quality therefore cannot be judged from layout distance or a learned reward alone.</p>
 <p>The source describes QAgent as assigning one reinforcement-learning agent to each logical qubit and jointly learning placement policies. Its Breakthrough Return Bonus (BRB) dynamically rewards meaningful layout improvements to address sparse rewards and credit assignment.</p><p>The description does not expose the state/action representation, conflict resolution, joint-action feasibility, reward terms, training curriculum or integration with routing and decoding.</p>
 <p>The first gate is legal compilation. Verify one-to-one or otherwise permitted assignments, collision handling, coupling-graph constraints, required interactions, ancilla and code-distance requirements, routing, scheduling, measurement/reset and decoder compatibility.</p><p>Compare the routed circuit and logical behavior with an independent compiler/reference; report invalid, repaired, unroutable and timeout cases separately. A placement can score well before routing and become infeasible or expensive afterward.</p>
 <p>The second gate is objective definition. “Execution cost” should state whether it includes SWAPs, two-qubit gates, depth, idle time, measurement, calibration, classical control, decoding, retries and compiler time.</p><p>“Success rate” should identify physical versus logical success, noise and error model, code, decoder, circuit duration and trial count. Hold coupling graph, gate errors, code, decoder, circuit, route policy and evaluation budget constant across baselines.</p>
 <p>The source reports up to 53.9% lower execution cost, improved circuit success rates and an ablation identifying BRB as important for stable training and policy optimization. It does not provide absolute cost, success definition, routed-gate distribution, logical-error rate, training/inference cost, per-circuit results, topology/noise matrix or independent execution validation.</p><p>Test unseen circuits, topologies, code distances, noise correlations and scale, and report seed variation and invalid/repair rates.</p>
 <p>The evidence supports workload-aware multi-agent qubit placement, not demonstrated fault-tolerant execution improvement or universal 53.9% end-to-end benefit.</p>
-<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>Compare the result and the effort required to obtain it</h2>
+<div class="rs-sh"><h2 class="rs-h2">Compare the result and the effort required to obtain it</h2></div>
 <p>Use the same problem instances, objective definitions, constraints, and total resource budget. Include preprocessing, training, repeated runs, and final validation. Report solution quality alongside invalid outcomes, variation across runs, memory, and elapsed time.</p>
 <p>Separate improvements due to the search procedure from changes in representation or cost model where possible. Test unfamiliar and larger instances. A transferable conclusion explains which structure the search exploits and when the benefit exceeds its own added work.</p>
-<p class="lm-k h-label">Compare the results carefully</p><h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="route"></span>How to compare these papers’ results fairly</h2>
+<p class="rs-k">Compare the results carefully</p><div class="rs-sh"><h2 class="rs-h2">How to compare these papers’ results fairly</h2></div>
 <p>First identify the inputs and required output quality. Then identify the limited resource: time, memory, communication, energy, circuit area, or correctness coverage.</p><p>Ask which part of the method reduces that cost and which new cost it adds. Compare numbers only when the experiments hold these conditions sufficiently similar.</p>
 <p>A conference description may explain the proposal while omitting the full experiment. An author preprint link may have been coded from its abstract. The source classification does not by itself establish that every table was read. Missing locations remain visible below.</p>
-<p class="lm-k h-label">Complete captured evidence</p><h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="file-text"></span>Every paper in this subtheme, with what its source shows</h2>
+<p class="rs-k">Complete captured evidence</p><div class="rs-sh"><h2 class="rs-h2">Every paper in this subtheme, <i>with what its source shows</i></h2></div>
 <p>These are evidence records, not substitutes for the explanations above. Each record preserves its problem, proposed method, measurements, comparison conditions, and source limits. A populated record does not establish that its mechanism has been fully explained or independently verified.</p>
 <p><span id="paper-dac-2026-research1292"></span></p>
 <h3>Impart: Integration of Memetic Operations into Multi-Level Framework for Large-k-Way Hypergraph Partitioning</h3>
 <p>DAC 2026 · Record: <code>dac-2026-research1292</code></p>
 <p><a href="#explanation-dac-2026-research1292">Read the step-by-step explanation</a></p>
 <p><strong>Updated source-backed reading card</strong></p>
-<div class="worked"><p class="lm-k">Worked example</p><p>Reviewed 2026-09-08. Deepens the existing Impart treatment into a paper-level reading; separates integrated multilevel memetic recombination/mutation from objective definition, balance validity, cut quality, memory, runtime, random variation and downstream partitioning benefit, preserves the qualitative large-k claims, and makes total search-budget comparisons explicit.</p></div>
+<p>Reviewed 2026-09-08. Deepens the existing Impart treatment into a paper-level reading; separates integrated multilevel memetic recombination/mutation from objective definition, balance validity, cut quality, memory, runtime, random variation and downstream partitioning benefit, preserves the qualitative large-k claims, and makes total search-budget comparisons explicit.</p>
 <p>This editorial correction updates the current reading view and connected dossiers, not the historical adjudication or scientific acceptance status. The original captured fields are preserved below.</p>
 <p><a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/data/editorial-paper-corrections-v1.json">Correction register</a></p>
 <p><strong>Problem:</strong></p>
@@ -147,7 +140,7 @@
 <p>Evidence tier: Primary captured DAC official description plus existing chapter level conceptual discussion; no full paper extraction, partition trace, benchmark table or independent review. This is the stored source classification; the location and limits below determine what was actually read.</p>
 <p><a href="https://63dac.conference-program.com/?post_type=page&amp;p=16&amp;id=RESEARCH1292&amp;sess=sess129">Open the recorded source</a></p>
 <p>DAC 2026 official description; existing chapter-level Impart discussion; captured Problem, Mechanism / artifact, Workload, Hardware, Baseline, Measurements and Limits fields; no manuscript pages or reproduced partitioning run.</p>
-<details markdown="1">
+<details class="ck-fold" markdown="1">
 <summary>Original captured fields — superseded for this reading card</summary>
 
 ** page source tier:** medium_official_description
@@ -184,7 +177,7 @@ Improved local-optima escape claimed qualitatively
 <p>DAC 2026 · Record: <code>dac-2026-research1052</code></p>
 <p><a href="#explanation-dac-2026-research1052">Read the step-by-step explanation</a></p>
 <p><strong>Updated source-backed reading card</strong></p>
-<div class="worked"><p class="lm-k">Worked example</p><p>Reviewed 2026-09-08. Deepens the existing quantum-template-matching treatment into a paper-level reading; separates hypergraph locality and matcher speed from circuit equivalence, replacement quality, hardware-aware compilation and end-to-end execution benefit, and preserves the 11–606x and same-quality claims.</p></div>
+<p>Reviewed 2026-09-08. Deepens the existing quantum-template-matching treatment into a paper-level reading; separates hypergraph locality and matcher speed from circuit equivalence, replacement quality, hardware-aware compilation and end-to-end execution benefit, and preserves the 11–606x and same-quality claims.</p>
 <p>This editorial correction updates the current reading view and connected dossiers, not the historical adjudication or scientific acceptance status. The original captured fields are preserved below.</p>
 <p><a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/data/editorial-paper-corrections-v1.json">Correction register</a></p>
 <p><strong>Problem:</strong></p>
@@ -209,7 +202,7 @@ Improved local-optima escape claimed qualitatively
 <p>Evidence tier: Primary captured official DAC description plus existing authored chapter level explanation; no full paper extraction, executable artifact, equivalence trace or hardware aware compilation validation. This is the stored source classification; the location and limits below determine what was actually read.</p>
 <p><a href="https://63dac.conference-program.com/?post_type=page&amp;p=16&amp;id=RESEARCH1052&amp;sess=sess133">Open the recorded source</a></p>
 <p>DAC 2026 official description; existing chapter-level quantum template-matching discussion; captured Problem, Mechanism / artifact, Workload, Hardware, Baseline, Measurements and Limits fields; no manuscript pages or reproduced matcher/equivalence evaluation.</p>
-<details markdown="1">
+<details class="ck-fold" markdown="1">
 <summary>Original captured fields — superseded for this reading card</summary>
 
 ** page source tier:** medium_official_description
@@ -242,7 +235,7 @@ scaling with circuit size
 <p>DAC 2026 · Record: <code>dac-2026-research1312</code></p>
 <p><a href="#explanation-dac-2026-research1312">Read the step-by-step explanation</a></p>
 <p><strong>Updated source-backed reading card</strong></p>
-<div class="worked"><p class="lm-k">Worked example</p><p>Reviewed 2026-09-09. Deepens the Agent-Per-Qubit treatment into a paper-level reading; separates multi-agent placement, QAgent's Breakthrough Return Bonus and workload-aware reward shaping from legal mapping, routing, fault-tolerant code behavior, noise modeling and real execution success, while preserving the up-to-53.9% execution-cost and improved-success-rate claims.</p></div>
+<p>Reviewed 2026-09-09. Deepens the Agent-Per-Qubit treatment into a paper-level reading; separates multi-agent placement, QAgent's Breakthrough Return Bonus and workload-aware reward shaping from legal mapping, routing, fault-tolerant code behavior, noise modeling and real execution success, while preserving the up-to-53.9% execution-cost and improved-success-rate claims.</p>
 <p>This editorial correction updates the current reading view and connected dossiers, not the historical adjudication or scientific acceptance status. The original captured fields are preserved below.</p>
 <p><a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/data/editorial-paper-corrections-v1.json">Correction register</a></p>
 <p><strong>Problem:</strong></p>
@@ -258,7 +251,7 @@ scaling with circuit size
 <p>Heuristic or search-based placement and routing</p>
 <p>Same circuits, coupling graph, fault-tolerant code, routing/compiler, noise model, objective, random seeds, training/inference budget and final validation are unspecified</p>
 <p><strong>Reported measurements:</strong></p>
-<p>The source reports up to 53.9% reduction in execution cost, improved circuit success rates and an ablation identifying BRB as important for stable training and policy optimization; it does not define execution cost or success rate, or report absolute values, routing overhead, gate/depth distributions, logical-error rate, decoder cost, training time, inference latency or per-circuit results.</p>
+<p>The source reports up to 53.9% reduction in execution cost, improved circuit success rates and an ablation identifying BRB as important for stable training and policy optimization; it does not define execution cost or success rate, or report absolute values, routing overhead, gate/depth distributions, logical-error rate, decoder cost, training time, inference latency<span class="ck-gloss"> (the wait for one result)</span> or per-circuit results.</p>
 <p><strong>Limits on the conclusion:</strong></p>
 <p>A placement is valid only if every logical qubit is assigned consistently, physical collisions are prevented, required interactions can be routed, ancilla/code constraints are respected and the resulting circuit preserves the intended operation. Validate placement, routing, scheduling, syndrome/decoder compatibility and logical equivalence rather than treating a high RL reward as a legal compilation.</p>
 <p>Execution cost and circuit success are different objectives. Define whether cost includes added SWAPs, two-qubit gates, depth, idle time, calibration, measurement, decoding and classical control; define success as physical or logical fidelity under a stated noise and fault-tolerant model.</p><p>Hold coupling, gate errors, code, decoder, circuits and route/retry policy constant.</p>
@@ -267,7 +260,7 @@ scaling with circuit size
 <p>Evidence tier: Primary captured official DAC description plus existing authored optimization discussion; no full paper extraction, reproduced rl training, fault tolerant execution validation or hardware result. This is the stored source classification; the location and limits below determine what was actually read.</p>
 <p><a href="https://63dac.conference-program.com/?post_type=page&amp;p=16&amp;id=RESEARCH1312">Open the recorded source</a></p>
 <p>DAC 2026 official description; existing optimization-and-search-methods editorial explanation; captured Problem, Mechanism / artifact, Workload, Hardware, Baseline, Measurements and Limits fields; no manuscript pages, circuit/topology matrix, route validation, noise trace or independent reproduction.</p>
-<details markdown="1">
+<details class="ck-fold" markdown="1">
 <summary>Original captured fields — superseded for this reading card</summary>
 
 ** page source tier:** medium_official_description
@@ -304,7 +297,7 @@ BRB identified as important in ablation
 <p>DAC 2026 · Record: <code>dac-2026-research068</code></p>
 <p><a href="#explanation-dac-2026-research068">Read the step-by-step explanation</a></p>
 <p><strong>Updated source-backed reading card</strong></p>
-<div class="worked"><p class="lm-k">Worked example</p><p>Reviewed 2026-09-09. Deepens the DiffPart treatment into a paper-level reading; separates differentiable partition learning and thread-aware cost modeling from discrete scheduling correctness, simulator semantics, reproducibility of the wide speedup range and end-to-end RTL verification throughput, while preserving the 1.22x–55.25x source claim with its conditions unresolved.</p></div>
+<p>Reviewed 2026-09-09. Deepens the DiffPart treatment into a paper-level reading; separates differentiable partition learning and thread-aware cost modeling from discrete scheduling correctness, simulator semantics, reproducibility of the wide speedup range and end-to-end RTL verification throughput, while preserving the 1.22x–55.25x source claim with its conditions unresolved.</p>
 <p>This editorial correction updates the current reading view and connected dossiers, not the historical adjudication or scientific acceptance status. The original captured fields are preserved below.</p>
 <p><a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/data/editorial-paper-corrections-v1.json">Correction register</a></p>
 <p><strong>Problem:</strong></p>
@@ -328,7 +321,7 @@ BRB identified as important in ablation
 <p>Evidence tier: Primary captured official DAC description plus existing authored optimization discussion; no full paper extraction, reproduced diffpart training/inference, simulator trace or independent correctness validation. This is the stored source classification; the location and limits below determine what was actually read.</p>
 <p><a href="https://63dac.conference-program.com/?post_type=page&amp;p=16&amp;id=RESEARCH068">Open the recorded source</a></p>
 <p>DAC 2026 official description, first and final paragraphs; existing optimization-and-search framing; captured Problem, Mechanism / artifact, Workload, Hardware, Baseline, Measurements and Limits fields; no full manuscript, partition trace, simulator configuration or reproduced RTL run.</p>
-<details markdown="1">
+<details class="ck-fold" markdown="1">
 <summary>Original captured fields — superseded for this reading card</summary>
 
 ** page source tier:** medium_official_description
@@ -357,7 +350,7 @@ BRB identified as important in ablation
 <p>DAC 2026 · Record: <code>dac-2026-research1042</code></p>
 <p><a href="#explanation-dac-2026-research1042">Read the step-by-step explanation</a></p>
 <p><strong>Updated source-backed reading card</strong></p>
-<div class="worked"><p class="lm-k">Worked example</p><p>Reviewed 2026-09-09. Deepens the Gearls treatment into a paper-level reading; separates logic-cone extraction, cut weighting and Policy Similarity Metric state representation from timing/policy transfer validity, PPA tradeoffs, synthesis conditions and zero-shot boundaries, while preserving the 31.7% WNS, 32.5% TNS and 13%-runtime source claims.</p></div>
+<p>Reviewed 2026-09-09. Deepens the Gearls treatment into a paper-level reading; separates logic-cone extraction, cut weighting and Policy Similarity Metric state representation from timing/policy transfer validity, PPA tradeoffs, synthesis conditions and zero-shot boundaries, while preserving the 31.7% WNS, 32.5% TNS and 13%-runtime source claims.</p>
 <p>This editorial correction updates the current reading view and connected dossiers, not the historical adjudication or scientific acceptance status. The original captured fields are preserved below.</p>
 <p><a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/data/editorial-paper-corrections-v1.json">Correction register</a></p>
 <p><strong>Problem:</strong></p>
@@ -383,7 +376,7 @@ BRB identified as important in ablation
 <p>Evidence tier: Primary captured official DAC description plus existing authored logic optimization/rl explanation; no full paper extraction, reproduced policy transfer, equivalence run or cross technology validation. This is the stored source classification; the location and limits below determine what was actually read.</p>
 <p><a href="https://63dac.conference-program.com/?post_type=page&amp;p=16&amp;id=RESEARCH1042">Open the recorded source</a></p>
 <p>DAC 2026 official description, first and final paragraphs; existing optimization-and-search editorial explanation; captured Problem, Mechanism / artifact, Workload, Hardware, Baseline, Measurements and Limits fields; no full manuscript, circuit table, mapped-netlist trace or independent reproduction.</p>
-<details markdown="1">
+<details class="ck-fold" markdown="1">
 <summary>Original captured fields — superseded for this reading card</summary>
 
 ** page source tier:** high_official_description
@@ -419,7 +412,7 @@ BRB identified as important in ablation
 <p><strong>Mechanism / artifact:</strong></p>
 <p>Bayesian system exploration, critical-cell and Pareto-normal guidance, cell fusion/recharacterization and neural-assisted differential evolution.</p>
 <p><strong>Workload — the work tested:</strong></p>
-<p>8x8 systolic MAC array; compressor-tree and carry-propagate-adder alternatives.</p>
+<p>8x8 systolic MAC<span class="ck-gloss"> (multiply-accumulate: multiply two numbers and add the result to a sum)</span> array; compressor-tree and carry-propagate-adder alternatives.</p>
 <p><strong>Hardware and manufacturing assumptions:</strong></p>
 <p>Customized ASAP7; Genus/Innovus implementation with cell characterization and circuit simulation. Not fabricated-silicon measurement.</p>
 <p><strong>Baseline — the comparison method:</strong></p>
@@ -440,15 +433,15 @@ BRB identified as important in ablation
 <p><strong>Location:</strong> III-A-D</p>
 <p><strong>Fields:</strong> baselines</p>
 <p>limits</p>
-<div class="worked"><p class="lm-k">Worked example</p><p><strong>Location:</strong> IV-A/B; Table III; Figures 9-10</p></div>
+<p><strong>Location:</strong> IV-A/B; Table III; Figures 9-10</p>
 <h4>Additional source assessment</h4>
-<div class="worked"><p class="lm-k">Worked example</p><p>This separately recorded check is dated 2026-09-06. It supplements the original record above and retains its own scope and uncertainty.</p></div>
+<p>This separately recorded check is dated 2026-09-06. It supplements the original record above and retains its own scope and uncertainty.</p>
 <p><a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/iccad/data/orthrus-primary-recovery-v1.json">Assessment record</a></p>
 <p><a href="https://arxiv.org/html/2509.13029v1">Assessed source</a></p>
 <p><strong>Extraction scope</strong></p>
-<div class="worked"><p class="lm-k">Worked example</p><p>Sections II-B, III, IV-A/B; PDF page 8 Figures 9-11 and Table III visually checked against versioned source.</p></div>
+<p>Sections II-B, III, IV-A/B; PDF page 8 Figures 9-11 and Table III visually checked against versioned source.</p>
 <p><strong>Conditions</strong></p>
-<div class="worked"><p class="lm-k">Worked example</p><p><strong>Scope:</strong> 8x8 systolic MAC array; customized ASAP7; EDA evaluation, not measured fabricated silicon</p></div>
+<p><strong>Scope:</strong> 8x8 systolic MAC array; customized ASAP7; EDA<span class="ck-gloss"> (electronic design automation: the software that designs and checks chips)</span> evaluation, not measured fabricated silicon</p>
 <p><strong>Tools:</strong> Genus 19.12-s121_1</p>
 <p>Innovus 21.14-s109_1</p>
 <p>Liberate 19.2.1.215</p>
@@ -478,18 +471,18 @@ BRB identified as important in ablation
 <h3>Automated Design Space Exploration in High-Level Physical Synthesis</h3>
 <p>ICCAD 2025 · Record: <code>iccad-2025-109</code></p>
 <p><strong>Problem:</strong></p>
-<p>Multi-die FPGA timing closure depends on interacting physical-synthesis parameters.</p>
+<p>Multi-die FPGA<span class="ck-gloss"> (a chip whose circuits can be rewired after it is made)</span> timing closure depends on interacting physical-synthesis parameters.</p>
 <p><strong>Mechanism / artifact:</strong></p>
 <p>Implementation-feedback-guided search over device abstraction, ILP floorplanning, routing capacity and pipeline choices.</p>
 <p><strong>Workload — the work tested:</strong></p>
-<div class="worked"><p class="lm-k">Worked example</p><p>Six designs, seven design/device cases: Sextans, Callipepla, MM 10x13 on two devices, Serpens, NTT and GPT-2 Medium.</p></div>
+<p>Six designs, seven design/device cases: Sextans, Callipepla, MM 10x13 on two devices, Serpens, NTT and GPT-2 Medium.</p>
 <p><strong>Hardware and manufacturing assumptions:</strong></p>
-<div class="worked"><p class="lm-k">Worked example</p><p>Alveo U55C/U280/U250 and Versal VHK158; EPYC 7742 host with 256GB DDR4-3200; up to four concurrent Vitis jobs.</p></div>
+<p>Alveo U55C/U280/U250 and Versal VHK158; EPYC 7742 host with 256GB DDR4-3200; up to four concurrent Vitis jobs.</p>
 <p><strong>Baseline — the comparison method:</strong></p>
 <p>AMD Vitis -O3 Explore with target-frequency backoff</p>
-<div class="worked"><p class="lm-k">Worked example</p><p>AutoBridge with 70-90% global resource limits</p></div>
+<p>AutoBridge with 70-90% global resource limits</p>
 <p><strong>Reported measurements:</strong></p>
-<p>Reported mean Fmax: 311.06 MHz DSE versus 128.48 MHz Vitis/Vivado and 186.21 MHz AutoBridge; headline ratio remains withheld pending matched-budget and baseline-failure review</p>
+<p>Reported mean Fmax: 311.06 MHz DSE<span class="ck-gloss"> (design-space exploration: searching many design options for good ones)</span> versus 128.48 MHz Vitis/Vivado and 186.21 MHz AutoBridge; headline ratio remains withheld pending matched-budget and baseline-failure review</p>
 <p><strong>Limits on the conclusion:</strong></p>
 <p>Fmax is not throughput or faster synthesis. AutoBridge fails one case; 1.67x matches unequal-population means, versus 1.65x on shared cases. Actions and time are cumulative, not independent ablations. No equal-budget superiority or independent acceptance.</p>
 <p><strong>Source and location</strong></p>
@@ -505,36 +498,36 @@ BRB identified as important in ablation
 <p><strong>Fields:</strong> limits</p>
 <p><strong>Location:</strong> Table V, PDF page 8; supplementary denominator and runtime analysis</p>
 <h4>Additional source assessment</h4>
-<div class="worked"><p class="lm-k">Worked example</p><p>This separately recorded check is dated 2026-09-06. It supplements the original record above and retains its own scope and uncertainty.</p></div>
+<p>This separately recorded check is dated 2026-09-06. It supplements the original record above and retains its own scope and uncertainty.</p>
 <p><a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/iccad/data/hlps-dse-primary-recovery-v1.json">Assessment record</a></p>
 <p><a href="https://jasonlau.io/research-papers/10.1109-ICCAD66269.2025.11240757.pdf">Assessed source</a></p>
 <p><strong>Extraction scope</strong></p>
 <p>PDF first-page identity; IV framework; VII-C/D overall timing and execution time; Table V page 8 selected columns visually verified.</p>
 <p><strong>Conditions</strong></p>
-<p><strong>Scope:</strong> Six accelerator designs across four multi-die FPGA architectures, not necessarily a complete Cartesian product.</p>
+<p><strong>Scope:</strong> Six accelerator<span class="ck-gloss"> (a chip or block built to do one kind of work fast)</span> designs across four multi-die FPGA architectures, not necessarily a complete Cartesian product.</p>
 <p><strong>Devices:</strong> Alveo U55C</p>
 <p>Alveo U280</p>
 <p>Alveo U250</p>
 <p>Versal VHK158</p>
-<div class="worked"><p class="lm-k">Worked example</p><p><strong>Host:</strong> AMD EPYC 7742; 256GB DDR4-3200</p></div>
+<p><strong>Host:</strong> AMD EPYC 7742; 256GB DDR4-3200</p>
 <p><strong>Baselines:</strong> AMD Vitis, -O3 Explore, target reduced from 300 MHz in 15 MHz steps until PnR succeeds</p>
-<div class="worked"><p class="lm-k">Worked example</p><p>AutoBridge, global resource limits 70-90%</p></div>
+<p>AutoBridge, global resource limits 70-90%</p>
 <p><strong>Parallelism:</strong> Up to four concurrent Vitis jobs per batch; search dependencies limit actual parallelism.</p>
 <p><strong>Headline metric status</strong></p>
 <p>withheld_pending_table_and_budget_review</p>
 <p><strong>Independent review status</strong></p>
 <p>pending</p>
-<p class="lm-k h-label">What remains to establish</p><h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>What is still unproven here</h2>
+<p class="rs-k">What remains to establish</p><div class="rs-sh"><h2 class="rs-h2">What is still unproven here</h2></div>
 <p>Resolve unspecified workloads, comparison methods, resource budgets, and source locations before generalizing a reported gain. Multiple papers in this selected sample permit comparison of mechanisms, but do not by themselves establish recurrence across years or a long-term trend.</p>
-<p><a href="../guide/expanded-taxonomy-v1.html">All subthemes</a> · <a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/reports/directions/README.md">Research directions</a></p><p class="meta">Written as <a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/reports/observed-subthemes/optimization-and-search-methods.md">reports/observed-subthemes/optimization-and-search-methods.md</a> in the course repository.</p>
-      </article>
-      <nav class="pager" aria-label="Previous and next"><a class="prev" href="rf-and-mixed-signal-design.html"><span class="pg-k">← Previous</span><span class="pg-t">RF and mixed signal design</span></a><a class="map" href="../subthemes.html"><span class="pg-k">Back to</span><span class="pg-t">Subthemes</span></a><a class="next" href="graph-and-hypergraph-optimization.html"><span class="pg-k">Next →</span><span class="pg-t">Graph and hypergraph optimization</span></a></nav>
-    </section>
-  </main>
-  <footer class="course-foot">
-    <p>Built from 582 paper records coded from ISCA 2026, DAC 2026 and ICCAD 2025 (ICCAD 2026 papers were not yet public). Most records come from official program descriptions; see “How deep the reading went”. The papers belong to their authors.</p>
-    <p class="foot-links"><a href="https://github.com/mehtama1234/course-concept-library">All courses</a><a href="../index.html">This course</a><a href="../course-map.html">Course map</a><a href="../presentation/index.html">Slides</a><a href="../video/index.html">Video</a><a href="../share/index.html">Share</a></p>
-  </footer>
-  <script src="../assets/course-data.js"></script><script src="../assets/icons.js"></script><script src="../assets/icons-extra.js"></script><script src="../assets/icons-course.js"></script><script src="../assets/art.js"></script><script src="../assets/course-art.js"></script><script src="../assets/charts.js"></script><script src="../assets/course-charts.js"></script><script src="../assets/course-site.js"></script>
+<p><a href="../guide/expanded-taxonomy-v1.html">All subthemes</a> · <a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/reports/directions/README.md">Research directions</a></p><p class="mut">Written as <a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/reports/observed-subthemes/optimization-and-search-methods.md">reports/observed-subthemes/optimization-and-search-methods.md</a> in the course repository.</p>
+
+
+</div>
+</main>
+<footer class="rs-close"><p class="eb">This page, in one line</p><p class="rs-h2" style="max-width:26em">Papers improve the search a tool runs, and compare at the same time budget.</p><div class="ck-next"><a href="rf-and-mixed-signal-design.html"><span class="rs-k" style="color:var(--peach)">Previous</span><b>RF and mixed signal design</b></a><a class="r" href="graph-and-hypergraph-optimization.html"><span class="rs-k" style="color:var(--peach)">Next</span><b>Graph and hypergraph optimization</b></a></div><div class="rs-btns"><a class="ck-btn pri" href="../subthemes.html">Back to Subthemes</a></div><p class="rs-src">Built from 582 paper records coded from ISCA 2026, DAC 2026 and ICCAD 2025 (ICCAD 2026 papers were not yet public). Most records come from official program descriptions; see “How deep the reading went”. The papers belong to their authors.</p><p class="ck-footlinks"><a href="https://github.com/mehtama1234/semiconductor-conferences">Source on GitHub</a><a href="../index.html">The big picture</a><a href="../course-map.html">Every page</a><a href="../presentation/index.html">Slides</a><a href="../video/index.html">Video</a><a href="../share/index.html">Share</a></p></footer>
+</div>
+<script src="../kit/charts.js"></script>
+<script src="../kit/course.js"></script>
+<script src="../kit/site.js"></script>
 </body>
 </html>

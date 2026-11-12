@@ -420,4 +420,140 @@ Parallel SAT workers can explore different branching orders, but a learned claus
 
 Reproducible execution means a run can be repeated under stated settings; it does not prove that the SAT result is correct. Independently checkable proof generation requires a declared proof format, a checker, checked instances and handling for failed or incomplete proof output.
 
-The captured description does not expose the benchmark filter, worker and core configuration, timeout, memory, clause-sharing traffic, proof format, checker,
+The captured description does not expose the benchmark filter, worker and core configuration, timeout, memory, clause-sharing traffic, proof format, checker, per-instance outcomes or speedup reference. The reported solved-count, PAR2 and 4.7× figures therefore remain separate, condition-bound results rather than general parallel-solver scaling.
+
+**Source and location**
+
+Evidence tier: Primary captured official DAC description plus existing chapter level prs discussion; no full paper extraction, proof checking reproduction or solver benchmark validation. This is the stored source classification; the location and limits below determine what was actually read.
+
+[Open the recorded source](https://63dac.conference-program.com/?post_type=page&p=16&id=RESEARCH284)
+
+DAC 2026 official description; captured Problem, Mechanism / artifact, Workload, Hardware, Baseline, Measurements and Limits fields; record RESEARCH284; no manuscript pages.
+
+<details markdown="1">
+<summary>Original captured fields — superseded for this reading card</summary>
+
+** page source tier:** medium_official_description
+
+**Baselines:** serial SAT solver
+
+portfolio SAT solving
+
+**Evidence locators:** DAC 2026 official description
+
+**Evidence url:** https://63dac.conference-program.com/?post_type=page&p=16&id=RESEARCH284
+
+**Hardware or process assumptions:** Multicore or accelerator SAT execution; synchronization and memory assumptions are unspecified.
+
+**Limits:** No solve rate, runtime, memory, scaling, or benchmark results are reported.
+
+Parallel coordination can add overhead or affect reproducibility.
+
+Official description only; solver-benchmark validation is required.
+
+**Method or artifact:** Parallel SAT-solving framework.
+
+**Metrics:** SAT-solving efficiency is claimed qualitatively
+
+**Problem:** SAT solving requires scalable parallel search and clause coordination.
+
+**Workload or benchmark:** SAT instances; solver configuration, hardware, and benchmark suite are unspecified.
+
+</details>
+
+<span id="paper-dac-2026-research896"></span>
+
+### Parallelizing Complementary Approximate Reachability
+
+DAC 2026 · Record: `dac-2026-research896`
+
+[Read the step-by-step explanation](#explanation-dac-2026-research896)
+
+**Updated source-backed reading card**
+
+Reviewed 2026-09-08. Deepens the existing reachability treatment into a paper-level reading; distinguishes over- and under-approximation, task parallelism, conclusion preservation and the missing soundness, precision and termination evidence.
+
+This editorial correction updates the current reading view and connected dossiers, not the historical adjudication or scientific acceptance status. The original captured fields are preserved below.
+
+[Correction register](../../data/editorial-paper-corrections-v1.json)
+
+**Problem:**
+
+Reachability analysis can be expensive for large transition systems, and complementary approximate analyses may expose parallel work.
+
+**Mechanism / artifact:**
+
+Parallelizing complementary approximate-reachability algorithm with fine-grained tasks and a distributed concurrent task repository; approximation direction, task validity, refinement, termination and proof-preservation rules are unspecified.
+
+**Workload — the work tested:**
+
+Transition systems and formal reachability tasks; abstraction, property type, solver, benchmark suite, state representation and limits are unspecified.
+
+**Hardware and manufacturing assumptions:**
+
+Multicore or accelerator formal-analysis platform with concurrent workers; core count, memory, synchronization, task-transfer and failure assumptions are unspecified.
+
+**Baseline — the comparison method:**
+
+Serial approximate reachability
+
+Exact reachability
+
+Approximation direction, property, hardware, task and termination conditions are unspecified
+
+**Reported measurements:**
+
+Reachability-analysis efficiency is claimed qualitatively; no soundness, precision, runtime, memory, convergence, termination or benchmark result is reported.
+
+**Limits on the conclusion:**
+
+Reachability asks which states can follow from allowed initial states through legal transitions. An over-approximation may contain extra states and can support a safety conclusion only when it excludes every bad state; an under-approximation contains only some states and can support a concrete counterexample when it finds a valid bad state. The direction changes what a result means.
+
+Fine-grained task distribution can reduce centralized scheduling work, but each task needs a defined state-set representation, validity rule, dependency relation and merge operation. Concurrent updates require a termination condition that detects when no unprocessed work can change the conclusion. Approximate intermediate sets do not automatically make a final proof unsound, but the preservation argument must be stated.
+
+The official description reports no approximation rule, soundness or precision bound, task-validity check, termination protocol, runtime, memory, convergence or benchmark result. It supports a parallel analysis direction, not demonstrated faster or trustworthy reachability conclusions.
+
+**Source and location**
+
+Evidence tier: Primary captured official DAC description plus existing chapter level reachability discussion; no full paper extraction, formal soundness reproduction or benchmark validation. This is the stored source classification; the location and limits below determine what was actually read.
+
+[Open the recorded source](https://63dac.conference-program.com/?post_type=page&p=16&id=RESEARCH896)
+
+DAC 2026 official description; captured Problem, Mechanism / artifact, Workload, Hardware, Baseline, Measurements and Limits fields; record RESEARCH896; no manuscript pages.
+
+<details markdown="1">
+<summary>Original captured fields — superseded for this reading card</summary>
+
+** page source tier:** medium_official_description
+
+**Baselines:** serial approximate reachability
+
+exact reachability
+
+**Evidence locators:** DAC 2026 official description
+
+**Evidence url:** https://63dac.conference-program.com/?post_type=page&p=16&id=RESEARCH896
+
+**Hardware or process assumptions:** Multicore or accelerator formal-analysis platform; synchronization assumptions are unspecified.
+
+**Limits:** No soundness, precision, runtime, memory, convergence, or benchmark results are reported.
+
+Approximation may miss relevant states.
+
+Official description only; formal and benchmark validation is required.
+
+**Method or artifact:** Parallel complementary approximate-reachability algorithm.
+
+**Metrics:** Reachability-analysis efficiency is claimed qualitatively
+
+**Problem:** Approximate reachability analysis can be computationally expensive for large transition systems.
+
+**Workload or benchmark:** Transition systems and formal reachability tasks; abstraction, solver, and hardware are unspecified.
+
+</details>
+
+## What remains to establish
+
+Resolve unspecified workloads, comparison methods, resource budgets, and source locations before generalizing a reported gain. Multiple papers in this selected sample permit comparison of mechanisms, but do not by themselves establish recurrence across years or a long-term trend.
+
+[All subthemes](../expanded-taxonomy-v1.md) · [Research directions](../directions/README.md)

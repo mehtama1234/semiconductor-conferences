@@ -20,7 +20,7 @@ HOUSE = HERE / "house"
 ALL_COURSES_URL = "https://github.com/mehtama1234/course-concept-library"  # the parent swaps this for the hub's address
 CSS = ["base.css", "experience.css", "theme-atlas.css", "styles.css", "charts.css", "course.css"]
 JS = ["course-data.js", "icons.js", "icons-extra.js", "icons-course.js", "art.js", "course-art.js", "charts.js", "course-charts.js", "course-site.js"]
-MARKER = 'data-house="atlas"'
+MARKER = 'data-kit="boards"'
 SERVED = {".html", ".css", ".js", ".json", ".svg", ".png", ".jpg", ".jpeg", ".webp", ".pdf", ".mp4", ".woff2", ".txt", ".csv", ".md", ".vtt"}
 
 
@@ -33,7 +33,7 @@ def ic(name: str) -> str:
 
 
 # ---------------------------------------------------------------- the readability pass applied to every Markdown page
-CALC = re.compile(r"(\d[\d.,]*\s*(?:[×x÷*/+−-]|=|percent|%)\s*\d)|(\d\s*(?:times|divided by)\s*\d)")
+CALC = re.compile(r"(\d[\d.,]*\s*(?:[×÷*]|\s[/+−-]\s|=|percent|%)\s*\d)|(\d\s*(?:times|divided by)\s*\d)")
 EXAMPLE_START = re.compile(r"^(Suppose|For example|For an illustrative|Consider|Imagine|As an illustration|In an illustrative|A worked example)", re.I)
 SENT = re.compile(r"(?<=[.?!])\s+(?=[A-Z“\"(\[])")
 
@@ -53,6 +53,8 @@ def digest(html_text: str) -> str:
         sents = SENT.split(inner) if len(txt.split()) > 45 and "<" not in re.sub(r"</?(a|b|strong|em|i)( [^>]*)?>", "", inner) else [inner]
         chunks = [" ".join(sents[i:i + 2]) for i in range(0, len(sents), 2)] if len(sents) > 2 else [inner]
         new = "".join(f"<p>{c}</p>" for c in chunks)
+        if not is_calc and len(chunks) == 1:
+            continue          # nothing to change: skip the costly re-parse
         if is_calc:
             prev = p.find_previous_sibling()
             if prev is not None and prev.name == "div" and "worked" in (prev.get("class") or []):
@@ -96,54 +98,9 @@ class Kit:
         return best
 
     def shell(self, rel: str, title: str, description: str, body: str, og_extra: str = "", head_extra: str = "", body_class: str = "") -> str:
-        C, b = self.C, self.base(rel)
-        url = C.SITE_URL + rel.removesuffix("index.html")
-        css = "".join(f'<link rel="stylesheet" href="{b}assets/{c}" />\n  ' for c in CSS)
-        js = "".join(f'<script src="{b}assets/{j}"></script>' for j in JS)
-        badges = "".join(f'<span class="badge">{esc(x)}</span>' for x in C.BADGES)
-        desc = esc(re.sub(r"<[^>]+>", "", description))
-        return f"""<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="theme-color" content="#F3ECE1" />
-  <title>{esc(title)}</title>
-  <meta name="description" content="{desc}" />
-  <meta property="og:type" content="website" />
-  <meta property="og:site_name" content="{esc(C.NAME)}" />
-  <meta property="og:title" content="{esc(title)}" />
-  <meta property="og:description" content="{desc}" />
-  <meta property="og:url" content="{url}" />
-  <meta property="og:image" content="{C.SITE_URL}presentation/slides/01-cover.jpg" />
-  <meta property="og:image:width" content="1920" />
-  <meta property="og:image:height" content="1080" />
-  <meta property="og:image:alt" content="{esc(C.OG_ALT)}" />
-  <meta name="twitter:card" content="summary_large_image" />
-  <link rel="canonical" href="{url}" />
-  {og_extra}<link rel="icon" href="{b}assets/icon.svg" type="image/svg+xml" />
-  {css}{head_extra}
-</head>
-<body class="course-site {body_class}" {MARKER}>
-  <aside class="public-demo-banner" aria-label="About this course">{C.BANNER}</aside>
-  <a class="skip-link" href="#app">Skip to the page</a>
-  <header>
-    <a class="brand" href="{b}index.html"><span class="mark" aria-hidden="true">{esc(C.MARK)}</span> {esc(C.NAME)}</a>
-    <span class="header-status">{badges}</span>
-    <a class="header-link" href="{b}course-map.html">Course map</a>
-  </header>
-  {self.nav_html(rel, b)}
-  <main id="app" tabindex="-1">
-{body}
-  </main>
-  <footer class="course-foot">
-    <p>{C.SOURCE_LINE}</p>
-    <p class="foot-links"><a href="{ALL_COURSES_URL}">All courses</a><a href="{b}index.html">This course</a><a href="{b}course-map.html">Course map</a><a href="{b}presentation/index.html">Slides</a><a href="{b}video/index.html">Video</a><a href="{b}share/index.html">Share</a></p>
-  </footer>
-  {js}
-</body>
-</html>
-"""
+        """Every page body the generator writes is laid out on the board kit (see boards.py)."""
+        from course_story import boards
+        return boards.page(self, rel, title, description, body, og_extra=og_extra, head_extra=head_extra)
 
     def write(self, rel: str, title: str, description: str, body: str, **kw) -> None:
         p = self.site / rel
@@ -195,17 +152,13 @@ class Kit:
 
     # ---------------------------------------------------------------- assets
     def copy_assets(self):
-        a = self.site / "assets"
-        a.mkdir(parents=True, exist_ok=True)
-        for f in HOUSE.iterdir():
-            shutil.copyfile(f, a / f.name)
+        from course_story import boards
+        (self.site / "assets").mkdir(parents=True, exist_ok=True)
+        boards.install(self.site)
         self.write_data()
 
     def write_data(self):
         a = self.site / "assets"
-        data = self.C.course_data(self)
-        data.setdefault("charts", {}).update(self.extra_charts)
-        (a / "course-data.js").write_text("// Written by scripts/course_story at build time from the course's own analysis files.\nwindow.CourseData = " + json.dumps(data, ensure_ascii=False) + ";\n", encoding="utf-8")
         (a / "icon.svg").write_text(f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 192 192"><rect width="192" height="192" rx="42" fill="#9A4A22"/><text x="96" y="130" text-anchor="middle" font-family="Georgia,serif" font-size="{112 if len(self.C.MARK) < 3 else 80}" fill="#FBF6EE">{esc(self.C.MARK)}</text></svg>', encoding="utf-8")
 
     # ---------------------------------------------------------------- course notes written in Markdown
@@ -330,7 +283,10 @@ class Kit:
         story = set(C.STORY_PAGES)
         pages = sorted(p.relative_to(self.site).as_posix() for p in self.site.rglob("*.html"))
         pages = [p for p in pages if p not in story and not p.startswith(("presentation/index.html", "video/index.html", "share/index.html")) and not any(p.startswith(x) for x in C.SKIP_RESTYLE)]
-        raw = {p: (self.site / p).read_text(encoding="utf-8") for p in pages}
+        raw = {p: (self.site / p).read_text(encoding="utf-8", errors="replace") for p in pages}
+        if hasattr(C, "should_restyle"):  # archived source pages copied as evidence keep their original form
+            raw = {p: t for p, t in raw.items() if MARKER in t or C.should_restyle(p, t)}
+            pages = list(raw)
         for p, t in raw.items():
             m = re.search(r"<h1[^>]*>(.*?)</h1>", t, re.S)
             self.titles[p] = C.SHORT_TITLES.get(p) or (re.sub(r"<[^>]+>|\s+", " ", m.group(1)).strip() if m else p)
@@ -364,6 +320,8 @@ class Kit:
         self.term_cards(soup, main)
         # recolour inline colours inside the old content (SVG fills, style attributes)
         content = self.recolor(main.decode_contents())
+        if getattr(C, "DIGEST", False):
+            content = digest(content)
         b = self.base(rel)
         # breadcrumb and previous / next
         if sec:
@@ -593,4 +551,33 @@ class Kit:
                 shutil.copyfile(f, dst)
             files += 1
             total += dst.stat().st_size
+        self.fix_publish_links(out)
+        total = sum(f.stat().st_size for f in out.rglob("*") if f.is_file())
         return out, files, total
+
+    def fix_publish_links(self, out):
+        """publish/ leaves out scripts/, sources/, data/ and other files the host does not serve. A link to one of
+        them goes to the file on GitHub instead (a page under sources/ to its Markdown source); a link to a file
+        that does not exist anywhere loses its link and keeps its words."""
+        C = self.C
+        blob = f"https://github.com/mehtama1234/{C.REPO}/blob/{C.BRANCH}/"
+        for f in out.rglob("*.html"):
+            t = f.read_text(encoding="utf-8")
+            rel_dir = f.parent.relative_to(out)
+            def fix(m):
+                attr, href, frag = m.group(1), m.group(2), m.group(3) or ""
+                if not href or re.match(r"[a-z]+:", href) or href.startswith("//"):
+                    return m.group(0)
+                tgt = f.parent / href
+                if href.endswith("/"):
+                    tgt = tgt / "index.html"
+                if tgt.exists():
+                    return m.group(0)
+                repo_rel = os.path.normpath((rel_dir / href).as_posix()).replace(os.sep, "/")
+                for cand in (repo_rel, repo_rel[:-5] + ".md" if repo_rel.endswith(".html") else None):
+                    if cand and not cand.startswith("..") and (self.root / cand).is_file():
+                        return f'{attr}="{blob}{cand}{frag}"'
+                return f'{attr}="#missing"'
+            t = re.sub(r'(href|src)="([^"#?]*)(#[^"]*)?"', fix, t)
+            t = re.sub(r'<a [^>]*href="#missing"[^>]*>(.*?)</a>', r"\1", t, flags=re.S)
+            f.write_text(t, encoding="utf-8")

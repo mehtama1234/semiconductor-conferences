@@ -89,7 +89,7 @@ def build() -> dict:
             "acceptance": [
                 "At least two comparable editions use the same taxonomy and disclosed evidence tiers.",
                 "Inventory, source-text, coded, condition-complete, and independently reviewed denominators are reported.",
-                "The claim is promoted only if the direction-specific test in the longitudinal protocol passes; otherwise it remains insufficient or is weakened.",
+                "The claim moves up only if it passes its direction's test in the protocol for comparing years. Otherwise it stays unproven, or is weakened.",
             ],
             "evidence": ["data/longitudinal-protocol-v1.json", "reports/longitudinal-protocol-v1.md", "reports/temporal-insufficiency-v1.json"],
         },

@@ -148,7 +148,7 @@ Each claimed gain needs companion evidence before it counts as a finished result
 | Faster physical estimation | Decision-relevant errors and validation of selected candidates |
 | Better inspection scores | Real defect ground truth, false alarms, and separate yield evidence |
 
-The full flow also includes failed candidates and repair. An optimizer that takes ten minutes but needs ninety minutes of cleanup is not a ten-minute path to an accepted layout. Fixing geometry can change electrical behavior, and fixing electrical behavior can need new geometry. Done means the chosen result meets every applicable requirement together, under stated conditions.
+The full flow also includes failed candidates and repair. An optimizer that runs for ten minutes but needs ninety minutes of clean-up is not a ten-minute route to a finished layout. Fixing geometry can change electrical behavior, and fixing electrical behavior can need new geometry. Done means the chosen result meets every applicable requirement together, under stated conditions.
 
 ## Long-term hypotheses and disconfirming evidence
 

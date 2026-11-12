@@ -14,21 +14,39 @@ The papers put physical measurements or models into placement, routing, search, 
 
 The useful test compares final valid designs, not only proxy scores, and reports technology data, tool settings, runtime, and failed cases.
 
-## From circuit connections to geometry
+## A correct connection can still arrive too late once it becomes a wire
 
-A circuit description identifies components and their connections. Manufacturing requires actual shapes in specified material layers. Placement chooses component locations. Routing chooses wire paths and layers. Wires occupy space, resist current, and store electric charge. Their length and surroundings affect how quickly a signal changes, so a correct logical connection can still arrive too late.
+A circuit description lists components and their connections. Manufacturing needs real shapes in specified material layers.
 
-## Why the decisions interact
+1. **Placement** chooses where each component sits.
+2. **Routing** chooses each wire's path and layer.
 
-Moving two communicating components closer can shorten a wire but make another region crowded. Adding a buffer can improve signal timing while increasing area and power. Manufacturing rules restrict widths, spacing, and overlaps. Changes in fabrication can also change transistor or wire behavior. An optimizer must satisfy these conditions together, rather than improving one score while silently violating another.
+Wires take up space, resist current and store electric charge. Their length and surroundings change how fast a signal switches. So a logically correct connection can still arrive too late.
 
-## What separates the subthemes
+## Every physical fix pushes on another part of the design
 
-Placement and routing methods construct geometry. Timing analysis estimates whether signal transitions meet required times. Process models estimate how fabricated devices behave. Manufacturing and yield methods study defects and variation; yield means the fraction of manufactured devices that meet requirements. A faster estimator and a better final layout are different contributions and need different evidence.
+- Moving two communicating components closer shortens a wire, but can crowd another region.
+- Adding a buffer can improve signal timing, but adds area and power.
+- Manufacturing rules limit widths, spacing and overlaps.
+- Changes in fabrication can change how transistors and wires behave.
 
-## A comparison that answers the question
+An optimizer must meet all these conditions together. Improving one score while quietly breaking another does not count.
 
-Use the same circuit set, manufacturing rules, timing requirements, and implementation tools. Record violations as well as successful outputs. Check the selected designs with a sufficiently accurate final evaluation and include all search time. If a method uses a cheaper approximation, measure whether its errors change which design is selected.
+## The subthemes build geometry, estimate timing, or model manufacturing
+
+- **Placement and routing** methods build the geometry.
+- **Timing analysis** estimates whether signals switch in time.
+- **Process models** estimate how fabricated devices behave.
+- **Manufacturing and yield** methods study defects and variation. Yield is the fraction of manufactured chips that meet requirements.
+
+A faster estimator and a better final layout are different contributions. They need different evidence.
+
+## A fair test uses the same circuits and rules, and counts violations
+
+1. Use the same circuit set, manufacturing rules, timing requirements and implementation tools.
+2. Record violations as well as successful outputs.
+3. Check the chosen designs with an accurate enough final evaluation, and count all search time.
+4. If a method uses a cheaper approximation, check whether its errors change which design is chosen.
 
 ## The individual subjects
 

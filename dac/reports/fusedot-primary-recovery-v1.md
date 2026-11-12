@@ -16,8 +16,7 @@ Weight repetition, index/reordering overhead and contention also need accounting
 Keep reported energy-efficiency factors separate from energy-reduction
 percentages. The description does not identify the baseline accelerators or
 pair each range endpoint with a model/configuration. Numerical synthesis remains
-withheld. An award mentioned on the author page belongs to a HUST annual
-conference, not DAC, and is not an independent review of this assessment.
+withheld. The author page mentions an award. It is from a HUST annual conference, not DAC, and it is not an independent review of this assessment.
 
 The [structured recovery record](../data/fusedot-primary-recovery-v1.json)
 lists attempts, interpretation limits and revisit conditions. Review is pending.

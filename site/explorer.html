@@ -1,30 +1,31 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="theme-color" content="#F3ECE1" />
-  <title>Semiconductor Research Atlas</title>
-  <meta name="description" content="Type a word to filter. Open a subtheme to read its papers." />
-  <meta property="og:type" content="website" />
-  <meta property="og:site_name" content="Semiconductor conference atlas" />
-  <meta property="og:title" content="Semiconductor Research Atlas" />
-  <meta property="og:description" content="Type a word to filter. Open a subtheme to read its papers." />
-  <meta property="og:url" content="https://mehtama1234.github.io/semiconductor-conferences/explorer.html" />
-  <meta property="og:image" content="https://mehtama1234.github.io/semiconductor-conferences/presentation/slides/01-cover.jpg" />
-  <meta property="og:image:width" content="1920" />
-  <meta property="og:image:height" content="1080" />
-  <meta property="og:image:alt" content="Semiconductor conference atlas: 582 papers from ISCA, DAC and ICCAD, sorted into 10 themes and six directions to watch." />
-  <meta name="twitter:card" content="summary_large_image" />
-  <link rel="canonical" href="https://mehtama1234.github.io/semiconductor-conferences/explorer.html" />
-  <link rel="icon" href="assets/icon.svg" type="image/svg+xml" />
-  <link rel="stylesheet" href="assets/base.css" />
-  <link rel="stylesheet" href="assets/experience.css" />
-  <link rel="stylesheet" href="assets/theme-atlas.css" />
-  <link rel="stylesheet" href="assets/styles.css" />
-  <link rel="stylesheet" href="assets/charts.css" />
-  <link rel="stylesheet" href="assets/course.css" />
-  <style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#3a2e26">
+<title>Semiconductor Research Atlas</title>
+<meta name="description" content="Type a word to filter. Open a subtheme to read its papers.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Semiconductor conference atlas">
+<meta property="og:title" content="Semiconductor Research Atlas">
+<meta property="og:description" content="Type a word to filter. Open a subtheme to read its papers.">
+<meta property="og:url" content="https://mehtama1234.github.io/semiconductor-conferences/explorer.html">
+<meta property="og:image" content="https://mehtama1234.github.io/semiconductor-conferences/presentation/slides/01-cover.jpg">
+<meta property="og:image:width" content="1920">
+<meta property="og:image:height" content="1080">
+<meta property="og:image:alt" content="Semiconductor conference atlas: 582 papers from ISCA, DAC and ICCAD, sorted into 10 themes and six directions to watch.">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://mehtama1234.github.io/semiconductor-conferences/explorer.html">
+<link rel="icon" href="assets/icon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="kit/tokens.css">
+<link rel="stylesheet" href="kit/boards.css">
+<link rel="stylesheet" href="kit/course.css">
+<link rel="stylesheet" href="kit/slides.css">
+<link rel="stylesheet" href="kit/math/katex.min.css">
+<link rel="stylesheet" href="kit/site.css">
+<script>try{var t=localStorage.getItem('course-kit-theme');if(t)document.documentElement.setAttribute('data-theme',t)}catch(e){}</script>
+<style>
 .stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:12px;margin:14px 0}
 .stat{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius-card);padding:12px 14px}
 .stat strong{display:block;font-family:var(--serif,Georgia,serif);font-size:28px;color:var(--rust)}
@@ -39,26 +40,18 @@
 #search{width:100%;max-width:420px;padding:10px 12px;border:1px solid var(--line);border-radius:10px;background:var(--surface);font:inherit;color:var(--ink)}
 .trend-grid ol,.trend-grid ul{padding-left:1.2em}.section-kicker{font:600 12px/1.2 system-ui,sans-serif;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-top:22px}
 .links{display:flex;flex-wrap:wrap;gap:14px}
-</style>
-</head>
-<body class="course-site " data-house="atlas">
-  <aside class="public-demo-banner" aria-label="About this course">A plain-language guide to what ISCA, DAC and ICCAD papers say about chip and computer design · Built from the repository’s own paper records · Not made by the conferences</aside>
-  <a class="skip-link" href="#app">Skip to the page</a>
-  <header>
-    <a class="brand" href="index.html"><span class="mark" aria-hidden="true">Si</span> Semiconductor conference atlas</a>
-    <span class="header-status"><span class="badge">582 papers</span><span class="badge">10 themes</span><span class="badge">Plain words first</span></span>
-    <a class="header-link" href="course-map.html">Course map</a>
-  </header>
-  <nav class="course-nav" aria-label="Main sections of the course"><a href="index.html">The big picture</a><a href="themes.html">Themes</a><a href="subthemes.html" aria-current="page">Subthemes</a><a href="deep-reads.html">Deep reads</a><a href="directions.html">What to watch</a><a href="presentation/index.html">Slides</a><a href="video/index.html">Video</a><a href="share/index.html">Share</a></nav>
-  <main id="app" tabindex="-1">
-    <section class="screen active landing legacy-page" aria-labelledby="page-title">
-<div class="lm-head"><div class="hj-heading"><a class="back-button" href="course-map.html">← <span>Course map</span></a><p class="eyebrow">Search the atlas</p><h1 id="page-title">Search every theme, subtheme and method in one place</h1><p class="hj-sub">Type a word to filter. Open a subtheme to read its papers.</p></div></div>
+</style></head>
+<body data-kit="boards">
+<a class="ck-skip" href="#main">Skip to the content</a>
+<div class="root">
+<header class="rs-hero"><div class="rs-top"><a class="rs-brand" href="index.html"><i>Si</i>Semiconductor conference atlas</a><span class="rs-r"><nav class="ck-nav" aria-label="Main sections of the site"><a href="index.html">The big picture</a><a href="themes.html">Themes</a><a href="subthemes.html" aria-current=page>Subthemes</a><a href="deep-reads.html">Deep reads</a><a href="directions.html">What to watch</a><a href="presentation/index.html">Slides</a><a href="video/index.html">Video</a><a href="share/index.html">Share</a></nav><button type="button" class="ck-theme" aria-label="Change colour theme">Theme: auto</button></span></div><div class="rs-hg"><div><p class="eb">Search the atlas</p><h1 class="rs-h1" id="page-title">Search every theme, subtheme and method in one place. <i>Type a word to filter.</i></h1><p class="rs-lede">Open a subtheme to read its papers.</p></div><ol class="ck-cards" aria-label="The numbers this page turns on"><svg viewBox="0 0 520 380" aria-hidden="true" preserveAspectRatio="none"><path d="M236 78 C 260 84, 260 128, 284 134"/><path d="M398 198 C 378 238, 196 152, 166 182"/><path d="M240 246 C 264 252, 262 296, 286 302"/></svg><li class="ck-card"><p class="k">1 · Themes</p><b>10</b><span>broad subjects</span></li><li class="ck-card"><p class="k">2 · Subthemes</p><b>113</b><span>narrower problems</span></li><li class="ck-card"><p class="k">3 · Largest theme</p><b>103 papers</b><span>Architecture and accelerators</span></li><li class="ck-card"><p class="k">4 · Smallest theme</p><b>25 papers</b><span>Chiplets, 3D integration, and packaging</span></li></ol></div></header>
+<main id="main" class="ck-main" tabindex="-1">
+<nav class="rs-selbar" aria-label="About this page"><span class="rs-sel"><b>You are here</b><a href="course-map.html">Every page</a></span><span class="rs-crumb">Search the atlas</span></nav><section class="ck-pagefig ck-wide"><figure class="rs-media"><div class="rs-mh"><span>Papers in each of the 10 themes</span><span class="t t-wo">counted</span></div><div class="rs-mb"><div data-chart><script type="application/json">{"type":"bars","title":"Papers per theme","desc":"Architecture and accelerators leads with 103.","max":103,"items":[{"label":"Architecture and accelerators","value":103,"em":true},{"label":"Memory, interconnect, and storage","value":85},{"label":"Power, reliability, and security","value":78},{"label":"Systems, applications, and workloads","value":71},{"label":"AI-assisted EDA","value":59},{"label":"Verification and validation","value":52},{"label":"Physical design and manufacturing","value":42},{"label":"Analog, mixed-signal, and emerging devices","value":38},{"label":"Design methodology and tooling","value":29},{"label":"Chiplets, 3D integration, and packaging","value":25}]}</script><noscript><p class="ck-cap">Papers per theme. Architecture and accelerators leads with 103.</p></noscript></div><figcaption class="ck-cap">Counted from data/taxonomy-expanded-v1.json. Each of the 582 records sits in one theme.</figcaption></div></figure></section><div class="ck-doc"> 
 
-      <article class="prose">
 
 <section class="section prose" id="writeup">
 <div class="section-kicker">01 / The writeup</div>
-<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>Start with the work the system must do.</h2>
+<div class="rs-sh"><h2 class="rs-h2">Start with the work the system must do.</h2></div>
 <p>A computing system receives inputs, performs operations, and produces outputs. Its design determines where values are stored, which operations run together, and how results move between components. The hardware must do this within limits on time, energy, memory, temperature, and correctness.</p>
 <p>The research papers change particular decisions in that process. Some reduce the number of operations. Some reduce the amount of data moved. Others improve circuit construction, detect errors, or measure whether a proposed improvement survives realistic conditions.</p>
 <p>A <strong>theme</strong> is a broad subject. A <strong>subtheme</strong> groups a narrower technical problem. A <strong>mechanism</strong> is the specific change a paper proposes. The selected sample contains 582 records, 113 unique subthemes, and 577 mechanism labels. Some subthemes belong to more than one broad subject.</p>
@@ -66,7 +59,7 @@
 </section>
 <section class="section trend-grid">
 <div class="section-kicker">02 / Trend interpretation</div>
-<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>Research directions to examine</h2>
+<div class="rs-sh"><h2 class="rs-h2">Research directions to examine</h2></div>
 <p style="grid-column:1/-1">These six hypotheses connect the selected cases. The available records do not establish growth across comparable years. Each article explains the reasoning and the experiment needed to assess it.</p>
 <div class="trend-card"><span>01</span><h3>Use requirements while choosing a design</h3><p>A design check can identify a failed requirement and inform the next attempt. The question is whether that information produces more valid designs within the same time and computing budget.</p><a href="directions/01-constraints-become-executable.html">Read the explanation →</a></div>
 <div class="trend-card"><span>02</span><h3>Reduce the cost of moving data</h3><p>An operation waits if its inputs cannot arrive quickly enough. Choosing where data stays and where computation runs can reduce transfers, but copying and coordination costs must be included.</p><a href="directions/02-data-movement-as-contract.html">Read the explanation →</a></div>
@@ -77,25 +70,24 @@
 </section>
 <section class="section" id="atlas">
 <div class="section-kicker">03 / Interactive taxonomy</div>
-<div class="section-head"><div><h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>Theme → subtheme → mechanism</h2><p class="muted">Filter the observed taxonomy, then open the source-backed theme page for paper cards and evidence limits.</p></div><input id="search" placeholder="Search themes, subthemes, mechanisms…" type="search"/></div>
+<div class="section-head"><div><div class="rs-sh"><h2 class="rs-h2">Theme → subtheme → mechanism</h2></div><p class="mut">Filter the observed taxonomy, then open the source-backed theme page for paper cards and evidence limits.</p></div><input id="search" placeholder="Search themes, subthemes, mechanisms…" type="search"/></div>
 <div class="stats" id="stats"></div>
 <div class="theme-list" id="themes"></div>
 </section>
 <section class="section prose">
 <div class="section-kicker">04 / How to read this honestly</div>
-<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="file-text"></span>Structure is evidence of attention, not proof of importance.</h2>
+<div class="rs-sh"><h2 class="rs-h2">Structure is evidence of attention, <i>not proof of importance.</i></h2></div>
 <p>The taxonomy is derived from a selected, adjudicated sample with uneven source depth. Official descriptions, abstracts, author sources, artifacts, and primary papers are preserved as different evidence tiers. Similar labels may be aliases; different labels may be genuinely distinct mechanisms. The long-term directions are provisional cross-conference cases, not accepted trend findings.</p>
 <div class="links"><a href="guide/research-atlas-index-v1.html">Research atlas index</a><a href="guide/direction-review-gate-v1.html">Direction review gate</a><a href="guide/longitudinal-protocol-v1.html">Longitudinal protocol</a><a href="guide/research-agenda-v1.html">Research agenda</a></div>
 </section>
 
-      </article>
-      <nav class="pager" aria-label="Previous and next"><span class="prev empty"></span><a class="map" href="course-map.html"><span class="pg-k">Back to</span><span class="pg-t">Course map</span></a><a class="next" href="guide.html"><span class="pg-k">Next →</span><span class="pg-t">How to read the atlas</span></a></nav>
-    </section>
-  </main>
-  <footer class="course-foot">
-    <p>Built from 582 paper records coded from ISCA 2026, DAC 2026 and ICCAD 2025 (ICCAD 2026 papers were not yet public). Most records come from official program descriptions; see “How deep the reading went”. The papers belong to their authors.</p>
-    <p class="foot-links"><a href="https://github.com/mehtama1234/course-concept-library">All courses</a><a href="index.html">This course</a><a href="course-map.html">Course map</a><a href="presentation/index.html">Slides</a><a href="video/index.html">Video</a><a href="share/index.html">Share</a></p>
-  </footer>
-  <script src="assets/course-data.js"></script><script src="assets/icons.js"></script><script src="assets/icons-extra.js"></script><script src="assets/icons-course.js"></script><script src="assets/art.js"></script><script src="assets/course-art.js"></script><script src="assets/charts.js"></script><script src="assets/course-charts.js"></script><script src="assets/course-site.js"></script>
+
+</div>
+</main>
+<footer class="rs-close"><p class="eb">This page, in one line</p><p class="rs-h2" style="max-width:26em">Type a word to filter.</p><div class="ck-next"><a class="r" href="guide.html"><span class="rs-k" style="color:var(--peach)">Next</span><b>How to read the atlas</b></a></div><div class="rs-btns"><a class="ck-btn pri" href="course-map.html">Back to Course map</a></div><p class="rs-src">Built from 582 paper records coded from ISCA 2026, DAC 2026 and ICCAD 2025 (ICCAD 2026 papers were not yet public). Most records come from official program descriptions; see “How deep the reading went”. The papers belong to their authors.</p><p class="ck-footlinks"><a href="https://github.com/mehtama1234/semiconductor-conferences">Source on GitHub</a><a href="index.html">The big picture</a><a href="course-map.html">Every page</a><a href="presentation/index.html">Slides</a><a href="video/index.html">Video</a><a href="share/index.html">Share</a></p></footer>
+</div>
+<script src="kit/charts.js"></script>
+<script src="kit/course.js"></script>
+<script src="kit/site.js"></script>
 </body>
 </html>

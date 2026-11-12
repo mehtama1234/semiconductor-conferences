@@ -115,7 +115,7 @@ A fault model states:
 - how long the effect lasts;
 - whether faults can happen together.
 
-Injecting one isolated bit flip does not show protection against a failing chip, a burst across several words, or a lasting logic defect.
+Testing one flipped bit does not show protection against bigger faults. A failing chip, a burst across several words, or a lasting defect each need their own test.
 
 Three outcomes need separate counts and timing:
 
@@ -173,7 +173,7 @@ A **side channel** is an observation outside the intended data interface that ca
 
 > **Example (conceptual).** Two secret-dependent operations return identical public output, but take different times.
 >
-> Whether that difference leaks useful information depends on what an observer can measure, on noise and repetitions, and on what else they know.
+> Whether that difference leaks anything useful depends on the observer. It depends on what they can measure, on noise and repeats, and on what else they know.
 
 Equal functional output alone does not settle confidentiality.
 
@@ -186,7 +186,7 @@ Encryption, likewise, does not give every property at once. These are separate d
 - preventing replay;
 - hiding access patterns.
 
-A performance result for one cryptographic computation must keep its parameter choices, correctness conditions and supported operations before being applied to another workload.
+A speed result for one encryption computation comes with its settings, its correctness conditions and its supported operations. Those must travel with it before it is applied elsewhere.
 
 ## Protection costs belong in the completed-result denominator
 

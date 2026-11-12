@@ -1,81 +1,74 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="theme-color" content="#F3ECE1" />
-  <title>Designing computation around the cost of moving data · Semiconductor conference atlas</title>
-  <meta name="description" content="Useful computation is constrained by where data is, how far it moves, and what competes for the path." />
-  <meta property="og:type" content="website" />
-  <meta property="og:site_name" content="Semiconductor conference atlas" />
-  <meta property="og:title" content="Designing computation around the cost of moving data · Semiconductor conference atlas" />
-  <meta property="og:description" content="Useful computation is constrained by where data is, how far it moves, and what competes for the path." />
-  <meta property="og:url" content="https://mehtama1234.github.io/semiconductor-conferences/directions/02-data-movement-as-contract.html" />
-  <meta property="og:image" content="https://mehtama1234.github.io/semiconductor-conferences/presentation/slides/01-cover.jpg" />
-  <meta property="og:image:width" content="1920" />
-  <meta property="og:image:height" content="1080" />
-  <meta property="og:image:alt" content="Semiconductor conference atlas: 582 papers from ISCA, DAC and ICCAD, sorted into 10 themes and six directions to watch." />
-  <meta name="twitter:card" content="summary_large_image" />
-  <link rel="canonical" href="https://mehtama1234.github.io/semiconductor-conferences/directions/02-data-movement-as-contract.html" />
-  <link rel="icon" href="../assets/icon.svg" type="image/svg+xml" />
-  <link rel="stylesheet" href="../assets/base.css" />
-  <link rel="stylesheet" href="../assets/experience.css" />
-  <link rel="stylesheet" href="../assets/theme-atlas.css" />
-  <link rel="stylesheet" href="../assets/styles.css" />
-  <link rel="stylesheet" href="../assets/charts.css" />
-  <link rel="stylesheet" href="../assets/course.css" />
-  
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#3a2e26">
+<title>Designing computation around the cost of moving data · Semiconductor conference atlas</title>
+<meta name="description" content="Useful computation is constrained by where data is, how far it moves, and what competes for the path.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Semiconductor conference atlas">
+<meta property="og:title" content="Designing computation around the cost of moving data · Semiconductor conference atlas">
+<meta property="og:description" content="Useful computation is constrained by where data is, how far it moves, and what competes for the path.">
+<meta property="og:url" content="https://mehtama1234.github.io/semiconductor-conferences/directions/02-data-movement-as-contract.html">
+<meta property="og:image" content="https://mehtama1234.github.io/semiconductor-conferences/presentation/slides/01-cover.jpg">
+<meta property="og:image:width" content="1920">
+<meta property="og:image:height" content="1080">
+<meta property="og:image:alt" content="Semiconductor conference atlas: 582 papers from ISCA, DAC and ICCAD, sorted into 10 themes and six directions to watch.">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://mehtama1234.github.io/semiconductor-conferences/directions/02-data-movement-as-contract.html">
+<link rel="icon" href="../assets/icon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../kit/tokens.css">
+<link rel="stylesheet" href="../kit/boards.css">
+<link rel="stylesheet" href="../kit/course.css">
+<link rel="stylesheet" href="../kit/slides.css">
+<link rel="stylesheet" href="../kit/math/katex.min.css">
+<link rel="stylesheet" href="../kit/site.css">
+<script>try{var t=localStorage.getItem('course-kit-theme');if(t)document.documentElement.setAttribute('data-theme',t)}catch(e){}</script>
 </head>
-<body class="course-site " data-house="atlas">
-  <aside class="public-demo-banner" aria-label="About this course">A plain-language guide to what ISCA, DAC and ICCAD papers say about chip and computer design · Built from the repository’s own paper records · Not made by the conferences</aside>
-  <a class="skip-link" href="#app">Skip to the page</a>
-  <header>
-    <a class="brand" href="../index.html"><span class="mark" aria-hidden="true">Si</span> Semiconductor conference atlas</a>
-    <span class="header-status"><span class="badge">582 papers</span><span class="badge">10 themes</span><span class="badge">Plain words first</span></span>
-    <a class="header-link" href="../course-map.html">Course map</a>
-  </header>
-  <nav class="course-nav" aria-label="Main sections of the course"><a href="../index.html">The big picture</a><a href="../themes.html">Themes</a><a href="../subthemes.html">Subthemes</a><a href="../deep-reads.html">Deep reads</a><a href="../directions.html" aria-current="page">What to watch</a><a href="../presentation/index.html">Slides</a><a href="../video/index.html">Video</a><a href="../share/index.html">Share</a></nav>
-  <main id="app" tabindex="-1">
-    <section class="screen active landing legacy-page" aria-labelledby="page-title">
-<div class="lm-head"><div class="hj-heading"><nav class="crumbs" aria-label="You are here"><a href="../course-map.html">Course map</a><span aria-hidden="true">›</span><a href="../directions.html">What to watch</a></nav><a class="back-button" href="../directions.html">← <span>What to watch</span></a><p class="eyebrow">Direction 2 of 6 · a hypothesis, not a measured trend</p><h1 id="page-title">Designing computation around the cost of moving data</h1><p class="hj-sub">Useful computation is constrained by where data is, how far it moves, and what competes for the path.</p></div><div class="hj-art" data-art="trio:server,arrows-exchange,cpu"></div></div>
-<figure class="course-fig"><div class="loop-wide" data-art="flow:data-movement-as-contract"></div><div class="loop-tall" data-art="flowTall:data-movement-as-contract"></div><figcaption>Where data sits decides how fast and how cheaply work gets done.</figcaption></figure><section class="landing-problems answer bridge"><p class="lp-energy"><b>The next test:</b> Sweep resident and nonresident working sets, locality, contention, recall/accuracy, equal capacity/bandwidth, and host/migration overhead. <a href="../comparisons/data-movement-as-contract.html">Across the conferences →</a></p></section>
-      <article class="prose">
+<body data-kit="boards">
+<a class="ck-skip" href="#main">Skip to the content</a>
+<div class="root">
+<header class="rs-hero"><div class="rs-top"><a class="rs-brand" href="../index.html"><i>Si</i>Semiconductor conference atlas</a><span class="rs-r"><nav class="ck-nav" aria-label="Main sections of the site"><a href="../index.html">The big picture</a><a href="../themes.html">Themes</a><a href="../subthemes.html">Subthemes</a><a href="../deep-reads.html">Deep reads</a><a href="../directions.html" aria-current=page>What to watch</a><a href="../presentation/index.html">Slides</a><a href="../video/index.html">Video</a><a href="../share/index.html">Share</a></nav><button type="button" class="ck-theme" aria-label="Change colour theme">Theme: auto</button></span></div><div class="rs-hg"><div><p class="eb">Direction 2 of 6 · a hypothesis, not a measured trend</p><h1 class="rs-h1" id="page-title">Designing computation around the cost of moving data</h1><p class="rs-lede">Useful computation is constrained by where data is, how far it moves, and what competes for the path.</p></div><ol class="ck-cards" aria-label="The numbers this page turns on"><svg viewBox="0 0 520 380" aria-hidden="true" preserveAspectRatio="none"><path d="M236 78 C 260 84, 260 128, 284 134"/><path d="M398 198 C 378 238, 196 152, 166 182"/><path d="M240 246 C 264 252, 262 296, 286 302"/></svg><li class="ck-card"><p class="k">1 · Evidence papers</p><b>15</b><span>ISCA 10 · DAC 4 · ICCAD 1</span></li><li class="ck-card"><p class="k">2 · Skills it covers</p><b>6</b><span>named mechanisms</span></li><li class="ck-card"><p class="k">3 · Independent reviews</p><b>0</b><span>none yet</span></li><li class="ck-card"><p class="k">4 · Status</p><b>hypothesis</b><span>not a measured trend</span></li></ol></div></header>
+<main id="main" class="ck-main" tabindex="-1">
+<nav class="rs-selbar" aria-label="About this page"><span class="rs-sel"><b>You are here</b><a href="../course-map.html">Every page</a> › <a href="../directions.html">What to watch</a></span><span class="rs-crumb">Direction 2 of 6 · a hypothesis, not a measured trend</span></nav><section class="ck-pagefig ck-wide"><figure class="rs-media ck-scene"><div class="rs-mh"><span>The direction in one drawing</span><span class="t t-oc">our drawing</span></div><div class="rs-mb"><div class="ck-scene-pan" tabindex="0" role="group" aria-label="Drawing; scroll sideways on a small screen" style="--min:900px"><svg class="ck-art" viewBox="0 0 1000 380" role="img" aria-labelledby="r02datamovement-t" font-family="IBM Plex Sans Condensed, sans-serif"><title id="r02datamovement-t">Two ways to run the same job. Left: every number travels from memory to a distant processor and back. Right: a small unit inside memory does the simple steps, and only the short result travels.</title><defs><marker id="r02datamovement-a" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5 0 10z" fill="#2b2622"/></marker><marker id="r02datamovement-r" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5 0 10z" fill="#9a4a22"/></marker><pattern id="r02datamovement-h" width="8" height="8" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><path d="M0 0V8" stroke="#cdbfa9" stroke-width="3"/></pattern></defs><rect x="20" y="20" width="460" height="300" rx="10" fill="#fbf7f0" stroke="#d9cdba" stroke-width="1.6"/><text x="40" y="50" font-size="16" fill="#2b2622" font-weight="600" letter-spacing="1">SEND THE DATA TO THE WORK</text><rect x="50" y="90" width="150" height="110" rx="6" fill="#ece4d5" stroke="#2b2622" stroke-width="2"/><rect x="64" y="102" width="24" height="20" fill="#fbf7f0" stroke="#2b2622"/><rect x="96" y="102" width="24" height="20" fill="#fbf7f0" stroke="#2b2622"/><rect x="128" y="102" width="24" height="20" fill="#fbf7f0" stroke="#2b2622"/><rect x="160" y="102" width="24" height="20" fill="#fbf7f0" stroke="#2b2622"/><rect x="64" y="130" width="24" height="20" fill="#fbf7f0" stroke="#2b2622"/><rect x="96" y="130" width="24" height="20" fill="#fbf7f0" stroke="#2b2622"/><rect x="128" y="130" width="24" height="20" fill="#fbf7f0" stroke="#2b2622"/><rect x="160" y="130" width="24" height="20" fill="#fbf7f0" stroke="#2b2622"/><rect x="64" y="158" width="24" height="20" fill="#fbf7f0" stroke="#2b2622"/><rect x="96" y="158" width="24" height="20" fill="#fbf7f0" stroke="#2b2622"/><rect x="128" y="158" width="24" height="20" fill="#fbf7f0" stroke="#2b2622"/><rect x="160" y="158" width="24" height="20" fill="#fbf7f0" stroke="#2b2622"/><text x="125" y="224" font-size="16" fill="#2b2622" text-anchor="middle">memory</text><path d="M340 100V110M340 190V200" stroke="#2b2622" stroke-width="2"/><path d="M360 100V110M360 190V200" stroke="#2b2622" stroke-width="2"/><path d="M380 100V110M380 190V200" stroke="#2b2622" stroke-width="2"/><path d="M400 100V110M400 190V200" stroke="#2b2622" stroke-width="2"/><path d="M420 100V110M420 190V200" stroke="#2b2622" stroke-width="2"/><rect x="320" y="110" width="120" height="80" rx="6" fill="#fbf7f0" stroke="#2b2622" stroke-width="2"/><text x="380.0" y="156.0" font-size="16" fill="#2b2622" text-anchor="middle" font-weight="600">processor</text><rect x="216" y="128" width="10" height="10" fill="#e3b98f" stroke="#2b2622"/><rect x="230" y="158" width="10" height="10" fill="#e3b98f" stroke="#2b2622"/><rect x="244" y="128" width="10" height="10" fill="#e3b98f" stroke="#2b2622"/><rect x="258" y="158" width="10" height="10" fill="#e3b98f" stroke="#2b2622"/><rect x="272" y="128" width="10" height="10" fill="#e3b98f" stroke="#2b2622"/><rect x="286" y="158" width="10" height="10" fill="#e3b98f" stroke="#2b2622"/><rect x="300" y="128" width="10" height="10" fill="#e3b98f" stroke="#2b2622"/><path d="M206 146H316" fill="none" stroke="#2b2622" stroke-width="3" marker-end="url(#r02datamovement-a)"/><path d="M316 176H206" fill="none" stroke="#2b2622" stroke-width="3" marker-end="url(#r02datamovement-a)"/><text x="250" y="270" font-size="16" fill="#5a5047" text-anchor="middle">many numbers make the long trip, twice</text><rect x="520" y="20" width="460" height="300" rx="10" fill="#fbf7f0" stroke="#d9cdba" stroke-width="1.6"/><text x="540" y="50" font-size="16" fill="#9a4a22" font-weight="600" letter-spacing="1">SEND THE WORK TO THE DATA</text><rect x="550" y="90" width="150" height="110" rx="6" fill="#ece4d5" stroke="#2b2622" stroke-width="2"/><rect x="564" y="102" width="24" height="20" fill="#fbf7f0" stroke="#2b2622"/><rect x="596" y="102" width="24" height="20" fill="#fbf7f0" stroke="#2b2622"/><rect x="628" y="102" width="24" height="20" fill="#fbf7f0" stroke="#2b2622"/><rect x="660" y="102" width="24" height="20" fill="#fbf7f0" stroke="#2b2622"/><rect x="564" y="130" width="24" height="20" fill="#fbf7f0" stroke="#2b2622"/><rect x="596" y="130" width="24" height="20" fill="#fbf7f0" stroke="#2b2622"/><rect x="628" y="130" width="24" height="20" fill="#fbf7f0" stroke="#2b2622"/><rect x="660" y="130" width="24" height="20" fill="#fbf7f0" stroke="#2b2622"/><rect x="564" y="158" width="24" height="20" fill="#fbf7f0" stroke="#2b2622"/><rect x="596" y="158" width="24" height="20" fill="#fbf7f0" stroke="#2b2622"/><rect x="628" y="158" width="24" height="20" fill="#fbf7f0" stroke="#2b2622"/><rect x="660" y="158" width="24" height="20" fill="#fbf7f0" stroke="#2b2622"/><text x="625" y="224" font-size="16" fill="#2b2622" text-anchor="middle">memory</text><path d="M840 100V110M840 190V200" stroke="#2b2622" stroke-width="2"/><path d="M860 100V110M860 190V200" stroke="#2b2622" stroke-width="2"/><path d="M880 100V110M880 190V200" stroke="#2b2622" stroke-width="2"/><path d="M900 100V110M900 190V200" stroke="#2b2622" stroke-width="2"/><path d="M920 100V110M920 190V200" stroke="#2b2622" stroke-width="2"/><rect x="820" y="110" width="120" height="80" rx="6" fill="#fbf7f0" stroke="#2b2622" stroke-width="2"/><text x="880.0" y="156.0" font-size="16" fill="#2b2622" text-anchor="middle" font-weight="600">processor</text><rect x="566" y="186" width="118" height="22" rx="3" fill="#e3b98f" stroke="#9a4a22" stroke-width="2"/><text x="625" y="202" font-size="13" text-anchor="middle" fill="#2b2622">small unit inside</text><rect x="756" y="141" width="10" height="10" fill="#9a4a22"/><path d="M706 146H816" fill="none" stroke="#9a4a22" stroke-width="3" marker-end="url(#r02datamovement-r)"/><text x="750" y="270" font-size="16" fill="#5a5047" text-anchor="middle">only the short result travels</text><text x="500" y="360" font-size="18" fill="#9a4a22" text-anchor="middle" font-family="Fraunces, Georgia, serif" font-style="italic">The test: time and energy for the whole job, with every copy counted.</text></svg></div><figcaption class="ck-cap">Useful computation is constrained by where data is, how far it moves, and what competes for the path.</figcaption></div></figure><figure class="rs-media"><div class="rs-mh"><span>Where the evidence papers come from</span><span class="t t-wo">counted</span></div><div class="rs-mb"><div data-chart><script type="application/json">{"type":"bars","title":"Evidence papers per conference","desc":"15 papers back this direction.","max":10,"items":[{"label":"ISCA","value":10},{"label":"DAC","value":4},{"label":"ICCAD","value":1}]}</script><noscript><p class="ck-cap">Evidence papers per conference. 15 papers back this direction.</p></noscript></div><figcaption class="ck-cap">Counted from data/long-term-direction-atlas-v1.json. A paper can back more than one direction.</figcaption></div></figure></section><div class="ck-doc"> 
+
 
 <p>Status: a research hypothesis supported by selected cases. A measured increase across comparable years has not been established.</p>
-<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="target"></span>The problem: a job can spend most of its time waiting for data</h2>
+<div class="rs-sh"><h2 class="rs-h2">The problem: <i>a job can spend most of its time waiting for data</i></h2></div>
 <p>Every operation needs its inputs where the hardware can reach them. If they are elsewhere, they must move.</p>
-<p>Moving them uses bandwidth, takes time and costs energy. So a job can spend most of its time waiting for values, even when its arithmetic is simple.</p>
-<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="chart-bar"></span>The change: choose the algorithm, the data placement and the schedule together</h2>
+<p>Moving them uses bandwidth<span class="ck-gloss"> (how many bytes a link can move per second)</span>, takes time and costs energy. So a job can spend most of its time waiting for values, even when its arithmetic is simple.</p>
+<div class="rs-sh"><h2 class="rs-h2">The change: <i>choose the algorithm, the data placement and the schedule together</i></h2></div>
 <ul>
 <li>Keep intermediate values near the operations that use them next, to cut repeated transfers.</li>
 <li>Move a computation near the stored data, to cut the bytes sent over a connection.</li>
 <li>Recompute a cheap value, sometimes, instead of storing and fetching it.</li>
 </ul>
 <p>Each change brings new costs, such as local traffic and extra computation. Count them.</p>
-<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>Memory, architecture and scheduling overlap, so fixing one can shift the delay</h2>
+<div class="rs-sh"><h2 class="rs-h2">Memory, architecture and scheduling overlap, <i>so fixing one can shift the delay</i></h2></div>
 <ul>
 <li>A <strong>memory</strong> method decides where values can live.</li>
 <li>An <strong>architecture</strong> decides where operations can run.</li>
 <li>A <strong>scheduler</strong> decides when workers compete for data.</li>
 </ul>
 <p>A method that changes only one layer may just move the delay elsewhere. A full comparison includes the first loading of data and any later migration.</p>
-<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="checklist"></span>The test: fixed output quality, varied data sizes, every transfer counted</h2>
+<div class="rs-sh"><h2 class="rs-h2">The test: <i>fixed output quality, varied data sizes, every transfer counted</i></h2></div>
 <ol>
 <li>Measure completion time and energy at fixed output quality.</li>
 <li>Vary input size, memory capacity and competing requests. Include data that fits, and data that does not fit, in fast memory.</li>
 <li>For approximate search, compare at the same rate of correct answers. For services, include slow requests and data migration.</li>
 </ol>
 <p>The hypothesis weakens if the advantage disappears once capacity is matched or all transfer costs are counted. Seeing it recur in today's cases cannot show growth over time.</p>
-<p class="lm-k h-label">Counterpressure and falsification boundary</p><h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>The paper that pushes back, and what would disprove the direction</h2>
+<p class="rs-k">Counterpressure and falsification boundary</p><div class="rs-sh"><h2 class="rs-h2">The paper that pushes back, <i>and what would disprove the direction</i></h2></div>
 <p>Challenge paper: <code>dac-2026-research2268</code> (alternative_mechanism; source tier <code>official_description</code>). <a href="https://63dac.conference-program.com/?post_type=page&amp;p=16&amp;id=RESEARCH2268&amp;sess=sess169">Open the recorded source</a>.</p>
 <p>Memory-centric progress can come from host-side layout and access scheduling, not necessarily compute offload. The title/body system-name discrepancy remains unresolved.</p>
-<p><strong>What would weaken the direction:</strong> The direction is weakened if a matched-recall comparison shows that host-side placement and scheduling provide the same end-to-end result after including CXL traffic, speculation, capacity and host overhead, without a distinct near-memory benefit.</p>
+<p><strong>What would weaken the direction:</strong> The direction is weakened if a matched-recall comparison shows that host-side placement and scheduling provide the same end-to-end result after including CXL<span class="ck-gloss"> (Compute Express Link: a standard link that lets chips share memory)</span> traffic, speculation, capacity and host overhead, without a distinct near-memory benefit.</p>
 <p><strong>Next evidence:</strong> Resolve TierANNS/COGA identity and compare recall, working-set capacity, speculation traffic and host overhead against near-memory alternatives.</p>
-<p class="lm-k h-label">Paper evidence and open conditions</p><h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>The papers behind it, and the conditions still unknown</h2>
+<p class="rs-k">Paper evidence and open conditions</p><div class="rs-sh"><h2 class="rs-h2">The papers behind it, <i>and the conditions still unknown</i></h2></div>
 <p><a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/reports/directions/evidence/02-data-movement-as-contract-evidence.md">Read the paper evidence dossier</a>. It connects this discussion to the recorded sources and unresolved conditions.</p>
 <p><a href="../comparisons/data-movement-as-contract.html">Read the cross-conference comparison</a>. Different conferences can examine different parts of the problem; their reported numbers are not automatically comparable.</p>
 <p><a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/reports/direction-condition-register-v1.md">Check the condition register</a> for unresolved experimental details and <a href="../guide/direction-review-gate-v1.html">the review gate</a> for the current review status.</p>
-<p class="lm-k h-label">Establishing a long-term trend</p><h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>What it would take to call this a long-term trend</h2>
+<p class="rs-k">Establishing a long-term trend</p><div class="rs-sh"><h2 class="rs-h2">What it would take to call this a long-term trend</h2></div>
 <p>A trend needs the same rules applied to comparable years:</p>
 <ol>
 <li>Select comparable editions.</li>
@@ -84,15 +77,15 @@
 <li>Tell apart how many papers discuss a method from evidence that the method improves results.</li>
 </ol>
 <p>The current sample combines DAC and ISCA 2026 with ICCAD 2025 fallback material, and coverage is uneven. That supports comparing cases with stated limits.</p>
-<p><a href="../guide/longitudinal-protocol-v1.html">Read the longitudinal protocol</a> · <a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/reports/directions/README.md">Return to research directions</a></p><p class="meta">Written as <a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/reports/directions/02-data-movement-as-contract.md">reports/directions/02-data-movement-as-contract.md</a> in the course repository.</p>
-      </article>
-      <nav class="pager" aria-label="Previous and next"><a class="prev" href="01-constraints-become-executable.html"><span class="pg-k">← Previous</span><span class="pg-t">Using design requirements to choose the next design</span></a><a class="map" href="../directions.html"><span class="pg-k">Back to</span><span class="pg-t">What to watch</span></a><a class="next" href="03-closed-loop-design.html"><span class="pg-k">Next →</span><span class="pg-t">Improving design choices using measured feedback</span></a></nav>
-    </section>
-  </main>
-  <footer class="course-foot">
-    <p>Built from 582 paper records coded from ISCA 2026, DAC 2026 and ICCAD 2025 (ICCAD 2026 papers were not yet public). Most records come from official program descriptions; see “How deep the reading went”. The papers belong to their authors.</p>
-    <p class="foot-links"><a href="https://github.com/mehtama1234/course-concept-library">All courses</a><a href="../index.html">This course</a><a href="../course-map.html">Course map</a><a href="../presentation/index.html">Slides</a><a href="../video/index.html">Video</a><a href="../share/index.html">Share</a></p>
-  </footer>
-  <script src="../assets/course-data.js"></script><script src="../assets/icons.js"></script><script src="../assets/icons-extra.js"></script><script src="../assets/icons-course.js"></script><script src="../assets/art.js"></script><script src="../assets/course-art.js"></script><script src="../assets/charts.js"></script><script src="../assets/course-charts.js"></script><script src="../assets/course-site.js"></script>
+<p><a href="../guide/longitudinal-protocol-v1.html">Read the longitudinal protocol</a> · <a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/reports/directions/README.md">Return to research directions</a></p><p class="mut">Written as <a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/reports/directions/02-data-movement-as-contract.md">reports/directions/02-data-movement-as-contract.md</a> in the course repository.</p>
+
+
+</div>
+</main>
+<footer class="rs-close"><p class="eb">This page, in one line</p><p class="rs-h2" style="max-width:26em">Useful computation is constrained by where data is, how far it moves, and what competes for the path.</p><div class="ck-next"><a href="01-constraints-become-executable.html"><span class="rs-k" style="color:var(--peach)">Previous</span><b>Using design requirements to choose the next design</b></a><a class="r" href="03-closed-loop-design.html"><span class="rs-k" style="color:var(--peach)">Next</span><b>Improving design choices using measured feedback</b></a></div><div class="rs-btns"><a class="ck-btn pri" href="../directions.html">Back to What to watch</a></div><p class="rs-src">Built from 582 paper records coded from ISCA 2026, DAC 2026 and ICCAD 2025 (ICCAD 2026 papers were not yet public). Most records come from official program descriptions; see “How deep the reading went”. The papers belong to their authors.</p><p class="ck-footlinks"><a href="https://github.com/mehtama1234/semiconductor-conferences">Source on GitHub</a><a href="../index.html">The big picture</a><a href="../course-map.html">Every page</a><a href="../presentation/index.html">Slides</a><a href="../video/index.html">Video</a><a href="../share/index.html">Share</a></p></footer>
+</div>
+<script src="../kit/charts.js"></script>
+<script src="../kit/course.js"></script>
+<script src="../kit/site.js"></script>
 </body>
 </html>

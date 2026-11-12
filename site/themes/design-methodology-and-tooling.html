@@ -1,64 +1,57 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="theme-color" content="#F3ECE1" />
-  <title>Design methodology and tooling · Semiconductor conference atlas</title>
-  <meta name="description" content="The article explains the technical problem step by step first, then links to every subtheme and its papers. Worked numbers are illustrations, not paper results." />
-  <meta property="og:type" content="website" />
-  <meta property="og:site_name" content="Semiconductor conference atlas" />
-  <meta property="og:title" content="Design methodology and tooling · Semiconductor conference atlas" />
-  <meta property="og:description" content="The article explains the technical problem step by step first, then links to every subtheme and its papers. Worked numbers are illustrations, not paper results." />
-  <meta property="og:url" content="https://mehtama1234.github.io/semiconductor-conferences/themes/design-methodology-and-tooling.html" />
-  <meta property="og:image" content="https://mehtama1234.github.io/semiconductor-conferences/presentation/slides/01-cover.jpg" />
-  <meta property="og:image:width" content="1920" />
-  <meta property="og:image:height" content="1080" />
-  <meta property="og:image:alt" content="Semiconductor conference atlas: 582 papers from ISCA, DAC and ICCAD, sorted into 10 themes and six directions to watch." />
-  <meta name="twitter:card" content="summary_large_image" />
-  <link rel="canonical" href="https://mehtama1234.github.io/semiconductor-conferences/themes/design-methodology-and-tooling.html" />
-  <link rel="icon" href="../assets/icon.svg" type="image/svg+xml" />
-  <link rel="stylesheet" href="../assets/base.css" />
-  <link rel="stylesheet" href="../assets/experience.css" />
-  <link rel="stylesheet" href="../assets/theme-atlas.css" />
-  <link rel="stylesheet" href="../assets/styles.css" />
-  <link rel="stylesheet" href="../assets/charts.css" />
-  <link rel="stylesheet" href="../assets/course.css" />
-  
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#3a2e26">
+<title>Design methodology and tooling · Semiconductor conference atlas</title>
+<meta name="description" content="How a design is written down decides which choices a tool can see. The article explains the problem step by step first. Then it links every subtheme and its papers. Worked numbers are illustrations, n">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Semiconductor conference atlas">
+<meta property="og:title" content="Design methodology and tooling · Semiconductor conference atlas">
+<meta property="og:description" content="How a design is written down decides which choices a tool can see. The article explains the problem step by step first. Then it links every subtheme and its papers. Worked numbers are illustrations, n">
+<meta property="og:url" content="https://mehtama1234.github.io/semiconductor-conferences/themes/design-methodology-and-tooling.html">
+<meta property="og:image" content="https://mehtama1234.github.io/semiconductor-conferences/presentation/slides/01-cover.jpg">
+<meta property="og:image:width" content="1920">
+<meta property="og:image:height" content="1080">
+<meta property="og:image:alt" content="Semiconductor conference atlas: 582 papers from ISCA, DAC and ICCAD, sorted into 10 themes and six directions to watch.">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://mehtama1234.github.io/semiconductor-conferences/themes/design-methodology-and-tooling.html">
+<link rel="icon" href="../assets/icon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../kit/tokens.css">
+<link rel="stylesheet" href="../kit/boards.css">
+<link rel="stylesheet" href="../kit/course.css">
+<link rel="stylesheet" href="../kit/slides.css">
+<link rel="stylesheet" href="../kit/math/katex.min.css">
+<link rel="stylesheet" href="../kit/site.css">
+<script>try{var t=localStorage.getItem('course-kit-theme');if(t)document.documentElement.setAttribute('data-theme',t)}catch(e){}</script>
 </head>
-<body class="course-site " data-house="atlas">
-  <aside class="public-demo-banner" aria-label="About this course">A plain-language guide to what ISCA, DAC and ICCAD papers say about chip and computer design · Built from the repository’s own paper records · Not made by the conferences</aside>
-  <a class="skip-link" href="#app">Skip to the page</a>
-  <header>
-    <a class="brand" href="../index.html"><span class="mark" aria-hidden="true">Si</span> Semiconductor conference atlas</a>
-    <span class="header-status"><span class="badge">582 papers</span><span class="badge">10 themes</span><span class="badge">Plain words first</span></span>
-    <a class="header-link" href="../course-map.html">Course map</a>
-  </header>
-  <nav class="course-nav" aria-label="Main sections of the course"><a href="../index.html">The big picture</a><a href="../themes.html" aria-current="page">Themes</a><a href="../subthemes.html">Subthemes</a><a href="../deep-reads.html">Deep reads</a><a href="../directions.html">What to watch</a><a href="../presentation/index.html">Slides</a><a href="../video/index.html">Video</a><a href="../share/index.html">Share</a></nav>
-  <main id="app" tabindex="-1">
-    <section class="screen active landing legacy-page" aria-labelledby="page-title">
-<div class="lm-head"><div class="hj-heading"><nav class="crumbs" aria-label="You are here"><a href="../course-map.html">Course map</a><span aria-hidden="true">›</span><a href="../themes.html">Themes</a></nav><a class="back-button" href="../themes.html">← <span>Themes</span></a><p class="eyebrow">Theme · 29 papers · 16 subthemes</p><h1 id="page-title">Design methodology and tooling: how a design is written down decides which choices a tool can see</h1><p class="hj-sub">The article explains the technical problem step by step first, then links to every subtheme and its papers. Worked numbers are illustrations, not paper results.</p></div><div class="hj-art" data-art="trio:file-text,settings,checklist"></div></div>
-<figure class="course-fig"><div class="loop-wide" data-art="flow:design-methodology-and-tooling"></div><div class="loop-tall" data-art="flowTall:design-methodology-and-tooling"></div><figcaption>How a design is written down decides what a tool can change.</figcaption></figure><div class="chart-card"><div data-chart="theme-design-methodology-and-tooling"></div><div><p class="lm-k">In numbers</p><h3>16 subthemes, largest first</h3><p>29 papers: DAC 26, ICCAD 2, ISCA 1.</p><p class="chart-note">A count shows attention in this sample, not importance.</p></div></div>
-      <article class="prose">
+<body data-kit="boards">
+<a class="ck-skip" href="#main">Skip to the content</a>
+<div class="root">
+<header class="rs-hero"><div class="rs-top"><a class="rs-brand" href="../index.html"><i>Si</i>Semiconductor conference atlas</a><span class="rs-r"><nav class="ck-nav" aria-label="Main sections of the site"><a href="../index.html">The big picture</a><a href="../themes.html" aria-current=page>Themes</a><a href="../subthemes.html">Subthemes</a><a href="../deep-reads.html">Deep reads</a><a href="../directions.html">What to watch</a><a href="../presentation/index.html">Slides</a><a href="../video/index.html">Video</a><a href="../share/index.html">Share</a></nav><button type="button" class="ck-theme" aria-label="Change colour theme">Theme: auto</button></span></div><div class="rs-hg"><div><p class="eb">Theme · 29 papers · 16 subthemes</p><h1 class="rs-h1 long" id="page-title">What do the 29 papers on design methodology and tooling work on? <i>How a design is written down decides which choices a tool can see.</i></h1><p class="rs-lede">The article explains the problem step by step first. Then it links every subtheme and its papers. Worked numbers are illustrations, not paper results.</p></div><ol class="ck-cards" aria-label="The numbers this page turns on"><svg viewBox="0 0 520 380" aria-hidden="true" preserveAspectRatio="none"><path d="M236 78 C 260 84, 260 128, 284 134"/><path d="M398 198 C 378 238, 196 152, 166 182"/><path d="M240 246 C 264 252, 262 296, 286 302"/></svg><li class="ck-card"><p class="k">1 · Papers</p><b>29</b><span>in this theme</span></li><li class="ck-card"><p class="k">2 · Subthemes</p><b>16</b><span>narrower problems</span></li><li class="ck-card"><p class="k">3 · Largest subtheme</p><b>7 papers</b><span>Optimization and search methods</span></li><li class="ck-card"><p class="k">4 · Top conference</p><b>DAC 26</b><span>all: DAC 26 · ICCAD 2 · ISCA 1</span></li></ol></div></header>
+<main id="main" class="ck-main" tabindex="-1">
+<nav class="rs-selbar" aria-label="About this page"><span class="rs-sel"><b>You are here</b><a href="../course-map.html">Every page</a> › <a href="../themes.html">Themes</a></span><span class="rs-crumb">Theme · 29 papers · 16 subthemes</span></nav><section class="ck-pagefig ck-wide"><figure class="rs-media ck-scene"><div class="rs-mh"><span>The problem in one drawing</span><span class="t t-oc">our drawing</span></div><div class="rs-mb"><div class="ck-scene-pan" tabindex="0" role="group" aria-label="Drawing; scroll sideways on a small screen" style="--min:900px"><svg class="ck-art" viewBox="0 0 1000 320" role="img" aria-labelledby="tdesignmethodol-t" font-family="IBM Plex Sans Condensed, sans-serif"><title id="tdesignmethodol-t">A design rewritten through a graph: a written description becomes a graph of operations, a tool rewrites the graph, a check confirms it computes the same thing, and only then is the cost compared</title><defs><marker id="tdesignmethodol-a" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5 0 10z" fill="#2b2622"/></marker><marker id="tdesignmethodol-r" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5 0 10z" fill="#9a4a22"/></marker><pattern id="tdesignmethodol-h" width="8" height="8" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><path d="M0 0V8" stroke="#cdbfa9" stroke-width="3"/></pattern></defs><rect x="22" y="36" width="156" height="150" rx="6" fill="#3a2e26"/><text x="34" y="70" font-size="16" fill="#f3ede2">for i in 0..n:</text><text x="34" y="100" font-size="16" fill="#f3ede2">  y += a[i]*b[i]</text><text x="34" y="130" font-size="16" fill="#f3ede2">out = y</text><text x="100" y="236" font-size="15" fill="#2b2622" text-anchor="middle" font-weight="600" letter-spacing="1">1 · THE DESCRIPTION</text><text x="100" y="257" font-size="15" fill="#2b2622" text-anchor="middle">code a person writes</text><path d="M182 110H218" fill="none" stroke="#2b2622" stroke-width="2" marker-end="url(#tdesignmethodol-a)"/><path d="M382 110H418" fill="none" stroke="#2b2622" stroke-width="2" marker-end="url(#tdesignmethodol-a)"/><path d="M582 110H618" fill="none" stroke="#2b2622" stroke-width="2" marker-end="url(#tdesignmethodol-a)"/><path d="M782 110H818" fill="none" stroke="#2b2622" stroke-width="2" marker-end="url(#tdesignmethodol-a)"/><path d="M265 46L265 112" stroke="#5a5047" stroke-width="1.6"/><path d="M335 46L265 112" stroke="#5a5047" stroke-width="1.6"/><path d="M265 112L300 178" stroke="#5a5047" stroke-width="1.6"/><path d="M265 46L335 112" stroke="#5a5047" stroke-width="1.6"/><path d="M335 46L335 112" stroke="#5a5047" stroke-width="1.6"/><path d="M335 112L300 178" stroke="#5a5047" stroke-width="1.6"/><circle cx="265" cy="46" r="18" fill="#f5e6d3" stroke="#2b2622" stroke-width="1.6"/><text x="265" y="52" font-size="17" text-anchor="middle" fill="#2b2622">a</text><circle cx="335" cy="46" r="18" fill="#f5e6d3" stroke="#2b2622" stroke-width="1.6"/><text x="335" y="52" font-size="17" text-anchor="middle" fill="#2b2622">b</text><circle cx="265" cy="112" r="18" fill="#f5e6d3" stroke="#2b2622" stroke-width="1.6"/><text x="265" y="118" font-size="17" text-anchor="middle" fill="#2b2622">×</text><circle cx="335" cy="112" r="18" fill="#f5e6d3" stroke="#2b2622" stroke-width="1.6"/><text x="335" y="118" font-size="17" text-anchor="middle" fill="#2b2622">×</text><circle cx="300" cy="178" r="18" fill="#f5e6d3" stroke="#2b2622" stroke-width="1.6"/><text x="300" y="184" font-size="17" text-anchor="middle" fill="#2b2622">+</text><text x="300" y="236" font-size="15" fill="#2b2622" text-anchor="middle" font-weight="600" letter-spacing="1">2 · THE GRAPH</text><text x="300" y="257" font-size="15" fill="#2b2622" text-anchor="middle">operations and their order</text><path d="M479 124C530 132 526 148 512 164" fill="none" stroke="#5a5047" stroke-width="1.6"/><path d="M465 46L465 112" stroke="#5a5047" stroke-width="1.6"/><path d="M535 46L465 112" stroke="#5a5047" stroke-width="1.6"/><path d="M465 112L500 178" stroke="#5a5047" stroke-width="1.6"/><circle cx="465" cy="46" r="18" fill="#f5e6d3" stroke="#2b2622" stroke-width="1.6"/><text x="465" y="52" font-size="17" text-anchor="middle" fill="#2b2622">a</text><circle cx="535" cy="46" r="18" fill="#f5e6d3" stroke="#2b2622" stroke-width="1.6"/><text x="535" y="52" font-size="17" text-anchor="middle" fill="#2b2622">b</text><circle cx="465" cy="112" r="18" fill="#e3b98f" stroke="#2b2622" stroke-width="1.6"/><text x="465" y="118" font-size="17" text-anchor="middle" fill="#2b2622">×</text><circle cx="500" cy="178" r="18" fill="#f5e6d3" stroke="#2b2622" stroke-width="1.6"/><text x="500" y="184" font-size="17" text-anchor="middle" fill="#2b2622">+</text><text x="500" y="236" font-size="15" fill="#2b2622" text-anchor="middle" font-weight="600" letter-spacing="1">3 · A REWRITE</text><text x="500" y="257" font-size="15" fill="#2b2622" text-anchor="middle">one multiplier, used twice</text><path d="M660 90h80M660 112h80" stroke="#2b2622" stroke-width="5"/><text x="700" y="160" font-size="16" text-anchor="middle" fill="#2b2622">still equal?</text><text x="700" y="236" font-size="15" fill="#2b2622" text-anchor="middle" font-weight="600" letter-spacing="1">4 · SAME FUNCTION?</text><text x="700" y="257" font-size="15" fill="#2b2622" text-anchor="middle">checked, not assumed</text><rect x="864" y="80" width="30" height="100" fill="#cdbfa9"/><rect x="908" y="114" width="30" height="66" fill="#9a4a22"/><path d="M850 180h100" stroke="#2b2622" stroke-width="2"/><text x="900" y="202" font-size="14" fill="#5a5047" text-anchor="middle">before · after</text><text x="900" y="236" font-size="15" fill="#2b2622" text-anchor="middle" font-weight="600" letter-spacing="1">5 · THE COST ESTIMATE</text><text x="900" y="257" font-size="15" fill="#2b2622" text-anchor="middle">area, time, power</text><text x="500.0" y="312" font-size="18" fill="#9a4a22" text-anchor="middle" font-family="Fraunces, Georgia, serif" font-style="italic">A tool can only change what the written form lets it see.</text></svg></div><figcaption class="ck-cap">Each numbered part is one place where this theme's papers act. The subtheme pages ring the part they work on.</figcaption></div></figure><figure class="rs-media"><div class="rs-mh"><span>Papers in each subtheme, largest 12 of 16</span><span class="t t-wo">counted</span></div><div class="rs-mb"><div data-chart><script type="application/json">{"type":"bars","title":"Papers per subtheme","desc":"Optimization and search methods has the most, 7.","max":7,"items":[{"label":"Optimization and search methods","value":7,"em":true},{"label":"Graph and hypergraph optimization","value":3},{"label":"Logic synthesis and optimization","value":3},{"label":"Compiler and runtime optimization","value":2},{"label":"High level synthesis and compilers","value":2},{"label":"Synthesis and compilation","value":2},{"label":"Architecture modeling and exploration","value":1},{"label":"Cell and circuit design","value":1},{"label":"Compilation and mapping","value":1},{"label":"Cross layer design automation","value":1},{"label":"Hardware generation and compilation","value":1},{"label":"Partitioning and placement","value":1}]}</script><noscript><p class="ck-cap">Papers per subtheme. Optimization and search methods has the most, 7.</p></noscript></div><figcaption class="ck-cap">Counted from data/taxonomy-expanded-v1.json: 29 papers in 16 subthemes. A count shows where this sample's papers went, not how important a subject is.</figcaption></div></figure></section><div class="ck-doc"> 
+
 
 <p>This article explains the subject and then connects it to 29 papers in the selected research sample.</p>
 <p>A subtheme groups related technical problems. A mechanism describes the particular change proposed by a paper. The discussion below explains the subject; the linked paper records state the available evidence.</p>
 <p><a href="../guide/reading-guide-v1.html">Definitions used in the paper records</a></p>
-<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>Design tools make many small choices that add up</h2>
+<div class="rs-sh"><h2 class="rs-h2">Design tools make many small choices that add up</h2></div>
 <ul>
 <li>A <strong>compiler</strong> turns a program from one form into another while keeping its intended behavior.</li>
 <li>A <strong>synthesis tool</strong> builds a circuit implementation.</li>
 <li>An <strong>optimizer</strong> picks among implementations by a stated goal.</li>
 </ul>
 <p>Together these choices decide run time, memory use, circuit size, and the effort needed to get a result.</p>
-<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="route"></span>How a design is written down decides what a tool can see and change</h2>
+<div class="rs-sh"><h2 class="rs-h2">How a design is written down decides what a tool can see and change</h2></div>
 <p>A representation makes some properties visible and hides others.</p>
 <ul>
 <li>A <strong>graph</strong> can show which operations depend on which.</li>
 <li>A <strong>schedule</strong> assigns operations to times or resources.</li>
 </ul>
 <p>Removing redundant work can also change memory traffic or available parallelism. So a tool needs two things: a rule for which changes keep the design correct, and a cost model for picking useful ones.</p>
-<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="route"></span>The subthemes change the steps, the search, the structure, or the benchmarks</h2>
+<div class="rs-sh"><h2 class="rs-h2">The subthemes change the steps, the search, the structure, <i>or the benchmarks</i></h2></div>
 <ul>
 <li><strong>Compilation and synthesis</strong> methods change the sequence of transformations.</li>
 <li><strong>Search</strong> methods choose configurations or implementations.</li>
@@ -66,14 +59,14 @@
 <li><strong>Benchmark and artifact</strong> methods publish inputs, expected outputs and steps so others can compare.</li>
 </ul>
 <p>Their shared question: can another designer or user get the claimed benefit by following a defined process?</p>
-<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="checklist"></span>A fair test separates tool time from the time the output saves</h2>
+<div class="rs-sh"><h2 class="rs-h2">A fair test separates tool time from the time the output saves</h2></div>
 <ol>
 <li>State inputs, versions, settings, hardware, and the total time to get a valid output.</li>
 <li>Separate time spent running the tool from time saved by its output.</li>
 <li>Compare correctness and output quality, not only run time.</li>
 <li>Test on unfamiliar inputs. That is a stronger test than re-tuning on the development examples.</li>
 </ol>
-<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>Follow a design choice through its consequences</h2>
+<div class="rs-sh"><h2 class="rs-h2">Follow a design choice through its consequences</h2></div>
 <p>A design is chosen in stages, and a candidate that looks best early can fail a later limit.</p>
 <p>A design process:</p>
 <ol>
@@ -118,7 +111,7 @@
 <li>the <strong>objective</strong> used to choose among acceptable candidates.</li>
 </ul>
 <p><strong>Be careful:</strong> the numbers in this discussion are teaching calculations, not measurements from the linked papers.</p>
-<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>A representation enables some decisions and hides others</h2>
+<div class="rs-sh"><h2 class="rs-h2">A representation enables some decisions and hides others</h2></div>
 <p>How a problem is written down decides which costs a tool can see.</p>
 <ul>
 <li>A <strong>graph</strong> describes objects and links between pairs of them.</li>
@@ -128,18 +121,18 @@
 <p>The representation does not price every implementation effect. One crossing signal driving ten distant receivers and another driving one nearby receiver may each count as one cut.</p><p>Their physical load, traffic and timing can differ. A lower cut count is evidence about that objective, not proof of a faster final system.</p>
 <p>The <a href="../subthemes/optimization-and-search-methods.html">optimization and search chapter</a> links this to Impart's multilevel partitioning and the other captured search methods. Their current descriptions do not establish complete downstream conditions. The useful question is which left-out costs could change the selected solution.</p>
 <p><strong>Coarsening</strong> merges several objects into fewer, larger ones before searching. It makes the problem cheaper, but temporarily hides choices about how the merged objects differ. <strong>Refinement</strong> restores the detail and allows adjustments.</p><p>So a good coarse solution is a starting point. Its quality depends on what the grouping kept, and what refinement can recover.</p>
-<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>A transformation needs a validity condition before a cost estimate</h2>
+<div class="rs-sh"><h2 class="rs-h2">A transformation needs a validity condition before a cost estimate</h2></div>
 <p>Before asking whether a changed program is faster, show it still computes the right thing.</p>
 <p>Two implementations can compute the same intended result with different operation orders or storage. Whether they are equivalent depends on the arithmetic and execution rules:</p>
 <ul>
 <li>Reordering exact integer additions, without overflow, keeps the result.</li>
 <li>Reordering finite-precision floating-point additions can change it, through rounding.</li>
 </ul>
-<p>Likewise, a kernel built for contiguous arrays needs a valid alternative, or a rejection path, for an array whose elements are spaced further apart in memory (a larger <strong>stride</strong>). Matching dimensions do not make memory layouts interchangeable.</p><p>A cache key for reusing an implementation must capture every condition that affects validity, not just the handiest label.</p>
+<p>Likewise, a kernel built for arrays stored side by side needs a plan for spaced-out arrays. The spacing between elements is the <strong>stride</strong>.</p><p>The kernel must handle a larger stride correctly, or refuse it. Matching dimensions do not make memory layouts interchangeable.</p><p>A cache key for reusing an implementation must capture every condition that affects validity, not just the handiest label.</p>
 <p><a href="../subthemes/compiler-and-runtime-optimization.html#explanation-dac-2026-research127">DyTuner's expanded explanation</a> uses changing tensor shapes to explain this. The official description gives a proposed adaptive tuning method and named comparisons. Its exact adaptation and reuse rules are not recovered.</p>
 <p><strong>Be careful:</strong> this theme must not fill those gaps by treating a plausible specialization policy as the paper's implementation.</p>
-<p>So validation is not a final decorative step. It shapes how candidates are built and reused. A cost model should rank candidates only after their behavior and conditions are established, or clearly mark rankings that include candidates still awaiting validation.</p>
-<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>A fast estimate is useful only if it supports the right decision</h2>
+<p>So validation is not a final decorative step. It shapes how candidates are built and reused. A cost model should rank only candidates whose behaviour is already checked. Otherwise it must mark which ranked candidates are still unchecked.</p>
+<div class="rs-sh"><h2 class="rs-h2">A fast estimate is useful only if it supports the right decision</h2></div>
 <p>An estimate's error matters through the decision it changes, especially near a hard limit.</p>
 <p>A <strong>cost model</strong> predicts an expensive quantity, such as run time, area, energy or circuit delay. Small errors near a hard limit can matter more than large errors far from it.</p>
 <blockquote>
@@ -162,8 +155,8 @@
 <p>Checking only <code>τ</code> does not establish that total bound.</p>
 </blockquote>
 <p>An average prediction error is not automatically the needed worst-case bound.</p>
-<p>This links tooling to <a href="verification-and-validation.html">verification</a>. The claim must say what was checked, under which assumptions, and whether an unresolved case was rejected, re-checked exactly, or accepted without a guarantee.</p>
-<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>Tool runtime and output runtime are different costs</h2>
+<p>This links tooling to <a href="verification-and-validation.html">verification</a>. The claim must say what was checked and under which assumptions. It must also say what happened to unresolved cases: rejected, re-checked exactly, or accepted without a guarantee.</p>
+<div class="rs-sh"><h2 class="rs-h2">Tool runtime and output runtime are different costs</h2></div>
 <p>Time spent preparing a faster result pays off only if the result is reused enough.</p>
 <p>A compiler can take longer to produce code that runs faster. A search can try more candidates and deliver a better circuit. Whether that trade is worth it depends on how often the result is used, and on the user's budget.</p>
 <blockquote>
@@ -174,7 +167,7 @@
 </ul>
 </blockquote>
 <p>The same accounting applies to a design tool used once per product versus many times during exploration. Record total preparation and validation costs, as well as the final result's performance.</p><p>Reuse assumptions must name what invalidates the work. Shape, layout, target hardware, constraints, library versions or model parameters may each matter.</p>
-<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="alert-triangle"></span>Search quality must include failed and expensive attempts</h2>
+<div class="rs-sh"><h2 class="rs-h2">Search quality must include failed and expensive attempts</h2></div>
 <p>Compare search methods at a stated budget, counting every failed and invalid attempt.</p>
 <p>An optimizer chooses which candidates to evaluate. A cheap predictor can screen many candidates before expensive implementation. Random variation or a learned policy can explore alternatives. A higher predicted score does not, by itself, show a better valid implementation.</p>
 <blockquote>
@@ -187,7 +180,7 @@
 </ul>
 </blockquote>
 <p>So compare output quality at stated time and resource budgets, rather than picking whichever denominator favors a method.</p>
-<p>Invalid candidates and failed runs belong in the record. If nine runs fail and one gives a good result, reporting only the survivor hides the odds and cost of getting a usable output. To read the variability, record:</p>
+<p>Invalid candidates and failed runs belong in the record. Say nine runs fail and one gives a good result. Reporting only that one hides the odds, and the cost, of getting a usable output. To read the variability, record:</p>
 <ul>
 <li>distinct random seeds;</li>
 <li>failures;</li>
@@ -195,7 +188,7 @@
 <li>how the final result was selected.</li>
 </ul>
 <p>Search also tests a predictor differently from random sampling. Search prefers unusually good predictions, and those can include unusually optimistic errors.</p><p>A random held-out test error does not describe the candidates the optimizer picks. Re-check predicted winners with the intended more trustworthy method, and keep cases where their ranking changes.</p>
-<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>Local improvements must survive the rest of the process</h2>
+<div class="rs-sh"><h2 class="rs-h2">Local improvements must survive the rest of the process</h2></div>
 <p>Each stage gives something new, but leaves something still unproven.</p>
 <table>
 <thead>
@@ -228,10 +221,10 @@
 </tr>
 </tbody>
 </table>
-<p>These stages can loop: a failed implementation can guide a new candidate. The feedback must keep why it failed. If a constraint violation is treated as just a poor score, the search can keep picking invalid outputs whenever another score part makes up for it.</p>
-<p>The <a href="architecture-and-accelerators.html">architecture theme</a> adds the next requirement. A compiler's improved operator, or an accelerator generator's favorable model, must still fit a complete application with data movement, numerical quality and preparation costs.</p>
+<p>These stages can loop: a failed implementation can guide a new candidate. The feedback must keep why it failed.</p><p>Treat a broken rule as just a low score, and the search can keep picking invalid outputs. Another part of the score can make up for the break.</p>
+<p>The <a href="architecture-and-accelerators.html">architecture theme</a> adds the next requirement. A faster compiled step, or a good result from an accelerator<span class="ck-gloss"> (a chip or block built to do one kind of work fast)</span> generator, must still fit the whole application. That includes data movement, numerical quality and set-up costs.</p>
 <p><strong>Be careful:</strong> gains at several stages cannot be multiplied when they use different baselines or overlapping work.</p>
-<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="alert-triangle"></span>Three long-term hypotheses and their limits</h2>
+<div class="rs-sh"><h2 class="rs-h2">Three long-term hypotheses and their limits</h2></div>
 <p>Three readings are worth testing; each names what would weaken it.</p>
 <table>
 <thead>
@@ -262,7 +255,7 @@
 <p>These are mechanism-based interpretations, not established ISCA–DAC–ICCAD trends. A cross-conference comparison needs compatible problems, objectives, input populations, source depth and budgets.</p>
 <p><strong>Be careful:</strong> a compiler paper, a partitioner paper and a physical implementation paper may add complementary evidence. They do not form an integrated process just because their subjects are related.</p>
 <p>The two <a href="../subthemes/compiler-and-runtime-optimization.html">compiler/runtime explanations</a> give the deepest current reading path used here: timing reuse is manuscript-backed and DyTuner remains description-backed. The other tooling branches below still need fuller paper-level writing, evidence recovery and independent review.</p><p>This synthesis does not close those gaps or establish accepted conclusions over time.</p>
-<p class="lm-k h-label">Subthemes and how to study them</p><h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="books"></span>The subthemes in this theme, and how to read them</h2>
+<p class="rs-k">Subthemes and how to study them</p><div class="rs-sh"><h2 class="rs-h2">The subthemes in this theme, <i>and how to read them</i></h2></div>
 <p>Each link opens the subtheme discussion and its captured paper records. Explanatory depth varies: some papers have expanded individual explanations; others still have only brief discussion or evidence cards. Source locations and unresolved conditions remain visible.</p>
 <h3><a href="../subthemes/optimization-and-search-methods.html">Optimization and search methods</a></h3>
 <p>7 selected records in this theme. Start with <a href="../subthemes/optimization-and-search-methods.html">Impart: Integration of Memetic Operations into Multi-Level Framework for Large-k-Way Hypergraph Partitioning</a>.</p>
@@ -296,9 +289,9 @@
 <p>1 selected records in this theme. Start with <a href="../subthemes/simulation-and-numerical-methods.html">EastPCG: An Efficient and Self-Tuning Graph Sparsification Based PCG Solver for Circuit Simulation</a>.</p>
 <h3><a href="../subthemes/verification-and-debugging-tools.html">Verification and debugging tools</a></h3>
 <p>1 selected records in this theme. Start with <a href="../subthemes/verification-and-debugging-tools.html">Schemacoder: Automatic Log Schema Extraction Coder with Residual Q-Tree Boosting</a>.</p>
-<p class="lm-k h-label">Representative source-backed records</p><h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="route"></span>Papers that show the theme well</h2>
+<p class="rs-k">Representative source-backed records</p><div class="rs-sh"><h2 class="rs-h2">Papers that show the theme well</h2></div>
 <p>The following reading set spans the available conferences and uses dated corrections where registered. These corrections improve the current reading view but do not change historical adjudication or establish independent acceptance. Each paper link opens its exact evidence card.</p>
-<p class="lm-k h-label">Paper cards: what changes and where it stops</p><h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>Paper cards: what each paper changes, and where it stops</h2>
+<p class="rs-k">Paper cards: what changes and where it stops</p><div class="rs-sh"><h2 class="rs-h2">Paper cards: <i>what each paper changes, and where it stops</i></h2></div>
 <ul>
 <li><a href="../subthemes/high-level-synthesis-and-compilers.html#paper-isca-2026-program-002">CODO: An Automated Compiler for Comprehensive Dataflow Optimization</a> — ISCA 2026.</li>
 <li><a href="../subthemes/hardware-generation-and-compilation.html#paper-dac-2026-research868">FSGen: Agile Fused and Sparse Accelerator Generator with Accurate Power Model for LLM Applications</a> — DAC 2026.</li>
@@ -313,20 +306,20 @@
 <li><a href="../subthemes/graph-and-hypergraph-optimization.html#paper-dac-2026-research2694">Hyspecpro: Scalable Hypergraph Partitioning via Spectral Projection Optimization</a> — DAC 2026.</li>
 <li><a href="../subthemes/compiler-and-runtime-optimization.html#paper-dac-2026-research2566">Path-Based Timing Analysis Acceleration via Segment-Level Timing Arc Reuse</a> — DAC 2026.</li>
 </ul>
-<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="file-text"></span>What the evidence supports</h2>
+<div class="rs-sh"><h2 class="rs-h2">What the evidence supports</h2></div>
 <p>These records identify proposed methods and the conditions recorded for them. A reported improvement should be interpreted with its comparison method, input size, hardware, and result-quality requirement. Missing fields are evidence gaps; a populated field can also state that a detail is unspecified.</p>
-<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="file-text"></span>Limits and next evidence</h2>
+<div class="rs-sh"><h2 class="rs-h2">Limits and next evidence</h2></div>
 <p>The selected sample is uneven across conferences and source types. It cannot establish how fast a subject is growing. Repeated observations across comparable years, with the same inclusion rules and source depth, are needed for a time trend.</p>
-<p>Every linked evidence article preserves the Problem: and Mechanism / artifact: fields, baseline, unshortened limitations, source URL, and recorded location. Primary text and independent review remain necessary where the record says those checks are open.</p>
-<p><a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/reports/directions/README.md">Research directions</a> · <a href="../guide/expanded-taxonomy-v1.html">All observed subthemes</a></p><p class="meta">Written as <a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/reports/themes/design-methodology-and-tooling.md">reports/themes/design-methodology-and-tooling.md</a> in the course repository.</p>
-      </article>
-      <nav class="pager" aria-label="Previous and next"><a class="prev" href="chiplets-3d-and-packaging.html"><span class="pg-k">← Previous</span><span class="pg-t">Chiplets, 3D integration, and packaging</span></a><a class="map" href="../themes.html"><span class="pg-k">Back to</span><span class="pg-t">Themes</span></a><a class="next" href="memory-interconnect-and-storage.html"><span class="pg-k">Next →</span><span class="pg-t">Memory, interconnect, and storage</span></a></nav>
-    </section>
-  </main>
-  <footer class="course-foot">
-    <p>Built from 582 paper records coded from ISCA 2026, DAC 2026 and ICCAD 2025 (ICCAD 2026 papers were not yet public). Most records come from official program descriptions; see “How deep the reading went”. The papers belong to their authors.</p>
-    <p class="foot-links"><a href="https://github.com/mehtama1234/course-concept-library">All courses</a><a href="../index.html">This course</a><a href="../course-map.html">Course map</a><a href="../presentation/index.html">Slides</a><a href="../video/index.html">Video</a><a href="../share/index.html">Share</a></p>
-  </footer>
-  <script src="../assets/course-data.js"></script><script src="../assets/icons.js"></script><script src="../assets/icons-extra.js"></script><script src="../assets/icons-course.js"></script><script src="../assets/art.js"></script><script src="../assets/course-art.js"></script><script src="../assets/charts.js"></script><script src="../assets/course-charts.js"></script><script src="../assets/course-site.js"></script>
+<p>Every linked evidence article preserves the Problem: and Mechanism / artifact: fields, baseline<span class="ck-gloss"> (the existing method a new result is compared against)</span>, unshortened limitations, source URL, and recorded location. Primary text and independent review remain necessary where the record says those checks are open.</p>
+<p><a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/reports/directions/README.md">Research directions</a> · <a href="../guide/expanded-taxonomy-v1.html">All observed subthemes</a></p><p class="mut">Written as <a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/reports/themes/design-methodology-and-tooling.md">reports/themes/design-methodology-and-tooling.md</a> in the course repository.</p>
+
+
+</div>
+</main>
+<footer class="rs-close"><p class="eb">This page, in one line</p><p class="rs-h2" style="max-width:26em">How a design is written down decides which choices a tool can see.</p><div class="ck-next"><a href="chiplets-3d-and-packaging.html"><span class="rs-k" style="color:var(--peach)">Previous</span><b>Chiplets, 3D integration, and packaging</b></a><a class="r" href="memory-interconnect-and-storage.html"><span class="rs-k" style="color:var(--peach)">Next</span><b>Memory, interconnect, and storage</b></a></div><div class="rs-btns"><a class="ck-btn pri" href="../themes.html">Back to Themes</a></div><p class="rs-src">Built from 582 paper records coded from ISCA 2026, DAC 2026 and ICCAD 2025 (ICCAD 2026 papers were not yet public). Most records come from official program descriptions; see “How deep the reading went”. The papers belong to their authors.</p><p class="ck-footlinks"><a href="https://github.com/mehtama1234/semiconductor-conferences">Source on GitHub</a><a href="../index.html">The big picture</a><a href="../course-map.html">Every page</a><a href="../presentation/index.html">Slides</a><a href="../video/index.html">Video</a><a href="../share/index.html">Share</a></p></footer>
+</div>
+<script src="../kit/charts.js"></script>
+<script src="../kit/course.js"></script>
+<script src="../kit/site.js"></script>
 </body>
 </html>

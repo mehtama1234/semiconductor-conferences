@@ -5,8 +5,7 @@ program title and all four authors. [Structured assessment](../data/exact-t-prim
 records experimental conditions and the unresolved description/preprint metric
 difference. Original description evidence is preserved, not overwritten.
 
-The synthesis may retain this as a provisional resource-specific mapping case,
-not an accepted numerical headline or evidence of learned search. Neither local
+The synthesis may keep this as a provisional example of mapping for one resource. It is not an accepted headline number, nor evidence of learned search. Neither local
 library optimality nor software tests establish globally optimal circuits.
 
 ## Figure and artifact follow-up

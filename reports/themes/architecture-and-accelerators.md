@@ -39,7 +39,7 @@ Some operations cannot run in parallel at all. That is why good performance on o
 2. Compare completion time, energy per completed job, memory use and hardware cost.
 3. Vary the inputs that affect reuse or parallelism.
 
-If a specialized design wins only when all inputs fit in a small memory, that capacity condition is part of the result. The evidence cards below keep the reported conditions. Read them before applying a result to a different application.
+Suppose a specialized design wins only when all inputs fit in a small memory. Then that memory size is part of the result. The evidence cards below keep the reported conditions. Read them before applying a result to a different application.
 
 ## Follow one result through the machine
 
@@ -171,7 +171,7 @@ Finding more papers with matching titles is not enough to test them. Within each
 3. report spreads and regressions, not only good averages;
 4. across editions, use the same collection rules, and tell missing manuscripts apart from measured negative results.
 
-**Be careful:** the current sample cannot show that ISCA, DAC or ICCAD leads a trend, or that a mechanism is growing. Conference identity is not an experimental control. A useful cross-conference link asks whether separately tested parts can meet one compatible set of requirements. A compiler result, an accelerator result and a physical implementation result stay separate evidence until their interfaces, formats, capacities and measurement conditions line up.
+**Be careful:** the current sample cannot show that ISCA, DAC or ICCAD leads a trend, or that a mechanism is growing. Conference identity is not an experimental control. A useful cross-conference link asks whether separately tested parts can meet one compatible set of requirements. A compiler result, an accelerator result and a layout result are separate evidence. They join up only when their interfaces, formats, sizes and test conditions match.
 
 ## What an end-to-end comparison must retain
 

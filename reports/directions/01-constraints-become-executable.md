@@ -22,7 +22,7 @@ The check must return something useful: which property failed, where, or which r
 
 ## Different checks prove different things, so keep them apart
 
-A language model writing circuit code, a compiler arranging operations, and a placement tool choosing locations can all use this loop. Their checks differ:
+Three kinds of tool can use this loop: a language model writing circuit code, a compiler ordering operations, and a placement tool choosing locations. Their checks differ:
 
 - **Compiling** shows a tool accepts the code's syntax and structure.
 - **Simulating** selected inputs checks those runs only.
@@ -35,7 +35,7 @@ An evaluation must keep these outcomes separate.
 1. Compare methods on the same unseen design tasks, with the same total time and computing resources.
 2. Count valid completed designs, failures, unresolved checks, and final area, timing and power.
 3. If feedback helps on development examples but fails on new designs, the evidence supports only a narrower method.
-4. To show a trend over time, compare equivalent sets of papers across years, and code which checks actually change design decisions.
+4. To show a trend over time, compare like-for-like sets of papers across years. Then record which checks actually change design decisions.
 
 ## Counterpressure and falsification boundary
 

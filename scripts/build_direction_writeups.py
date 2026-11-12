@@ -20,7 +20,7 @@ A design process considers many candidates. If a requirement is checked only aft
 3. The next design decision uses that report.
 
 The check must return something useful: which property failed, where, or which resource went over its limit. A bare pass or fail may rule a candidate out without saying how to improve it."""),
-  ('Different checks prove different things, so keep them apart', """A language model writing circuit code, a compiler arranging operations, and a placement tool choosing locations can all use this loop. Their checks differ:
+  ('Different checks prove different things, so keep them apart', """Three kinds of tool can use this loop: a language model writing circuit code, a compiler ordering operations, and a placement tool choosing locations. Their checks differ:
 
 - **Compiling** shows a tool accepts the code's syntax and structure.
 - **Simulating** selected inputs checks those runs only.
@@ -30,7 +30,7 @@ An evaluation must keep these outcomes separate."""),
   ('The test: same unseen tasks, same total budget, count every outcome', """1. Compare methods on the same unseen design tasks, with the same total time and computing resources.
 2. Count valid completed designs, failures, unresolved checks, and final area, timing and power.
 3. If feedback helps on development examples but fails on new designs, the evidence supports only a narrower method.
-4. To show a trend over time, compare equivalent sets of papers across years, and code which checks actually change design decisions.""")]),
+4. To show a trend over time, compare like-for-like sets of papers across years. Then record which checks actually change design decisions.""")]),
  'data-movement-as-contract': (
  'Designing computation around the cost of moving data',
  [('The problem: a job can spend most of its time waiting for data', """Every operation needs its inputs where the hardware can reach them. If they are elsewhere, they must move.
@@ -118,7 +118,7 @@ A simulation result keeps its simulation assumptions. Readiness for manufacturin
 - A **speedup** is the ratio of two completion times.
 - A **correctness rate** is the fraction of stated tasks that passed a stated check.
 
-Changing the input set, the comparison method or the rule for success can change the number, even when the method is the same."""),
+Change the input set, the comparison or the rule for success, and the number can change. The method itself may be the same."""),
   ('The change: treat the measurement procedure as a research contribution', """- Better tests can expose failures earlier tests missed.
 - Reproducible software and input data let another researcher check a claim.
 - Clearly defined timeouts stop unfinished runs from counting as success.

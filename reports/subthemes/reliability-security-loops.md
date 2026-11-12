@@ -14,21 +14,40 @@ The papers detect, prevent, correct, isolate, or recover from a stated fault or 
 
 The useful test names the fault or threat, measures protection cost and remaining risk, and states what cases are not covered.
 
-## Define the failure before designing protection
+## Reliability, security and power all limit useful work
 
-Reliability concerns whether a system continues to produce correct results under faults such as corrupted bits or failing components. Security concerns what an adversary can observe or change. Power is the rate of energy use and affects electrical supply and temperature. These topics are grouped here because protections and operating limits change the amount of useful work a system can perform.
+- **Reliability** asks whether a system keeps producing correct results under faults, such as flipped bits or failing parts.
+- **Security** asks what an adversary can observe or change.
+- **Power** is the rate of energy use. It affects electrical supply and temperature.
 
-## Why protection has a cost
+They sit together here because protections and operating limits change how much useful work a system can do.
 
-Detecting a wrong value requires additional information, repeated work, or a check against a constraint. Correcting the value requires enough information to distinguish the possible errors. Isolation may restrict sharing, while recovery may stop work and restart it. The benefit therefore depends on the error or attack being considered and the cost of the added work.
+## Every protection costs something, so name the threat first
 
-## What separates the subthemes
+- **Detecting** a wrong value needs extra information, repeated work, or a check against a constraint.
+- **Correcting** it needs enough information to tell the possible errors apart.
+- **Isolation** may restrict sharing.
+- **Recovery** may stop work and restart it.
 
-Fault-tolerance methods preserve or recover computation after faults. Side-channel methods study information exposed by timing, power, or shared resources even when direct access is forbidden. Privacy-preserving computation changes how protected inputs are processed. Energy methods change when or how hardware operates. An improvement in one category does not establish protection in another.
+So the benefit depends on which error or attack is being considered, and on the cost of the added work.
 
-## A comparison that answers the question
+## The subthemes protect against different things
 
-State which faults can occur or which actions an attacker can take. Measure undetected failures, incorrect alarms, recovery time, and performance with protection enabled. Include energy per correct completed job. If fault injection is used, state where and how faults were introduced. Results from that experiment apply to the tested fault model until broader evidence is available.
+- **Fault tolerance** keeps or recovers computation after faults.
+- **Side-channel** work studies information leaked through timing, power or shared resources, even when direct access is blocked.
+- **Privacy-preserving computation** changes how protected inputs are processed.
+- **Energy** methods change when or how hardware runs.
+
+Progress in one category does not show protection in another.
+
+## A fair test states the fault or attacker and measures work with protection on
+
+1. State which faults can occur, or which actions an attacker can take.
+2. Measure undetected failures, false alarms, recovery time, and performance with protection switched on.
+3. Include energy per correct completed job.
+4. If faults are injected, say where and how.
+
+Results from that experiment apply to the tested fault model, until broader evidence exists.
 
 ## The individual subjects
 

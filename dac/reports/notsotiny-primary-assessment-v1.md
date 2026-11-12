@@ -5,12 +5,10 @@ evaluation conditions captured in the [assessment](../data/notsotiny-primary-ass
 No headline score is accepted here; verification-script inspection and independent
 review remain pending.
 
-Our synthesis should ask three separate questions: what the task requires, what
-the checker proves, and how tasks enter the evaluation population. Improving a
+Our synthesis should ask three questions. What does the task require? What does the checker prove? How do tasks get into the test set? Improving a
 score under one combination does not automatically transfer to another.
 
-The next review should explicitly distinguish proof failure, timeout and actual
-inequivalence, and examine whether excluded tasks change the difficulty profile.
+The next review should tell apart three outcomes: proof failure, timeout and a real mismatch. It should also check whether the dropped tasks change how hard the test set is.
 Those are open checks, not demonstrated defects. For temporal interpretation,
 freeze both the dataset version and evaluation protocol before comparing models.
 

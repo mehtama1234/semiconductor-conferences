@@ -15,7 +15,7 @@ A computation must represent its inputs, transform them, and make its output ava
 > - An unintended shift of 0.01 volt changes the number by 0.01.
 > - A different mapping would change that sensitivity.
 
-So precision comes from the mapping, the device behavior and the measurement together, not just the number of nominal output bits.
+So precision comes from three things together: the mapping, the device and the measurement. The number of output bits alone does not set it.
 
 **Be careful:** these examples are independent teaching constructions. The linked chapters keep their manuscript, description, simulation and measured-device boundaries. Grouping analog, photonic, quantum and emerging-memory systems under one theme does not make them interchangeable.
 
@@ -43,9 +43,9 @@ So report the input distribution and the required error, not just the converter 
 
 ## Physical arithmetic needs a stated operating model
 
-Devices can multiply and add for free in principle, but only under a stated model and with an encoding for every value.
+In principle a device can multiply and add for free. That holds only under a stated model, with a stated encoding for every value.
 
-Under a simple linear model, applying a voltage to a **conductance** (how easily a device passes current) gives a current equal to their product. Adding currents together gives a sum of products. The opportunity is to let device physics do part of a numerical operation, instead of running every multiplication in digital logic.
+Apply a voltage to a **conductance** (how easily a device passes current). Under a simple linear model, the current equals their product. Adding currents together gives a sum of products. The opportunity: let device physics do part of the sum. Then not every multiplication has to run in digital logic.
 
 The implementation must still handle:
 
@@ -118,7 +118,7 @@ Knowing which terminals connect is not enough to predict how a circuit behaves e
 
 **Connectivity** says which terminals are joined. The same connectivity can behave differently when component values, supply, loading or physical layout change. So a learning model that predicts an electrical property needs the information that drives that property.
 
-[Hyperanalog's explanation](../observed-subthemes/analog-circuit-learning.md#a-learned-representation-is-not-yet-a-circuit-result) keeps the captured source's missing targets, datasets and measurements. "Hypergraph" names a representation where one relationship can join several objects. It does not say which electrical constraints are encoded. A learned representation becomes useful engineering evidence through a defined downstream task and a validated decision, not through the model's name.
+[Hyperanalog's explanation](../observed-subthemes/analog-circuit-learning.md#a-learned-representation-is-not-yet-a-circuit-result) keeps the captured source's missing targets, datasets and measurements. "Hypergraph" names a representation where one relationship can join several objects. It does not say which electrical constraints are encoded. A learned model counts as engineering evidence only when it serves a stated later task and a checked decision. Its name proves nothing.
 
 This links to [AI-assisted EDA](ai-assisted-eda.md): prediction, generation and checking stay separate roles. A circuit predicted to be good must still meet its requirements under the intended conditions.
 
@@ -164,4 +164,4 @@ Three readings are worth testing; each names what would weaken it.
 
 These are bounded interpretations, not established ISCA–DAC–ICCAD time trends or claims that one technology will replace another. Comparable tasks, evidence depth, hardware conditions and editions are still needed.
 
-**Be careful:** this parent discussion does not complete the still-uneven individual-paper writing, full-source recovery, device validation, or independent scientific and comprehension review.
+**Be careful:** this overview is not the end of the work. The paper write-ups are uneven. Full sources, device checks and independent review are still open.
