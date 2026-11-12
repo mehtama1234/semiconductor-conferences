@@ -1,0 +1,28 @@
+<svg class="kit-scene" data-scene="summary-built" viewBox="0 0 1300 250" role="img" aria-label="How a summary is built. Saved records: runs, checks, comparisons, task versions. Then analysis, calculated: counts, ranges, a statistical test only when there are enough cases. Then a draft summary written by the assistant, marked proposed. Then a person accepts, edits or leaves it open. Then it appears on the project and in the next decision. Every sentence keeps a link back to its records.">
+<defs><marker id="summary-built-ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0 0L10 5L0 10z" fill="#9a4a22"/></marker></defs>
+<g font-family="IBM Plex Sans Condensed" font-weight="600" font-size="14">
+<rect x="0" y="40" width="220" height="150" fill="#ece4d5" stroke="#3a2e26" stroke-width="1.5"/>
+<text data-l="1" x="16" y="68" font-size="15" fill="#2b2622">1 · SAVED RECORDS</text>
+<g fill="#2b2622"><rect x="16" y="86" width="86" height="40" fill="#fbf7f0" stroke="#8f7d69"/><text data-l="2" x="26" y="111">runs</text><rect x="116" y="86" width="88" height="40" fill="#fbf7f0" stroke="#8f7d69"/><text data-l="3" x="126" y="111">checks</text><rect x="16" y="136" width="86" height="40" fill="#fbf7f0" stroke="#8f7d69"/><text data-l="4" x="24" y="161">compares</text><rect x="116" y="136" width="88" height="40" fill="#fbf7f0" stroke="#8f7d69"/><text data-l="5" x="126" y="161">versions</text></g>
+<path d="M226 115 H 286" stroke="#9a4a22" stroke-width="2.5" marker-end="url(#summary-built-ar)"/>
+<rect x="292" y="40" width="230" height="150" fill="#fbf7f0" stroke="#3a2e26" stroke-width="1.5"/>
+<text data-l="6" x="308" y="68" font-size="15" fill="#2b2622">2 · ANALYSIS</text>
+<text data-l="7" x="308" y="98" fill="#2b2622">counts, ranges, spends</text><text data-l="8" x="308" y="122" fill="#2b2622">a statistical test only with</text><text data-l="9" x="308" y="142" fill="#2b2622">enough cases, set in advance</text>
+<text data-l="10" x="308" y="174" fill="#5a5047">label: calculated</text>
+<path d="M528 115 H 588" stroke="#9a4a22" stroke-width="2.5" marker-end="url(#summary-built-ar)"/>
+<rect x="594" y="40" width="230" height="150" fill="#fbf7f0" stroke="#9a4a22" stroke-width="2" stroke-dasharray="7 5"/>
+<text data-l="11" x="610" y="68" font-size="15" fill="#2b2622">3 · DRAFT SUMMARY</text>
+<text data-l="12" x="610" y="98" fill="#2b2622">written by the assistant</text><text data-l="13" x="610" y="122" fill="#2b2622">each sentence cites records</text>
+<text data-l="14" x="610" y="174" fill="#9a4a22">label: proposed</text>
+<path d="M830 115 H 890" stroke="#9a4a22" stroke-width="2.5" marker-end="url(#summary-built-ar)"/>
+<rect x="896" y="40" width="190" height="150" fill="#3a2e26"/>
+<text data-l="15" x="912" y="68" font-size="15" fill="#f3ede2">4 · A PERSON</text>
+<text data-l="16" x="912" y="98" fill="#f3ede2">accepts, edits</text><text data-l="17" x="912" y="122" fill="#f3ede2">or leaves it open</text>
+<text data-l="18" x="912" y="174" fill="#e3b98f">accepting is not checking</text>
+<path d="M1092 115 H 1152" stroke="#9a4a22" stroke-width="2.5" marker-end="url(#summary-built-ar)"/>
+<rect x="1158" y="40" width="140" height="150" fill="#ece4d5" stroke="#3a2e26" stroke-width="1.5"/>
+<text data-l="19" x="1172" y="68" font-size="15" fill="#2b2622">5 · SHOWN</text>
+<text data-l="20" x="1172" y="98" fill="#2b2622">project: what</text><text data-l="21" x="1172" y="118" fill="#2b2622">we know</text><text data-l="22" x="1172" y="148" fill="#2b2622">next decision</text>
+<path d="M600 222 H 110 V 196" fill="none" stroke="#5a5047" stroke-width="1.5" stroke-dasharray="4 4" marker-end="url(#summary-built-ar)"/>
+<text data-l="23" x="616" y="227" fill="#5a5047">every sentence keeps its link back to the records</text>
+</g></svg>

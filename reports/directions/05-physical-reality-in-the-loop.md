@@ -34,7 +34,7 @@ A simulation result keeps its simulation assumptions. Readiness for manufacturin
 
 Challenge paper: `dac-2026-research1862` (cross_layer_coupling; source tier `official_description`). [Open the recorded source](https://63dac.conference-program.com/?post_type=page&p=16&id=RESEARCH1862&sess=sess139).
 
-Thermal management is an accuracy issue as well as a throughput issue; a reported tolerance is not zero accuracy loss or broad deployment proof.
+Heat control affects accuracy, not only speed. A reported tolerance does not mean zero accuracy loss, and it does not prove wide use.
 
 **What would weaken the direction:** The direction is weakened if measured temperature and programming variation pushes task accuracy beyond the declared error budget, or if calibration cost and thermal control erase the claimed efficiency benefit.
 

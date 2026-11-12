@@ -168,4 +168,4 @@ Three readings are worth testing; each names what would weaken it.
 
 These are bounded interpretations, not measured ISCA–DAC–ICCAD growth trends or evidence of autonomous design closure. Comparable editions, tasks, data access, budgets and review standards are still needed.
 
-**Be careful:** this expanded parent discussion does not complete the individual-paper rewrites, source recovery, classification reconciliation, or independent comprehension and scientific review below.
+**Be careful:** this overview is not the end of the work. The paper write-ups below, the search for full sources, the label clean-up and independent review are still open.

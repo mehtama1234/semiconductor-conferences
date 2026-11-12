@@ -66,7 +66,7 @@ Each of the three limits answers a different question.
 | Latency | How long does one request wait? |
 | Bandwidth | How much data can cross an interface per second? |
 
-A system can have enough capacity and high bandwidth, yet still be slow for a chain of small reads that each wait for the last.
+A system can have room to spare and fast links, yet still be slow. A chain of small reads, each waiting for the one before, is enough to do it.
 
 > **Worked example.** One request fetches 64 bytes and takes 100 nanoseconds.
 >

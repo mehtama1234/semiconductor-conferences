@@ -1,0 +1,331 @@
+[
+ {
+  "before": "this expanded parent discussion does not complete the individual-paper rewrites, source recovery, classification reconciliation, or independent comprehension and scientific review below.",
+  "after": "this overview is not the end of the work. The paper write-ups below, the search for full sources, the label clean-up and independent review are still open.",
+  "files": [
+   "reports/themes/ai-assisted-eda.md",
+   "reports/theme-editorial/ai-assisted-eda.md"
+  ]
+ },
+ {
+  "before": "But each needs a precise account of how the physical state stands for the input, and how the output is read.",
+  "after": "But each must say exactly how a physical state stands for the input. It must also say how the output is read.",
+  "files": [
+   "scripts/research_explanations.py",
+   "reports/themes/analog-mixed-signal-and-emerging-devices.md"
+  ]
+ },
+ {
+  "before": "So precision comes from the mapping, the device behavior and the measurement together, not just the number of nominal output bits.",
+  "after": "So precision comes from three things together: the mapping, the device and the measurement. The number of output bits alone does not set it.",
+  "files": [
+   "reports/themes/analog-mixed-signal-and-emerging-devices.md",
+   "reports/theme-editorial/analog-mixed-signal-and-emerging-devices.md"
+  ]
+ },
+ {
+  "before": "Devices can multiply and add for free in principle, but only under a stated model and with an encoding for every value.",
+  "after": "In principle a device can multiply and add for free. That holds only under a stated model, with a stated encoding for every value.",
+  "files": [
+   "reports/themes/analog-mixed-signal-and-emerging-devices.md",
+   "reports/theme-editorial/analog-mixed-signal-and-emerging-devices.md"
+  ]
+ },
+ {
+  "before": "Under a simple linear model, applying a voltage to a **conductance** (how easily a device passes current) gives a current equal to their product.",
+  "after": "Apply a voltage to a **conductance** (how easily a device passes current). Under a simple linear model, the current equals their product.",
+  "files": [
+   "reports/themes/analog-mixed-signal-and-emerging-devices.md",
+   "reports/theme-editorial/analog-mixed-signal-and-emerging-devices.md"
+  ]
+ },
+ {
+  "before": "The opportunity is to let device physics do part of a numerical operation, instead of running every multiplication in digital logic.",
+  "after": "The opportunity: let device physics do part of the sum. Then not every multiplication has to run in digital logic.",
+  "files": [
+   "reports/themes/analog-mixed-signal-and-emerging-devices.md",
+   "reports/theme-editorial/analog-mixed-signal-and-emerging-devices.md"
+  ]
+ },
+ {
+  "before": "A learned representation becomes useful engineering evidence through a defined downstream task and a validated decision, not through the model's name.",
+  "after": "A learned model counts as engineering evidence only when it serves a stated later task and a checked decision. Its name proves nothing.",
+  "files": [
+   "reports/themes/analog-mixed-signal-and-emerging-devices.md",
+   "reports/theme-editorial/analog-mixed-signal-and-emerging-devices.md"
+  ]
+ },
+ {
+  "before": "this parent discussion does not complete the still-uneven individual-paper writing, full-source recovery, device validation, or independent scientific and comprehension review.",
+  "after": "this overview is not the end of the work. The paper write-ups are uneven. Full sources, device checks and independent review are still open.",
+  "files": [
+   "reports/themes/analog-mixed-signal-and-emerging-devices.md",
+   "reports/theme-editorial/analog-mixed-signal-and-emerging-devices.md"
+  ]
+ },
+ {
+  "before": "If a specialized design wins only when all inputs fit in a small memory, that capacity condition is part of the result.",
+  "after": "Suppose a specialized design wins only when all inputs fit in a small memory. Then that memory size is part of the result.",
+  "files": [
+   "scripts/research_explanations.py",
+   "reports/themes/architecture-and-accelerators.md"
+  ]
+ },
+ {
+  "before": "A compiler result, an accelerator result and a physical implementation result stay separate evidence until their interfaces, formats, capacities and measurement conditions line up.",
+  "after": "A compiler result, an accelerator result and a layout result are separate evidence. They join up only when their interfaces, formats, sizes and test conditions match.",
+  "files": [
+   "reports/themes/architecture-and-accelerators.md",
+   "reports/theme-editorial/architecture-and-accelerators.md"
+  ]
+ },
+ {
+  "before": "The real question: do early estimates pick partitions that stay good after physical implementation, not just score better inside the partitioner?",
+  "after": "The real question: do early estimates pick splits that stay good once the chip is laid out? Scoring well inside the splitting tool is not enough.",
+  "files": [
+   "reports/themes/chiplets-3d-and-packaging.md",
+   "reports/theme-editorial/chiplets-3d-and-packaging.md"
+  ]
+ },
+ {
+  "before": "A predictor accurate for one cooling setup or power map is not validated for a different stack or a sudden power change.",
+  "after": "A predictor tested on one cooling setup or power map is not tested on another. A different stack or a sudden power change needs its own check.",
+  "files": [
+   "reports/themes/chiplets-3d-and-packaging.md",
+   "reports/theme-editorial/chiplets-3d-and-packaging.md"
+  ]
+ },
+ {
+  "before": "this parent discussion does not complete individual-paper source recovery, deeper writing, manufactured validation, or independent scientific and comprehension review.",
+  "after": "this overview is not the end of the work. Full sources, deeper write-ups, checks on made chips and independent review are still open.",
+  "files": [
+   "reports/themes/chiplets-3d-and-packaging.md",
+   "reports/theme-editorial/chiplets-3d-and-packaging.md"
+  ]
+ },
+ {
+  "before": "Likewise, a kernel built for contiguous arrays needs a valid alternative, or a rejection path, for an array whose elements are spaced further apart in memory (a larger **stride**).",
+  "after": "Likewise, a kernel built for arrays stored side by side needs a plan for spaced-out arrays. The spacing between elements is the **stride**. The kernel must handle a larger stride correctly, or refuse it.",
+  "files": [
+   "reports/themes/design-methodology-and-tooling.md",
+   "reports/theme-editorial/design-methodology-and-tooling.md"
+  ]
+ },
+ {
+  "before": "A cost model should rank candidates only after their behavior and conditions are established, or clearly mark rankings that include candidates still awaiting validation.",
+  "after": "A cost model should rank only candidates whose behaviour is already checked. Otherwise it must mark which ranked candidates are still unchecked.",
+  "files": [
+   "reports/themes/design-methodology-and-tooling.md",
+   "reports/theme-editorial/design-methodology-and-tooling.md"
+  ]
+ },
+ {
+  "before": "The claim must say what was checked, under which assumptions, and whether an unresolved case was rejected, re-checked exactly, or accepted without a guarantee.",
+  "after": "The claim must say what was checked and under which assumptions. It must also say what happened to unresolved cases: rejected, re-checked exactly, or accepted without a guarantee.",
+  "files": [
+   "reports/themes/design-methodology-and-tooling.md",
+   "reports/theme-editorial/design-methodology-and-tooling.md"
+  ]
+ },
+ {
+  "before": "If nine runs fail and one gives a good result, reporting only the survivor hides the odds and cost of getting a usable output.",
+  "after": "Say nine runs fail and one gives a good result. Reporting only that one hides the odds, and the cost, of getting a usable output.",
+  "files": [
+   "reports/themes/design-methodology-and-tooling.md",
+   "reports/theme-editorial/design-methodology-and-tooling.md"
+  ]
+ },
+ {
+  "before": "If a constraint violation is treated as just a poor score, the search can keep picking invalid outputs whenever another score part makes up for it.",
+  "after": "Treat a broken rule as just a low score, and the search can keep picking invalid outputs. Another part of the score can make up for the break.",
+  "files": [
+   "reports/themes/design-methodology-and-tooling.md",
+   "reports/theme-editorial/design-methodology-and-tooling.md"
+  ]
+ },
+ {
+  "before": "A compiler's improved operator, or an accelerator generator's favorable model, must still fit a complete application with data movement, numerical quality and preparation costs.",
+  "after": "A faster compiled step, or a good result from an accelerator generator, must still fit the whole application. That includes data movement, numerical quality and set-up costs.",
+  "files": [
+   "reports/themes/design-methodology-and-tooling.md",
+   "reports/theme-editorial/design-methodology-and-tooling.md"
+  ]
+ },
+ {
+  "before": "A system can have enough capacity and high bandwidth, yet still be slow for a chain of small reads that each wait for the last.",
+  "after": "A system can have room to spare and fast links, yet still be slow. A chain of small reads, each waiting for the one before, is enough to do it.",
+  "files": [
+   "reports/themes/memory-interconnect-and-storage.md",
+   "reports/theme-editorial/memory-interconnect-and-storage.md"
+  ]
+ },
+ {
+  "before": "An optimizer that takes ten minutes but needs ninety minutes of cleanup is not a ten-minute path to an accepted layout.",
+  "after": "An optimizer that runs for ten minutes but needs ninety minutes of clean-up is not a ten-minute route to a finished layout.",
+  "files": [
+   "reports/themes/physical-design-and-manufacturing.md",
+   "reports/theme-editorial/physical-design-and-manufacturing.md"
+  ]
+ },
+ {
+  "before": "Injecting one isolated bit flip does not show protection against a failing chip, a burst across several words, or a lasting logic defect.",
+  "after": "Testing one flipped bit does not show protection against bigger faults. A failing chip, a burst across several words, or a lasting defect each need their own test.",
+  "files": [
+   "reports/themes/power-reliability-and-security.md",
+   "reports/theme-editorial/power-reliability-and-security.md"
+  ]
+ },
+ {
+  "before": "Whether that difference leaks useful information depends on what an observer can measure, on noise and repetitions, and on what else they know.",
+  "after": "Whether that difference leaks anything useful depends on the observer. It depends on what they can measure, on noise and repeats, and on what else they know.",
+  "files": [
+   "reports/themes/power-reliability-and-security.md",
+   "reports/theme-editorial/power-reliability-and-security.md"
+  ]
+ },
+ {
+  "before": "A performance result for one cryptographic computation must keep its parameter choices, correctness conditions and supported operations before being applied to another workload.",
+  "after": "A speed result for one encryption computation comes with its settings, its correctness conditions and its supported operations. Those must travel with it before it is applied elsewhere.",
+  "files": [
+   "reports/themes/power-reliability-and-security.md",
+   "reports/theme-editorial/power-reliability-and-security.md"
+  ]
+ },
+ {
+  "before": "Neither number says which campaign checked more meaningful behavior, whether either found a fault, or whether their missed points include the same critical case.",
+  "after": "Neither number says which test campaign checked more useful behaviour. Nor does it say whether either found a fault, or whether both missed the same critical case.",
+  "files": [
+   "reports/themes/verification-and-validation.md",
+   "reports/theme-editorial/verification-and-validation.md"
+  ]
+ },
+ {
+  "before": "The manuscript-backed processor chapter shows this: RISCSmith's inspected coverage experiment measures the Spike reference model, while LiFU reports RTL-tool coverage with formal assistance.",
+  "after": "The processor papers show this. RISCSmith measures coverage on the Spike reference model. LiFU reports coverage from a hardware-code tool with help from proofs.",
+  "files": [
+   "reports/themes/verification-and-validation.md",
+   "reports/theme-editorial/verification-and-validation.md"
+  ]
+ },
+ {
+  "before": "A language model writing circuit code, a compiler arranging operations, and a placement tool choosing locations can all use this loop.",
+  "after": "Three kinds of tool can use this loop: a language model writing circuit code, a compiler ordering operations, and a placement tool choosing locations.",
+  "files": [
+   "scripts/build_direction_writeups.py",
+   "reports/directions/01-constraints-become-executable.md"
+  ]
+ },
+ {
+  "before": "To show a trend over time, compare equivalent sets of papers across years, and code which checks actually change design decisions.",
+  "after": "To show a trend over time, compare like-for-like sets of papers across years. Then record which checks actually change design decisions.",
+  "files": [
+   "scripts/build_direction_writeups.py",
+   "reports/directions/01-constraints-become-executable.md"
+  ]
+ },
+ {
+  "before": "Thermal management is an accuracy issue as well as a throughput issue; a reported tolerance is not zero accuracy loss or broad deployment proof.",
+  "after": "Heat control affects accuracy, not only speed. A reported tolerance does not mean zero accuracy loss, and it does not prove wide use.",
+  "files": [
+   "reports/directions/05-physical-reality-in-the-loop.md"
+  ]
+ },
+ {
+  "before": "Changing the input set, the comparison method or the rule for success can change the number, even when the method is the same.",
+  "after": "Change the input set, the comparison or the rule for success, and the number can change. The method itself may be the same.",
+  "files": [
+   "scripts/build_direction_writeups.py",
+   "reports/directions/06-evaluation-as-research.md"
+  ]
+ },
+ {
+  "before": "A valid matched comparison must hold constant the relevant workload or design suite, hardware/process or simulator assumptions, baseline, metric definition, evaluation budget, and failure/validity boundary.",
+  "after": "A fair comparison holds six things fixed: the workload or design set, the hardware or simulator assumptions, the baseline, the metric, the test budget, and what counts as a failure.",
+  "files": [
+   "scripts/build_cross_conference_comparisons.py",
+   "reports/comparisons/physical-reality-in-the-loop.md",
+   "reports/comparisons/evaluation-as-research.md",
+   "reports/comparisons/reliability-security-upstream.md",
+   "reports/comparisons/data-movement-as-contract.md",
+   "reports/comparisons/closed-loop-design.md",
+   "reports/comparisons/constraints-become-executable.md"
+  ]
+ },
+ {
+  "before": "The synthesis may retain this as a provisional resource-specific mapping case, not an accepted numerical headline or evidence of learned search.",
+  "after": "The synthesis may keep this as a provisional example of mapping for one resource. It is not an accepted headline number, nor evidence of learned search.",
+  "files": [
+   "dac/reports/exact-t-primary-assessment-v1.md"
+  ]
+ },
+ {
+  "before": "An award mentioned on the author page belongs to a HUST annual conference, not DAC, and is not an independent review of this assessment.",
+  "after": "The author page mentions an award. It is from a HUST annual conference, not DAC, and it is not an independent review of this assessment.",
+  "files": [
+   "dac/reports/fusedot-primary-recovery-v1.md"
+  ]
+ },
+ {
+  "before": "Keep the joint-modeling mechanism provisional and exclude the numerical reductions from accepted quantitative synthesis until their baselines and evaluation conditions are available.",
+  "after": "Keep the joint-modelling method provisional. Leave its reported reductions out of the accepted numbers until their baselines and test conditions are known.",
+  "files": [
+   "dac/reports/gemir-primary-recovery-v1.md"
+  ]
+ },
+ {
+  "before": "A first candidate with equivalence-failure reward -0.45 therefore becomes best, fails the default -0.1 acceptance threshold, and is nevertheless copied back as the fallback state.",
+  "after": "So a first candidate with equivalence-failure reward -0.45 becomes the best so far. It fails the default -0.1 acceptance threshold. Even so, it is copied back as the fallback state.",
+  "files": [
+   "dac/reports/mappingevolve-primary-assessment-v1.md"
+  ]
+ },
+ {
+  "before": "Our synthesis should ask three separate questions: what the task requires, what the checker proves, and how tasks enter the evaluation population.",
+  "after": "Our synthesis should ask three questions. What does the task require? What does the checker prove? How do tasks get into the test set?",
+  "files": [
+   "dac/reports/notsotiny-primary-assessment-v1.md"
+  ]
+ },
+ {
+  "before": "The next review should explicitly distinguish proof failure, timeout and actual inequivalence, and examine whether excluded tasks change the difficulty profile.",
+  "after": "The next review should tell apart three outcomes: proof failure, timeout and a real mismatch. It should also check whether the dropped tasks change how hard the test set is.",
+  "files": [
+   "dac/reports/notsotiny-primary-assessment-v1.md"
+  ]
+ },
+ {
+  "before": "This does not rule out learned reasoning or other research flows; it prevents describing this entry point as demonstrated adaptive closed-loop DSE.",
+  "after": "This does not rule out learned reasoning or other research flows. It does stop us calling this entry point a demonstrated search that learns from its results.",
+  "files": [
+   "dac/reports/paretopilot-primary-assessment-v1.md"
+  ]
+ },
+ {
+  "before": "Labels marked X were not in the starter taxonomy but recur in the adjudicated sample and therefore deserve direct navigation or future consolidation review.",
+  "after": "Labels marked X were not in the first taxonomy. They recur in the reviewed sample, so they get their own pages or a later review for merging.",
+  "files": []
+ },
+ {
+  "before": "It does not yet support directional prevalence or comparative-impact claims: source depth is asymmetric, DAC 2025 has substantial missingness, selected populations are not equivalent, and independent verdicts remain zero.",
+  "after": "It cannot yet support claims about how common a direction is, or which matters more. Sources differ in depth, many DAC 2025 records are missing, the samples differ, and there are no independent verdicts yet.",
+  "files": [
+   "reports/longitudinal-protocol-v1.md"
+  ]
+ },
+ {
+  "before": "The claim is promoted only if the direction-specific test in the longitudinal protocol passes; otherwise it remains insufficient or is weakened.",
+  "after": "The claim moves up only if it passes its direction's test in the protocol for comparing years. Otherwise it stays unproven, or is weakened.",
+  "files": [
+   "scripts/build_research_agenda.py",
+   "reports/research-agenda-v1.md"
+  ]
+ },
+ {
+  "before": "Missing-field counts are recorded in the machine-readable JSON; an empty field means the evidence did not support a claim, not that the paper lacks the property.",
+  "after": "Missing-field counts are in the JSON file. An empty field means the evidence did not show the property. It does not mean the paper lacks it.",
+  "files": [
+   "scripts/build_evidence_summary.py",
+   "reports/evidence-summary-v1.md"
+  ]
+ }
+]

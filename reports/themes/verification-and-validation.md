@@ -146,9 +146,9 @@ Each needs a denominator: what was counted, which points were excluded, and whic
 > - 90 of 100 recorded points reached: **90%**.
 > - 950 of a different 1,000-point set reached: **95%**.
 >
-> Neither number says which campaign checked more meaningful behavior, whether either found a fault, or whether their missed points include the same critical case.
+> Neither number says which test campaign checked more useful behaviour. Nor does it say whether either found a fault, or whether both missed the same critical case.
 
-A score becomes comparable only after its definition and target are matched. The manuscript-backed processor chapter shows this: RISCSmith's inspected coverage experiment measures the Spike reference model, while LiFU reports RTL-tool coverage with formal assistance. Their percentages cannot be ranked as measurements of one shared state space. The [cross-paper discussion](../observed-subthemes/processor-and-rtl-verification.md#what-connects-the-three-proposals) keeps that distinction.
+A score becomes comparable only after its definition and target are matched. The processor papers show this. RISCSmith measures coverage on the Spike reference model. LiFU reports coverage from a hardware-code tool with help from proofs. Their percentages cannot be ranked as measurements of one shared state space. The [cross-paper discussion](../observed-subthemes/processor-and-rtl-verification.md#what-connects-the-three-proposals) keeps that distinction.
 
 Coverage can still guide testing. A newly reached branch may justify keeping an input that exposes behavior earlier tests missed.
 

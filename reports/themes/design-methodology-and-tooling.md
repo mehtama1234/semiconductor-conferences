@@ -93,13 +93,13 @@ Two implementations can compute the same intended result with different operatio
 - Reordering exact integer additions, without overflow, keeps the result.
 - Reordering finite-precision floating-point additions can change it, through rounding.
 
-Likewise, a kernel built for contiguous arrays needs a valid alternative, or a rejection path, for an array whose elements are spaced further apart in memory (a larger **stride**). Matching dimensions do not make memory layouts interchangeable. A cache key for reusing an implementation must capture every condition that affects validity, not just the handiest label.
+Likewise, a kernel built for arrays stored side by side needs a plan for spaced-out arrays. The spacing between elements is the **stride**. The kernel must handle a larger stride correctly, or refuse it. Matching dimensions do not make memory layouts interchangeable. A cache key for reusing an implementation must capture every condition that affects validity, not just the handiest label.
 
 [DyTuner's expanded explanation](../observed-subthemes/compiler-and-runtime-optimization.md#explanation-dac-2026-research127) uses changing tensor shapes to explain this. The official description gives a proposed adaptive tuning method and named comparisons. Its exact adaptation and reuse rules are not recovered.
 
 **Be careful:** this theme must not fill those gaps by treating a plausible specialization policy as the paper's implementation.
 
-So validation is not a final decorative step. It shapes how candidates are built and reused. A cost model should rank candidates only after their behavior and conditions are established, or clearly mark rankings that include candidates still awaiting validation.
+So validation is not a final decorative step. It shapes how candidates are built and reused. A cost model should rank only candidates whose behaviour is already checked. Otherwise it must mark which ranked candidates are still unchecked.
 
 ## A fast estimate is useful only if it supports the right decision
 
@@ -127,7 +127,7 @@ The manuscript-backed [segment-level timing reuse explanation](../observed-subth
 
 An average prediction error is not automatically the needed worst-case bound.
 
-This links tooling to [verification](verification-and-validation.md). The claim must say what was checked, under which assumptions, and whether an unresolved case was rejected, re-checked exactly, or accepted without a guarantee.
+This links tooling to [verification](verification-and-validation.md). The claim must say what was checked and under which assumptions. It must also say what happened to unresolved cases: rejected, re-checked exactly, or accepted without a guarantee.
 
 ## Tool runtime and output runtime are different costs
 
@@ -157,7 +157,7 @@ An optimizer chooses which candidates to evaluate. A cheap predictor can screen 
 
 So compare output quality at stated time and resource budgets, rather than picking whichever denominator favors a method.
 
-Invalid candidates and failed runs belong in the record. If nine runs fail and one gives a good result, reporting only the survivor hides the odds and cost of getting a usable output. To read the variability, record:
+Invalid candidates and failed runs belong in the record. Say nine runs fail and one gives a good result. Reporting only that one hides the odds, and the cost, of getting a usable output. To read the variability, record:
 
 - distinct random seeds;
 - failures;
@@ -177,9 +177,9 @@ Each stage gives something new, but leaves something still unproven.
 | Implementation and validation | A result under stated tools, targets, and checks | Transfer to different configurations or untested conditions |
 | Deployment or repeated use | Measured benefit under the chosen workload | Broader generality, future workload stability, and independent reproduction |
 
-These stages can loop: a failed implementation can guide a new candidate. The feedback must keep why it failed. If a constraint violation is treated as just a poor score, the search can keep picking invalid outputs whenever another score part makes up for it.
+These stages can loop: a failed implementation can guide a new candidate. The feedback must keep why it failed. Treat a broken rule as just a low score, and the search can keep picking invalid outputs. Another part of the score can make up for the break.
 
-The [architecture theme](architecture-and-accelerators.md) adds the next requirement. A compiler's improved operator, or an accelerator generator's favorable model, must still fit a complete application with data movement, numerical quality and preparation costs.
+The [architecture theme](architecture-and-accelerators.md) adds the next requirement. A faster compiled step, or a good result from an accelerator generator, must still fit the whole application. That includes data movement, numerical quality and set-up costs.
 
 **Be careful:** gains at several stages cannot be multiplied when they use different baselines or overlapping work.
 

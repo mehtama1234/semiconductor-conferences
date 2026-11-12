@@ -1,0 +1,4067 @@
+{
+ "pages": 161,
+ "sentences": 31814,
+ "over_20_words": 7113,
+ "pages_with_cliches": [
+  "reports/observed-subthemes/data-movement-and-locality.md"
+ ],
+ "terms_glossed": 1363,
+ "rows": [
+  {
+   "page": "reports/themes/README.md",
+   "sentences": 5,
+   "over_20_words": 0,
+   "vague_words": [],
+   "cliches": [],
+   "field_terms_glossed_on_first_use": [
+    "EDA"
+   ],
+   "long_examples": []
+  },
+  {
+   "page": "reports/themes/ai-assisted-eda.md",
+   "sentences": 165,
+   "over_20_words": 2,
+   "vague_words": [
+    "efficient"
+   ],
+   "cliches": [],
+   "field_terms_glossed_on_first_use": [
+    "DRC",
+    "EDA",
+    "FHE",
+    "GNN",
+    "HLS",
+    "LLM",
+    "Pareto",
+    "RTL",
+    "baseline"
+   ],
+   "long_examples": [
+    "A designer states what a circuit must do and which limits it must meet. **Electronic design automation (EDA)** is the software that turns that statement into a circuit and then a physical layout.",
+    "**Be careful:** this expanded parent discussion does not complete the individual-paper rewrites, source recovery, classification reconciliation, or independent comprehension and scientific review below."
+   ]
+  },
+  {
+   "page": "reports/themes/analog-mixed-signal-and-emerging-devices.md",
+   "sentences": 173,
+   "over_20_words": 9,
+   "vague_words": [
+    "efficient",
+    "robust"
+   ],
+   "cliches": [],
+   "field_terms_glossed_on_first_use": [
+    "CIM",
+    "EDA",
+    "PDE",
+    "baseline",
+    "inference",
+    "latency"
+   ],
+   "long_examples": [
+    "But each needs a precise account of how the physical state stands for the input, and how the output is read.",
+    "Noise, temperature, differences between devices, and measurement precision can all change the result. **Calibration** adjusts operation using measured device behavior, and it also costs time or hardware.",
+    "In an **analog** operation, a continuously varying quantity, such as voltage or current, stands for a value within a defined range.",
+    "So precision comes from the mapping, the device behavior and the measurement together, not just the number of nominal output bits.",
+    "Devices can multiply and add for free in principle, but only under a stated model and with an encoding for every value."
+   ]
+  },
+  {
+   "page": "reports/themes/architecture-and-accelerators.md",
+   "sentences": 180,
+   "over_20_words": 5,
+   "vague_words": [
+    "efficient",
+    "substantial"
+   ],
+   "cliches": [],
+   "field_terms_glossed_on_first_use": [
+    "FHE",
+    "FPGA",
+    "GEMM",
+    "HBM",
+    "LLM",
+    "accelerator",
+    "baseline",
+    "inference"
+   ],
+   "long_examples": [
+    "If a specialized design wins only when all inputs fit in a small memory, that capacity condition is part of the result.",
+    "A job is held back by arithmetic, by data traffic, or by a chain of steps that must wait for each other.",
+    "Duet asks the same at bit level: which digits are redundant, how are signs and positions recovered, and what work remains after skipping?",
+    "**Be careful:** the current sample cannot show that ISCA, DAC or ICCAD leads a trend, or that a mechanism is growing.",
+    "A compiler result, an accelerator result and a physical implementation result stay separate evidence until their interfaces, formats, capacities and measurement conditions line up."
+   ]
+  },
+  {
+   "page": "reports/themes/chiplets-3d-and-packaging.md",
+   "sentences": 173,
+   "over_20_words": 5,
+   "vague_words": [
+    "efficient"
+   ],
+   "cliches": [],
+   "field_terms_glossed_on_first_use": [
+    "LLM",
+    "PDE",
+    "bandwidth",
+    "baseline",
+    "chiplet",
+    "latency",
+    "throughput"
+   ],
+   "long_examples": [
+    "Partitioned: each stage drops to 2 milliseconds, but a 3-millisecond transfer sits between them: 2 + 3 + 2 = **7 milliseconds**.",
+    "The real question: do early estimates pick partitions that stay good after physical implementation, not just score better inside the partitioner?",
+    "**Power** is the rate of energy use. **Temperature** depends on where heat is produced and how it flows through materials to the surroundings.",
+    "A predictor accurate for one cooling setup or power map is not validated for a different stack or a sudden power change.",
+    "**Be careful:** this parent discussion does not complete individual-paper source recovery, deeper writing, manufactured validation, or independent scientific and comprehension review."
+   ]
+  },
+  {
+   "page": "reports/themes/design-methodology-and-tooling.md",
+   "sentences": 186,
+   "over_20_words": 9,
+   "vague_words": [
+    "efficient"
+   ],
+   "cliches": [],
+   "field_terms_glossed_on_first_use": [
+    "GPU",
+    "LLM",
+    "accelerator",
+    "baseline"
+   ],
+   "long_examples": [
+    "So a tool needs two things: a rule for which changes keep the design correct, and a cost model for picking useful ones.",
+    "It makes the problem cheaper, but temporarily hides choices about how the merged objects differ. **Refinement** restores the detail and allows adjustments.",
+    "Likewise, a kernel built for contiguous arrays needs a valid alternative, or a rejection path, for an array whose elements are spaced further apart in memory (a larger **stride**).",
+    "A cost model should rank candidates only after their behavior and conditions are established, or clearly mark rankings that include candidates still awaiting validation.",
+    "The claim must say what was checked, under which assumptions, and whether an unresolved case was rejected, re-checked exactly, or accepted without a guarantee."
+   ]
+  },
+  {
+   "page": "reports/themes/memory-interconnect-and-storage.md",
+   "sentences": 203,
+   "over_20_words": 5,
+   "vague_words": [
+    "efficient",
+    "efficiently",
+    "robust"
+   ],
+   "cliches": [],
+   "field_terms_glossed_on_first_use": [
+    "ASIC",
+    "CPU",
+    "CXL",
+    "DMA",
+    "DRAM",
+    "ECC",
+    "FPGA",
+    "HBM",
+    "KV",
+    "LLM",
+    "PIM",
+    "RAG",
+    "SSD",
+    "bandwidth",
+    "baseline",
+    "latency",
+    "quantization",
+    "throughput"
+   ],
+   "long_examples": [
+    "A system can have enough capacity and high bandwidth, yet still be slow for a chain of small reads that each wait for the last.",
+    "To sustain 20 billion bytes per second with these sizes and this latency, an idealized model needs at least **32 requests in flight**.",
+    "A **placement policy** chooses where data should live. **Migration** is the work of moving it while keeping its contents and accesses correct.",
+    "**Example (conceptual, not taken from a paper in this sample).** An update changes a stored record and an index pointing to it.",
+    "**Be careful:** the current selected sample and missing sources do not support a conference ranking or a claim of historical growth."
+   ]
+  },
+  {
+   "page": "reports/themes/physical-design-and-manufacturing.md",
+   "sentences": 182,
+   "over_20_words": 5,
+   "vague_words": [
+    "efficient",
+    "robust"
+   ],
+   "cliches": [],
+   "field_terms_glossed_on_first_use": [
+    "CPU",
+    "EDA",
+    "FPGA",
+    "PDN",
+    "baseline",
+    "lithography",
+    "slack"
+   ],
+   "long_examples": [
+    "**Worked example (simplified: one track per connection).** A corridor has room for 8 parallel tracks. 10 connections need to cross it.",
+    "If the new size shifts placement and adds **2** units of wiring delay: −4 + 3 + 2 = **1 unit worse**.",
+    "An optimizer that takes ten minutes but needs ninety minutes of cleanup is not a ten-minute path to an accepted layout.",
+    "**Be careful:** this parent synthesis does not complete the deeper individual-paper writing, manufacturing validation, source recovery, or independent review still needed below.",
+    "Start with Design Technology Co-Optimization for Network on Chip in High Performance CPUs at 3nm Node Using Monolithic 3D and Backside Interconnect Technologies."
+   ]
+  },
+  {
+   "page": "reports/themes/power-reliability-and-security.md",
+   "sentences": 190,
+   "over_20_words": 4,
+   "vague_words": [
+    "efficient",
+    "robust"
+   ],
+   "cliches": [],
+   "field_terms_glossed_on_first_use": [
+    "DNN",
+    "DRAM",
+    "ECC",
+    "GPU",
+    "LLM",
+    "baseline",
+    "chiplet",
+    "side channel",
+    "throughput"
+   ],
+   "long_examples": [
+    "Injecting one isolated bit flip does not show protection against a failing chip, a burst across several words, or a lasting logic defect.",
+    "Whether that difference leaks useful information depends on what an observer can measure, on noise and repetitions, and on what else they know.",
+    "A performance result for one cryptographic computation must keep its parameter choices, correctness conditions and supported operations before being applied to another workload.",
+    "Start with PuDGhost: Experimental Analysis of Computation Result Corruption in Processing-using-DRAM Operations on Real DRAM Chips and Implications for Future Systems."
+   ]
+  },
+  {
+   "page": "reports/themes/systems-applications-and-workloads.md",
+   "sentences": 220,
+   "over_20_words": 3,
+   "vague_words": [
+    "efficient"
+   ],
+   "cliches": [],
+   "field_terms_glossed_on_first_use": [
+    "GNN",
+    "GPU",
+    "KV",
+    "LLM",
+    "baseline",
+    "latency",
+    "throughput"
+   ],
+   "long_examples": [
+    "**Worked example (illustrative fixed wait).** A request waits 20 milliseconds, transfers data for 10, computes for 30 and returns its result in 5.",
+    "**Offline processing** starts with all the work available, and usually aims for the shortest total completion time. **Online service** also faces arrival times, waiting and response limits.",
+    "Once the server is at capacity, waiting work grows by about 110 − 100 = **10 requests per second**, assuming no rejection or cancellation."
+   ]
+  },
+  {
+   "page": "reports/themes/verification-and-validation.md",
+   "sentences": 193,
+   "over_20_words": 2,
+   "vague_words": [
+    "efficient"
+   ],
+   "cliches": [],
+   "field_terms_glossed_on_first_use": [
+    "ADC",
+    "CPU",
+    "DRC",
+    "GPU",
+    "HLS",
+    "LLM",
+    "LUT",
+    "RTL",
+    "baseline"
+   ],
+   "long_examples": [
+    "Neither number says which campaign checked more meaningful behavior, whether either found a fault, or whether their missed points include the same critical case.",
+    "The manuscript-backed processor chapter shows this: RISCSmith's inspected coverage experiment measures the Spike reference model, while LiFU reports RTL-tool coverage with formal assistance."
+   ]
+  },
+  {
+   "page": "reports/observed-subthemes/3d-integration-and-thermal-management.md",
+   "sentences": 194,
+   "over_20_words": 68,
+   "vague_words": [
+    "state-of-the-art"
+   ],
+   "cliches": [],
+   "field_terms_glossed_on_first_use": [
+    "CIM",
+    "FPGA",
+    "RTL",
+    "TNS",
+    "WNS",
+    "bandwidth",
+    "baseline",
+    "inference",
+    "latency",
+    "slack",
+    "throughput"
+   ],
+   "long_examples": [
+    "This adds choices that do not exist in a single-layer placement: which layer owns each function, where a signal crosses layers, and whether the connection locations fit the bonding structure.",
+    "These labels overlap; they are retained to make the existing classification reviewable, not to assert that they are separate established fields.",
+    "RTL-3D chooses layers using timing estimates before synthesis, the step that turns a behavioral hardware description into a network of implementation cells.",
+    "The conceptual risk is estimation error: a path judged important early may change when logic is transformed and actual wires are introduced.",
+    "This decision happens before detailed cell placement and routing, so the exact wire shapes, buffer locations, parasitics and congestion are not yet known."
+   ]
+  },
+  {
+   "page": "reports/observed-subthemes/3d-stacking-and-thermal-management.md",
+   "sentences": 298,
+   "over_20_words": 92,
+   "vague_words": [
+    "efficiently",
+    "state-of-the-art",
+    "substantial"
+   ],
+   "cliches": [],
+   "field_terms_glossed_on_first_use": [
+    "DRAM",
+    "GEMM",
+    "GPU",
+    "KV",
+    "LLM",
+    "MAC",
+    "NoC",
+    "PDE",
+    "PIM",
+    "SRAM",
+    "TSV",
+    "accelerator",
+    "bandwidth",
+    "baseline",
+    "chiplet",
+    "inference",
+    "latency",
+    "surrogate",
+    "throughput"
+   ],
+   "long_examples": [
+    "A design cannot therefore be evaluated from memory bandwidth alone: the useful question is how much computation it sustains without exceeding its temperature limits.",
+    "An accurate predictor does not by itself establish a safe controller, and a reconstruction result does not establish that a new package can remove more heat.",
+    "LegoTherm makes reusable reduced-order components: each retains fewer internal quantities than a detailed model and exchanges thermal information at its interfaces.",
+    "A detailed finite-element thermal model divides a package into many small elements and solves for temperatures and heat flows throughout the mesh.",
+    "It can represent small interconnects and material boundaries, but a new power distribution, cooling condition or stack arrangement may require another large solve."
+   ]
+  },
+  {
+   "page": "reports/observed-subthemes/accelerator-reliability.md",
+   "sentences": 409,
+   "over_20_words": 152,
+   "vague_words": [
+    "efficient",
+    "efficiently",
+    "robust",
+    "state-of-the-art",
+    "substantially"
+   ],
+   "cliches": [],
+   "field_terms_glossed_on_first_use": [
+    "ADC",
+    "CIM",
+    "CPU",
+    "DNN",
+    "ECC",
+    "FPGA",
+    "GPU",
+    "ISA",
+    "LLM",
+    "LUT",
+    "NPU",
+    "RTL",
+    "SRAM",
+    "accelerator",
+    "bandwidth",
+    "baseline",
+    "inference",
+    "latency",
+    "throughput"
+   ],
+   "long_examples": [
+    "Those places are not equivalent: one array may be more reliable than another, and assigning an operator to an array consumes that array's time and capacity.",
+    "The effect depends on the values being processed, the later operations that consume the result, whether the model has redundancy, and the output rule used by the application.",
+    "It must specify the output-quality rule, the inputs used to estimate sensitivity, the fault inserted into the operator, and the unit of sensitivity: numerical error, wrong class, missed deadline, or another criterion.",
+    "Without these definitions, “insensitive” means only that the source labels an operator that way; it does not establish a measured probability of acceptable output.",
+    "Moving one operator to a faulty or slower array can therefore affect later operators even when the moved operator itself is insensitive."
+   ]
+  },
+  {
+   "page": "reports/observed-subthemes/advanced-packaging-and-interconnect.md",
+   "sentences": 98,
+   "over_20_words": 20,
+   "vague_words": [],
+   "cliches": [],
+   "field_terms_glossed_on_first_use": [
+    "baseline",
+    "interposer"
+   ],
+   "long_examples": [
+    "The two records here concern different physical structures: double-sided redistribution wiring on a glass interposer, and joint ground-plane generation with rerouting.",
+    "The appropriate quality measurements include whether every required connection can be routed under the rules, wire lengths, use of inter-layer connections, and the electrical behavior of completed routes.",
+    "It therefore cannot establish that a generated layout was fabricated successfully or that the glass structure outperforms another material in a comparable package.",
+    "Changing its shape can alter the environment of a signal route; changing the route can in turn alter the plane structure needed for acceptable behavior.",
+    "The captured source does not specify how candidate plane shapes are represented, how electrical behavior is estimated, or when rerouting is triggered."
+   ]
+  },
+  {
+   "page": "reports/observed-subthemes/ai-accelerator-microarchitecture.md",
+   "sentences": 209,
+   "over_20_words": 63,
+   "vague_words": [
+    "efficiently"
+   ],
+   "cliches": [],
+   "field_terms_glossed_on_first_use": [
+    "DRAM",
+    "GEMM",
+    "GPU",
+    "HBM",
+    "KV",
+    "LLM",
+    "LUT",
+    "MAC",
+    "NPU",
+    "PIM",
+    "accelerator",
+    "bandwidth",
+    "baseline",
+    "inference",
+    "latency",
+    "quantization",
+    "throughput"
+   ],
+   "long_examples": [
+    "A language model can keep these units busy only if the required data arrive in time and the next operation is ready to execute.",
+    "A token is one unit of the model's text representation, which can be a word fragment rather than a complete word.",
+    "A lossless compressor applied to an already quantized model preserves that model's values; it does not reverse the earlier quantization error.",
+    "Integer values use a signed or unsigned encoding; floating-point values separate sign, exponent and significand fields; microscaling formats add a shared scale or group-level representation.",
+    "If a group of values has statistical concentration in particular bit positions, a bit-level compressor can encode that concentration more efficiently."
+   ]
+  },
+  {
+   "page": "reports/observed-subthemes/analog-and-mixed-signal-design.md",
+   "sentences": 121,
+   "over_20_words": 22,
+   "vague_words": [
+    "significant"
+   ],
+   "cliches": [],
+   "field_terms_glossed_on_first_use": [
+    "ADC"
+   ],
+   "long_examples": [
+    "It restricts the calculation to a smaller space containing the PPV and slow-decaying solutions, then uses a mathematical orthogonality condition to isolate the PPV through a small linear system.",
+    "An evaluation should include the cost of finding the periodic waveform and constructing the smaller space, not just solving its final equations.",
+    "The University of Stuttgart lists this as a seven-page DAC 2026 paper, separately from the authors' ICCAD 2025 work on live measurement sequencing for SAR ADC testing.",
+    "That establishes an important identity boundary: results from the earlier paper must not be assigned to this combined method without checking the new manuscript.",
+    "Fast components disappear after a few cycles; a slow component remains and can dominate the numerical error of an iterative solver."
+   ]
+  },
+  {
+   "page": "reports/observed-subthemes/analog-and-mixed-signal-synthesis.md",
+   "sentences": 115,
+   "over_20_words": 31,
+   "vague_words": [],
+   "cliches": [],
+   "field_terms_glossed_on_first_use": [
+    "ADC",
+    "baseline",
+    "latency"
+   ],
+   "long_examples": [
+    "The taxonomy calls this subject analog and mixed-signal synthesis, but its one captured paper concerns noise modeling and joint design exploration.",
+    "A later digital conversion does not recover information already lost to that variation; it assigns a digital value to what the converter actually receives.",
+    "Device mismatch is different: nominally identical devices can have different parameters, producing differences that persist rather than changing independently at every sample.",
+    "A pixel may encode a sensed value as charge or voltage, combine it with stored weights or signals, and pass the result to later circuitry.",
+    "The same location also creates a direct failure path: device variation and electrical noise perturb the value before the neural-network decision is complete."
+   ]
+  },
+  {
+   "page": "reports/observed-subthemes/analog-calibration-and-modeling.md",
+   "sentences": 98,
+   "over_20_words": 24,
+   "vague_words": [],
+   "cliches": [],
+   "field_terms_glossed_on_first_use": [
+    "ADC",
+    "CIM",
+    "bandwidth",
+    "baseline",
+    "inference",
+    "latency",
+    "quantization",
+    "throughput"
+   ],
+   "long_examples": [
+    "That is a methodological claim about required knowledge, not a guarantee that every possible input and unforeseen defect can be corrected.",
+    "The official description reports more than 20 dB improvement in both SNDR and SFDR on 65-nm and 28-nm converter test chips of different architectures.",
+    "Without the initial and final values, input conditions, and measurement bandwidth, the reported improvements do not fully characterize the calibrated converter.",
+    "The evidence includes test-chip measurements, but does not specify the calibration model's integrated hardware implementation, memory, power, latency, or sustained sampling throughput.",
+    "The title's “train once” wording also needs a held-out evaluation across devices, inputs, and errors before it can support broad reuse without retraining."
+   ]
+  },
+  {
+   "page": "reports/observed-subthemes/analog-circuit-learning.md",
+   "sentences": 103,
+   "over_20_words": 24,
+   "vague_words": [
+    "substantial"
+   ],
+   "cliches": [],
+   "field_terms_glossed_on_first_use": [
+    "bandwidth",
+    "baseline",
+    "inference"
+   ],
+   "long_examples": [
+    "It is not itself a gain value, a bias point, a layout, or a proof that a circuit meets a requirement.",
+    "A representation can be useful only relative to a defined task: identifying circuit families, predicting an electrical quantity, finding a design change, or supporting another design-automation step.",
+    "The official description does not identify the downstream target, so the available evidence cannot say whether the representation is intended for topology recognition, electrical prediction, sizing, layout, or another task.",
+    "Converting the same relation into pairwise edges may retain connectivity but lose which connections belong to the same original relation, unless additional identifiers or attributes are introduced.",
+    "A hypergraph can still be incomplete if it omits terminal roles, device types, signal direction, bias conditions, net electrical behavior or hierarchy."
+   ]
+  },
+  {
+   "page": "reports/observed-subthemes/analog-circuit-optimization.md",
+   "sentences": 135,
+   "over_20_words": 39,
+   "vague_words": [
+    "substantially"
+   ],
+   "cliches": [],
+   "field_terms_glossed_on_first_use": [
+    "CMOS",
+    "PDK",
+    "PDN",
+    "SPICE",
+    "bandwidth",
+    "baseline",
+    "netlist",
+    "surrogate"
+   ],
+   "long_examples": [
+    "A schematic-level optimizer can choose transistor sizes that satisfy equations for an idealized circuit and still miss the target after placement and routing introduce parasitics.",
+    "The paper evaluates low-noise amplifiers and power amplifiers in a commercial 65 nm process kit at frequencies up to 60 GHz.",
+    "The central claim is narrower than “automation solves RF design”: a layout-aware flow can generate designs whose post-layout measurements meet the selected targets while reducing turnaround time relative to the reported manual baseline.",
+    "It derives candidate transistor sizes from noise–bandwidth–gain relationships, sweeps a realizable input-resistance interval of 40–60 ohms, and selects inductor and matching-network dimensions.",
+    "For PAs, it estimates the number of stages from the target gain, derives the output device width from saturation-power and load-line conditions, scales preceding stages, and constructs inter-stage matching networks."
+   ]
+  },
+  {
+   "page": "reports/observed-subthemes/analog-compute-in-memory.md",
+   "sentences": 176,
+   "over_20_words": 54,
+   "vague_words": [
+    "robust"
+   ],
+   "cliches": [],
+   "field_terms_glossed_on_first_use": [
+    "ADC",
+    "CIM",
+    "IR drop",
+    "LUT",
+    "RL",
+    "SRAM",
+    "accelerator",
+    "baseline",
+    "inference",
+    "latency",
+    "quantization",
+    "throughput"
+   ],
+   "long_examples": [
+    "The grouping should not be treated as proof that all four papers use analog multiplication or share the same sources of numerical error.",
+    "A digital-to-analog converter creates a signal from a digital value; an analog-to-digital converter turns a measured signal into a digital value.",
+    "The official description reports 7.9× faster recovery from strong wind than nonlinear model predictive control, plus 2995.6× lower computational latency and 983.1× lower computational energy than unspecified traditional architectures.",
+    "Model predictive control repeatedly predicts future behavior, chooses an action over a finite planning interval, applies an action, and updates the calculation using new observations.",
+    "A proper control evaluation must include sensor and actuator delays, the model's prediction error, update deadlines, and the conditions under which the controller's assumptions fail."
+   ]
+  },
+  {
+   "page": "reports/observed-subthemes/analog-layout-and-circuit-automation.md",
+   "sentences": 146,
+   "over_20_words": 34,
+   "vague_words": [
+    "significantly",
+    "state-of-the-art",
+    "substantial"
+   ],
+   "cliches": [],
+   "field_terms_glossed_on_first_use": [
+    "CMOS",
+    "DRC",
+    "PDK",
+    "bandwidth",
+    "baseline"
+   ],
+   "long_examples": [
+    "A constraint is a means of obtaining acceptable electrical behavior, not a substitute for checking that behavior after the physical implementation is complete.",
+    "Their evidence levels differ: the AMS standard-cell work reports fabricated-chip and jitter results, while the captured AlphaPlacer and Diffsp descriptions do not expose comparable numerical placement results.",
+    "The permutations can be decoded into non-overlapping coordinates, but a small change in the ordering can move several blocks or change their relative relationships.",
+    "Area and wirelength are geometric; symmetry, matching, proximity and routing constraints express circuit intent; parasitics determine whether the placed and routed circuit meets electrical targets.",
+    "The temperature used in the relaxation, the transition to a discrete sequence pair and the difference between relaxed and discrete objective values determine whether the optimization result survives conversion."
+   ]
+  },
+  {
+   "page": "reports/observed-subthemes/approximate-and-precision-aware-compute.md",
+   "sentences": 1595,
+   "over_20_words": 183,
+   "vague_words": [
+    "efficient",
+    "efficiently",
+    "substantial",
+    "substantially"
+   ],
+   "cliches": [],
+   "field_terms_glossed_on_first_use": [
+    "ASIC",
+    "DNN",
+    "FPGA",
+    "GEMM",
+    "GNN",
+    "GPU",
+    "HLS",
+    "KV",
+    "LLM",
+    "MAC",
+    "SRAM",
+    "accelerator",
+    "bandwidth",
+    "baseline",
+    "inference",
+    "latency",
+    "quantization",
+    "throughput"
+   ],
+   "long_examples": [
+    "That is writing coverage, not acceptance: seven explanations are manuscript-backed (HAP, DAPA, Adana, UltraSketchLLM, TopGQ, RESP, BayesCVNN), while seven remain description-backed (CORE, CAPA, CO-MAC, HierPAS, PRISM, MXP, PEACE).",
+    "Representing a wider numerical range or finer differences between values therefore requires a choice about which values can be represented and how other values are rounded.",
+    "With the decoding rule X, a zero-point of 8 and scale 0.1 make code 8 represent zero and code 10 represent 0.2.",
+    "That introduces its own questions: how the criterion is obtained, what metadata records the choice, whether hardware supports the selected combinations, and whether the criterion remains valid on new inputs.",
+    "A scale determines how a stored numerical code maps to a value; sharing it can reduce metadata but couples the representable ranges of the grouped values."
+   ]
+  },
+  {
+   "page": "reports/observed-subthemes/architecture-modeling-and-exploration.md",
+   "sentences": 107,
+   "over_20_words": 26,
+   "vague_words": [
+    "efficient"
+   ],
+   "cliches": [],
+   "field_terms_glossed_on_first_use": [
+    "CPU",
+    "EDA",
+    "FHE",
+    "GPU",
+    "PPA",
+    "accelerator",
+    "bandwidth",
+    "baseline",
+    "latency",
+    "throughput"
+   ],
+   "long_examples": [
+    "An optimistic limit is not a forecast of an actual processor, and a favorable design estimate is not a measured result.",
+    "The source does not identify its particular idealizations, so unlimited memory bandwidth, perfect prediction, or any other specific assumption must not be attributed to it.",
+    "A useful evaluation would compare ideal estimates with progressively more detailed models on common workloads, explaining which constraints account for the gap.",
+    "Removing a modeled bottleneck can shift work elsewhere or require area, power, and communication that the ideal scenario does not charge.",
+    "A design chosen for one computation or parameter set may behave differently when intermediate representations, operation frequencies, or memory requirements change."
+   ]
+  },
+  {
+   "page": "reports/observed-subthemes/architecture-software-co-design.md",
+   "sentences": 498,
+   "over_20_words": 166,
+   "vague_words": [
+    "efficient",
+    "efficiently",
+    "state-of-the-art"
+   ],
+   "cliches": [],
+   "field_terms_glossed_on_first_use": [
+    "ADC",
+    "CIM",
+    "CPU",
+    "DNN",
+    "DSE",
+    "GEMM",
+    "GPU",
+    "HBM",
+    "ISA",
+    "KV",
+    "LLM",
+    "NPU",
+    "NoC",
+    "Pareto",
+    "RL",
+    "accelerator",
+    "bandwidth",
+    "baseline",
+    "chiplet",
+    "inference",
+    "latency",
+    "quantization",
+    "surrogate",
+    "throughput"
+   ],
+   "long_examples": [
+    "The listed 24.3 and 4.8 TFLOPS give a ratio of 5.0625, which differs from the printed 4.54×; the 24.6 peak in Table 3 gives another ratio.",
+    "A tiled implementation loads a block into a local buffer, reuses it across several operations, and writes an output block when its required contributions are complete.",
+    "The buffer must hold data until the last operation that uses it; capacity is determined by both tile dimensions and data lifetime.",
+    "An input tile can be reused across multiple output tiles, while an output tile may need to remain local while partial sums from several input tiles accumulate.",
+    "Making the input and output tile shapes identical is convenient, but it couples two storage decisions that serve different reuse patterns."
+   ]
+  },
+  {
+   "page": "reports/observed-subthemes/biochips-and-specialized-systems.md",
+   "sentences": 110,
+   "over_20_words": 29,
+   "vague_words": [],
+   "cliches": [],
+   "field_terms_glossed_on_first_use": [
+    "baseline",
+    "throughput"
+   ],
+   "long_examples": [
+    "Designing such a device therefore requires more than drawing connected channels: the fabricated openings must have suitable dimensions, and liquids must reach the intended locations at suitable times.",
+    "When fabrication changes a feature's dimensions, the design supplied to the machine may need to differ from the desired final shape.",
+    "A model that predicts an error accurately is useful, but prediction alone does not show that applying its correction produces the intended result.",
+    "LiPCon uses local geometry and weighted printing slices to predict a height correction with a convolutional neural network—a model that learns spatial patterns.",
+    "The description does not establish whether all transformed copies and points from each chip stay in one split; independence needs checking."
+   ]
+  },
+  {
+   "page": "reports/observed-subthemes/bioinformatics-and-scientific-computing.md",
+   "sentences": 110,
+   "over_20_words": 14,
+   "vague_words": [
+    "efficient",
+    "substantially"
+   ],
+   "cliches": [],
+   "field_terms_glossed_on_first_use": [
+    "ASIC",
+    "CPU",
+    "GPU",
+    "accelerator",
+    "baseline",
+    "inference",
+    "throughput"
+   ],
+   "long_examples": [
+    "As an example of the distinction—not PanGaea's implementation—the minigraph paper describes an additional chaining stage that accounts for graph topology after constructing linear chains.",
+    "PanGaea is listed by its author as a DAC 2026 paper on a unified memory-efficient accelerator for pangenome chaining and alignment.",
+    "The accelerator must find a path, or compatible path segments, whose sequence can explain the read under a scoring rule that accounts for matches, substitutions, insertions and deletions.",
+    "A system that accelerates only local matching can be fast while selecting an invalid path or missing a better graph-consistent correspondence.",
+    "A graph edge can connect sequence segments in different tiles, and a chain can remain alive while the processing array advances to another region."
+   ]
+  },
+  {
+   "page": "reports/observed-subthemes/cell-and-circuit-design.md",
+   "sentences": 107,
+   "over_20_words": 24,
+   "vague_words": [],
+   "cliches": [],
+   "field_terms_glossed_on_first_use": [
+    "PDK",
+    "PPA",
+    "baseline"
+   ],
+   "long_examples": [
+    "A useful evaluation would state which behaviors and implementations the search includes, how invalid candidates are rejected, and how the resulting circuits are characterized.",
+    "Its functional behavior can be described as a finite-state machine: a finite set of states plus rules for the next state and output under each relevant input event.",
+    "A candidate must eventually become gates or transistors with setup and hold requirements, clock-to-Q delay, reset recovery, metastability behavior, power, area, routing and variation limits.",
+    "Searching every candidate in that finite representation does not establish that every transistor topology or every circuit with the same function was considered.",
+    "A functionally equivalent candidate can still be unusable if it has a poor clock path, unsafe reset, excessive switching, difficult layout or a characterization corner failure."
+   ]
+  },
+  {
+   "page": "reports/observed-subthemes/chiplet-and-on-chip-interconnect.md",
+   "sentences": 113,
+   "over_20_words": 29,
+   "vague_words": [],
+   "cliches": [],
+   "field_terms_glossed_on_first_use": [
+    "CXL",
+    "DSE",
+    "FPGA",
+    "LLM",
+    "bandwidth",
+    "baseline",
+    "inference",
+    "latency",
+    "surrogate"
+   ],
+   "long_examples": [
+    "A receiver also needs a way to know which transaction a value belongs to and whether the required ordering or consistency rules have been satisfied.",
+    "More bandwidth can reduce queueing under load, but it does not necessarily remove delays from routing, buffering, synchronization, or protocol processing.",
+    "The generated traffic is part of the research assumption: a search can select the best candidate for the wrong traffic and still fail on the intended application.",
+    "It includes the topology, the number of chips, link connections, routing behavior, and the way requests are injected into the network.",
+    "A candidate can have high link capacity but still deliver poor application performance if its paths contend, if buffers fill, or if its traffic pattern creates an uneven load."
+   ]
+  },
+  {
+   "page": "reports/observed-subthemes/chiplet-interconnects.md",
+   "sentences": 97,
+   "over_20_words": 19,
+   "vague_words": [],
+   "cliches": [],
+   "field_terms_glossed_on_first_use": [
+    "LLM",
+    "bandwidth",
+    "baseline",
+    "chiplet",
+    "inference",
+    "latency",
+    "throughput"
+   ],
+   "long_examples": [
+    "The time for a transfer includes producing the data, preparing it for the link, waiting for access, crossing the network, and making it usable at the destination.",
+    "Fewer transmitted bits help only when the saved communication cost outweighs the added work or when that work can overlap usefully with other execution.",
+    "A small transfer may be dominated by fixed preparation costs, while a large transfer may be limited by sustained encoder or decoder throughput.",
+    "If exponent values repeat or follow a predictable pattern, an encoder may represent them with fewer bits and send metadata that lets the decoder reconstruct the original representation.",
+    "The method must define the formats it accepts, the exponent alphabet or coding rule, block boundaries, metadata, and how it handles zero, subnormal values, infinities, NaNs, sign and overflow."
+   ]
+  },
+  {
+   "page": "reports/observed-subthemes/chiplet-partitioning-and-integration.md",
+   "sentences": 95,
+   "over_20_words": 21,
+   "vague_words": [
+    "substantially"
+   ],
+   "cliches": [],
+   "field_terms_glossed_on_first_use": [
+    "LLM",
+    "PPA",
+    "RTL",
+    "accelerator",
+    "chiplet"
+   ],
+   "long_examples": [
+    "This can make a large generation task more manageable: a module description can specify what must be implemented without repeating every detail of the whole design.",
+    "MAHL's captured preprint description identifies six collaborating agents covering AI-to-hardware mapping, hierarchical descriptions, retrieval-assisted code generation, validation, debugging, and design-space exploration.",
+    "The available evidence does not specify every validation gate, so “passes validation” must remain tied to the paper's actual procedure rather than being expanded into full physical acceptance.",
+    "Repeated revisions consume model calls and tool execution, and a fix can satisfy a visible test without preserving behavior outside that test.",
+    "It is not a single-attempt success rate, and the best-case comparison is not an established average across all tasks and models."
+   ]
+  },
+  {
+   "page": "reports/observed-subthemes/chiplet-system-architecture.md",
+   "sentences": 177,
+   "over_20_words": 52,
+   "vague_words": [
+    "efficient",
+    "robust",
+    "substantial"
+   ],
+   "cliches": [],
+   "field_terms_glossed_on_first_use": [
+    "DNN",
+    "GPU",
+    "LLM",
+    "PPA",
+    "Pareto",
+    "TNS",
+    "WNS",
+    "accelerator",
+    "bandwidth",
+    "baseline",
+    "chiplet",
+    "inference",
+    "interposer",
+    "latency",
+    "slack",
+    "surrogate",
+    "throughput"
+   ],
+   "long_examples": [
+    "In a 2.5D arrangement, dies sit alongside one another on an interconnection structure rather than all computation being fabricated on one continuous die.",
+    "It is which work belongs on each die, what information must cross die boundaries, and whether the resulting connections meet timing and capacity requirements.",
+    "Whether computation or memory limits performance still depends on model, batch size, and hardware; the phase name alone does not prove the bottleneck.",
+    "Section 4.3, page 5, models the B200 baseline as two homogeneous GPUs with assumed internal compute geometry, not measured B200 serving.",
+    "Section 4.4 and Table 4, pages 5–6, report about 4× lower time to first token, 1.4× higher throughput, and 1.5× lower time between tokens against that baseline."
+   ]
+  },
+  {
+   "page": "reports/observed-subthemes/chiplets-and-heterogeneous-integration.md",
+   "sentences": 107,
+   "over_20_words": 14,
+   "vague_words": [
+    "efficient",
+    "efficiently"
+   ],
+   "cliches": [],
+   "field_terms_glossed_on_first_use": [
+    "LLM",
+    "accelerator",
+    "bandwidth",
+    "baseline",
+    "inference",
+    "latency",
+    "throughput"
+   ],
+   "long_examples": [
+    "An operation can reuse data efficiently inside a processing unit while repeatedly fetching those same data across a more expensive connection elsewhere.",
+    "A design that verifies many candidates can still be slow if the acceptance rate is low or if tree management and data movement dominate.",
+    "Acceptance is not a fixed hardware property: it depends on the draft and target models, prompt distribution, generated length, tree width, sampling rule and the exact verification algorithm.",
+    "It must prevent one branch from reading another branch's incompatible state and must preserve the accepted path after rejected branches are discarded.",
+    "A claimed reduction in wasted storage must be measured against metadata, copying, synchronization and the state-transfer work needed to verify and commit a path."
+   ]
+  },
+  {
+   "page": "reports/observed-subthemes/compilation-and-mapping.md",
+   "sentences": 88,
+   "over_20_words": 20,
+   "vague_words": [],
+   "cliches": [],
+   "field_terms_glossed_on_first_use": [
+    "inference",
+    "latency",
+    "throughput"
+   ],
+   "long_examples": [
+    "For example, assigning a consumer to an available processing element is not enough if its input cannot arrive at the scheduled time.",
+    "Two resources can be connected in the hardware topology while a particular transfer remains unavailable because another transfer occupies the path at the needed time.",
+    "The captured description does not identify which of these conditions the proposed method includes, so no complete routing guarantee can be inferred.",
+    "A shorter interval can improve sustained throughput, but it is not the same as the latency of one iteration or the total time of a finite workload.",
+    "If it claims energy improvements, the complete mapped execution needs an energy model or measurements rather than an inference from routing success alone."
+   ]
+  },
+  {
+   "page": "reports/observed-subthemes/compiler-and-runtime-optimization.md",
+   "sentences": 220,
+   "over_20_words": 24,
+   "vague_words": [],
+   "cliches": [],
+   "field_terms_glossed_on_first_use": [
+    "ASIC",
+    "GPU",
+    "baseline",
+    "inference",
+    "latency",
+    "slack"
+   ],
+   "long_examples": [
+    "They are different applications of a shared question: which work can be avoided safely, and how much does detecting that opportunity cost?",
+    "A batch of 8 sequences, each with 128 positions and 64 values per position, has shape 8 × 128 × 64 and contains 65,536 values.",
+    "This is a worked example of shape-dependent work, not a DyTuner benchmark or a claim that all attention implementations materialize that array.",
+    "The similarly titled ASPLOS 2024 MikPoly work is a different paper with different authors and is not substituted for this DAC paper.",
+    "Their tradeoff is explicit: more specialized versions can improve execution but consume compilation effort and storage; broader versions can reduce that effort while doing extra work on individual inputs."
+   ]
+  },
+  {
+   "page": "reports/observed-subthemes/confidential-and-trusted-computing.md",
+   "sentences": 107,
+   "over_20_words": 27,
+   "vague_words": [],
+   "cliches": [],
+   "field_terms_glossed_on_first_use": [
+    "CPU",
+    "TEE",
+    "bandwidth"
+   ],
+   "long_examples": [
+    "That state includes more than program files: memory contents, processor registers, and the information needed to continue outstanding work must agree at the point of resumption.",
+    "A confidential virtual machine adds a protection requirement: some host-controlled components must not be able to read or alter protected guest state.",
+    "The first-principles discussion below develops the requirements such a system should satisfy; it is not a reconstruction of an unavailable protocol or a claim that the paper implements every check described.",
+    "Copying protected bytes successfully is insufficient if the new host allows an actor to read or modify information that was previously protected.",
+    "For review, write the required properties separately: who may read state, who may change it, who may authorize a destination, and whether an old state may be resumed."
+   ]
+  },
+  {
+   "page": "reports/observed-subthemes/cross-layer-design-automation.md",
+   "sentences": 92,
+   "over_20_words": 16,
+   "vague_words": [],
+   "cliches": [],
+   "field_terms_glossed_on_first_use": [
+    "ASIC",
+    "baseline"
+   ],
+   "long_examples": [
+    "Here “layer” means a level of design description, such as logic, circuit, or layout; it does not necessarily mean a physical metal layer.",
+    "These possibilities explain why cell quality must be evaluated at more than one representation; they are not claimed failures observed in L2L.",
+    "A useful exploration process must decide when a candidate is inexpensive enough to examine approximately and when it needs detailed construction and checking.",
+    "A cell that improves a frequently used function can have a different system impact from a highly optimized but rarely selected entry.",
+    "A standard cell has a Boolean function, a circuit implementation, a physical layout, and characterized views used by synthesis and timing tools."
+   ]
+  },
+  {
+   "page": "reports/observed-subthemes/data-movement-and-locality.md",
+   "sentences": 719,
+   "over_20_words": 287,
+   "vague_words": [
+    "effectively",
+    "efficient",
+    "efficiently",
+    "robust",
+    "state-of-the-art",
+    "substantial",
+    "various"
+   ],
+   "cliches": [
+    "powerful"
+   ],
+   "field_terms_glossed_on_first_use": [
+    "ADC",
+    "ASIC",
+    "CPU",
+    "CXL",
+    "DMA",
+    "DRAM",
+    "ECC",
+    "FHE",
+    "FPGA",
+    "GEMM",
+    "GPU",
+    "HBM",
+    "ISA",
+    "KV",
+    "LLM",
+    "MAC",
+    "NDP",
+    "NPU",
+    "NoC",
+    "PIM",
+    "Pareto",
+    "RAG",
+    "SSD",
+    "TTFT",
+    "accelerator",
+    "bandwidth",
+    "baseline",
+    "inference",
+    "latency",
+    "quantization",
+    "throughput"
+   ],
+   "long_examples": [
+    "If it is in another memory device or another machine, the system must request it, transport it, and make it available to the operation.",
+    "A distributed implementation must place sparse entries and dense operands across chips, move metadata and values, accumulate partial sums, and respect dependencies.",
+    "Irregular nonzero locations can leave one node busy while another waits; reducing arithmetic or metadata can move the bottleneck to links, memory banks, synchronization or accumulation order.",
+    "DAP combines a two-level partitioner for a 2-D multi-chip array with an SPU that uses CSC instead of COO, reduces redundant data replication, and handles floating-point RAW dependencies with a reservation buffer.",
+    "The captured description does not specify the partition objective, CSC layout, routing, arbitration, replication policy, buffer size, precision or interconnect microarchitecture."
+   ]
+  },
+  {
+   "page": "reports/observed-subthemes/datacenter-and-cloud-systems.md",
+   "sentences": 325,
+   "over_20_words": 95,
+   "vague_words": [
+    "efficient",
+    "state-of-the-art",
+    "substantial"
+   ],
+   "cliches": [],
+   "field_terms_glossed_on_first_use": [
+    "CPU",
+    "GNN",
+    "GPU",
+    "HBM",
+    "KV",
+    "LLM",
+    "RL",
+    "SLO",
+    "TTFT",
+    "accelerator",
+    "bandwidth",
+    "baseline",
+    "inference",
+    "latency",
+    "slack",
+    "throughput"
+   ],
+   "long_examples": [
+    "These five papers change different decisions: how memory is shared, which model handles a request, how many expert instances run, what frequency a GPU uses, and where cloud tasks execute.",
+    "A system can improve one while worsening the other, especially when it serves more work in larger batches or changes which model produces the answers.",
+    "Three manuscripts were recovered for this article. sMoE remains description-backed; GREEN also has an author implementation repository, but no recovered full manuscript here.",
+    "The key–value (KV) cache stores attention keys and values from earlier tokens so later autoregressive steps do not recompute the entire prefix.",
+    "The serving system must therefore answer two different questions: which logical tensors are live, and which physical memory blocks back them at this moment."
+   ]
+  },
+  {
+   "page": "reports/observed-subthemes/device-and-process-modeling.md",
+   "sentences": 84,
+   "over_20_words": 11,
+   "vague_words": [
+    "efficient"
+   ],
+   "cliches": [],
+   "field_terms_glossed_on_first_use": [],
+   "long_examples": [
+    "For use in a larger simulator, further properties can matter, including smoothness and numerical behavior where the simulator evaluates or differentiates the model.",
+    "The inputs might include geometry, material properties, temperature, voltage, frequency or process parameters, and the output might be a delay, capacitance, resistance, current or another device quantity.",
+    "The description names EKAN as the neural-to-symbolic method but does not expose its architecture, fitting objective, expression grammar, selection rule or stopping criterion.",
+    "An expression that looks physically plausible can still have the wrong scale, wrong limiting behavior or invalid dependence on an unobserved variable.",
+    "A symbolic expression can be evaluated outside its training range because the mathematics permits the input; that does not show that the prediction is physically meaningful there."
+   ]
+  },
+  {
+   "page": "reports/observed-subthemes/device-modeling-and-simulation.md",
+   "sentences": 113,
+   "over_20_words": 26,
+   "vague_words": [],
+   "cliches": [],
+   "field_terms_glossed_on_first_use": [
+    "PDK",
+    "Pareto",
+    "SPICE",
+    "TCAD",
+    "inference",
+    "netlist",
+    "surrogate"
+   ],
+   "long_examples": [
+    "A finite trained implementation still needs checks: a small collection of integral tests can miss localized error or fail to resolve a sharp change.",
+    "Self-supervision removes a particular labeling requirement; it does not remove the need for correct material parameters, boundary conditions, or independent evaluation.",
+    "A useful test would compare terminal currents and relevant internal fields across operating points, including regions where the numerical solution changes rapidly.",
+    "A surrogate is useful only if it preserves the quantities needed for a device decision, not merely an aggregate residual or a visually plausible field.",
+    "Instead of requiring labeled solution values at interior mesh points, it trains against integral forms of the physical laws and Dirichlet boundary conditions."
+   ]
+  },
+  {
+   "page": "reports/observed-subthemes/distributed-and-disaggregated-systems.md",
+   "sentences": 293,
+   "over_20_words": 78,
+   "vague_words": [
+    "efficient",
+    "efficiently",
+    "significant"
+   ],
+   "cliches": [],
+   "field_terms_glossed_on_first_use": [
+    "CPU",
+    "GNN",
+    "GPU",
+    "LLM",
+    "PDE",
+    "accelerator",
+    "bandwidth",
+    "baseline",
+    "inference",
+    "latency",
+    "quantization",
+    "throughput"
+   ],
+   "long_examples": [
+    "The resulting organization can allocate resources more flexibly, but the system must pay for communication and coordination between the separated parts.",
+    "Reducing bytes helps only when link transmission is a significant part of that path and the compression work does not create a new bottleneck.",
+    "The compressed message is therefore variable-length: its size depends on the observed symbol frequencies rather than only on the number of values.",
+    "The system must maintain frequency information, update the codebook, communicate or coordinate the codebook state, and ensure that every decoder interprets the incoming bitstream with the same code.",
+    "A codebook that is stale may compress poorly; a codebook that changes at different times on different workers can make the message undecodable or require explicit versioning and synchronization."
+   ]
+  },
+  {
+   "page": "reports/observed-subthemes/distributed-and-wafer-scale-inference.md",
+   "sentences": 86,
+   "over_20_words": 16,
+   "vague_words": [],
+   "cliches": [],
+   "field_terms_glossed_on_first_use": [
+    "LLM",
+    "bandwidth",
+    "baseline",
+    "inference",
+    "latency",
+    "throughput"
+   ],
+   "long_examples": [
+    "Faults can further change which resources and routes are usable, so performance must be evaluated on the system that remains available, not only an ideal intact topology.",
+    "Simulated annealing is a search method that can temporarily accept worse candidate choices to explore alternatives; its practical result depends on the search settings and evaluation budget.",
+    "In particular, distance-aware routing does not establish that every transfer follows the shortest possible route: load balancing may favor a different path.",
+    "To interpret them, the reader needs to know what fails, whether failures occur before or during execution, how they are detected, and which state must be recovered.",
+    "A complete result would report both correctness and degraded performance, along with reconfiguration or recovery costs and cases where no usable mapping remains."
+   ]
+  },
+  {
+   "page": "reports/observed-subthemes/edge-ai-and-deployment.md",
+   "sentences": 404,
+   "over_20_words": 136,
+   "vague_words": [
+    "efficient",
+    "efficiently",
+    "robust",
+    "substantial"
+   ],
+   "cliches": [],
+   "field_terms_glossed_on_first_use": [
+    "CPU",
+    "DMA",
+    "DRAM",
+    "FPGA",
+    "GPU",
+    "LLM",
+    "SNN",
+    "TTFT",
+    "accelerator",
+    "bandwidth",
+    "baseline",
+    "inference",
+    "latency",
+    "throughput"
+   ],
+   "long_examples": [
+    "A deployment result should state what else runs on the device and whether its resource limits remain satisfied as requests or tasks change.",
+    "Sparsity can omit weights or operations under a defined approximation, but multi-task serving adds a second problem: the next task may need a different sparse structure.",
+    "The system then pays for identifying the task, finding reusable state, loading missing blocks and reconfiguring execution before the first useful output.",
+    "The source proposes decomposing weights into reusable block-granular units, aligning sparse structures across tasks to maximize overlap, and dynamically loading only the differential blocks required by the next task.",
+    "It does not by itself establish that each task retains its accuracy, that the sparse blocks map efficiently to the accelerator, or that the reported switch speed includes storage, DMA, metadata, cache and runtime work."
+   ]
+  },
+  {
+   "page": "reports/observed-subthemes/edge-embedded-and-mobile-systems.md",
+   "sentences": 223,
+   "over_20_words": 49,
+   "vague_words": [
+    "efficient",
+    "efficiently",
+    "state-of-the-art"
+   ],
+   "cliches": [],
+   "field_terms_glossed_on_first_use": [
+    "DNN",
+    "DSE",
+    "FPGA",
+    "GPU",
+    "LLM",
+    "accelerator",
+    "bandwidth",
+    "baseline",
+    "inference",
+    "latency",
+    "quantization",
+    "throughput"
+   ],
+   "long_examples": [
+    "This reduces arithmetic for that token, but it does not make the full model small: the expert parameters still have to be stored somewhere, and the selected expert may not be on the node that received the request.",
+    "The second is **expert movement**: the token representation may have to cross an edge-to-edge link, and the result may have to return.",
+    "**Similarity-based expert deployment** chooses which experts to place at which nodes using a measure of semantic relevance between queries and experts across nodes and time.",
+    "It does not guarantee that the selected expert is always local, because future queries can differ from the history used for placement.",
+    "It also creates a placement-update problem: moving experts consumes memory bandwidth and communication capacity, and a placement policy can become stale."
+   ]
+  },
+  {
+   "page": "reports/observed-subthemes/embedded-and-edge-systems.md",
+   "sentences": 188,
+   "over_20_words": 37,
+   "vague_words": [],
+   "cliches": [],
+   "field_terms_glossed_on_first_use": [
+    "CPU",
+    "FPGA",
+    "accelerator",
+    "bandwidth",
+    "inference",
+    "latency",
+    "quantization",
+    "throughput"
+   ],
+   "long_examples": [
+    "A compact summary saves space by storing less than the full stream, but decoding must distinguish information actually retained from information estimated.",
+    "Bounds can constrain a reconstruction only if their assumptions hold; a heuristic search among possible counts is not automatically an exact-count guarantee.",
+    "For a stream of items, an item's frequency is the number of times that item appears in a defined observation window.",
+    "The system must state the item domain, window boundary, whether counts reset, and whether the required answer is exact or estimated.",
+    "At high input rates, the system must accept items, update state, retain enough information for later queries and avoid dropping or reordering data."
+   ]
+  },
+  {
+   "page": "reports/observed-subthemes/emerging-and-nonvon-neumann-compute.md",
+   "sentences": 114,
+   "over_20_words": 19,
+   "vague_words": [],
+   "cliches": [],
+   "field_terms_glossed_on_first_use": [
+    "ADC",
+    "CPU",
+    "FPGA",
+    "GPU",
+    "LUT",
+    "accelerator",
+    "bandwidth",
+    "baseline",
+    "inference",
+    "latency",
+    "throughput"
+   ],
+   "long_examples": [
+    "Finding a low-cost answer and generating samples with a required distribution are not the same task, so their quality measures cannot be combined.",
+    "A useful account must identify where state is stored, how it changes, what operations remain digital, and how the machine's output becomes an application result.",
+    "With group labels s_i and s_j, the expression (1 − s_i × s_j) / 2 is one when the labels differ and zero when they match.",
+    "Constraints encoded as penalties also need careful scaling: a numerically favorable state may be unusable if a constraint violation was penalized too weakly.",
+    "Define the Ising variables, objective sign, constraint penalties, feasible assignments, optimum or reference, approximation gap and the meaning of “accuracy.” Validate every returned assignment and objective independently."
+   ]
+  },
+  {
+   "page": "reports/observed-subthemes/emerging-device-design.md",
+   "sentences": 103,
+   "over_20_words": 14,
+   "vague_words": [
+    "substantially"
+   ],
+   "cliches": [],
+   "field_terms_glossed_on_first_use": [
+    "Pareto",
+    "baseline",
+    "inference",
+    "latency",
+    "netlist",
+    "throughput"
+   ],
+   "long_examples": [
+    "A junction count measures one important resource, but it is not the same as layout area, energy per result, or total equipment cost.",
+    "If the representation needs separate paths for a value and its complement, counting only the unencoded logic can miss duplication costs.",
+    "Its official description also targets interconnect drivers, receivers, and fanout elements with a new amplifier integrated into a characterized cell library.",
+    "To compare it with a single-cycle design, report both cycle duration and cycles per result, plus how often new inputs can be accepted.",
+    "The described method co-optimizes register placement and signal polarity to minimize Josephson-junction count, then redesigns an amplifier for interconnect drivers, receivers and fanout inside existing SFQ cells."
+   ]
+  },
+  {
+   "page": "reports/observed-subthemes/emerging-memory-and-devices.md",
+   "sentences": 103,
+   "over_20_words": 30,
+   "vague_words": [],
+   "cliches": [],
+   "field_terms_glossed_on_first_use": [
+    "ADC",
+    "CIM",
+    "CPU",
+    "GPU",
+    "accelerator",
+    "bandwidth",
+    "baseline",
+    "inference",
+    "latency",
+    "throughput"
+   ],
+   "long_examples": [
+    "They both place computation near stored values, but they do not demonstrate the same device technology or execute the same task.",
+    "The surrounding system still has to encode the query, load the stored entries, interpret match results, and handle cases the array cannot resolve.",
+    "Greater information per device can reduce the number of storage elements needed for an encoding, but only if the states remain distinguishable under programming variation, noise, and drift.",
+    "It reports 50–75% fewer devices, energy improvements of 131.2–3088.9×, and latency improvements of 161.2–269.6× against CPU/GPU implementations and tools including STAR.",
+    "Adjusting a matching threshold or selecting a more precise mode is not automatically equivalent to correcting arbitrary stored-bit errors with a coding guarantee."
+   ]
+  },
+  {
+   "page": "reports/observed-subthemes/emulation-and-prototyping.md",
+   "sentences": 88,
+   "over_20_words": 13,
+   "vague_words": [],
+   "cliches": [],
+   "field_terms_glossed_on_first_use": [
+    "FPGA",
+    "RTL",
+    "bandwidth",
+    "throughput"
+   ],
+   "long_examples": [
+    "An emulator can execute a target design before that design is fabricated, but the emulator's own speed is not the clock speed the target will eventually achieve.",
+    "The selected record, A Boolean Processor-Based Hardware Emulation System with Reconfigurable Interconnects, proposes a fabric organized around Boolean processing and configurable connections.",
+    "A mapping process must decide which model operations the platform executes, where intermediate values reside, and when updated state becomes visible.",
+    "Reporting one without the other can conceal a tradeoff: a larger design may require additional scheduling or transfers that reduce effective execution rate.",
+    "It should measure simulated target progress per unit of elapsed time rather than confusing the platform clock with useful target execution."
+   ]
+  },
+  {
+   "page": "reports/observed-subthemes/energy-and-thermal-efficiency.md",
+   "sentences": 87,
+   "over_20_words": 20,
+   "vague_words": [
+    "effectively"
+   ],
+   "cliches": [],
+   "field_terms_glossed_on_first_use": [
+    "ASIC",
+    "CPU",
+    "GPU",
+    "IR drop",
+    "LLM",
+    "PDK",
+    "surrogate",
+    "throughput"
+   ],
+   "long_examples": [
+    "A lower peak temperature does not automatically mean less energy was used, and a lower power reading does not establish lower energy for a job that now runs longer.",
+    "If a hypothetical workload uses 10% less power but takes 20% longer, its energy becomes 0.9 times 1.2, or 1.08 times the original.",
+    "Conversely, two processors receiving the same power allowance can run at different temperatures because their cooling paths or operating characteristics differ.",
+    "Early Design Stage Thermal Prediction and Optimization predicts power density during global placement, uses physics-guided interpolation for steady-state temperatures, and changes placement to reduce hot spots.",
+    "The official description reports 49.0% better power-density prediction accuracy, 34.9% better thermal prediction accuracy, and a 9.97°C reduction in maximum temperature while retaining equivalent timing and area."
+   ]
+  },
+  {
+   "page": "reports/observed-subthemes/fault-tolerance-and-reliability.md",
+   "sentences": 50,
+   "over_20_words": 9,
+   "vague_words": [],
+   "cliches": [],
+   "field_terms_glossed_on_first_use": [
+    "DNN",
+    "ECC",
+    "baseline",
+    "inference",
+    "throughput"
+   ],
+   "long_examples": [
+    "An error in a scale field can have a very different numerical effect from an error in a low-significance precision bit.",
+    "Detecting that a value is suspect does not by itself recover the original value; the larger computation needs an appropriate response.",
+    "An equal injection percentage across formats also needs a clear denominator and sampling procedure before it can be interpreted as equal physical exposure.",
+    "Table VIII on PDF page 8 reports 98.85% FP32 baseline accuracy, 97.90% SERA accuracy without faults, and 88.05% for SERA under the F2E4 setting.",
+    "Section IV.C and Table IX, on PDF pages 8–9, describe synthesized multiplication hardware using Synopsys Design Compiler and a NanGate 45nm library at 1.10 V and 25°C."
+   ]
+  },
+  {
+   "page": "reports/observed-subthemes/formal-analysis-and-verification.md",
+   "sentences": 944,
+   "over_20_words": 268,
+   "vague_words": [
+    "efficient",
+    "robust",
+    "state-of-the-art",
+    "substantial"
+   ],
+   "cliches": [],
+   "field_terms_glossed_on_first_use": [
+    "CPU",
+    "DMA",
+    "GPU",
+    "ISA",
+    "LLM",
+    "RL",
+    "RTL",
+    "SAT",
+    "SVA",
+    "baseline",
+    "inference",
+    "latency",
+    "netlist",
+    "throughput"
+   ],
+   "long_examples": [
+    "A property saying that every acknowledgment has a preceding request checks a different direction: it forbids unsolicited acknowledgments but does not require any acknowledgment to occur.",
+    "Suppose a wrong output is produced in block B because an earlier control signal from block A selected the wrong operand.",
+    "A ranked suspect is not a confirmed bug; confirmation requires a reproducible failing behavior and an explanation tied to the intended requirement.",
+    "The longest runtime observed in a finite test set is a measurement, not automatically an upper bound over all allowed executions.",
+    "For an illustrative sequence of one hundred events, each with violation probability at most 0.001 under the relevant model, the union bound permits a total violation probability as large as 0.1."
+   ]
+  },
+  {
+   "page": "reports/observed-subthemes/formal-and-equivalence-verification.md",
+   "sentences": 191,
+   "over_20_words": 48,
+   "vague_words": [
+    "efficiently"
+   ],
+   "cliches": [],
+   "field_terms_glossed_on_first_use": [
+    "FPGA",
+    "LUT",
+    "SAT",
+    "accelerator",
+    "bandwidth",
+    "baseline"
+   ],
+   "long_examples": [
+    "They change the representation of an equivalence problem, the generalization steps of a model checker, the coordination of parallel SAT solvers, or the distribution of reachability tasks.",
+    "For combinational equivalence, connect both circuits to the same inputs and construct a comparison circuit whose output is true when any corresponding outputs differ.",
+    "A satisfying input demonstrates a mismatch; a proof that no satisfying input exists establishes equivalence under the encoding and input assumptions.",
+    "The aim can be to expose relationships that a solver otherwise has difficulty recovering from a large collection of small gates.",
+    "Section 4 and Table 2, PDF page 5, use 2–4-input tables, a single Xeon Platinum 8375C core, and a 3,600-second timeout."
+   ]
+  },
+  {
+   "page": "reports/observed-subthemes/formal-and-functional-verification.md",
+   "sentences": 582,
+   "over_20_words": 204,
+   "vague_words": [
+    "efficient",
+    "robust",
+    "substantially"
+   ],
+   "cliches": [],
+   "field_terms_glossed_on_first_use": [
+    "CPU",
+    "EDA",
+    "GNN",
+    "GPU",
+    "LLM",
+    "RAG",
+    "RL",
+    "RTL",
+    "SAT",
+    "SVA",
+    "baseline",
+    "inference",
+    "latency",
+    "netlist"
+   ],
+   "long_examples": [
+    "For a stateful circuit, that behavior includes how stored values change across clock cycles and how outputs respond to sequences of inputs.",
+    "The methods can support one another: a simulation failure can identify a concrete problem, while a formal property can address cases that would be difficult to enumerate.",
+    "If a requirement omits an exceptional input or permits an unintended state transition, an implementation may satisfy that requirement while failing the real use case.",
+    "PRO-V-R1, the RISC-V cryptography invariant paper, SafeGen, STELLAR, Seeing the Unseen, ChatSVA, and Beyond Flat Netlist now have individual paper-level explanations in this chapter.",
+    "The captured PRO-V-R1 record describes an automated programming system for register-transfer-level verification, trained using trajectories that include simulation results and later tool feedback."
+   ]
+  },
+  {
+   "page": "reports/observed-subthemes/fpga-and-reconfigurable-design.md",
+   "sentences": 83,
+   "over_20_words": 19,
+   "vague_words": [
+    "efficient"
+   ],
+   "cliches": [],
+   "field_terms_glossed_on_first_use": [
+    "FPGA",
+    "LUT",
+    "baseline",
+    "netlist"
+   ],
+   "long_examples": [
+    "The number of abstract Boolean operations is not necessarily the number of physical resources occupied: the target architecture determines which functions can share a resource and how their inputs and outputs connect.",
+    "It is therefore not safe to treat a fracturable LUT as two independent LUTs or to assume that any two small functions can share one physical resource.",
+    "Two functions with the same abstract gate count can have different physical costs because their inputs may or may not be compatible, their outputs may need different destinations, and the surrounding logic may leave usable capacity in a partially occupied LUT.",
+    "A function may fit into an unused half of a resource at one point in the mapping process, but require a new resource after an incompatible function occupies the available share.",
+    "A local choice that looks cheap can also consume an input pattern or output connection needed for a later, harder-to-pack function."
+   ]
+  },
+  {
+   "page": "reports/observed-subthemes/generative-design-and-synthesis.md",
+   "sentences": 301,
+   "over_20_words": 95,
+   "vague_words": [
+    "efficient",
+    "efficiently",
+    "robust",
+    "state-of-the-art"
+   ],
+   "cliches": [],
+   "field_terms_glossed_on_first_use": [
+    "ASIC",
+    "EDA",
+    "LLM",
+    "MRAM",
+    "PDK",
+    "PPA",
+    "RTL",
+    "baseline",
+    "inference",
+    "latency",
+    "netlist",
+    "slack",
+    "surrogate"
+   ],
+   "long_examples": [
+    "If a later optimizer contributes much of the improvement, the result should retain that contribution rather than attributing all gains to generation.",
+    "Correctly implementing small Boolean functions is an important capability, but it does not establish improved physical-design quality or transfer to much larger circuits.",
+    "Many different graphs can implement the same function, so correctness is a constraint while graph size, depth, switching behavior and later mapped hardware are possible objectives.",
+    "These parts solve different problems: pretraining supplies a proposal distribution, search explores alternatives using an objective, and rollout estimates or completes decisions quickly.",
+    "The paper must state the graph state, allowed actions, terminal condition, reward, search budget, correctness check and how invalid partial graphs are handled."
+   ]
+  },
+  {
+   "page": "reports/observed-subthemes/generative-design-automation.md",
+   "sentences": 228,
+   "over_20_words": 51,
+   "vague_words": [
+    "efficient",
+    "state-of-the-art"
+   ],
+   "cliches": [],
+   "field_terms_glossed_on_first_use": [
+    "EDA",
+    "GPU",
+    "LLM",
+    "PDK",
+    "RTL",
+    "SPICE",
+    "latency",
+    "netlist",
+    "throughput"
+   ],
+   "long_examples": [
+    "A design task can begin with written requirements and end with a schematic, a physical model, or a corrected protocol implementation.",
+    "The essential question is whether the generated result preserves the required relationships and passes the checks appropriate to its intended use.",
+    "Its performance depends on the algorithm, memory addresses, thread and block mapping, synchronization, atomics, numerical precision, input shape, compiler decisions and the GPU's memory and execution resources.",
+    "Without that state, the system cannot distinguish a real improvement from a measurement artifact or a candidate that succeeded only because a test was weakened.",
+    "A candidate can appear faster because of cache state, GPU clock behavior, warm-up, input shape, compiler version or an incomplete timing interval."
+   ]
+  },
+  {
+   "page": "reports/observed-subthemes/graph-and-hypergraph-optimization.md",
+   "sentences": 151,
+   "over_20_words": 36,
+   "vague_words": [
+    "state-of-the-art"
+   ],
+   "cliches": [],
+   "field_terms_glossed_on_first_use": [
+    "CPU",
+    "GPU",
+    "bandwidth",
+    "baseline"
+   ],
+   "long_examples": [
+    "Section 3.1 describes reassignment of community fragments using integer optimization for smaller problems and a KaHyPar refinement cycle for larger ones.",
+    "Section 4.1 compares best results under equal total time for ComPart, hMETIS, and KaHyPar; some other baseline results come from earlier publications.",
+    "The balance wording also needs care: the setup calls its allowance 2% per partition but specifies epsilon as 0.02 times the partition count.",
+    "A net can connect more than two vertices, so the cost of cutting it depends on the chosen objective—such as connectivity or cut-net cost—and on how the resulting communication is interpreted by the downstream MPSoC or multi-FPGA system.",
+    "This can expose a promising solution region that a purely local move sequence would miss, but it does not make the search exhaustive or globally optimal."
+   ]
+  },
+  {
+   "page": "reports/observed-subthemes/graph-learning-for-eda.md",
+   "sentences": 169,
+   "over_20_words": 60,
+   "vague_words": [
+    "holistic",
+    "substantial"
+   ],
+   "cliches": [],
+   "field_terms_glossed_on_first_use": [
+    "ASIC",
+    "EDA",
+    "GNN",
+    "GPU",
+    "PPA",
+    "RTL",
+    "SPICE",
+    "accelerator",
+    "bandwidth",
+    "baseline",
+    "inference",
+    "netlist",
+    "slack",
+    "surrogate",
+    "throughput"
+   ],
+   "long_examples": [
+    "For a circuit task, an object might be a cell, pin, or electrical node; a connection might represent a signal dependency or an electrical relationship.",
+    "In a common message-passing formulation, each node combines information from its neighbors, optionally using attributes of their connecting edges, then updates its own representation.",
+    "It is whether the chosen objects, connections, features, and computation preserve the information required by the target electrical or design task.",
+    "For a timing arc, the input transition rate and output load are independent conditions: a slowly changing input is not the same as a heavily loaded output.",
+    "Skipping simulations is useful only if the predicted table remains accurate where the timing flow will use it, including corners and conditions near a design limit."
+   ]
+  },
+  {
+   "page": "reports/observed-subthemes/hardware-and-system-security.md",
+   "sentences": 309,
+   "over_20_words": 92,
+   "vague_words": [
+    "efficient",
+    "novel",
+    "substantial"
+   ],
+   "cliches": [],
+   "field_terms_glossed_on_first_use": [
+    "CPU",
+    "LLM",
+    "SRAM",
+    "TEE",
+    "accelerator",
+    "bandwidth",
+    "baseline",
+    "inference",
+    "latency",
+    "quantization",
+    "side channel",
+    "throughput"
+   ],
+   "long_examples": [
+    "A processor, memory manager, operating system, peripheral, and application can each behave according to its local rules while their interaction exposes protected information.",
+    "For an information leak to matter, protected activity must affect something observable, the observer must access that observation, and the observation must support a useful inference.",
+    "A page-table walk consults the translation data needed to resolve an address when that information is not already available in a faster structure.",
+    "The important security question is whether those effects depend on a protected computation in a way that an observer can measure.",
+    "Third, the signal must be separated from noise caused by the attacker's own work, other tenants, interrupts, scheduling, garbage collection, input variation and unrelated system activity."
+   ]
+  },
+  {
+   "page": "reports/observed-subthemes/hardware-generation-and-compilation.md",
+   "sentences": 147,
+   "over_20_words": 31,
+   "vague_words": [
+    "substantial"
+   ],
+   "cliches": [],
+   "field_terms_glossed_on_first_use": [
+    "DMA",
+    "DSE",
+    "KV",
+    "LLM",
+    "PPA",
+    "RTL",
+    "SRAM",
+    "accelerator",
+    "bandwidth",
+    "inference",
+    "throughput"
+   ],
+   "long_examples": [
+    "Its value is not only that it emits code: the output must compute the intended result, fit the target's resources, and satisfy its operating requirements.",
+    "The generator maps those choices to Chisel RTL, a compiler converts LLM layers into executable kernels, and testbenches support kernel and multi-kernel simulation.",
+    "In multi-head attention, the score calculation forms a product of queries and keys, softmax transforms the score, and a later product combines the result with values.",
+    "It distinguishes prefill, where many input tokens are processed, from decode, where one new token reads prior keys and values from the KV cache.",
+    "These are not universal fusion benefits; they depend on cache capacity, tile alignment, token length and whether the next operation can consume data at the produced rate."
+   ]
+  },
+  {
+   "page": "reports/observed-subthemes/hardware-security-validation.md",
+   "sentences": 131,
+   "over_20_words": 26,
+   "vague_words": [],
+   "cliches": [],
+   "field_terms_glossed_on_first_use": [
+    "EDA",
+    "FPGA",
+    "LLM",
+    "inference"
+   ],
+   "long_examples": [
+    "Their common question is how to turn candidates into checked findings, not how to combine their counts into a single security score.",
+    "Discovery must distinguish an executed operation from an invalid encoding, an alias for an existing operation, or behavior dependent on a particular processor state.",
+    "A classifier can suggest such a grouping, but its predicted label cannot replace the underlying observations when assessing a security property.",
+    "If closely related measurements appear in both training and testing, strong test accuracy may not demonstrate generalization to a new instruction family.",
+    "A candidate is useful only if it executes reproducibly and can be distinguished from an illegal encoding, an alias, undocumented but benign behavior, or an implementation artifact."
+   ]
+  },
+  {
+   "page": "reports/observed-subthemes/high-level-synthesis-and-compilers.md",
+   "sentences": 82,
+   "over_20_words": 10,
+   "vague_words": [
+    "significant",
+    "state-of-the-art"
+   ],
+   "cliches": [],
+   "field_terms_glossed_on_first_use": [
+    "ASIC",
+    "DNN",
+    "FPGA",
+    "HLS",
+    "LUT",
+    "RTL",
+    "accelerator",
+    "bandwidth",
+    "baseline",
+    "latency",
+    "throughput"
+   ],
+   "long_examples": [
+    "Hardware construction must also decide how many execution units exist, which operations share a unit, where values are stored, and when work proceeds.",
+    "It does not by itself establish which MLIR dialects are supported, how memory effects are modeled, how the H-CDFG is lowered, or which FPGA/ASIC backends can consume it.",
+    "Check generated behavior against a trusted software or reference implementation on corner cases, including empty or short inputs, aliasing where supported, boundary iterations, reductions, overflow/rounding, variable latency operations and reset/state behavior.",
+    "An H-CDFG can be a concise planning representation, but the implementation still needs scheduling, resource binding, memory allocation, buffering, interface generation and backend lowering.",
+    "Resource reduction can coexist with lower frequency or more buffering; higher kernel parallelism can be hidden by memory or initiation-interval limits."
+   ]
+  },
+  {
+   "page": "reports/observed-subthemes/interconnect-and-networking.md",
+   "sentences": 62,
+   "over_20_words": 10,
+   "vague_words": [],
+   "cliches": [],
+   "field_terms_glossed_on_first_use": [
+    "ASIC",
+    "bandwidth",
+    "latency",
+    "throughput"
+   ],
+   "long_examples": [
+    "The selected paper, Credix, proposes region-based shared buffer pools managed by a Regional Credit Allocator, while using existing credit flow control and a VC-to-path mapping for packet ordering.",
+    "Its captured official description reports 65.6% lower backpressure under synthetic Hotspot traffic and mitigation of severe hotspot occupancy in a realistic workload, but provides no delivered throughput, latency, fairness, losslessness or hardware results.",
+    "In credit-based flow control, a sender uses accounting information about available downstream capacity to determine how much traffic it may send.",
+    "The unit might be a packet, a fixed-size transfer unit, or a storage allocation; the source does not specify Credix's unit.",
+    "That may reduce dependence on one shared control point, but available capacity in one location is not necessarily usable by traffic waiting elsewhere."
+   ]
+  },
+  {
+   "page": "reports/observed-subthemes/learned-design-space-exploration.md",
+   "sentences": 477,
+   "over_20_words": 182,
+   "vague_words": [
+    "efficient",
+    "robust",
+    "significant",
+    "state-of-the-art"
+   ],
+   "cliches": [],
+   "field_terms_glossed_on_first_use": [
+    "ASIC",
+    "CPU",
+    "DNN",
+    "DSE",
+    "EDA",
+    "FPGA",
+    "GNN",
+    "GPU",
+    "HLS",
+    "LLM",
+    "LUT",
+    "PDE",
+    "PDK",
+    "PPA",
+    "Pareto",
+    "RL",
+    "RTL",
+    "SAT",
+    "SPICE",
+    "TCAD",
+    "TNS",
+    "WNS",
+    "accelerator",
+    "bandwidth",
+    "baseline",
+    "chiplet",
+    "inference",
+    "interposer",
+    "latency",
+    "netlist",
+    "quantization",
+    "slack",
+    "surrogate",
+    "throughput"
+   ],
+   "long_examples": [
+    "A small error is consequential when it causes the search to reject the best candidate or accept one that violates a hard limit.",
+    "If the method reuses a trained model across many future designs, state how much reuse is needed to repay the training cost.",
+    "The estimate can guide early architectural or RTL changes, but timing is not a property of source text alone: synthesis, cell choices, constraints, fanout, reconvergent paths, wiring and operating corners all contribute.",
+    "These choices change how long structural context is represented and learned; they do not guarantee that signal direction, reconvergence, fanout or technology-dependent timing behavior remains recoverable.",
+    "Define the reference quantity—endpoint delay, path delay, arrival time, required time or slack—and identify synthesis, cell library, clock constraints, parasitic/wire assumptions, operating corner and STA tool."
+   ]
+  },
+  {
+   "page": "reports/observed-subthemes/learned-eda-and-optimization.md",
+   "sentences": 419,
+   "over_20_words": 124,
+   "vague_words": [
+    "efficient",
+    "robust"
+   ],
+   "cliches": [],
+   "field_terms_glossed_on_first_use": [
+    "CPU",
+    "DSE",
+    "EDA",
+    "PDK",
+    "PPA",
+    "Pareto",
+    "RTL",
+    "SNN",
+    "accelerator",
+    "bandwidth",
+    "baseline",
+    "inference",
+    "latency",
+    "netlist",
+    "slack",
+    "surrogate"
+   ],
+   "long_examples": [
+    "The central tradeoff is whether cheaper guidance reduces total effort without causing the process to accept an invalid design or overlook a useful one.",
+    "A low average extraction error would therefore need to be accompanied by evidence about the delays or noise limits the extracted model is used to check.",
+    "The title's zero-hyperparameter claim must therefore be separated from coverage: which conditions can the method analyze accurately, and what happens outside them?",
+    "Perifi addresses inverse design for radio-frequency circuits or components: start with desired behavior and seek a physical design that produces it.",
+    "A fair comparison would give fixed and selected algorithms the same total evaluation budget on previously unseen design spaces; the captured record does not report such results."
+   ]
+  },
+  {
+   "page": "reports/observed-subthemes/llm-assisted-design-flows.md",
+   "sentences": 748,
+   "over_20_words": 79,
+   "vague_words": [
+    "robust"
+   ],
+   "cliches": [],
+   "field_terms_glossed_on_first_use": [
+    "ASIC",
+    "DRC",
+    "DSE",
+    "EDA",
+    "FPGA",
+    "HLS",
+    "LLM",
+    "PPA",
+    "Pareto",
+    "RAG",
+    "RTL",
+    "baseline",
+    "inference",
+    "latency",
+    "netlist",
+    "slack",
+    "throughput"
+   ],
+   "long_examples": [
+    "This is writing coverage, not independent comprehension acceptance: source depth varies, original-ledger and artifact reconciliation remain open, and the broader collection still needs rewriting.",
+    "A configuration search chooses within an existing tool interface; changing the tool itself can affect future designs that were never in the search.",
+    "Testing those hypotheses over time requires comparable task families, source access, tool and model versions, budgets and acceptance rules across editions.",
+    "This chapter combines ICCAD 2025 fallback records with DAC 2026 records; that difference alone cannot establish a shift from one approach to another.",
+    "In chip design, that output might be hardware-description code, a tool command, a suggested layout change, or a set of compiler settings."
+   ]
+  },
+  {
+   "page": "reports/observed-subthemes/llm-systems-and-runtime.md",
+   "sentences": 404,
+   "over_20_words": 130,
+   "vague_words": [
+    "efficient",
+    "state-of-the-art"
+   ],
+   "cliches": [],
+   "field_terms_glossed_on_first_use": [
+    "CPU",
+    "GPU",
+    "KV",
+    "LLM",
+    "NPU",
+    "RAG",
+    "SLO",
+    "TTFT",
+    "accelerator",
+    "bandwidth",
+    "baseline",
+    "inference",
+    "latency",
+    "quantization",
+    "throughput"
+   ],
+   "long_examples": [
+    "A trained language model specifies a computation, but a running system must load its parameters, allocate memory, schedule operations, and manage requests or training steps.",
+    "The meaningful comparison includes time to achieve the required model quality, all resource consumption, and the conditions of the comparison method.",
+    "A “single-GPU” method may therefore place some state in CPU memory, another device, storage, or a custom processing path while retaining one GPU for the main computation.",
+    "In a single GPU system, moving a layer’s weights before every use has a different cost from moving optimizer states once per update or checkpointing activations for later recomputation.",
+    "The evaluation should identify the bytes transferred, transfer direction, frequency, link bandwidth, overlap with computation, synchronization points, pinned-memory or storage requirements, and whether page faults or allocation overhead are included."
+   ]
+  },
+  {
+   "page": "reports/observed-subthemes/logic-synthesis-and-optimization.md",
+   "sentences": 119,
+   "over_20_words": 20,
+   "vague_words": [],
+   "cliches": [],
+   "field_terms_glossed_on_first_use": [
+    "CMOS",
+    "PDK",
+    "PPA",
+    "SAT",
+    "slack"
+   ],
+   "long_examples": [
+    "That restriction makes search manageable, but the best change may require several nodes to change together: one node may be simplified only if another node is reshaped, two similar computations may become a shared intermediate, or a duplicated term may be removed only after downstream logic is reorganized.",
+    "It must also preserve constraints on constants, unused outputs, fanout, state boundaries if present and interfaces to the rest of the network.",
+    "The objective must state whether it optimizes abstract node count, mapped cell area, timing, power, switching, congestion or a weighted combination.",
+    "A larger replacement can also create more solver work and more opportunities for timeout or incomplete search; failure to find a replacement is not evidence that no better replacement exists.",
+    "Define the rewrite window, number of nodes, allowed operators, shared-boundary signals, constant and don't-care assumptions, equivalence method, timeout and cost function."
+   ]
+  },
+  {
+   "page": "reports/observed-subthemes/manufacturing-and-lithography.md",
+   "sentences": 74,
+   "over_20_words": 12,
+   "vague_words": [],
+   "cliches": [],
+   "field_terms_glossed_on_first_use": [
+    "CPU",
+    "GPU",
+    "inference",
+    "lithography",
+    "surrogate"
+   ],
+   "long_examples": [
+    "An aerial image is a modeled optical field or intensity distribution, not the final resist profile, etched shape, or wafer measurement.",
+    "This is a specific field-reconstruction hypothesis: it does not establish which solver stages are learned, the field channels and units, discretization, boundary conditions, training targets, loss, uncertainty, fallback or coupling to the resist model.",
+    "Compare vector components, phase/intensity, polarization, depth behavior, boundary conditions and residuals against an independent rigorous electromagnetic solver at critical edges, sidewalls, corners and multilayer interfaces.",
+    "The official description claims near-EM fidelity and orders-of-magnitude speedup, with 3D aerial images intended for resist models, OPC/ILT and hotspot detection.",
+    "End-to-end timing must include preprocessing, vectorial solving, hash-grid inference, memory movement, batching, repeated ILT/OPC evaluations, rejected candidates and final mask checks."
+   ]
+  },
+  {
+   "page": "reports/observed-subthemes/manufacturing-and-yield.md",
+   "sentences": 198,
+   "over_20_words": 46,
+   "vague_words": [
+    "state-of-the-art",
+    "substantial"
+   ],
+   "cliches": [],
+   "field_terms_glossed_on_first_use": [
+    "CPU",
+    "GPU",
+    "baseline",
+    "inference",
+    "latency",
+    "lithography",
+    "throughput"
+   ],
+   "long_examples": [
+    "Finding a suspicious pattern, predicting its printed shape, and establishing that a chip fails its electrical requirements are therefore different tasks.",
+    "An early filter would be useful if it reduces work without discarding required matches; whether this implementation does that needs actual recall measurements.",
+    "It is a candidate for further analysis, and the value of the search depends on finding relevant instances without producing an unmanageable number of false matches.",
+    "Report tile size, halo or boundary handling, candidate counts after every stage, load balance, peak memory, overflow behavior and the latency of the slowest query.",
+    "Compare against the 64-thread commercial tool named in the source, a state-of-the-art CPU implementation, a single-stage GPU matcher and any exact reference matcher using the same pattern database, layout files, tolerance, output format, hardware boundary and correctness criterion."
+   ]
+  },
+  {
+   "page": "reports/observed-subthemes/manufacturing-monitoring-and-yield.md",
+   "sentences": 92,
+   "over_20_words": 19,
+   "vague_words": [],
+   "cliches": [],
+   "field_terms_glossed_on_first_use": [
+    "inference",
+    "latency"
+   ],
+   "long_examples": [
+    "A wafer can meet electrical requirements yet have an unapproved production history; an approved production route can also produce a defective wafer.",
+    "The existing taxonomy places this record under manufacturing monitoring and yield, but one paper does not establish a broad yield-improvement result.",
+    "The description refers to relationships between tool exchanges and the resulting silicon characteristics, but does not identify the measurement features, sampling schedule, or experimental controls in enough detail to verify a causal interpretation.",
+    "It is not a classification-accuracy result, and it does not state how many independently varied tools, production periods, or manufacturing routes were tested.",
+    "If one route was used earlier and another later, a classifier might learn a time-related change rather than the tool substitution of interest."
+   ]
+  },
+  {
+   "page": "reports/observed-subthemes/memory-and-data-movement.md",
+   "sentences": 140,
+   "over_20_words": 21,
+   "vague_words": [
+    "significant",
+    "substantial"
+   ],
+   "cliches": [],
+   "field_terms_glossed_on_first_use": [
+    "CPU",
+    "DMA",
+    "DNN",
+    "FPGA",
+    "GPU",
+    "HBM",
+    "LLM",
+    "NPU",
+    "accelerator",
+    "bandwidth",
+    "baseline",
+    "inference",
+    "latency",
+    "throughput"
+   ],
+   "long_examples": [
+    "Between those events, the system must keep the value somewhere, encode it in a smaller form, or discard it and calculate it again.",
+    "These costs are related but not identical. **Capacity** is how many bytes fit at once. **Bandwidth** is how many bytes a path can transfer per second. **Latency** is how long an individual request takes to finish.",
+    "It can also use only a small fraction of a device's advertised bandwidth because its next address depends on a previous result.",
+    "Consider an explicitly hypothetical transfer: moving one billion bytes through a path that sustains one hundred billion bytes per second requires at least 0.01 seconds of service.",
+    "A larger group of training examples or a longer input can therefore increase storage even when the model parameters are unchanged."
+   ]
+  },
+  {
+   "page": "reports/observed-subthemes/memory-compute-and-reliability.md",
+   "sentences": 432,
+   "over_20_words": 97,
+   "vague_words": [
+    "efficient",
+    "efficiently",
+    "robust",
+    "significant",
+    "state-of-the-art"
+   ],
+   "cliches": [],
+   "field_terms_glossed_on_first_use": [
+    "ADC",
+    "CIM",
+    "CMOS",
+    "CPU",
+    "DNN",
+    "DRAM",
+    "GPU",
+    "LLM",
+    "MAC",
+    "MRAM",
+    "PDK",
+    "PIM",
+    "PPA",
+    "SRAM",
+    "accelerator",
+    "bandwidth",
+    "baseline",
+    "inference",
+    "latency",
+    "quantization",
+    "throughput"
+   ],
+   "long_examples": [
+    "If a proposed improvement relies on a particular manufacturing process, account for that condition when comparing it with a different implementation.",
+    "Approximate search reduces work by pruning candidates, using an index or evaluating distances only partly, accepting that some true neighbors may be missed.",
+    "A throughput improvement without a recall target is incomplete because discarding more candidates can make the search faster while returning worse results.",
+    "PIM can provide high internal bandwidth by placing computation near stored vectors, but its arithmetic resources and local storage are limited.",
+    "The relevant boundary includes index access, vector loading, partial distance computation, candidate transfer and global ranking, not only the PIM arithmetic kernel."
+   ]
+  },
+  {
+   "page": "reports/observed-subthemes/memory-hierarchy-and-persistence.md",
+   "sentences": 1345,
+   "over_20_words": 221,
+   "vague_words": [
+    "efficient",
+    "efficiently",
+    "significant",
+    "substantial",
+    "substantially"
+   ],
+   "cliches": [],
+   "field_terms_glossed_on_first_use": [
+    "ASIC",
+    "CPU",
+    "CXL",
+    "DMA",
+    "DRAM",
+    "ECC",
+    "FPGA",
+    "GEMM",
+    "GPU",
+    "HBM",
+    "KV",
+    "LLM",
+    "PIM",
+    "SSD",
+    "TTFT",
+    "accelerator",
+    "bandwidth",
+    "baseline",
+    "inference",
+    "latency",
+    "quantization",
+    "slack",
+    "throughput"
+   ],
+   "long_examples": [
+    "Providing the fastest possible storage for every value is constrained by physical area, cost, power, and how storage connects to the processor.",
+    "If the operation that needs it takes 0.1 milliseconds on the destination device, transferring and then computing costs at least 0.6 milliseconds before other overheads.",
+    "Larger units can reduce bookkeeping or support efficient transfers, but they also move unused data when only a small portion is needed.",
+    "Suppose one policy has 90 hits in 100 requests, with each of its ten misses causing ten units of unavoidable waiting.",
+    "This constructed example omits hit costs and overlapping work to isolate the point: the higher hit rate need not mean lower execution time."
+   ]
+  },
+  {
+   "page": "reports/observed-subthemes/multimedia-and-edge-systems.md",
+   "sentences": 552,
+   "over_20_words": 144,
+   "vague_words": [
+    "efficiently",
+    "substantial"
+   ],
+   "cliches": [],
+   "field_terms_glossed_on_first_use": [
+    "ASIC",
+    "CPU",
+    "FPGA",
+    "GPU",
+    "KV",
+    "LUT",
+    "RAG",
+    "accelerator",
+    "bandwidth",
+    "baseline",
+    "inference",
+    "latency",
+    "throughput"
+   ],
+   "long_examples": [
+    "These outputs need different checks: a convincing generated frame does not prove faithful reconstruction, and a fast search does not prove that it found the requested image.",
+    "These patterns create redundancy, but they also make small errors visible: a one-pixel shift or a slight color change can alter a character edge.",
+    "A lossy codec accepts an error in exchange for fewer bits, so its result must be described by a rate–distortion relationship: how many bits are used at a given reconstruction-quality level.",
+    "Pixel indices, escape values for colors that do not fit the palette, block or tile metadata, and any conversion between the palette representation and the JPEG XS input also consume bits and processing time.",
+    "PEL is an additional representation or preprocessing layer, not evidence that the JPEG XS transform, entropy coder or decoder has been replaced."
+   ]
+  },
+  {
+   "page": "reports/observed-subthemes/neuromorphic-and-emerging-architectures.md",
+   "sentences": 135,
+   "over_20_words": 24,
+   "vague_words": [
+    "substantial"
+   ],
+   "cliches": [],
+   "field_terms_glossed_on_first_use": [
+    "SNN",
+    "latency"
+   ],
+   "long_examples": [
+    "It is a case about communication organization, not evidence for every emerging device family or a comparison between spiking and conventional neural networks at equal application quality.",
+    "It shows three necessary conditions: several events must share a destination, the shared representation must identify every event, and its added bookkeeping must be smaller than the repeated addresses it removes.",
+    "Section 4.2 and Figure 8, page 4, report averages of 1.93× traffic saving, 1.77× speedup, and 1.50× energy-efficiency improvement against conventional transmission.",
+    "Spikes sent to one destination are not interchangeable: they can come from different source neurons and can update different synapses or state.",
+    "A correct aggregation scheme must remove only repeated routing information while preserving source identity, event order or logical-time semantics, payloads, and the destination's ability to apply every update."
+   ]
+  },
+  {
+   "page": "reports/observed-subthemes/neuromorphic-quantum-and-non-von-neumann.md",
+   "sentences": 861,
+   "over_20_words": 126,
+   "vague_words": [],
+   "cliches": [],
+   "field_terms_glossed_on_first_use": [
+    "ADC",
+    "ASIC",
+    "CIM",
+    "CMOS",
+    "CPU",
+    "FPGA",
+    "GPU",
+    "LUT",
+    "PDE",
+    "RL",
+    "SPICE",
+    "accelerator",
+    "bandwidth",
+    "baseline",
+    "inference",
+    "latency",
+    "throughput"
+   ],
+   "long_examples": [
+    "NEAT's PDF still has anonymous-author and placeholder publisher metadata; the author-hosted association supports its identity, not equivalence to a final published version.",
+    "A computing system accepts an input, represents it internally, changes that representation through a sequence of operations, and produces an output.",
+    "Saying that a circuit is analog, optical, or quantum does not yet tell us what input it accepts or what answer it must produce.",
+    "For an estimate, an output of 0.499 might be acceptable when the reference is 0.500, if the application permits an absolute error of 0.001.",
+    "For a hash, the requirement is equality with the specified discrete output; closeness of the underlying voltage is not the definition of correctness."
+   ]
+  },
+  {
+   "page": "reports/observed-subthemes/optimization-and-search-methods.md",
+   "sentences": 163,
+   "over_20_words": 47,
+   "vague_words": [
+    "efficient"
+   ],
+   "cliches": [],
+   "field_terms_glossed_on_first_use": [
+    "CPU",
+    "DSE",
+    "EDA",
+    "FPGA",
+    "MAC",
+    "PPA",
+    "RL",
+    "RTL",
+    "TNS",
+    "WNS",
+    "accelerator",
+    "baseline",
+    "inference",
+    "latency",
+    "netlist",
+    "slack",
+    "surrogate",
+    "throughput"
+   ],
+   "long_examples": [
+    "Partitioning divides the objects into groups while trying to satisfy size or resource limits and control the connections crossing between groups.",
+    "A partition with fewer crossing connections may still place too much traffic on one physical link or create a timing problem.",
+    "A multilevel method first combines objects into a smaller representation, solves a simpler problem, and refines the solution as detail is restored.",
+    "Integrating them may avoid repeatedly launching standalone partitioners, but it does not establish that the resulting candidates are balanced or that the added search work is cheaper.",
+    "State the cut metric, balance tolerance, part weights, fixed vertices, connectivity rules, seed, number of parents, mutation/recombination operators and acceptance policy."
+   ]
+  },
+  {
+   "page": "reports/observed-subthemes/package-system-co-design.md",
+   "sentences": 80,
+   "over_20_words": 14,
+   "vague_words": [
+    "efficiently"
+   ],
+   "cliches": [],
+   "field_terms_glossed_on_first_use": [
+    "IR drop",
+    "baseline",
+    "surrogate"
+   ],
+   "long_examples": [
+    "The exact construction and expansion rules are not exposed, so the explanation cannot claim a particular connectivity guarantee or geometric algorithm.",
+    "It would report whether all constraints are satisfied, how voltage loss is distributed across the package, and how much time is spent generating and evaluating candidates.",
+    "Preparation of the fast evaluator, failed candidates, and any final repair should be counted separately and included where they belong in the intended workflow.",
+    "Stronger evidence would validate the electrical evaluator against a trusted reference and assess the manufacturing assumptions with the appropriate process evidence.",
+    "Its shape changes path resistance and therefore voltage loss, but the package process may impose a metal-density window to reduce warpage and require degassing holes."
+   ]
+  },
+  {
+   "page": "reports/observed-subthemes/parasitic-extraction-and-modeling.md",
+   "sentences": 50,
+   "over_20_words": 7,
+   "vague_words": [],
+   "cliches": [],
+   "field_terms_glossed_on_first_use": [
+    "DNN",
+    "PDK",
+    "inference"
+   ],
+   "long_examples": [
+    "The stored primary-source assessment records training thicknesses from 22 to 58 nm in 6 nm steps and testing from 18 to 62 nm in 2 nm steps.",
+    "Sections VI.A–D, Table IV, and Figures 14–16 provide the captured experimental context; Table IV and the figures were visually checked on PDF page 8 during source recovery.",
+    "The manuscript describes 38 nm as unseen, but the recorded review finds that Section VI.A uses it in the loss for selecting hyperparameters.",
+    "Selecting them using a case gives that case a role in development even if it was not directly used to fit the final model's parameters.",
+    "Those timings exclude database construction and tuning; they should not be substituted directly into a whole-flow speedup calculation with a different unit of work."
+   ]
+  },
+  {
+   "page": "reports/observed-subthemes/partitioning-and-placement.md",
+   "sentences": 200,
+   "over_20_words": 62,
+   "vague_words": [],
+   "cliches": [],
+   "field_terms_glossed_on_first_use": [
+    "CPU",
+    "DRC",
+    "EDA",
+    "GPU",
+    "PDK",
+    "baseline",
+    "latency",
+    "netlist",
+    "slack",
+    "throughput"
+   ],
+   "long_examples": [
+    "These are different decisions: grouping two elements together does not determine the distance between their terminals, and placing them nearby does not guarantee that a legal wire can connect them.",
+    "Reducing such crossings can be useful, but putting everything in one group is not a useful solution when each group has a capacity limit.",
+    "Sections 4–5, PDF pages 2–5, describe separate storage for changed connections and refinement focused on vertices whose movement can reduce partition crossings.",
+    "Section 6, PDF page 5, specifies 18 ISPD98-derived circuits enlarged 100–1000 times through random insertions, an A6000 with 48 GB memory, 3% allowed imbalance, and ten-run averages.",
+    "The evidence supports fast updates under this constructed workload, not equivalent speedups for complete chip design or all real modification sequences."
+   ]
+  },
+  {
+   "page": "reports/observed-subthemes/photonic-and-optical-compute.md",
+   "sentences": 142,
+   "over_20_words": 24,
+   "vague_words": [
+    "efficiently",
+    "robust"
+   ],
+   "cliches": [],
+   "field_terms_glossed_on_first_use": [
+    "ADC",
+    "DNN",
+    "FPGA",
+    "MAC",
+    "PDE",
+    "accelerator",
+    "baseline",
+    "inference",
+    "latency",
+    "quantization",
+    "surrogate"
+   ],
+   "long_examples": [
+    "An optical implementation must encode those numbers in light, produce the intended weighted combination, and deliver a result that the next operation can use.",
+    "Section 3.1, PDF pages 2–3, places scaling and timing alignment in optics but describes final addition through photodetection and amplification; “optical shift-and-add” should not imply an entirely optical application.",
+    "Section 4, pages 5–6, uses extended Timeloop/CiMLoop architecture modeling and PyTorch behavioral simulation, with 45 nm component assumptions, 5 GHz operation, and eight-bit inputs, weights, and outputs.",
+    "Table 4 on page 6 needs correction: the extracted ResNet18 values, 1.531 to 1.493 J·s, imply about 2.48% reduction, not the annotated 24.7%.",
+    "The noise-aware voltage-to-weight model must describe how DAC quantization, thermal drift, wavelength detuning, insertion loss, crosstalk and fabrication variation perturb the microring transmission, and how calibration observes and corrects those changes."
+   ]
+  },
+  {
+   "page": "reports/observed-subthemes/physical-design-and-routing.md",
+   "sentences": 103,
+   "over_20_words": 17,
+   "vague_words": [],
+   "cliches": [],
+   "field_terms_glossed_on_first_use": [
+    "DRC",
+    "IR drop",
+    "baseline",
+    "chiplet",
+    "netlist"
+   ],
+   "long_examples": [
+    "In this article, **routability** means the ability to complete the required connections under the applicable physical rules, not simply to draw approximate paths.",
+    "The specific conceptual contribution supported by the captured description is that a layer choice need not remain fixed while tracks are assigned.",
+    "The available description does not identify the search procedure, the exact meaning of its three-dimensional routing model, or the conditions under which reassignment is allowed.",
+    "It consumes physical capacity: two nets that need the same track segment cannot both use it unless the design provides another legal route or a different layer.",
+    "A layer change can add a via, increase route length, cross a layer with a different direction or width, and change resistance, capacitance, coupling and timing."
+   ]
+  },
+  {
+   "page": "reports/observed-subthemes/physical-verification.md",
+   "sentences": 88,
+   "over_20_words": 19,
+   "vague_words": [
+    "state-of-the-art",
+    "substantial"
+   ],
+   "cliches": [],
+   "field_terms_glossed_on_first_use": [
+    "DRC",
+    "PDK"
+   ],
+   "long_examples": [
+    "Boundary cases matter because a spacing just below a limit, exactly at a limit and just above a limit can expose different interpretations of units, tolerances and inclusive or exclusive comparisons.",
+    "A shape that looks unusual is not automatically a meaningful violation case; the rule exercised and expected checker behavior must be recorded.",
+    "Here, structured control hints encode spatial and semantic information about the requested violation, and a natural-language prompt identifies the desired type and target region.",
+    "The requested violation must appear in the target region, and the rest of the layout must remain DRC-compliant under the declared rules.",
+    "The second part is important because an unintended spacing, enclosure, connectivity or density violation can make it unclear which condition caused the checker result."
+   ]
+  },
+  {
+   "page": "reports/observed-subthemes/placement-routing-and-floorplanning.md",
+   "sentences": 487,
+   "over_20_words": 139,
+   "vague_words": [
+    "efficient",
+    "substantial",
+    "substantially"
+   ],
+   "cliches": [],
+   "field_terms_glossed_on_first_use": [
+    "ASIC",
+    "DRC",
+    "FPGA",
+    "IR drop",
+    "PDK",
+    "PPA",
+    "baseline",
+    "netlist",
+    "slack",
+    "surrogate"
+   ],
+   "long_examples": [
+    "A lower estimated wirelength or delay does not itself establish that every connection can be routed or that the completed circuit meets timing.",
+    "The added freedom can reduce abstract wirelength or area, but it also removes assumptions that made mapping, routing, extraction and signoff predictable.",
+    "An MOL-aware router must therefore reason about device adjacency, terminal access, local congestion, design rules and how lower-level choices constrain later wires.",
+    "A legal route must connect every required terminal, obey spacing and enclosure rules, avoid shorts, meet manufacturing rules and leave enough resources for power and signal connections.",
+    "Transistor-level placement can also create more unique structures that need extraction and characterization instead of reusing a standard cell's known models."
+   ]
+  },
+  {
+   "page": "reports/observed-subthemes/placement-routing-and-timing.md",
+   "sentences": 178,
+   "over_20_words": 54,
+   "vague_words": [
+    "state-of-the-art"
+   ],
+   "cliches": [],
+   "field_terms_glossed_on_first_use": [
+    "ASIC",
+    "CPU",
+    "DRC",
+    "EDA",
+    "FPGA",
+    "GNN",
+    "GPU",
+    "IR drop",
+    "LUT",
+    "PDK",
+    "PDN",
+    "PPA",
+    "accelerator",
+    "bandwidth",
+    "baseline",
+    "latency",
+    "netlist",
+    "slack",
+    "surrogate",
+    "throughput"
+   ],
+   "long_examples": [
+    "The delay includes logic evaluation and transmission through wires, so placement, routing, and circuit sizing all influence whether the requirement is met.",
+    "Placement and PDN topology are therefore coupled: moving a high-current cell can change local demand, while adding a power path can change the voltage field available to many cells.",
+    "A node-specific density control limits the amount of cell power that can be placed near a PDN node according to its tolerable load, targeting local hot spots.",
+    "These mechanisms address different scales; a globally stronger network does not guarantee that every local demand peak is safe, and local density limits do not repair an inadequate source, trunk, or via structure.",
+    "MNA solves a circuit model whose result depends on the conductance matrix, current vector, boundary conditions, topology, resistance extraction, and numerical tolerances."
+   ]
+  },
+  {
+   "page": "reports/observed-subthemes/power-and-thermal-design.md",
+   "sentences": 90,
+   "over_20_words": 18,
+   "vague_words": [],
+   "cliches": [],
+   "field_terms_glossed_on_first_use": [
+    "Pareto",
+    "netlist"
+   ],
+   "long_examples": [
+    "A lower-power mapping can still consume more energy if it takes sufficiently longer; a faster mapping can also consume more energy if its power increase outweighs the time reduction.",
+    "The source calls Synchoros agile and accurate but reports no prediction error, runtime, calibration procedure, reference tools, or measured hardware comparison.",
+    "If a model is calibrated on particular mappings, testing those same mappings is weaker evidence than evaluating previously unseen algorithms or resource-use patterns.",
+    "A useful evaluation would therefore report both numerical error and the energy of the mapping selected using the estimator, checked by the reference method.",
+    "The decisive comparison would hold task correctness and the target array fixed, explore alternatives under a stated budget, and verify that the chosen mappings reduce reference-measured energy."
+   ]
+  },
+  {
+   "page": "reports/observed-subthemes/power-integrity-and-reliability.md",
+   "sentences": 73,
+   "over_20_words": 10,
+   "vague_words": [],
+   "cliches": [],
+   "field_terms_glossed_on_first_use": [
+    "IR drop",
+    "PDE",
+    "baseline",
+    "inference"
+   ],
+   "long_examples": [
+    "The evaluation needs to state how constraints are enforced, what boundary conditions and material parameters are used, and what violations remain after prediction.",
+    "A useful comparison would isolate the effects of the graph representation, physical constraints, and training rule under matched data and budgets.",
+    "They are not reductions in actual chip voltage drop or physical stress, and they must not be averaged into a single reliability gain.",
+    "A stronger study would test complete held-out grids, vary load and material assumptions, compare local extremes with trusted reference solutions, and inspect the changes a designer would make using those predictions.",
+    "Its practical value remains conditional on prediction validity, full preparation and execution cost, and the correctness of the decisions made from its outputs."
+   ]
+  },
+  {
+   "page": "reports/observed-subthemes/privacy-preserving-compute.md",
+   "sentences": 84,
+   "over_20_words": 24,
+   "vague_words": [
+    "state-of-the-art",
+    "substantially",
+    "various"
+   ],
+   "cliches": [],
+   "field_terms_glossed_on_first_use": [
+    "ASIC",
+    "FHE",
+    "FPGA",
+    "GPU",
+    "LLM",
+    "Pareto",
+    "TEE",
+    "accelerator",
+    "bandwidth",
+    "baseline",
+    "inference",
+    "latency",
+    "side channel",
+    "throughput"
+   ],
+   "long_examples": [
+    "These target different costs: arithmetic that may be unnecessary, storage required by the encrypted representation, and communication needed by a privacy protocol.",
+    "Fully homomorphic encryption (FHE) lets a party compute on ciphertexts without first seeing plaintext values, but ciphertext arithmetic and movement are substantially more expensive than ordinary arithmetic.",
+    "Sparse matrix multiplication has a second privacy question: if the locations of zeros or nonzeros are visible, the sparsity pattern may itself reveal sensitive structure.",
+    "Hiding the pattern can force the implementation toward dense work unless the encrypted representation supplies a safe way to select and move only the needed values.",
+    "A homomorphic permutation network gathers data using encrypted indices; a Benes topology and pipelined Radix-k multi-dimensional circular architecture implement the Homomorphic Permutation Engine; a Homomorphic Expansion Engine expands compressed selector ciphertexts on the fly."
+   ]
+  },
+  {
+   "page": "reports/observed-subthemes/privacy-preserving-computing.md",
+   "sentences": 121,
+   "over_20_words": 25,
+   "vague_words": [],
+   "cliches": [],
+   "field_terms_glossed_on_first_use": [
+    "DMA",
+    "FHE",
+    "GPU",
+    "accelerator",
+    "bandwidth",
+    "inference",
+    "latency",
+    "throughput"
+   ],
+   "long_examples": [
+    "A system may try to hide a user's input from a server, hide a model from a client, restrict what a collaborator learns, or prevent reconstruction of training data.",
+    "Bootstrapping refreshes a ciphertext so that more computation can continue, but it is expensive and introduces its own precision and parameter requirements.",
+    "In encrypted arithmetic, the zero pattern must be known at the right stage, represented in a way the evaluator can use, and compatible with ciphertext packing and rotations.",
+    "If the server must discover the pattern from encrypted data, that discovery itself may require encrypted work and may reveal information through control flow or access patterns.",
+    "The method must state whether sparsity is in weights, activations or structure, whether it is fixed or input-dependent, and whether it changes the security or leakage model."
+   ]
+  },
+  {
+   "page": "reports/observed-subthemes/process-aware-design.md",
+   "sentences": 218,
+   "over_20_words": 51,
+   "vague_words": [
+    "robust",
+    "state-of-the-art"
+   ],
+   "cliches": [],
+   "field_terms_glossed_on_first_use": [
+    "CMOS",
+    "CPU",
+    "GPU",
+    "IR drop",
+    "NoC",
+    "PDN",
+    "Pareto",
+    "bandwidth",
+    "baseline",
+    "inference",
+    "latency",
+    "lithography",
+    "quantization",
+    "slack",
+    "surrogate",
+    "throughput"
+   ],
+   "long_examples": [
+    "The purpose is to avoid selecting a design that looks favorable under an abstract model but fails after fabrication effects are considered.",
+    "The captured record indicates that the preferred choice depends on core size, while detailed stack, routing, workload, and manufacturing assumptions remain unresolved.",
+    "A long link has resistance and capacitance that affect how quickly a signal can change and how much energy is used to drive it.",
+    "A process-aware comparison therefore needs more than a wire length: it needs the extracted interconnect, power delivery, voltage, timing, energy and layout constraints used to make the claim.",
+    "The official description reports 53% and 68% lower delay for F3D and B2D, 32% and 63% lower EDP, 2.1× and 3.1× feasible link frequency, and 23% and 35% lower average NoC latency."
+   ]
+  },
+  {
+   "page": "reports/observed-subthemes/processing-in-memory-and-memory-centric-compute.md",
+   "sentences": 122,
+   "over_20_words": 32,
+   "vague_words": [
+    "robust",
+    "state-of-the-art",
+    "substantial"
+   ],
+   "cliches": [],
+   "field_terms_glossed_on_first_use": [
+    "ADC",
+    "CPU",
+    "DNN",
+    "DRAM",
+    "FPGA",
+    "GNN",
+    "GPU",
+    "IR drop",
+    "KV",
+    "LLM",
+    "LUT",
+    "MAC",
+    "PIM",
+    "PPA",
+    "Pareto",
+    "RAG",
+    "SRAM",
+    "accelerator",
+    "bandwidth",
+    "baseline",
+    "inference",
+    "latency",
+    "quantization",
+    "surrogate",
+    "throughput"
+   ],
+   "long_examples": [
+    "The method must still explain how inputs are arranged, which operations the memory-side hardware supports, and how outputs reach the rest of the application.",
+    "The evaluation should therefore trace the complete sequence: place inputs, execute the supported operation, extract results, and complete the unsupported operations elsewhere.",
+    "A computation performed by digital logic beside an array has different precision and variation concerns from one that relies on analog behavior inside the array.",
+    "Quantizing an LLM weight from higher precision to 1, 2 or 4 bits can reduce storage and arithmetic, but it does not automatically reduce end-to-end inference time.",
+    "A roofline limit can move the bottleneck from computation to memory bandwidth: even a large reduction in operations may produce little speedup if weights, activations, metadata, partial sums or conversions still dominate."
+   ]
+  },
+  {
+   "page": "reports/observed-subthemes/processor-and-rtl-verification.md",
+   "sentences": 367,
+   "over_20_words": 51,
+   "vague_words": [
+    "substantially"
+   ],
+   "cliches": [],
+   "field_terms_glossed_on_first_use": [
+    "CPU",
+    "ISA",
+    "RTL",
+    "baseline",
+    "slack",
+    "throughput"
+   ],
+   "long_examples": [
+    "Some of that state is visible to software: registers hold values used by instructions, memory holds data, and a program counter identifies where execution continues.",
+    "An instruction that reads memory is not fully specified by its instruction bits: the address, permissions, and existing contents affect what should happen.",
+    "Raising the right exception can be the correct result of a test; reaching the end without an exception is not inherently success.",
+    "A better input generator cannot compensate for a checker that ignores the relevant error; a more accurate environment cannot compensate for never supplying the input that reaches it.",
+    "RISCSmith's author-hosted manuscript, Section 3, describes instruction models derived from UnifiedDB metadata, constrained operands, prepared memory addresses, and deliberate state reuse."
+   ]
+  },
+  {
+   "page": "reports/observed-subthemes/quantum-architectures-and-control.md",
+   "sentences": 362,
+   "over_20_words": 107,
+   "vague_words": [
+    "efficient",
+    "robust"
+   ],
+   "cliches": [],
+   "field_terms_glossed_on_first_use": [
+    "CMOS",
+    "CPU",
+    "FPGA",
+    "GPU",
+    "accelerator",
+    "bandwidth",
+    "baseline",
+    "inference",
+    "latency"
+   ],
+   "long_examples": [
+    "Classical computation is needed before, during, and after that sequence: to choose the operations, arrange their execution, interpret measurements, and estimate the answer.",
+    "Repeated preparations and measurements are therefore often needed to estimate a probability or an observable, meaning a quantity that the experiment can measure.",
+    "A remote two-qubit operation needs the processor to create the required interaction between atoms that are not already in the same interaction region.",
+    "Directional excitation transport uses an ancillary atom or path to carry the interaction toward the target while leaving the data atoms less exposed to repeated movement.",
+    "A static plan can amortize setup and keep routing predictable, but it may use a path that is poor for a particular sequence."
+   ]
+  },
+  {
+   "page": "reports/observed-subthemes/quantum-hardware-and-control.md",
+   "sentences": 213,
+   "over_20_words": 48,
+   "vague_words": [
+    "efficiently",
+    "substantial"
+   ],
+   "cliches": [],
+   "field_terms_glossed_on_first_use": [
+    "ADC",
+    "ASIC",
+    "CMOS",
+    "FPGA",
+    "LUT",
+    "baseline",
+    "latency",
+    "quantization",
+    "throughput"
+   ],
+   "long_examples": [
+    "A quantum processor needs classical electronics to interpret measurements and a compiler to translate intended operations into a feasible device schedule.",
+    "Faster measurement classification can shorten one part of the control path; a better schedule can reduce the number of sequential operations.",
+    "The signal is noisy, so the system needs a discriminator: a threshold, statistical model or neural model that maps the observed trace to a label.",
+    "If the method needs fresh labels, the experiment must state how those labels are obtained and what measurement or calibration cost they impose.",
+    "A Kalman filter maintains an estimate of a changing hidden state using a prediction and a new observation, weighted by assumed uncertainty."
+   ]
+  },
+  {
+   "page": "reports/observed-subthemes/real-time-and-networked-systems.md",
+   "sentences": 144,
+   "over_20_words": 38,
+   "vague_words": [
+    "state-of-the-art"
+   ],
+   "cliches": [],
+   "field_terms_glossed_on_first_use": [
+    "CPU",
+    "FPGA",
+    "GPU",
+    "LLM",
+    "Pareto",
+    "accelerator",
+    "bandwidth",
+    "baseline",
+    "latency",
+    "throughput"
+   ],
+   "long_examples": [
+    "The interval of interest may start with a sensor event and end with an actuator command, passing through several tasks and network transfers.",
+    "A shaper may delay a frame at one point so that bursts are controlled, but the end-to-end result also includes serialization, propagation, arbitration, queueing and downstream interference.",
+    "An asynchronous design avoids requiring one global clock, which makes its local eligibility rules and clock assumptions part of the timing model.",
+    "PFATS is described as a per-flow asynchronous shaper with three coupled pieces: a frame eligibility-time calculator, a separate queue for each flow, and a Synchronous Shift Register Matrix (SSRM) scheduler.",
+    "Eligibility time determines when a frame becomes serviceable; the scheduler then needs a defined arbitration rule to choose among eligible frames while respecting ports, priorities and available buffer."
+   ]
+  },
+  {
+   "page": "reports/observed-subthemes/reliability-and-fault-tolerance.md",
+   "sentences": 52,
+   "over_20_words": 7,
+   "vague_words": [],
+   "cliches": [],
+   "field_terms_glossed_on_first_use": [
+    "DRAM",
+    "ECC",
+    "LLM",
+    "PIM",
+    "inference",
+    "latency",
+    "throughput"
+   ],
+   "long_examples": [
+    "A reliability argument must cover that computation path, not merely the ability to read back a stored value under ordinary memory operations.",
+    "It reports up to 10% output impact from adjacent non-activated rows and up to 48% from concurrently computing columns for random inputs.",
+    "The institutional abstract describes multi-bit detection and rank-level correction, a Codeword Flip method for weak-cell errors associated with variable retention time, and odd-even bank pipelining.",
+    "The abstract reports 90% PIM-unit utilization, up to 400 times lower silent-data-corruption likelihood over five years, and potential fourfold performance improvement over rankPIM in selected microbenchmarks.",
+    "Its estimated likelihood depends on the assumed fault process and observation horizon; the five-year wording must not be interpreted as five years of measured operation without supporting evidence."
+   ]
+  },
+  {
+   "page": "reports/observed-subthemes/reliable-and-efficient-compute.md",
+   "sentences": 75,
+   "over_20_words": 13,
+   "vague_words": [
+    "efficient"
+   ],
+   "cliches": [],
+   "field_terms_glossed_on_first_use": [
+    "DNN",
+    "MAC",
+    "accelerator",
+    "baseline",
+    "inference"
+   ],
+   "long_examples": [
+    "If the clock captures a result before the required signals have settled, the captured value can be wrong even though the Boolean circuit is logically correct.",
+    "If the result can be represented using fewer active arithmetic stages, those upper positions may be reconstructed from the sign instead of waiting for a long propagation through every stage.",
+    "For example, a signed value representable in eight bits can also be represented in a wider signed word by repeating its sign bit in the added positions.",
+    "The complete controlled critical path includes width detection, result selection and upper-bit reconstruction; shortening the arithmetic portion alone does not establish timing correctness.",
+    "Section 4.2, pages 5–6, uses an eight-image MNIST workload for circuit-level power evaluation; the separate 1-GHz CNN accuracy evaluation uses 1,000 CIFAR-10 images."
+   ]
+  },
+  {
+   "page": "reports/observed-subthemes/reliable-and-secure-ai-systems.md",
+   "sentences": 84,
+   "over_20_words": 16,
+   "vague_words": [
+    "efficiently"
+   ],
+   "cliches": [],
+   "field_terms_glossed_on_first_use": [
+    "DNN",
+    "accelerator",
+    "baseline",
+    "inference",
+    "latency"
+   ],
+   "long_examples": [
+    "If a stored weight changes, the machine can execute its instructions correctly while evaluating a different network from the one that was validated.",
+    "Signed and floating-point formats assign different meanings to their bits, so the format must be specified before reasoning about a fault's magnitude.",
+    "For a multiplication y = w × x, a change Δw produces Δy = Δw × x if x is unchanged.",
+    "The attacker model therefore needs to say whether the adversary knows the weights and defense, can choose a bit address, can repeat changes, and can observe the defender's response.",
+    "An attack that makes many predictions wrong differs from one that changes a chosen class or causes a particular input to receive an attacker-selected output."
+   ]
+  },
+  {
+   "page": "reports/observed-subthemes/reliable-and-secure-compute.md",
+   "sentences": 70,
+   "over_20_words": 8,
+   "vague_words": [],
+   "cliches": [],
+   "field_terms_glossed_on_first_use": [
+    "FPGA",
+    "LUT",
+    "accelerator",
+    "inference",
+    "latency",
+    "side channel"
+   ],
+   "long_examples": [
+    "Cryptographic arithmetic uses much larger values, but the basic distinction remains: the implementation must produce the required remainder, not merely a nearby numerical answer.",
+    "A transient disturbance and an intentionally induced fault can both corrupt an operation, but a security evaluation must consider what an attacker can select, repeat, or observe rather than treating every fault as random.",
+    "Multiple checks or constraints on the possible error can provide more information, but their detection guarantee must be derived for the stated error set.",
+    "The official description uses modulus structure for dual-modulus detection paths, then describes cross-basis checks, lookup-table single-bit correction, and a mixed linear Chinese-remainder scheme for multi-bit recovery.",
+    "For Artix-7, the description reports 55–78% area overhead for detection configurations, 100% single-bit detection, and at least 99.01% or nearly 100% multi-bit detection under tested settings."
+   ]
+  },
+  {
+   "page": "reports/observed-subthemes/reliable-and-secure-ml.md",
+   "sentences": 129,
+   "over_20_words": 15,
+   "vague_words": [
+    "efficiently",
+    "significant"
+   ],
+   "cliches": [],
+   "field_terms_glossed_on_first_use": [
+    "ECC",
+    "LLM",
+    "accelerator",
+    "bandwidth",
+    "baseline",
+    "inference",
+    "latency",
+    "quantization"
+   ],
+   "long_examples": [
+    "A changed bit need not change the final prediction, but an unchanged average accuracy does not mean every execution was correct.",
+    "The official description says its spatial component preserves large, useful activation outliers during prefill, while its token-predictive temporal component follows changing activation behavior during decoding.",
+    "It reports qualitative improvements over static defenses, but provides no numerical fault coverage, false-alarm rate, model list, timing result, or page-backed algorithm here.",
+    "A detector that simply removes every large activation can damage clean inference; one that permits every large value can miss faults that produce extreme magnitudes.",
+    "The important evaluation would separate clean false alarms, detected harmful errors, missed harmful errors, and harmless changes, and report clean and faulted accuracy, latency, and energy."
+   ]
+  },
+  {
+   "page": "reports/observed-subthemes/reproducibility-artifacts-and-benchmarks.md",
+   "sentences": 90,
+   "over_20_words": 19,
+   "vague_words": [],
+   "cliches": [],
+   "field_terms_glossed_on_first_use": [
+    "CPU",
+    "GNN",
+    "PDK",
+    "inference"
+   ],
+   "long_examples": [
+    "It does not automatically establish such transfer: a model can train and test on examples from every kit without ever facing an unseen technology.",
+    "Their comparison is useful only if input information, reference targets, training resources, and test conditions are sufficiently aligned to make the intended claim.",
+    "It is not the same measurement as a learned model's error against those labels, and agreement between solvers is not direct measurement on fabricated silicon.",
+    "The official description reports 1.75% error for convolutional networks and 10.2% error for graph neural networks, alongside up to 41.4-fold speedup for the latter.",
+    "That can be appropriate for one stated task, but is weaker evidence for a new-design claim than withholding whole designs or runs."
+   ]
+  },
+  {
+   "page": "reports/observed-subthemes/rf-and-mixed-signal-design.md",
+   "sentences": 76,
+   "over_20_words": 16,
+   "vague_words": [],
+   "cliches": [],
+   "field_terms_glossed_on_first_use": [
+    "ADC",
+    "ASIC",
+    "CPU",
+    "FPGA",
+    "bandwidth",
+    "baseline",
+    "latency",
+    "throughput"
+   ],
+   "long_examples": [
+    "Its output may not remain an exact scaled version of its input: the input-output relationship can change with signal level and operating conditions.",
+    "Digital predistortion modifies the signal before amplification so that the combined digital and amplifier behavior more closely matches the desired output.",
+    "A reduced number of active experts therefore cannot be translated into a numerical energy or latency saving from the available evidence.",
+    "It also supplies no output-power conditions, spectral results, or measured comparison against the single-model and dense-expert baseline categories in the coding.",
+    "Memory and power needed by inactive experts can also remain relevant even when they are not evaluated on a particular input."
+   ]
+  },
+  {
+   "page": "reports/observed-subthemes/robotics-and-edge-ai.md",
+   "sentences": 145,
+   "over_20_words": 17,
+   "vague_words": [
+    "efficiently",
+    "substantially"
+   ],
+   "cliches": [],
+   "field_terms_glossed_on_first_use": [
+    "CPU",
+    "GPU",
+    "LLM",
+    "SNN",
+    "SRAM",
+    "accelerator",
+    "baseline",
+    "inference",
+    "latency",
+    "throughput"
+   ],
+   "long_examples": [
+    "This feedback distinguishes robot control from processing a fixed collection of images: a small decision error can change every later input.",
+    "Two timing quantities must remain separate. **Output rate** counts completed actions per second. **Observation-to-action delay** measures how old the supporting observation is when an action becomes available or takes effect.",
+    "Hypothetically, a system could finish twenty actions each second while each action still depends on a measurement captured two hundred milliseconds earlier.",
+    "Whether that delay is acceptable depends on motion, sensing, actuation, and the control law; there is no universal safe frequency for all robots.",
+    "Similar action vectors on a fixed dataset are not enough: a small error near contact can produce a different physical state, and subsequent errors may accumulate."
+   ]
+  },
+  {
+   "page": "reports/observed-subthemes/scientific-and-engineering-computing.md",
+   "sentences": 75,
+   "over_20_words": 18,
+   "vague_words": [
+    "significant"
+   ],
+   "cliches": [],
+   "field_terms_glossed_on_first_use": [
+    "CPU",
+    "GPU",
+    "SPICE",
+    "bandwidth",
+    "baseline",
+    "throughput"
+   ],
+   "long_examples": [
+    "A linear system can be written as X, where X contains the relationships, X contains unknown values, and X contains known contributions.",
+    "LU factorization produces lower and upper factors, but it is only one stage: symbolic analysis, ordering, pivoting, fill-in, numeric factorization, triangular solves, data movement and repeated operating points can all contribute to the simulator's cost.",
+    "A GPU schedule that improves one kernel is useful only if it preserves the numerical result and improves the complete workload.",
+    "Levelization exposes work whose dependencies permit parallel execution; adaptive allocation attempts to keep irregular levels and matrix regions busy; indexing represents the sparse structure for access.",
+    "These labels do not specify ordering, pivoting, fill-in control, precision, symbolic reuse, kernel granularity or behavior on singular and ill-conditioned systems."
+   ]
+  },
+  {
+   "page": "reports/observed-subthemes/secure-and-robust-ml.md",
+   "sentences": 200,
+   "over_20_words": 42,
+   "vague_words": [
+    "robust"
+   ],
+   "cliches": [],
+   "field_terms_glossed_on_first_use": [
+    "DNN",
+    "LLM",
+    "TEE",
+    "accelerator",
+    "baseline",
+    "inference",
+    "latency",
+    "quantization",
+    "side channel"
+   ],
+   "long_examples": [
+    "This subject includes malicious image patches, information leakage from encrypted execution, deliberate changes to model-weight bits, and fault detection during encrypted arithmetic.",
+    "The extracted table also reports 100.3% ImageNet Top-5 accuracy for one defended 45×45-patch case; that impossible percentage requires source correction, not acceptance.",
+    "Section V-A, pages 6–7, describes an adaptive attack attempt and reports a decrease of no more than 15% from the clean baseline, without a detailed per-setting results table there.",
+    "Its value must be tested against an attacker who accounts for that distribution, not only against an attack optimized for one fixed execution.",
+    "An adversarial patch is an input change chosen to cause a wrong prediction under a stated attack goal and access model."
+   ]
+  },
+  {
+   "page": "reports/observed-subthemes/side-channel-and-hardware-security.md",
+   "sentences": 1531,
+   "over_20_words": 536,
+   "vague_words": [
+    "efficient",
+    "efficiently",
+    "robust"
+   ],
+   "cliches": [],
+   "field_terms_glossed_on_first_use": [
+    "ADC",
+    "ASIC",
+    "CIM",
+    "CPU",
+    "DMA",
+    "DRAM",
+    "ECC",
+    "FPGA",
+    "GNN",
+    "GPU",
+    "LLM",
+    "LUT",
+    "MAC",
+    "RL",
+    "RTL",
+    "SAT",
+    "SNN",
+    "SRAM",
+    "TEE",
+    "accelerator",
+    "bandwidth",
+    "baseline",
+    "inference",
+    "latency",
+    "netlist",
+    "quantization",
+    "side channel",
+    "surrogate",
+    "throughput"
+   ],
+   "long_examples": [
+    "The individual records must be read using their actual protection requirement, not merely the presence of the word “secure” in a title.",
+    "The useful questions are which invalid accesses are prevented, how legitimate software remains compatible, and what hardware and execution overhead is added.",
+    "A pointer value may be valid for one object but invalid for another object, even when both objects are stored in the same physical memory.",
+    "An out-of-bounds access can overwrite a nearby object, read secret data, corrupt a return address or change control data used later by the program.",
+    "It may instead expose physical memory directly, leaving protection to software conventions, compiler instrumentation or a small set of hardware regions."
+   ]
+  },
+  {
+   "page": "reports/observed-subthemes/signal-processing-and-sensing.md",
+   "sentences": 76,
+   "over_20_words": 17,
+   "vague_words": [],
+   "cliches": [],
+   "field_terms_glossed_on_first_use": [
+    "CPU",
+    "GPU",
+    "accelerator",
+    "bandwidth",
+    "baseline",
+    "inference",
+    "latency",
+    "throughput"
+   ],
+   "long_examples": [
+    "The captured official description identifies graph optimization as the approach but does not supply the detailed processing chain, hardware implementation, or application measurements.",
+    "The short source does not identify which transformations this paper implements, so these examples explain the optimization space rather than document the paper's algorithm.",
+    "Combining processing stages can expose opportunities to reduce intermediate transfers, but it can also create larger live data requirements or complicate scheduling.",
+    "The complete pipeline therefore includes acquisition or input loading, layout preparation, FFT-heavy imaging operations, intermediate storage and movement, and possibly neural inference.",
+    "The source says that ordinary AI graph optimizations do not transfer cleanly to SAR because SAR uses different data layouts and operator compositions."
+   ]
+  },
+  {
+   "page": "reports/observed-subthemes/simulation-and-emulation.md",
+   "sentences": 122,
+   "over_20_words": 21,
+   "vague_words": [],
+   "cliches": [],
+   "field_terms_glossed_on_first_use": [
+    "DMA",
+    "RTL",
+    "baseline",
+    "latency"
+   ],
+   "long_examples": [
+    "Emulation uses an implementation platform to execute represented behavior; the selected records do not establish that their methods run on a hardware emulator.",
+    "An event-driven simulator processes changes that require further evaluation rather than assuming that every modeled object performs equal work at every step.",
+    "A workload used to estimate activity may differ from a later test, so evaluation should include changes in stimulus and operating phase.",
+    "A large quiet region can generate little work, while a small region with a clock, reset, handshake or feedback activity can generate many events.",
+    "A parallel simulator must preserve the RTL language and simulator semantics, including ordering of dependent events and the handling of same-time updates."
+   ]
+  },
+  {
+   "page": "reports/observed-subthemes/simulation-and-numerical-methods.md",
+   "sentences": 74,
+   "over_20_words": 19,
+   "vague_words": [
+    "various"
+   ],
+   "cliches": [],
+   "field_terms_glossed_on_first_use": [
+    "CPU",
+    "GPU",
+    "inference"
+   ],
+   "long_examples": [
+    "A linear solve seeks values satisfying a system written as X: X describes the relationships, X contains the unknowns, and X contains the specified contributions.",
+    "A more expensive preconditioner can be worthwhile if it saves enough iterations; a cheap one may leave the overall solve slow.",
+    "The captured description does not expose the sparsification rule, tuning criterion, supported matrix classes, or exact role of the reduced graph.",
+    "A reduced representation used only to assist an iterative solve is different from replacing the original equations with an approximate physical system.",
+    "The important questions are what problem is ultimately solved, which properties the auxiliary representation preserves, and how the method detects an ineffective configuration."
+   ]
+  },
+  {
+   "page": "reports/observed-subthemes/simulation-emulation-and-testing.md",
+   "sentences": 484,
+   "over_20_words": 180,
+   "vague_words": [
+    "state-of-the-art",
+    "substantial"
+   ],
+   "cliches": [],
+   "field_terms_glossed_on_first_use": [
+    "ADC",
+    "CPU",
+    "DMA",
+    "DNN",
+    "EDA",
+    "FPGA",
+    "GNN",
+    "GPU",
+    "HLS",
+    "ISA",
+    "LLM",
+    "RL",
+    "RTL",
+    "SSD",
+    "accelerator",
+    "bandwidth",
+    "baseline",
+    "inference",
+    "latency",
+    "netlist",
+    "quantization",
+    "throughput"
+   ],
+   "long_examples": [
+    "A test needs an input, a way to execute the design, and a rule for deciding whether its behavior is acceptable.",
+    "Both can make behavior observable before the final hardware is available, but their conclusions depend on which features and timing effects the representation includes.",
+    "More transitions can improve the chance of sensitizing some faults, but they also raise instantaneous supply demand during shift or capture.",
+    "The design problem is therefore not simply “toggle less”: it is to control activity while preserving the fault classes and observation paths that make the test effective.",
+    "A probability generator periodically emits user-configurable sequences that drive hold registers; two groups of hold registers feed a two-dimensional AND-gate array, and the resulting control signals modulate the enable probability of lockups before the phase shifter."
+   ]
+  },
+  {
+   "page": "reports/observed-subthemes/sparse-and-irregular-compute.md",
+   "sentences": 1154,
+   "over_20_words": 142,
+   "vague_words": [
+    "efficient",
+    "efficiently",
+    "substantial",
+    "substantially"
+   ],
+   "cliches": [],
+   "field_terms_glossed_on_first_use": [
+    "CPU",
+    "DNN",
+    "DRAM",
+    "FPGA",
+    "GEMM",
+    "GNN",
+    "GPU",
+    "HBM",
+    "accelerator",
+    "bandwidth",
+    "baseline",
+    "inference",
+    "latency",
+    "quantization",
+    "throughput"
+   ],
+   "long_examples": [
+    "The benefit depends on how much intermediate work is created, how it is combined, and whether finite buffers can support the resulting bursts.",
+    "BSGCN groups most low-degree nodes into large bands, treats remaining nodes in smaller bands, and uses band-specific traversal and caching alongside high-degree-node pinning.",
+    "For a teaching example, output node u receives features [2, 4] and [6, 8] from two neighbors, with coefficients 0.25 and 0.75.",
+    "The description says bands group nodes by reuse characteristics, but it does not specify how those characteristics are measured or estimated.",
+    "It identifies what its policy needs to establish: when a node is pinned, for how long, what capacity is reserved, and whether the protected reuse repays the displaced reuse."
+   ]
+  },
+  {
+   "page": "reports/observed-subthemes/specialized-accelerators-and-dataflow.md",
+   "sentences": 1546,
+   "over_20_words": 371,
+   "vague_words": [
+    "efficient",
+    "efficiently",
+    "robust",
+    "significant",
+    "state-of-the-art",
+    "substantial",
+    "various"
+   ],
+   "cliches": [],
+   "field_terms_glossed_on_first_use": [
+    "ADC",
+    "ASIC",
+    "CIM",
+    "CMOS",
+    "CPU",
+    "DMA",
+    "DNN",
+    "FHE",
+    "FPGA",
+    "GEMM",
+    "GNN",
+    "GPU",
+    "ISA",
+    "KV",
+    "LLM",
+    "LUT",
+    "MAC",
+    "NPU",
+    "PPA",
+    "Pareto",
+    "RTL",
+    "SRAM",
+    "accelerator",
+    "bandwidth",
+    "baseline",
+    "inference",
+    "latency",
+    "netlist",
+    "quantization",
+    "side channel",
+    "surrogate",
+    "throughput"
+   ],
+   "long_examples": [
+    "The overall rate is therefore limited by the rates and dependencies of the connected stages, including transfers into and out of the accelerator.",
+    "If an upstream engine produces samples or intermediate values faster than the next engine can consume them, buffers grow and eventually force the producer to wait.",
+    "The dataflow result is therefore controlled by the slowest dependency and the transfer path, not by the peak arithmetic rate of one engine.",
+    "The ratio may reflect a data-transfer bottleneck in the baseline, different parameter conditions, or baseline maturity; it cannot be interpreted as a cryptographic improvement.",
+    "A valid comparison must hold the LPN function, parameter set, success probability, output correctness, FPGA device, clock and input/output measurement boundary constant."
+   ]
+  },
+  {
+   "page": "reports/observed-subthemes/specialized-ai-accelerators.md",
+   "sentences": 458,
+   "over_20_words": 109,
+   "vague_words": [
+    "efficient",
+    "efficiently"
+   ],
+   "cliches": [],
+   "field_terms_glossed_on_first_use": [
+    "ADC",
+    "ASIC",
+    "CIM",
+    "CMOS",
+    "CPU",
+    "DRAM",
+    "FPGA",
+    "GEMM",
+    "GNN",
+    "GPU",
+    "HBM",
+    "KV",
+    "LLM",
+    "MAC",
+    "PPA",
+    "RTL",
+    "SRAM",
+    "accelerator",
+    "bandwidth",
+    "baseline",
+    "inference",
+    "latency",
+    "quantization",
+    "throughput"
+   ],
+   "long_examples": [
+    "It can do this by moving less data, reusing previous work, changing numerical precision, or expressing the computation in a form that existing hardware executes efficiently.",
+    "In a dynamic iterative model, the update may use newly computed states during the same broader computation, extending the receptive field without materializing every full dense layer.",
+    "This changes the hardware problem: the accelerator must follow data dependencies while handling irregular edge addresses and uneven numbers of active neighbors.",
+    "It depends on the update rule, iteration order, stopping condition, feature precision and whether the algorithm reuses or recomputes partial results.",
+    "If the next update needs that value, the scheduler must wait, buffer the partial state, or use a mathematically equivalent approximation."
+   ]
+  },
+  {
+   "page": "reports/observed-subthemes/storage-and-data-movement.md",
+   "sentences": 375,
+   "over_20_words": 148,
+   "vague_words": [
+    "robust",
+    "significantly",
+    "state-of-the-art"
+   ],
+   "cliches": [],
+   "field_terms_glossed_on_first_use": [
+    "ADC",
+    "ASIC",
+    "CIM",
+    "CMOS",
+    "CPU",
+    "DMA",
+    "DRAM",
+    "ECC",
+    "FPGA",
+    "GEMM",
+    "GNN",
+    "GPU",
+    "HBM",
+    "KV",
+    "LLM",
+    "NoC",
+    "RL",
+    "SLO",
+    "SSD",
+    "accelerator",
+    "bandwidth",
+    "baseline",
+    "inference",
+    "latency",
+    "quantization",
+    "slack",
+    "throughput"
+   ],
+   "long_examples": [
+    "Access costs can depend on which processor runs an I/O thread, where the cached data resides, and where the device attaches.",
+    "A heterogeneous GNN (HetGNN) adds an irregular access pattern: feature, relation and embedding pages may be touched according to graph sampling and traversal decisions rather than a sequential scan.",
+    "The intent is to let requests that are likely to arrive together use parallel devices instead of contending at one chip.",
+    "This changes page placement and swap management; it does not change the GNN's aggregation semantics, guarantee that correlations persist across phases, or create bandwidth when all chips share a saturated controller or link.",
+    "Define the page granularity, correlation window, graph sampling/traversal, placement function, zone allocation, migration and update protocol, and the consistency rules for features, edges and intermediate states."
+   ]
+  },
+  {
+   "page": "reports/observed-subthemes/storage-and-memory-systems.md",
+   "sentences": 83,
+   "over_20_words": 17,
+   "vague_words": [
+    "state-of-the-art",
+    "substantially"
+   ],
+   "cliches": [],
+   "field_terms_glossed_on_first_use": [
+    "CPU",
+    "ECC",
+    "SSD",
+    "bandwidth",
+    "baseline",
+    "latency",
+    "throughput"
+   ],
+   "long_examples": [
+    "If the rest of that unit must be preserved, the system may have to obtain the unchanged data, combine it with the update, and write the combined result.",
+    "The refreshed official description identifies two coordinated changes: ranges mapping file segments to device addresses, indexed by an enhanced B+ tree, and a page cache supporting partial-page updates and range-based writeback.",
+    "A B+ tree is an ordered index for finding records without checking them all; the page cache holds file data in memory before or between device accesses.",
+    "The abstract reports up to 6.95× write bandwidth over block-based log-structured file systems on a production ZNS SSD, with comparable reads.",
+    "The captured evidence supports range-oriented ZNS filesystem design and a bounded write-bandwidth claim, not demonstrated durable end-to-end filesystem improvement across devices and workloads."
+   ]
+  },
+  {
+   "page": "reports/observed-subthemes/synthesis-and-compilation.md",
+   "sentences": 83,
+   "over_20_words": 23,
+   "vague_words": [
+    "efficient"
+   ],
+   "cliches": [],
+   "field_terms_glossed_on_first_use": [
+    "baseline"
+   ],
+   "long_examples": [
+    "Executing it requires translating those operations into what a target architecture can perform, with an ordering that respects dependencies and resource limits.",
+    "Moving atoms in a neutral-atom device and supplying particular logical operations in an error-corrected architecture are not the same resource problem.",
+    "Compiling a large circuit demonstrates a software result under assumed hardware rules; it is not evidence that the same computation was run successfully on a physical device.",
+    "A useful evaluation would preserve the same target geometry and validity constraints, report worst cases as well as averages, and count both compiler resources and the final execution schedule.",
+    "In a zoned neutral-atom processor, qubits are carried by atoms whose positions and allowed interactions are constrained by traps, transport lanes and operation zones."
+   ]
+  },
+  {
+   "page": "reports/observed-subthemes/thermal-and-reliability-modeling.md",
+   "sentences": 128,
+   "over_20_words": 39,
+   "vague_words": [],
+   "cliches": [],
+   "field_terms_glossed_on_first_use": [
+    "DNN",
+    "DSE",
+    "GNN",
+    "PDE",
+    "PDN",
+    "SRAM",
+    "bandwidth",
+    "baseline",
+    "inference",
+    "latency",
+    "surrogate",
+    "throughput"
+   ],
+   "long_examples": [
+    "This can reduce memory and expose parallel work, but an interface error can affect the assembled solution even when each subdomain looks accurate in isolation.",
+    "The captured method uses a foundation-model architecture, overlapping subdomains, explicit optimization of overlap boundary values by automatic differentiation, and physics-guided test-time adaptation for new physics and domains.",
+    "Compare temperature, displacement, strain and stress with a trusted finite-element or other calibrated multi-physics solver under the same geometry, mesh, materials, heat sources, mechanical loads, reference temperature and thermal/mechanical boundary conditions.",
+    "Report field error norms, interface continuity, flux/traction balance, conservation, residuals, peak stress/temperature error and convergence failures, especially at contacts, sharp gradients and material interfaces.",
+    "Include subdomain construction, communication, overlap synchronization, automatic differentiation, memory, inference and adaptation cost; compare with a finite-element solver and standard neural surrogate at matched precision and error tolerance."
+   ]
+  },
+  {
+   "page": "reports/observed-subthemes/timing-analysis-and-optimization.md",
+   "sentences": 244,
+   "over_20_words": 26,
+   "vague_words": [],
+   "cliches": [],
+   "field_terms_glossed_on_first_use": [
+    "GPU",
+    "PDK",
+    "SPICE",
+    "TNS",
+    "baseline",
+    "slack",
+    "surrogate",
+    "throughput"
+   ],
+   "long_examples": [
+    "That can guide optimization, but an available gradient does not prove that every suggested physical change is legal or improves the final routed circuit.",
+    "In plain terms, these calibrate a relationship between observed information and the search estimate, with the regression regularized to limit unstable fitting.",
+    "Evaluation should inspect cases where interval reduction might exclude the true boundary, along with the fallback and extra simulation cost when an estimate is poor.",
+    "Any combined study must count calibration, data conversion, GPU transfers, repeated optimization, and final reference checks before claiming a full-flow improvement.",
+    "Halving the first and tripling the speed of the second gives a total of forty, so overall speedup is 2.5×, not 6×."
+   ]
+  },
+  {
+   "page": "reports/observed-subthemes/verification-and-debugging-tools.md",
+   "sentences": 98,
+   "over_20_words": 20,
+   "vague_words": [],
+   "cliches": [],
+   "field_terms_glossed_on_first_use": [
+    "EDA",
+    "LLM",
+    "accelerator",
+    "baseline",
+    "latency"
+   ],
+   "long_examples": [
+    "A schema identifies the structure of a record: which parts are fields, how they are represented, and which records share a format.",
+    "The available evidence supports the task and proposed model family, but not a claim about how it handles nested records, multiline messages, or streaming input.",
+    "It should also preserve the original messages so that a derived schema does not erase the evidence needed to audit a diagnosis.",
+    "Some parts describe the event type and fixed wording; other parts are fields whose values change, such as timestamps, identifiers, addresses, counts or error details.",
+    "Two messages can have similar punctuation but represent different events, while one event can be printed in multiple formats across software versions."
+   ]
+  },
+  {
+   "page": "reports/observed-subthemes/wafer-scale-and-heterogeneous-integration.md",
+   "sentences": 102,
+   "over_20_words": 19,
+   "vague_words": [
+    "significant"
+   ],
+   "cliches": [],
+   "field_terms_glossed_on_first_use": [
+    "CPU",
+    "FPGA",
+    "GPU",
+    "bandwidth",
+    "baseline",
+    "interposer",
+    "latency",
+    "throughput"
+   ],
+   "long_examples": [
+    "Products involving zero can often be omitted, but the implementation must still locate matching positions and combine contributions to the same output.",
+    "Nor does minimizing total transferred bytes necessarily minimize execution time: many transfers can compete for the same narrow set of links while other links remain idle.",
+    "For example, when one input row is required by several compute regions, representing that shared requirement directly can distinguish one reusable transfer from several independent transfers.",
+    "The representation alone does not prove that a runtime can realize the predicted reuse: storage capacity, arrival order, and routing rules still matter.",
+    "Define sparse formats, duplicate products, reduction order, accumulation precision, zero handling and output ordering, then compare values and residuals with a trusted reference."
+   ]
+  },
+  {
+   "page": "reports/directions/01-constraints-become-executable.md",
+   "sentences": 42,
+   "over_20_words": 3,
+   "vague_words": [],
+   "cliches": [],
+   "field_terms_glossed_on_first_use": [
+    "baseline"
+   ],
+   "long_examples": [
+    "A language model writing circuit code, a compiler arranging operations, and a placement tool choosing locations can all use this loop.",
+    "To show a trend over time, compare equivalent sets of papers across years, and code which checks actually change design decisions.",
+    "**What would weaken the direction:** The direction is weakened if matched held-out designs under equal compute produce no higher valid-completion or equivalence rate than the baseline, or if the apparent gain disappears after contamination controls."
+   ]
+  },
+  {
+   "page": "reports/directions/02-data-movement-as-contract.md",
+   "sentences": 42,
+   "over_20_words": 1,
+   "vague_words": [],
+   "cliches": [],
+   "field_terms_glossed_on_first_use": [
+    "CXL",
+    "bandwidth"
+   ],
+   "long_examples": [
+    "**What would weaken the direction:** The direction is weakened if a matched-recall comparison shows that host-side placement and scheduling provide the same end-to-end result after including CXL traffic, speculation, capacity and host overhead, without a distinct near-memory benefit."
+   ]
+  },
+  {
+   "page": "reports/directions/03-closed-loop-design.md",
+   "sentences": 39,
+   "over_20_words": 1,
+   "vague_words": [],
+   "cliches": [],
+   "field_terms_glossed_on_first_use": [
+    "surrogate"
+   ],
+   "long_examples": [
+    "**What would weaken the direction:** The direction is weakened if surrogate ranking error frequently excludes the true best candidates, or if full reference-model evaluation removes the reported advantage after the complete acquisition and recheck budget is counted."
+   ]
+  },
+  {
+   "page": "reports/directions/04-reliability-security-upstream.md",
+   "sentences": 37,
+   "over_20_words": 1,
+   "vague_words": [],
+   "cliches": [],
+   "field_terms_glossed_on_first_use": [],
+   "long_examples": [
+    "**What would weaken the direction:** The direction is weakened if an in-scope adversary can still starve or delay an attested workload under the stated admission and scheduler policy, or if the availability guarantee requires an unmodeled trusted component."
+   ]
+  },
+  {
+   "page": "reports/directions/05-physical-reality-in-the-loop.md",
+   "sentences": 38,
+   "over_20_words": 2,
+   "vague_words": [],
+   "cliches": [],
+   "field_terms_glossed_on_first_use": [
+    "throughput"
+   ],
+   "long_examples": [
+    "Thermal management is an accuracy issue as well as a throughput issue; a reported tolerance is not zero accuracy loss or broad deployment proof.",
+    "**What would weaken the direction:** The direction is weakened if measured temperature and programming variation pushes task accuracy beyond the declared error budget, or if calibration cost and thermal control erase the claimed efficiency benefit."
+   ]
+  },
+  {
+   "page": "reports/directions/06-evaluation-as-research.md",
+   "sentences": 40,
+   "over_20_words": 2,
+   "vague_words": [],
+   "cliches": [],
+   "field_terms_glossed_on_first_use": [
+    "PPA"
+   ],
+   "long_examples": [
+    "Changing the input set, the comparison method or the rule for success can change the number, even when the method is the same.",
+    "**What would weaken the direction:** The direction is weakened if PVT and yield distributions exceed the declared accuracy/error budget, or if a matched exact-arithmetic design meets the same task accuracy with better total PPA and robustness."
+   ]
+  },
+  {
+   "page": "reports/comparisons/README.md",
+   "sentences": 4,
+   "over_20_words": 0,
+   "vague_words": [],
+   "cliches": [],
+   "field_terms_glossed_on_first_use": [],
+   "long_examples": []
+  },
+  {
+   "page": "reports/comparisons/closed-loop-design.md",
+   "sentences": 21,
+   "over_20_words": 1,
+   "vague_words": [
+    "efficient",
+    "robust"
+   ],
+   "cliches": [],
+   "field_terms_glossed_on_first_use": [
+    "CIM",
+    "PDE",
+    "baseline",
+    "surrogate"
+   ],
+   "long_examples": [
+    "A valid matched comparison must hold constant the relevant workload or design suite, hardware/process or simulator assumptions, baseline, metric definition, evaluation budget, and failure/validity boundary."
+   ]
+  },
+  {
+   "page": "reports/comparisons/constraints-become-executable.md",
+   "sentences": 22,
+   "over_20_words": 1,
+   "vague_words": [],
+   "cliches": [],
+   "field_terms_glossed_on_first_use": [
+    "FPGA",
+    "HLS",
+    "LLM",
+    "RTL",
+    "baseline"
+   ],
+   "long_examples": [
+    "A valid matched comparison must hold constant the relevant workload or design suite, hardware/process or simulator assumptions, baseline, metric definition, evaluation budget, and failure/validity boundary."
+   ]
+  },
+  {
+   "page": "reports/comparisons/data-movement-as-contract.md",
+   "sentences": 28,
+   "over_20_words": 1,
+   "vague_words": [
+    "efficient"
+   ],
+   "cliches": [],
+   "field_terms_glossed_on_first_use": [
+    "ASIC",
+    "CPU",
+    "CXL",
+    "GEMM",
+    "KV",
+    "LLM",
+    "PIM",
+    "PPA",
+    "accelerator",
+    "bandwidth",
+    "baseline",
+    "latency"
+   ],
+   "long_examples": [
+    "A valid matched comparison must hold constant the relevant workload or design suite, hardware/process or simulator assumptions, baseline, metric definition, evaluation budget, and failure/validity boundary."
+   ]
+  },
+  {
+   "page": "reports/comparisons/evaluation-as-research.md",
+   "sentences": 28,
+   "over_20_words": 1,
+   "vague_words": [
+    "efficient",
+    "robust"
+   ],
+   "cliches": [],
+   "field_terms_glossed_on_first_use": [
+    "CIM",
+    "FPGA",
+    "HLS",
+    "LLM",
+    "PDE",
+    "baseline",
+    "surrogate"
+   ],
+   "long_examples": [
+    "A valid matched comparison must hold constant the relevant workload or design suite, hardware/process or simulator assumptions, baseline, metric definition, evaluation budget, and failure/validity boundary."
+   ]
+  },
+  {
+   "page": "reports/comparisons/physical-reality-in-the-loop.md",
+   "sentences": 18,
+   "over_20_words": 1,
+   "vague_words": [],
+   "cliches": [],
+   "field_terms_glossed_on_first_use": [
+    "GPU",
+    "LLM",
+    "baseline"
+   ],
+   "long_examples": [
+    "A valid matched comparison must hold constant the relevant workload or design suite, hardware/process or simulator assumptions, baseline, metric definition, evaluation budget, and failure/validity boundary."
+   ]
+  },
+  {
+   "page": "reports/comparisons/reliability-security-upstream.md",
+   "sentences": 20,
+   "over_20_words": 1,
+   "vague_words": [
+    "efficient",
+    "robust"
+   ],
+   "cliches": [],
+   "field_terms_glossed_on_first_use": [
+    "CPU",
+    "DRAM",
+    "ECC",
+    "GPU",
+    "NPU",
+    "baseline",
+    "throughput"
+   ],
+   "long_examples": [
+    "A valid matched comparison must hold constant the relevant workload or design suite, hardware/process or simulator assumptions, baseline, metric definition, evaluation budget, and failure/validity boundary."
+   ]
+  },
+  {
+   "page": "dac/reports/atb-primary-assessment-v1.md",
+   "sentences": 16,
+   "over_20_words": 0,
+   "vague_words": [],
+   "cliches": [],
+   "field_terms_glossed_on_first_use": [
+    "baseline"
+   ],
+   "long_examples": []
+  },
+  {
+   "page": "dac/reports/cannon-primary-recovery-v1.md",
+   "sentences": 12,
+   "over_20_words": 0,
+   "vague_words": [],
+   "cliches": [],
+   "field_terms_glossed_on_first_use": [
+    "RAG",
+    "baseline",
+    "latency",
+    "throughput"
+   ],
+   "long_examples": []
+  },
+  {
+   "page": "dac/reports/ctxmem-primary-recovery-v1.md",
+   "sentences": 6,
+   "over_20_words": 0,
+   "vague_words": [],
+   "cliches": [],
+   "field_terms_glossed_on_first_use": [],
+   "long_examples": []
+  },
+  {
+   "page": "dac/reports/exact-t-primary-assessment-v1.md",
+   "sentences": 16,
+   "over_20_words": 1,
+   "vague_words": [],
+   "cliches": [],
+   "field_terms_glossed_on_first_use": [],
+   "long_examples": [
+    "The synthesis may retain this as a provisional resource-specific mapping case, not an accepted numerical headline or evidence of learned search."
+   ]
+  },
+  {
+   "page": "dac/reports/flash3d-primary-recovery-v1.md",
+   "sentences": 13,
+   "over_20_words": 0,
+   "vague_words": [],
+   "cliches": [],
+   "field_terms_glossed_on_first_use": [
+    "inference"
+   ],
+   "long_examples": []
+  },
+  {
+   "page": "dac/reports/fusedot-primary-recovery-v1.md",
+   "sentences": 14,
+   "over_20_words": 1,
+   "vague_words": [],
+   "cliches": [],
+   "field_terms_glossed_on_first_use": [
+    "baseline",
+    "inference",
+    "quantization"
+   ],
+   "long_examples": [
+    "An award mentioned on the author page belongs to a HUST annual conference, not DAC, and is not an independent review of this assessment."
+   ]
+  },
+  {
+   "page": "dac/reports/gemir-primary-recovery-v1.md",
+   "sentences": 7,
+   "over_20_words": 1,
+   "vague_words": [],
+   "cliches": [],
+   "field_terms_glossed_on_first_use": [],
+   "long_examples": [
+    "Keep the joint-modeling mechanism provisional and exclude the numerical reductions from accepted quantitative synthesis until their baselines and evaluation conditions are available."
+   ]
+  },
+  {
+   "page": "dac/reports/hlsarchopt-primary-assessment-v1.md",
+   "sentences": 19,
+   "over_20_words": 1,
+   "vague_words": [],
+   "cliches": [],
+   "field_terms_glossed_on_first_use": [
+    "HLS",
+    "LLM",
+    "LUT",
+    "baseline",
+    "latency"
+   ],
+   "long_examples": [
+    "The pinned text and XML reports agree on selected fields: latency 335,494 cycles (reported as 3.355 ms at a 10 ns target), interval 229,703 cycles, and estimated clock period 8.419 ns."
+   ]
+  },
+  {
+   "page": "dac/reports/hybrimoe-primary-conditions-v1.md",
+   "sentences": 12,
+   "over_20_words": 0,
+   "vague_words": [],
+   "cliches": [],
+   "field_terms_glossed_on_first_use": [
+    "CPU",
+    "GPU",
+    "baseline"
+   ],
+   "long_examples": []
+  },
+  {
+   "page": "dac/reports/hyper-cim-primary-recovery-v1.md",
+   "sentences": 11,
+   "over_20_words": 0,
+   "vague_words": [],
+   "cliches": [],
+   "field_terms_glossed_on_first_use": [
+    "surrogate",
+    "throughput"
+   ],
+   "long_examples": []
+  },
+  {
+   "page": "dac/reports/mappingevolve-primary-assessment-v1.md",
+   "sentences": 30,
+   "over_20_words": 1,
+   "vague_words": [],
+   "cliches": [],
+   "field_terms_glossed_on_first_use": [
+    "LLM"
+   ],
+   "long_examples": [
+    "A first candidate with equivalence-failure reward -0.45 therefore becomes best, fails the default -0.1 acceptance threshold, and is nevertheless copied back as the fallback state."
+   ]
+  },
+  {
+   "page": "dac/reports/notsotiny-primary-assessment-v1.md",
+   "sentences": 15,
+   "over_20_words": 2,
+   "vague_words": [],
+   "cliches": [],
+   "field_terms_glossed_on_first_use": [],
+   "long_examples": [
+    "Our synthesis should ask three separate questions: what the task requires, what the checker proves, and how tasks enter the evaluation population.",
+    "The next review should explicitly distinguish proof failure, timeout and actual inequivalence, and examine whether excluded tasks change the difficulty profile."
+   ]
+  },
+  {
+   "page": "dac/reports/paretopilot-primary-assessment-v1.md",
+   "sentences": 13,
+   "over_20_words": 1,
+   "vague_words": [],
+   "cliches": [],
+   "field_terms_glossed_on_first_use": [
+    "DSE",
+    "FPGA",
+    "HLS",
+    "latency"
+   ],
+   "long_examples": [
+    "This does not rule out learned reasoning or other research flows; it prevents describing this entry point as demonstrated adaptive closed-loop DSE."
+   ]
+  },
+  {
+   "page": "dac/reports/raf-primary-recovery-v1.md",
+   "sentences": 9,
+   "over_20_words": 0,
+   "vague_words": [],
+   "cliches": [],
+   "field_terms_glossed_on_first_use": [
+    "baseline",
+    "latency"
+   ],
+   "long_examples": []
+  },
+  {
+   "page": "dac/reports/strix-primary-assessment-v1.md",
+   "sentences": 12,
+   "over_20_words": 0,
+   "vague_words": [],
+   "cliches": [],
+   "field_terms_glossed_on_first_use": [
+    "latency"
+   ],
+   "long_examples": []
+  },
+  {
+   "page": "dac/reports/xsearch-primary-recovery-v1.md",
+   "sentences": 12,
+   "over_20_words": 0,
+   "vague_words": [],
+   "cliches": [],
+   "field_terms_glossed_on_first_use": [],
+   "long_examples": []
+  },
+  {
+   "page": "reports/reading-guide-v1.md",
+   "sentences": 40,
+   "over_20_words": 6,
+   "vague_words": [],
+   "cliches": [],
+   "field_terms_glossed_on_first_use": [
+    "ASIC",
+    "CXL",
+    "ECC",
+    "EDA",
+    "FPGA",
+    "GEMM",
+    "GPU",
+    "HLS",
+    "KV",
+    "LLM",
+    "LUT",
+    "PIM",
+    "PPA",
+    "RTL",
+    "quantization",
+    "throughput"
+   ],
+   "long_examples": [
+    "**Bandwidth:** data transferred per unit time. **Capacity:** data that can be stored. **Locality:** how closely the location and timing of data access allow values to be reused without expensive transfers.",
+    "**EDA:** electronic design automation, software used to construct and check circuits. **RTL:** register-transfer level, a description of stored circuit state and the operations that update it. **HLS:** high-level synthesis, which constructs hardware from a higher-level program description.",
+    "**FPGA:** a field-programmable gate array, hardware with configurable logic and connections. **ASIC:** an application-specific integrated circuit, fabricated for a particular design. **GPU:** a graphics processing unit, also used to execute many computation tasks in parallel.",
+    "**PIM:** processing in memory, methods that perform computation in or close to memory structures. **CXL:** Compute Express Link, a connection standard used in some processor, device, and memory systems.",
+    "**LLM:** a large language model. **Inference:** executing a trained model to produce outputs. **KV cache:** stored attention keys and values used when a language model generates further output. **MoE:** mixture of experts, a model organization that chooses among parts of the model for particular inputs."
+   ]
+  },
+  {
+   "page": "reports/expanded-taxonomy-v1.md",
+   "sentences": 17,
+   "over_20_words": 3,
+   "vague_words": [
+    "efficient",
+    "robust"
+   ],
+   "cliches": [],
+   "field_terms_glossed_on_first_use": [
+    "EDA",
+    "accelerator",
+    "inference",
+    "lithography"
+   ],
+   "long_examples": [
+    "Labels marked X were not in the starter taxonomy but recur in the adjudicated sample and therefore deserve direct navigation or future consolidation review.",
+    "Move from the paper mechanism to the five high-value cross-cutting subtheme pages and six long-term direction pages only when the evidence supports that connection.",
+    "Promote an observed subtheme into a stable conceptual category only after at least two records expose the same mechanism boundary, or after a primary-source review demonstrates that the apparent distinction is real."
+   ]
+  },
+  {
+   "page": "reports/field-directions-and-hypotheses-v1.md",
+   "sentences": 152,
+   "over_20_words": 35,
+   "vague_words": [
+    "robust"
+   ],
+   "cliches": [],
+   "field_terms_glossed_on_first_use": [
+    "ADC",
+    "CPU",
+    "CXL",
+    "ECC",
+    "EDA",
+    "HBM",
+    "HLS",
+    "LLM",
+    "LUT",
+    "MAC",
+    "NPU",
+    "PIM",
+    "Pareto",
+    "RTL",
+    "accelerator",
+    "bandwidth",
+    "baseline",
+    "inference",
+    "latency",
+    "quantization",
+    "surrogate",
+    "throughput"
+   ],
+   "long_examples": [
+    "The selected papers suggest an important research question: **how much of a system's constraints can be made explicit while choosing its algorithm, architecture, mapping and runtime policy?** Optimizing arithmetic alone leaves data movement, physical feasibility, correctness and search cost unresolved.",
+    "The original cross-conference sample began with 72 records; current coding contains 582 (544 DAC, 17 ISCA, 21 ICCAD), none independently accepted here.",
+    "It adds evaluation counterpressure, alternative mechanisms and explicit validation boundaries; all six cases remain description-level and independently unreviewed, not measured falsifications.",
+    "The NotSoTiny follow-up now adds selected preprint conditions without promoting the original description: task selection, checker semantics and benchmark version must accompany any capability comparison.",
+    "This is a concrete implementation caveat, not demonstrated inflation of the paper's scores; matched run provenance and timeout incidence are still missing."
+   ]
+  },
+  {
+   "page": "reports/research-atlas-index-v1.md",
+   "sentences": 118,
+   "over_20_words": 14,
+   "vague_words": [],
+   "cliches": [],
+   "field_terms_glossed_on_first_use": [
+    "CIM",
+    "CXL",
+    "EDA",
+    "GPU",
+    "HLS",
+    "NPU",
+    "baseline",
+    "throughput"
+   ],
+   "long_examples": [
+    "How do choices about algorithms, hardware, memory, physical design, and checking affect one another—and which proposed improvements still help when the complete job, its required answer, and its real operating conditions are measured?",
+    "They are connected by one practical question: when a paper removes one cost, what new cost or correctness obligation appears elsewhere?",
+    "This creates a chain of consequences: smaller stored values can free memory; free memory can admit more concurrent work; concurrent work can improve total throughput while increasing each request's wait.",
+    "Its recovered serving table reports higher throughput alongside longer median time per output token, and its conflicting batch counts remain unresolved.",
+    "It would be weakened by matched results showing that movement is already minor or that decoding and coordination consume the saving."
+   ]
+  },
+  {
+   "page": "reports/direction-review-gate-v1.md",
+   "sentences": 34,
+   "over_20_words": 11,
+   "vague_words": [],
+   "cliches": [],
+   "field_terms_glossed_on_first_use": [
+    "baseline"
+   ],
+   "long_examples": [
+    "Reconcile adjudicated-row gaps with supplementary source-condition fields for anchor papers; preserve source tiers and explicitly bind any remaining workload, hardware/process, baseline, metric, and limit gaps.",
+    "Reconcile adjudicated-row gaps with supplementary source-condition fields for anchor papers; preserve source tiers and explicitly bind any remaining workload, hardware/process, baseline, metric, and limit gaps.",
+    "Reconcile adjudicated-row gaps with supplementary source-condition fields for anchor papers; preserve source tiers and explicitly bind any remaining workload, hardware/process, baseline, metric, and limit gaps.",
+    "Reconcile adjudicated-row gaps with supplementary source-condition fields for anchor papers; preserve source tiers and explicitly bind any remaining workload, hardware/process, baseline, metric, and limit gaps.",
+    "Reconcile adjudicated-row gaps with supplementary source-condition fields for anchor papers; preserve source tiers and explicitly bind any remaining workload, hardware/process, baseline, metric, and limit gaps."
+   ]
+  },
+  {
+   "page": "reports/longitudinal-protocol-v1.md",
+   "sentences": 18,
+   "over_20_words": 1,
+   "vague_words": [
+    "substantial"
+   ],
+   "cliches": [],
+   "field_terms_glossed_on_first_use": [
+    "bandwidth",
+    "baseline",
+    "throughput"
+   ],
+   "long_examples": [
+    "It does not yet support directional prevalence or comparative-impact claims: source depth is asymmetric, DAC 2025 has substantial missingness, selected populations are not equivalent, and independent verdicts remain zero."
+   ]
+  },
+  {
+   "page": "reports/research-agenda-v1.md",
+   "sentences": 42,
+   "over_20_words": 2,
+   "vague_words": [],
+   "cliches": [],
+   "field_terms_glossed_on_first_use": [
+    "baseline"
+   ],
+   "long_examples": [
+    "It makes the path from provisional synthesis to defensible long-term insight explicit: evidence conditions → counterpressure → independent review → matched comparison → longitudinal promotion.",
+    "The claim is promoted only if the direction-specific test in the longitudinal protocol passes; otherwise it remains insufficient or is weakened."
+   ]
+  },
+  {
+   "page": "reports/evidence-summary-v1.md",
+   "sentences": 7,
+   "over_20_words": 1,
+   "vague_words": [],
+   "cliches": [],
+   "field_terms_glossed_on_first_use": [
+    "LLM"
+   ],
+   "long_examples": [
+    "Missing-field counts are recorded in the machine-readable JSON; an empty field means the evidence did not support a claim, not that the paper lacks the property."
+   ]
+  }
+ ]
+}

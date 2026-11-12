@@ -1,74 +1,67 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="theme-color" content="#F3ECE1" />
-  <title>Hardware and system security · Semiconductor conference atlas</title>
-  <meta name="description" content="Papers: DAC 11. Read from: 11 program descriptions, 0 abstracts or reports, 0 full papers or preprints. The explanations come first; every paper’s record follows at the end." />
-  <meta property="og:type" content="website" />
-  <meta property="og:site_name" content="Semiconductor conference atlas" />
-  <meta property="og:title" content="Hardware and system security · Semiconductor conference atlas" />
-  <meta property="og:description" content="Papers: DAC 11. Read from: 11 program descriptions, 0 abstracts or reports, 0 full papers or preprints. The explanations come first; every paper’s record follows at the end." />
-  <meta property="og:url" content="https://mehtama1234.github.io/semiconductor-conferences/subthemes/hardware-and-system-security.html" />
-  <meta property="og:image" content="https://mehtama1234.github.io/semiconductor-conferences/presentation/slides/01-cover.jpg" />
-  <meta property="og:image:width" content="1920" />
-  <meta property="og:image:height" content="1080" />
-  <meta property="og:image:alt" content="Semiconductor conference atlas: 582 papers from ISCA, DAC and ICCAD, sorted into 10 themes and six directions to watch." />
-  <meta name="twitter:card" content="summary_large_image" />
-  <link rel="canonical" href="https://mehtama1234.github.io/semiconductor-conferences/subthemes/hardware-and-system-security.html" />
-  <link rel="icon" href="../assets/icon.svg" type="image/svg+xml" />
-  <link rel="stylesheet" href="../assets/base.css" />
-  <link rel="stylesheet" href="../assets/experience.css" />
-  <link rel="stylesheet" href="../assets/theme-atlas.css" />
-  <link rel="stylesheet" href="../assets/styles.css" />
-  <link rel="stylesheet" href="../assets/charts.css" />
-  <link rel="stylesheet" href="../assets/course.css" />
-  
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#3a2e26">
+<title>Hardware and system security · Semiconductor conference atlas</title>
+<meta name="description" content="Papers add hardware that keeps programs and data apart, and must count what that separation costs. Papers: DAC 11. Read from: 11 program descriptions, 0 abstracts or reports, 0 full papers or preprint">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Semiconductor conference atlas">
+<meta property="og:title" content="Hardware and system security · Semiconductor conference atlas">
+<meta property="og:description" content="Papers add hardware that keeps programs and data apart, and must count what that separation costs. Papers: DAC 11. Read from: 11 program descriptions, 0 abstracts or reports, 0 full papers or preprint">
+<meta property="og:url" content="https://mehtama1234.github.io/semiconductor-conferences/subthemes/hardware-and-system-security.html">
+<meta property="og:image" content="https://mehtama1234.github.io/semiconductor-conferences/presentation/slides/01-cover.jpg">
+<meta property="og:image:width" content="1920">
+<meta property="og:image:height" content="1080">
+<meta property="og:image:alt" content="Semiconductor conference atlas: 582 papers from ISCA, DAC and ICCAD, sorted into 10 themes and six directions to watch.">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://mehtama1234.github.io/semiconductor-conferences/subthemes/hardware-and-system-security.html">
+<link rel="icon" href="../assets/icon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../kit/tokens.css">
+<link rel="stylesheet" href="../kit/boards.css">
+<link rel="stylesheet" href="../kit/course.css">
+<link rel="stylesheet" href="../kit/slides.css">
+<link rel="stylesheet" href="../kit/math/katex.min.css">
+<link rel="stylesheet" href="../kit/site.css">
+<script>try{var t=localStorage.getItem('course-kit-theme');if(t)document.documentElement.setAttribute('data-theme',t)}catch(e){}</script>
 </head>
-<body class="course-site " data-house="atlas">
-  <aside class="public-demo-banner" aria-label="About this course">A plain-language guide to what ISCA, DAC and ICCAD papers say about chip and computer design · Built from the repository’s own paper records · Not made by the conferences</aside>
-  <a class="skip-link" href="#app">Skip to the page</a>
-  <header>
-    <a class="brand" href="../index.html"><span class="mark" aria-hidden="true">Si</span> Semiconductor conference atlas</a>
-    <span class="header-status"><span class="badge">582 papers</span><span class="badge">10 themes</span><span class="badge">Plain words first</span></span>
-    <a class="header-link" href="../course-map.html">Course map</a>
-  </header>
-  <nav class="course-nav" aria-label="Main sections of the course"><a href="../index.html">The big picture</a><a href="../themes.html">Themes</a><a href="../subthemes.html" aria-current="page">Subthemes</a><a href="../deep-reads.html">Deep reads</a><a href="../directions.html">What to watch</a><a href="../presentation/index.html">Slides</a><a href="../video/index.html">Video</a><a href="../share/index.html">Share</a></nav>
-  <main id="app" tabindex="-1">
-    <section class="screen active landing legacy-page" aria-labelledby="page-title">
-<div class="lm-head"><div class="hj-heading"><nav class="crumbs" aria-label="You are here"><a href="../course-map.html">Course map</a><span aria-hidden="true">›</span><a href="../subthemes.html">Subthemes</a></nav><a class="back-button" href="../subthemes.html">← <span>Subthemes</span></a><p class="eyebrow">Subtheme · 11 papers · Power, reliability, and security</p><h1 id="page-title">Hardware and system security: what the 11 papers change, and what is still unproven</h1><p class="hj-sub">Papers: DAC 11. Read from: 11 program descriptions, 0 abstracts or reports, 0 full papers or preprints. The explanations come first; every paper’s record follows at the end.</p></div><div class="hj-art" data-art="trio:alert-triangle,shield-check,bolt"></div></div>
-<figure class="course-fig"><div class="loop-wide" data-art="flow:power-reliability-and-security"></div><div class="loop-tall" data-art="flowTall:power-reliability-and-security"></div><figcaption>The parent theme in one picture: name the fault or attack first, then pay for the protection.</figcaption></figure>
-      <article class="prose">
+<body data-kit="boards">
+<a class="ck-skip" href="#main">Skip to the content</a>
+<div class="root">
+<header class="rs-hero"><div class="rs-top"><a class="rs-brand" href="../index.html"><i>Si</i>Semiconductor conference atlas</a><span class="rs-r"><nav class="ck-nav" aria-label="Main sections of the site"><a href="../index.html">The big picture</a><a href="../themes.html">Themes</a><a href="../subthemes.html" aria-current=page>Subthemes</a><a href="../deep-reads.html">Deep reads</a><a href="../directions.html">What to watch</a><a href="../presentation/index.html">Slides</a><a href="../video/index.html">Video</a><a href="../share/index.html">Share</a></nav><button type="button" class="ck-theme" aria-label="Change colour theme">Theme: auto</button></span></div><div class="rs-hg"><div><p class="eb">Subtheme · 11 papers · Power, reliability, and security</p><h1 class="rs-h1 long" id="page-title">What do the 11 papers on hardware and system security change? <i>Papers add hardware that keeps programs and data apart, and must count what that separation costs.</i></h1><p class="rs-lede">Papers: DAC 11. Read from: 11 program descriptions, 0 abstracts or reports, 0 full papers or preprints. The explanations come first; every paper’s record follows at the end.</p></div><ol class="ck-cards" aria-label="The numbers this page turns on"><svg viewBox="0 0 520 380" aria-hidden="true" preserveAspectRatio="none"><path d="M236 78 C 260 84, 260 128, 284 134"/><path d="M398 198 C 378 238, 196 152, 166 182"/><path d="M240 246 C 264 252, 262 296, 286 302"/></svg><li class="ck-card"><p class="k">1 · Papers</p><b>11</b><span>DAC 11</span></li><li class="ck-card"><p class="k">2 · Read from</p><b>11 of 11</b><span>short program descriptions</span></li><li class="ck-card"><p class="k">3 · Part it changes</p><b>Part 3</b><span>The protection</span></li><li class="ck-card"><p class="k">4 · Parent theme</p><b>78 papers</b><span>Power, reliability, and security</span></li></ol></div></header>
+<main id="main" class="ck-main" tabindex="-1">
+<nav class="rs-selbar" aria-label="About this page"><span class="rs-sel"><b>You are here</b><a href="../course-map.html">Every page</a> › <a href="../subthemes.html">Subthemes</a></span><span class="rs-crumb">Subtheme · 11 papers · Power, reliability, and security</span></nav><section class="ck-pagefig ck-wide"><figure class="rs-media ck-scene"><div class="rs-mh"><span>Where these papers act: part 3 of power, reliability, and security</span><span class="t t-oc">our drawing</span></div><div class="rs-mb"><div class="ck-scene-pan" tabindex="0" role="group" aria-label="Drawing; scroll sideways on a small screen" style="--min:900px"><svg class="ck-art" viewBox="0 0 1000 490" role="img" aria-labelledby="shardwareandsys-t" font-family="IBM Plex Sans Condensed, sans-serif"><title id="shardwareandsys-t">A chip under a fault and an attack: a particle flips a stored bit, a probe reads the power trace, check bits find the flip, a hot spot builds, and each protection costs time, energy and area; ringed: part 3, the protection</title><defs><marker id="shardwareandsys-a" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5 0 10z" fill="#2b2622"/></marker><marker id="shardwareandsys-r" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5 0 10z" fill="#9a4a22"/></marker><pattern id="shardwareandsys-h" width="8" height="8" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><path d="M0 0V8" stroke="#cdbfa9" stroke-width="3"/></pattern></defs><rect x="330" y="40" width="330" height="230" rx="8" fill="#fbf7f0" stroke="#2b2622" stroke-width="2.4"/><rect x="352" y="62" width="26" height="26" rx="2" fill="#f5e6d3" stroke="#2b2622" stroke-width="1.3"/><rect x="382" y="62" width="26" height="26" rx="2" fill="#f5e6d3" stroke="#2b2622" stroke-width="1.3"/><rect x="412" y="62" width="26" height="26" rx="2" fill="#f5e6d3" stroke="#2b2622" stroke-width="1.3"/><rect x="442" y="62" width="26" height="26" rx="2" fill="#f5e6d3" stroke="#2b2622" stroke-width="1.3"/><rect x="472" y="62" width="26" height="26" rx="2" fill="#f5e6d3" stroke="#2b2622" stroke-width="1.3"/><rect x="502" y="62" width="26" height="26" rx="2" fill="#f5e6d3" stroke="#2b2622" stroke-width="1.3"/><rect x="532" y="62" width="26" height="26" rx="2" fill="#f5e6d3" stroke="#2b2622" stroke-width="1.3"/><rect x="562" y="62" width="26" height="26" rx="2" fill="#f5e6d3" stroke="#2b2622" stroke-width="1.3"/><rect x="352" y="92" width="26" height="26" rx="2" fill="#f5e6d3" stroke="#2b2622" stroke-width="1.3"/><rect x="382" y="92" width="26" height="26" rx="2" fill="#f5e6d3" stroke="#2b2622" stroke-width="1.3"/><rect x="412" y="92" width="26" height="26" rx="2" fill="#f5e6d3" stroke="#2b2622" stroke-width="1.3"/><rect x="442" y="92" width="26" height="26" rx="2" fill="#f5e6d3" stroke="#2b2622" stroke-width="1.3"/><rect x="472" y="92" width="26" height="26" rx="2" fill="#f5e6d3" stroke="#2b2622" stroke-width="1.3"/><rect x="502" y="92" width="26" height="26" rx="2" fill="#f5e6d3" stroke="#2b2622" stroke-width="1.3"/><rect x="532" y="92" width="26" height="26" rx="2" fill="#f5e6d3" stroke="#2b2622" stroke-width="1.3"/><rect x="562" y="92" width="26" height="26" rx="2" fill="#f5e6d3" stroke="#2b2622" stroke-width="1.3"/><rect x="352" y="122" width="26" height="26" rx="2" fill="#f5e6d3" stroke="#2b2622" stroke-width="1.3"/><rect x="382" y="122" width="26" height="26" rx="2" fill="#f5e6d3" stroke="#2b2622" stroke-width="1.3"/><rect x="412" y="122" width="26" height="26" rx="2" fill="#f5e6d3" stroke="#2b2622" stroke-width="1.3"/><rect x="442" y="122" width="26" height="26" rx="2" fill="#f5e6d3" stroke="#2b2622" stroke-width="1.3"/><rect x="472" y="122" width="26" height="26" rx="2" fill="#f5e6d3" stroke="#2b2622" stroke-width="1.3"/><rect x="502" y="122" width="26" height="26" rx="2" fill="#f5e6d3" stroke="#2b2622" stroke-width="1.3"/><rect x="532" y="122" width="26" height="26" rx="2" fill="#f5e6d3" stroke="#2b2622" stroke-width="1.3"/><rect x="562" y="122" width="26" height="26" rx="2" fill="#f5e6d3" stroke="#2b2622" stroke-width="1.3"/><rect x="352" y="152" width="26" height="26" rx="2" fill="#f5e6d3" stroke="#2b2622" stroke-width="1.3"/><rect x="382" y="152" width="26" height="26" rx="2" fill="#f5e6d3" stroke="#2b2622" stroke-width="1.3"/><rect x="412" y="152" width="26" height="26" rx="2" fill="#f5e6d3" stroke="#2b2622" stroke-width="1.3"/><rect x="442" y="152" width="26" height="26" rx="2" fill="#f5e6d3" stroke="#2b2622" stroke-width="1.3"/><rect x="472" y="152" width="26" height="26" rx="2" fill="#f5e6d3" stroke="#2b2622" stroke-width="1.3"/><rect x="502" y="152" width="26" height="26" rx="2" fill="#f5e6d3" stroke="#2b2622" stroke-width="1.3"/><rect x="532" y="152" width="26" height="26" rx="2" fill="#f5e6d3" stroke="#2b2622" stroke-width="1.3"/><rect x="562" y="152" width="26" height="26" rx="2" fill="#f5e6d3" stroke="#2b2622" stroke-width="1.3"/><rect x="352" y="62" width="26" height="26" rx="2" fill="#9a4a22"/><text x="365" y="81" font-size="15" text-anchor="middle" fill="#fbf7f0" font-weight="600">1</text><rect x="602" y="62" width="40" height="116" rx="3" fill="#e3b98f" stroke="#2b2622" stroke-width="1.4"/><text x="622" y="124" font-size="13" text-anchor="middle" fill="#2b2622" transform="rotate(-90 622 124)">check bits</text><ellipse cx="560" cy="226" rx="70" ry="30" fill="#e3b98f" opacity=".85"/><ellipse cx="560" cy="226" rx="38" ry="15" fill="#9a4a22" opacity=".7"/><path d="M48 52L344 74" stroke="#9a4a22" stroke-width="3" stroke-dasharray="3 6"/><circle cx="48" cy="52" r="8" fill="#9a4a22"/><text x="150" y="112" font-size="15" fill="#2b2622" text-anchor="middle" font-weight="600" letter-spacing="1">1 · A FAULT</text><text x="150" y="133" font-size="15" fill="#2b2622" text-anchor="middle">a stray particle</text><text x="150" y="154" font-size="15" fill="#5a5047" text-anchor="middle">flips a stored 0 to 1</text><path d="M330 236H286" stroke="#2b2622" stroke-width="2"/><circle cx="280" cy="236" r="8" fill="#fbf7f0" stroke="#2b2622" stroke-width="2"/><path d="M40 216l20 0 8-20 8 34 8-26 8 18 8-12 8 6 20 0 8-28 8 40 8-24 8 8 20 0" fill="none" stroke="#2b2622" stroke-width="2"/><text x="150" y="270" font-size="15" fill="#2b2622" text-anchor="middle" font-weight="600" letter-spacing="1">2 · AN ATTACKER</text><text x="150" y="291" font-size="15" fill="#2b2622" text-anchor="middle">reads secrets from</text><text x="150" y="312" font-size="15" fill="#5a5047" text-anchor="middle">the power the chip draws</text><rect x="594" y="52" width="56" height="136" rx="12" fill="none" stroke="#9a4a22" stroke-width="3" stroke-dasharray="9 6"/><path d="M646 120H700M634 226H700" stroke="#5a5047" stroke-dasharray="4 4"/><text x="706" y="112" font-size="15" fill="#9a4a22" font-weight="600" letter-spacing="1">3 · THE PROTECTION</text><text x="706" y="133" font-size="15" fill="#2b2622">extra bits spot a flip</text><text x="706" y="154" font-size="15" fill="#5a5047">and fix it</text><text x="706" y="220" font-size="15" fill="#2b2622" font-weight="600" letter-spacing="1">4 · HEAT AND POWER</text><text x="706" y="241" font-size="15" fill="#2b2622">a hot spot ages</text><text x="706" y="262" font-size="15" fill="#5a5047">the chip faster</text><rect x="420" y="298" width="200" height="13" fill="#cdbfa9"/><rect x="620" y="298" width="36" height="13" fill="#9a4a22"/><text x="410" y="310" font-size="14" fill="#5a5047" text-anchor="end">time</text><rect x="420" y="318" width="160" height="13" fill="#cdbfa9"/><rect x="580" y="318" width="28" height="13" fill="#9a4a22"/><text x="410" y="330" font-size="14" fill="#5a5047" text-anchor="end">energy</text><rect x="420" y="338" width="110" height="13" fill="#cdbfa9"/><rect x="530" y="338" width="19" height="13" fill="#9a4a22"/><text x="410" y="350" font-size="14" fill="#5a5047" text-anchor="end">area</text><text x="730" y="308" font-size="15" fill="#2b2622" font-weight="600" letter-spacing="1">5 · THE COST</text><text x="730" y="329" font-size="15" fill="#2b2622">rust: what protection adds</text><rect x="10" y="384" width="980" height="96" rx="8" fill="#3a2e26"/><text x="30" y="412" font-size="15" fill="#e3b98f" font-weight="600" letter-spacing="1.5">PART 3 · THE PROTECTION · RINGED ABOVE</text><text x="30" y="440" font-size="20" fill="#f3ede2">Papers add hardware that keeps programs and data apart,</text><text x="30" y="466" font-size="20" fill="#f3ede2">and must count what that separation costs.</text></svg></div><figcaption class="ck-cap">The drawing shows the whole power, reliability, and security problem; the rust ring marks part 3, the protection. The words in the box are ours, from the explanation below.</figcaption></div></figure><figure class="rs-media"><div class="rs-mh"><span>What the 11 paper records were read from</span><span class="t t-wo">counted</span></div><div class="rs-mb"><div data-chart><script type="application/json">{"type":"bars","title":"Records by source","desc":"11 of 11 come from the short program description.","max":11,"items":[{"label":"Program description","value":11}]}</script><noscript><p class="ck-cap">Records by source. 11 of 11 come from the short program description.</p></noscript></div><figcaption class="ck-cap">Counted from the source tier of each record in data/taxonomy-expanded-v1.json. A program description gives the claim, rarely the test conditions.</figcaption></div></figure></section><div class="ck-doc"> 
+
 
 <p>This subject has 11 records in the selected sample. This page explains where it fits, then presents all captured paper evidence without shortening the measurements or limitations.</p>
 <p><a href="../guide/reading-guide-v1.html">Definitions used in the paper records</a></p>
-<p class="lm-k h-label">Understand the parent subject first</p><h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>The bigger theme this belongs to</h2>
+<p class="rs-k">Understand the parent subject first</p><div class="rs-sh"><h2 class="rs-h2">The bigger theme this belongs to</h2></div>
 <ul>
 <li><a href="../themes/power-reliability-and-security.html">Power reliability and security</a></li>
 </ul>
-<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>Security depends on interactions across the system</h2>
+<div class="rs-sh"><h2 class="rs-h2">Security depends on interactions across the system</h2></div>
 <p>A processor, memory manager, operating system, peripheral, and application can each behave according to its local rules while their interaction exposes protected information. System security therefore requires identifying how data and control pass between components and which observations are available to another party.</p>
 <p>The same observation can have different consequences in different deployments. A shared machine, an isolated device, and a device accessible to a physical observer provide different opportunities. The evaluation must describe the actual deployment assumptions before a claim can be interpreted.</p>
-<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>An information path needs several conditions</h2>
-<p>For an information leak to matter, protected activity must affect something observable, the observer must access that observation, and the observation must support a useful inference. Noise, unrelated activity, and changing software can affect each step.</p>
+<div class="rs-sh"><h2 class="rs-h2">An information path needs several conditions</h2></div>
+<p>For an information leak to matter, protected activity must affect something observable, the observer must access that observation, and the observation must support a useful inference<span class="ck-gloss"> (running a trained AI model to get answers)</span>. Noise, unrelated activity, and changing software can affect each step.</p>
 <p>An experiment should distinguish identifying the relationship from demonstrating the full inference. The number of measurements, the time needed, the observer's prior knowledge, and unsuccessful cases are part of practicality. A title describing an attack does not establish these conditions.</p>
-<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>Address translation can expose system behavior</h2>
-<p>Stone-Skimming's captured description concerns a page-table-walk side channel in analytics applications. Virtual-memory systems translate program-visible addresses into physical-memory locations. A page-table walk consults the translation data needed to resolve an address when that information is not already available in a faster structure. <a href="hardware-and-system-security.html#paper-dac-2026-research1793">Recorded evidence</a></p>
+<div class="rs-sh"><h2 class="rs-h2">Address translation can expose system behavior</h2></div>
+<p>Stone-Skimming's captured description concerns a page-table-walk side channel<span class="ck-gloss"> (a leak of secrets through power use, timing or other physical signs)</span> in analytics applications. Virtual-memory systems translate program-visible addresses into physical-memory locations. A page-table walk consults the translation data needed to resolve an address when that information is not already available in a faster structure. <a href="hardware-and-system-security.html#paper-dac-2026-research1793">Recorded evidence</a></p>
 <p>The research question is whether observable translation activity permits inference about protected application behavior. The record does not establish access requirements, leakage rate, observation time, operating-system configuration, or evaluated mitigations. Those gaps prevent interpreting the description as a generally available attack against analytics systems.</p>
 <p><span id="explanation-dac-2026-research1793"></span></p>
 <h3>Stone-Skimming: a page-table side channel is an inference path, not merely a slow memory access</h3>
 <h4>What address translation does</h4>
 <p>An application normally uses virtual addresses. The processor must translate each virtual address into a physical location before memory can be accessed.</p><p>A translation cache can hold recent mappings. When the needed mapping is absent, the processor consults page-table data through one or more memory references.</p><p>That extra work is a page-table walk.</p>
-<p>The walk is governed by the operating system's page tables, page size, permissions, process layout and memory state. It can affect latency, cache state, memory traffic, contention and other timing-visible behavior.</p><p>The important security question is whether those effects depend on a protected computation in a way that an observer can measure.</p>
+<p>The walk is governed by the operating system's page tables, page size, permissions, process layout and memory state. It can affect latency<span class="ck-gloss"> (the wait for one result)</span>, cache state, memory traffic, contention and other timing-visible behavior.</p><p>The important security question is whether those effects depend on a protected computation in a way that an observer can measure.</p>
 <h4>How an inference attack would have to work</h4>
 <p>The attack needs a chain of conditions. First, the protected workload must choose addresses or execution paths that produce distinguishable translation activity.</p><p>Second, the attacker must obtain an observation: for example, timing, contention or another architectural or microarchitectural signal. Third, the signal must be separated from noise caused by the attacker's own work, other tenants, interrupts, scheduling, garbage collection, input variation and unrelated system activity.</p><p>Fourth, the attacker must map the remaining signal to a useful property of the analytics application.</p>
 <p>Observing that two workloads produce different timing is weaker than recovering a secret or identifying a protected query. A complete result must define the target information, the attacker's prior knowledge, the number of measurements, the time per attempt, the success threshold and the rate of unsuccessful inferences.</p>
 <h4>Why big-data workloads need explicit evaluation</h4>
 <p>Analytics systems often execute long pipelines with changing data, parallel workers, task scheduling, joins, shuffles and repeated stages. These features can create both signal and noise.</p><p>A page-table pattern associated with one input or software version may not remain stable when partitions, memory pressure, worker placement or operating-system decisions change.</p>
-<p>The comparison must hold the protected workload, input, software, processor, memory size, co-location, scheduling policy and measurement procedure fixed while varying the protected condition of interest. It should then test unseen inputs, different workers, concurrent applications, process placement, page sizes, huge pages, address-space randomization and relevant mitigations.</p><p>Report leakage or classification accuracy, confidence, samples, wall-clock attack time, observation bandwidth, false positives, false negatives and attacker overhead.</p>
+<p>The comparison must hold the protected workload, input, software, processor, memory size, co-location, scheduling policy and measurement procedure fixed while varying the protected condition of interest. It should then test unseen inputs, different workers, concurrent applications, process placement, page sizes, huge pages, address-space randomization and relevant mitigations.</p><p>Report leakage or classification accuracy, confidence, samples, wall-clock attack time, observation bandwidth<span class="ck-gloss"> (how many bytes a link can move per second)</span>, false positives, false negatives and attacker overhead.</p>
 <p>The captured official description identifies a page-table-walk side-channel attack against big-data analytics applications. It does not state the observation interface, co-location requirement, operating system, processor, workload configuration, leakage rate, attack time or mitigation result.</p><p>The evidence supports a plausible translation-based information path and a research direction; it does not establish a generally practical attack or a security conclusion for all analytics systems.</p>
-<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>Physical measurements have their own access boundary</h2>
+<div class="rs-sh"><h2 class="rs-h2">Physical measurements have their own access boundary</h2></div>
 <p>The per-core electromagnetic-monitoring record concerns signals associated with multicore execution. A physical observation can depend on the device package, measurement position, surrounding noise, and concurrent activity. Distinguishing one core's activity from another is a different result from recovering a protected application value. <a href="hardware-and-system-security.html#paper-dac-2026-research213">Recorded evidence</a></p>
 <p>The captured description does not supply measurement distance, trace count, inference success, or protection results. A complete evaluation must identify the measured quantity and the observer's access. The record supports a research topic, while the practical security conclusion remains open.</p>
 <p><span id="explanation-dac-2026-research213"></span></p>
@@ -83,7 +76,7 @@
 <p>The protected computation must be repeated under controlled inputs and labels, while the attacker is prevented from learning the answer through an easier channel. Training and test traces must be separated by execution, input, key or device as appropriate.</p><p>Report the number of traces, preprocessing, classifier or statistical test, confidence intervals, false positives, false negatives, guessing success and time to reach the stated success level.</p>
 <p>The experiment should vary core placement, simultaneous activity, workload, input, secret, clock frequency, voltage, temperature, device and probe position. It should compare per-core monitoring with aggregate electromagnetic and power monitoring under the same conditions.</p><p>A defense must be tested against the same attack budget and must show whether it reduces leakage, lowers attribution quality, or only defeats one measurement setup.</p>
 <p>The captured official description identifies per-core electromagnetic side-channel monitoring of multicore architectures. It reports no probe distance, trace count, leakage rate, attack success, package conditions, attribution method or mitigation result.</p><p>The evidence supports a physical side-channel research direction; it does not establish remote observability, reliable per-core separation or secret recovery.</p>
-<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>Obscuring a protocol can affect its correct execution</h2>
+<div class="rs-sh"><h2 class="rs-h2">Obscuring a protocol can affect its correct execution</h2></div>
 <p>ODBP concerns hiding aspects of a biochemical protocol implemented in a continuous-flow microfluidic device. Such a protocol controls fluid movement and processing steps. Altering its implementation to obscure information may also change timing, reagent use, or the intended biochemical result. <a href="hardware-and-system-security.html#paper-dac-2026-research2107">Recorded evidence</a></p>
 <p>This case requires both a confidentiality evaluation and a functional evaluation. The current description leaves leakage, assay outcome, latency, reagent cost, and fabrication conditions unresolved.</p><p>A design that is harder to interpret is useful only if it also executes the required protocol adequately under the stated conditions.</p>
 <p><span id="explanation-dac-2026-research2107"></span></p>
@@ -98,7 +91,7 @@
 <p>Compare the original and obfuscated schedules on the same chip architecture, reagents, input conditions and fabrication assumptions. Measure protocol success rate, assay yield or output error, latency, reagent volume, energy or control overhead, channel occupancy, fault tolerance and repeatability.</p><p>Separately measure confidentiality with an explicit attack: classification or inference accuracy, mutual information or another defined leakage measure, the observations used, training and test protocols, sample count and attacker computation.</p>
 <p>The evaluation should include unseen protocols, varied flow rates, manufacturing variation, valve faults, contamination or incomplete flow where relevant, and an attacker who knows the obfuscation procedure. It should state whether the method hides the protocol itself, only hides a selected feature, or merely reduces the success of one tested classifier.</p>
 <p>The captured official description identifies protocol obfuscation for continuous-flow microfluidic biochips. It reports no leakage measure, attacker model, assay result, yield, latency, reagent cost, fabrication condition or fault/variation experiment.</p><p>The evidence supports a security-and-function co-design problem, not a demonstrated confidentiality guarantee or a validated biochemical improvement.</p>
-<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>Reconnaissance: tracking several secrets without treating every observation as a leak</h2>
+<div class="rs-sh"><h2 class="rs-h2">Reconnaissance: <i>tracking several secrets without treating every observation as a leak</i></h2></div>
 <p><span id="explanation-dac-2026-research2369"></span></p>
 <h3>Reconnaissance: reveal and conceal labels define what an information-flow analysis is allowed to expose</h3>
 <h4>What the analysis is trying to preserve</h4>
@@ -111,20 +104,20 @@
 <p>Define the label state, the transfer rule for each operation, the meaning of reveal and conceal, the allowed output interface, control-flow treatment, memory and concurrency model, and the treatment of declassification or intentional release. Then test direct flows, flows through arithmetic and comparisons, aliases, arrays, control predicates, exceptions, speculative or concurrent behavior where relevant, and interactions between multiple secrets.</p>
 <p>Compare with single-secret tracking and standard information-flow analysis using the same designs and policies. Report soundness and precision against a reference judgment, runtime, memory, number of tracked labels, scaling with secret count and analysis failures.</p><p>Case studies should state whether the result is a proof, a warning, or a tool-assisted check under a restricted model.</p>
 <p>The captured official description identifies a reveal/conceal paradigm for tracking multiple secrets. It reports no formal label semantics, soundness proof, precision study, runtime, scalability result or case study.</p><p>The evidence supports a policy-aware analysis direction; it does not establish that all forbidden multi-secret flows are detected or that all reported flows are meaningful.</p>
-<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>SRAM aging can preserve history without preserving the original bits directly</h2>
+<div class="rs-sh"><h2 class="rs-h2">SRAM aging can preserve history without preserving the original bits directly</h2></div>
 <p><span id="explanation-dac-2026-research3019"></span></p>
 <h3>Decoding the Past: an aging imprint is a physical inference problem, not ordinary memory remanence</h3>
 <h4>What an SRAM cell stores and what aging changes</h4>
-<p>An SRAM bit is held by a small feedback circuit that has two stable electrical states. Reading the cell normally reports which state the circuit currently occupies.</p><p>A prior data pattern can also affect long-term electrical stress if one side of the cell experiences different voltage, current or switching conditions for a substantial time. Device aging mechanisms may then change transistor strength, leakage or switching margin.</p>
+<p>An SRAM<span class="ck-gloss"> (small, fast memory built on the chip itself)</span> bit is held by a small feedback circuit that has two stable electrical states. Reading the cell normally reports which state the circuit currently occupies.</p><p>A prior data pattern can also affect long-term electrical stress if one side of the cell experiences different voltage, current or switching conditions for a substantial time. Device aging mechanisms may then change transistor strength, leakage or switching margin.</p>
 <p>An aging imprint is therefore different from simply reading charge left behind after power is removed. The proposed attack would infer earlier activity from a later change in how cells behave.</p><p>The cell does not necessarily retain the original bit as a readable bit. Instead, its later readout may contain a weak, noisy statistical relationship with the earlier pattern.</p>
 <p>The strength and direction of that relationship depend on the cell design, process variation, supply voltage, temperature, stress duration, duty cycle, refresh and intervening writes. An observed read bias can also come from manufacturing mismatch, retention effects, read disturb, supply noise or the measurement circuit.</p><p>Those alternative causes must be separated from the claimed historical imprint.</p>
 <h4>What data recovery would require</h4>
 <p>The attacker needs a way to access the SRAM and a readout that is sensitive to the claimed aging effect. The attacker may need to know the device before and after stress, control the stress pattern, wait a specified time, or calibrate each chip.</p><p>A recovery procedure then maps measurements to a prior data pattern using a model or classifier.</p>
-<p>Recovery accuracy must be defined against a baseline. Guessing a bit more often than chance is not the same as recovering a file, key or structured record.</p><p>Report bit error rate, confidence, block or message recovery rate, number of cells and reads, calibration data, time since the sensitive data was written, required prior knowledge and the probability of false recovery. Test data from new devices separately from training data and test whether the model transfers in a cross-device evaluation.</p>
+<p>Recovery accuracy must be defined against a baseline<span class="ck-gloss"> (the existing method a new result is compared against)</span>. Guessing a bit more often than chance is not the same as recovering a file, key or structured record.</p><p>Report bit error rate, confidence, block or message recovery rate, number of cells and reads, calibration data, time since the sensitive data was written, required prior knowledge and the probability of false recovery. Test data from new devices separately from training data and test whether the model transfers in a cross-device evaluation.</p>
 <h4>What can erase or weaken the imprint</h4>
 <p>The evaluation should vary stress time, temperature, voltage, write pattern, intervening writes, power cycles, idle time and read activity. It should test process and device variation, different SRAM blocks, memory controllers and the readout sensor.</p><p>Mitigations might overwrite memory, randomize placement, equalize stress, power-cycle, change voltage or limit access, but each must be tested for both residual information and functional cost.</p>
 <p>The captured official description identifies recovery of sensitive data from SRAM aging imprints. It reports no recovery accuracy, age or retention horizon, access requirement, sensor, process condition, calibration procedure or mitigation result.</p><p>The evidence supports a hardware-forensics hypothesis; it does not establish that sensitive data can be recovered from ordinary SRAM across devices or after a stated sanitization procedure.</p>
-<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>A touchscreen trajectory can leak through the sensing process</h2>
+<div class="rs-sh"><h2 class="rs-h2">A touchscreen trajectory can leak through the sensing process</h2></div>
 <p><span id="explanation-dac-2026-research315"></span></p>
 <h3>Touchscreen electromagnetic emanations: reconstructing a path requires more than detecting a touch</h3>
 <h4>How a capacitive touchscreen produces a measurable process</h4>
@@ -137,7 +130,7 @@
 <h4>What a complete comparison needs</h4>
 <p>Compare the electromagnetic method with direct touchscreen software logging under the same sessions, and with a noisy electromagnetic baseline that has no useful calibration. Test different users, writing speeds, screen orientations, cases, display states, phone models, probe positions, distances and background activity.</p><p>Evaluate whether a defense changes the field, reduces reconstruction quality or only defeats one probe and one trained model. Include the energy, latency, usability and display or touch-performance cost of any mitigation.</p>
 <p>The captured official description identifies electromagnetic side-channel recovery of smartphone touch trajectories. It reports no recovery accuracy, distance, equipment, user diversity, cross-device result or mitigation result.</p><p>The evidence supports a physical side-channel hypothesis; it does not establish remote trajectory recovery, general handwriting reconstruction or a demonstrated protection failure.</p>
-<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>A vehicle IDS must reason about messages in their system context</h2>
+<div class="rs-sh"><h2 class="rs-h2">A vehicle IDS must reason about messages in their system context</h2></div>
 <p><span id="explanation-dac-2026-research462"></span></p>
 <h3>SCIMI: collaborative intrusion detection needs semantic meaning, trustworthy exchange and vehicle-level validation</h3>
 <h4>What an in-vehicle intrusion detector observes</h4>
@@ -150,7 +143,7 @@
 <p>Evaluate local, signature-based and collaborative detectors on the same vehicle architecture, traffic traces, attack set and compute budget. Separate training from test drives, vehicles, attack instances and operating modes.</p><p>Report detection rate by attack type, false-positive rate, alert latency, missed attacks, bandwidth, memory and processor cost, detection under node failure or compromise, and the effect on control or safety functions.</p>
 <p>Test benign mode changes, rare but valid traffic, timing jitter, loss and reordering, gateway behavior, unknown attacks, replay, forged semantic context, compromised detectors and partitioned domains. Measure whether collaboration improves system-level detection rather than only an isolated classifier score.</p><p>If the detector triggers a safety response, validate that response and its worst-case delay on the vehicle platform.</p>
 <p>The captured official description identifies a semantic-aware collaborative intrusion-detection system for multi-domain in-vehicle networks. It reports no detection rate, false positives, latency, bandwidth, compromised-node test, attack set or vehicle result.</p><p>The evidence supports a context-aware distributed detection direction; it does not establish safe deployment, improved system-level detection or resistance to attacks on the collaboration mechanism.</p>
-<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="checklist"></span>Attestation can establish an artifact identity without proving its whole execution</h2>
+<div class="rs-sh"><h2 class="rs-h2">Attestation can establish an artifact identity without proving its whole execution</h2></div>
 <p><span id="explanation-dac-2026-research625"></span></p>
 <h3>AttestLLM: efficient model attestation must connect a trusted measurement to runtime behavior</h3>
 <h4>What attestation is meant to establish</h4>
@@ -158,19 +151,19 @@
 <p>The evidence normally includes a cryptographic measurement, such as a digest of an artifact, plus a signed statement from a hardware-protected key. The verifier must know which component was measured, when it was measured, what version and configuration are allowed, and which device key is trusted.</p><p>A digest can show that measured bytes match an approved value; it does not by itself say that the correct bytes were loaded into every execution path or that the device is free of later changes.</p>
 <h4>Why billion-scale models change the engineering problem</h4>
 <p>Hashing a complete model can require reading a large amount of memory and can add latency, bandwidth and energy cost. An efficient framework may measure chunks, a tree of hashes, metadata, selected layers or a compact commitment.</p><p>Each shortcut changes the security claim. If only metadata is measured, altered weights may be missed.</p><p>If only selected regions are measured, the attacker may target an unchecked region. If a tree is used, the verifier must know how leaves map to model storage and how updates invalidate old proofs.</p>
-<p>The measurement must also cover provenance and lifecycle: model version, tokenizer, preprocessing, quantization, adapters, compiler, runtime, libraries, configuration, update authorization, rollback protection and secure boot chain. Measuring a file without binding it to the code and configuration that execute it leaves an integrity gap.</p>
+<p>The measurement must also cover provenance and lifecycle: model version, tokenizer, preprocessing, quantization<span class="ck-gloss"> (storing numbers with fewer bits)</span>, adapters, compiler, runtime, libraries, configuration, update authorization, rollback protection and secure boot chain. Measuring a file without binding it to the code and configuration that execute it leaves an integrity gap.</p>
 <h4>What model integrity does not prove</h4>
-<p>A valid attestation can show that a designated image or model is present under a stated measurement procedure. It does not prove that prompts are private, that outputs are correct, that the runtime has no memory-safety flaw, that an accelerator executes every operation faithfully, or that a compromised operating system cannot observe or alter inputs and outputs.</p><p>It also does not establish that an approved model is safe or that its behavior meets a task-specific policy.</p>
+<p>A valid attestation can show that a designated image or model is present under a stated measurement procedure. It does not prove that prompts are private, that outputs are correct, that the runtime has no memory-safety flaw, that an accelerator<span class="ck-gloss"> (a chip or block built to do one kind of work fast)</span> executes every operation faithfully, or that a compromised operating system cannot observe or alter inputs and outputs.</p><p>It also does not establish that an approved model is safe or that its behavior meets a task-specific policy.</p>
 <p>The verifier therefore needs a threat model: which device components are trusted, whether the hardware root of trust is genuine, whether keys can be cloned, whether the network is authenticated, whether freshness prevents replay, and what happens when an update is revoked or a device is offline. The protocol must define nonce or freshness handling and the action taken when evidence is missing or invalid.</p>
 <h4>What a complete evaluation should measure</h4>
-<p>Compare full-model hashing, the proposed method and unattested deployment on the same device and model. Report attestation latency, memory traffic, energy, verifier time, proof size, startup delay, inference throughput, update cost, rollback handling and failure recovery.</p><p>Test altered weights, code, runtime, adapters, tokenizer, configuration, storage, boot state and accelerator paths. Measure whether the evidence detects each change and whether an attacker can produce a valid statement for an unauthorized state.</p>
-<p>The captured official description identifies an efficient attestation framework for billion-scale on-device LLMs. It reports no security proof, attestation latency, memory, energy, update, freshness, tamper-detection or device result.</p><p>The evidence supports an integrity-and-provenance protocol direction; it does not establish runtime behavior integrity, end-to-end model trust or deployment readiness.</p>
-<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>An emulator detector relies on a difference in instruction behavior</h2>
+<p>Compare full-model hashing, the proposed method and unattested deployment on the same device and model. Report attestation latency, memory traffic, energy, verifier time, proof size, startup delay, inference throughput<span class="ck-gloss"> (how much work is finished per second)</span>, update cost, rollback handling and failure recovery.</p><p>Test altered weights, code, runtime, adapters, tokenizer, configuration, storage, boot state and accelerator paths. Measure whether the evidence detects each change and whether an attacker can produce a valid statement for an unauthorized state.</p>
+<p>The captured official description identifies an efficient attestation framework for billion-scale on-device LLMs<span class="ck-gloss"> (large language model: an AI model that reads and writes text)</span>. It reports no security proof, attestation latency, memory, energy, update, freshness, tamper-detection or device result.</p><p>The evidence supports an integrity-and-provenance protocol direction; it does not establish runtime behavior integrity, end-to-end model trust or deployment readiness.</p>
+<div class="rs-sh"><h2 class="rs-h2">An emulator detector relies on a difference in instruction behavior</h2></div>
 <p><span id="explanation-dac-2026-research663"></span></p>
 <h3>Emudrop: reserved-opcode detection is a compatibility test with a narrow evidence boundary</h3>
 <h4>What a reserved opcode is testing</h4>
 <p>An instruction encoding is a bit pattern that a processor or emulator interprets as an operation. Some encodings are reserved or invalid for a stated processor mode.</p><p>A real processor may raise an illegal-instruction exception, while an emulator, dynamic translator or hypervisor may handle the same bytes through a different path. A program can deliberately execute the encoding, catch the resulting exception or observe the result, and classify the environment from that behavior.</p>
-<p>This is a hardware-behavior fingerprint. It does not directly prove that an environment is virtualized.</p><p>The observed result can depend on the CPU generation, execution mode, operating system, exception delivery, signal handler, hypervisor policy, binary translation, sandbox restrictions and whether the instruction is intercepted or rewritten before execution.</p>
+<p>This is a hardware-behavior fingerprint. It does not directly prove that an environment is virtualized.</p><p>The observed result can depend on the CPU<span class="ck-gloss"> (the general-purpose processor that runs ordinary programs)</span> generation, execution mode, operating system, exception delivery, signal handler, hypervisor policy, binary translation, sandbox restrictions and whether the instruction is intercepted or rewritten before execution.</p>
 <h4>What the detector can and cannot establish</h4>
 <p>The detector can establish that the observed environment did not behave like the reference behavior under the chosen test. It may distinguish a particular emulator or hypervisor implementation from a particular class of Intel processors.</p><p>It does not automatically identify all emulators, and native behavior that differs from the reference can produce a false positive.</p>
 <p>An emulator author can implement the expected exception behavior, intercept the test, patch the instruction, or alter the visible exception state. A malware-analysis system can also recognize the detector and neutralize it.</p><p>The resulting contest is about the tested behavior and attacker budget, not a permanent property of hardware and software.</p>
@@ -178,7 +171,7 @@
 <p>Run the exact test across Intel CPU generations, operating systems, privilege levels, exception mechanisms, bare metal, hypervisors, full-system emulators, user-mode emulators, sandboxes and binary translators. Record the exception type, signal or fault delivery, register and memory state, timing and any required permissions.</p><p>Test benign native machines and emulated machines not used to design the rule.</p>
 <p>Compare reserved-opcode detection with software emulator checks and CPUID-based checks under the same conditions. Report detection rate by environment, false positives, false negatives, portability, execution overhead, crash or recovery behavior, required privilege and the effect of a defender that emulates the expected response.</p><p>A result useful for malware evasion analysis should also state whether the method survives common instruction rewriting, sandbox policy and detector-aware emulation.</p>
 <p>The captured official description identifies a minimal hardware-based emulator-detection technique using Intel reserved opcodes. It reports no detection rate, false positives, CPU or emulator coverage, privilege requirement, timing, evasion test or mitigation result.</p><p>The evidence supports a compatibility-fingerprint direction; it does not establish portable detection of emulation or a general malware-evasion capability.</p>
-<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>A TLB signal can weaken address randomization only if it yields a usable address fact</h2>
+<div class="rs-sh"><h2 class="rs-h2">A TLB signal can weaken address randomization only if it yields a usable address fact</h2></div>
 <p><span id="explanation-dac-2026-research681"></span></p>
 <h3>Mistletunnel: a TLB side channel turns translation activity into a KASLR question</h3>
 <h4>What KASLR is protecting</h4>
@@ -191,7 +184,7 @@
 <p>TLB levels, invalidation rules, page sizes, exception behavior, scheduling, privilege checks and operating-system mappings differ across processors and OS versions. Apple M-series parts may share broad architectural ideas with other systems while implementing translation state and timing differently.</p><p>A result on one chip and kernel build cannot be generalized to all Apple silicon or all KASLR deployments without cross-platform tests.</p>
 <p>Compare with cache side channels and existing KASLR attacks using the same victim, access, noise, time and success criteria. Test different M-series generations, OS versions, page sizes, core placement, concurrent workloads, process permissions, mitigations and repeated randomized layouts.</p><p>Report address-recovery rate, confidence, time, samples, noise tolerance, required privilege, false positives, false negatives and whether mitigations remove the signal or only lower it.</p>
 <p>The captured official description identifies a novel TLB side-channel attack against KASLR on Apple M-series systems. It reports no address-recovery rate, time, noise tolerance, privilege, cross-platform coverage or mitigation result.</p><p>The evidence supports a platform-specific translation-leakage direction; it does not establish general KASLR defeat or a usable exploit chain.</p>
-<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>A secure snapshot must preserve the whole trusted execution state</h2>
+<div class="rs-sh"><h2 class="rs-h2">A secure snapshot must preserve the whole trusted execution state</h2></div>
 <p><span id="explanation-dac-2026-research876"></span></p>
 <h3>Tdsnap: fast restoration is useful only when the snapshot keeps isolation, integrity and freshness</h3>
 <h4>What state a FaaS snapshot represents</h4>
@@ -205,21 +198,21 @@
 <p>Compare process isolation, standard virtual-machine snapshots and the trusted-domain method with the same functions, state sizes, cold-start targets, storage and network conditions. Measure snapshot and restore latency, memory and storage overhead, bandwidth, energy, throughput, tail latency, concurrent tenants, failure recovery and cost.</p><p>Test a malicious host, storage replacement, replay, rollback, interrupted copy, stale key, compromised co-tenant and failed trust-domain entry.</p>
 <p>The evaluation should prove that a restored function cannot read another tenant's state, that unauthorized modification is detected, that freshness rules prevent unsafe replay, and that external side effects remain correct. It should report whether the method protects only memory contents or also code, runtime, I/O, device state and secrets.</p>
 <p>The captured official description identifies a trusted-domain snapshot mechanism for secure FaaS. It reports no isolation proof, snapshot latency, memory overhead, rollback handling, metadata leakage, threat-model detail or workload result.</p><p>The evidence supports a secure state-migration direction; it does not establish confidential, rollback-safe or production-efficient FaaS snapshots.</p>
-<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>Comparing attacks and protections</h2>
+<div class="rs-sh"><h2 class="rs-h2">Comparing attacks and protections</h2></div>
 <p>Use a defined attacker model, protected behavior, and success criterion. Report how much control and observation the experiment permits. Evaluate the unprotected and protected systems under comparable conditions and include resource overhead and effects on correct operation.</p>
 <p>For defenses, examine whether protection removes the information path or merely weakens the tested procedure. For attacks, report the conditions under which inference fails. These details allow the result to inform design decisions without implying security or insecurity beyond the demonstrated case.</p>
 <p>The selected papers address different interfaces and access assumptions. Their connection is the need to examine whole-system information paths. Their individual success measures should not be combined into a common security ranking.</p>
-<p class="lm-k h-label">Compare the results carefully</p><h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="route"></span>How to compare these papers’ results fairly</h2>
+<p class="rs-k">Compare the results carefully</p><div class="rs-sh"><h2 class="rs-h2">How to compare these papers’ results fairly</h2></div>
 <p>First identify the inputs and required output quality. Then identify the limited resource: time, memory, communication, energy, circuit area, or correctness coverage.</p><p>Ask which part of the method reduces that cost and which new cost it adds. Compare numbers only when the experiments hold these conditions sufficiently similar.</p>
 <p>A conference description may explain the proposal while omitting the full experiment. An author preprint link may have been coded from its abstract. The source classification does not by itself establish that every table was read. Missing locations remain visible below.</p>
-<p class="lm-k h-label">Complete captured evidence</p><h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="file-text"></span>Every paper in this subtheme, with what its source shows</h2>
+<p class="rs-k">Complete captured evidence</p><div class="rs-sh"><h2 class="rs-h2">Every paper in this subtheme, <i>with what its source shows</i></h2></div>
 <p>These are evidence records, not substitutes for the explanations above. Each record preserves its problem, proposed method, measurements, comparison conditions, and source limits. A populated record does not establish that its mechanism has been fully explained or independently verified.</p>
 <p><span id="paper-dac-2026-research1793"></span></p>
 <h3>Stone-Skimming: Attacking Big-Data Analytics Applications with Page Table Walk</h3>
 <p>DAC 2026 · Record: <code>dac-2026-research1793</code></p>
 <p><a href="#explanation-dac-2026-research1793">Read the step-by-step explanation</a></p>
 <p><strong>Updated source-backed reading card</strong></p>
-<div class="worked"><p class="lm-k">Worked example</p><p>Reviewed 2026-09-08. Deepens the existing Stone-Skimming treatment into a paper-level reading; defines the translation path, separates an observable timing relationship from useful secret inference, and makes threat-model, workload-variation and mitigation measurements explicit.</p></div>
+<p>Reviewed 2026-09-08. Deepens the existing Stone-Skimming treatment into a paper-level reading; defines the translation path, separates an observable timing relationship from useful secret inference, and makes threat-model, workload-variation and mitigation measurements explicit.</p>
 <p>This editorial correction updates the current reading view and connected dossiers, not the historical adjudication or scientific acceptance status. The original captured fields are preserved below.</p>
 <p><a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/data/editorial-paper-corrections-v1.json">Correction register</a></p>
 <p><strong>Problem:</strong></p>
@@ -244,7 +237,7 @@
 <p>Evidence tier: Primary captured official DAC description plus existing chapter level stone skimming discussion; no full paper extraction, controlled threat model validation or mitigation experiment. This is the stored source classification; the location and limits below determine what was actually read.</p>
 <p><a href="https://63dac.conference-program.com/?post_type=page&amp;p=16&amp;id=RESEARCH1793">Open the recorded source</a></p>
 <p>DAC 2026 official description; captured Problem, Mechanism / artifact, Workload, Hardware, Baseline, Measurements and Limits fields; record RESEARCH1793; no manuscript pages.</p>
-<details markdown="1">
+<details class="ck-fold" markdown="1">
 <summary>Original captured fields — superseded for this reading card</summary>
 
 ** page source tier:** medium_official_description
@@ -279,7 +272,7 @@ Official description only; controlled threat-model validation is required.
 <p>DAC 2026 · Record: <code>dac-2026-research2107</code></p>
 <p><a href="#explanation-dac-2026-research2107">Read the step-by-step explanation</a></p>
 <p><strong>Updated source-backed reading card</strong></p>
-<div class="worked"><p class="lm-k">Worked example</p><p>Reviewed 2026-09-08. Deepens the existing ODBP treatment into a paper-level reading; defines a fluidic protocol as an ordered physical process, separates observer confusion from assay correctness, and specifies confidentiality, biochemical, overhead and variation measurements.</p></div>
+<p>Reviewed 2026-09-08. Deepens the existing ODBP treatment into a paper-level reading; defines a fluidic protocol as an ordered physical process, separates observer confusion from assay correctness, and specifies confidentiality, biochemical, overhead and variation measurements.</p>
 <p>This editorial correction updates the current reading view and connected dossiers, not the historical adjudication or scientific acceptance status. The original captured fields are preserved below.</p>
 <p><a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/data/editorial-paper-corrections-v1.json">Correction register</a></p>
 <p><strong>Problem:</strong></p>
@@ -304,7 +297,7 @@ Official description only; controlled threat-model validation is required.
 <p>Evidence tier: Primary captured official DAC description plus existing chapter level odbp discussion; no full paper extraction, biochemical validation or controlled threat model experiment. This is the stored source classification; the location and limits below determine what was actually read.</p>
 <p><a href="https://63dac.conference-program.com/?post_type=page&amp;p=16&amp;id=RESEARCH2107">Open the recorded source</a></p>
 <p>DAC 2026 official description; captured Problem, Mechanism / artifact, Workload, Hardware, Baseline, Measurements and Limits fields; record RESEARCH2107; no manuscript pages.</p>
-<details markdown="1">
+<details class="ck-fold" markdown="1">
 <summary>Original captured fields — superseded for this reading card</summary>
 
 ** page source tier:** medium_official_description
@@ -339,7 +332,7 @@ Official description only; biochemical and threat-model validation is required.
 <p>DAC 2026 · Record: <code>dac-2026-research213</code></p>
 <p><a href="#explanation-dac-2026-research213">Read the step-by-step explanation</a></p>
 <p><strong>Updated source-backed reading card</strong></p>
-<div class="worked"><p class="lm-k">Worked example</p><p>Reviewed 2026-09-08. Deepens the existing per-core electromagnetic-leakage treatment into a paper-level reading; separates physical signal detection, source attribution and secret recovery, and makes probe access, trace, device, noise and mitigation conditions explicit.</p></div>
+<p>Reviewed 2026-09-08. Deepens the existing per-core electromagnetic-leakage treatment into a paper-level reading; separates physical signal detection, source attribution and secret recovery, and makes probe access, trace, device, noise and mitigation conditions explicit.</p>
 <p>This editorial correction updates the current reading view and connected dossiers, not the historical adjudication or scientific acceptance status. The original captured fields are preserved below.</p>
 <p><a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/data/editorial-paper-corrections-v1.json">Correction register</a></p>
 <p><strong>Problem:</strong></p>
@@ -364,7 +357,7 @@ Official description only; biochemical and threat-model validation is required.
 <p>Evidence tier: Primary captured official DAC description plus existing chapter level electromagnetic monitoring discussion; no full paper extraction, controlled hardware measurement or mitigation validation. This is the stored source classification; the location and limits below determine what was actually read.</p>
 <p><a href="https://63dac.conference-program.com/?post_type=page&amp;p=16&amp;id=RESEARCH213">Open the recorded source</a></p>
 <p>DAC 2026 official description; captured Problem, Mechanism / artifact, Workload, Hardware, Baseline, Measurements and Limits fields; record RESEARCH213; no manuscript pages.</p>
-<details markdown="1">
+<details class="ck-fold" markdown="1">
 <summary>Original captured fields — superseded for this reading card</summary>
 
 ** page source tier:** medium_official_description
@@ -399,7 +392,7 @@ Official description only; controlled hardware validation is required.
 <p>DAC 2026 · Record: <code>dac-2026-research2369</code></p>
 <p><a href="#explanation-dac-2026-research2369">Read the step-by-step explanation</a></p>
 <p><strong>Updated source-backed reading card</strong></p>
-<div class="worked"><p class="lm-k">Worked example</p><p>Reviewed 2026-09-08. Deepens the existing Reconnaissance treatment into a paper-level reading; defines multi-secret information-flow tracking, separates permitted reveal from protected concealment, and makes soundness, precision, semantics and scalability requirements explicit.</p></div>
+<p>Reviewed 2026-09-08. Deepens the existing Reconnaissance treatment into a paper-level reading; defines multi-secret information-flow tracking, separates permitted reveal from protected concealment, and makes soundness, precision, semantics and scalability requirements explicit.</p>
 <p>This editorial correction updates the current reading view and connected dossiers, not the historical adjudication or scientific acceptance status. The original captured fields are preserved below.</p>
 <p><a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/data/editorial-paper-corrections-v1.json">Correction register</a></p>
 <p><strong>Problem:</strong></p>
@@ -424,7 +417,7 @@ Official description only; controlled hardware validation is required.
 <p>Evidence tier: Primary captured official DAC description plus existing chapter level reveal/conceal discussion; no full paper extraction, formal proof or implementation validation. This is the stored source classification; the location and limits below determine what was actually read.</p>
 <p><a href="https://63dac.conference-program.com/?post_type=page&amp;p=16&amp;id=RESEARCH2369">Open the recorded source</a></p>
 <p>DAC 2026 official description; captured Problem, Mechanism / artifact, Workload, Hardware, Baseline, Measurements and Limits fields; record RESEARCH2369; no manuscript pages.</p>
-<details markdown="1">
+<details class="ck-fold" markdown="1">
 <summary>Original captured fields — superseded for this reading card</summary>
 
 ** page source tier:** medium_official_description
@@ -459,7 +452,7 @@ Official description only; formal and implementation validation is required.
 <p>DAC 2026 · Record: <code>dac-2026-research3019</code></p>
 <p><a href="#explanation-dac-2026-research3019">Read the step-by-step explanation</a></p>
 <p><strong>Updated source-backed reading card</strong></p>
-<div class="worked"><p class="lm-k">Worked example</p><p>Reviewed 2026-09-08. Deepens the existing SRAM-aging treatment into a paper-level reading; separates residual charge from history-dependent aging, defines the readout and inference chain, and makes device variation, retention horizon, recovery metrics and sanitization tests explicit.</p></div>
+<p>Reviewed 2026-09-08. Deepens the existing SRAM-aging treatment into a paper-level reading; separates residual charge from history-dependent aging, defines the readout and inference chain, and makes device variation, retention horizon, recovery metrics and sanitization tests explicit.</p>
 <p>This editorial correction updates the current reading view and connected dossiers, not the historical adjudication or scientific acceptance status. The original captured fields are preserved below.</p>
 <p><a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/data/editorial-paper-corrections-v1.json">Correction register</a></p>
 <p><strong>Problem:</strong></p>
@@ -484,7 +477,7 @@ Official description only; formal and implementation validation is required.
 <p>Evidence tier: Primary captured official DAC description plus existing chapter level sram aging discussion; no full paper extraction, controlled hardware forensics experiment or mitigation validation. This is the stored source classification; the location and limits below determine what was actually read.</p>
 <p><a href="https://63dac.conference-program.com/?post_type=page&amp;p=16&amp;id=RESEARCH3019">Open the recorded source</a></p>
 <p>DAC 2026 official description; captured Problem, Mechanism / artifact, Workload, Hardware, Baseline, Measurements and Limits fields; record RESEARCH3019; no manuscript pages.</p>
-<details markdown="1">
+<details class="ck-fold" markdown="1">
 <summary>Original captured fields — superseded for this reading card</summary>
 
 ** page source tier:** medium_official_description
@@ -519,7 +512,7 @@ Official description only; hardware and threat-model validation is required.
 <p>DAC 2026 · Record: <code>dac-2026-research315</code></p>
 <p><a href="#explanation-dac-2026-research315">Read the step-by-step explanation</a></p>
 <p><strong>Updated source-backed reading card</strong></p>
-<div class="worked"><p class="lm-k">Worked example</p><p>Reviewed 2026-09-08. Deepens the existing touchscreen-emanation treatment into a paper-level reading; defines capacitive scanning and the signal-to-trajectory inference chain, and makes physical access, user/device generalization and reconstruction metrics explicit.</p></div>
+<p>Reviewed 2026-09-08. Deepens the existing touchscreen-emanation treatment into a paper-level reading; defines capacitive scanning and the signal-to-trajectory inference chain, and makes physical access, user/device generalization and reconstruction metrics explicit.</p>
 <p>This editorial correction updates the current reading view and connected dossiers, not the historical adjudication or scientific acceptance status. The original captured fields are preserved below.</p>
 <p><a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/data/editorial-paper-corrections-v1.json">Correction register</a></p>
 <p><strong>Problem:</strong></p>
@@ -544,7 +537,7 @@ Official description only; hardware and threat-model validation is required.
 <p>Evidence tier: Primary captured official DAC description plus existing chapter level touchscreen emanation discussion; no full paper extraction, controlled hardware validation or mitigation experiment. This is the stored source classification; the location and limits below determine what was actually read.</p>
 <p><a href="https://63dac.conference-program.com/?post_type=page&amp;p=16&amp;id=RESEARCH315">Open the recorded source</a></p>
 <p>DAC 2026 official description; captured Problem, Mechanism / artifact, Workload, Hardware, Baseline, Measurements and Limits fields; record RESEARCH315; no manuscript pages.</p>
-<details markdown="1">
+<details class="ck-fold" markdown="1">
 <summary>Original captured fields — superseded for this reading card</summary>
 
 ** page source tier:** medium_official_description
@@ -579,7 +572,7 @@ Official description only; controlled hardware validation is required.
 <p>DAC 2026 · Record: <code>dac-2026-research462</code></p>
 <p><a href="#explanation-dac-2026-research462">Read the step-by-step explanation</a></p>
 <p><strong>Updated source-backed reading card</strong></p>
-<div class="worked"><p class="lm-k">Worked example</p><p>Reviewed 2026-09-08. Deepens the existing SCIMI treatment into a paper-level reading; defines semantic vehicle context, separates local detection from collaborative evidence exchange, and makes communication attack surface, safety, latency and vehicle validation explicit.</p></div>
+<p>Reviewed 2026-09-08. Deepens the existing SCIMI treatment into a paper-level reading; defines semantic vehicle context, separates local detection from collaborative evidence exchange, and makes communication attack surface, safety, latency and vehicle validation explicit.</p>
 <p>This editorial correction updates the current reading view and connected dossiers, not the historical adjudication or scientific acceptance status. The original captured fields are preserved below.</p>
 <p><a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/data/editorial-paper-corrections-v1.json">Correction register</a></p>
 <p><strong>Problem:</strong></p>
@@ -604,7 +597,7 @@ Official description only; controlled hardware validation is required.
 <p>Evidence tier: Primary captured official DAC description plus existing chapter level collaborative ids discussion; no full paper extraction, threat model validation or vehicle experiment. This is the stored source classification; the location and limits below determine what was actually read.</p>
 <p><a href="https://63dac.conference-program.com/?post_type=page&amp;p=16&amp;id=RESEARCH462">Open the recorded source</a></p>
 <p>DAC 2026 official description; captured Problem, Mechanism / artifact, Workload, Hardware, Baseline, Measurements and Limits fields; record RESEARCH462; no manuscript pages.</p>
-<details markdown="1">
+<details class="ck-fold" markdown="1">
 <summary>Original captured fields — superseded for this reading card</summary>
 
 ** page source tier:** medium_official_description
@@ -639,7 +632,7 @@ Official description only; threat-model and vehicle validation is required.
 <p>DAC 2026 · Record: <code>dac-2026-research625</code></p>
 <p><a href="#explanation-dac-2026-research625">Read the step-by-step explanation</a></p>
 <p><strong>Updated source-backed reading card</strong></p>
-<div class="worked"><p class="lm-k">Worked example</p><p>Reviewed 2026-09-08. Deepens the existing AttestLLM treatment into a paper-level reading; defines trusted measurement and evidence binding, separates model artifact integrity from runtime behavior integrity, and makes model-scale, update, freshness and tamper-validation requirements explicit.</p></div>
+<p>Reviewed 2026-09-08. Deepens the existing AttestLLM treatment into a paper-level reading; defines trusted measurement and evidence binding, separates model artifact integrity from runtime behavior integrity, and makes model-scale, update, freshness and tamper-validation requirements explicit.</p>
 <p>This editorial correction updates the current reading view and connected dossiers, not the historical adjudication or scientific acceptance status. The original captured fields are preserved below.</p>
 <p><a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/data/editorial-paper-corrections-v1.json">Correction register</a></p>
 <p><strong>Problem:</strong></p>
@@ -649,7 +642,7 @@ Official description only; threat-model and vehicle validation is required.
 <p><strong>Workload — the work tested:</strong></p>
 <p>Billion-scale LLM models on edge devices; model formats, quantization, adapters, tokenizer, runtime, accelerator, update flow and inference workload are unspecified.</p>
 <p><strong>Hardware and manufacturing assumptions:</strong></p>
-<p>Secure embedded device with model storage and attestation; root of trust, secure boot, TEE, keys, storage, accelerator, network and offline behavior are unspecified.</p>
+<p>Secure embedded device with model storage and attestation; root of trust, secure boot, TEE<span class="ck-gloss"> (trusted execution environment: a walled-off area that even the owner cannot read)</span>, keys, storage, accelerator, network and offline behavior are unspecified.</p>
 <p><strong>Baseline — the comparison method:</strong></p>
 <p>Full-model hashing</p>
 <p>Unattested deployment</p>
@@ -664,7 +657,7 @@ Official description only; threat-model and vehicle validation is required.
 <p>Evidence tier: Primary captured official DAC description plus existing chapter level on device model attestation discussion; no full paper extraction, security proof or device validation. This is the stored source classification; the location and limits below determine what was actually read.</p>
 <p><a href="https://63dac.conference-program.com/?post_type=page&amp;p=16&amp;id=RESEARCH625">Open the recorded source</a></p>
 <p>DAC 2026 official description; captured Problem, Mechanism / artifact, Workload, Hardware, Baseline, Measurements and Limits fields; record RESEARCH625; no manuscript pages.</p>
-<details markdown="1">
+<details class="ck-fold" markdown="1">
 <summary>Original captured fields — superseded for this reading card</summary>
 
 ** page source tier:** medium_official_description
@@ -699,7 +692,7 @@ Official description only; threat-model and device validation is required.
 <p>DAC 2026 · Record: <code>dac-2026-research663</code></p>
 <p><a href="#explanation-dac-2026-research663">Read the step-by-step explanation</a></p>
 <p><strong>Updated source-backed reading card</strong></p>
-<div class="worked"><p class="lm-k">Worked example</p><p>Reviewed 2026-09-08. Deepens the existing Emudrop treatment into a paper-level reading; defines reserved-opcode behavior as an environment fingerprint, separates mismatch detection from universal emulation detection, and makes CPU, OS, privilege, hypervisor, evasion and false-positive conditions explicit.</p></div>
+<p>Reviewed 2026-09-08. Deepens the existing Emudrop treatment into a paper-level reading; defines reserved-opcode behavior as an environment fingerprint, separates mismatch detection from universal emulation detection, and makes CPU, OS, privilege, hypervisor, evasion and false-positive conditions explicit.</p>
 <p>This editorial correction updates the current reading view and connected dossiers, not the historical adjudication or scientific acceptance status. The original captured fields are preserved below.</p>
 <p><a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/data/editorial-paper-corrections-v1.json">Correction register</a></p>
 <p><strong>Problem:</strong></p>
@@ -724,7 +717,7 @@ Official description only; threat-model and device validation is required.
 <p>Evidence tier: Primary captured official DAC description plus existing chapter level reserved opcode discussion; no full paper extraction, cross platform validation or detector aware evasion experiment. This is the stored source classification; the location and limits below determine what was actually read.</p>
 <p><a href="https://63dac.conference-program.com/?post_type=page&amp;p=16&amp;id=RESEARCH663">Open the recorded source</a></p>
 <p>DAC 2026 official description; captured Problem, Mechanism / artifact, Workload, Hardware, Baseline, Measurements and Limits fields; record RESEARCH663; no manuscript pages.</p>
-<details markdown="1">
+<details class="ck-fold" markdown="1">
 <summary>Original captured fields — superseded for this reading card</summary>
 
 ** page source tier:** medium_official_description
@@ -759,7 +752,7 @@ Official description only; cross-platform validation is required.
 <p>DAC 2026 · Record: <code>dac-2026-research681</code></p>
 <p><a href="#explanation-dac-2026-research681">Read the step-by-step explanation</a></p>
 <p><strong>Updated source-backed reading card</strong></p>
-<div class="worked"><p class="lm-k">Worked example</p><p>Reviewed 2026-09-08. Deepens the existing Mistletunnel treatment into a paper-level reading; defines KASLR and TLB translation leakage, separates a timing correlation from kernel-address recovery, and makes Apple silicon, OS, privilege, noise and mitigation boundaries explicit.</p></div>
+<p>Reviewed 2026-09-08. Deepens the existing Mistletunnel treatment into a paper-level reading; defines KASLR and TLB translation leakage, separates a timing correlation from kernel-address recovery, and makes Apple silicon, OS, privilege, noise and mitigation boundaries explicit.</p>
 <p>This editorial correction updates the current reading view and connected dossiers, not the historical adjudication or scientific acceptance status. The original captured fields are preserved below.</p>
 <p><a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/data/editorial-paper-corrections-v1.json">Correction register</a></p>
 <p><strong>Problem:</strong></p>
@@ -784,7 +777,7 @@ Official description only; cross-platform validation is required.
 <p>Evidence tier: Primary captured official DAC description plus existing chapter level tlb/kaslr discussion; no full paper extraction, controlled hardware validation or mitigation experiment. This is the stored source classification; the location and limits below determine what was actually read.</p>
 <p><a href="https://63dac.conference-program.com/?post_type=page&amp;p=16&amp;id=RESEARCH681">Open the recorded source</a></p>
 <p>DAC 2026 official description; captured Problem, Mechanism / artifact, Workload, Hardware, Baseline, Measurements and Limits fields; record RESEARCH681; no manuscript pages.</p>
-<details markdown="1">
+<details class="ck-fold" markdown="1">
 <summary>Original captured fields — superseded for this reading card</summary>
 
 ** page source tier:** medium_official_description
@@ -819,7 +812,7 @@ Official description only; controlled hardware validation is required.
 <p>DAC 2026 · Record: <code>dac-2026-research876</code></p>
 <p><a href="#explanation-dac-2026-research876">Read the step-by-step explanation</a></p>
 <p><strong>Updated source-backed reading card</strong></p>
-<div class="worked"><p class="lm-k">Worked example</p><p>Reviewed 2026-09-08. Deepens the existing Tdsnap treatment into a paper-level reading; defines trusted FaaS snapshot state, separates confidentiality/integrity from freshness and external side effects, and makes isolation proof, metadata leakage, rollback and efficiency requirements explicit.</p></div>
+<p>Reviewed 2026-09-08. Deepens the existing Tdsnap treatment into a paper-level reading; defines trusted FaaS snapshot state, separates confidentiality/integrity from freshness and external side effects, and makes isolation proof, metadata leakage, rollback and efficiency requirements explicit.</p>
 <p>This editorial correction updates the current reading view and connected dossiers, not the historical adjudication or scientific acceptance status. The original captured fields are preserved below.</p>
 <p><a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/data/editorial-paper-corrections-v1.json">Correction register</a></p>
 <p><strong>Problem:</strong></p>
@@ -844,7 +837,7 @@ Official description only; controlled hardware validation is required.
 <p>Evidence tier: Primary captured official DAC description plus existing chapter level trusted domain snapshot discussion; no full paper extraction, isolation proof or system validation. This is the stored source classification; the location and limits below determine what was actually read.</p>
 <p><a href="https://63dac.conference-program.com/?post_type=page&amp;p=16&amp;id=RESEARCH876">Open the recorded source</a></p>
 <p>DAC 2026 official description; captured Problem, Mechanism / artifact, Workload, Hardware, Baseline, Measurements and Limits fields; record RESEARCH876; no manuscript pages.</p>
-<details markdown="1">
+<details class="ck-fold" markdown="1">
 <summary>Original captured fields — superseded for this reading card</summary>
 
 ** page source tier:** medium_official_description
@@ -874,17 +867,17 @@ Official description only; threat-model and system validation is required.
 **Workload or benchmark:** Function-as-a-service workloads; TEE, snapshots, and attacker model are unspecified.
 
 </details>
-<p class="lm-k h-label">What remains to establish</p><h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>What is still unproven here</h2>
+<p class="rs-k">What remains to establish</p><div class="rs-sh"><h2 class="rs-h2">What is still unproven here</h2></div>
 <p>Resolve unspecified workloads, comparison methods, resource budgets, and source locations before generalizing a reported gain. Multiple papers in this selected sample permit comparison of mechanisms, but do not by themselves establish recurrence across years or a long-term trend.</p>
-<p><a href="../guide/expanded-taxonomy-v1.html">All subthemes</a> · <a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/reports/directions/README.md">Research directions</a></p><p class="meta">Written as <a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/reports/observed-subthemes/hardware-and-system-security.md">reports/observed-subthemes/hardware-and-system-security.md</a> in the course repository.</p>
-      </article>
-      <nav class="pager" aria-label="Previous and next"><a class="prev" href="side-channel-and-hardware-security.html"><span class="pg-k">← Previous</span><span class="pg-t">Side channel and hardware security</span></a><a class="map" href="../subthemes.html"><span class="pg-k">Back to</span><span class="pg-t">Subthemes</span></a><a class="next" href="accelerator-reliability.html"><span class="pg-k">Next →</span><span class="pg-t">Accelerator reliability</span></a></nav>
-    </section>
-  </main>
-  <footer class="course-foot">
-    <p>Built from 582 paper records coded from ISCA 2026, DAC 2026 and ICCAD 2025 (ICCAD 2026 papers were not yet public). Most records come from official program descriptions; see “How deep the reading went”. The papers belong to their authors.</p>
-    <p class="foot-links"><a href="https://github.com/mehtama1234/course-concept-library">All courses</a><a href="../index.html">This course</a><a href="../course-map.html">Course map</a><a href="../presentation/index.html">Slides</a><a href="../video/index.html">Video</a><a href="../share/index.html">Share</a></p>
-  </footer>
-  <script src="../assets/course-data.js"></script><script src="../assets/icons.js"></script><script src="../assets/icons-extra.js"></script><script src="../assets/icons-course.js"></script><script src="../assets/art.js"></script><script src="../assets/course-art.js"></script><script src="../assets/charts.js"></script><script src="../assets/course-charts.js"></script><script src="../assets/course-site.js"></script>
+<p><a href="../guide/expanded-taxonomy-v1.html">All subthemes</a> · <a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/reports/directions/README.md">Research directions</a></p><p class="mut">Written as <a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/reports/observed-subthemes/hardware-and-system-security.md">reports/observed-subthemes/hardware-and-system-security.md</a> in the course repository.</p>
+
+
+</div>
+</main>
+<footer class="rs-close"><p class="eb">This page, in one line</p><p class="rs-h2" style="max-width:26em">Papers add hardware that keeps programs and data apart, and must count what that separation costs.</p><div class="ck-next"><a href="side-channel-and-hardware-security.html"><span class="rs-k" style="color:var(--peach)">Previous</span><b>Side channel and hardware security</b></a><a class="r" href="accelerator-reliability.html"><span class="rs-k" style="color:var(--peach)">Next</span><b>Accelerator reliability</b></a></div><div class="rs-btns"><a class="ck-btn pri" href="../subthemes.html">Back to Subthemes</a></div><p class="rs-src">Built from 582 paper records coded from ISCA 2026, DAC 2026 and ICCAD 2025 (ICCAD 2026 papers were not yet public). Most records come from official program descriptions; see “How deep the reading went”. The papers belong to their authors.</p><p class="ck-footlinks"><a href="https://github.com/mehtama1234/semiconductor-conferences">Source on GitHub</a><a href="../index.html">The big picture</a><a href="../course-map.html">Every page</a><a href="../presentation/index.html">Slides</a><a href="../video/index.html">Video</a><a href="../share/index.html">Share</a></p></footer>
+</div>
+<script src="../kit/charts.js"></script>
+<script src="../kit/course.js"></script>
+<script src="../kit/site.js"></script>
 </body>
 </html>

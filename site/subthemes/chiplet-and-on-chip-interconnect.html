@@ -1,81 +1,74 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="theme-color" content="#F3ECE1" />
-  <title>Chiplet and on chip interconnect · Semiconductor conference atlas</title>
-  <meta name="description" content="Papers: DAC 1, ISCA 1. Read from: 1 program descriptions, 0 abstracts or reports, 1 full papers or preprints. The explanations come first; every paper’s record follows at the end." />
-  <meta property="og:type" content="website" />
-  <meta property="og:site_name" content="Semiconductor conference atlas" />
-  <meta property="og:title" content="Chiplet and on chip interconnect · Semiconductor conference atlas" />
-  <meta property="og:description" content="Papers: DAC 1, ISCA 1. Read from: 1 program descriptions, 0 abstracts or reports, 1 full papers or preprints. The explanations come first; every paper’s record follows at the end." />
-  <meta property="og:url" content="https://mehtama1234.github.io/semiconductor-conferences/subthemes/chiplet-and-on-chip-interconnect.html" />
-  <meta property="og:image" content="https://mehtama1234.github.io/semiconductor-conferences/presentation/slides/01-cover.jpg" />
-  <meta property="og:image:width" content="1920" />
-  <meta property="og:image:height" content="1080" />
-  <meta property="og:image:alt" content="Semiconductor conference atlas: 582 papers from ISCA, DAC and ICCAD, sorted into 10 themes and six directions to watch." />
-  <meta name="twitter:card" content="summary_large_image" />
-  <link rel="canonical" href="https://mehtama1234.github.io/semiconductor-conferences/subthemes/chiplet-and-on-chip-interconnect.html" />
-  <link rel="icon" href="../assets/icon.svg" type="image/svg+xml" />
-  <link rel="stylesheet" href="../assets/base.css" />
-  <link rel="stylesheet" href="../assets/experience.css" />
-  <link rel="stylesheet" href="../assets/theme-atlas.css" />
-  <link rel="stylesheet" href="../assets/styles.css" />
-  <link rel="stylesheet" href="../assets/charts.css" />
-  <link rel="stylesheet" href="../assets/course.css" />
-  
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#3a2e26">
+<title>Chiplet and on chip interconnect · Semiconductor conference atlas</title>
+<meta name="description" content="Papers design the wires and switches between chips or blocks, where distance and traffic set the delay. Papers: DAC 1, ISCA 1. Read from: 1 program descriptions, 0 abstracts or reports, 1 full papers">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Semiconductor conference atlas">
+<meta property="og:title" content="Chiplet and on chip interconnect · Semiconductor conference atlas">
+<meta property="og:description" content="Papers design the wires and switches between chips or blocks, where distance and traffic set the delay. Papers: DAC 1, ISCA 1. Read from: 1 program descriptions, 0 abstracts or reports, 1 full papers">
+<meta property="og:url" content="https://mehtama1234.github.io/semiconductor-conferences/subthemes/chiplet-and-on-chip-interconnect.html">
+<meta property="og:image" content="https://mehtama1234.github.io/semiconductor-conferences/presentation/slides/01-cover.jpg">
+<meta property="og:image:width" content="1920">
+<meta property="og:image:height" content="1080">
+<meta property="og:image:alt" content="Semiconductor conference atlas: 582 papers from ISCA, DAC and ICCAD, sorted into 10 themes and six directions to watch.">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://mehtama1234.github.io/semiconductor-conferences/subthemes/chiplet-and-on-chip-interconnect.html">
+<link rel="icon" href="../assets/icon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../kit/tokens.css">
+<link rel="stylesheet" href="../kit/boards.css">
+<link rel="stylesheet" href="../kit/course.css">
+<link rel="stylesheet" href="../kit/slides.css">
+<link rel="stylesheet" href="../kit/math/katex.min.css">
+<link rel="stylesheet" href="../kit/site.css">
+<script>try{var t=localStorage.getItem('course-kit-theme');if(t)document.documentElement.setAttribute('data-theme',t)}catch(e){}</script>
 </head>
-<body class="course-site " data-house="atlas">
-  <aside class="public-demo-banner" aria-label="About this course">A plain-language guide to what ISCA, DAC and ICCAD papers say about chip and computer design · Built from the repository’s own paper records · Not made by the conferences</aside>
-  <a class="skip-link" href="#app">Skip to the page</a>
-  <header>
-    <a class="brand" href="../index.html"><span class="mark" aria-hidden="true">Si</span> Semiconductor conference atlas</a>
-    <span class="header-status"><span class="badge">582 papers</span><span class="badge">10 themes</span><span class="badge">Plain words first</span></span>
-    <a class="header-link" href="../course-map.html">Course map</a>
-  </header>
-  <nav class="course-nav" aria-label="Main sections of the course"><a href="../index.html">The big picture</a><a href="../themes.html">Themes</a><a href="../subthemes.html" aria-current="page">Subthemes</a><a href="../deep-reads.html">Deep reads</a><a href="../directions.html">What to watch</a><a href="../presentation/index.html">Slides</a><a href="../video/index.html">Video</a><a href="../share/index.html">Share</a></nav>
-  <main id="app" tabindex="-1">
-    <section class="screen active landing legacy-page" aria-labelledby="page-title">
-<div class="lm-head"><div class="hj-heading"><nav class="crumbs" aria-label="You are here"><a href="../course-map.html">Course map</a><span aria-hidden="true">›</span><a href="../subthemes.html">Subthemes</a></nav><a class="back-button" href="../subthemes.html">← <span>Subthemes</span></a><p class="eyebrow">Subtheme · 2 papers · Memory, interconnect, and storage</p><h1 id="page-title">Chiplet and on chip interconnect: what the 2 papers change, and what is still unproven</h1><p class="hj-sub">Papers: DAC 1, ISCA 1. Read from: 1 program descriptions, 0 abstracts or reports, 1 full papers or preprints. The explanations come first; every paper’s record follows at the end.</p></div><div class="hj-art" data-art="trio:server,arrows-exchange,cpu"></div></div>
-<figure class="course-fig"><div class="loop-wide" data-art="flow:memory-interconnect-and-storage"></div><div class="loop-tall" data-art="flowTall:memory-interconnect-and-storage"></div><figcaption>The parent theme in one picture: moving data often costs more time and energy than computing it.</figcaption></figure>
-      <article class="prose">
+<body data-kit="boards">
+<a class="ck-skip" href="#main">Skip to the content</a>
+<div class="root">
+<header class="rs-hero"><div class="rs-top"><a class="rs-brand" href="../index.html"><i>Si</i>Semiconductor conference atlas</a><span class="rs-r"><nav class="ck-nav" aria-label="Main sections of the site"><a href="../index.html">The big picture</a><a href="../themes.html">Themes</a><a href="../subthemes.html" aria-current=page>Subthemes</a><a href="../deep-reads.html">Deep reads</a><a href="../directions.html">What to watch</a><a href="../presentation/index.html">Slides</a><a href="../video/index.html">Video</a><a href="../share/index.html">Share</a></nav><button type="button" class="ck-theme" aria-label="Change colour theme">Theme: auto</button></span></div><div class="rs-hg"><div><p class="eb">Subtheme · 2 papers · Memory, interconnect, and storage</p><h1 class="rs-h1 long" id="page-title">What do the 2 papers on chiplet and on chip interconnect change? <i>Papers design the wires and switches between chips or blocks, where distance and traffic set the delay.</i></h1><p class="rs-lede">Papers: DAC 1, ISCA 1. Read from: 1 program descriptions, 0 abstracts or reports, 1 full papers or preprints. The explanations come first; every paper’s record follows at the end.</p></div><ol class="ck-cards" aria-label="The numbers this page turns on"><svg viewBox="0 0 520 380" aria-hidden="true" preserveAspectRatio="none"><path d="M236 78 C 260 84, 260 128, 284 134"/><path d="M398 198 C 378 238, 196 152, 166 182"/><path d="M240 246 C 264 252, 262 296, 286 302"/></svg><li class="ck-card"><p class="k">1 · Papers</p><b>2</b><span>DAC 1 · ISCA 1</span></li><li class="ck-card"><p class="k">2 · Read from</p><b>1 of 2</b><span>short program descriptions</span></li><li class="ck-card"><p class="k">3 · Part it changes</p><b>Part 4</b><span>Chip-to-chip links</span></li><li class="ck-card"><p class="k">4 · Parent theme</p><b>85 papers</b><span>Memory, interconnect, and storage</span></li></ol></div></header>
+<main id="main" class="ck-main" tabindex="-1">
+<nav class="rs-selbar" aria-label="About this page"><span class="rs-sel"><b>You are here</b><a href="../course-map.html">Every page</a> › <a href="../subthemes.html">Subthemes</a></span><span class="rs-crumb">Subtheme · 2 papers · Memory, interconnect, and storage</span></nav><section class="ck-pagefig ck-wide"><figure class="rs-media ck-scene"><div class="rs-mh"><span>Where these papers act: part 4 of memory, interconnect, and storage</span><span class="t t-oc">our drawing</span></div><div class="rs-mb"><div class="ck-scene-pan" tabindex="0" role="group" aria-label="Drawing; scroll sideways on a small screen" style="--min:900px"><svg class="ck-art" viewBox="0 0 1000 500" role="img" aria-labelledby="schipletandonch-t" font-family="IBM Plex Sans Condensed, sans-serif"><title id="schipletandonch-t">A memory ladder: core and caches, main memory, storage, links between chips, and logic placed inside memory; ringed: part 4, chip-to-chip links</title><defs><marker id="schipletandonch-a" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5 0 10z" fill="#2b2622"/></marker><marker id="schipletandonch-r" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5 0 10z" fill="#9a4a22"/></marker><pattern id="schipletandonch-h" width="8" height="8" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><path d="M0 0V8" stroke="#cdbfa9" stroke-width="3"/></pattern></defs><path d="M53 36V46M53 166V176" stroke="#2b2622" stroke-width="2"/><path d="M77 36V46M77 166V176" stroke="#2b2622" stroke-width="2"/><path d="M100 36V46M100 166V176" stroke="#2b2622" stroke-width="2"/><path d="M123 36V46M123 166V176" stroke="#2b2622" stroke-width="2"/><path d="M147 36V46M147 166V176" stroke="#2b2622" stroke-width="2"/><rect x="30" y="46" width="140" height="120" rx="6" fill="#fbf7f0" stroke="#2b2622" stroke-width="2"/><rect x="44" y="60" width="52" height="40" fill="#e3b98f" stroke="#2b2622"/><text x="70" y="85" font-size="14" text-anchor="middle" fill="#2b2622">core</text><rect x="104" y="60" width="54" height="40" fill="#f5e6d3" stroke="#2b2622"/><text x="131" y="85" font-size="14" text-anchor="middle" fill="#2b2622">cache</text><rect x="44" y="108" width="114" height="44" fill="#f5e6d3" stroke="#2b2622"/><text x="101" y="135" font-size="14" text-anchor="middle" fill="#2b2622">bigger cache</text><text x="100" y="236" font-size="15" fill="#2b2622" text-anchor="middle" font-weight="600" letter-spacing="1">1 · CORE AND CACHES</text><text x="100" y="257" font-size="15" fill="#2b2622" text-anchor="middle">nearest and smallest</text><rect x="220" y="46" width="160" height="44" rx="3" fill="#ece4d5" stroke="#2b2622" stroke-width="1.8"/><rect x="228" y="54" width="24" height="28" fill="#fbf7f0" stroke="#2b2622"/><rect x="258" y="54" width="24" height="28" fill="#fbf7f0" stroke="#2b2622"/><rect x="288" y="54" width="24" height="28" fill="#fbf7f0" stroke="#2b2622"/><rect x="318" y="54" width="24" height="28" fill="#fbf7f0" stroke="#2b2622"/><rect x="348" y="54" width="24" height="28" fill="#fbf7f0" stroke="#2b2622"/><rect x="220" y="106" width="160" height="44" rx="3" fill="#ece4d5" stroke="#2b2622" stroke-width="1.8"/><rect x="228" y="114" width="24" height="28" fill="#fbf7f0" stroke="#2b2622"/><rect x="258" y="114" width="24" height="28" fill="#fbf7f0" stroke="#2b2622"/><rect x="288" y="114" width="24" height="28" fill="#fbf7f0" stroke="#2b2622"/><rect x="318" y="114" width="24" height="28" fill="#fbf7f0" stroke="#2b2622"/><rect x="348" y="114" width="24" height="28" fill="#fbf7f0" stroke="#2b2622"/><text x="300" y="236" font-size="15" fill="#2b2622" text-anchor="middle" font-weight="600" letter-spacing="1">2 · MAIN MEMORY</text><text x="300" y="257" font-size="15" fill="#2b2622" text-anchor="middle">memory modules</text><rect x="420" y="46" width="160" height="110" rx="10" fill="#fbf7f0" stroke="#2b2622" stroke-width="2"/><circle cx="500" cy="101" r="36" fill="#f5e6d3" stroke="#2b2622"/><circle cx="500" cy="101" r="6" fill="#2b2622"/><path d="M500 101l30-24" stroke="#9a4a22" stroke-width="3"/><text x="500" y="236" font-size="15" fill="#2b2622" text-anchor="middle" font-weight="600" letter-spacing="1">3 · STORAGE</text><text x="500" y="257" font-size="15" fill="#2b2622" text-anchor="middle">largest and farthest</text><rect x="606" y="20" width="188" height="280" rx="12" fill="none" stroke="#9a4a22" stroke-width="3" stroke-dasharray="9 6"/><rect x="624" y="46" width="52" height="40" rx="6" fill="#fbf7f0" stroke="#2b2622" stroke-width="2"/><rect x="724" y="46" width="52" height="40" rx="6" fill="#ece4d5" stroke="#2b2622" stroke-width="2"/><rect x="624" y="130" width="52" height="40" rx="6" fill="#fbf7f0" stroke="#2b2622" stroke-width="2"/><rect x="724" y="130" width="52" height="40" rx="6" fill="#ece4d5" stroke="#2b2622" stroke-width="2"/><path d="M676 66H724M676 150H724M650 86V130M750 86V130" stroke="#9a4a22" stroke-width="3"/><circle cx="700" cy="108" r="15" fill="#fbf7f0" stroke="#2b2622" stroke-width="2"/><path d="M689 108h22M700 97v22" stroke="#2b2622" stroke-width="2"/><text x="700" y="236" font-size="15" fill="#9a4a22" text-anchor="middle" font-weight="600" letter-spacing="1">4 · CHIP-TO-CHIP LINKS</text><text x="700" y="257" font-size="15" fill="#2b2622" text-anchor="middle">a switch joins chips</text><rect x="826" y="46" width="144" height="70" rx="3" fill="#ece4d5" stroke="#2b2622" stroke-width="1.8"/><rect x="834" y="54" width="22" height="26" fill="#fbf7f0" stroke="#2b2622"/><rect x="862" y="54" width="22" height="26" fill="#fbf7f0" stroke="#2b2622"/><rect x="890" y="54" width="22" height="26" fill="#fbf7f0" stroke="#2b2622"/><rect x="918" y="54" width="22" height="26" fill="#fbf7f0" stroke="#2b2622"/><rect x="946" y="54" width="22" height="26" fill="#fbf7f0" stroke="#2b2622"/><rect x="846" y="88" width="104" height="22" rx="3" fill="#e3b98f" stroke="#2b2622" stroke-width="1.6"/><text x="898" y="104" font-size="13" text-anchor="middle" fill="#2b2622">logic inside</text><text x="900" y="236" font-size="15" fill="#2b2622" text-anchor="middle" font-weight="600" letter-spacing="1">5 · LOGIC IN MEMORY</text><text x="900" y="257" font-size="15" fill="#2b2622" text-anchor="middle">send work to the data</text><path d="M60 330H940" fill="none" stroke="#2b2622" stroke-width="3" marker-end="url(#schipletandonch-a)"/><text x="500" y="356" font-size="16" fill="#5a5047" text-anchor="middle">left to right: more room, longer wait, more energy for each byte moved</text><rect x="10" y="394" width="980" height="96" rx="8" fill="#3a2e26"/><text x="30" y="422" font-size="15" fill="#e3b98f" font-weight="600" letter-spacing="1.5">PART 4 · CHIP-TO-CHIP LINKS · RINGED ABOVE</text><text x="30" y="450" font-size="20" fill="#f3ede2">Papers design the wires and switches between chips or blocks,</text><text x="30" y="476" font-size="20" fill="#f3ede2">where distance and traffic set the delay.</text></svg></div><figcaption class="ck-cap">The drawing shows the whole memory, interconnect, and storage problem; the rust ring marks part 4, chip-to-chip links. The words in the box are ours, from the explanation below.</figcaption></div></figure><figure class="rs-media"><div class="rs-mh"><span>What the 2 paper records were read from</span><span class="t t-wo">counted</span></div><div class="rs-mb"><div data-chart><script type="application/json">{"type":"bars","title":"Records by source","desc":"1 of 2 come from the short program description.","max":1,"items":[{"label":"Program description","value":1},{"label":"Full paper or preprint","value":1,"em":true}]}</script><noscript><p class="ck-cap">Records by source. 1 of 2 come from the short program description.</p></noscript></div><figcaption class="ck-cap">Counted from the source tier of each record in data/taxonomy-expanded-v1.json. A program description gives the claim, rarely the test conditions.</figcaption></div></figure></section><div class="ck-doc"> 
+
 
 <p>This subject has 2 records in the selected sample. This page explains where it fits, then presents all captured paper evidence without shortening the measurements or limitations.</p>
 <p><a href="../guide/reading-guide-v1.html">Definitions used in the paper records</a></p>
-<p class="lm-k h-label">Understand the parent subject first</p><h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>The bigger theme this belongs to</h2>
+<p class="rs-k">Understand the parent subject first</p><div class="rs-sh"><h2 class="rs-h2">The bigger theme this belongs to</h2></div>
 <ul>
 <li><a href="../themes/memory-interconnect-and-storage.html">Memory interconnect and storage</a></li>
 </ul>
-<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="affiliate"></span>A connection is more than its transfer rate</h2>
+<div class="rs-sh"><h2 class="rs-h2">A connection is more than its transfer rate</h2></div>
 <p>An interconnect carries information between components. Its links transfer bits; its routing rules choose paths; its buffers hold data waiting for a resource.</p><p>A receiver also needs a way to know which transaction a value belongs to and whether the required ordering or consistency rules have been satisfied.</p>
-<p>Bandwidth describes how much data can be transferred per unit time. Latency describes how long a particular transfer takes. More bandwidth can reduce queueing under load, but it does not necessarily remove delays from routing, buffering, synchronization, or protocol processing.</p>
-<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="help-circle"></span>Why the communication pattern matters</h2>
+<p>Bandwidth describes how much data can be transferred per unit time. Latency describes how long a particular transfer takes. More bandwidth<span class="ck-gloss"> (how many bytes a link can move per second)</span> can reduce queueing under load, but it does not necessarily remove delays from routing, buffering, synchronization, or protocol processing.</p>
+<div class="rs-sh"><h2 class="rs-h2">Why the communication pattern matters</h2></div>
 <p>Some computations send data evenly among components. Others concentrate traffic at one destination, repeatedly exchange small messages, or distribute a large value to many receivers. The same physical network can handle these patterns very differently.</p>
 <p>A topology specifies which components are directly connected. Routing chooses the path for a transfer through that topology.</p><p>Scheduling decides which pending transfer uses a shared link next. Improving any one of them can shift contention elsewhere.</p><p>Evaluating only a link in isolation cannot reveal that system effect.</p>
-<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="help-circle"></span>The two selected records answer different questions</h2>
+<div class="rs-sh"><h2 class="rs-h2">The two selected records answer different questions</h2></div>
 <p>C2C-Explorer studies how to compare candidate chip-to-chip interconnect designs. Its official description combines workload-driven traffic generation, a simulator, and an adaptive search procedure.</p><p>The generated traffic is part of the research assumption: a search can select the best candidate for the wrong traffic and still fail on the intended application. <a href="https://63dac.conference-program.com/presentation/?id=RESEARCH130&amp;sess=sess109">Official description</a></p>
-<p>The Panmnesia record concerns a controller and routing switch. Its company announcement describes shared buffers across protocol layers to reduce synchronization overhead, plus routing using port identifiers.</p><p>This is a concrete proposal to change internal processing and connectivity. The announcement provides author/company evidence; it does not provide the full paper's latency distributions, power, area, process, and workload measurements. <a href="https://panmnesia.com/news/en/2026-06-24-panmnesia-isca2026-eng/">Company technical announcement, Technical Highlights</a></p>
+<p>The Panmnesia record concerns a controller and routing switch. Its company announcement describes shared buffers across protocol layers to reduce synchronization overhead, plus routing using port identifiers.</p><p>This is a concrete proposal to change internal processing and connectivity. The announcement provides author/company evidence; it does not provide the full paper's latency<span class="ck-gloss"> (the wait for one result)</span> distributions, power, area, process, and workload measurements. <a href="https://panmnesia.com/news/en/2026-06-24-panmnesia-isca2026-eng/">Company technical announcement, Technical Highlights</a></p>
 <p>These records can inform each other conceptually. A design explorer needs realistic controller and switch costs. A controller evaluation needs realistic traffic and topology. Their evidence does not support comparing a search-efficiency result directly with a controller-latency result.</p>
 <p><span id="explanation-dac-2026-research130"></span></p>
-<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="help-circle"></span>C2C-Explorer: make the interconnect search answer the workload question</h2>
+<div class="rs-sh"><h2 class="rs-h2">C2C-Explorer: <i>make the interconnect search answer the workload question</i></h2></div>
 <h3>The design problem is a large conditional search</h3>
 <p>An interconnect design is not one number. It includes the topology, the number of chips, link connections, routing behavior, and the way requests are injected into the network.</p><p>A candidate can have high link capacity but still deliver poor application performance if its paths contend, if buffers fill, or if its traffic pattern creates an uneven load. The number of possible combinations grows quickly as chips and links are added.</p>
 <p>C2C-Explorer addresses this search problem for chip-to-chip systems used by large language models. Its artifact has three distinct responsibilities: generate traffic that represents the target workload, simulate the candidate interconnect, and choose additional candidates for evaluation through adaptive Bayesian design-space exploration.</p><p>These responsibilities should not be merged into one speedup claim. A traffic generator defines what the simulator is asked to reproduce; the simulator defines the measured behavior; the search policy defines how much of the candidate space is examined.</p>
 <h3>Traffic is part of the evidence, not merely an input file</h3>
-<div class="worked"><p class="lm-k">Worked example</p><p>The recorded workload includes DeepSeek-R1-671B inference on 32 XPUs and additional LLM traffic patterns. Such a workload produces communication between chips because model state, activations, or collective operations are distributed.</p><p>The useful traffic pattern depends on message size, destination concentration, synchronization, and the order in which transfers become ready. A search optimized for one pattern can select a different topology from a search optimized for another.</p></div>
-<p>This is why the paper's traffic-generation method matters. If generated traffic does not preserve the relevant burstiness, fan-out, synchronization, or request dependencies, a low simulator error against that generated trace can coexist with poor prediction of the deployed workload.</p><p>The reported 2.46–8.23% timing error is evidence about the stated comparison with FPGA C2C prototypes across traffic patterns; it is not an error bound for every possible LLM deployment.</p>
+<p>The recorded workload includes DeepSeek-R1-671B inference<span class="ck-gloss"> (running a trained AI model to get answers)</span> on 32 XPUs and additional LLM<span class="ck-gloss"> (large language model: an AI model that reads and writes text)</span> traffic patterns. Such a workload produces communication between chips because model state, activations, or collective operations are distributed.</p><p>The useful traffic pattern depends on message size, destination concentration, synchronization, and the order in which transfers become ready. A search optimized for one pattern can select a different topology from a search optimized for another.</p>
+<p>This is why the paper's traffic-generation method matters. If generated traffic does not preserve the relevant burstiness, fan-out, synchronization, or request dependencies, a low simulator error against that generated trace can coexist with poor prediction of the deployed workload.</p><p>The reported 2.46–8.23% timing error is evidence about the stated comparison with FPGA<span class="ck-gloss"> (a chip whose circuits can be rewired after it is made)</span> C2C prototypes across traffic patterns; it is not an error bound for every possible LLM deployment.</p>
 <h3>Hybrid simulation trades detail against evaluation cost</h3>
 <p>A cycle-accurate simulator advances hardware events with fine timing detail. It can represent queueing and arbitration precisely, but each event costs computation.</p><p>An event-oriented model can process larger time intervals or aggregated behavior more cheaply, but it must approximate the timing interactions that matter. A hybrid cycle/event simulator therefore needs a defined boundary: which components or phases receive detailed treatment, which are aggregated, and how the approximation is calibrated.</p>
-<div class="worked"><p class="lm-k">Worked example</p><p>The paper reports up to 7.8× simulation speedup over a pure cycle-accurate simulator. That comparison is useful only with the same candidate, traffic, output metrics, and accuracy criterion.</p><p>Simulation speed is not LLM inference speed: the result says that the model evaluates interconnect candidates faster, not that the deployed model generates tokens 7.8× faster. The 44.1% goodput improvement and 98.4% memory reduction belong to the 32-XPU DeepSeek-R1-671B study, but the recorded description does not identify the baseline configuration or define which memory is counted.</p><p>They must not be read as the consequence of simulator speed alone.</p></div>
+<p>The paper reports up to 7.8× simulation speedup over a pure cycle-accurate simulator. That comparison is useful only with the same candidate, traffic, output metrics, and accuracy criterion.</p><p>Simulation speed is not LLM inference speed: the result says that the model evaluates interconnect candidates faster, not that the deployed model generates tokens 7.8× faster. The 44.1% goodput improvement and 98.4% memory reduction belong to the 32-XPU DeepSeek-R1-671B study, but the recorded description does not identify the baseline<span class="ck-gloss"> (the existing method a new result is compared against)</span> configuration or define which memory is counted.</p><p>They must not be read as the consequence of simulator speed alone.</p>
 <h3>Bayesian exploration changes the evaluation schedule</h3>
 <p>Design-space exploration is expensive because each candidate requires a simulation or prototype measurement. Bayesian exploration uses results from earlier candidates to choose where to sample next.</p><p>The benefit depends on whether the model guides the search toward useful regions without excluding a better region, and whether the cost of generating features, fitting or updating the model, and evaluating failed candidates is included.</p>
-<p>The recorded evidence establishes the presence of an adaptive Bayesian search, but not its surrogate model, acquisition rule, initialization budget, stopping criterion, or sensitivity to random seeds. The description also says the framework supports switch/full-mesh simulation up to 512 chips and mentions FPGA-based validation.</p><p>That supports a simulation capability and a validation path; it does not establish a physical 512-chip deployment or a particular production link technology.</p>
+<p>The recorded evidence establishes the presence of an adaptive Bayesian search, but not its surrogate<span class="ck-gloss"> (a fast model that stands in for a slow simulation)</span> model, acquisition rule, initialization budget, stopping criterion, or sensitivity to random seeds. The description also says the framework supports switch/full-mesh simulation up to 512 chips and mentions FPGA-based validation.</p><p>That supports a simulation capability and a validation path; it does not establish a physical 512-chip deployment or a particular production link technology.</p>
 <h3>What C2C-Explorer establishes and what remains open</h3>
 <p>C2C-Explorer establishes a workload-driven exploration framework with a hybrid simulator and adaptive search, plus the reported timing agreement, simulation-speed comparison, goodput result, and memory result under the recorded conditions. It does not establish that one topology is best for LLM cloud systems in general, that the traffic generator represents all deployed workloads, or that the goodput and memory numbers include the full system cost.</p><p>A stronger evaluation would publish traffic traces and generation rules, identify FPGA and simulation configurations, report search preparation and candidate budgets, define goodput and memory, and test held-out traffic patterns.</p>
 <p><a href="https://63dac.conference-program.com/presentation/?id=RESEARCH130&amp;sess=sess109">Official DAC description, record RESEARCH130</a></p>
 <p><span id="explanation-isca-2026-program-044"></span></p>
-<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>The CXL controller: unify the protocol path before scaling the fabric</h2>
+<div class="rs-sh"><h2 class="rs-h2">The CXL controller: <i>unify the protocol path before scaling the fabric</i></h2></div>
 <h3>A CXL transfer crosses several responsibilities</h3>
 <p>CXL is a communication interface for attaching devices and memory. The physical layer moves electrical signals.</p><p>The link layer manages reliable transfer between directly connected endpoints. The transaction layer describes the requested operation and its ordering or completion requirements.</p><p>A conventional separation can make each layer easier to define, but it can also require data and control state to pass between layer-specific buffers and synchronization points.</p>
 <p>The Panmnesia record describes a unified CXL controller that shares buffers across the physical, link, and transaction layers. The proposed mechanism is not simply a larger buffer.</p><p>It changes where data and control state are held so that intermediate layers can coordinate without repeatedly copying or synchronizing the same transaction. The claimed benefit is lower controller overhead and a more direct path through the protocol stack; exact latency, bandwidth, area, power, and process values are not present in the captured company source.</p>
@@ -87,24 +80,24 @@
 <h3>What this record establishes and what remains open</h3>
 <p>The accessible evidence establishes a unified cross-layer CXL controller, a switch with port-based and hierarchical routing options, and an author/company report of scaling to 64 nodes while maintaining a similar latency range and increasing system bandwidth. It does not establish the numerical size of those changes, the power and area cost, the exact CXL generation and protocol features, the node-to-node traffic distribution, or independent operation of the complete fabric.</p><p>A stronger reading needs the paper's controller microarchitecture, buffer sizes, routing and flow-control rules, silicon test setup, latency distributions, bandwidth denominators, power/area, and comparison baseline.</p>
 <p><a href="https://panmnesia.com/news/en/2026-06-24-panmnesia-isca2026-eng/">Official company technical highlights</a></p>
-<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="target"></span>Buffers solve one problem and introduce another</h2>
+<div class="rs-sh"><h2 class="rs-h2">Buffers solve one problem and introduce another</h2></div>
 <p>A buffer permits a sender and receiver to operate at different times. It can absorb a short burst and allow independent work to continue. However, queued data still waits, buffer space consumes hardware resources, and several traffic classes may compete for that space.</p>
 <p>Sharing buffers can reduce duplication or synchronization, but requires rules for allocation and progress. A valid design must ensure that one class of traffic does not indefinitely prevent another from advancing.</p><p>The details of that requirement depend on the protocol; a general buffer-capacity number does not establish it.</p>
-<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>The experiment needed to interpret a result</h2>
+<div class="rs-sh"><h2 class="rs-h2">The experiment needed to interpret a result</h2></div>
 <p>Measure isolated latency and performance as offered load increases. Include small and large transfers, concentrated traffic, and concurrent applications. Record useful delivered data, time spent waiting, buffer occupancy, energy, and the application completion time.</p>
 <p>State which portions are measured in silicon, emulated, or simulated. For simulation, compare the modeled component behavior with an appropriate reference and show how model errors affect the selected design. For search, include traffic preparation and all evaluation costs.</p>
 <p>This subject has only two selected records, one from DAC and one from ISCA. They establish two useful cases for reading. Broader conclusions about interconnect research or adoption require a larger and consistently examined population.</p>
-<p class="lm-k h-label">Compare the results carefully</p><h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="route"></span>How to compare these papers’ results fairly</h2>
+<p class="rs-k">Compare the results carefully</p><div class="rs-sh"><h2 class="rs-h2">How to compare these papers’ results fairly</h2></div>
 <p>First identify the inputs and required output quality. Then identify the limited resource: time, memory, communication, energy, circuit area, or correctness coverage.</p><p>Ask which part of the method reduces that cost and which new cost it adds. Compare numbers only when the experiments hold these conditions sufficiently similar.</p>
 <p>A conference description may explain the proposal while omitting the full experiment. An author preprint link may have been coded from its abstract. The source classification does not by itself establish that every table was read. Missing locations remain visible below.</p>
-<p class="lm-k h-label">Complete captured evidence</p><h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="file-text"></span>Every paper in this subtheme, with what its source shows</h2>
+<p class="rs-k">Complete captured evidence</p><div class="rs-sh"><h2 class="rs-h2">Every paper in this subtheme, <i>with what its source shows</i></h2></div>
 <p>These are evidence records, not substitutes for the explanations above. Each record preserves its problem, proposed method, measurements, comparison conditions, and source limits. A populated record does not establish that its mechanism has been fully explained or independently verified.</p>
 <p><span id="paper-dac-2026-research130"></span></p>
 <h3>C2C-Explorer: An Exploration Framework for Chip-to-Chip Interconnect Architectures in LLM Cloud Computing Systems</h3>
 <p>DAC 2026 · Record: <code>dac-2026-research130</code></p>
 <p><a href="#explanation-dac-2026-research130">Read the step-by-step explanation</a></p>
 <p><strong>Updated source-backed reading card</strong></p>
-<div class="worked"><p class="lm-k">Worked example</p><p>Reviewed 2026-09-08. Deepens the official-description reading; separates workload generation, hybrid simulation, adaptive search, and the distinct timing/goodput/memory claims.</p></div>
+<p>Reviewed 2026-09-08. Deepens the official-description reading; separates workload generation, hybrid simulation, adaptive search, and the distinct timing/goodput/memory claims.</p>
 <p>This editorial correction updates the current reading view and connected dossiers, not the historical adjudication or scientific acceptance status. The original captured fields are preserved below.</p>
 <p><a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/data/editorial-paper-corrections-v1.json">Correction register</a></p>
 <p><strong>Problem:</strong></p>
@@ -112,7 +105,7 @@
 <p><strong>Mechanism / artifact:</strong></p>
 <p>Workload-driven traffic generation, hybrid cycle/event interconnect simulation, and adaptive Bayesian design-space exploration.</p>
 <p><strong>Workload — the work tested:</strong></p>
-<div class="worked"><p class="lm-k">Worked example</p><p>FPGA C2C prototype traffic validation and a 32-XPU DeepSeek-R1-671B inference study; additional LLM traffic patterns are named but not fully specified.</p></div>
+<p>FPGA C2C prototype traffic validation and a 32-XPU DeepSeek-R1-671B inference study; additional LLM traffic patterns are named but not fully specified.</p>
 <p><strong>Hardware and manufacturing assumptions:</strong></p>
 <p>Switch/full-mesh simulation supports up to 512 chips; FPGA validation is described; physical 512-chip deployment, link technology, frequency and memory hierarchy are not established.</p>
 <p><strong>Baseline — the comparison method:</strong></p>
@@ -122,7 +115,7 @@
 <p><strong>Reported measurements:</strong></p>
 <p>Timing error 2.46–8.23% against FPGA C2C prototypes across traffic patterns.</p>
 <p>Up to 7.8× simulation speedup versus a pure cycle-accurate baseline.</p>
-<div class="worked"><p class="lm-k">Worked example</p><p>44.1% goodput improvement and 98.4% memory reduction in the 32-XPU DeepSeek-R1-671B study; denominators and memory category are unspecified.</p></div>
+<p>44.1% goodput improvement and 98.4% memory reduction in the 32-XPU DeepSeek-R1-671B study; denominators and memory category are unspecified.</p>
 <p><strong>Limits on the conclusion:</strong></p>
 <p>Traffic-generation fidelity, hybrid-model boundary, Bayesian surrogate/acquisition rule, initialization and stopping budget are not reported in the official description.</p>
 <p>Simulation speed is not LLM inference speed, and the goodput/memory claims cannot be generalized without the baseline and measurement boundary.</p>
@@ -131,7 +124,7 @@
 <p>Evidence tier: Official DAC description; full manuscript and reproduction not performed. This is the stored source classification; the location and limits below determine what was actually read.</p>
 <p><a href="https://63dac.conference-program.com/?post_type=page&amp;p=16&amp;id=RESEARCH130&amp;sess=sess109">Open the recorded source</a></p>
 <p>DAC official description, captured description and Authors fields; record RESEARCH130; no manuscript pages.</p>
-<details markdown="1">
+<details class="ck-fold" markdown="1">
 <summary>Original captured fields — superseded for this reading card</summary>
 
 ** page source tier:** medium_official_description
@@ -152,7 +145,7 @@ Goodput and memory changes are workload/configuration-specific and not a univers
 
 Official description only; open-source availability and reproducibility require inspection.
 
-**Method or artifact:** Workload-driven C2C traffic generator, hybrid cycle/event simulator, metric-guided adaptive Bayesian DSE, and open-source exploration framework.
+**Method or artifact:** Workload-driven C2C traffic generator, hybrid cycle/event simulator, metric-guided adaptive Bayesian DSE<span class="ck-gloss"> (design-space exploration: searching many design options for good ones)</span>, and open-source exploration framework.
 
 **Metrics:** 2.46–8.23% end-to-end timing error
 
@@ -172,7 +165,7 @@ Up to 7.8x simulation speedup
 <p>ISCA 2026 · Record: <code>isca-2026-program-044</code></p>
 <p><a href="#explanation-isca-2026-program-044">Read the step-by-step explanation</a></p>
 <p><strong>Updated source-backed reading card</strong></p>
-<div class="worked"><p class="lm-k">Worked example</p><p>Reviewed 2026-09-08. Deepens the exact-title company-source reading; separates cross-layer controller buffering, routing flexibility, silicon wording and missing paper-level measurements.</p></div>
+<p>Reviewed 2026-09-08. Deepens the exact-title company-source reading; separates cross-layer controller buffering, routing flexibility, silicon wording and missing paper-level measurements.</p>
 <p>This editorial correction updates the current reading view and connected dossiers, not the historical adjudication or scientific acceptance status. The original captured fields are preserved below.</p>
 <p><a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/data/editorial-paper-corrections-v1.json">Correction register</a></p>
 <p><strong>Problem:</strong></p>
@@ -197,7 +190,7 @@ Up to 7.8x simulation speedup
 <p>Evidence tier: Official company author source; paper manuscript and independent reproduction not performed. This is the stored source classification; the location and limits below determine what was actually read.</p>
 <p><a href="https://panmnesia.com/news/en/2026-06-24-panmnesia-isca2026-eng/">Open the recorded source</a></p>
 <p>Technical Highlights sections 1–2 and availability section; exact title and paper identity; no permitted manuscript pages recovered.</p>
-<details markdown="1">
+<details class="ck-fold" markdown="1">
 <summary>Original captured fields — superseded for this reading card</summary>
 
 ** page source tier:** medium_company_author_source
@@ -231,17 +224,17 @@ silicon-proven implementation and pre-release product context
 **Workload or benchmark:** Memory-centric CXL fabric scaling and multi-node connectivity; the company announcement reports stable performance with up to 64 nodes but does not expose the full paper’s workload matrix.
 
 </details>
-<p class="lm-k h-label">What remains to establish</p><h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>What is still unproven here</h2>
+<p class="rs-k">What remains to establish</p><div class="rs-sh"><h2 class="rs-h2">What is still unproven here</h2></div>
 <p>Resolve unspecified workloads, comparison methods, resource budgets, and source locations before generalizing a reported gain. Multiple papers in this selected sample permit comparison of mechanisms, but do not by themselves establish recurrence across years or a long-term trend.</p>
-<p><a href="../guide/expanded-taxonomy-v1.html">All subthemes</a> · <a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/reports/directions/README.md">Research directions</a></p><p class="meta">Written as <a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/reports/observed-subthemes/chiplet-and-on-chip-interconnect.md">reports/observed-subthemes/chiplet-and-on-chip-interconnect.md</a> in the course repository.</p>
-      </article>
-      <nav class="pager" aria-label="Previous and next"><a class="prev" href="storage-and-memory-systems.html"><span class="pg-k">← Previous</span><span class="pg-t">Storage and memory systems</span></a><a class="map" href="../subthemes.html"><span class="pg-k">Back to</span><span class="pg-t">Subthemes</span></a><a class="next" href="interconnect-and-networking.html"><span class="pg-k">Next →</span><span class="pg-t">Interconnect and networking</span></a></nav>
-    </section>
-  </main>
-  <footer class="course-foot">
-    <p>Built from 582 paper records coded from ISCA 2026, DAC 2026 and ICCAD 2025 (ICCAD 2026 papers were not yet public). Most records come from official program descriptions; see “How deep the reading went”. The papers belong to their authors.</p>
-    <p class="foot-links"><a href="https://github.com/mehtama1234/course-concept-library">All courses</a><a href="../index.html">This course</a><a href="../course-map.html">Course map</a><a href="../presentation/index.html">Slides</a><a href="../video/index.html">Video</a><a href="../share/index.html">Share</a></p>
-  </footer>
-  <script src="../assets/course-data.js"></script><script src="../assets/icons.js"></script><script src="../assets/icons-extra.js"></script><script src="../assets/icons-course.js"></script><script src="../assets/art.js"></script><script src="../assets/course-art.js"></script><script src="../assets/charts.js"></script><script src="../assets/course-charts.js"></script><script src="../assets/course-site.js"></script>
+<p><a href="../guide/expanded-taxonomy-v1.html">All subthemes</a> · <a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/reports/directions/README.md">Research directions</a></p><p class="mut">Written as <a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/reports/observed-subthemes/chiplet-and-on-chip-interconnect.md">reports/observed-subthemes/chiplet-and-on-chip-interconnect.md</a> in the course repository.</p>
+
+
+</div>
+</main>
+<footer class="rs-close"><p class="eb">This page, in one line</p><p class="rs-h2" style="max-width:26em">Papers design the wires and switches between chips or blocks, where distance and traffic set the delay.</p><div class="ck-next"><a href="storage-and-memory-systems.html"><span class="rs-k" style="color:var(--peach)">Previous</span><b>Storage and memory systems</b></a><a class="r" href="interconnect-and-networking.html"><span class="rs-k" style="color:var(--peach)">Next</span><b>Interconnect and networking</b></a></div><div class="rs-btns"><a class="ck-btn pri" href="../subthemes.html">Back to Subthemes</a></div><p class="rs-src">Built from 582 paper records coded from ISCA 2026, DAC 2026 and ICCAD 2025 (ICCAD 2026 papers were not yet public). Most records come from official program descriptions; see “How deep the reading went”. The papers belong to their authors.</p><p class="ck-footlinks"><a href="https://github.com/mehtama1234/semiconductor-conferences">Source on GitHub</a><a href="../index.html">The big picture</a><a href="../course-map.html">Every page</a><a href="../presentation/index.html">Slides</a><a href="../video/index.html">Video</a><a href="../share/index.html">Share</a></p></footer>
+</div>
+<script src="../kit/charts.js"></script>
+<script src="../kit/course.js"></script>
+<script src="../kit/site.js"></script>
 </body>
 </html>

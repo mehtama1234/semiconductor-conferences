@@ -1,58 +1,48 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="theme-color" content="#F3ECE1" />
-  <title>NotSoTiny primary assessment — 2026-09-06 · Semiconductor conference atlas</title>
-  <meta name="description" content="The versioned preprint provides the evaluation conditions captured in the assessment . No headline score is accepted here; verification-script inspection and independent review remain pending. Our syn" />
-  <meta property="og:type" content="website" />
-  <meta property="og:site_name" content="Semiconductor conference atlas" />
-  <meta property="og:title" content="NotSoTiny primary assessment — 2026-09-06 · Semiconductor conference atlas" />
-  <meta property="og:description" content="The versioned preprint provides the evaluation conditions captured in the assessment . No headline score is accepted here; verification-script inspection and independent review remain pending. Our syn" />
-  <meta property="og:url" content="https://mehtama1234.github.io/semiconductor-conferences/deep-reads/notsotiny-primary-assessment-v1.html" />
-  <meta property="og:image" content="https://mehtama1234.github.io/semiconductor-conferences/presentation/slides/01-cover.jpg" />
-  <meta property="og:image:width" content="1920" />
-  <meta property="og:image:height" content="1080" />
-  <meta property="og:image:alt" content="Semiconductor conference atlas: 582 papers from ISCA, DAC and ICCAD, sorted into 10 themes and six directions to watch." />
-  <meta name="twitter:card" content="summary_large_image" />
-  <link rel="canonical" href="https://mehtama1234.github.io/semiconductor-conferences/deep-reads/notsotiny-primary-assessment-v1.html" />
-  <link rel="icon" href="../assets/icon.svg" type="image/svg+xml" />
-  <link rel="stylesheet" href="../assets/base.css" />
-  <link rel="stylesheet" href="../assets/experience.css" />
-  <link rel="stylesheet" href="../assets/theme-atlas.css" />
-  <link rel="stylesheet" href="../assets/styles.css" />
-  <link rel="stylesheet" href="../assets/charts.css" />
-  <link rel="stylesheet" href="../assets/course.css" />
-  
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#3a2e26">
+<title>NotSoTiny primary assessment — 2026-09-06 · Semiconductor conference atlas</title>
+<meta name="description" content="On timeout the script marks a pass and 100% coverage. The paper: a test set for models that write hardware code.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Semiconductor conference atlas">
+<meta property="og:title" content="NotSoTiny primary assessment — 2026-09-06 · Semiconductor conference atlas">
+<meta property="og:description" content="On timeout the script marks a pass and 100% coverage. The paper: a test set for models that write hardware code.">
+<meta property="og:url" content="https://mehtama1234.github.io/semiconductor-conferences/deep-reads/notsotiny-primary-assessment-v1.html">
+<meta property="og:image" content="https://mehtama1234.github.io/semiconductor-conferences/presentation/slides/01-cover.jpg">
+<meta property="og:image:width" content="1920">
+<meta property="og:image:height" content="1080">
+<meta property="og:image:alt" content="Semiconductor conference atlas: 582 papers from ISCA, DAC and ICCAD, sorted into 10 themes and six directions to watch.">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://mehtama1234.github.io/semiconductor-conferences/deep-reads/notsotiny-primary-assessment-v1.html">
+<link rel="icon" href="../assets/icon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../kit/tokens.css">
+<link rel="stylesheet" href="../kit/boards.css">
+<link rel="stylesheet" href="../kit/course.css">
+<link rel="stylesheet" href="../kit/slides.css">
+<link rel="stylesheet" href="../kit/math/katex.min.css">
+<link rel="stylesheet" href="../kit/site.css">
+<script>try{var t=localStorage.getItem('course-kit-theme');if(t)document.documentElement.setAttribute('data-theme',t)}catch(e){}</script>
 </head>
-<body class="course-site " data-house="atlas">
-  <aside class="public-demo-banner" aria-label="About this course">A plain-language guide to what ISCA, DAC and ICCAD papers say about chip and computer design · Built from the repository’s own paper records · Not made by the conferences</aside>
-  <a class="skip-link" href="#app">Skip to the page</a>
-  <header>
-    <a class="brand" href="../index.html"><span class="mark" aria-hidden="true">Si</span> Semiconductor conference atlas</a>
-    <span class="header-status"><span class="badge">582 papers</span><span class="badge">10 themes</span><span class="badge">Plain words first</span></span>
-    <a class="header-link" href="../course-map.html">Course map</a>
-  </header>
-  <nav class="course-nav" aria-label="Main sections of the course"><a href="../index.html">The big picture</a><a href="../themes.html">Themes</a><a href="../subthemes.html">Subthemes</a><a href="../deep-reads.html" aria-current="page">Deep reads</a><a href="../directions.html">What to watch</a><a href="../presentation/index.html">Slides</a><a href="../video/index.html">Video</a><a href="../share/index.html">Share</a></nav>
-  <main id="app" tabindex="-1">
-    <section class="screen active landing legacy-page" aria-labelledby="page-title">
-<div class="lm-head"><div class="hj-heading"><nav class="crumbs" aria-label="You are here"><a href="../course-map.html">Course map</a><span aria-hidden="true">›</span><a href="../deep-reads.html">Deep reads</a></nav><a class="back-button" href="../deep-reads.html">← <span>Deep reads</span></a><p class="eyebrow">Deep read · a paper checked against its full source</p><h1 id="page-title">NotSoTiny: what reading the full source showed</h1></div></div>
-<figure class="course-fig"><div class="loop-wide" data-art="flow:deep-read"></div><div class="loop-tall" data-art="flowTall:deep-read"></div><figcaption>Most papers in the atlas reached only the first step. This one went further.</figcaption></figure>
-      <article class="prose">
+<body data-kit="boards">
+<a class="ck-skip" href="#main">Skip to the content</a>
+<div class="root">
+<header class="rs-hero"><div class="rs-top"><a class="rs-brand" href="../index.html"><i>Si</i>Semiconductor conference atlas</a><span class="rs-r"><nav class="ck-nav" aria-label="Main sections of the site"><a href="../index.html">The big picture</a><a href="../themes.html">Themes</a><a href="../subthemes.html">Subthemes</a><a href="../deep-reads.html" aria-current=page>Deep reads</a><a href="../directions.html">What to watch</a><a href="../presentation/index.html">Slides</a><a href="../video/index.html">Video</a><a href="../share/index.html">Share</a></nav><button type="button" class="ck-theme" aria-label="Change colour theme">Theme: auto</button></span></div><div class="rs-hg"><div><p class="eb">Deep read · a paper checked against its full source</p><h1 class="rs-h1" id="page-title">What did a closer read of NotSoTiny show? <i>On timeout the script marks a pass and 100% coverage.</i></h1><p class="rs-lede">The paper: a test set for models that write hardware code.</p></div><ol class="ck-cards" aria-label="The numbers this page turns on"><svg viewBox="0 0 520 380" aria-hidden="true" preserveAspectRatio="none"><path d="M236 78 C 260 84, 260 128, 284 134"/><path d="M398 198 C 378 238, 196 152, 166 182"/><path d="M240 246 C 264 252, 262 296, 286 302"/></svg><li class="ck-card"><p class="k">1 · Conference</p><b>DAC 2026</b><span>where it was presented</span></li><li class="ck-card"><p class="k">2 · Deepest source</p><b>full preprint</b><span>found in a bounded search</span></li><li class="ck-card"><p class="k">3 · Part it changes</p><b>Part 3</b><span>Tools check</span></li><li class="ck-card"><p class="k">4 · Repeated by us</p><b>no</b><span>nothing rerun</span></li></ol></div></header>
+<main id="main" class="ck-main" tabindex="-1">
+<nav class="rs-selbar" aria-label="About this page"><span class="rs-sel"><b>You are here</b><a href="../course-map.html">Every page</a> › <a href="../deep-reads.html">Deep reads</a></span><span class="rs-crumb">Deep read · a paper checked against its full source</span></nav><section class="ck-pagefig ck-wide"><figure class="rs-media ck-scene"><div class="rs-mh"><span>Where this paper acts: part 3 of ai-assisted eda</span><span class="t t-oc">our drawing</span></div><div class="rs-mb"><div class="ck-scene-pan" tabindex="0" role="group" aria-label="Drawing; scroll sideways on a small screen" style="--min:900px"><svg class="ck-art" viewBox="0 0 1000 500" role="img" aria-labelledby="dnotsotinyprima-t" font-family="IBM Plex Sans Condensed, sans-serif"><title id="dnotsotinyprima-t">A design loop: a requirement goes to a model that proposes hardware code, tools compile, simulate and time it, failures go back as feedback, and only a design that passes every check is accepted; ringed: part 3, tools check</title><defs><marker id="dnotsotinyprima-a" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5 0 10z" fill="#2b2622"/></marker><marker id="dnotsotinyprima-r" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5 0 10z" fill="#9a4a22"/></marker><pattern id="dnotsotinyprima-h" width="8" height="8" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><path d="M0 0V8" stroke="#cdbfa9" stroke-width="3"/></pattern></defs><path d="M40 40h90l24 24v130H40z" fill="#fbf7f0" stroke="#2b2622" stroke-width="2"/><path d="M130 40v24h24" fill="none" stroke="#2b2622" stroke-width="2"/><path d="M54 82h70" stroke="#cdbfa9" stroke-width="5"/><path d="M54 100h56" stroke="#cdbfa9" stroke-width="5"/><path d="M54 118h42" stroke="#cdbfa9" stroke-width="5"/><path d="M54 136h70" stroke="#cdbfa9" stroke-width="5"/><path d="M54 154h56" stroke="#cdbfa9" stroke-width="5"/><path d="M54 172h42" stroke="#cdbfa9" stroke-width="5"/><text x="95" y="236" font-size="15" fill="#2b2622" text-anchor="middle" font-weight="600" letter-spacing="1">1 · THE REQUIREMENT</text><text x="95" y="257" font-size="15" fill="#2b2622" text-anchor="middle">what the circuit must do</text><path d="M182 120H214" fill="none" stroke="#2b2622" stroke-width="2" marker-end="url(#dnotsotinyprima-a)"/><circle cx="256" cy="84" r="11" fill="#f5e6d3" stroke="#2b2622" stroke-width="1.6"/><circle cx="256" cy="120" r="11" fill="#f5e6d3" stroke="#2b2622" stroke-width="1.6"/><circle cx="256" cy="156" r="11" fill="#f5e6d3" stroke="#2b2622" stroke-width="1.6"/><circle cx="316" cy="66" r="11" fill="#e3b98f" stroke="#2b2622" stroke-width="1.6"/><circle cx="316" cy="102" r="11" fill="#e3b98f" stroke="#2b2622" stroke-width="1.6"/><circle cx="316" cy="138" r="11" fill="#e3b98f" stroke="#2b2622" stroke-width="1.6"/><circle cx="316" cy="174" r="11" fill="#e3b98f" stroke="#2b2622" stroke-width="1.6"/><circle cx="376" cy="84" r="11" fill="#f5e6d3" stroke="#2b2622" stroke-width="1.6"/><circle cx="376" cy="120" r="11" fill="#f5e6d3" stroke="#2b2622" stroke-width="1.6"/><circle cx="376" cy="156" r="11" fill="#f5e6d3" stroke="#2b2622" stroke-width="1.6"/><path d="M256 84L316 66M256 120L316 138M316 102L376 84M316 138L376 156M256 156L316 174" stroke="#5a5047" stroke-width="1.2"/><text x="316" y="236" font-size="15" fill="#2b2622" text-anchor="middle" font-weight="600" letter-spacing="1">2 · THE MODEL PROPOSES</text><text x="316" y="257" font-size="15" fill="#2b2622" text-anchor="middle">code, layout or settings</text><path d="M418 120H452" fill="none" stroke="#2b2622" stroke-width="2" marker-end="url(#dnotsotinyprima-a)"/><rect x="454" y="20" width="290" height="262" rx="12" fill="none" stroke="#9a4a22" stroke-width="3" stroke-dasharray="9 6"/><rect x="474" y="40" width="170" height="40" rx="5" fill="#fbf7f0" stroke="#2b2622" stroke-width="1.8"/><text x="492" y="66" font-size="17" fill="#2b2622">compile</text><path d="M668 60l9 9 17-19" fill="none" stroke="#2b2622" stroke-width="3" stroke-linecap="round"/><rect x="474" y="96" width="170" height="40" rx="5" fill="#fbf7f0" stroke="#2b2622" stroke-width="1.8"/><text x="492" y="122" font-size="17" fill="#2b2622">simulate</text><path d="M668 116l9 9 17-19" fill="none" stroke="#2b2622" stroke-width="3" stroke-linecap="round"/><rect x="474" y="152" width="170" height="40" rx="5" fill="#fbf7f0" stroke="#2b2622" stroke-width="1.8"/><text x="492" y="178" font-size="17" fill="#2b2622">meet timing</text><path d="M670 162l20 20M690 162l-20 20" stroke="#9a4a22" stroke-width="3.4" stroke-linecap="round"/><text x="599" y="236" font-size="15" fill="#9a4a22" text-anchor="middle" font-weight="600" letter-spacing="1">3 · TOOLS CHECK</text><text x="599" y="257" font-size="15" fill="#2b2622" text-anchor="middle">pass or fail, never a guess</text><path d="M746 120H784" fill="none" stroke="#2b2622" stroke-width="2" marker-end="url(#dnotsotinyprima-a)"/><path d="M852 50V60M852 150V160" stroke="#2b2622" stroke-width="2"/><path d="M871 50V60M871 150V160" stroke="#2b2622" stroke-width="2"/><path d="M889 50V60M889 150V160" stroke="#2b2622" stroke-width="2"/><path d="M907 50V60M907 150V160" stroke="#2b2622" stroke-width="2"/><path d="M926 50V60M926 150V160" stroke="#2b2622" stroke-width="2"/><rect x="834" y="60" width="110" height="90" rx="6" fill="#fbf7f0" stroke="#2b2622" stroke-width="2"/><path d="M870 106l12 12 26-28" fill="none" stroke="#2b2622" stroke-width="3.4" stroke-linecap="round"/><text x="888" y="236" font-size="15" fill="#2b2622" text-anchor="middle" font-weight="600" letter-spacing="1">5 · THE ACCEPTED DESIGN</text><text x="888" y="257" font-size="15" fill="#2b2622" text-anchor="middle">every check passed</text><path d="M680 180C720 290 620 330 470 330C340 330 316 300 316 286" fill="none" stroke="#9a4a22" stroke-width="2.6" stroke-dasharray="7 6" marker-end="url(#dnotsotinyprima-r)"/><text x="470" y="318" font-size="15" fill="#9a4a22" text-anchor="middle" font-weight="600" letter-spacing="1">4 · FEEDBACK</text><text x="470" y="360" font-size="15" fill="#5a5047" text-anchor="middle">which check failed, and where: the next try uses it</text><rect x="10" y="394" width="980" height="96" rx="8" fill="#3a2e26"/><text x="30" y="422" font-size="15" fill="#e3b98f" font-weight="600" letter-spacing="1.5">PART 3 · TOOLS CHECK · RINGED ABOVE</text><text x="30" y="450" font-size="20" fill="#f3ede2">A test set for models that write hardware code.</text><text x="30" y="476" font-size="20" fill="#f3ede2">On timeout the script marks a pass and 100% coverage.</text></svg></div><figcaption class="ck-cap">The rust ring marks the part this paper changes. The first line in the box says what it does; the second says what reading the full source found.</figcaption></div></figure></section><div class="ck-doc"> 
+
 
 <p>The <a href="https://arxiv.org/html/2512.20823v1">versioned preprint</a> provides the
 evaluation conditions captured in the <a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/dac/data/notsotiny-primary-assessment-v1.json">assessment</a>.
 No headline score is accepted here; verification-script inspection and independent
 review remain pending.</p>
-<p>Our synthesis should ask three separate questions: what the task requires, what
-the checker proves, and how tasks enter the evaluation population. Improving a
+<p>Our synthesis should ask three questions. What does the task require? What does the checker prove? How do tasks get into the test set? Improving a
 score under one combination does not automatically transfer to another.</p>
-<p>The next review should explicitly distinguish proof failure, timeout and actual
-inequivalence, and examine whether excluded tasks change the difficulty profile.
-Those are open checks, not demonstrated defects. For temporal interpretation,
+<p>The next review should tell apart three outcomes: proof failure, timeout and a real mismatch. It should also check whether the dropped tasks change how hard the test set is.</p><p>Those are open checks, not demonstrated defects. For temporal interpretation,
 freeze both the dataset version and evaluation protocol before comparing models.</p>
-<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>Pinned evaluator finding</h2>
+<div class="rs-sh"><h2 class="rs-h2">Pinned evaluator finding</h2></div>
 <p>At TuRTLe commit <code>6a32467e79d7a6cfbf3a6c579c24f20662475101</code>,
 <a href="https://github.com/HPAI-BSC/TuRTLe/blob/6a32467e79d7a6cfbf3a6c579c24f20662475101/turtle/metrics/eval_notsotiny.py">the evaluator</a>
 sets the equivalence-pass flag and 100% coverage on verification timeout.
@@ -62,15 +52,15 @@ of counting an incomplete check as success, not evidence of how many published
 results were affected. The paper's run revision remains unverified.</p>
 <p>The task loads a named dataset without a revision pin. Reproduction therefore
 needs both code and data revisions, plus per-task outcomes separating completed
-proofs from timeout, unproven and tool-error cases. No external code was executed.</p><p class="meta">Written as <a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/dac/reports/notsotiny-primary-assessment-v1.md">dac/reports/notsotiny-primary-assessment-v1.md</a> in the course repository.</p>
-      </article>
-      <nav class="pager" aria-label="Previous and next"><a class="prev" href="mappingevolve-primary-assessment-v1.html"><span class="pg-k">← Previous</span><span class="pg-t">MappingEvolve primary assessment — 2026-09-06</span></a><a class="map" href="../deep-reads.html"><span class="pg-k">Back to</span><span class="pg-t">Deep reads</span></a><a class="next" href="paretopilot-primary-assessment-v1.html"><span class="pg-k">Next →</span><span class="pg-t">ParetoPilot artifact assessment — 2026-09-06</span></a></nav>
-    </section>
-  </main>
-  <footer class="course-foot">
-    <p>Built from 582 paper records coded from ISCA 2026, DAC 2026 and ICCAD 2025 (ICCAD 2026 papers were not yet public). Most records come from official program descriptions; see “How deep the reading went”. The papers belong to their authors.</p>
-    <p class="foot-links"><a href="https://github.com/mehtama1234/course-concept-library">All courses</a><a href="../index.html">This course</a><a href="../course-map.html">Course map</a><a href="../presentation/index.html">Slides</a><a href="../video/index.html">Video</a><a href="../share/index.html">Share</a></p>
-  </footer>
-  <script src="../assets/course-data.js"></script><script src="../assets/icons.js"></script><script src="../assets/icons-extra.js"></script><script src="../assets/icons-course.js"></script><script src="../assets/art.js"></script><script src="../assets/course-art.js"></script><script src="../assets/charts.js"></script><script src="../assets/course-charts.js"></script><script src="../assets/course-site.js"></script>
+proofs from timeout, unproven and tool-error cases. No external code was executed.</p><p class="mut">Written as <a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/dac/reports/notsotiny-primary-assessment-v1.md">dac/reports/notsotiny-primary-assessment-v1.md</a> in the course repository.</p>
+
+
+</div>
+</main>
+<footer class="rs-close"><p class="eb">This page, in one line</p><p class="rs-h2" style="max-width:26em">On timeout the script marks a pass and 100% coverage.</p><div class="ck-next"><a href="mappingevolve-primary-assessment-v1.html"><span class="rs-k" style="color:var(--peach)">Previous</span><b>MappingEvolve primary assessment — 2026-09-06</b></a><a class="r" href="paretopilot-primary-assessment-v1.html"><span class="rs-k" style="color:var(--peach)">Next</span><b>ParetoPilot artifact assessment — 2026-09-06</b></a></div><div class="rs-btns"><a class="ck-btn pri" href="../deep-reads.html">Back to Deep reads</a></div><p class="rs-src">Built from 582 paper records coded from ISCA 2026, DAC 2026 and ICCAD 2025 (ICCAD 2026 papers were not yet public). Most records come from official program descriptions; see “How deep the reading went”. The papers belong to their authors.</p><p class="ck-footlinks"><a href="https://github.com/mehtama1234/semiconductor-conferences">Source on GitHub</a><a href="../index.html">The big picture</a><a href="../course-map.html">Every page</a><a href="../presentation/index.html">Slides</a><a href="../video/index.html">Video</a><a href="../share/index.html">Share</a></p></footer>
+</div>
+<script src="../kit/charts.js"></script>
+<script src="../kit/course.js"></script>
+<script src="../kit/site.js"></script>
 </body>
 </html>

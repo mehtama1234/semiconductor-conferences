@@ -71,7 +71,7 @@ These are the source-backed references currently attached to the direction. Diff
 
 ## What is actually comparable
 
-The comparison should be made at the mechanism and constraint level first. A valid matched comparison must hold constant the relevant workload or design suite, hardware/process or simulator assumptions, baseline, metric definition, evaluation budget, and failure/validity boundary.
+The comparison should be made at the mechanism and constraint level first. A fair comparison holds six things fixed: the workload or design set, the hardware or simulator assumptions, the baseline, the metric, the test budget, and what counts as a failure.
 
 ### Required matched fields
 

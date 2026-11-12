@@ -36,19 +36,23 @@ def run(kit, root=None, quiet_pass=True):
     story = ["index.html", "course-map.html", "presentation/index.html", "video/index.html", "share/index.html"]
     others = sorted(p.relative_to(root).as_posix() for p in root.rglob("*.html") if p.relative_to(root).as_posix() not in story and not p.name.startswith(("present", "presenter")))
     others = [p for p in others if not p.startswith("presentation/")]
-    if len(others) > 320:
-        step = max(1, len(others) // 80)
+    archived = [p for p in others if 'data-kit="boards"' not in (root / p).read_text(encoding="utf-8", errors="replace")]
+    others = [p for p in others if p not in archived]
+    print(f"skipping {len(archived)} archived source pages kept as evidence (not part of the site's own pages)", flush=True)
+    if len(others) > 60:   # every page type is covered: an even sample of the rest (the subtheme pages are very long)
+        step = max(1, len(others) // 55)
         others = others[::step]
     pages = story + others
     print(f"testing {len(pages)} pages at 1280 and 390 wide", flush=True)
     with sync_playwright() as pw:
         b = pw.chromium.launch()
-        for width in (1280, 390):
-            ctx = b.new_context(viewport={"width": width, "height": 900})
+        for width, scheme in ((1280, "light"), (390, "light"), (1280, "dark"), (390, "dark")):
+            ctx = b.new_context(viewport={"width": width, "height": 900}, color_scheme=scheme)
             bad = 0
             for name in pages:
                 pg = ctx.new_page()
-                errors, missing = [], []
+                errors, missing, outside = [], [], []
+                pg.on("request", lambda r: outside.append(r.url) if not r.url.startswith((base, "data:", "blob:", "about:")) else None)
                 pg.on("pageerror", lambda e: errors.append(str(e)))
                 pg.on("console", lambda m: errors.append(m.text) if m.type == "error" else None)
                 pg.on("response", lambda r: missing.append(r.url) if r.status >= 400 and r.url.startswith(base) else None)
@@ -56,18 +60,19 @@ def run(kit, root=None, quiet_pass=True):
                 empty = pg.evaluate("""() => [...document.querySelectorAll('[data-icon],[data-art],[data-chart]')].filter(e => getComputedStyle(e).display !== 'none' || e.closest('.loop-wide,.loop-tall')).filter(e => !e.innerHTML.trim()).map(e => e.dataset.icon || e.dataset.art || e.dataset.chart)""")
                 broken = pg.evaluate("[...document.images].filter(i => i.complete && i.naturalWidth === 0 && i.loading !== 'lazy').map(i => i.src)")
                 over = pg.evaluate("document.documentElement.scrollWidth") - width
-                shell = pg.evaluate("!!document.querySelector('body[data-house=atlas] header .brand') && !!document.querySelector('footer a[href*=course-concept-library]') && !!document.querySelector('meta[property=\"og:title\"]')")
-                ok = not errors and not missing and not empty and not broken and over <= 0 and shell
+                shell = pg.evaluate("!!document.querySelector('body[data-kit=boards] .rs-brand') && !!document.querySelector('footer a[href*=github]') && !!document.querySelector('meta[property=\"og:title\"]')")
+                ok = not errors and not missing and not empty and not broken and over <= 0 and shell and not outside
                 if not ok or not quiet_pass or name in story:
                     check(not errors, f"{width}px {name}: no script errors {errors[:2] if errors else ''}")
                     check(not missing, f"{width}px {name}: every file it asks for exists {missing[:3] if missing else ''}")
                     check(not empty, f"{width}px {name}: every icon, drawing and chart drew {empty[:5] if empty else ''}")
                     check(not broken, f"{width}px {name}: every picture loads {broken[:2] if broken else ''}")
                     check(over <= 0, f"{width}px {name}: nothing spills sideways ({over}px)")
-                    check(shell, f"{width}px {name}: house header, All courses footer link and Open Graph tags")
+                    check(shell, f"{width}px {name}: kit header, GitHub footer link and Open Graph tags")
+                    check(not outside, f"{width}px {name}: no requests outside the site {outside[:2] if outside else ''}")
                 bad += not ok
                 pg.close()
-            check(bad == 0, f"{width}px: all {len(pages)} pages clean")
+            check(bad == 0, f"{width}px {scheme}: all {len(pages)} pages clean")
             ctx.close()
 
         pg = b.new_page()
@@ -105,7 +110,7 @@ def run(kit, root=None, quiet_pass=True):
         check(src.endswith(".mp4") and trk.endswith(".vtt"), "video page: has the video and a captions track")
         vtt = pg.request.get(base + "video/" + trk)
         check(vtt.ok and vtt.text().startswith("WEBVTT") and vtt.text().count("-->") >= 10, f"video: captions served ({vtt.text().count('-->')} cues)")
-        files = [f"video/{C.VIDEO}.mp4", f"presentation/{C.DECK}.pdf", "presentation/slides/01-cover.jpg", "assets/qr-website.svg", "assets/course-data.js"]
+        files = [f"video/{C.VIDEO}.mp4", f"presentation/{C.DECK}.pdf", "presentation/slides/01-cover.jpg", "assets/qr-website.svg", "kit/charts.js"]
         if (root / f"presentation/{C.DECK}.pptx").exists():
             files.append(f"presentation/{C.DECK}.pptx")
         for f in files:

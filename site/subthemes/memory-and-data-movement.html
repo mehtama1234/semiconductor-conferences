@@ -1,59 +1,52 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="theme-color" content="#F3ECE1" />
-  <title>Memory and data movement · Semiconductor conference atlas</title>
-  <meta name="description" content="Papers: DAC 6. Read from: 6 program descriptions, 0 abstracts or reports, 0 full papers or preprints. The explanations come first; every paper’s record follows at the end." />
-  <meta property="og:type" content="website" />
-  <meta property="og:site_name" content="Semiconductor conference atlas" />
-  <meta property="og:title" content="Memory and data movement · Semiconductor conference atlas" />
-  <meta property="og:description" content="Papers: DAC 6. Read from: 6 program descriptions, 0 abstracts or reports, 0 full papers or preprints. The explanations come first; every paper’s record follows at the end." />
-  <meta property="og:url" content="https://mehtama1234.github.io/semiconductor-conferences/subthemes/memory-and-data-movement.html" />
-  <meta property="og:image" content="https://mehtama1234.github.io/semiconductor-conferences/presentation/slides/01-cover.jpg" />
-  <meta property="og:image:width" content="1920" />
-  <meta property="og:image:height" content="1080" />
-  <meta property="og:image:alt" content="Semiconductor conference atlas: 582 papers from ISCA, DAC and ICCAD, sorted into 10 themes and six directions to watch." />
-  <meta name="twitter:card" content="summary_large_image" />
-  <link rel="canonical" href="https://mehtama1234.github.io/semiconductor-conferences/subthemes/memory-and-data-movement.html" />
-  <link rel="icon" href="../assets/icon.svg" type="image/svg+xml" />
-  <link rel="stylesheet" href="../assets/base.css" />
-  <link rel="stylesheet" href="../assets/experience.css" />
-  <link rel="stylesheet" href="../assets/theme-atlas.css" />
-  <link rel="stylesheet" href="../assets/styles.css" />
-  <link rel="stylesheet" href="../assets/charts.css" />
-  <link rel="stylesheet" href="../assets/course.css" />
-  
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#3a2e26">
+<title>Memory and data movement · Semiconductor conference atlas</title>
+<meta name="description" content="Papers cut trips to off-chip memory, which often cost more than the arithmetic itself. Papers: DAC 6. Read from: 6 program descriptions, 0 abstracts or reports, 0 full papers or preprints. The explana">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Semiconductor conference atlas">
+<meta property="og:title" content="Memory and data movement · Semiconductor conference atlas">
+<meta property="og:description" content="Papers cut trips to off-chip memory, which often cost more than the arithmetic itself. Papers: DAC 6. Read from: 6 program descriptions, 0 abstracts or reports, 0 full papers or preprints. The explana">
+<meta property="og:url" content="https://mehtama1234.github.io/semiconductor-conferences/subthemes/memory-and-data-movement.html">
+<meta property="og:image" content="https://mehtama1234.github.io/semiconductor-conferences/presentation/slides/01-cover.jpg">
+<meta property="og:image:width" content="1920">
+<meta property="og:image:height" content="1080">
+<meta property="og:image:alt" content="Semiconductor conference atlas: 582 papers from ISCA, DAC and ICCAD, sorted into 10 themes and six directions to watch.">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://mehtama1234.github.io/semiconductor-conferences/subthemes/memory-and-data-movement.html">
+<link rel="icon" href="../assets/icon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../kit/tokens.css">
+<link rel="stylesheet" href="../kit/boards.css">
+<link rel="stylesheet" href="../kit/course.css">
+<link rel="stylesheet" href="../kit/slides.css">
+<link rel="stylesheet" href="../kit/math/katex.min.css">
+<link rel="stylesheet" href="../kit/site.css">
+<script>try{var t=localStorage.getItem('course-kit-theme');if(t)document.documentElement.setAttribute('data-theme',t)}catch(e){}</script>
 </head>
-<body class="course-site " data-house="atlas">
-  <aside class="public-demo-banner" aria-label="About this course">A plain-language guide to what ISCA, DAC and ICCAD papers say about chip and computer design · Built from the repository’s own paper records · Not made by the conferences</aside>
-  <a class="skip-link" href="#app">Skip to the page</a>
-  <header>
-    <a class="brand" href="../index.html"><span class="mark" aria-hidden="true">Si</span> Semiconductor conference atlas</a>
-    <span class="header-status"><span class="badge">582 papers</span><span class="badge">10 themes</span><span class="badge">Plain words first</span></span>
-    <a class="header-link" href="../course-map.html">Course map</a>
-  </header>
-  <nav class="course-nav" aria-label="Main sections of the course"><a href="../index.html">The big picture</a><a href="../themes.html">Themes</a><a href="../subthemes.html" aria-current="page">Subthemes</a><a href="../deep-reads.html">Deep reads</a><a href="../directions.html">What to watch</a><a href="../presentation/index.html">Slides</a><a href="../video/index.html">Video</a><a href="../share/index.html">Share</a></nav>
-  <main id="app" tabindex="-1">
-    <section class="screen active landing legacy-page" aria-labelledby="page-title">
-<div class="lm-head"><div class="hj-heading"><nav class="crumbs" aria-label="You are here"><a href="../course-map.html">Course map</a><span aria-hidden="true">›</span><a href="../subthemes.html">Subthemes</a></nav><a class="back-button" href="../subthemes.html">← <span>Subthemes</span></a><p class="eyebrow">Subtheme · 6 papers · Architecture and accelerators</p><h1 id="page-title">Memory and data movement: what the 6 papers change, and what is still unproven</h1><p class="hj-sub">Papers: DAC 6. Read from: 6 program descriptions, 0 abstracts or reports, 0 full papers or preprints. The explanations come first; every paper’s record follows at the end.</p></div><div class="hj-art" data-art="trio:activity,server,cpu"></div></div>
-<figure class="course-fig"><div class="loop-wide" data-art="flow:architecture-and-accelerators"></div><div class="loop-tall" data-art="flowTall:architecture-and-accelerators"></div><figcaption>The parent theme in one picture: extra arithmetic helps only when the data arrives in time.</figcaption></figure>
-      <article class="prose">
+<body data-kit="boards">
+<a class="ck-skip" href="#main">Skip to the content</a>
+<div class="root">
+<header class="rs-hero"><div class="rs-top"><a class="rs-brand" href="../index.html"><i>Si</i>Semiconductor conference atlas</a><span class="rs-r"><nav class="ck-nav" aria-label="Main sections of the site"><a href="../index.html">The big picture</a><a href="../themes.html">Themes</a><a href="../subthemes.html" aria-current=page>Subthemes</a><a href="../deep-reads.html">Deep reads</a><a href="../directions.html">What to watch</a><a href="../presentation/index.html">Slides</a><a href="../video/index.html">Video</a><a href="../share/index.html">Share</a></nav><button type="button" class="ck-theme" aria-label="Change colour theme">Theme: auto</button></span></div><div class="rs-hg"><div><p class="eb">Subtheme · 6 papers · Architecture and accelerators</p><h1 class="rs-h1 long" id="page-title">What do the 6 papers on memory and data movement change? <i>Papers cut trips to off-chip memory, which often cost more than the arithmetic itself.</i></h1><p class="rs-lede">Papers: DAC 6. Read from: 6 program descriptions, 0 abstracts or reports, 0 full papers or preprints. The explanations come first; every paper’s record follows at the end.</p></div><ol class="ck-cards" aria-label="The numbers this page turns on"><svg viewBox="0 0 520 380" aria-hidden="true" preserveAspectRatio="none"><path d="M236 78 C 260 84, 260 128, 284 134"/><path d="M398 198 C 378 238, 196 152, 166 182"/><path d="M240 246 C 264 252, 262 296, 286 302"/></svg><li class="ck-card"><p class="k">1 · Papers</p><b>6</b><span>DAC 6</span></li><li class="ck-card"><p class="k">2 · Read from</p><b>6 of 6</b><span>short program descriptions</span></li><li class="ck-card"><p class="k">3 · Part it changes</p><b>Part 2</b><span>Off-chip memory</span></li><li class="ck-card"><p class="k">4 · Parent theme</p><b>103 papers</b><span>Architecture and accelerators</span></li></ol></div></header>
+<main id="main" class="ck-main" tabindex="-1">
+<nav class="rs-selbar" aria-label="About this page"><span class="rs-sel"><b>You are here</b><a href="../course-map.html">Every page</a> › <a href="../subthemes.html">Subthemes</a></span><span class="rs-crumb">Subtheme · 6 papers · Architecture and accelerators</span></nav><section class="ck-pagefig ck-wide"><figure class="rs-media ck-scene"><div class="rs-mh"><span>Where these papers act: part 2 of architecture and accelerators</span><span class="t t-oc">our drawing</span></div><div class="rs-mb"><div class="ck-scene-pan" tabindex="0" role="group" aria-label="Drawing; scroll sideways on a small screen" style="--min:900px"><svg class="ck-art" viewBox="0 0 1000 450" role="img" aria-labelledby="smemoryanddatam-t" font-family="IBM Plex Sans Condensed, sans-serif"><title id="smemoryanddatam-t">An accelerator: a layer&#x27;s numbers come from off-chip memory through on-chip buffers into a grid of compute units; ringed: part 2, off-chip memory</title><defs><marker id="smemoryanddatam-a" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5 0 10z" fill="#2b2622"/></marker><marker id="smemoryanddatam-r" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5 0 10z" fill="#9a4a22"/></marker><pattern id="smemoryanddatam-h" width="8" height="8" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><path d="M0 0V8" stroke="#cdbfa9" stroke-width="3"/></pattern></defs><rect x="30" y="54" width="22" height="22" rx="2" fill="#f5e6d3" stroke="#2b2622" stroke-width="1.3"/><rect x="56" y="54" width="22" height="22" rx="2" fill="#f5e6d3" stroke="#2b2622" stroke-width="1.3"/><rect x="82" y="54" width="22" height="22" rx="2" fill="#f5e6d3" stroke="#2b2622" stroke-width="1.3"/><rect x="30" y="80" width="22" height="22" rx="2" fill="#f5e6d3" stroke="#2b2622" stroke-width="1.3"/><rect x="56" y="80" width="22" height="22" rx="2" fill="#f5e6d3" stroke="#2b2622" stroke-width="1.3"/><rect x="82" y="80" width="22" height="22" rx="2" fill="#f5e6d3" stroke="#2b2622" stroke-width="1.3"/><rect x="30" y="106" width="22" height="22" rx="2" fill="#f5e6d3" stroke="#2b2622" stroke-width="1.3"/><rect x="56" y="106" width="22" height="22" rx="2" fill="#f5e6d3" stroke="#2b2622" stroke-width="1.3"/><rect x="82" y="106" width="22" height="22" rx="2" fill="#f5e6d3" stroke="#2b2622" stroke-width="1.3"/><rect x="30" y="132" width="22" height="22" rx="2" fill="#f5e6d3" stroke="#2b2622" stroke-width="1.3"/><rect x="56" y="132" width="22" height="22" rx="2" fill="#f5e6d3" stroke="#2b2622" stroke-width="1.3"/><rect x="82" y="132" width="22" height="22" rx="2" fill="#f5e6d3" stroke="#2b2622" stroke-width="1.3"/><text x="120" y="104" font-size="30" fill="#2b2622" text-anchor="middle">×</text><rect x="106" y="124" width="22" height="22" rx="2" fill="#f5e6d3" stroke="#2b2622" stroke-width="1.3"/><rect x="132" y="124" width="22" height="22" rx="2" fill="#f5e6d3" stroke="#2b2622" stroke-width="1.3"/><rect x="106" y="150" width="22" height="22" rx="2" fill="#f5e6d3" stroke="#2b2622" stroke-width="1.3"/><rect x="132" y="150" width="22" height="22" rx="2" fill="#f5e6d3" stroke="#2b2622" stroke-width="1.3"/><rect x="106" y="176" width="22" height="22" rx="2" fill="#f5e6d3" stroke="#2b2622" stroke-width="1.3"/><rect x="132" y="176" width="22" height="22" rx="2" fill="#f5e6d3" stroke="#2b2622" stroke-width="1.3"/><text x="96" y="236" font-size="15" fill="#2b2622" text-anchor="middle" font-weight="600" letter-spacing="1">1 · THE WORKLOAD</text><text x="96" y="257" font-size="15" fill="#2b2622" text-anchor="middle">a layer of a model</text><text x="96" y="278" font-size="15" fill="#5a5047" text-anchor="middle">two grids of numbers</text><rect x="196" y="24" width="180" height="270" rx="12" fill="none" stroke="#9a4a22" stroke-width="3" stroke-dasharray="9 6"/><rect x="222" y="52" width="128" height="34" rx="6" fill="#ece4d5" stroke="#2b2622" stroke-width="2"/><rect x="222" y="104" width="128" height="34" rx="6" fill="#ece4d5" stroke="#2b2622" stroke-width="2"/><text x="286.0" y="127.0" font-size="16" fill="#2b2622" text-anchor="middle" font-weight="600">DRAM</text><rect x="222" y="156" width="128" height="34" rx="6" fill="#ece4d5" stroke="#2b2622" stroke-width="2"/><text x="286" y="236" font-size="15" fill="#9a4a22" text-anchor="middle" font-weight="600" letter-spacing="1">2 · OFF-CHIP MEMORY</text><text x="286" y="257" font-size="15" fill="#2b2622" text-anchor="middle">big and far away</text><text x="286" y="278" font-size="15" fill="#5a5047" text-anchor="middle">slow to reach</text><path d="M378 120H420" fill="none" stroke="#2b2622" stroke-width="4" marker-end="url(#smemoryanddatam-a)"/><text x="399" y="108" font-size="14" fill="#5a5047" text-anchor="middle">narrow</text><rect x="446" y="48" width="108" height="30" rx="3" fill="#fbf7f0" stroke="#2b2622" stroke-width="1.6"/><path d="M458 63h60" stroke="#cdbfa9" stroke-width="8"/><rect x="446" y="88" width="108" height="30" rx="3" fill="#fbf7f0" stroke="#2b2622" stroke-width="1.6"/><path d="M466 103h50" stroke="#cdbfa9" stroke-width="8"/><rect x="446" y="128" width="108" height="30" rx="3" fill="#fbf7f0" stroke="#2b2622" stroke-width="1.6"/><path d="M474 143h40" stroke="#cdbfa9" stroke-width="8"/><rect x="446" y="168" width="108" height="30" rx="3" fill="#fbf7f0" stroke="#2b2622" stroke-width="1.6"/><path d="M482 183h30" stroke="#cdbfa9" stroke-width="8"/><text x="500" y="236" font-size="15" fill="#2b2622" text-anchor="middle" font-weight="600" letter-spacing="1">3 · ON-CHIP BUFFERS</text><text x="500" y="257" font-size="15" fill="#2b2622" text-anchor="middle">small and near</text><text x="500" y="278" font-size="15" fill="#5a5047" text-anchor="middle">fast to reach</text><path d="M578 90H612" fill="none" stroke="#2b2622" stroke-width="3" marker-end="url(#smemoryanddatam-a)"/><path d="M578 150H612" fill="none" stroke="#2b2622" stroke-width="3" marker-end="url(#smemoryanddatam-a)"/><rect x="632" y="30" width="28" height="28" rx="3" fill="#e3b98f" stroke="#2b2622" stroke-width="1.4"/><path d="M661 44h8" stroke="#5a5047" stroke-width="1.4"/><path d="M646 59v8" stroke="#5a5047" stroke-width="1.4"/><rect x="670" y="30" width="28" height="28" rx="3" fill="#e3b98f" stroke="#2b2622" stroke-width="1.4"/><path d="M699 44h8" stroke="#5a5047" stroke-width="1.4"/><path d="M684 59v8" stroke="#5a5047" stroke-width="1.4"/><rect x="708" y="30" width="28" height="28" rx="3" fill="#fbf7f0" stroke="#2b2622" stroke-width="1.4"/><path d="M737 44h8" stroke="#5a5047" stroke-width="1.4"/><path d="M722 59v8" stroke="#5a5047" stroke-width="1.4"/><rect x="746" y="30" width="28" height="28" rx="3" fill="#e3b98f" stroke="#2b2622" stroke-width="1.4"/><path d="M775 44h8" stroke="#5a5047" stroke-width="1.4"/><path d="M760 59v8" stroke="#5a5047" stroke-width="1.4"/><rect x="784" y="30" width="28" height="28" rx="3" fill="#e3b98f" stroke="#2b2622" stroke-width="1.4"/><path d="M798 59v8" stroke="#5a5047" stroke-width="1.4"/><rect x="632" y="68" width="28" height="28" rx="3" fill="#e3b98f" stroke="#2b2622" stroke-width="1.4"/><path d="M661 82h8" stroke="#5a5047" stroke-width="1.4"/><path d="M646 97v8" stroke="#5a5047" stroke-width="1.4"/><rect x="670" y="68" width="28" height="28" rx="3" fill="#fbf7f0" stroke="#2b2622" stroke-width="1.4"/><path d="M699 82h8" stroke="#5a5047" stroke-width="1.4"/><path d="M684 97v8" stroke="#5a5047" stroke-width="1.4"/><rect x="708" y="68" width="28" height="28" rx="3" fill="#e3b98f" stroke="#2b2622" stroke-width="1.4"/><path d="M737 82h8" stroke="#5a5047" stroke-width="1.4"/><path d="M722 97v8" stroke="#5a5047" stroke-width="1.4"/><rect x="746" y="68" width="28" height="28" rx="3" fill="#e3b98f" stroke="#2b2622" stroke-width="1.4"/><path d="M775 82h8" stroke="#5a5047" stroke-width="1.4"/><path d="M760 97v8" stroke="#5a5047" stroke-width="1.4"/><rect x="784" y="68" width="28" height="28" rx="3" fill="#fbf7f0" stroke="#2b2622" stroke-width="1.4"/><path d="M798 97v8" stroke="#5a5047" stroke-width="1.4"/><rect x="632" y="106" width="28" height="28" rx="3" fill="#fbf7f0" stroke="#2b2622" stroke-width="1.4"/><path d="M661 120h8" stroke="#5a5047" stroke-width="1.4"/><path d="M646 135v8" stroke="#5a5047" stroke-width="1.4"/><rect x="670" y="106" width="28" height="28" rx="3" fill="#e3b98f" stroke="#2b2622" stroke-width="1.4"/><path d="M699 120h8" stroke="#5a5047" stroke-width="1.4"/><path d="M684 135v8" stroke="#5a5047" stroke-width="1.4"/><rect x="708" y="106" width="28" height="28" rx="3" fill="#e3b98f" stroke="#2b2622" stroke-width="1.4"/><path d="M737 120h8" stroke="#5a5047" stroke-width="1.4"/><path d="M722 135v8" stroke="#5a5047" stroke-width="1.4"/><rect x="746" y="106" width="28" height="28" rx="3" fill="#fbf7f0" stroke="#2b2622" stroke-width="1.4"/><path d="M775 120h8" stroke="#5a5047" stroke-width="1.4"/><path d="M760 135v8" stroke="#5a5047" stroke-width="1.4"/><rect x="784" y="106" width="28" height="28" rx="3" fill="#e3b98f" stroke="#2b2622" stroke-width="1.4"/><path d="M798 135v8" stroke="#5a5047" stroke-width="1.4"/><rect x="632" y="144" width="28" height="28" rx="3" fill="#e3b98f" stroke="#2b2622" stroke-width="1.4"/><path d="M661 158h8" stroke="#5a5047" stroke-width="1.4"/><path d="M646 173v8" stroke="#5a5047" stroke-width="1.4"/><rect x="670" y="144" width="28" height="28" rx="3" fill="#e3b98f" stroke="#2b2622" stroke-width="1.4"/><path d="M699 158h8" stroke="#5a5047" stroke-width="1.4"/><path d="M684 173v8" stroke="#5a5047" stroke-width="1.4"/><rect x="708" y="144" width="28" height="28" rx="3" fill="#fbf7f0" stroke="#2b2622" stroke-width="1.4"/><path d="M737 158h8" stroke="#5a5047" stroke-width="1.4"/><path d="M722 173v8" stroke="#5a5047" stroke-width="1.4"/><rect x="746" y="144" width="28" height="28" rx="3" fill="#e3b98f" stroke="#2b2622" stroke-width="1.4"/><path d="M775 158h8" stroke="#5a5047" stroke-width="1.4"/><path d="M760 173v8" stroke="#5a5047" stroke-width="1.4"/><rect x="784" y="144" width="28" height="28" rx="3" fill="#e3b98f" stroke="#2b2622" stroke-width="1.4"/><path d="M798 173v8" stroke="#5a5047" stroke-width="1.4"/><rect x="632" y="182" width="28" height="28" rx="3" fill="#e3b98f" stroke="#2b2622" stroke-width="1.4"/><path d="M661 196h8" stroke="#5a5047" stroke-width="1.4"/><rect x="670" y="182" width="28" height="28" rx="3" fill="#fbf7f0" stroke="#2b2622" stroke-width="1.4"/><path d="M699 196h8" stroke="#5a5047" stroke-width="1.4"/><rect x="708" y="182" width="28" height="28" rx="3" fill="#e3b98f" stroke="#2b2622" stroke-width="1.4"/><path d="M737 196h8" stroke="#5a5047" stroke-width="1.4"/><rect x="746" y="182" width="28" height="28" rx="3" fill="#e3b98f" stroke="#2b2622" stroke-width="1.4"/><path d="M775 196h8" stroke="#5a5047" stroke-width="1.4"/><rect x="784" y="182" width="28" height="28" rx="3" fill="#fbf7f0" stroke="#2b2622" stroke-width="1.4"/><text x="724" y="236" font-size="15" fill="#2b2622" text-anchor="middle" font-weight="600" letter-spacing="1">4 · THE COMPUTE GRID</text><text x="724" y="257" font-size="15" fill="#2b2622" text-anchor="middle">each unit passes numbers on</text><text x="724" y="278" font-size="15" fill="#5a5047" text-anchor="middle">pale units wait for data</text><path d="M840 120H866" fill="none" stroke="#2b2622" stroke-width="3" marker-end="url(#smemoryanddatam-a)"/><circle cx="928" cy="84" r="32" fill="#fbf7f0" stroke="#2b2622" stroke-width="2"/><path d="M928 84V62M928 84l15 9" stroke="#9a4a22" stroke-width="3" stroke-linecap="round"/><path d="M918 136l-12 26h16l-8 24 24-32h-16l10-18z" fill="#e3b98f" stroke="#2b2622" stroke-width="1.6" stroke-linejoin="round"/><text x="928" y="236" font-size="15" fill="#2b2622" text-anchor="middle" font-weight="600" letter-spacing="1">5 · THE RESULT</text><text x="928" y="257" font-size="15" fill="#2b2622" text-anchor="middle">time and energy</text><text x="928" y="278" font-size="15" fill="#5a5047" text-anchor="middle">for the whole layer</text><rect x="10" y="344" width="980" height="96" rx="8" fill="#3a2e26"/><text x="30" y="372" font-size="15" fill="#e3b98f" font-weight="600" letter-spacing="1.5">PART 2 · OFF-CHIP MEMORY · RINGED ABOVE</text><text x="30" y="400" font-size="20" fill="#f3ede2">Papers cut trips to off-chip memory,</text><text x="30" y="426" font-size="20" fill="#f3ede2">which often cost more than the arithmetic itself.</text></svg></div><figcaption class="ck-cap">The drawing shows the whole architecture and accelerators problem; the rust ring marks part 2, off-chip memory. The words in the box are ours, from the explanation below.</figcaption></div></figure><figure class="rs-media"><div class="rs-mh"><span>What the 6 paper records were read from</span><span class="t t-wo">counted</span></div><div class="rs-mb"><div data-chart><script type="application/json">{"type":"bars","title":"Records by source","desc":"6 of 6 come from the short program description.","max":6,"items":[{"label":"Program description","value":6}]}</script><noscript><p class="ck-cap">Records by source. 6 of 6 come from the short program description.</p></noscript></div><figcaption class="ck-cap">Counted from the source tier of each record in data/taxonomy-expanded-v1.json. A program description gives the claim, rarely the test conditions.</figcaption></div></figure></section><div class="ck-doc"> 
+
 
 <p>This subject has 6 records in the selected sample. This page explains where it fits, then presents all captured paper evidence without shortening the measurements or limitations.</p>
 <p><a href="../guide/reading-guide-v1.html">Definitions used in the paper records</a></p>
-<p class="lm-k h-label">Understand the parent subject first</p><h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>The bigger theme this belongs to</h2>
+<p class="rs-k">Understand the parent subject first</p><div class="rs-sh"><h2 class="rs-h2">The bigger theme this belongs to</h2></div>
 <ul>
 <li><a href="../themes/architecture-and-accelerators.html">Architecture and accelerators</a></li>
 <li><a href="../themes/memory-interconnect-and-storage.html">Memory interconnect and storage</a></li>
 </ul>
-<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>Start with the lifetime of a value</h2>
+<div class="rs-sh"><h2 class="rs-h2">Start with the lifetime of a value</h2></div>
 <p>A calculation produces a value, and some later calculation consumes it. Between those events, the system must keep the value somewhere, encode it in a smaller form, or discard it and calculate it again.</p><p>Each choice has a cost. Keeping the value occupies storage.</p><p>Moving it takes time and electrical energy. Encoding and reconstructing it require work.</p><p>Recomputing it consumes arithmetic capacity and may require fetching its original inputs again.</p>
-<p>These costs are related but not identical. <strong>Capacity</strong> is how many bytes fit at once. <strong>Bandwidth</strong> is how many bytes a path can transfer per second. <strong>Latency</strong> is how long an individual request takes to finish. A program can fit in memory and still wait for transfers.</p><p>It can also use only a small fraction of a device's advertised bandwidth because its next address depends on a previous result. More arithmetic units do not remove either problem.</p>
-<div class="worked"><p class="lm-k">Worked example</p><p>Consider an explicitly hypothetical transfer: moving one billion bytes through a path that sustains one hundred billion bytes per second requires at least 0.01 seconds of service. This calculation excludes waiting, setup, and computation.</p></div><p>Reducing the bytes by half saves at most 0.005 seconds on that path if the rate stays fixed. Compression is not a latency improvement if its additional, non-overlapped work takes longer than that saving.</p><p>The same change may still be worthwhile if it makes an otherwise impossible allocation fit.</p>
-<div class="worked"><p class="lm-k">Worked example</p><p>The six papers below modify different parts of this value lifetime. All six belong to the selected DAC 2026 sample; they do not establish a comparison across conferences or years.</p><p>The current review refreshed their official descriptions on 2026-09-07. It did not recover readable full manuscripts.</p><p>Consequently, source locations below identify <strong>Description</strong> or <strong>Abstract</strong> sections, not invented PDF pages. The corresponding cards are corrected from those sources, with older captured fields retained separately.</p></div>
-<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="help-circle"></span>Six distinct technical questions</h2>
+<p>These costs are related but not identical. <strong>Capacity</strong> is how many bytes fit at once. <strong>Bandwidth</strong> is how many bytes a path can transfer per second. <strong>Latency</strong> is how long an individual request takes to finish. A program can fit in memory and still wait for transfers.</p><p>It can also use only a small fraction of a device's advertised bandwidth<span class="ck-gloss"> (how many bytes a link can move per second)</span> because its next address depends on a previous result. More arithmetic units do not remove either problem.</p>
+<section class="ck-ledger"><header><h4>Worked example, with the numbers</h4><span class="t t-le">from the papers</span></header><ol><li><div>Consider an explicitly hypothetical transfer: moving one billion bytes through a path that sustains one hundred billion bytes per second requires at least 0.01 seconds of service. This calculation excludes waiting, setup, and computation.</div></li></ol></section><p>Reducing the bytes by half saves at most 0.005 seconds on that path if the rate stays fixed. Compression is not a latency<span class="ck-gloss"> (the wait for one result)</span> improvement if its additional, non-overlapped work takes longer than that saving.</p><p>The same change may still be worthwhile if it makes an otherwise impossible allocation fit.</p>
+<p>The six papers below modify different parts of this value lifetime. All six belong to the selected DAC 2026 sample; they do not establish a comparison across conferences or years.</p><p>The current review refreshed their official descriptions on 2026-09-07. It did not recover readable full manuscripts.</p><p>Consequently, source locations below identify <strong>Description</strong> or <strong>Abstract</strong> sections, not invented PDF pages. The corresponding cards are corrected from those sources, with older captured fields retained separately.</p>
+<div class="rs-sh"><h2 class="rs-h2">Six distinct technical questions</h2></div>
 <table>
 <thead>
 <tr>
@@ -84,7 +77,7 @@
 <td>Prediction error, application slowdown, control cost</td>
 </tr>
 <tr>
-<td>Can inference values be compressed without changing their bits?</td>
+<td>Can inference<span class="ck-gloss"> (running a trained AI model to get answers)</span> values be compressed without changing their bits?</td>
 <td>Floating-point encoding and parallel packing: ZipFloat</td>
 <td>Exact reconstruction, total bytes, codec and application time</td>
 </tr>
@@ -95,46 +88,46 @@
 </tr>
 </tbody>
 </table>
-<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>Representation: fewer bits is not one kind of correctness</h2>
+<div class="rs-sh"><h2 class="rs-h2">Representation: <i>fewer bits is not one kind of correctness</i></h2></div>
 <p>An activation is an intermediate numerical result inside a neural network. Training often needs intermediate results again when calculating how to change the model's parameters.</p><p>Those values can remain live for much longer than a single arithmetic instruction. A larger group of training examples or a longer input can therefore increase storage even when the model parameters are unchanged.</p>
 <p>A floating-point value is represented using a sign, an exponent that controls numerical scale, and significant digits. Removing some digits changes the value.</p><p>Reorganizing repeated bit patterns can instead reduce storage while allowing exact reconstruction. A third question is what happens when stored bits change accidentally.</p><p>Exact decoding in fault-free operation does not guarantee useful decoding after a fault. Nor does acceptable training quality prove that the original activation values were recovered exactly.</p>
 <h3>REACT: compression and fault sensitivity must be tested together</h3>
 <p><a href="memory-and-data-movement.html#paper-dac-2026-research2947">REACT</a> combines base-delta compression with an encoding intended to limit errors in vulnerable bits. Its refreshed description reports fourfold lower activation memory and maintained accuracy at a thousandfold higher bit-error rate, but omits absolute rates, models, and the quality criterion.</p><p>These are conditional author claims, not a verified reliability guarantee. <a href="https://63dac.conference-program.com/presentation/?id=RESEARCH2947&amp;sess=sess142">Source: official Description, mechanism and final-result sentences</a>.</p>
 <p>The conceptual issue is that sharing one base value among many encoded differences changes how a fault propagates. Corrupting a shared field can affect several reconstructed values; corrupting a field used once has a different reach.</p><p>A useful evaluation must specify which fields receive injected faults, whether faults are independent or clustered, and how long corrupted state remains in use. Comparing only the number of stored bits cannot establish reliability.</p><p>Compare complete training runs at the same target quality, including failed runs and any recovery work.</p>
 <h3>ZipFloat: exact representation still needs a system-level test</h3>
-<p><a href="memory-and-data-movement.html#paper-dac-2026-research684">ZipFloat</a> targets model weights and saved attention keys and values, rather than only generic intermediate activations. Its description names exponent sparsification and bit-matrix packing, with GPU-parallel compression and decompression.</p><p>The reported maxima include 700 GB/s codec throughput, over 95% lower time to first output token, and over fourfold inference throughput. Hardware, input sizes, precise ratios, and the system comparison conditions remain absent. <a href="https://63dac.conference-program.com/presentation/?id=RESEARCH684&amp;sess=sess109">Source: official Description, two numbered mechanisms and evaluation sentence</a>.</p>
+<p><a href="memory-and-data-movement.html#paper-dac-2026-research684">ZipFloat</a> targets model weights and saved attention keys and values, rather than only generic intermediate activations. Its description names exponent sparsification and bit-matrix packing, with GPU-parallel compression and decompression.</p><p>The reported maxima include 700 GB/s codec throughput<span class="ck-gloss"> (how much work is finished per second)</span>, over 95% lower time to first output token, and over fourfold inference throughput. Hardware, input sizes, precise ratios, and the system comparison conditions remain absent. <a href="https://63dac.conference-program.com/presentation/?id=RESEARCH684&amp;sess=sess109">Source: official Description, two numbered mechanisms and evaluation sentence</a>.</p>
 <p>Saved attention keys and values are numerical summaries of earlier input positions that later output steps reuse. Compressing them can change how many requests fit simultaneously.</p><p>That can improve total service throughput without making an individual arithmetic operation faster. It is therefore necessary to separate codec speed, request concurrency, and per-request latency.</p><p>An exactness test should compare decoded bit patterns, including supported special values, rather than merely compare a model's final accuracy. A capacity test must count headers, indexing, temporary buffers, and incompressible cases.</p>
-<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="alert-triangle"></span>Allocation: unused capacity and blocked access are different failures</h2>
+<div class="rs-sh"><h2 class="rs-h2">Allocation: <i>unused capacity and blocked access are different failures</i></h2></div>
 <p>A register is small storage directly used by executing instructions. A register file contains many such locations and is often divided into banks, each with limited simultaneous access.</p><p>Enough free locations do not guarantee that two requests can be served together: both may address the same bank. Conversely, a balanced request pattern does not eliminate duplicate values occupying several locations.</p>
 <h3>CODA: share values, then handle the requests to them</h3>
-<p><a href="memory-and-data-movement.html#paper-dac-2026-research387">CODA</a> proposes cooperative register renaming to keep a single physical copy across GPU sub-cores, plus an arbitrator that uses operand-collector identity when selecting accesses. The description reports 28.9% speedup and 15.6% lower register-file power, alongside reduced imbalance and conflicts.</p><p>It does not establish a fabricated-chip result or name the tested GPU and workload suite. This is the register-sharing CODA, not the separately listed NPU dataflow paper with the same acronym. <a href="https://63dac.conference-program.com/presentation/?id=RESEARCH387&amp;sess=sess143">Source: official Description, paragraphs 1–3</a>.</p>
+<p><a href="memory-and-data-movement.html#paper-dac-2026-research387">CODA</a> proposes cooperative register renaming to keep a single physical copy across GPU<span class="ck-gloss"> (a chip with thousands of small arithmetic units, first built for graphics)</span> sub-cores, plus an arbitrator that uses operand-collector identity when selecting accesses. The description reports 28.9% speedup and 15.6% lower register-file power, alongside reduced imbalance and conflicts.</p><p>It does not establish a fabricated-chip result or name the tested GPU and workload suite. This is the register-sharing CODA, not the separately listed NPU<span class="ck-gloss"> (neural processing unit: a chip built to run AI models)</span> dataflow paper with the same acronym. <a href="https://63dac.conference-program.com/presentation/?id=RESEARCH387&amp;sess=sess143">Source: official Description, paragraphs 1–3</a>.</p>
 <p>A general sharing design needs rules for locating a shared value, protecting it while readers still need it, and handling a write that should no longer be shared. These are evaluation questions, not mechanisms established for this paper by its short description.</p><p>Sharing can reduce storage and repeated writes while increasing traffic to the remaining copy. The meaningful comparison holds the register capacity and access resources explicit.</p><p>Register-file power also covers a smaller boundary than whole-GPU energy, which depends on execution time and all active components.</p>
 <h3>Cachence: the value of cache space changes during execution</h3>
 <p>A cache keeps selected copies of data to avoid repeated accesses to a slower memory. A miss occurs when the needed copy is absent.</p><p>Giving a program additional cache space helps only if it retains data that will actually be reused. Dividing cache equally can therefore be inefficient, but repeatedly changing the division can also evict useful data and create measurement overhead.</p>
 <p><a href="memory-and-data-movement.html#paper-dac-2026-research441">Cachence</a> combines hardware access profiling with a runtime performance model for timely, fine-grained allocation. The author-lab abstract describes roughly two kilobytes of profiling storage per core and evaluates a 16-core system.</p><p>It reports average improvements of 9.5–28.2% against existing approaches, but the accessible abstract does not identify the exact benchmark mixtures or performance objective. Its accuracy guarantee concerns the profiling model; it is not a guarantee that every application gets faster. <a href="https://telos.top/publication/26-dac-li/">Source: author-lab Abstract, profiling, model, and evaluation paragraphs</a>.</p>
 <p>A miss-ratio curve describes how often requests miss at different cache allocations. Turning that curve into a speed prediction needs another step: how much of the missing-data delay actually prevents progress?</p><p>A processor may continue independent work while waiting. Two programs with equal miss reductions can therefore have different runtime improvements.</p><p>Evaluate the allocation policy with phase changes, short runs, and competing programs, and report each program's slowdown as well as aggregate performance. Otherwise a total improvement can hide a substantial loss for one participant.</p>
-<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="file-text"></span>Measurement: the traffic source changes the result</h2>
-<p>High-bandwidth memory, or HBM, offers many parallel memory connections. A field-programmable gate array, or FPGA, is a device whose logic can be configured to implement circuits, including processor cores.</p><p>A soft core is such a processor implemented in configurable logic. Direct memory access, or DMA, moves data without the host processor individually copying every word; PCIe is the connection carrying that host–device traffic here.</p>
+<div class="rs-sh"><h2 class="rs-h2">Measurement: <i>the traffic source changes the result</i></h2></div>
+<p>High-bandwidth memory, or HBM<span class="ck-gloss"> (high-bandwidth memory: memory dies stacked beside the processor)</span>, offers many parallel memory connections. A field-programmable gate array, or FPGA<span class="ck-gloss"> (a chip whose circuits can be rewired after it is made)</span>, is a device whose logic can be configured to implement circuits, including processor cores.</p><p>A soft core is such a processor implemented in configurable logic. Direct memory access, or DMA<span class="ck-gloss"> (direct memory access: copying data without the processor's help)</span>, moves data without the host processor individually copying every word; PCIe is the connection carrying that host–device traffic here.</p>
 <p><a href="memory-and-data-movement.html#paper-dac-2026-research389">Toki</a> combines RISC-V soft-core workloads with host DMA traffic on an AMD Alveo U55C and its HBM2 memory. The description reports configurations up to 60 cores and application/microbenchmark experiments.</p><p>It describes profiling access patterns, locality, controller contention, and concurrent host traffic, rather than claiming a general application speedup. The description says the framework is open source; no repository or executable reproduction was verified in this pass. <a href="https://63dac.conference-program.com/presentation/?id=RESEARCH389&amp;sess=sess147">Source: official Description, framework and experiment sentences</a>.</p>
 <p>A traffic generator can issue requests at a prescribed rate. A running program can instead wait for one result before issuing its next request.</p><p>These experiments exercise different limits. Concurrent host traffic also competes at particular shared controllers or connections, not necessarily uniformly across the entire device.</p><p>To explain a measurement, record where addresses map, how much work is outstanding, the read/write mixture, and whether host and device requests overlap in time. A board's peak bandwidth is not an observed application result.</p>
-<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>Recomputation: lower peak storage can require more work</h2>
+<div class="rs-sh"><h2 class="rs-h2">Recomputation: <i>lower peak storage can require more work</i></h2></div>
 <p>A computation graph lists operations and the values passed between them. A value remains live until its last required use.</p><p>Peak memory is the largest simultaneous set of live values and temporary storage, not the sum of every value produced during the run. Discarding an intermediate can lower that peak, but later uses require reconstruction.</p><p>Splitting an operation into smaller pieces can also lower temporary storage while adding scheduling and coordination.</p>
 <p><a href="memory-and-data-movement.html#paper-dac-2026-research863">PRICE</a> combines compile-time modeling with runtime decisions about recomputation and operation splitting. It uses attainable arithmetic intensity to balance storage and latency.</p><p>The description reports tests on RTX 4090 and A100 GPUs and 1.08–1.31× speedup at comparable peak-memory reduction against prior work. It omits the full workload list, named competitors, and absolute peak-memory results. <a href="https://63dac.conference-program.com/presentation/?id=RESEARCH863&amp;sess=sess146">Source: official Description, modeling and experiment sentences</a>.</p>
 <p>Arithmetic intensity means arithmetic operations per byte transferred across a specified memory boundary. That boundary matters: a value kept in a register may avoid external-memory traffic while still requiring on-chip accesses.</p><p>Increasing intensity by adding useless calculations is not a benefit. The useful question is whether extra computation removes enough transfers or makes a feasible execution schedule possible.</p><p>Evaluate complete runtime, the number of extra operations, peak allocated bytes, and output equivalence. A theoretical throughput limit alone does not account for dependencies, insufficient parallel work, or runtime decision cost.</p>
-<h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="route"></span>The combined insight, and how to challenge it</h2>
+<div class="rs-sh"><h2 class="rs-h2">The combined insight, <i>and how to challenge it</i></h2></div>
 <p>The cross-paper interpretation is that reducing memory cost requires coordinating <strong>representation, lifetime, placement, and access</strong>. This is an organizing explanation, not a demonstrated integrated system.</p><p>Compression changes sizes and decode costs; recomputation changes which values exist at once; allocation changes who retains them; sharing changes where requests concentrate. A combination that improves each component in isolation may still increase total runtime when their added costs coincide.</p>
 <p>One testable long-term hypothesis is that decisions informed by current value lifetimes and access contention will outperform fixed rules under changing workloads. Challenge it with stable workloads where a fixed policy has little control overhead, incompressible tensors, rapidly changing phases, and arithmetic-saturated executions where recomputation is expensive.</p><p>Those are candidate counterexamples, not failures demonstrated by these six papers. Establishing a temporal trend would additionally require equivalent earlier-edition coverage and comparable measurements.</p>
 <p>The immediate evidence gaps are specific. Recover readable manuscripts for all six records; match versions and author identities; extract experimental sections and tables; and reconcile the headline ratios with their actual baselines.</p><p>A REACT-related thesis search hit was found at the SNU repository, but the download failed certificate validation on one hostname and returned a JavaScript landing page on the other. No thesis pages are cited as inspected.</p><p>Cachence's author abstract was accessible, but its DOI route did not yield readable paper content. These access outcomes do not prove the papers are unavailable elsewhere.</p><p>No independent scientific review or reproduction was completed here.</p>
-<p class="lm-k h-label">Compare the results carefully</p><h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="route"></span>How to compare these papers’ results fairly</h2>
+<p class="rs-k">Compare the results carefully</p><div class="rs-sh"><h2 class="rs-h2">How to compare these papers’ results fairly</h2></div>
 <p>First identify the inputs and required output quality. Then identify the limited resource: time, memory, communication, energy, circuit area, or correctness coverage.</p><p>Ask which part of the method reduces that cost and which new cost it adds. Compare numbers only when the experiments hold these conditions sufficiently similar.</p>
 <p>A conference description may explain the proposal while omitting the full experiment. An author preprint link may have been coded from its abstract. The source classification does not by itself establish that every table was read. Missing locations remain visible below.</p>
-<p class="lm-k h-label">Complete captured evidence</p><h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="file-text"></span>Every paper in this subtheme, with what its source shows</h2>
+<p class="rs-k">Complete captured evidence</p><div class="rs-sh"><h2 class="rs-h2">Every paper in this subtheme, <i>with what its source shows</i></h2></div>
 <p>These are evidence records, not substitutes for the explanations above. Each record preserves its problem, proposed method, measurements, comparison conditions, and source limits. A populated record does not establish that its mechanism has been fully explained or independently verified.</p>
 <p><span id="paper-dac-2026-research2947"></span></p>
 <h3>REACT: Rapid Error-Tolerant Activation Compressor for Efficient Transformer Training</h3>
 <p>DAC 2026 · Record: <code>dac-2026-research2947</code></p>
 <p><strong>Updated source-backed reading card</strong></p>
-<div class="worked"><p class="lm-k">Worked example</p><p>Reviewed 2026-09-07. Refreshed official description supplies mechanisms and conditional metrics absent from the older summary.</p></div>
+<p>Reviewed 2026-09-07. Refreshed official description supplies mechanisms and conditional metrics absent from the older summary.</p>
 <p>This editorial correction updates the current reading view and connected dossiers, not the historical adjudication or scientific acceptance status. The original captured fields are preserved below.</p>
 <p><a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/data/editorial-paper-corrections-v1.json">Correction register</a></p>
 <p><strong>Problem:</strong></p>
@@ -155,7 +148,7 @@
 <p>Evidence tier: Refreshed official description. This is the stored source classification; the location and limits below determine what was actually read.</p>
 <p><a href="https://63dac.conference-program.com/presentation/?id=RESEARCH2947&amp;sess=sess142">Open the recorded source</a></p>
 <p>Description: mechanism and final experimental-result sentences; no PDF pagination.</p>
-<details markdown="1">
+<details class="ck-fold" markdown="1">
 <summary>Original captured fields — superseded for this reading card</summary>
 
 ** page source tier:** medium_official_description
@@ -168,7 +161,7 @@ generic activation compression
 
 **Evidence url:** https://63dac.conference-program.com/?post_type=page&amp;p=16&amp;id=RESEARCH2947
 
-**Hardware or process assumptions:** Training accelerator and memory/interconnect; decompression and error assumptions are unspecified.
+**Hardware or process assumptions:** Training accelerator<span class="ck-gloss"> (a chip or block built to do one kind of work fast)</span> and memory/interconnect; decompression and error assumptions are unspecified.
 
 **Limits:** No convergence, final quality, compression ratio, bandwidth, energy, or hardware results are reported.
 
@@ -189,7 +182,7 @@ Official description only; training and implementation validation is required.
 <h3>CODA: Cooperative Register Distribution and Arbitration Among Partitioned GPU Sub-Cores</h3>
 <p>DAC 2026 · Record: <code>dac-2026-research387</code></p>
 <p><strong>Updated source-backed reading card</strong></p>
-<div class="worked"><p class="lm-k">Worked example</p><p>Reviewed 2026-09-07. Refreshed description distinguishes duplicate-value sharing from bank-conflict arbitration.</p></div>
+<p>Reviewed 2026-09-07. Refreshed description distinguishes duplicate-value sharing from bank-conflict arbitration.</p>
 <p>This editorial correction updates the current reading view and connected dossiers, not the historical adjudication or scientific acceptance status. The original captured fields are preserved below.</p>
 <p><a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/data/editorial-paper-corrections-v1.json">Correction register</a></p>
 <p><strong>Problem:</strong></p>
@@ -201,7 +194,7 @@ Official description only; training and implementation validation is required.
 <p><strong>Hardware and manufacturing assumptions:</strong></p>
 <p>Partitioned GPU sub-cores; exact platform and implementation method unspecified.</p>
 <p><strong>Baseline — the comparison method:</strong></p>
-<p>Unnamed baseline architecture.</p>
+<p>Unnamed baseline<span class="ck-gloss"> (the existing method a new result is compared against)</span> architecture.</p>
 <p><strong>Reported measurements:</strong></p>
 <p>Reported 28.9% speedup and 15.6% lower register-file power; 15.9% lower imbalance and 12.7% lower conflict rate.</p>
 <p><strong>Limits on the conclusion:</strong></p>
@@ -210,7 +203,7 @@ Official description only; training and implementation validation is required.
 <p>Evidence tier: Refreshed official description. This is the stored source classification; the location and limits below determine what was actually read.</p>
 <p><a href="https://63dac.conference-program.com/presentation/?id=RESEARCH387&amp;sess=sess143">Open the recorded source</a></p>
 <p>Description, paragraphs 1–3; no PDF pagination.</p>
-<details markdown="1">
+<details class="ck-fold" markdown="1">
 <summary>Original captured fields — superseded for this reading card</summary>
 
 ** page source tier:** medium_official_description
@@ -244,7 +237,7 @@ Official description only; architecture and workload validation is required.
 <h3>Toki: Profiling HBM Performance on FPGA Systems with RISC-V Soft Cores and PCIe Host DMA Traffic</h3>
 <p>DAC 2026 · Record: <code>dac-2026-research389</code></p>
 <p><strong>Updated source-backed reading card</strong></p>
-<div class="worked"><p class="lm-k">Worked example</p><p>Reviewed 2026-09-07. The refreshed description names the physical board and scale omitted by the old card.</p></div>
+<p>Reviewed 2026-09-07. The refreshed description names the physical board and scale omitted by the old card.</p>
 <p>This editorial correction updates the current reading view and connected dossiers, not the historical adjudication or scientific acceptance status. The original captured fields are preserved below.</p>
 <p><a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/data/editorial-paper-corrections-v1.json">Correction register</a></p>
 <p><strong>Problem:</strong></p>
@@ -265,14 +258,14 @@ Official description only; architecture and workload validation is required.
 <p>Evidence tier: Refreshed official description. This is the stored source classification; the location and limits below determine what was actually read.</p>
 <p><a href="https://63dac.conference-program.com/presentation/?id=RESEARCH389&amp;sess=sess147">Open the recorded source</a></p>
 <p>Description: framework, experiment, and result sentences; no PDF pagination.</p>
-<details markdown="1">
+<details class="ck-fold" markdown="1">
 <summary>Original captured fields — superseded for this reading card</summary>
 
 ** page source tier:** medium_official_description
 
 **Baselines:** isolated HBM access
 
-CPU or GPU memory profiling
+CPU<span class="ck-gloss"> (the general-purpose processor that runs ordinary programs)</span> or GPU memory profiling
 
 **Evidence locators:** DAC 2026 official description
 
@@ -299,7 +292,7 @@ Official description only; measured workload validation is required.
 <h3>Cachence: Fine-Grained Cache Partitioning in Both Time and Space</h3>
 <p>DAC 2026 · Record: <code>dac-2026-research441</code></p>
 <p><strong>Updated source-backed reading card</strong></p>
-<div class="worked"><p class="lm-k">Worked example</p><p>Reviewed 2026-09-07. Author-lab abstract adds profiling scope and per-core storage while leaving full experiments unresolved.</p></div>
+<p>Reviewed 2026-09-07. Author-lab abstract adds profiling scope and per-core storage while leaving full experiments unresolved.</p>
 <p>This editorial correction updates the current reading view and connected dossiers, not the historical adjudication or scientific acceptance status. The original captured fields are preserved below.</p>
 <p><a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/data/editorial-paper-corrections-v1.json">Correction register</a></p>
 <p><strong>Problem:</strong></p>
@@ -320,7 +313,7 @@ Official description only; measured workload validation is required.
 <p>Evidence tier: Author lab abstract. This is the stored source classification; the location and limits below determine what was actually read.</p>
 <p><a href="https://telos.top/publication/26-dac-li/">Open the recorded source</a></p>
 <p>Abstract: profiling, performance-model, and final evaluation paragraphs; no PDF pagination.</p>
-<details markdown="1">
+<details class="ck-fold" markdown="1">
 <summary>Original captured fields — superseded for this reading card</summary>
 
 ** page source tier:** medium_official_description
@@ -354,7 +347,7 @@ Official description only; workload-diverse validation is required.
 <h3>Zipfloat: An Ultra-Fast and Lossless Floating-Point Compressor for LLM Inference Systems</h3>
 <p>DAC 2026 · Record: <code>dac-2026-research684</code></p>
 <p><strong>Updated source-backed reading card</strong></p>
-<div class="worked"><p class="lm-k">Worked example</p><p>Reviewed 2026-09-07. Refreshed description identifies software GPU-parallel encoding rather than establishing a dedicated accelerator circuit.</p></div>
+<p>Reviewed 2026-09-07. Refreshed description identifies software GPU-parallel encoding rather than establishing a dedicated accelerator circuit.</p>
 <p>This editorial correction updates the current reading view and connected dossiers, not the historical adjudication or scientific acceptance status. The original captured fields are preserved below.</p>
 <p><a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/data/editorial-paper-corrections-v1.json">Correction register</a></p>
 <p><strong>Problem:</strong></p>
@@ -362,7 +355,7 @@ Official description only; workload-diverse validation is required.
 <p><strong>Mechanism / artifact:</strong></p>
 <p>Exponent sparsification and bit-matrix packing for GPU-parallel lossless encoding.</p>
 <p><strong>Workload — the work tested:</strong></p>
-<p>LLM inference; named models and input sizes absent.</p>
+<p>LLM<span class="ck-gloss"> (large language model: an AI model that reads and writes text)</span> inference; named models and input sizes absent.</p>
 <p><strong>Hardware and manufacturing assumptions:</strong></p>
 <p>GPU model, format coverage, and temporary-buffer costs unspecified.</p>
 <p><strong>Baseline — the comparison method:</strong></p>
@@ -375,7 +368,7 @@ Official description only; workload-diverse validation is required.
 <p>Evidence tier: Refreshed official description. This is the stored source classification; the location and limits below determine what was actually read.</p>
 <p><a href="https://63dac.conference-program.com/presentation/?id=RESEARCH684&amp;sess=sess109">Open the recorded source</a></p>
 <p>Description: numbered mechanisms and final evaluation sentence; no PDF pagination.</p>
-<details markdown="1">
+<details class="ck-fold" markdown="1">
 <summary>Original captured fields — superseded for this reading card</summary>
 
 ** page source tier:** medium_official_description
@@ -409,7 +402,7 @@ Official description only; system validation is required.
 <h3>PRICE: An Operator Recomputation and Fission Framework for Computation Graphs via Attainable Arithmetic Intensity</h3>
 <p>DAC 2026 · Record: <code>dac-2026-research863</code></p>
 <p><strong>Updated source-backed reading card</strong></p>
-<div class="worked"><p class="lm-k">Worked example</p><p>Reviewed 2026-09-07. Refreshed description supplies tested GPUs and narrows the speed comparison to comparable peak-memory reduction.</p></div>
+<p>Reviewed 2026-09-07. Refreshed description supplies tested GPUs and narrows the speed comparison to comparable peak-memory reduction.</p>
 <p>This editorial correction updates the current reading view and connected dossiers, not the historical adjudication or scientific acceptance status. The original captured fields are preserved below.</p>
 <p><a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/data/editorial-paper-corrections-v1.json">Correction register</a></p>
 <p><strong>Problem:</strong></p>
@@ -430,7 +423,7 @@ Official description only; system validation is required.
 <p>Evidence tier: Refreshed official description. This is the stored source classification; the location and limits below determine what was actually read.</p>
 <p><a href="https://63dac.conference-program.com/presentation/?id=RESEARCH863&amp;sess=sess146">Open the recorded source</a></p>
 <p>Description: compile/runtime modeling and final experiment sentences; no PDF pagination.</p>
-<details markdown="1">
+<details class="ck-fold" markdown="1">
 <summary>Original captured fields — superseded for this reading card</summary>
 
 ** page source tier:** medium_official_description
@@ -457,20 +450,20 @@ Official description only; workload and hardware validation is required.
 
 **Problem:** Computation graphs can be memory-bound, and recomputation or fission may improve attainable arithmetic intensity.
 
-**Workload or benchmark:** DNN or general computation graphs; models, hardware, and memory hierarchy are unspecified.
+**Workload or benchmark:** DNN<span class="ck-gloss"> (deep neural network: an AI model made of many layers)</span> or general computation graphs; models, hardware, and memory hierarchy are unspecified.
 
 </details>
-<p class="lm-k h-label">What remains to establish</p><h2><span aria-hidden="true" class="lm-icon h-icon" data-icon="bulb"></span>What is still unproven here</h2>
+<p class="rs-k">What remains to establish</p><div class="rs-sh"><h2 class="rs-h2">What is still unproven here</h2></div>
 <p>Resolve unspecified workloads, comparison methods, resource budgets, and source locations before generalizing a reported gain. Multiple papers in this selected sample permit comparison of mechanisms, but do not by themselves establish recurrence across years or a long-term trend.</p>
-<p><a href="../guide/expanded-taxonomy-v1.html">All subthemes</a> · <a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/reports/directions/README.md">Research directions</a></p><p class="meta">Written as <a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/reports/observed-subthemes/memory-and-data-movement.md">reports/observed-subthemes/memory-and-data-movement.md</a> in the course repository.</p>
-      </article>
-      <nav class="pager" aria-label="Previous and next"><a class="prev" href="specialized-ai-accelerators.html"><span class="pg-k">← Previous</span><span class="pg-t">Specialized AI accelerators</span></a><a class="map" href="../subthemes.html"><span class="pg-k">Back to</span><span class="pg-t">Subthemes</span></a><a class="next" href="ai-accelerator-microarchitecture.html"><span class="pg-k">Next →</span><span class="pg-t">AI accelerator microarchitecture</span></a></nav>
-    </section>
-  </main>
-  <footer class="course-foot">
-    <p>Built from 582 paper records coded from ISCA 2026, DAC 2026 and ICCAD 2025 (ICCAD 2026 papers were not yet public). Most records come from official program descriptions; see “How deep the reading went”. The papers belong to their authors.</p>
-    <p class="foot-links"><a href="https://github.com/mehtama1234/course-concept-library">All courses</a><a href="../index.html">This course</a><a href="../course-map.html">Course map</a><a href="../presentation/index.html">Slides</a><a href="../video/index.html">Video</a><a href="../share/index.html">Share</a></p>
-  </footer>
-  <script src="../assets/course-data.js"></script><script src="../assets/icons.js"></script><script src="../assets/icons-extra.js"></script><script src="../assets/icons-course.js"></script><script src="../assets/art.js"></script><script src="../assets/course-art.js"></script><script src="../assets/charts.js"></script><script src="../assets/course-charts.js"></script><script src="../assets/course-site.js"></script>
+<p><a href="../guide/expanded-taxonomy-v1.html">All subthemes</a> · <a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/reports/directions/README.md">Research directions</a></p><p class="mut">Written as <a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/reports/observed-subthemes/memory-and-data-movement.md">reports/observed-subthemes/memory-and-data-movement.md</a> in the course repository.</p>
+
+
+</div>
+</main>
+<footer class="rs-close"><p class="eb">This page, in one line</p><p class="rs-h2" style="max-width:26em">Papers cut trips to off-chip memory, which often cost more than the arithmetic itself.</p><div class="ck-next"><a href="specialized-ai-accelerators.html"><span class="rs-k" style="color:var(--peach)">Previous</span><b>Specialized AI accelerators</b></a><a class="r" href="ai-accelerator-microarchitecture.html"><span class="rs-k" style="color:var(--peach)">Next</span><b>AI accelerator microarchitecture</b></a></div><div class="rs-btns"><a class="ck-btn pri" href="../subthemes.html">Back to Subthemes</a></div><p class="rs-src">Built from 582 paper records coded from ISCA 2026, DAC 2026 and ICCAD 2025 (ICCAD 2026 papers were not yet public). Most records come from official program descriptions; see “How deep the reading went”. The papers belong to their authors.</p><p class="ck-footlinks"><a href="https://github.com/mehtama1234/semiconductor-conferences">Source on GitHub</a><a href="../index.html">The big picture</a><a href="../course-map.html">Every page</a><a href="../presentation/index.html">Slides</a><a href="../video/index.html">Video</a><a href="../share/index.html">Share</a></p></footer>
+</div>
+<script src="../kit/charts.js"></script>
+<script src="../kit/course.js"></script>
+<script src="../kit/site.js"></script>
 </body>
 </html>

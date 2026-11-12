@@ -14,21 +14,39 @@ The papers improve benchmarks, test systems, emulators, proof procedures, artifa
 
 The useful test makes the evaluation repeatable and shows what was tested, what was not tested, and how much the evaluation cost.
 
-## Correctness needs an explicit statement
+## A design is correct only relative to a written requirement
 
-A design is correct relative to a requirement. The requirement can describe an output, a sequence of states, a timing limit, or information that must remain private. Verification checks whether a design satisfies those statements. Validation asks whether those statements and the design meet the intended use. The two questions can require different experiments.
+A requirement can describe an output, a sequence of states, a timing limit, or information that must stay private.
 
-## Why testing does not cover every behavior
+- **Verification** checks whether the design meets those statements.
+- **Validation** asks whether the statements and the design meet the intended use.
 
-A circuit can have many input combinations and internal states. Simulation tries selected executions and compares their behavior with an expected result. A test that never reaches a faulty state cannot expose that fault. Formal verification reasons about a specified set of behaviors, but its conclusion depends on the model, assumptions, and the property being proved. A timeout is an unresolved check.
+The two questions can need different experiments.
 
-## What separates the subthemes
+## Tests try some behaviors; proofs cover only what they assume
 
-Simulation methods accelerate execution of a model. Emulation implements a representation of the design on other hardware to run tests. Formal methods search for violations or prove properties. Test-generation methods choose inputs likely to expose errors. Coverage measures describe which behaviors were exercised; they need a definition to be interpretable.
+A circuit can have very many input combinations and internal states.
 
-## A comparison that answers the question
+- **Simulation** tries selected runs and compares them with the expected result. A test that never reaches a faulty state cannot expose that fault.
+- **Formal verification** reasons about a specified set of behaviors. Its conclusion depends on the model, the assumptions and the property proved.
 
-Use known faults or independently established reference behavior to assess detection. State the design sizes, properties, test budget, unresolved checks, false alarms, and missed faults. When a generated test improves a score, examine whether it finds new errors on designs outside the development set. More tests are useful only to the extent that they improve the relevant coverage or detection.
+A timeout is an unresolved check, not a pass.
+
+## The subthemes run tests faster, prove properties, or choose better inputs
+
+- **Simulation** methods run a model faster.
+- **Emulation** builds a version of the design on other hardware to run tests.
+- **Formal** methods search for violations or prove properties.
+- **Test generation** picks inputs likely to expose errors.
+- **Coverage** measures say which behaviors were exercised. They need a definition to mean anything.
+
+## A fair test uses known faults and reports what was missed
+
+1. Use known faults, or independently established reference behavior, to judge detection.
+2. State design sizes, properties, test budget, unresolved checks, false alarms and missed faults.
+3. When a generated test raises a score, check whether it finds new errors on designs outside the development set.
+
+More tests help only if they improve the relevant coverage or detection.
 
 ## The individual subjects
 

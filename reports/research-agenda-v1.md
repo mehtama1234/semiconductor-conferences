@@ -45,7 +45,7 @@ Current gate: **0 independent verdicts** across **37 synthesis anchors**; **60 d
 ### `A5-longitudinal-promotion` — Promote, split, weaken, or abandon direction hypotheses
 - At least two comparable editions use the same taxonomy and disclosed evidence tiers.
 - Inventory, source-text, coded, condition-complete, and independently reviewed denominators are reported.
-- The claim is promoted only if the direction-specific test in the longitudinal protocol passes; otherwise it remains insufficient or is weakened.
+- The claim moves up only if it passes its direction's test in the protocol for comparing years. Otherwise it stays unproven, or is weakened.
 
 ### `D-constraints-become-executable-evidence` — Close condition gaps for Constraints Become Executable
 - Resolve or explicitly bound missing fields for: dac-2026-research1110, dac-2026-research535, dac-2026-research865, iccad-2025-1027.
