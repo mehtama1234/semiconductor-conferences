@@ -1,0 +1,161 @@
+WEBVTT
+
+1
+00:00:00.350 --> 00:00:08.655
+This is an atlas of 582 papers from three chip-design conferences: ISCA, DAC and ICCAD. It asks one question.
+
+2
+00:00:08.655 --> 00:00:15.359
+What do these papers, taken together, say about where chip and computer design is going?
+
+3
+00:00:16.309 --> 00:00:22.067
+Here is the whole story in three sentences. One: chip design is becoming a loop.
+
+4
+00:00:22.067 --> 00:00:29.049
+Propose, check, learn, try again. Two: accelerators, memory and reliability draw the most papers.
+
+5
+00:00:29.049 --> 00:00:36.031
+Three: most papers were read from short descriptions, so these are hypotheses, not proven trends.
+
+6
+00:00:36.981 --> 00:00:41.584
+The atlas works in five steps. Start with 582 paper records.
+
+7
+00:00:41.584 --> 00:00:48.566
+Sort them into 10 broad themes, then 113 narrower subthemes, each explained in plain words.
+
+8
+00:00:48.566 --> 00:00:56.468
+Read some papers in full. Then ask which directions keep coming back, and what test would confirm them.
+
+9
+00:00:57.418 --> 00:01:06.050
+First, where the papers come from. DAC, the Design Automation Conference, supplies 544 of the 582.
+
+10
+00:01:06.050 --> 00:01:12.480
+ISCA, the main computer architecture conference, adds 17 selected papers.
+
+11
+00:01:12.480 --> 00:01:21.728
+ICCAD's 2026 papers were not public yet, so 21 come from 2025. So the atlas leans toward design software.
+
+12
+00:01:22.678 --> 00:01:30.400
+Here is where the attention goes. Architecture and accelerators is the largest theme, with 103 papers.
+
+13
+00:01:30.400 --> 00:01:36.609
+Memory, interconnect, and storage has 85. Power, reliability, and security has 78.
+
+14
+00:01:36.609 --> 00:01:43.271
+A count shows where this sample spends its attention. It is not a ranking of importance.
+
+15
+00:01:44.221 --> 00:01:48.745
+The common thread is a loop. A model or a search proposes a design.
+
+16
+00:01:48.745 --> 00:01:54.213
+Tools check it: does it compile, does it simulate correctly, does it meet timing?
+
+17
+00:01:54.213 --> 00:01:58.399
+The check reports what failed, and the next attempt uses that.
+
+18
+00:01:58.399 --> 00:02:03.800
+The hard question is cost: a fair test counts every model call, retry and check.
+
+19
+00:02:04.750 --> 00:02:07.092
+The second direction is about data.
+
+20
+00:02:07.092 --> 00:02:13.716
+A chip can have thousands of arithmetic units, but they wait if their inputs cannot arrive in time.
+
+21
+00:02:13.716 --> 00:02:20.072
+So many papers decide where data sits, how far it moves, and whether to compute next to memory.
+
+22
+00:02:20.072 --> 00:02:24.622
+The test is the end-to-end result, with every copy and wait counted.
+
+23
+00:02:25.572 --> 00:02:29.137
+Two more directions move physics and safety earlier.
+
+24
+00:02:29.137 --> 00:02:33.525
+Heat, wire delay and power supply used to be checked at the end.
+
+25
+00:02:33.525 --> 00:02:39.764
+Now fast estimates guide early choices, but the final design still needs an accurate check.
+
+26
+00:02:39.764 --> 00:02:46.415
+Likewise, faults and attacks are named first, and the cost of protection is reported, not hidden.
+
+27
+00:02:47.365 --> 00:02:50.350
+The last direction is about measurement itself.
+
+28
+00:02:50.350 --> 00:02:56.447
+A score means little without the tasks it was tested on, the rule for success, and the baseline.
+
+29
+00:02:56.447 --> 00:03:00.067
+More papers now build benchmarks and release their tools.
+
+30
+00:03:00.067 --> 00:03:06.291
+The test for this direction is simple: can someone else repeat the result and get the same answer?
+
+31
+00:03:07.241 --> 00:03:15.470
+Now, how sure can we be? 541 of the 582 records were coded from the short official program description.
+
+32
+00:03:15.470 --> 00:03:22.501
+Only 33 come from a full paper, preprint or author PDF. 16 papers were checked in depth.
+
+33
+00:03:22.501 --> 00:03:27.934
+So every direction here is a hypothesis to test, not a proven trend.
+
+34
+00:03:28.884 --> 00:03:35.800
+Here are the six directions to watch. Requirements checked while designing. Data movement as the real cost.
+
+35
+00:03:35.800 --> 00:03:42.264
+Measure, then decide the next design. Faults and attacks planned early. Physical limits in the loop.
+
+36
+00:03:42.264 --> 00:03:49.375
+And better ways to measure. Each page names the paper that pushes back, and the result that would disprove it.
+
+37
+00:03:50.325 --> 00:03:53.197
+To explore it yourself, start with a theme.
+
+38
+00:03:53.197 --> 00:04:00.413
+Each one explains the technical problem in plain words, then links to its subthemes and every paper in them.
+
+39
+00:04:00.413 --> 00:04:05.424
+Check the deep reads for papers read in full. Then open the six directions.
+
+40
+00:04:05.424 --> 00:04:08.565
+Everything is linked from the big picture page.

@@ -473,7 +473,7 @@ class Kit:
     def video_page(self):
         C = self.C
         return self.write("video/index.html", f"Video · {C.NAME}", C.VIDEO_DESC, f"""    <section class="screen active landing" aria-labelledby="page-title">
-{self.heading(('../index.html', 'The big picture'), 'The video', 'The whole course, read aloud in about four minutes', 'The slides with their speaker notes read aloud, with captions you can turn on. The words are the same as on the slides and the website.', 'present')}
+{self.heading(('../index.html', 'The big picture'), 'The video', 'The whole course, read aloud in about four minutes', 'The slides with their speaker notes read aloud, with captions you can turn on. The words are the same as on the slides and the website.', 'trio:presentation,player-play,share')}
       <video controls preload="metadata" playsinline poster="../presentation/slides/01-cover.jpg" style="width:100%;height:auto;border:1px solid var(--line);border-radius:var(--radius-card);background:#000">
         <source src="{C.VIDEO}.mp4" type="video/mp4">
         <track kind="captions" src="{C.VIDEO}.vtt" srclang="en" label="English" default>
@@ -496,7 +496,7 @@ class Kit:
             return f'<li><a href="{href}"><img src="../assets/qr-{name}.svg" alt="QR code for {label}" width="180" height="180" style="width:100%;max-width:180px;background:#fff;border:1px solid var(--line);border-radius:var(--radius-card);padding:8px"></a><strong>{label}</strong><span>Point a phone camera at it.</span></li>'
         ns = self.n_slides() or "The"
         self.write("share/index.html", f"Share · {C.NAME}", f"Everything to share or present {C.NAME}: one link, a five-minute walkthrough, QR codes, slides, video and every download.", f"""    <section class="screen active landing" aria-labelledby="page-title">
-{self.heading(('../index.html', 'The big picture'), 'Share', 'Everything you need to share or present this course, on one page', 'One link to send, a five-minute walkthrough, codes for phones in the room, and every file to download.', 'share')}
+{self.heading(('../index.html', 'The big picture'), 'Share', 'Everything you need to share or present this course, on one page', 'One link to send, a five-minute walkthrough, codes for phones in the room, and every file to download.', 'trio:share,qrcode,download')}
       <section class="landing-problems answer"><p class="lp-energy"><b>To share it, send one link:</b> <a href="../index.html">the big picture</a> <span>Everything else, including the slides, the video and every lesson, is linked from there. Once hosted, the address is {C.SITE_URL.removeprefix("https://")}</span></p></section>
       <section class="landing-problems" id="demo" aria-labelledby="demo-title">
         <h2 class="landing-subhead" id="demo-title">Walk someone through the course in five minutes</h2>
@@ -504,7 +504,7 @@ class Kit:
         {self.cards(C.DEMO, label='Walkthrough steps')}
       </section>
       <section class="landing-more" aria-labelledby="present-title">
-        {self.section_head('present-title', 'Pick the format that fits the room', 'The same story in every format.', 'present')}
+        {self.section_head('present-title', 'Pick the format that fits the room', 'The same story in every format.', 'trio:presentation,player-play,share')}
         {self.grid([
             ('presentation', 'Slides, full screen', f'{ns} slides', '<a href="../presentation/present.html">Present</a> with the arrow keys, or open the <a href="../presentation/presenter.html">presenter view</a> for notes and a timer.'),
             ('player-play', 'Video', 'Narrated, with captions', '<a href="../video/index.html">Play it here</a>, or download it below.'),
@@ -554,7 +554,7 @@ class Kit:
         C = self.C
         figs = "".join(f'<li><a href="present.html#{i}"><img src="slides/{n}.jpg" alt="Slide {i}: {esc(s["alt"])}" loading="{"eager" if i < 3 else "lazy"}" width="1920" height="1080" style="width:100%;height:auto;border:1px solid var(--line);border-radius:var(--radius-card)"></a><strong>{i} · {esc(s["alt"])}</strong></li>' for i, (n, s) in enumerate(slides, 1))
         self.write("presentation/index.html", f"Slides · {C.NAME}", f"The {len(slides)} slides for {C.NAME}, with speaker notes, a presenter view, PDF and PowerPoint.", f"""    <section class="screen active landing" aria-labelledby="page-title">
-{self.heading(('../index.html', 'The big picture'), 'The slides', f'The whole course in {len(slides)} slides, ready to present', 'Built from the same words, charts and drawings as the website. Present full screen, open the presenter view with speaker notes, or download the PDF or PowerPoint.', 'present')}
+{self.heading(('../index.html', 'The big picture'), 'The slides', f'The whole course in {len(slides)} slides, ready to present', 'Built from the same words, charts and drawings as the website. Present full screen, open the presenter view with speaker notes, or download the PDF or PowerPoint.', 'trio:presentation,player-play,share')}
       <div class="landing-actions"><a class="button primary" href="present.html">Present <span aria-hidden="true">→</span></a><a class="button secondary" href="presenter.html">Presenter view with notes</a><a class="button secondary" href="{C.DECK}.pdf" download>Download PDF</a><a class="button secondary" href="{C.DECK}.pptx" download>Download PowerPoint</a><a class="button secondary" href="../video/index.html">Watch the video</a></div>
       <h2 class="landing-subhead">All {len(slides)} slides, each with its headline</h2><ol class="landing-demo deck-list" aria-label="All slides" tabindex="0">{figs}</ol>
     </section>""")

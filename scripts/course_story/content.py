@@ -411,6 +411,25 @@ RELABEL = {
     "Why the details matter": "Why the details decide the answer",
     "Representative source-backed records": "Papers that show the theme well",
     "Paper cards: what changes and where it stops": "Paper cards: what each paper changes, and where it stops",
+    "Evidence status": "How strong the evidence is so far",
+    "Released-history countercheck": "What the released history shows when checked against the paper",
+    "Claim ladder": "The ladder of claims, from weakest to strongest",
+    "Current verdict": "What the protocol concludes today",
+    "Theme topology": "How the themes and subthemes fit together",
+    "Coverage": "How much of each conference the sample covers",
+    "Theme distribution": "How the records spread across themes",
+    "Field completeness": "Which record fields are filled in, and which are missing",
+    "Limits": "What this evidence summary cannot show",
+    "Gate summary": "Which directions passed the review gate, and which did not",
+    "Paper-level audit": "What the paper-by-paper audit found",
+    "Interpretation boundary": "How far these results can be read",
+    "First-principles spine": "The first principles the whole atlas rests on",
+    "Canonical directions": "The six directions the atlas tracks",
+    "Operating loop": "How the research loop runs, step by step",
+    "Evidence boundary": "Where the evidence stops",
+    "Work packages": "The work packages still to do",
+    "Acceptance rules": "The rules a result must pass to be accepted",
+    "Operating boundary": "What this agenda covers, and what it does not",
     "Subthemes and how to study them": "The subthemes in this theme, and how to read them",
 }
 
@@ -452,6 +471,7 @@ def page_hook(kit, rel, soup, main, info):
         for k2, v in s["source_tier_counts"].items():
             dd[depth(k2)] += v
         info["eyebrow"] = f"Subtheme · {s['record_count']} papers · {t['label']}"
+        info["h1"] = f"{info['h1']}: what the {s['record_count']} papers change, and what is still unproven"
         info["sub"] = f"Papers: {c}. Read from: {dd['desc']} program descriptions, {dd['abs']} abstracts or reports, {dd['full']} full papers or preprints. The explanations come first; every paper’s record follows at the end."
         info["art"] = "trio:" + ",".join(x[0] for x in FLOWS[t["theme_id"]][1][:3])
         info["top"] = kit.figure(f"flow:{t['theme_id']}", f"flowTall:{t['theme_id']}", f"The parent theme in one picture: {FLOWS[t['theme_id']][0][0].lower() + FLOWS[t['theme_id']][0][1:]}")
