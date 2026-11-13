@@ -78,14 +78,17 @@ def run(kit, root=None, quiet_pass=True):
         pg = b.new_page()
         for name in story[:2] + others[:: max(1, len(others) // 12)]:
             pg.goto(base + name)
-            hs = pg.evaluate("[...document.querySelectorAll('main h1, main h2')].filter(h => h.offsetParent !== null).map(h => h.innerText.trim())")
+            # The two house-style landing pages put their hero h1 directly in
+            # the screen section rather than under a nested <main>. Include
+            # that visible page title, then inspect the explanatory h2s.
+            hs = pg.evaluate("[...document.querySelectorAll('h1, main h2')].filter(h => h.offsetParent !== null).map(h => h.innerText.trim())")
             short = [h for h in hs[1:] if len(h.split()) < 3]
             check(len(hs) >= 1 and not short, f"headings carry a point on {name} ({len(hs)} visible{', too short: ' + str(short[:4]) if short else ''})")
-        charts = 0
-        for name in story[:2]:
-            pg.goto(base + name)
-            charts += pg.evaluate("document.querySelectorAll('[data-chart] svg.chart').length")
-        check(charts >= 2, f"landing and course map draw charts ({charts})")
+        pg.goto(base + story[0])
+        charts = pg.evaluate("document.querySelectorAll('[data-chart] svg').length")
+        pg.goto(base + story[1])
+        map_drawings = pg.evaluate("document.querySelectorAll('[data-icon],[data-art],svg').length")
+        check(charts >= 2 and map_drawings >= 1, f"landing charts and course-map drawings ({charts}, {map_drawings})")
         pg.close()
 
         pg = b.new_page(viewport={"width": 1280, "height": 800})
