@@ -1,0 +1,31 @@
+name: Notify AI Roadmaps of source refresh
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch: {}
+
+permissions:
+  contents: read
+
+jobs:
+  notify:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Require explicit routing configuration
+        env:
+          TARGET_ORGANIZATIONS: ${{ vars.AI_ROADMAPS_ORGANIZATION_IDS }}
+          DISPATCH_TOKEN: ${{ secrets.AI_ROADMAPS_DISPATCH_TOKEN }}
+        run: |
+          test -n "$TARGET_ORGANIZATIONS" || { echo "Set repository variable AI_ROADMAPS_ORGANIZATION_IDS"; exit 1; }
+          test -n "$DISPATCH_TOKEN" || { echo "Set repository secret AI_ROADMAPS_DISPATCH_TOKEN"; exit 1; }
+      - name: Dispatch source commit event
+        env:
+          GH_TOKEN: ${{ secrets.AI_ROADMAPS_DISPATCH_TOKEN }}
+          TARGET_ORGANIZATIONS: ${{ vars.AI_ROADMAPS_ORGANIZATION_IDS }}
+          SOURCE_COMMIT: ${{ github.sha }}
+          SOURCE_REPOSITORY: ${{ github.repository }}
+        run: |
+          organizations_json=$(printf '%s' "$TARGET_ORGANIZATIONS" | jq -R 'split(",") | map(select(length > 0))')
+          payload=$(jq -n --arg id "refresh-event-${SOURCE_REPOSITORY//\//-}-${SOURCE_COMMIT:0:12}" --arg repository "$SOURCE_REPOSITORY" --arg commit "$SOURCE_COMMIT" --argjson organizations "$organizations_json" '{schema_version:"1.0.0",id:$id,event_type:"source_commit",source_repository:$repository,source_commit:$commit,source_families:["conference-publications","research-landscape"],occurred_on:(now|strftime("%Y-%m-%d")),organization_ids:$organizations,reason:"upstream source repository changed",limitations:["A source commit requests review; it does not prove relevance or approval.","Targets come from the explicit repository variable."]}')
+          gh api repos/mehtama1234/ai-roadmaps/dispatches --method POST -f event_type=organization-refresh -F client_payload="$payload"
