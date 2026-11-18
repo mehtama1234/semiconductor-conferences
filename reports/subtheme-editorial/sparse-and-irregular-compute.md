@@ -28,7 +28,7 @@ PFGEMM combines compressed index prefixes, element-level scheduling, and frequen
 
 Duet concerns skipping work at the bit level in transformer computation. A nonzero weight can still have redundant binary digits. Removing those digits with correct decoding can preserve its integer value; additional approximation is a separate operation. The explanation below shows why sign handling, position information, and execution balance matter. Duet's exact encoding and full evaluation remain unrecovered. [Recorded evidence](../observed-subthemes/sparse-and-irregular-compute.md#paper-dac-2026-research1419)
 
-TRIDENT connects two sparse multiplications so that intermediate results can be consumed without waiting for the entire intermediate matrix. The benefit depends on how much intermediate work is created, how it is combined, and whether finite buffers can support the resulting bursts. [Step-by-step explanation](#explanation-dac-2026-research149)
+TRIDENT connects two sparse multiplications so that intermediate results can be consumed without waiting for the entire intermediate matrix. The benefit depends on how much intermediate work is created and how it is combined. It also depends on whether finite buffers can support the resulting bursts. [Step-by-step explanation](#explanation-dac-2026-research149)
 
 <span id="explanation-dac-2026-research1242"></span>
 
@@ -36,7 +36,7 @@ TRIDENT connects two sparse multiplications so that intermediate results can be 
 
 ### What the source establishes
 
-BSGCN groups most low-degree nodes into large bands, treats remaining nodes in smaller bands, and uses band-specific traversal and caching alongside high-degree-node pinning. [DAC description](https://63dac.conference-program.com/presentation/?id=RESEARCH1242&sess=sess161). This is the accelerator paper by Shangtong Zhang and coauthors, not the unrelated sentiment-analysis models sharing the acronym.
+BSGCN groups most low-degree nodes into large bands and treats remaining nodes in smaller bands. It uses band-specific traversal and caching alongside high-degree-node pinning. [DAC description](https://63dac.conference-program.com/presentation/?id=RESEARCH1242&sess=sess161). This is the accelerator paper by Shangtong Zhang and coauthors, not the unrelated sentiment-analysis models sharing the acronym.
 
 No full manuscript was recovered. The exact band-construction algorithm, degree thresholds, traversal rules, cache replacement policy, and hardware configuration remain unknown. The following numerical examples are constructed explanations of the design problem, not BSGCN traces or recovered circuit details.
 
@@ -44,7 +44,7 @@ No full manuscript was recovered. The exact band-construction algorithm, degree 
 
 A graph has nodes and edges. A node stores a vector of features; an edge identifies a connection. A graph-convolution aggregation combines feature vectors from connected nodes, using the model's specified edge weights or normalization.
 
-For a teaching example, output node u receives features [2, 4] and [6, 8] from two neighbors, with coefficients 0.25 and 0.75. Its aggregate is `[0.25×2 + 0.75×6, 0.25×4 + 0.75×8] = [5, 7]`. Computing it requires the two feature vectors, their coefficients, and the output destination.
+For a teaching example, output node u receives features [2, 4] and [6, 8] from two neighbors. The coefficients are 0.25 and 0.75. Its aggregate is `[0.25×2 + 0.75×6, 0.25×4 + 0.75×8] = [5, 7]`. Computing it requires the two feature vectors, their coefficients, and the output destination.
 
 The relevant memory accesses depend on which neighbor identifiers are present, not merely on the number of arithmetic operations. Consecutive output nodes may request the same input features, or completely different ones. The former can reuse cached data; the latter cannot.
 
@@ -70,7 +70,7 @@ However, reordering cannot blindly shuffle graph contributions. The loader must 
 
 Nodes with similar degree can have very different neighborhoods. Four output nodes might all request neighbors A and B, or each might request a distinct pair. Both groups have degree two per output. Only the first group has substantial shared input reuse.
 
-Conversely, useful reuse can occur across nodes with different degrees. Degree-based grouping may therefore be a helpful heuristic without being sufficient to identify the best execution order. The description says bands group nodes by reuse characteristics, but it does not specify how those characteristics are measured or estimated.
+Conversely, useful reuse can occur across nodes with different degrees. Degree-based grouping may therefore be a helpful heuristic without being sufficient to identify the best execution order. The description says bands group nodes by reuse characteristics. It does not specify how those characteristics are measured or estimated.
 
 A large band can expose more opportunities to reuse inputs across outputs. It can also require a larger active set of features and partial sums. If that set exceeds available storage, increasing the band can create additional evictions. A small band may fit well but fail to expose reuse across its boundaries. Choosing band size is a working-set decision, not simply “larger is better.”
 
@@ -80,7 +80,7 @@ Pinning reserves cache space so selected entries cannot be evicted by the ordina
 
 For a constructed two-entry cache, pin H and alternate requests A, B, A, B. If H is not requested during this interval, only one slot remains for A and B and every request misses. Without pinning, the first A and B miss and the next two requests hit. A node can be globally frequent yet temporarily unhelpful to retain.
 
-This does not show that BSGCN's pinning is ineffective. It identifies what its policy needs to establish: when a node is pinned, for how long, what capacity is reserved, and whether the protected reuse repays the displaced reuse. A combined policy for low- and high-degree nodes needs to handle competition between them, not optimize each in isolation.
+This does not show that BSGCN's pinning is ineffective. It identifies what its policy needs to establish. These are when a node is pinned, for how long, and what capacity is reserved. They also include whether the protected reuse repays the displaced reuse. A combined policy for low- and high-degree nodes needs to handle competition between them, not optimize each in isolation.
 
 ### Cache correctness includes which layer produced a feature
 
@@ -100,19 +100,19 @@ There may also be a distinction between updating edges and updating features. Ne
 
 ### Read the reported improvements without inventing their conditions
 
-The official description reports 1.41× average speedup, up to 4.80×, 24.24% less DRAM traffic, and 1.30× energy efficiency versus other accelerators. It does not identify comparison configurations, datasets, feature widths, cache capacities, process, clock, or measurement methodology. [DAC description](https://63dac.conference-program.com/presentation/?id=RESEARCH1242&sess=sess161).
+The official description reports 1.41× average speedup and up to 4.80×. It also reports 24.24% less DRAM traffic and 1.30× energy efficiency versus other accelerators. It does not identify comparison configurations, datasets, feature widths, cache capacities, process, clock, or measurement methodology. [DAC description](https://63dac.conference-program.com/presentation/?id=RESEARCH1242&sess=sess161).
 
 A 1.41× speed ratio corresponds to about 70.9% of baseline time, a 29.1% reduction. A 4.80× maximum is not the typical result. The 24.24% traffic reduction leaves 75.76% of baseline bytes, not 75.76% of baseline execution time. Arithmetic and stalls unrelated to those transfers can remain unchanged.
 
-For a constructed 100 ms inference with 40 ms proportional to the affected DRAM traffic and 60 ms unaffected, reducing that traffic by 24.24% gives `60 + 40×0.7576 = 90.304 ms`, about 1.11× speedup. Larger gains would require a different time breakdown or additional effects. This example is not a challenge to the reported ratio; it explains why bytes alone cannot predict latency.
+Take a constructed 100 ms inference with 40 ms proportional to the affected DRAM traffic and 60 ms unaffected. Reducing that traffic by 24.24% gives `60 + 40×0.7576 = 90.304 ms`, about 1.11× speedup. Larger gains would require a different time breakdown or additional effects. This example is not a challenge to the reported ratio; it explains why bytes alone cannot predict latency.
 
-Likewise, 1.30× efficiency implies about 76.9% of energy per matched unit of work if that is the metric's denominator. The average, maximum, traffic result, and efficiency figure should not be multiplied together or treated as one verified operating point without the underlying experiments.
+Likewise, 1.30× efficiency implies about 76.9% of energy per matched unit of work if that is the metric's denominator. The average, maximum, traffic result, and efficiency figure should not be multiplied together. They should also not be treated as one verified operating point without the underlying experiments.
 
 ### What this adds to sparse-computing research
 
 PEACE emphasizes preserving indices while feeding compressed matrix work to an array. BSGCN emphasizes arranging graph requests so retained data are reused before eviction. Both show why counting nonzeros is an incomplete cost model, but they solve different scheduling and storage problems.
 
-A testable longer-term hypothesis is that optimizing the many modest-reuse items can matter as much as protecting a few individually frequent ones. Testing it requires reuse-distance distributions, feature sizes, pinning occupancy, preparation costs, and matched-cache comparisons across graphs. This single description motivates the question; it does not establish a cross-conference temporal trend.
+A testable longer-term hypothesis is that optimizing the many modest-reuse items can matter as much. The comparison is with protecting a few individually frequent ones. Testing it requires reuse-distance distributions, feature sizes, pinning occupancy, preparation costs, and matched-cache comparisons across graphs. This single description motivates the question; it does not establish a cross-conference temporal trend.
 
 No BSGCN implementation, graph benchmark, simulation, or synthesis was executed. The manuscript, exact band and cache policies, complete evaluation conditions, and independent comprehension review remain open.
 
@@ -132,7 +132,7 @@ For `C = A×B`, a nonzero `A[i,k]` multiplies relevant entries of row k of B. Di
 
 Consider one row of A with `A[0,1]=2` and `A[0,3]=5`. Let `B[1,0]=7`, `B[1,2]=11`, and `B[3,2]=13`, with other entries zero. The products are 14 for output column zero, and 22 and 65 for output column two. The output row is [14, 0, 87].
 
-There are three products but only two nonzero output locations. Independent products may be issued in a different order, but 22 and 65 must be added, not written over one another. The output's sparsity can differ from either input's sparsity, so the system also needs to allocate and identify result locations.
+There are three products but only two nonzero output locations. Independent products may be issued in a different order. However, 22 and 65 must be added, not written over one another. The output's sparsity can differ from either input's sparsity, so the system also needs to allocate and identify result locations.
 
 ### Sparse indices are part of the bytes moved
 
@@ -140,19 +140,19 @@ Compressed sparse row, or CSR, stores nonzero values, column indices, and bounda
 
 Suppose four illustrative 16-bit indices are hexadecimal `1201`, `1202`, `1207`, and `120F`. Their high byte is always `12`. Storing that byte once plus four low bytes takes five bytes instead of eight, before headers. Reconstruction concatenates the portions: `(0x12 << 8) | 0x07 = 0x1207`.
 
-With a one-byte group header, storage becomes six bytes: a 25% reduction rather than the 37.5% obtained when ignoring the header. If the high bytes differ, this simple sharing rule saves nothing and may add overhead. The actual format must describe group boundaries and unhelpful-prefix cases.
+With a one-byte group header, storage becomes six bytes. This is a 25% reduction rather than the 37.5% obtained when ignoring the header. If the high bytes differ, this simple sharing rule saves nothing and may add overhead. The actual format must describe group boundaries and unhelpful-prefix cases.
 
 This is prefix sharing, not a prefix sum that computes cumulative totals. It also need not mean delta coding, which stores differences between consecutive indices. The official description establishes shared prefixes, but not their exact encoding.
 
 ### Compression can introduce decoding dependencies
 
-A complete index identifies its location independently. A suffix requires the correct prefix before it can be interpreted. Accessing the middle of a compressed group may require an additional pointer, a restart marker, or decoding from an earlier boundary. Those mechanisms cost space or time.
+A complete index identifies its location independently. A suffix requires the correct prefix before it can be interpreted. Accessing the middle of a compressed group may require an additional pointer or a restart marker. It may instead require decoding from an earlier boundary. Those mechanisms cost space or time.
 
 This matters for out-of-order execution. A scheduler selecting arbitrary elements must still obtain their decoded locations. It could choose among already decoded entries or request additional decoding; those alternatives require different buffers and control. The source does not establish which PFGEMM implements.
 
 ### Ready arithmetic can bypass a wait, but cannot erase dependencies
 
-In the example above, suppose row one of B is delayed while the operands yielding 65 are available. Issuing that product first can keep a multiplier busy. It does not make the missing row arrive sooner, and the output cannot be declared complete until all contributions are accounted for.
+In the example above, suppose row one of B is delayed while the operands yielding 65 are available. Issuing that product first can keep a multiplier busy. It does not make the missing row arrive sooner. The output cannot be declared complete until all contributions are accounted for.
 
 An operation needs both available operands and somewhere to put its result. A full result queue or conflicting accumulator update can stall an otherwise ready multiplication. The scheduler therefore needs readiness information, output identity, and completion tracking—not merely a test for whether an input is cached.
 
@@ -172,7 +172,7 @@ Scheduling can bring repeated requests closer together and make retention more u
 
 The description reports geometric-mean ratios of 1.8× for off-chip traffic reduction and 2.1× for speed versus other accelerators. It does not provide baseline names or evaluation configurations. [DAC description](https://63dac.conference-program.com/presentation/?id=RESEARCH138&sess=sess157).
 
-Interpreting traffic reduction as baseline bytes divided by new bytes gives 55.6% of baseline traffic, a 44.4% reduction—not 180% fewer bytes. A 2.1× speed ratio leaves 47.6% of baseline time. The per-workload definitions still need recovery.
+Interpreting traffic reduction as baseline bytes divided by new bytes gives 55.6% of baseline traffic. That is a 44.4% reduction, not 180% fewer bytes. A 2.1× speed ratio leaves 47.6% of baseline time. The per-workload definitions still need recovery.
 
 A geometric mean combines ratios multiplicatively. Two speed ratios of four and one quarter have geometric mean one despite opposite outcomes. This does not establish unchanged total job time, which depends on baseline durations. An aggregate therefore does not guarantee a benefit on every matrix.
 
@@ -180,11 +180,11 @@ The traffic and speed ratios must not be multiplied into a 3.78× combined gain.
 
 ### Establish the full job cost before drawing a trend
 
-Required comparison conditions include matrix shapes and patterns, index/value widths, cache size, scheduling-window size, arithmetic rules, process, clock, memory bandwidth, and whether format conversion is included. A matrix reused many times can repay conversion differently from a new matrix for every job.
+Required comparison conditions include matrix shapes and patterns, index/value widths, cache size, and scheduling-window size. They also include arithmetic rules, process, clock, memory bandwidth, and whether format conversion is included. A matrix reused many times can repay conversion differently from a new matrix for every job.
 
 For a constructed case, 20 ms of conversion and 0.2 ms saved per execution break even after one hundred uses. Fewer uses lose time unless another benefit compensates. A kernel-only speedup is not sufficient to evaluate that workflow.
 
-BSGCN changes the timing of graph-feature requests; PFGEMM additionally compresses information needed to identify sparse operands. Together they motivate a testable hypothesis: metadata representation and scheduling should be evaluated jointly because decoding can constrain when useful work becomes ready. The descriptions motivate that question, not a demonstrated longitudinal trend.
+BSGCN changes the timing of graph-feature requests; PFGEMM additionally compresses information needed to identify sparse operands. Together they motivate a testable hypothesis. Metadata representation and scheduling should be evaluated jointly. Decoding can constrain when useful work becomes ready. The descriptions motivate that question, not a demonstrated longitudinal trend.
 
 No PFGEMM implementation, matrix benchmark, simulation, or synthesis was executed. Exact PFCSR decoding, scheduling and cache rules, full-paper conditions, and independent comprehension review remain open.
 
@@ -198,9 +198,9 @@ Duet is the DAC paper by Heng Liao and colleagues, also listed as entry C108 on 
 
 A linear layer forms each output by multiplying input numbers by learned weights and adding the products. For inputs 2 and 5 and weights −3 and −2, the output is `2 × (−3) + 5 × (−2) = −16`. An input number produced by a preceding layer is often called an activation. The arithmetic is the same regardless of that name.
 
-A conventional multiplier handles several weight bits together. A bit-serial design spreads their contributions over successive steps. Consider an unsigned weight 13, whose binary representation is `1101`. Its positions have values 8, 4, 2, and 1. Multiplying input 3 by this weight gives `3 × 8 + 3 × 4 + 0 + 3 × 1 = 39`. Hardware can form these terms by selecting the input where a weight bit is one, shifting it to the appropriate position, and accumulating the result.
+A conventional multiplier handles several weight bits together. A bit-serial design spreads their contributions over successive steps. Consider an unsigned weight 13, whose binary representation is `1101`. Its positions have values 8, 4, 2, and 1. Multiplying input 3 by this weight gives `3 × 8 + 3 × 4 + 0 + 3 × 1 = 39`. Hardware can form these terms in three steps. It selects the input where a weight bit is one. It shifts that input to the appropriate position. It then accumulates the result.
 
-If a bit position contributes zero across an entire group of weights, an implementation might skip that group's step. This is bit-column sparsity: the column consists of the same binary position across several weights. It is different from having zero weights. The weights 1, 2, and 3 are all nonzero, but their eight-bit unsigned representations all have zero in the top six positions. A controller that understands this fact need not schedule those six positions.
+If a bit position contributes zero across an entire group of weights, an implementation might skip that group's step. This is bit-column sparsity: the column consists of the same binary position across several weights. It is different from having zero weights. The weights 1, 2, and 3 are all nonzero. However, their eight-bit unsigned representations all have zero in the top six positions. A controller that understands this fact need not schedule those six positions.
 
 A zero in one weight does not necessarily remove a shared step. If another weight in the group has a one in that position, some arithmetic is still required. Which weights share control therefore affects which bit columns can be omitted. A count of zero bits alone does not determine execution time.
 
@@ -222,7 +222,7 @@ The underlying opportunity can be understood without guessing that rule. A group
 
 Separating the large value might reduce the work for the small values. But the split introduces boundaries and information that says where each group belongs. If weights are moved, their associations with inputs and output coordinates must remain intact. Sorting weights independently of their input associations changes the calculation, even when every individual weight is preserved exactly.
 
-A distribution concentrated near zero makes short representations plausible; it does not prove that every group is short. The tails of the distribution, the group size, the mixture of positive and negative numbers, and the controller's supported encoding determine the actual savings. These are reasons to ask for per-group width distributions rather than relying only on an average.
+A distribution concentrated near zero makes short representations plausible; it does not prove that every group is short. The tails of the distribution, the group size, and the mixture of positive and negative numbers determine the actual savings. So does the controller's supported encoding. These are reasons to ask for per-group width distributions rather than relying only on an average.
 
 ### Why an activation sum can help with a shared contribution
 
@@ -236,27 +236,27 @@ shared sign contribution = −4 × (2 + 5) = −28
 complete output = 12 − 28 = −16
 ```
 
-The shared term uses the sum of the corresponding activations. This is a mathematical reason that such a unit may help a representation with common contributions; it is not a reconstruction of Duet's circuit. The actual design must establish which inputs participate, which coefficient applies, and how wide the sum must be to avoid overflow.
+The shared term uses the sum of the corresponding activations. This is a mathematical reason that such a unit may help a representation with common contributions. It is not a reconstruction of Duet's circuit. The actual design must establish which inputs participate and which coefficient applies. It must also establish how wide the sum must be to avoid overflow.
 
-Position information matters independently of sign. A surviving bit originally worth eight cannot be treated as a bit worth one after compaction. The decoder must restore its numerical significance before combining it with other contributions. A shifter can perform multiplication by a power of two, but the shift amount must come from a valid encoding rule. The phrase “two-level shifter” alone does not supply that rule.
+Position information matters independently of sign. A surviving bit originally worth eight cannot be treated as a bit worth one after compaction. The decoder must restore its numerical significance before combining it with other contributions. A shifter can perform multiplication by a power of two. However, the shift amount must come from a valid encoding rule. The phrase “two-level shifter” alone does not supply that rule.
 
 ### Metadata can overlap computation without becoming free
 
 Metadata means the extra information used to interpret the stored weights: for example, group boundaries or surviving positions. These are illustrative possibilities, not verified Duet fields. Such information must be read and decoded before dependent arithmetic can use it.
 
-Suppose an ideal two-stage pipeline decodes one group in two cycles and computes one group in eight cycles. If the stages overlap perfectly, successive results can emerge every eight cycles once the pipeline is filled, rather than every ten. The first result still requires both stages. With these assumptions, ten groups take `2 + 8 + 9 × 8 = 82` cycles, not 80 and not the unoverlapped 100.
+Suppose an ideal two-stage pipeline decodes one group in two cycles and computes one group in eight cycles. If the stages overlap perfectly, successive results can emerge every eight cycles once the pipeline is filled. Without overlap they emerge every ten. The first result still requires both stages. With these assumptions, ten groups take `2 + 8 + 9 × 8 = 82` cycles, not 80 and not the unoverlapped 100.
 
 Now shorten computation to one cycle while decoding still takes two. Ten groups take `2 + 1 + 9 × 2 = 21` cycles. The steady-state limit is decoding, not arithmetic. This example explains why hiding metadata cost depends on stage rates, buffering, and dependencies. It also shows why more compression can expose a new bottleneck.
 
-Variable widths introduce another issue. Four workers assigned groups requiring two, two, two, and eight steps finish a synchronized round after eight steps. They perform 14 useful worker-steps out of 32 available, about 43.8% utilization under this simplified model. An average width of 3.5 bits does not make the round take 3.5 steps. Group assignment or independent progress must address the imbalance; memory stalls and output dependencies can remain even after arithmetic work is balanced.
+Variable widths introduce another issue. Four workers assigned groups requiring two, two, two, and eight steps finish a synchronized round after eight steps. They perform 14 useful worker-steps out of 32 available, about 43.8% utilization under this simplified model. An average width of 3.5 bits does not make the round take 3.5 steps. Group assignment or independent progress must address the imbalance. Memory stalls and output dependencies can remain even after arithmetic work is balanced.
 
 ### Read the reported numbers at the right scope
 
 The description reports 3.13/3.25 effective bits, 1.45–4.30× speedup, and 1.32–2.94× energy improvement on BERT and ViT versus unnamed accelerators. Exact model variants, bit accounting, quality changes, baseline conditions, and measurement boundaries remain unknown. [DAC description](https://63dac.conference-program.com/presentation/?id=RESEARCH1419&sess=sess110).
 
-An effective-bit average is not automatically a stored-bits average including metadata, padding, and alignment. For a constructed group of sixteen weights with four payload bits each and sixteen metadata bits, storage is `(16 × 4 + 16) / 16 = 5` bits per weight. Processing four bit positions would not make the stored format four bits per weight.
+An effective-bit average is not automatically a stored-bits average including metadata, padding, and alignment. Take a constructed group of sixteen weights with four payload bits each and sixteen metadata bits. Storage is `(16 × 4 + 16) / 16 = 5` bits per weight. Processing four bit positions would not make the stored format four bits per weight.
 
-Likewise, a 4.30× speed ratio would mean 23.3% of baseline time for the measured scope, not a guarantee for a complete application. If accelerated arithmetic originally took 60 ms of a 100 ms job and everything else stayed at 40 ms, that arithmetic speedup would leave about 53.95 ms overall, or 1.85× job speedup. This is an illustrative limit, not a Duet workload breakdown.
+Likewise, a 4.30× speed ratio would mean 23.3% of baseline time for the measured scope. It would not be a guarantee for a complete application. Suppose accelerated arithmetic originally took 60 ms of a 100 ms job and everything else stayed at 40 ms. That arithmetic speedup would then leave about 53.95 ms overall. This is a 1.85× job speedup. This is an illustrative limit, not a Duet workload breakdown.
 
 Interpreting energy improvement as baseline energy divided by new energy, 2.94× would leave approximately 34.0% of baseline energy. That interpretation still requires the paper's definition. Neither the energy ratio nor the speed ratio should be multiplied by the effective-bit reduction to invent a combined benefit.
 
@@ -264,21 +264,21 @@ Interpreting energy improvement as baseline energy divided by new energy, 2.94×
 
 BSGCN addresses when graph features are reused. PFGEMM addresses sparse operand identification and scheduling. Duet addresses redundant work inside represented numbers. These mechanisms act at different levels, so a single “sparsity percentage” cannot compare them fairly.
 
-The shared research question is more specific: after identifying work that can be removed, how much information and coordination are required to remove it correctly? A useful experiment would vary group structure while holding the number of stored values fixed, then measure decoding, arithmetic, waiting, and memory traffic separately. That would help distinguish representation savings from scheduling savings. This is a proposed comparison, not an observed long-term trend.
+The shared research question is more specific. After identifying work that can be removed, how much information and coordination are required to remove it correctly? A useful experiment would vary group structure while holding the number of stored values fixed. It would then measure decoding, arithmetic, waiting, and memory traffic separately. That would help distinguish representation savings from scheduling savings. This is a proposed comparison, not an observed long-term trend.
 
-No Duet implementation, model benchmark, simulation, or synthesis was executed. The full manuscript is still needed for exact encoding, partition/search rules, signed arithmetic, accumulation widths, load-balancing guarantees, quality results, and matched hardware conditions. The explanation is not full-paper-backed or independently accepted.
+No Duet implementation, model benchmark, simulation, or synthesis was executed. The full manuscript is still needed for several items. These are exact encoding, partition/search rules, signed arithmetic and accumulation widths. They also include load-balancing guarantees, quality results, and matched hardware conditions. The explanation is not full-paper-backed or independently accepted.
 
 <span id="explanation-dac-2026-research149"></span>
 
 ## TRIDENT: compute through an intermediate matrix without storing all of it
 
-TRIDENT is the DAC paper by Yiyue Hu and colleagues. Its [official description](https://63dac.conference-program.com/presentation/?id=RESEARCH149&sess=sess147) proposes fused triple sparse matrix multiplication with hierarchical flow control, a windowed format and hybrid dataflow, and decoupled out-of-order execution. A full manuscript was not recovered; exact algorithms and page-backed evaluation conditions remain unavailable. The examples below explain the design problem, not TRIDENT's unrecovered implementation.
+TRIDENT is the DAC paper by Yiyue Hu and colleagues. Its [official description](https://63dac.conference-program.com/presentation/?id=RESEARCH149&sess=sess147) proposes fused triple sparse matrix multiplication with hierarchical flow control. It also proposes a windowed format and hybrid dataflow, and decoupled out-of-order execution. A full manuscript was not recovered; exact algorithms and page-backed evaluation conditions remain unavailable. The examples below explain the design problem, not TRIDENT's unrecovered implementation.
 
 ### What multiplying three matrices actually asks the machine to do
 
-A matrix is a rectangular arrangement of numbers. To multiply two matrices, an output entry sums products from a row of the first and a column of the second. Positions matter: the column index of an entry in the first matrix must match the row index of its partner in the second.
+A matrix is a rectangular arrangement of numbers. To multiply two matrices, an output entry sums products. These come from a row of the first and a column of the second. Positions matter. The column index of an entry in the first matrix must match the row index of its partner. The partner is in the second matrix.
 
-For three matrices A, B, and C, one choice is to compute intermediate D = A × B, then result Y = D × C. Each entry of D can itself contain contributions from several input pairs. Each completed D entry may then contribute to several Y entries. Sparsity means many input entries are zero and can be omitted under the chosen arithmetic rules; it does not guarantee that D is equally sparse.
+Take three matrices A, B, and C. One choice is to compute intermediate D = A × B, then result Y = D × C. Each entry of D can itself contain contributions from several input pairs. Each completed D entry may then contribute to several Y entries. Sparsity means many input entries are zero and can be omitted under the chosen arithmetic rules. It does not guarantee that D is equally sparse.
 
 Consider this exact-integer example:
 
@@ -292,23 +292,23 @@ Y = D × C = 31×13 + 33×17 = 964
 
 Producing D requires the contributions 10, 21, and 33. The first two share an output position and must be added to obtain 31. Storing all three contributions as if they were three distinct entries would not be a correctly combined D. A representation that deliberately retains duplicate positions needs a later operation that combines them correctly.
 
-The second multiplication does not necessarily need the whole D before it can start. Once D's first entry is complete, its product with 13 can proceed while other independent D entries are still being formed. This removes a global barrier—the requirement that every first-stage task finish before any second-stage task starts—without removing local dependencies.
+The second multiplication does not necessarily need the whole D before it can start. Once D's first entry is complete, its product with 13 can proceed. Other independent D entries can still be forming meanwhile. This removes a global barrier—the requirement that every first-stage task finish before any second-stage task starts—without removing local dependencies.
 
 ### Streaming changes the lifetime of intermediate data
 
 A two-call implementation may finish D, write it to external memory, and read it back for the second call. A fused implementation connects the stages so that eligible intermediate data can stay in local buffers and be consumed earlier. Streaming here means producing and consuming portions progressively, not making the intermediate data cease to exist.
 
-If D occupies S bytes and the baseline writes and then reads it exactly once, avoiding those transfers saves 2S bytes at that memory boundary. That is a conditional accounting statement. Cache residency, duplicated partial entries, spills, and extra index information can change the actual traffic. For an illustrative one-million-entry intermediate with four-byte values and four-byte column indices, the entries alone occupy eight million bytes, making the write/read pair sixteen million bytes. Row boundaries and other format information are additional.
+Suppose D occupies S bytes and the baseline writes and then reads it exactly once. Avoiding those transfers then saves 2S bytes at that memory boundary. That is a conditional accounting statement. Cache residency, duplicated partial entries, spills, and extra index information can change the actual traffic. For an illustrative one-million-entry intermediate with four-byte values and four-byte column indices, the entries alone occupy eight million bytes. The write/read pair is then sixteen million bytes. Row boundaries and other format information are additional.
 
 There are also different choices about what crosses the stage boundary. One can first combine 10 and 21 into 31 and then multiply by 13. Alternatively, one can send the partial contributions onward and compute `10×13 + 21×13`. Both give 403 in this integer example. The latter performs two multiplications instead of one, and sends two contributions instead of one. Fusing operations does not by itself specify whether intermediate aggregation is preserved, delayed, or repeated.
 
-This is the input-reuse versus output-aggregation problem in concrete form. Keeping one input available may help generate many products cheaply, but those products may update many different outputs. Keeping only a few output sums active can simplify accumulation, yet require revisiting inputs when another set of outputs is processed. The buffer capacity and traversal order determine which cost is paid.
+This is the input-reuse versus output-aggregation problem in concrete form. Keeping one input available may help generate many products cheaply, but those products may update many different outputs. Keeping only a few output sums active can simplify accumulation. However, it may require revisiting inputs when another set of outputs is processed. The buffer capacity and traversal order determine which cost is paid.
 
 ### Sparse inputs can produce a large intermediate
 
 Suppose A is a 1,000-by-1 column of ones and B is a 1-by-1,000 row of ones. Their product D has one million entries, all one. The inputs contain only two thousand entries. A method cannot provision its intermediate buffers solely from the number of input entries and assume that will be enough.
 
-Now let C be another 1,000-by-1 column of ones. Computing `(A × B) × C` first creates one million products for A × B, then uses one million products for D × C. In contrast, `A × (B × C)` first computes one scalar using one thousand products, then scales A using another one thousand products. The illustrative totals are two million versus two thousand multiplications, and both produce a column whose entries are 1,000 in exact arithmetic.
+Now let C be another 1,000-by-1 column of ones. Computing `(A × B) × C` first creates one million products for A × B, then uses one million products for D × C. In contrast, `A × (B × C)` first computes one scalar using one thousand products, then scales A using another one thousand products. The illustrative totals are two million versus two thousand multiplications. Both produce a column whose entries are 1,000 in exact arithmetic.
 
 This is not evidence that TRIDENT uses the worse order or changes the order. It is a reason that its evaluation must disclose the order used by both the proposed design and each baseline. Avoiding external storage and choosing a smaller intermediate are distinct improvements. A comparison that changes both cannot attribute the entire speedup to streaming alone.
 
@@ -316,19 +316,19 @@ For general sparse matrices, dimensions alone are insufficient to predict interm
 
 ### Finite buffers need a rule for stopping producers safely
 
-One sparse input item can generate many output items. For example, a nonzero selecting a long row in the next matrix creates more work than one selecting a short row. A pipeline can therefore receive a burst even when its long-run average input rate seems modest.
+One sparse input item can generate many output items. For example, a nonzero selecting a long row in the next matrix creates more work. A nonzero selecting a short row creates less. A pipeline can therefore receive a burst even when its long-run average input rate seems modest.
 
 Suppose a buffer holds eight items, starts empty, and receives four items per cycle while its consumer removes one. Under this simplified simultaneous-transfer model, occupancy grows by three items per cycle: three, six, then nine. The third cycle cannot proceed as proposed without exceeding capacity. Later idle cycles do not undo an earlier overflow.
 
-A flow-control mechanism must delay production, reserve enough space, split a task into interruptible pieces, or safely store excess work elsewhere. A credit is one possible implementation: permission to produce an item because space has been reserved for it. If a task can generate seven items, one free slot is not enough to launch it indivisibly. It may nevertheless be safe if the task can pause after each item and preserve its state. These are design alternatives, not verified TRIDENT rules.
+A flow-control mechanism must delay production or reserve enough space. It may instead split a task into interruptible pieces, or safely store excess work elsewhere. A credit is one possible implementation: permission to produce an item because space has been reserved for it. If a task can generate seven items, one free slot is not enough to launch it indivisibly. It may nevertheless be safe if the task can pause after each item and preserve its state. These are design alternatives, not verified TRIDENT rules.
 
-Stopping a producer also needs a progress argument. If every stage waits for storage held by another waiting stage, no work may advance. More buffering alone does not establish freedom from such a cycle. A convincing account needs the resource dependencies, admission rules, and a reason that some pending work can always complete or release space.
+Stopping a producer also needs a progress argument. If every stage waits for storage held by another waiting stage, no work may advance. More buffering alone does not establish freedom from such a cycle. A convincing account needs the resource dependencies and admission rules. It also needs a reason that some pending work can always complete or release space.
 
 ### A window bounds active work, but can also restrict useful work
 
-A window is a limited portion of work made available at one time. Restricting active output coordinates, for example, can keep their partial sums within local storage. An implementation must track which contributions belong to that portion and when all of them have arrived before writing final output values.
+A window is a limited portion of work made available at one time. Restricting active output coordinates, for example, can keep their partial sums within local storage. An implementation must track which contributions belong to that portion. It must also track when all of them have arrived before writing final output values.
 
-If there are one hundred output coordinates but space for ten sums, processing ten-coordinate groups limits the active accumulation state. It can also require rereading an input that contributes to several groups. A format that efficiently identifies those contributions may reduce the searching or revisiting cost; its indexing and conversion overhead must still be counted.
+If there are one hundred output coordinates but space for ten sums, processing ten-coordinate groups limits the active accumulation state. It can also require rereading an input that contributes to several groups. A format that efficiently identifies those contributions may reduce the searching or revisiting cost. Its indexing and conversion overhead must still be counted.
 
 Larger windows can expose more ready work and reuse, while using more storage and more complex selection logic. Smaller windows can simplify storage but leave the machine waiting when all exposed work depends on slow memory requests. The word “windowed” does not establish the chosen size, encoding, or best operating point.
 
@@ -338,19 +338,19 @@ Imagine requests for two independent tasks. The first task's data arrives at cyc
 
 Allowing the second task to run first can use otherwise idle arithmetic resources. It requires more than returning memory data early. The machine must retain each task's identity, its output destination, and any missing inputs, then select eligible work. It must also know when an output is complete despite contributions arriving in a different order.
 
-If the second task consumes a value that the first task must produce, it is not independent and cannot safely bypass that dependency. If many completed products target one output accumulator, its update capacity may remain the bottleneck even when memory waiting is reduced. A scheduling improvement must be evaluated alongside these limits.
+Suppose the second task consumes a value that the first task must produce. It is then not independent and cannot safely bypass that dependency. If many completed products target one output accumulator, its update capacity may remain the bottleneck. This holds even when memory waiting is reduced. A scheduling improvement must be evaluated alongside these limits.
 
-Arithmetic order also matters. In finite-precision floating-point arithmetic, rearranging additions need not preserve every output bit. For a familiar double-precision example, `(10^16 + (−10^16)) + 1` evaluates to 1, whereas `10^16 + ((−10^16) + 1)` evaluates to 0 because the inner addition rounds away the unit. An exact-integer example proves the algebra, not the numerical behavior of a reordered floating-point implementation. TRIDENT's types, accumulation order, and correctness tolerance need the full paper.
+Arithmetic order also matters. In finite-precision floating-point arithmetic, rearranging additions need not preserve every output bit. For a familiar double-precision example, `(10^16 + (−10^16)) + 1` evaluates to 1. However, `10^16 + ((−10^16) + 1)` evaluates to 0, because the inner addition rounds away the unit. An exact-integer example proves the algebra, not the numerical behavior of a reordered floating-point implementation. TRIDENT's types, accumulation order, and correctness tolerance need the full paper.
 
 ### What the performance claims do and do not establish
 
-The official description reports an average 3.56× speedup over sparse-matrix accelerators and maxima of 49.6× over a CPU and 6.3× over a GPU. It does not give their identities, matched configurations, matrix sets, or the averaging definition. [DAC description](https://63dac.conference-program.com/presentation/?id=RESEARCH149&sess=sess147).
+The official description reports an average 3.56× speedup over sparse-matrix accelerators. It reports maxima of 49.6× over a CPU and 6.3× over a GPU. It does not give their identities, matched configurations, matrix sets, or the averaging definition. [DAC description](https://63dac.conference-program.com/presentation/?id=RESEARCH149&sess=sess147).
 
 A maximum is a best reported case, not a typical workload result. The CPU and GPU maxima may concern different matrices, so dividing them does not establish a CPU-to-GPU performance ratio. Nor can a mean establish that every input benefits.
 
-A fair end-to-end comparison needs the same product, permitted multiplication order, numeric requirements, and starting representation. It should include necessary conversion and transfers, distinguish arithmetic from memory and waiting time, and report buffer capacities and spill behavior. The title's “end-to-end” does not establish that the measured boundary includes a host application or data preparation.
+A fair end-to-end comparison needs the same product, permitted multiplication order, numeric requirements, and starting representation. It should include necessary conversion and transfers. It should distinguish arithmetic from memory and waiting time. It should also report buffer capacities and spill behavior. The title's “end-to-end” does not establish that the measured boundary includes a host application or data preparation.
 
-The connection to PFGEMM is specific: scheduling within one sparse product and coordinating two dependent sparse products solve related but different problems. A plausible research hypothesis is that preserving intermediate data locally becomes more valuable as intermediate size grows, until buffer pressure, repeated work, or a better multiplication order changes the result. Testing that hypothesis requires varying those factors separately. These descriptions do not yet establish a long-term trend across conferences.
+The connection to PFGEMM is specific. Scheduling within one sparse product and coordinating two dependent sparse products solve related but different problems. A plausible research hypothesis is that preserving intermediate data locally becomes more valuable as intermediate size grows. This holds until buffer pressure, repeated work, or a better multiplication order changes the result. Testing that hypothesis requires varying those factors separately. These descriptions do not yet establish a long-term trend across conferences.
 
 No TRIDENT implementation, matrix benchmark, simulation, or synthesis was executed. Full-paper source recovery, format and flow-control rules, aggregation semantics, numerical validation, matched baselines, and independent comprehension review remain open.
 
@@ -358,13 +358,13 @@ No TRIDENT implementation, matrix benchmark, simulation, or synthesis was execut
 
 ## Acc-SpMV: arrange sparse products so nearby workers read nearby inputs
 
-The [DAC entry](https://63dac.conference-program.com/presentation/?id=RESEARCH2105&sess=sess127) is titled Acc-SpMV, but its description calls the library OmniSpMV. The [author-linked repository](https://github.com/APHETION/Acc-SpMV/tree/93b7138bad9f3adbfbad4d86a362515fd3e4cd93) identifies the Acc-SpMV publication and DOI 10.1145/3770743.3804276 with matching authors. This supports the repository's paper identity; it does not explain the description's alternative name or prove that the released code is the benchmark version.
+The [DAC entry](https://63dac.conference-program.com/presentation/?id=RESEARCH2105&sess=sess127) is titled Acc-SpMV, but its description calls the library OmniSpMV. The [author-linked repository](https://github.com/APHETION/Acc-SpMV/tree/93b7138bad9f3adbfbad4d86a362515fd3e4cd93) identifies the Acc-SpMV publication and DOI 10.1145/3770743.3804276 with matching authors. This supports the repository's paper identity. It does not explain the description's alternative name. It also does not prove that the released code is the benchmark version.
 
 No full manuscript was recovered. The code observations below refer to commit `93b7138bad9f3adbfbad4d86a362515fd3e4cd93`, not a moving branch. Selected preprocessing and execution paths were inspected without compilation or execution. The numerical examples are constructed explanations, not measured Acc-SpMV results.
 
 ### Begin with the value that must be preserved
 
-Sparse matrix–vector multiplication computes one output number per matrix row. Each stored matrix value multiplies the input-vector entry identified by its column, and the products for the same row are added. Consider:
+Sparse matrix–vector multiplication computes one output number per matrix row. Each stored matrix value multiplies the input-vector entry identified by its column. The products for the same row are added. Consider:
 
 ```text
 A = [2, 0, 3]       x = [5]
@@ -375,9 +375,9 @@ y = [2×5 + 3×11] = [43]
     [4×7]            [28]
 ```
 
-Only three products are needed, but the machine also needs their positions. A compressed-row representation can store values `[2, 3, 4]`, column indices `[0, 2, 1]`, and row boundaries `[0, 2, 3]`. The boundaries say that the first row consumes positions zero through one in the value array, and the second consumes position two. The input reads are consequently x[0], x[2], and x[1], not simply the next three consecutive numbers in storage order.
+Only three products are needed, but the machine also needs their positions. A compressed-row representation can store values `[2, 3, 4]`, column indices `[0, 2, 1]`, and row boundaries `[0, 2, 3]`. The boundaries say that the first row consumes positions zero through one in the value array. The second consumes position two. The input reads are consequently x[0], x[2], and x[1], not simply the next three consecutive numbers in storage order.
 
-This explains why the arithmetic can be cheap while supplying it is expensive. With eight-byte values and four-byte column indices, those arrays alone require twelve bytes per nonzero for two nominal arithmetic operations: one multiplication and one addition. Input-vector reads, row information, output writes, and repeated transfers add costs. Cached reuse can reduce external traffic, so twelve bytes is an illustrative array accounting figure, not a measured memory-traffic model.
+This explains why the arithmetic can be cheap while supplying it is expensive. Take eight-byte values and four-byte column indices. Those arrays alone require twelve bytes per nonzero. This is for two nominal arithmetic operations: one multiplication and one addition. Input-vector reads, row information, output writes, and repeated transfers add costs. Cached reuse can reduce external traffic, so twelve bytes is an illustrative array accounting figure, not a measured memory-traffic model.
 
 ### Reordering columns also requires reordering the vector
 
@@ -395,7 +395,7 @@ A tile here is a group of at most 32 stored entries assigned to a 32-thread grou
 
 This layout explains an otherwise surprising instruction in the kernel: worker position `laneId` reads vector position `colBase + laneId`. The kernel does not read a separate matrix column index for each product in that tile. Consecutive-column structure lets it infer the position from the tile's starting column and the worker's position. This depends on the stored entries remaining in the intended tile order. [Pinned kernel](https://github.com/APHETION/Acc-SpMV/blob/93b7138bad9f3adbfbad4d86a362515fd3e4cd93/Acc-SpMV.cu#L301).
 
-For a constructed tile with columns `[5, 6, 7]`, start five plus worker positions zero, one, and two gives the correct vector addresses. For columns `[5, 7, 8]`, the same rule would incorrectly read `[5, 6, 7]`. The contiguity condition is therefore a correctness requirement, not just a performance preference.
+Take a constructed tile with columns `[5, 6, 7]`. Start five plus worker positions zero, one, and two gives the correct vector addresses. For columns `[5, 7, 8]`, the same rule would incorrectly read `[5, 6, 7]`. The contiguity condition is therefore a correctness requirement, not just a performance preference.
 
 Nearby vector addresses make it possible for hardware to service several workers with fewer combined memory transactions. This is called coalesced access. Alignment, active workers, caching, and the hardware's transaction rules still determine the actual transfer count. It is not valid to equate one tile with exactly one external-memory transaction.
 
@@ -413,7 +413,7 @@ Packing can also reduce unused worker positions. Two four-entry runs occupying s
 
 ### The released program has two execution paths
 
-The inspected program selects its custom path for at most one million parsed nonzeros and CSR5 for larger inputs. It uses double-precision values. CSR5 is a separate sparse representation and implementation path, not evidence that the custom tile kernel handles the whole matrix collection. [Pinned type and threshold definitions](https://github.com/APHETION/Acc-SpMV/blob/93b7138bad9f3adbfbad4d86a362515fd3e4cd93/Acc-SpMV.cu#L16); [dispatch](https://github.com/APHETION/Acc-SpMV/blob/93b7138bad9f3adbfbad4d86a362515fd3e4cd93/Acc-SpMV.cu#L593).
+The inspected program selects its custom path for at most one million parsed nonzeros and CSR5 for larger inputs. It uses double-precision values. CSR5 is a separate sparse representation and implementation path. It is not evidence that the custom tile kernel handles the whole matrix collection. [Pinned type and threshold definitions](https://github.com/APHETION/Acc-SpMV/blob/93b7138bad9f3adbfbad4d86a362515fd3e4cd93/Acc-SpMV.cu#L16); [dispatch](https://github.com/APHETION/Acc-SpMV/blob/93b7138bad9f3adbfbad4d86a362515fd3e4cd93/Acc-SpMV.cu#L593).
 
 A result averaged across matrices needs per-path accounting. Otherwise, improvements due to the fallback may be mistaken for improvements due to the custom layout. The cutoff is an implementation choice, not a universal mathematical boundary between small and large sparse problems.
 
@@ -421,19 +421,19 @@ A result averaged across matrices needs per-path accounting. Otherwise, improvem
 
 The source defines 4,200 warm-up iterations and 1,000 timed iterations. Allocation, input transfers, and the custom metadata-preparation kernel precede the timed region; matrix reordering is a separate program. The measured interval is therefore not the full preparation-and-execution workflow. [Pinned constants](https://github.com/APHETION/Acc-SpMV/blob/93b7138bad9f3adbfbad4d86a362515fd3e4cd93/Acc-SpMV.cu#L24); [custom timing path](https://github.com/APHETION/Acc-SpMV/blob/93b7138bad9f3adbfbad4d86a362515fd3e4cd93/Acc-SpMV.cu#L442).
 
-There is a further asymmetry. The custom path clears its output once before the timed loop, then launches a kernel that atomically adds products on every iteration. The fallback includes an output clear inside every timed iteration. Thus they do not time identical reset work. For exact arithmetic and an otherwise correct custom kernel, 1,000 repetitions would accumulate 1,000 times the single-call result into the final output, rather than leave one result. [Custom timed loop](https://github.com/APHETION/Acc-SpMV/blob/93b7138bad9f3adbfbad4d86a362515fd3e4cd93/Acc-SpMV.cu#L460); [fallback timed loop](https://github.com/APHETION/Acc-SpMV/blob/93b7138bad9f3adbfbad4d86a362515fd3e4cd93/Acc-SpMV.cu#L544).
+There is a further asymmetry. The custom path clears its output once before the timed loop. It then launches a kernel that atomically adds products on every iteration. The fallback includes an output clear inside every timed iteration. Thus they do not time identical reset work. Assume exact arithmetic and an otherwise correct custom kernel. Then 1,000 repetitions would accumulate 1,000 times the single-call result into the final output. They would not leave one result. [Custom timed loop](https://github.com/APHETION/Acc-SpMV/blob/93b7138bad9f3adbfbad4d86a362515fd3e4cd93/Acc-SpMV.cu#L460); [fallback timed loop](https://github.com/APHETION/Acc-SpMV/blob/93b7138bad9f3adbfbad4d86a362515fd3e4cd93/Acc-SpMV.cu#L544).
 
-Both paths copy results to the host, but the inspected functions do not compare them with a reference answer. They print the total timed interval converted from milliseconds to seconds, not explicitly the average latency per multiplication. Dividing the total seconds by 1,000 would be necessary to obtain that average for this loop. These observations identify reproduction questions; they do not establish that the published paper used these exact loops or that its numerical claims are false.
+Both paths copy results to the host, but the inspected functions do not compare them with a reference answer. They print the total timed interval converted from milliseconds to seconds, not explicitly the average latency per multiplication. Dividing the total seconds by 1,000 would be necessary to obtain that average for this loop. These observations identify reproduction questions. They do not establish that the published paper used these exact loops. They also do not establish that its numerical claims are false.
 
 ### Keep reported speedups separate from code inspection
 
-The official description reports 2,715 matrices. Average speedups versus cuSPARSE are 2.58×, 1.91×, and 1.78× on RTX 4090, A800, and H100 respectively; versus DASP they are 1.93×, 1.70×, and 1.75×. [DAC description](https://63dac.conference-program.com/presentation/?id=RESEARCH2105&sess=sess127). Baseline versions, per-matrix results, numeric settings, and averaging definitions have not been recovered from the manuscript.
+The official description reports 2,715 matrices. Average speedups versus cuSPARSE are 2.58×, 1.91×, and 1.78× on RTX 4090, A800, and H100 respectively. Versus DASP they are 1.93×, 1.70×, and 1.75×. [DAC description](https://63dac.conference-program.com/presentation/?id=RESEARCH2105&sess=sess127). Baseline versions, per-matrix results, numeric settings, and averaging definitions have not been recovered from the manuscript.
 
 Using ordinary programmable arithmetic units rather than matrix-specialized units does not mean the hardware is universally faster. A sparse matrix–vector job can spend much of its time locating inputs, moving indices, and combining outputs. More peak multiplication capacity helps only if those other operations can supply and consume the work efficiently. The reported comparisons concern particular implementations and workloads.
 
-Preparation also needs repayment. In a constructed scenario, a 20 ms reordering cost and a 0.02 ms saving per multiplication break even at 1,000 uses, before any recurring vector-permutation cost. If each new vector requires another 0.01 ms of extra work, the net saving becomes 0.01 ms and break-even moves to 2,000 uses. Reusing a matrix does not mean every changing vector is already in the right order.
+Preparation also needs repayment. Take a constructed scenario with a 20 ms reordering cost and a 0.02 ms saving per multiplication. These break even at 1,000 uses, before any recurring vector-permutation cost. Suppose each new vector requires another 0.01 ms of extra work. The net saving then becomes 0.01 ms and break-even moves to 2,000 uses. Reusing a matrix does not mean every changing vector is already in the right order.
 
-The connection to BSGCN and PFGEMM is that representation and request order jointly determine reuse and useful execution. Acc-SpMV adds a concrete constraint: removing per-entry address lookup is possible only when the stored layout makes addresses recoverable by a simpler rule. Testing whether that benefit survives preparation, validation, and numerical requirements is more informative than treating all sparse speedups as one trend.
+The connection to BSGCN and PFGEMM is that representation and request order jointly determine reuse and useful execution. Acc-SpMV adds a concrete constraint. Removing per-entry address lookup is possible only when the stored layout makes addresses recoverable by a simpler rule. It is more informative to test whether that benefit survives preparation, validation, and numerical requirements. That is better than treating all sparse speedups as one trend.
 
 No Acc-SpMV preprocessing, GPU kernel, or benchmark was executed. Full-paper recovery, the Acc-SpMV/OmniSpMV naming history, complete reduction correctness, permutation validation, fair timing boundaries, and independent comprehension review remain open.
 
@@ -463,17 +463,17 @@ The two valid matches use the same three nodes but different interaction events.
 
 ### Search-tree growth is growth in partial assignments
 
-After selecting edge 1, the search has assigned a to u and b to v, but still needs c and the later interactions. Choosing edge 2 or edge 3 creates two different partial matches. Each partial match must then look for the closing interaction u→w after its own most recent time and within the allowed duration.
+After selecting edge 1, the search has assigned a to u and b to v. It still needs c and the later interactions. Choosing edge 2 or edge 3 creates two different partial matches. Each partial match must then look for the closing interaction u→w. It must look after its own most recent time and within the allowed duration.
 
 These alternatives form a search tree: each child extends one valid partial assignment by another candidate. It is a tree of computational choices, not necessarily a tree in the input graph. A node with many candidate later interactions can create many children. Most may eventually fail a direction, node-mapping, or time constraint.
 
-If an example has ten eligible choices at each of four extension steps, it can expose ten thousand complete combinations before additional filtering. Actual branches can terminate much earlier. Graph size or average degree alone therefore does not determine search cost; query shape, event timing, and partial-match survival matter.
+Take an example with ten eligible choices at each of four extension steps. It can expose ten thousand complete combinations before additional filtering. Actual branches can terminate much earlier. Graph size or average degree alone therefore does not determine search cost; query shape, event timing, and partial-match survival matter.
 
 ### Why individually sensible searches can repeatedly fetch the same data
 
 Each matching task may need later edges in chronological order. Yet tasks can progress at different rates because their search trees differ. One task may already be examining a late region of the graph while another is still exploring many early alternatives. When they eventually request the same edges, those edges may no longer be in the fast local memory.
 
-Consider three tasks, each requiring data chunks A, B, and C, with capacity to retain only one chunk. A task-by-task traversal requests `ABCABCABC` and needs nine chunk loads under this simplified model. A legal chunk-grouped schedule requests `AAABBBCCC` and needs three loads: keep A while all three tasks use it, then do the same for B and C.
+Consider three tasks, each requiring data chunks A, B, and C, with capacity to retain only one chunk. A task-by-task traversal requests `ABCABCABC` and needs nine chunk loads under this simplified model. A legal chunk-grouped schedule requests `AAABBBCCC` and needs three loads. It keeps A while all three tasks use it, then does the same for B and C.
 
 This example saves data loads, not necessarily candidate checks. Distinct partial matches still need their own compatibility tests and counts. Sharing one fetched edge does not make two valid event sequences identical. Whether LTMiner additionally shares computation requires its full algorithm.
 
@@ -481,35 +481,35 @@ This example saves data loads, not necessarily candidate checks. Distinct partia
 
 Put times 1–3 of the earlier example in one chunk and times 4–6 in the next. The partial match containing edges 1 and 2 must survive the boundary to find edge 4. The partial match containing only edge 1 must also survive if it still needs to consider edge 3. Discarding all unfinished work at the boundary misses valid matches.
 
-A resumable task may need its query position, assigned nodes, selected event identities or equivalent distinguishing state, last timestamp, deadline, and a cursor identifying the next untested candidate. This is a conceptual state requirement, not a recovered LTMiner record layout. The implementation needs enough information both to resume and to avoid counting already explored alternatives twice.
+A resumable task may need its query position, assigned nodes, and selected event identities or equivalent distinguishing state. It may also need its last timestamp, deadline, and a cursor identifying the next untested candidate. This is a conceptual state requirement, not a recovered LTMiner record layout. The implementation needs enough information both to resume and to avoid counting already explored alternatives twice.
 
-Chronological processing offers a useful bound: once future candidates are beyond a task's deadline, that task cannot obtain a valid later completion under the example's rules. But determining that condition requires valid ordering and a consistent duration convention. A chunk boundary is not itself a deadline.
+Chronological processing offers a useful bound. Once future candidates are beyond a task's deadline, that task cannot obtain a valid later completion under the example's rules. But determining that condition requires valid ordering and a consistent duration convention. A chunk boundary is not itself a deadline.
 
 ### The reused graph data must share storage with indices and search state
 
-The related DTMiner software paper explicitly budgets chunk data, index data, and reserved intermediate storage against the last-level cache capacity in Section 4.2.1. Its condition is `chunk bytes + index bytes + reserved bytes ≤ cache bytes`. It also explains the opposing costs of oversized chunks and excessive suspended-task metadata. [DTMiner, printed p. 596, PDF p. 7](https://theqihao.github.io/files/DTMiner.pdf#page=7). This is background evidence for the tradeoff, not proof that LTMiner uses that cache or sizing rule.
+The related DTMiner software paper explicitly budgets chunk data, index data, and reserved intermediate storage. It budgets them against the last-level cache capacity in Section 4.2.1. Its condition is `chunk bytes + index bytes + reserved bytes ≤ cache bytes`. It also explains the opposing costs of oversized chunks and excessive suspended-task metadata. [DTMiner, printed p. 596, PDF p. 7](https://theqihao.github.io/files/DTMiner.pdf#page=7). This is background evidence for the tradeoff, not proof that LTMiner uses that cache or sizing rule.
 
-For a constructed eight-MiB local store with one MiB of indices and two MiB reserved for task state, at most five MiB remains for chunk data. Allocating an eight-MiB chunk simply because the nominal store is eight MiB ignores other residents. Actual placement, associativity, and competing users can further reduce useful capacity.
+Take a constructed eight-MiB local store with one MiB of indices and two MiB reserved for task state. At most five MiB then remains for chunk data. Allocating an eight-MiB chunk simply because the nominal store is eight MiB ignores other residents. Actual placement, associativity, and competing users can further reduce useful capacity.
 
-Smaller chunks are not automatically better. If each suspended task needed 64 bytes, one million suspended tasks would occupy 64 million bytes, already much larger than the illustrative store. A hardware implementation needs an admission, spill, or scheduling policy when live search state exceeds local capacity. Restricting active tasks can reduce memory pressure but also reduce the number of tasks available to reuse the current chunk.
+Smaller chunks are not automatically better. Suppose each suspended task needed 64 bytes. One million suspended tasks would then occupy 64 million bytes. That is already much larger than the illustrative store. A hardware implementation needs an admission, spill, or scheduling policy when live search state exceeds local capacity. Restricting active tasks can reduce memory pressure but also reduce the number of tasks available to reuse the current chunk.
 
 Thus locality and parallelism are related but not identical. Running more tasks may expose more reuse while increasing state storage and output-count contention. A useful evaluation should separate graph bytes transferred, task-state bytes transferred, candidates tested, and time spent waiting.
 
 ### Interpret the unusually wide result ranges cautiously
 
-The DAC description reports speedup ranges of 1.1–652.6× versus software and 1.8–70.3× versus hardware, with respective energy-saving ratios of 3.9–2050.9× and 1.2–17.3×. Baseline identities and per-case conditions are absent. [DAC description](https://63dac.conference-program.com/presentation/?id=RESEARCH240&sess=sess121).
+The DAC description reports speedup ranges of 1.1–652.6× versus software and 1.8–70.3× versus hardware. Its respective energy-saving ratios are 3.9–2050.9× and 1.2–17.3×. Baseline identities and per-case conditions are absent. [DAC description](https://63dac.conference-program.com/presentation/?id=RESEARCH240&sess=sess121).
 
-The largest ratio is not a typical result. For example, a 652.6× time ratio leaves about 0.153% of baseline time for that particular comparison, whereas 1.1× leaves about 90.9%. Such a range calls for per-graph, per-query explanations rather than one headline number.
+The largest ratio is not a typical result. For example, a 652.6× time ratio leaves about 0.153% of baseline time for that particular comparison. A 1.1× ratio leaves about 90.9%. Such a range calls for per-graph, per-query explanations rather than one headline number.
 
 Energy and time extrema must not be paired unless they refer to the same run and measurement boundary. Since energy equals average power multiplied by duration, a faster implementation can save energy while using more instantaneous power. The description does not establish fabrication, clock, storage capacities, host costs, or the power-measurement method.
 
-Fair comparisons need the same graph events, motif definition, counting semantics, time window, precision of timestamps, and exactness requirements. They also need preparation and state-transfer costs. An implementation that counts different event sequences or excludes expensive setup is not directly comparable solely because both are called temporal motif mining.
+Fair comparisons need the same graph events, motif definition, counting semantics, time window, precision of timestamps, and exactness requirements. They also need preparation and state-transfer costs. An implementation that counts different event sequences or excludes expensive setup is not directly comparable. Calling both temporal motif mining does not make them comparable.
 
 ### What this adds to the sparse-compute explanation
 
-BSGCN reorders requests for graph features; LTMiner coordinates requests generated by growing graph searches. In the latter, scheduling decisions affect both reused data and the amount of unfinished state that must remain alive. This adds a useful comparison dimension: how many bytes of task state must be retained to avoid one repeated graph-data transfer?
+BSGCN reorders requests for graph features; LTMiner coordinates requests generated by growing graph searches. In the latter, scheduling decisions affect both reused data and the amount of unfinished state that must remain alive. This adds a useful comparison dimension. How many bytes of task state must be retained to avoid one repeated graph-data transfer?
 
-One testable hypothesis is that chunk-grouped execution benefits queries with substantial cross-task edge reuse until retained search state or synchronization outweighs the saved transfers. Varying motif shape, duration limit, and chunk size would test that boundary. The available description and related software paper motivate the question; they do not establish a cross-conference long-term trend.
+One testable hypothesis is that chunk-grouped execution benefits queries with substantial cross-task edge reuse. This holds until retained search state or synchronization outweighs the saved transfers. Varying motif shape, duration limit, and chunk size would test that boundary. The available description and related software paper motivate the question; they do not establish a cross-conference long-term trend.
 
 No LTMiner hardware, graph benchmark, or DTMiner implementation was executed. LTMiner's manuscript, exact search-state handling, supported motif semantics, overflow policy, baseline configurations, and independent comprehension review remain open.
 
@@ -521,7 +521,7 @@ PillarSparse proposes the Pillar CSR representation for sparse–dense multiplic
 
 ### Sparse–dense multiplication combines vectors through sparse connections
 
-In sparse matrix–dense matrix multiplication, abbreviated SpMM, the sparse matrix identifies which rows of the dense matrix contribute to each output row. Unlike matrix–vector multiplication, each selected input is a vector of several features.
+In sparse matrix–dense matrix multiplication, abbreviated SpMM, the sparse matrix identifies which rows of the dense matrix contribute. This is for each output row. Unlike matrix–vector multiplication, each selected input is a vector of several features.
 
 For a constructed example:
 
@@ -535,7 +535,7 @@ first output row  = 2×[1,2] + 3×[5,6] = [17,22]
 second output row = 4×[3,4]             = [12,16]
 ```
 
-The three stored values of A lead to six scalar products because B has two features per row. If B had 128 features, the same three sparse positions would identify 384 scalar products. Position metadata can therefore be reused across features. The larger feature width also increases input and output traffic, so the metadata's fraction of total work changes with matrix shape.
+The three stored values of A lead to six scalar products because B has two features per row. If B had 128 features, the same three sparse positions would identify 384 scalar products. Position metadata can therefore be reused across features. The larger feature width also increases input and output traffic. The metadata's fraction of total work therefore changes with matrix shape.
 
 Grouping nonzeros associated with an input column can make their shared dense input row easier to reuse. But the products may belong to different output rows, requiring correct destination tracking and accumulation. The exact scope of a Pillar unit, including row grouping and boundary information, needs the unrecovered format specification.
 
@@ -552,15 +552,15 @@ output (1,0) = [3,4] · [5,6] = 3×5 + 4×6 = 39
 
 There is no need to produce the unrequested positions merely to discard them. Some SDDMM interfaces also multiply sampled results by stored mask values; this example uses a structural mask with unit values. PillarSparse's exact interface and scaling rules remain unknown.
 
-These two operations often interact in graph computation: selected node pairs can receive scores, and connection-weighted feature vectors can then be aggregated. That connection does not make their kernels interchangeable. One gathers and accumulates along sparse input connections; the other computes dot products at sparse output coordinates.
+These two operations often interact in graph computation. Selected node pairs can receive scores. Connection-weighted feature vectors can then be aggregated. That connection does not make their kernels interchangeable. One gathers and accumulates along sparse input connections; the other computes dot products at sparse output coordinates.
 
 ### Why locating operands can require several dependent reads
 
-A pointer lookup reads information that identifies where another piece of information resides. For an illustrative nested format, the program might first read a row's group index, then that group's descriptor, then an array location for the values. If the address of each read depends on the preceding result, those reads cannot all be issued immediately for that one task.
+A pointer lookup reads information that identifies where another piece of information resides. For an illustrative nested format, the program might first read a row's group index. It might then read that group's descriptor, then an array location for the values. Suppose the address of each read depends on the preceding result. Those reads then cannot all be issued immediately for that one task.
 
-With an assumed 100-cycle latency for each of three dependent reads, the isolated chain takes 300 cycles before the final information is ready. Removing one level would reduce that illustrative chain to 200 cycles. It would not imply a 1.5× application speedup: other tasks can overlap some waiting, caches can change latency, and arithmetic or bandwidth can dominate elsewhere.
+Assume a 100-cycle latency for each of three dependent reads. The isolated chain then takes 300 cycles before the final information is ready. Removing one level would reduce that illustrative chain to 200 cycles. It would not imply a 1.5× application speedup. Other tasks can overlap some waiting, and caches can change latency. Arithmetic or bandwidth can dominate elsewhere.
 
-Packing required descriptor fields together can remove an indirection and allow a wider load to retrieve several fields. But the exact savings depend on what was previously loaded, whether the data was already cached, and how the new fields are decoded.
+Packing required descriptor fields together can remove an indirection and allow a wider load to retrieve several fields. But the exact savings depend on what was previously loaded. They also depend on whether the data was already cached and how the new fields are decoded.
 
 ### Two integers is not a complete encoding specification
 
@@ -568,7 +568,7 @@ The description's two-integer claim leaves their widths and field assignments un
 
 For an independent packing example, a 32-bit word could reserve 20 bits for an offset and 12 for a count. Encoding offset 700 and count 9 as `(700 << 12) | 9` gives 2,867,209. Shifting right by 12 retrieves 700; masking the lowest 12 bits retrieves 9. The ranges would be limited to offsets below 1,048,576 and counts below 4,096.
 
-That example shows what packing must specify: field widths, units, bounds, reserved codes, and what happens when a value exceeds the range. It does not reveal PillarSparse's fields. Bit packing can require masks and shifts while still saving dependent loads; the relevant comparison is total decoding and access cost, not whether decoding disappears.
+That example shows what packing must specify. These are field widths, units, bounds, reserved codes, and what happens when a value exceeds the range. It does not reveal PillarSparse's fields. Bit packing can require masks and shifts while still saving dependent loads. The relevant comparison is total decoding and access cost. It is not whether decoding disappears.
 
 A single vectorized load is also not necessarily a single external-memory transaction. Alignment, cache-line boundaries, and simultaneous requests from other workers affect physical transfers. Removing an instruction, an address dependency, and a memory transfer are three distinct claims.
 
@@ -576,25 +576,25 @@ A single vectorized load is also not necessarily a single external-memory transa
 
 The description names a producer–consumer pipeline with specialized worker groups and a Tensor Memory Accelerator, or TMA. It also names Thrust primitives for conversion without specifying the sequence. [DAC description](https://63dac.conference-program.com/presentation/?id=RESEARCH2468&sess=sess140).
 
-As hardware background, NVIDIA describes Hopper TMA as an asynchronous engine for moving tensor regions between memory spaces, allowing designated workers to initiate movement while others compute. Completion still needs synchronization before consumers use the data. This documents the facility, not PillarSparse's particular transfers or GPU configuration. [NVIDIA Hopper guide, Section 1.4.1.2](https://docs.nvidia.com/cuda/hopper-tuning-guide/index.html#tensor-memory-accelerator).
+As hardware background, NVIDIA describes Hopper TMA as an asynchronous engine for moving tensor regions between memory spaces. It allows designated workers to initiate movement while others compute. Completion still needs synchronization before consumers use the data. This documents the facility, not PillarSparse's particular transfers or GPU configuration. [NVIDIA Hopper guide, Section 1.4.1.2](https://docs.nvidia.com/cuda/hopper-tuning-guide/index.html#tensor-memory-accelerator).
 
-In a constructed pipeline, loading one tile takes six time units and computing it takes four. Sequentially processing ten tiles takes 100 units. Perfect overlap after startup gives `6 + 4 + 9×6 = 64`, not 40, because loading limits the rate. Achieving that overlap requires separate storage for data being loaded and data still being consumed, plus correct handoff and buffer-reuse rules.
+In a constructed pipeline, loading one tile takes six time units and computing it takes four. Sequentially processing ten tiles takes 100 units. Perfect overlap after startup gives `6 + 4 + 9×6 = 64`, not 40, because loading limits the rate. Achieving that overlap requires separate storage for data being loaded and data still being consumed. It also requires correct handoff and buffer-reuse rules.
 
-Tensor arithmetic units operate on supported matrix shapes and numeric formats. Irregular sparse work must be arranged into suitable operands or handled by additional instructions. If a hypothetical 16-position arithmetic block contains only four useful entries, at most 25% of those positions are useful under that simple mapping. A faster arithmetic unit can still be worthwhile, but its peak rate alone does not prove useful sparse throughput. PillarSparse's tile shapes, padding, and precision remain unrecovered.
+Tensor arithmetic units operate on supported matrix shapes and numeric formats. Irregular sparse work must be arranged into suitable operands or handled by additional instructions. Suppose a hypothetical 16-position arithmetic block contains only four useful entries. At most 25% of those positions are then useful under that simple mapping. A faster arithmetic unit can still be worthwhile, but its peak rate alone does not prove useful sparse throughput. PillarSparse's tile shapes, padding, and precision remain unrecovered.
 
 ### Conversion changes the complete-workflow result
 
 An efficient execution format can require sorting, grouping, indexing, or allocating new arrays before use. Mentioning a parallel-library primitive does not establish the conversion's time, temporary-memory requirement, or behavior for a changing sparsity pattern.
 
-For an illustrative static pattern, a 5 ms conversion cost and 0.05 ms saved per execution break even after 100 uses. If each sampled graph batch creates a new pattern used once, the same numbers lose 4.95 ms per batch. Changes only to values may permit some metadata reuse, whereas changes to positions can require rebuilding it; the implementation must establish which updates it supports.
+Take an illustrative static pattern. A 5 ms conversion cost and 0.05 ms saved per execution break even after 100 uses. If each sampled graph batch creates a new pattern used once, the same numbers lose 4.95 ms per batch. Changes only to values may permit some metadata reuse. Changes to positions can require rebuilding it. The implementation must establish which updates it supports.
 
-The useful comparison is therefore both kernel-only and complete workflow: starting from the application's actual input representation, preparing the format, computing required outputs, and returning them in the required order and precision. Peak temporary memory belongs in that accounting too.
+The useful comparison is therefore both kernel-only and complete workflow. The workflow starts from the application's actual input representation. It prepares the format, computes required outputs, and returns them in the required order and precision. Peak temporary memory belongs in that accounting too.
 
 ### What evidence is still needed for the paper and the trend
 
 The official description gives no numerical benchmark results or baseline names. A qualitative performance statement cannot support a specific speedup, energy saving, or universal ranking. Required evidence includes matrix dimensions, feature widths, sparsity patterns, numeric types, GPU model, software versions, conversion frequency, and output checks.
 
-Acc-SpMV simplifies vector addressing through consecutive-column layout. PFGEMM shares index prefixes. PillarSparse targets descriptor organization and dependent metadata access. Together they motivate a sharper hypothesis than “sparse formats are improving”: the best representation depends on whether the workload is limited by bytes transferred, dependent address discovery, or arranging operands for the arithmetic unit.
+Acc-SpMV simplifies vector addressing through consecutive-column layout. PFGEMM shares index prefixes. PillarSparse targets descriptor organization and dependent metadata access. Together they motivate a sharper hypothesis than “sparse formats are improving.” The best representation depends on what limits the workload. It may be bytes transferred, dependent address discovery, or arranging operands for the arithmetic unit.
 
 That hypothesis needs controlled measurements varying pattern and feature width while separating conversion, metadata decoding, data movement, and arithmetic. The currently recovered descriptions do not establish a longitudinal trend or a common winning format.
 
@@ -604,13 +604,13 @@ No PillarSparse conversion, GPU kernel, or benchmark was executed. Exact Pillar 
 
 ## Sparse 3D operator acceleration: separate less data movement from changed arithmetic
 
-This is Hongjin Zhong and colleagues' paper, “Operator-Level Acceleration for Sparse 3D Object Detection.” The [official description](https://63dac.conference-program.com/presentation/?id=RESEARCH2717&sess=sess177) combines attention fusion, approximate convolution replacement, and selective lower precision without retraining. No full manuscript or implementation was recovered. The calculations below explain those distinct design choices; they are not reconstructions of the paper's kernels.
+This is Hongjin Zhong and colleagues' paper. Its title is “Operator-Level Acceleration for Sparse 3D Object Detection.” The [official description](https://63dac.conference-program.com/presentation/?id=RESEARCH2717&sess=sess177) combines attention fusion. It also combines approximate convolution replacement and selective lower precision without retraining. No full manuscript or implementation was recovered. The calculations below explain those distinct design choices; they are not reconstructions of the paper's kernels.
 
 ### What a sparse 3D detector represents
 
 A 3D detector estimates objects' locations, sizes, directions, and categories from spatial observations. In a voxel representation, space is divided into cells, and each active cell carries coordinates and a vector of features. A feature channel is one component of that vector. It is not another spatial axis.
 
-Sparse storage can retain only active cells instead of allocating features everywhere. For a constructed grid with one million cells, 64 four-byte features per cell would occupy 256 million bytes if stored densely. Ten thousand active cells require 2.56 million bytes for feature values, plus coordinates, indices, and other metadata. The reduction does not mean the remaining computation is 100 times faster: finding neighbors and assembling their features can introduce irregular access.
+Sparse storage can retain only active cells instead of allocating features everywhere. For a constructed grid with one million cells, 64 four-byte features per cell would occupy 256 million bytes. This holds if stored densely. Ten thousand active cells require 2.56 million bytes for feature values, plus coordinates, indices, and other metadata. The reduction does not mean the remaining computation is 100 times faster. Finding neighbors and assembling their features can introduce irregular access.
 
 Empty space and redundant feature information are also different. Absence of a cell can justify omitting some operations under the model's sparse-convolution rules. Similarity between two nonempty cells does not make them interchangeable without an approximation argument.
 
@@ -624,11 +624,11 @@ Suppose three scalar features are 10, 20, and 40, with unnormalized positive wei
 
 Split the inputs into a first tile containing the first two features and a second containing the last. Their numerator/denominator pairs are `(80,5)` and `(200,5)`. Combining those pairs gives `280/10 = 28`. Independently normalizing each tile and adding its answer gives `16+40 = 56`, which is wrong. The normalization domain must survive the tiling transformation.
 
-Actual attention may obtain weights through exponentials and require stable rescaling across tiles. The example does not establish the paper's algorithm, but it shows what needs proof: the same contributing elements, normalization, masks, and output accumulation, with separately specified floating-point tolerance.
+Actual attention may obtain weights through exponentials and require stable rescaling across tiles. The example does not establish the paper's algorithm. It shows what needs proof. The proof covers the same contributing elements, normalization, masks, and output accumulation. It also covers a separately specified floating-point tolerance.
 
 ### Fusion can reduce storage without deleting model information
 
-If an intermediate holds N groups of d four-byte values, its value storage alone is `4×N×d` bytes. For illustrative N=100,000 and d=1,024, that is 409.6 million bytes. Avoiding a complete write and reread could remove 819.2 million transferred bytes at that storage boundary, assuming each would otherwise occur once.
+If an intermediate holds N groups of d four-byte values, its value storage alone is `4×N×d` bytes. For illustrative N=100,000 and d=1,024, that is 409.6 million bytes. Avoiding a complete write and reread could remove 819.2 million transferred bytes at that storage boundary. This assumes each would otherwise occur once.
 
 These numbers are not the paper's tensor dimensions or traffic measurements. They explain why eliminating an intermediate can matter even if the number of arithmetic operations barely changes. Smaller tiles can keep temporary results closer to the arithmetic units, but require buffers, handoffs, and enough local storage. Oversized tiles can consume registers or shared memory and reduce concurrent work.
 
@@ -638,11 +638,11 @@ The right validation compares outputs as well as allocations and traffic. Succes
 
 A spatial convolution combines features from nearby coordinates. An operation confined to channels at one coordinate combines components of that cell's feature vector. These calculations cannot generally substitute for one another on arbitrary inputs.
 
-Consider a one-dimensional spatial slice as a constructed counterexample. A three-position sum at the center gives 10 for neighbor values `[0,10,0]` and 30 for `[10,10,10]`. Both cases have the same center value, 10. A deterministic function that sees only the center value must return the same answer for both, so it cannot reproduce both spatial sums exactly.
+Consider a one-dimensional spatial slice as a constructed counterexample. A three-position sum at the center gives 10 for neighbor values `[0,10,0]` and 30 for `[10,10,10]`. Both cases have the same center value, 10. A deterministic function that sees only the center value must return the same answer for both. It therefore cannot reproduce both spatial sums exactly.
 
-Earlier attention could make a cell's features carry information about its neighbors. That makes a cheaper substitute plausible for a particular trained model and input distribution; it does not establish a universal identity between spatial and channel operations. The exact preceding features, replacement weights, and measured error are necessary evidence.
+Earlier attention could make a cell's features carry information about its neighbors. That makes a cheaper substitute plausible for a particular trained model and input distribution. It does not establish a universal identity between spatial and channel operations. The exact preceding features, replacement weights, and measured error are necessary evidence.
 
-The description explicitly proposes replacing 3D axial convolutions with lightweight channel operations. Its statement about preserving architecture therefore needs a precise level of interpretation: the broad network arrangement may remain, while the implemented operator changes. Likewise, no retraining means no further weight-training step is claimed, not unchanged predictions. [DAC description](https://63dac.conference-program.com/presentation/?id=RESEARCH2717&sess=sess177).
+The description explicitly proposes replacing 3D axial convolutions with lightweight channel operations. Its statement about preserving architecture therefore needs a precise level of interpretation. The broad network arrangement may remain. The implemented operator changes. Likewise, no retraining means no further weight-training step is claimed, not unchanged predictions. [DAC description](https://63dac.conference-program.com/presentation/?id=RESEARCH2717&sess=sess177).
 
 ### Lower precision changes both storage and numerical resolution
 
@@ -658,7 +658,7 @@ Changing one operator at a time can reveal sensitivity, but individually small e
 
 Mean average precision, or mAP, summarizes detection precision across recall levels and classes under a matching protocol. Precision concerns how many reported detections are correct; recall concerns how many reference objects are found. It is not simply the percentage of correctly classified input frames.
 
-For nuScenes, detection matching uses ground-plane center distance, and NDS combines mAP with measures of location, scale, orientation, velocity, and attribute error. These are metric definitions, not confirmation of the paper's dataset split or evaluation implementation. [Official nuScenes detection metrics](https://www.nuscenes.org/object-detection?externaIData=all&mapData=all&modalities=Any).
+For nuScenes, detection matching uses ground-plane center distance. NDS combines mAP with measures of location, scale, orientation, velocity, and attribute error. These are metric definitions, not confirmation of the paper's dataset split or evaluation implementation. [Official nuScenes detection metrics](https://www.nuscenes.org/object-detection?externaIData=all&mapData=all&modalities=Any).
 
 The description reports quality within 4% mAP and 2.5% NDS, but does not resolve relative percentages versus percentage points. [DAC description](https://63dac.conference-program.com/presentation/?id=RESEARCH2717&sess=sess177). Starting from mAP 60 on a 0–100 scale, a four-point loss gives 56; a four-percent relative loss gives 57.6. Those are different outcomes. Neither statement means that at most four percent of individual objects change predictions.
 
@@ -668,11 +668,11 @@ Calling a loss negligible requires an application criterion. An aggregate can co
 
 The description reports attention speedups up to 50.8×, convolution acceleration of 1.2–2×, precision-related speedup of 1.93–2.19×, and 2.1–2.5× end-to-end improvement. It names A100 and writes “GTX 4090”; that latter device label needs clarification rather than silent correction. Baseline models and detailed conditions remain unrecovered. [DAC description](https://63dac.conference-program.com/presentation/?id=RESEARCH2717&sess=sess177).
 
-Different operator ratios concern different portions of execution and may overlap in their effects. For a constructed 100 ms detector spending 20 ms on attention, making only attention 50 times faster leaves `80 + 20/50 = 80.4` ms, about 1.24× overall speedup. A large component ratio is consistent with a much smaller total gain.
+Different operator ratios concern different portions of execution and may overlap in their effects. Take a constructed 100 ms detector spending 20 ms on attention. Making only attention 50 times faster leaves `80 + 20/50 = 80.4` ms, about 1.24× overall speedup. A large component ratio is consistent with a much smaller total gain.
 
-Nor does 2.5× inference acceleration establish 2.5× sensor-to-output acceleration if transfers and preprocessing are excluded. A fair report needs batch size, active-cell count, feature width, precision, warm-up, synchronization, and the full measurement boundary, alongside the same quality protocol for each configuration.
+Nor does 2.5× inference acceleration establish 2.5× sensor-to-output acceleration if transfers and preprocessing are excluded. A fair report needs batch size, active-cell count, feature width, precision, warm-up, synchronization, and the full measurement boundary. It also needs the same quality protocol for each configuration.
 
-This paper connects sparse-compute scheduling with approximate-and-precision-aware computation. Attention fusion should be assessed as a transformation of execution and storage; convolution replacement and reduced precision additionally need quality accounting. Keeping these categories separate is essential before combining papers into a long-term claim about efficient perception.
+This paper connects sparse-compute scheduling with approximate-and-precision-aware computation. Attention fusion should be assessed as a transformation of execution and storage. Convolution replacement and reduced precision additionally need quality accounting. Keeping these categories separate is essential before combining papers into a long-term claim about efficient perception.
 
 No sparse 3D detector, approximation, precision experiment, or GPU benchmark was executed. Full-paper recovery, operator identities, normalization rules, replacement semantics, precision boundaries, metric units, device identity, and independent comprehension review remain open.
 
@@ -694,11 +694,11 @@ That is the conceptual purpose of an operation-description language. It must car
 
 ### Why one accelerator per operation can add communication
 
-Suppose one hardware block computes feature transforms and a different block computes graph aggregation. The intermediate vectors must pass between them, along with enough information to identify their nodes and layout. If the blocks cannot directly share local storage, an implementation may write those vectors to another memory and read them back.
+Suppose one hardware block computes feature transforms and a different block computes graph aggregation. The intermediate vectors must pass between them, along with enough information to identify their nodes and layout. If the blocks cannot directly share local storage, an implementation may write those vectors to another memory. It may then read them back.
 
 For a constructed intermediate of 100,000 nodes, 64 features, and four bytes per feature, values alone occupy 25.6 million bytes. One complete write and reread transfers 51.2 million bytes. A more integrated design might avoid some of that movement by keeping an intermediate near its next consumer. That does not remove transfers required by true dependencies or by limited storage.
 
-Reusing one arithmetic unit can also avoid duplicating circuitry that is idle during other phases. It can create contention: two operations that separate units could execute concurrently may have to take turns on the shared unit. Hardware reuse is therefore a tradeoff among area, transfer cost, concurrency, and control—not automatically a speedup.
+Reusing one arithmetic unit can also avoid duplicating circuitry that is idle during other phases. It can create contention. Two operations that separate units could execute concurrently may have to take turns on the shared unit. Hardware reuse is therefore a tradeoff among area, transfer cost, concurrency, and control—not automatically a speedup.
 
 ### Logarithms change which operations are simple
 
@@ -713,15 +713,15 @@ ln(exp(a) + exp(b))
 
 The correction depends only on the distance between a and b. This gives a mathematical reason for designing shared comparison, subtraction, and correction-function circuitry. It does not establish Florella's logarithm base, number format, correction approximation, or supported operators.
 
-Take x=2 and y=3. The correct logarithmic sum is ln(5). Keeping only the larger logarithm gives ln(3), which converts back to 3 rather than 5: a 40% error in this example. When x=y=2, omitting the correction gives 2 rather than 4, a 50% error. The correction is largest for equal inputs, where it is ln(2).
+Take x=2 and y=3. The correct logarithmic sum is ln(5). Keeping only the larger logarithm gives ln(3). This converts back to 3 rather than 5, a 40% error in this example. When x=y=2, omitting the correction gives 2 rather than 4, a 50% error. The correction is largest for equal inputs, where it is ln(2).
 
 If a and b differ by ten, the correction is `ln(1+exp(−10))`, approximately 0.0000454 in natural-log units. Its small size in that case explains why an approximation might depend on the input difference. It does not justify dropping it everywhere, and this omission is not asserted to be Florella's method.
 
 ### Zero, negative values, and cancellation need explicit treatment
 
-Real logarithms of positive values do not directly encode negative numbers. Zero has no finite logarithm. Graph-network features and weights can contain both, so a general implementation needs special-value rules and a way to preserve signs or otherwise handle these cases.
+Real logarithms of positive values do not directly encode negative numbers. Zero has no finite logarithm. Graph-network features and weights can contain both. A general implementation therefore needs special-value rules. It also needs a way to preserve signs or otherwise handle these cases.
 
-For opposite-signed contributions 100 and −99, the answer is 1. Treating both magnitudes as positive gives 199, which is not an approximation of the same signed sum. Even preserving signs, small magnitude errors can dominate the result after cancellation: using 100.5 and −98.5 gives 2, a 100% relative error despite each magnitude changing by less than one percent.
+For opposite-signed contributions 100 and −99, the answer is 1. Treating both magnitudes as positive gives 199, which is not an approximation of the same signed sum. Even preserving signs, small magnitude errors can dominate the result after cancellation. Using 100.5 and −98.5 gives 2. That is a 100% relative error, despite each magnitude changing by less than one percent.
 
 This is why testing only positive sums or average operator error is insufficient. Required tests include zeros, near cancellation, extreme magnitudes, repeated reductions, and conversions between representations. The error should then be evaluated in complete graph models, where normalization and nonlinear functions can change its effect.
 
@@ -729,11 +729,11 @@ The term Jacobian-logarithm does not mean that the hardware necessarily computes
 
 ### Unified mapping still has to preserve boundaries and dependencies
 
-Even an exact pairwise arithmetic identity does not define a whole operator. A mean also needs a count; attention needs its normalization domain; a maximum over an empty set needs a specified convention. Different graph nodes can have different neighbor counts, including no neighbors. The mapping must preserve these cases.
+Even an exact pairwise arithmetic identity does not define a whole operator. A mean also needs a count. Attention needs its normalization domain. A maximum over an empty set needs a specified convention. Different graph nodes can have different neighbor counts, including no neighbors. The mapping must preserve these cases.
 
-The description uses “atomic mapping” of macro-operations. Without the manuscript, that phrase cannot be assumed to mean a memory atomic instruction, transactional execution, or an operation completed in one cycle. It is a mapping claim whose exact meaning needs recovery. [DAC description](https://63dac.conference-program.com/presentation/?id=RESEARCH588&sess=sess156).
+The description uses “atomic mapping” of macro-operations. Without the manuscript, that phrase cannot be assumed to mean a memory atomic instruction. It also cannot be assumed to mean transactional execution, or an operation completed in one cycle. It is a mapping claim whose exact meaning needs recovery. [DAC description](https://63dac.conference-program.com/presentation/?id=RESEARCH588&sess=sess156).
 
-There is also a storage question. Keeping several operators on one architecture can reduce communication between devices while still writing intermediates within that architecture. The evaluation must identify the boundary at which traffic is counted and whether all operators in the claimed workload are supported without fallback.
+There is also a storage question. Keeping several operators on one architecture can reduce communication between devices while still writing intermediates within that architecture. The evaluation must identify the boundary at which traffic is counted. It must also identify whether all operators in the claimed workload are supported without fallback.
 
 ### Interpret the three reported ratios separately
 
@@ -741,7 +741,7 @@ The description reports average 2.2× speedup, 2× lower memory traffic, and 3.3
 
 Interpreting traffic reduction as baseline bytes divided by new bytes gives half the traffic. A 2.2× speed ratio leaves about 45.5% of baseline time. These ratios describe different, potentially overlapping effects and cannot be multiplied into a 4.4× combined speedup.
 
-Performance density generally needs both useful performance and an area denominator, but the paper's definition must be checked. For a constructed pair, increasing throughput from 100 to 220 jobs per second while reducing area from three to two square millimeters raises throughput per area from 33.3 to 110, or 3.3×. This shows how the units relate; it is not a reconstruction of Florella's area. Aggregate ratios from several baselines cannot safely be inverted to infer an unreported chip size.
+Performance density generally needs both useful performance and an area denominator, but the paper's definition must be checked. Take a constructed pair. Throughput increases from 100 to 220 jobs per second while area falls from three to two square millimeters. Throughput per area then rises from 33.3 to 110, or 3.3×. This shows how the units relate; it is not a reconstruction of Florella's area. Aggregate ratios from several baselines cannot safely be inverted to infer an unreported chip size.
 
 No Florella implementation, graph inference, arithmetic circuit, simulation, or synthesis was executed. The language definition, operator coverage, logarithmic encoding, approximation error, fallback paths, hardware conditions, and independent comprehension review remain open.
 
@@ -773,7 +773,7 @@ That example's 75% omitted pairs would imply at most a fourfold arithmetic reduc
 
 SPADE considers spatial, temporal, and mixed 3D partitions, then uses summaries and head-specific policies to choose attention masks. [PDF p. 3, Figure 3 and Section 3.1](https://arxiv.org/pdf/2608.03335v1#page=3).
 
-Why can the partition matter when block sizes are equal? Tokens close in an image may have similar features in one scene, while tokens tracking slowly changing content across frames may be more similar in another. A summary of a coherent group can represent its members better than a summary mixing unrelated vectors. This is a rationale for input-dependent grouping, not a guarantee that nearby tokens have interchangeable effects.
+Why can the partition matter when block sizes are equal? Tokens close in an image may have similar features in one scene. In another, tokens tracking slowly changing content across frames may be more similar. A summary of a coherent group can represent its members better than a summary mixing unrelated vectors. This is a rationale for input-dependent grouping, not a guarantee that nearby tokens have interchangeable effects.
 
 A summary deliberately loses information. The mean of `[1,0]` and `[−1,0]` is `[0,0]`. Its dot product with `[10,0]` is zero, although the two original dot products are 10 and −10. Their exponentials differ greatly. Estimating attention from a mean cannot generally recover every individual attention relationship. Alternative summaries preserve different information and have different costs.
 
@@ -790,9 +790,9 @@ SICS = sum over i,j of dot(ui,uj)
 
 For two aligned vectors `[1,0]` and `[1,0]`, the sum is `[2,0]` and its squared length is four. For opposite vectors `[1,0]` and `[−1,0]`, it is zero. For perpendicular vectors `[1,0]` and `[0,1]`, it is two. The score includes each vector's similarity to itself, not only similarities between distinct vectors.
 
-With a running sum r of preceding normalized vectors, adding a new vector u contributes `2×dot(r,u)+1` to the score. The final one is its self-dot-product. This avoids explicitly constructing the B-by-B matrix of pairwise similarities: it requires work proportional to B times feature width, rather than B² times feature width, apart from implementation details.
+With a running sum r of preceding normalized vectors, adding a new vector u contributes `2×dot(r,u)+1` to the score. The final one is its self-dot-product. This avoids explicitly constructing the B-by-B matrix of pairwise similarities. It requires work proportional to B times feature width, rather than B² times feature width, apart from implementation details.
 
-Exactness of that algebra does not establish the selection heuristic's accuracy. Cosine similarity ignores magnitude: `[1,0]` and `[100,0]` have identical direction, but their dot products with key `[0.1,0]` are 0.1 and 10. A highly coherent query block can still contain very different attention scores. SICS is not a proof of preserved output or generation quality.
+Exactness of that algebra does not establish the selection heuristic's accuracy. Cosine similarity ignores magnitude. `[1,0]` and `[100,0]` have identical direction. Their dot products with key `[0.1,0]` are 0.1 and 10. A highly coherent query block can still contain very different attention scores. SICS is not a proof of preserved output or generation quality.
 
 Zero-length vectors also need an explicit implementation rule because normalization divides by their length. Finite precision can affect the equivalence of different accumulation orders. Those numerical safeguards have not been checked in code here.
 
@@ -800,11 +800,11 @@ Zero-length vectors also need an explicit implementation rule because normalizat
 
 The paper combines selected inter-block and intra-block positions with local-window and attention-sink masks, then executes the resulting block-sparse pattern. [PDF pp. 4–5, Section 3.3](https://arxiv.org/pdf/2608.03335v1#page=4).
 
-Top-K retains a specified number of candidates. A cumulative-threshold rule can retain a varying number depending on its score distribution. Neither establishes the true attention mass retained unless the ranking scores and their normalization have the necessary relationship to full attention.
+Top-K retains a specified number of candidates. A cumulative-threshold rule can retain a varying number depending on its score distribution. Neither establishes the true attention mass retained. That requires the ranking scores and their normalization to have the necessary relationship to full attention.
 
 Suppose one rule retains block identifiers `{1,2}` and another retains `{2,3}`. Their union is `{1,2,3}`, not four distinct blocks. Different rules overlap, so their individual percentages cannot simply be added. Conversely, adding a mandatory local region can prevent a nominal pruning target from being reached.
 
-A retained block includes its full supported tile of pairs, even if only a few individual pairs drove its importance score. This trades fine-grained selectivity for regular execution. The block shape, data ordering, and retained-mask layout therefore matter to runtime as well as quality.
+A retained block includes its full supported tile of pairs. This holds even if only a few individual pairs drove its importance score. This trades fine-grained selectivity for regular execution. The block shape, data ordering, and retained-mask layout therefore matter to runtime as well as quality.
 
 ### Faster mask selection is not free mask selection
 
@@ -816,7 +816,7 @@ Grouping compatible heads can give each launch more work, but different heads ma
 
 ### Separate standard SPADE from the faster Turbo policy
 
-The evaluation uses H800 80 GB/CUDA 12.8. Standard execution retains dense attention for the first 30% of text-to-video steps or 25% of image-to-video steps; Turbo sparsifies after the first step. [PDF p. 5, Section 4.1](https://arxiv.org/pdf/2608.03335v1#page=5).
+The evaluation uses H800 80 GB/CUDA 12.8. Standard execution retains dense attention for the first 30% of text-to-video steps or 25% of image-to-video steps. Turbo sparsifies after the first step. [PDF p. 5, Section 4.1](https://arxiv.org/pdf/2608.03335v1#page=5).
 
 This difference changes how often approximation enters the iterative generation process. An early change can alter subsequent inputs, so its effect is not limited to one isolated attention call. Training-free means the acceleration does not require another training run; it does not mean identical generated video.
 
@@ -835,7 +835,7 @@ The abstract's 1.49–1.80× headline must not be attributed wholly to standard 
 
 ### What transfers to the broader research question
 
-SPADE makes selection overhead and approximation frequency part of the same systems problem. It connects to PillarSparse through the cost of metadata and block execution, and to the precision-aware chapter through the need to account for quality changes. The transferable question is not simply how much attention can be removed, but how cheaply useful blocks can be identified and how often approximation can be applied within a complete generation run.
+SPADE makes selection overhead and approximation frequency part of the same systems problem. It connects to PillarSparse through the cost of metadata and block execution. It connects to the precision-aware chapter through the need to account for quality changes. The transferable question is not simply how much attention can be removed. It is how cheaply useful blocks can be identified. It is also how often approximation can be applied within a complete generation run.
 
 Evidence for a durable trend would require matched prompts, seeds, model versions, steps, resolution, precision, and measurement boundaries. Fidelity and perceptual quality should remain separate, and early dense steps must be included in sparsity and timing accounting. A single-layer sparsity percentage does not describe the full denoising schedule.
 
@@ -847,7 +847,7 @@ No SPADE code, attention kernel, or video-generation benchmark was executed. Exa
 
 ### What the available source establishes
 
-SALUT targets sparse LU factorization on FPGAs with high-bandwidth memory. Its proposed mechanisms are precompiled dependency management, task activation separated from dependency resolution, and locality-aware balancing with two queues. The official description reports geometric-mean throughput and energy-efficiency ratios over fifteen matrices: 4.0× and 6.5× against cuDSS on RTX A6000, and 3.7× and 4.7× against cuDSS on Tesla V100. [Official DAC description and authors](https://63dac.conference-program.com/presentation/?id=RESEARCH935&sess=sess175)
+SALUT targets sparse LU factorization on FPGAs with high-bandwidth memory. Its proposed mechanisms are precompiled dependency management, task activation separated from dependency resolution, and locality-aware balancing with two queues. The official description reports geometric-mean throughput and energy-efficiency ratios over fifteen matrices. These are 4.0× and 6.5× against cuDSS on RTX A6000. They are 3.7× and 4.7× against cuDSS on Tesla V100. [Official DAC description and authors](https://63dac.conference-program.com/presentation/?id=RESEARCH935&sess=sess175)
 
 The full manuscript and implementation were not recovered in the 2026-09-07 search. No manuscript page citations are available. FPGA model, precision, matrix identities, pivot policy, queue rules, preparation costs, and measurement boundaries remain unknown. The examples below are independent mathematical and scheduling explanations, not reconstructed SALUT algorithms or results.
 
@@ -866,7 +866,7 @@ A = [2  1]     L = [1  0]     U = [2  1]
 A = L U
 ```
 
-Multiplying `L` and `U` reproduces `A`: the second row is twice the first row of `U` plus its second row, giving `[4, 3]`. The multiplier 2 in `L` records the elimination step.
+Multiplying `L` and `U` reproduces `A`. The second row is twice the first row of `U` plus its second row, giving `[4, 3]`. The multiplier 2 in `L` records the elimination step.
 
 Once these factors exist, solve `Lz = b` first. Its first equation gives `z₁ = 3`; its second gives `2·3 + z₂ = 7`, so `z₂ = 1`. Then solve `Ux = z`, starting at the bottom: `x₂ = 1`, followed by `2x₁ + 1 = 3`. This is why factorization and solving are distinct costs. If only `b` changes, the same numerical factors can serve another solve. If coefficients in `A` change, numerical factorization generally must be repeated, even if some structural preparation can be reused.
 
@@ -882,9 +882,9 @@ A = [2  1  1]
     [1  0  2]
 ```
 
-The first elimination multiplier for both later rows is `1/2`. Subtracting half the first row from the second changes its last entry from zero to `0 − (1/2)·1 = −1/2`. The third row's middle entry changes in the same way. An implementation that reserves space only for the original nonzeros cannot simply discard these results and remain an exact factorization method.
+The first elimination multiplier for both later rows is `1/2`. Subtracting half the first row from the second changes its last entry from zero to `0 − (1/2)·1 = −1/2`. The third row's middle entry changes in the same way. An implementation that reserves space only for the original nonzeros cannot simply discard these results. It would then not remain an exact factorization method.
 
-The pattern of entries also determines which later operations need earlier results. A worker cannot divide by a diagonal entry before the updates determining that entry have finished. Nor can it use an elimination multiplier before that multiplier has been computed. The task structure depends on the elimination ordering, fill pattern, and numerical rules—not merely on how many zeros the input contains.
+The pattern of entries also determines which later operations need earlier results. A worker cannot divide by a diagonal entry before the updates determining that entry have finished. Nor can it use an elimination multiplier before that multiplier has been computed. The task structure depends on the elimination ordering, fill pattern, and numerical rules. It does not depend merely on how many zeros the input contains.
 
 ### Remove a broad wait, not a true dependency
 
@@ -906,15 +906,15 @@ One possible design—not a verified SALUT implementation—stores a count of un
 
 Several conditions are necessary. Completion must mean that the output is available to its consumer, not merely that the producer has started. Two simultaneous updates to the count must not overwrite each other. A repeated notification must not make a task ready early. The task must not be activated twice. Publishing a completion flag before publishing the data can expose stale values even if the count itself is correct.
 
-Preparing dependency lists ahead of execution can avoid rediscovering relationships repeatedly. It does not eliminate the cost of storing those lists, delivering notifications, or ensuring that the preparation still matches the numerical problem.
+Preparing dependency lists ahead of execution can avoid rediscovering relationships repeatedly. It does not eliminate the cost of storing those lists or delivering notifications. It also does not eliminate the cost of ensuring that the preparation still matches the numerical problem.
 
-Pivoting illustrates the last issue. The matrix `[[0,1],[1,1]]` is nonsingular, but an elimination procedure that begins by dividing by its top-left entry encounters zero. Swapping rows supplies a usable first pivot. In larger problems, row choices can depend on numerical values, including whether a candidate is too small for stable division. A schedule prepared from a fixed pattern therefore needs a stated compatibility rule for pivoting, or a supported restriction on inputs. SALUT's available description does not resolve this issue.
+Pivoting illustrates the last issue. The matrix `[[0,1],[1,1]]` is nonsingular, but an elimination procedure that begins by dividing by its top-left entry encounters zero. Swapping rows supplies a usable first pivot. In larger problems, row choices can depend on numerical values, including whether a candidate is too small for stable division. A schedule prepared from a fixed pattern therefore needs a stated compatibility rule for pivoting. Otherwise it needs a supported restriction on inputs. SALUT's available description does not resolve this issue.
 
 ### Scheduling capacity and memory locality are separate limits
 
 High-bandwidth memory provides substantial transfer capacity through multiple channels. It cannot make an unfinished operand ready. Many workers also cannot overcome a dispatcher that releases tasks too slowly.
 
-As an independent capacity example, suppose eight workers each complete one task per cycle, while a dispatcher supplies only one ready task per cycle. Sustained execution cannot exceed the dispatcher's rate, regardless of the workers' combined arithmetic capacity. Distributed activation may address that limit, but shared queues, completion counters, and memory channels can become new constraints.
+As an independent capacity example, suppose eight workers each complete one task per cycle. Suppose a dispatcher supplies only one ready task per cycle. Sustained execution cannot exceed the dispatcher's rate, regardless of the workers' combined arithmetic capacity. Distributed activation may address that limit, but shared queues, completion counters, and memory channels can become new constraints.
 
 Moving ready tasks between workers can reduce idle time while increasing transfers. Suppose one worker already holds a task's operands but remains busy for four time units. Another is idle, yet fetching those operands takes six. For an otherwise identical two-unit computation, staying local finishes in six units; moving finishes in eight. If the local wait instead becomes twenty units, moving can help. A useful balancing rule must consider both waiting and movement, not simply assign work to the first idle worker.
 
@@ -922,19 +922,19 @@ Two queues alone do not establish such a rule. Their membership, capacity, prior
 
 ### How to read the reported ratios
 
-Geometric means summarize multiplicative ratios, not total application runtime. For two illustrative matrices with speed ratios 4 and 1/4, the geometric mean is `sqrt(4·1/4) = 1`. That summary includes one large gain and one large loss; it does not mean both matrices run equally fast on the two systems. Individual results and their distribution are needed alongside the mean.
+Geometric means summarize multiplicative ratios, not total application runtime. For two illustrative matrices with speed ratios 4 and 1/4, the geometric mean is `sqrt(4·1/4) = 1`. That summary includes one large gain and one large loss. It does not mean both matrices run equally fast on the two systems. Individual results and their distribution are needed alongside the mean.
 
-Factorization throughput must also remain separate from complete-system speed. If factorization originally takes 40 milliseconds of a 100-millisecond job, making only that part four times faster gives `60 + 40/4 = 70` milliseconds overall, or about 1.43× speedup. Analysis, transfers, factorization, triangular solves, and validation need explicit timing boundaries.
+Factorization throughput must also remain separate from complete-system speed. Suppose factorization originally takes 40 milliseconds of a 100-millisecond job. Making only that part four times faster gives `60 + 40/4 = 70` milliseconds overall, or about 1.43× speedup. Analysis, transfers, factorization, triangular solves, and validation need explicit timing boundaries.
 
-Preparation can change the result further. An illustrative 20-millisecond setup cost with a one-millisecond saving per subsequent factorization requires twenty compatible repetitions to break even. A changed sparsity pattern or value-dependent ordering may invalidate that setup. Reusing the same factors for new right-hand sides is a different reuse case and should not be counted as repeated factorization savings.
+Preparation can change the result further. An illustrative 20-millisecond setup cost with a one-millisecond saving per subsequent factorization requires twenty compatible repetitions to break even. A changed sparsity pattern or value-dependent ordering may invalidate that setup. Reusing the same factors for new right-hand sides is a different reuse case. It should not be counted as repeated factorization savings.
 
-Energy efficiency also requires the measured work and power boundary: accelerator-only power, memory power, and whole-system energy are not interchangeable. Numerical verification should report residuals, such as the size of `Ax − b` relative to the problem scale, together with precision and stability conditions. A small residual alone does not guarantee a small error in `x` for an ill-conditioned system, where small coefficient changes can produce large solution changes.
+Energy efficiency also requires the measured work and power boundary: accelerator-only power, memory power, and whole-system energy are not interchangeable. Numerical verification should report residuals, such as the size of `Ax − b` relative to the problem scale. It should also report precision and stability conditions. A small residual alone does not guarantee a small error in `x` for an ill-conditioned system. In such a system, small coefficient changes can produce large solution changes.
 
 ### What this adds to the chapter
 
-SALUT introduces a question distinct from index compression or approximate arithmetic: can the machine expose ready work without repeatedly coordinating unrelated tasks? That connects it to TRIDENT's handling of incomplete intermediate results and PFGEMM's out-of-order execution. In each case, scheduling freedom ends where a consumer needs a value that is not yet complete. The locality tradeoff also connects to BSGCN and LTMiner: improving reuse and improving worker occupancy can demand different execution orders.
+SALUT introduces a question distinct from index compression or approximate arithmetic. Can the machine expose ready work without repeatedly coordinating unrelated tasks? That connects it to TRIDENT's handling of incomplete intermediate results and PFGEMM's out-of-order execution. In each case, scheduling freedom ends where a consumer needs a value that is not yet complete. The locality tradeoff also connects to BSGCN and LTMiner: improving reuse and improving worker occupancy can demand different execution orders.
 
-This is a mechanism-level interpretation, not evidence of growth across conference editions. A stronger long-term hypothesis would be tested with dependency depth, ready-task count, dispatch cost, data placement, and total time on comparable workloads. It would be weakened where true sequential dependence dominates or readiness tracking costs more than the unnecessary waiting it removes.
+This is a mechanism-level interpretation, not evidence of growth across conference editions. A stronger long-term hypothesis would be tested with dependency depth, ready-task count, and dispatch cost. It would also be tested with data placement and total time on comparable workloads. It would be weakened where true sequential dependence dominates or readiness tracking costs more than the unnecessary waiting it removes.
 
 No SALUT hardware, solver, simulation, or benchmark was executed. Full-paper recovery, dependency and pivot semantics, preparation accounting, matrix-level results, numerical validation, and independent comprehension review remain open.
 
@@ -952,7 +952,7 @@ The papers do not all save the same kind of work. Distinguishing the mechanisms 
 
 These questions interact. A layout that reduces address decoding can constrain scheduling. A schedule that improves reuse can retain more unfinished work. Sharing arithmetic units can reduce area while limiting concurrent operations. An approximation can remove a bottleneck but move the result outside the application's acceptable error range.
 
-A defensible long-term hypothesis is therefore conditional: as arithmetic gets cheaper relative to finding and moving operands, representation and scheduling should be evaluated together. The hypothesis would be weakened by matched experiments showing that decoding and transfers are already small, or that conversion and coordination consume more than they save. It cannot yet be presented as a measured ISCA–DAC–ICCAD trend from these description-level records.
+A defensible long-term hypothesis is therefore conditional. As arithmetic gets cheaper relative to finding and moving operands, representation and scheduling should be evaluated together. The hypothesis would be weakened by matched experiments showing that decoding and transfers are already small. It would also be weakened by showing that conversion and coordination consume more than they save. It cannot yet be presented as a measured ISCA–DAC–ICCAD trend from these description-level records.
 
 ## Why the cases cannot be ranked from their labels
 

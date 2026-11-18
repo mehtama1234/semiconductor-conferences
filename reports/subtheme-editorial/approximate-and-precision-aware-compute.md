@@ -1,8 +1,8 @@
 ## Why representing a number is a design decision
 
-This chapter contains fourteen paper records, each now linked to an expanded individual explanation. That is writing coverage, not acceptance: seven explanations are manuscript-backed (HAP, DAPA, Adana, UltraSketchLLM, TopGQ, RESP, BayesCVNN), while seven remain description-backed (CORE, CAPA, CO-MAC, HierPAS, PRISM, MXP, PEACE). Full manuscripts for the latter group and independent comprehension review remain open. UltraSketchLLM has an unresolved compression-rule mismatch, and BayesCVNN has unreconciled dropout conventions in its pseudocode and selected public code. RESP is explained from its public preprint, not a recovered DAC camera-ready version.
+This chapter contains fourteen paper records, each now linked to an expanded individual explanation. That is writing coverage, not acceptance. Seven explanations are manuscript-backed (HAP, DAPA, Adana, UltraSketchLLM, TopGQ, RESP, BayesCVNN). Seven remain description-backed (CORE, CAPA, CO-MAC, HierPAS, PRISM, MXP, PEACE). Full manuscripts for the latter group and independent comprehension review remain open. UltraSketchLLM has an unresolved compression-rule mismatch, and BayesCVNN has unreconciled dropout conventions in its pseudocode and selected public code. RESP is explained from its public preprint, not a recovered DAC camera-ready version.
 
-A digital machine stores a number as a pattern of bits. A fixed number of bits permits a fixed number of different patterns. Representing a wider numerical range or finer differences between values therefore requires a choice about which values can be represented and how other values are rounded.
+A digital machine stores a number as a pattern of bits. A fixed number of bits permits a fixed number of different patterns. Representing a wider numerical range or finer differences between values therefore requires a choice. The choice is which values can be represented and how other values are rounded.
 
 Fewer bits can reduce memory capacity requirements, transfer volume, and the cost of arithmetic hardware. The application may then receive a slightly different result. Whether that difference is acceptable depends on the application's required output, rather than on bit count alone.
 
@@ -14,7 +14,7 @@ Quantization maps input values to a chosen finite set. Uniform quantization uses
 
 Consider a constructed unsigned 4-bit code with values 0 through 15 and a scale of 0.1. Decoding code 7 gives 0.7. Rounding 0.73 to code 7 loses 0.03. The scale controls spacing; the four-bit code provides sixteen possible levels. Trying to represent 2.0 exceeds the largest value, 1.5, so clamping to the maximum loses 0.5. The half-step rounding bound applies within the supported interval, not to values clipped outside it.
 
-A zero-point shifts which integer code represents numerical zero. With the decoding rule `x = scale × (q − zero_point)`, a zero-point of 8 and scale 0.1 make code 8 represent zero and code 10 represent 0.2. Large integer codes therefore need not correspond to large real magnitudes. This distinction matters when hardware tries to skip redundant high-order bits.
+A zero-point shifts which integer code represents numerical zero. With the decoding rule `x = scale × (q − zero_point)`, a zero-point of 8 and scale 0.1 make code 8 represent zero. They make code 10 represent 0.2. Large integer codes therefore need not correspond to large real magnitudes. This distinction matters when hardware tries to skip redundant high-order bits.
 
 Weights are model parameters used repeatedly. Activations are intermediate values computed from the current input. Compressing an already quantized integer activation without changing it is different from quantizing the original real-valued activation more coarsely. The first can preserve that integer exactly while the earlier quantization has already introduced error.
 
@@ -22,15 +22,15 @@ Weights are model parameters used repeatedly. Activations are intermediate value
 
 Different parts of a computation can tolerate different numerical errors. Applying the highest required precision everywhere may spend memory and arithmetic effort on values that do not need it. Applying the lowest precision everywhere can damage the sensitive parts.
 
-Adaptive precision assigns representations according to a criterion such as estimated sensitivity. That introduces its own questions: how the criterion is obtained, what metadata records the choice, whether hardware supports the selected combinations, and whether the criterion remains valid on new inputs.
+Adaptive precision assigns representations according to a criterion such as estimated sensitivity. That introduces its own questions. How is the criterion obtained? What metadata records the choice? Does hardware support the selected combinations? Does the criterion remain valid on new inputs?
 
 ## What the selected papers distinguish
 
-The HAP record proposes adaptive precision. PRISM focuses on sharing scale information for low-bit values. A scale determines how a stored numerical code maps to a value; sharing it can reduce metadata but couples the representable ranges of the grouped values. DAPA instead concerns approximation of nonlinear activation functions. These are different decisions even when all reduce inference cost.
+The HAP record proposes adaptive precision. PRISM focuses on sharing scale information for low-bit values. A scale determines how a stored numerical code maps to a value. Sharing it can reduce metadata but couples the representable ranges of the grouped values. DAPA instead concerns approximation of nonlinear activation functions. These are different decisions even when all reduce inference cost.
 
 CAPA concerns conversion between representations used in mixed-precision matrix multiplication. A method can save weight storage yet spend time converting the weights before arithmetic. Measuring only compressed size can therefore miss a cost that controls execution time. CORE and PEACE also connect numerical representation to particular arithmetic organizations. Their captured evidence below must establish the actual supported formats and comparison conditions before numerical benefits can be asserted.
 
-These are different design decisions, not an interchangeable set of low-bit optimizations. The individual explanations below distinguish evidence from full manuscripts, evidence from official descriptions, and constructed examples. Records without individual explanations still need source and writing passes; a numerical claim in a short description alone does not establish a fair comparison.
+These are different design decisions, not an interchangeable set of low-bit optimizations. The individual explanations below distinguish evidence from full manuscripts, evidence from official descriptions, and constructed examples. Records without individual explanations still need source and writing passes. A numerical claim in a short description alone does not establish a fair comparison.
 
 <span id="explanation-dac-2026-research1999"></span>
 
@@ -38,11 +38,11 @@ These are different design decisions, not an interchangeable set of low-bit opti
 
 ### What is preserved, and what can still change
 
-HAP applies group-wise minimum subtraction to 8-bit quantized activations, retains the offset, and protects selected weight channels at 8 rather than 4 bits. It combines this with bit-serial computation and reordering. This is the DAC manuscript, not the separately listed DATE paper. [Author-hosted DAC paper, Sections 3–4, PDF pages 2–5](https://www.ece.ualberta.ca/~jhan8/publications/DAC2026_Camera_Ready.pdf#page=2).
+HAP applies group-wise minimum subtraction to 8-bit quantized activations and retains the offset. It protects selected weight channels at 8 rather than 4 bits. It combines this with bit-serial computation and reordering. This is the DAC manuscript, not the separately listed DATE paper. [Author-hosted DAC paper, Sections 3–4, PDF pages 2–5](https://www.ece.ualberta.ca/~jhan8/publications/DAC2026_Camera_Ready.pdf#page=2).
 
 The central distinction is between information loss and redundant encoding. Suppose four already quantized values are [100, 103, 101, 102]. Each fits in eight bits, but subtracting their shared minimum gives [0, 3, 1, 2]. Those residuals need only two bits each. Adding 100 back reconstructs every original integer exactly. This is an explanatory example, not the paper's data.
 
-However, if the original real value was 0.73 and the first quantization reconstructed it as 0.7, exact recovery of the integer code does not recover 0.73. “Lossless” at the re-encoding stage is not lossless inference relative to the floating-point model. Weight quantization introduces another possible source of error independently.
+However, suppose the original real value was 0.73 and the first quantization reconstructed it as 0.7. Exact recovery of the integer code does not recover 0.73. “Lossless” at the re-encoding stage is not lossless inference relative to the floating-point model. Weight quantization introduces another possible source of error independently.
 
 ### Count offsets and width metadata
 
@@ -50,27 +50,27 @@ The four residuals above require eight payload bits. An eight-bit offset brings 
 
 Larger groups spread metadata over more values but can contain a wider range. Adding an outlier of 250 to a group near 100 creates a residual of 150, requiring eight bits. One exceptional value can therefore raise the width for the entire group. Smaller groups may keep ranges tight while paying more offsets per value. The appropriate group size depends on the data and on the hardware's grouping cost.
 
-HAP selects groups of sixteen and can disable the dynamic offset by layer when its cost outweighs its benefit. [Section 3.1, PDF page 3](https://www.ece.ualberta.ca/~jhan8/publications/DAC2026_Camera_Ready.pdf#page=3). This makes profiling relevant: an encoding that saves bits on calibration inputs should still be checked on different inputs and unusual activation ranges.
+HAP selects groups of sixteen and can disable the dynamic offset by layer when its cost outweighs its benefit. [Section 3.1, PDF page 3](https://www.ece.ualberta.ca/~jhan8/publications/DAC2026_Camera_Ready.pdf#page=3). This makes profiling relevant. An encoding that saves bits on calibration inputs should still be checked on different inputs and unusual activation ranges.
 
 ### The offset must participate in arithmetic
 
 Changing the representation does not allow the computation to ignore the removed offset. For a simple dot product, let q = [100, 103] and weights w = [2, −1]. The original result is 100×2 + 103×(−1) = 97. After subtracting 100, the residual contribution is 0×2 + 3×(−1) = −3. The offset contribution is 100×(2−1) = 100. Adding both recovers 97.
 
-Using only the residuals would be wrong. The extra work is smaller than restoring every full value only if the implementation can exploit the shared structure. It still consumes operations, data movement, and partial-result storage. The static quantizer zero-point and the dynamic group offset must also remain distinct; they arise at different stages of the representation.
+Using only the residuals would be wrong. The extra work is smaller than restoring every full value only if the implementation can exploit the shared structure. It still consumes operations, data movement, and partial-result storage. The static quantizer zero-point and the dynamic group offset must also remain distinct. They arise at different stages of the representation.
 
 ### Why a lower average width does not automatically shorten execution
 
 A bit-serial multiplier processes parts of a number over successive cycles. This can make a narrower operand take fewer cycles than a wider one. But parallel lanes that synchronize after each group wait for the longest-running lane.
 
-Consider four independent jobs with widths [2, 8, 2, 8], processed two at a time. Pairing them in that order takes 8 + 8 = 16 cycles under a simplified one-cycle-per-bit model. Pairing [2, 2] and [8, 8] takes 2 + 8 = 10 cycles. Total useful work remains twenty bit-cycles, but available lane capacity falls from thirty-two to twenty, eliminating idle time in this idealized example.
+Consider four independent jobs with widths [2, 8, 2, 8], processed two at a time. Pairing them in that order takes 8 + 8 = 16 cycles under a simplified one-cycle-per-bit model. Pairing [2, 2] and [8, 8] takes 2 + 8 = 10 cycles. Total useful work remains twenty bit-cycles. Available lane capacity falls from thirty-two to twenty. This eliminates idle time in this idealized example.
 
-The improvement requires legally moving work. If an activation contribution changes position, its corresponding weight and output destination must remain associated. For a dot product, swapping both activations and their paired weights preserves the mathematical sum; swapping only one side generally does not. Implementations also need sufficient accumulator range and a defined rounding policy before relying on reordered accumulation.
+The improvement requires legally moving work. If an activation contribution changes position, its corresponding weight and output destination must remain associated. For a dot product, swapping both activations and their paired weights preserves the mathematical sum. Swapping only one side generally does not. Implementations also need sufficient accumulator range and a defined rounding policy before relying on reordered accumulation.
 
 Perfect matches may not be available in a finite buffer. Waiting indefinitely for equal-width jobs could stop progress. HAP permits nearby widths to share a dispatch and has a fallback when matching cannot proceed. [Sections 4.3–4.4, PDF pages 4–5](https://www.ece.ualberta.ca/~jhan8/publications/DAC2026_Camera_Ready.pdf#page=4). Accepting a little idle time can be preferable to delaying the whole computation. The policy trades matching quality against buffering and forward progress.
 
 ### Protecting sensitive weights is a separate choice
 
-Retaining some channels at higher precision can improve output quality at a storage and arithmetic cost. An average width of 4.6 bits is not a literal format in which each weight has 4.6 bits. If only four- and eight-bit values are used and overhead is excluded, `4(1−p) + 8p = 4.6` corresponds to p = 15% of values at eight bits. Channel-size weighting and metadata must be included when translating that arithmetic into a real model's footprint.
+Retaining some channels at higher precision can improve output quality at a storage and arithmetic cost. An average width of 4.6 bits is not a literal format in which each weight has 4.6 bits. Suppose only four- and eight-bit values are used and overhead is excluded. Then `4(1−p) + 8p = 4.6` corresponds to p = 15% of values at eight bits. Channel-size weighting and metadata must be included when translating that arithmetic into a real model's footprint.
 
 Numerical sensitivity is not necessarily determined by weight magnitude alone. A small error can affect a consequential decision; a larger error elsewhere may barely change the final output. Selection criteria are therefore proxies that need task-level evaluation. Calibration or channel ranking on one sample does not establish robustness on every future input.
 
@@ -78,13 +78,13 @@ Numerical sensitivity is not necessarily determined by weight magnitude alone. A
 
 The study uses ImageNet-1K and WikiText-2 models, synthesis at 65 nm/500 MHz, and cycle simulation with modeled memory energy. The 2.65× speedup and 55% energy reduction are normalized to Stripes for HAP's 4.6-bit-weight configuration. [Sections 5.1–5.4, PDF pages 5–6](https://www.ece.ualberta.ca/~jhan8/publications/DAC2026_Camera_Ready.pdf#page=5). They are not fabricated-chip measurements or improvements over every compared accelerator by those factors.
 
-Accuracy is not unchanged: Table 1 gives ViT-B top-1 accuracy of 84.54% for floating point and 82.98% for HAP at its more aggressive setting. OPT-1.3B with HAP+LWC has perplexity 16.01 versus 14.62 for floating point. [PDF page 6](https://www.ece.ualberta.ca/~jhan8/publications/DAC2026_Camera_Ready.pdf#page=6).
+Accuracy is not unchanged. Table 1 gives ViT-B top-1 accuracy of 84.54% for floating point and 82.98% for HAP at its more aggressive setting. OPT-1.3B with HAP+LWC has perplexity 16.01 versus 14.62 for floating point. [PDF page 6](https://www.ece.ualberta.ca/~jhan8/publications/DAC2026_Camera_Ready.pdf#page=6).
 
 Top-1 accuracy counts examples whose highest-ranked prediction is correct; higher is better. The ViT-B difference is 1.56 percentage points. Perplexity summarizes how much probability a language model assigns to observed text; lower is better for this comparison. Thus the OPT numbers indicate degradation despite the representation and hardware benefits. Preserving quantized activation resolution must not be rewritten as preserving all model quality.
 
-At 2.65× speedup, elapsed time is about 37.7% of baseline, a 62.3% reduction—not a 165% time reduction. Energy at 45% of baseline is a different measurement. Neither number alone determines average power, and the reported aggregate ratios should not be combined into a power claim without compatible per-workload measurements.
+At 2.65× speedup, elapsed time is about 37.7% of baseline, a 62.3% reduction—not a 165% time reduction. Energy at 45% of baseline is a different measurement. Neither number alone determines average power. The reported aggregate ratios should not be combined into a power claim without compatible per-workload measurements.
 
-The conceptual result is a linked design: compact integer representations create an opportunity; offset arithmetic maintains the intended value; scheduling turns variable widths into useful parallel work. Each step can add cost. The remaining questions are model-quality tradeoffs, preprocessing and metadata costs, accumulator correctness, and behavior outside the tested workloads. No HAP implementation was executed in this pass.
+The conceptual result is a linked design. Compact integer representations create an opportunity. Offset arithmetic maintains the intended value. Scheduling turns variable widths into useful parallel work. Each step can add cost. The remaining questions are model-quality tradeoffs, preprocessing and metadata costs, accumulator correctness, and behavior outside the tested workloads. No HAP implementation was executed in this pass.
 
 <span id="explanation-dac-2026-research2094"></span>
 
@@ -104,9 +104,9 @@ Suppose almost all inputs fall between −1 and 1, but the supported range exten
 
 Instead, sort a calibration sample of input values and choose boundaries at equally spaced fractions of that sample. With four intervals, choose the 25th, 50th, and 75th percentiles. Illustrative boundaries of −0.6, 0, and 0.5 divide the observations into approximately equal-sized groups even though their numerical widths differ. A region containing many observations receives a shorter interval.
 
-This operation uses a cumulative distribution: for each candidate number x, count the fraction of observations less than or equal to x. Finding the number at which that fraction reaches one quarter gives the first boundary. No assumed Gaussian shape is required for this reasoning. Repeated identical observations can complicate exact equal-count partitions and need a tie-handling rule.
+This operation uses a cumulative distribution. For each candidate number x, count the fraction of observations less than or equal to x. Finding the number at which that fraction reaches one quarter gives the first boundary. No assumed Gaussian shape is required for this reasoning. Repeated identical observations can complicate exact equal-count partitions and need a tie-handling rule.
 
-Equal population is not an optimality proof. A nearly straight function may need little precision even in a frequently visited region; a sharply bending function may need more. Boundaries based on frequency and coefficients fitted for error are two distinct decisions. Nor does calibration imply runtime adaptation: a table generated from one dataset can remain fixed while new inputs have a different distribution.
+Equal population is not an optimality proof. A nearly straight function may need little precision even in a frequently visited region. A sharply bending function may need more. Boundaries based on frequency and coefficients fitted for error are two distinct decisions. Nor does calibration imply runtime adaptation. A table generated from one dataset can remain fixed while new inputs have a different distribution.
 
 ### Understand the weighted-error objective before trusting it
 
@@ -116,15 +116,15 @@ If the two regions receive equal weight, A's mean squared error is `(0.01² + 0.
 
 Importantly, an ordinary sample mean computed on actual activation observations already weights frequent regions more heavily through repeated observations. It should not be confused with averaging errors over an equally spaced numerical grid. Weighting observations by their density a second time can overemphasize common regions. The manuscript's sampling wording around Equation 5 leaves this distinction worth checking. [PDF page 5](https://arxiv.org/pdf/2603.19338v1#page=5).
 
-The released vision fitting code resolves the inspected implementation case: `fast_fit_poly` uses equally spaced histogram-bin centers, with density multiplied by bin width, and solves the resulting coefficient equations. This is numerical integration with frequency weights, not density weighting of already frequency-sampled observations. [Pinned fitting implementation, lines 432–458](https://github.com/MayerUser/DAPA_Activation/blob/a2c58e0b83962cb3ea996998722b8ce35b234b5a/src_img_cls/t0_make_pwl.py#L432). Reading that code is not evidence that every experiment was reproduced.
+The released vision fitting code resolves the inspected implementation case. `fast_fit_poly` uses equally spaced histogram-bin centers, with density multiplied by bin width. It solves the resulting coefficient equations. This is numerical integration with frequency weights, not density weighting of already frequency-sampled observations. [Pinned fitting implementation, lines 432–458](https://github.com/MayerUser/DAPA_Activation/blob/a2c58e0b83962cb3ea996998722b8ce35b234b5a/src_img_cls/t0_make_pwl.py#L432). Reading that code is not evidence that every experiment was reproduced.
 
 Average function error is still not a bound on model error. Suppose the next operation multiplies an activation error of 0.01 by a weight of 100. Its contribution to the next result changes by 1. An error of 0.20 multiplied by 0.001 changes it by only 0.0002. Frequency alone does not measure downstream sensitivity. A rare input can also determine whether a particular example is classified correctly. Distribution-weighted fitting is a useful objective to test, not a guarantee of retained task quality.
 
 ### What fitting a line and quantizing it actually mean
 
-For an interval with input samples x, fitting chooses a and b to minimize the weighted sum of squared differences between the target function and `ax+b`. Changing a rotates the line's slope; changing b shifts every output by the same amount. Neither choice requires storing a separate output for every possible x.
+For an interval with input samples x, fitting chooses a and b to minimize a weighted sum. The sum is of squared differences between the target function and `ax+b`. Changing a rotates the line's slope; changing b shifts every output by the same amount. Neither choice requires storing a separate output for every possible x.
 
-Suppose one fitted interval uses `y = 0.75x + 0.125`. At x = 0.5, its output is 0.5. Both coefficients happen to be exactly representable with fractional steps of 1/8. But rounding an input of 0.53 to that spacing gives 0.5, changing the line output by `0.75×0.03 = 0.0225` before any additional output rounding. A good floating-point fit does not eliminate input, coefficient, product, or output quantization error.
+Suppose one fitted interval uses `y = 0.75x + 0.125`. At x = 0.5, its output is 0.5. Both coefficients happen to be exactly representable with fractional steps of 1/8. But rounding an input of 0.53 to that spacing gives 0.5. That changes the line output by `0.75×0.03 = 0.0225` before any additional output rounding. A good floating-point fit does not eliminate input, coefficient, product, or output quantization error.
 
 Increasing fractional bits reduces the spacing between representable values but does not extend the range when integer bits stay fixed. Increasing integer bits extends range but leaves fewer fractional bits under a fixed total-width budget. Intermediate products can need more bits than either operand. A hardware implementation must specify rounding, saturation, and intermediate widths, not just its external data type.
 
@@ -134,11 +134,11 @@ DAPA's Algorithm 1 increases fractional precision until its weighted-error thres
 
 Training adjusts weights using derivatives: numbers describing how a small change at one point affects a later error. Within an interval, the derivative of `ax+b` is the constant a. If two neighboring lines do not meet, the forward function jumps at the boundary. If they meet but have different slopes, it is continuous there but not differentiable there in the ordinary sense.
 
-Now separately fit a line to the derivative of the original smooth function. That new line can vary with x inside the interval, whereas the derivative of the implemented forward line is constant. Both cannot generally be the same function. A separately fitted backward rule can still support useful training, but it should be described as an approximation to the original gradient rather than an exact derivative of the forward approximation.
+Now separately fit a line to the derivative of the original smooth function. That new line can vary with x inside the interval, whereas the derivative of the implemented forward line is constant. Both cannot generally be the same function. A separately fitted backward rule can still support useful training. It should be described as an approximation to the original gradient. It is not an exact derivative of the forward approximation.
 
 For a constructed example, let the forward approximation be `0.7x + 0.1` and the separately fitted backward rule be `0.2x + 0.6`. At x = 1, the latter gives 0.8, while differentiating the implemented forward expression gives 0.7. With an incoming gradient of 2, the propagated values are 1.6 and 1.4. That difference affects weight updates; whether it helps or hurts requires training evidence.
 
-Equation 7 specifies the separate derivative fit. The inspected public vision module instead evaluates selected polynomial coefficients through an ordinary `forward` method and does not implement that separate backward rule in this module. [Manuscript, PDF page 6](https://arxiv.org/pdf/2603.19338v1#page=6); [pinned `PWLFunction` implementation](https://github.com/MayerUser/DAPA_Activation/blob/a2c58e0b83962cb3ea996998722b8ce35b234b5a/src_img_cls/m0_udanf.py). The public README scopes the release to vision inference and GPT-2 evaluation. The training result therefore remains manuscript evidence, not a training reproduction established by inspecting this inference code.
+Equation 7 specifies the separate derivative fit. The inspected public vision module instead evaluates selected polynomial coefficients through an ordinary `forward` method. It does not implement that separate backward rule in this module. [Manuscript, PDF page 6](https://arxiv.org/pdf/2603.19338v1#page=6); [pinned `PWLFunction` implementation](https://github.com/MayerUser/DAPA_Activation/blob/a2c58e0b83962cb3ea996998722b8ce35b234b5a/src_img_cls/m0_udanf.py). The public README scopes the release to vision inference and GPT-2 evaluation. The training result therefore remains manuscript evidence, not a training reproduction established by inspecting this inference code.
 
 ### An exponential approximation is only part of softmax
 
@@ -148,17 +148,17 @@ For scores [2, 1], shifting gives [0, −1]. Their exponentials are approximatel
 
 This is why replacing exponentiation is not replacing the entire softmax operation. The sum, division, buffering, and vector length still matter. An unconstrained fitted line can also become negative outside the fitted range, unlike the exact exponential. The inspected public `PWLSoftmax` clamps negative approximated exponentials to zero and adds a small constant to the denominator. [Pinned softmax implementation](https://github.com/MayerUser/DAPA_Activation/blob/a2c58e0b83962cb3ea996998722b8ce35b234b5a/src_img_cls/m0_udanf.py).
 
-Those safeguards prevent some numerical failures but are not mathematically identical to exact softmax. If all approximated exponentials were clamped to zero, division with the added constant would return all zeros, not a vector summing to one. That is a boundary case to test, not an observed failure reported here. The fitted value at zero, extreme negative inputs, and masked positions deserve explicit tests.
+Those safeguards prevent some numerical failures but are not mathematically identical to exact softmax. If all approximated exponentials were clamped to zero, division with the added constant would return all zeros. It would not return a vector summing to one. That is a boundary case to test, not an observed failure reported here. The fitted value at zero, extreme negative inputs, and masked positions deserve explicit tests.
 
 ### Separate hardware latency, resource count, and model quality
 
-Table 4 reports fixed-point GELU latency of 320 ns versus 20 ns for DAPA, while the 16-to-1 DSP comparison uses a prior GELU design. The full DAPA-based softmax is 155 ns. Section 4.5 specifies Vitis HLS 2025.1 at 200 MHz. [PDF pages 9–10](https://arxiv.org/pdf/2603.19338v1#page=9).
+Table 4 reports fixed-point GELU latency of 320 ns versus 20 ns for DAPA. The 16-to-1 DSP comparison uses a prior GELU design. The full DAPA-based softmax is 155 ns. Section 4.5 specifies Vitis HLS 2025.1 at 200 MHz. [PDF pages 9–10](https://arxiv.org/pdf/2603.19338v1#page=9).
 
-A DSP here is a dedicated arithmetic block on an FPGA, not a complete processor. Reducing DSP count can leave more such blocks for other operations, but comparison logic and coefficient storage still consume other resources. The source's latency ratio is `320/20 = 16`; it must not be described as a sixteenfold whole-model speedup. Nor should its sixteenfold DSP reduction be presented as the same baseline comparison: the authors' own fixed-point GELU uses eight DSPs, so that comparison is eightfold.
+A DSP here is a dedicated arithmetic block on an FPGA, not a complete processor. Reducing DSP count can leave more such blocks for other operations. Comparison logic and coefficient storage still consume other resources. The source's latency ratio is `320/20 = 16`; it must not be described as a sixteenfold whole-model speedup. Nor should its sixteenfold DSP reduction be presented as the same baseline comparison. The authors' own fixed-point GELU uses eight DSPs, so that comparison is eightfold.
 
 Suppose activation computation occupies 10 ms of a 100 ms execution and everything else is unchanged. Making that portion sixteen times faster yields `90 + 10/16 = 90.625 ms`, or about 1.10× total speedup. Even infinitely fast activations could not exceed `100/90 ≈ 1.11×` under those assumptions. Actual overlap and data movement can change this model; the example explains why a component result needs an end-to-end measurement.
 
-Latency is the time from an input entering a unit to its result emerging. Throughput is the sustained number of results completed per unit time. A pipelined unit can accept new inputs before earlier results finish, so dividing one by latency does not generally give throughput. At 200 MHz, one clock period is 5 ns; a 20 ns latency represents four periods, not proof that the unit accepts only one value every four periods.
+Latency is the time from an input entering a unit to its result emerging. Throughput is the sustained number of results completed per unit time. A pipelined unit can accept new inputs before earlier results finish. Dividing one by latency therefore does not generally give throughput. At 200 MHz, one clock period is 5 ns. A 20 ns latency represents four periods. It is not proof that the unit accepts only one value every four periods.
 
 Table 2 reports GPT-2 perplexity of 29.47 with joint quantized approximation versus 29.37 for its baseline. ViT-Tiny changes from 75.42% before quantization of the joint approximation to 75.17% afterward. [PDF page 7](https://arxiv.org/pdf/2603.19338v1#page=7). The first result is close but not identical; lower perplexity is better. The second difference is 0.25 percentage points, which does not match the surrounding prose's stated 0.23. Preserve that discrepancy rather than silently choosing the more favorable wording.
 
@@ -166,7 +166,7 @@ Table 2 reports GPT-2 perplexity of 29.47 with joint quantized approximation ver
 
 HAP and DAPA act at different points. HAP can recode an already quantized integer exactly, then exploit its reduced width. DAPA deliberately changes a function's output and asks whether the resulting model still performs adequately. The shared design question is where precision earns its cost, but their correctness arguments are not interchangeable.
 
-A bounded research hypothesis is that measured distributions can guide both numerical representation and function approximation when the implementation exposes the corresponding savings. Testing it requires changed inputs, rare cases, calibration costs, and whole-model timing—not just average function error or a smaller arithmetic block. These two current papers alone do not establish a long-term adoption trend.
+A bounded research hypothesis is that measured distributions can guide both numerical representation and function approximation. This holds when the implementation exposes the corresponding savings. Testing it requires changed inputs, rare cases, calibration costs, and whole-model timing. Average function error or a smaller arithmetic block is not enough. These two current papers alone do not establish a long-term adoption trend.
 
 This pass inspected the manuscript and selected source files at commit `a2c58e0b83962cb3ea996998722b8ce35b234b5a`. No DAPA model evaluation, training run, or hardware synthesis was executed. Training-code correspondence, device-specific synthesis reproduction, distribution-shift behavior, and independent comprehension review remain open. [Public release and stated scope](https://github.com/MayerUser/DAPA_Activation/tree/a2c58e0b83962cb3ea996998722b8ce35b234b5a).
 
@@ -176,27 +176,27 @@ This pass inspected the manuscript and selected source files at commit `a2c58e0b
 
 ### Two different ways a group can be uneven
 
-A group of numbers can have an asymmetric range: for example, values extending from −1 to 4 rather than equally far on either side of zero. Separately, most values can concentrate near one part of that range, such as 0.5. Matching the endpoints and allocating finer spacing near the common values are different requirements.
+A group of numbers can have an asymmetric range. For example, values may extend from −1 to 4 rather than equally far on either side of zero. Separately, most values can concentrate near one part of that range, such as 0.5. Matching the endpoints and allocating finer spacing near the common values are different requirements.
 
-A uniformly spaced representation can shift its range to cover −1 through 4, but shifting does not change its spacing. A nonuniform representation can place extra levels near zero, but those levels are poorly placed if the group's values concentrate elsewhere. Adana separates a base set of integer levels from a movable set of half-step levels. [Sections 3.1–3.2, PDF pages 2–3](https://www.ece.ualberta.ca/~jhan8/publications/2026Adana.pdf#page=2).
+A uniformly spaced representation can shift its range to cover −1 through 4, but shifting does not change its spacing. A nonuniform representation can place extra levels near zero. Those levels are poorly placed if the group's values concentrate elsewhere. Adana separates a base set of integer levels from a movable set of half-step levels. [Sections 3.1–3.2, PDF pages 2–3](https://www.ece.ualberta.ca/~jhan8/publications/2026Adana.pdf#page=2).
 
-The important concept is not that every small group must have a particular shape. A small group provides fewer observations and can differ substantially from a whole layer. The manuscript's appeal to the central limit theorem in Section 2.3 should not be treated as a proof that individual weights become Gaussian merely by placing more of them in a group. That theorem concerns suitably normalized sums or averages under conditions, not a general transformation of the underlying observations. The observed distribution is something to measure.
+The important concept is not that every small group must have a particular shape. A small group provides fewer observations and can differ substantially from a whole layer. The manuscript's appeal to the central limit theorem in Section 2.3 should not be treated as a proof. It does not show that individual weights become Gaussian merely by placing more of them in a group. That theorem concerns suitably normalized sums or averages under conditions, not a general transformation of the underlying observations. The observed distribution is something to measure.
 
 ### Decode a small example before discussing acceleration
 
-The paper's three-bit example has six integer levels, 0 through 5, and two half-step levels selected by a group mode m. With m = 0, the additional levels are 0.5 and 1.5; with m = 2, they are 2.5 and 3.5. There are eight levels in either case, hence eight possible three-bit codes. [Figure 3 and Algorithm 1, PDF page 3](https://www.ece.ualberta.ca/~jhan8/publications/2026Adana.pdf#page=3).
+The paper's three-bit example has six integer levels, 0 through 5. It also has two half-step levels selected by a group mode m. With m = 0, the additional levels are 0.5 and 1.5; with m = 2, they are 2.5 and 3.5. There are eight levels in either case, hence eight possible three-bit codes. [Figure 3 and Algorithm 1, PDF page 3](https://www.ece.ualberta.ca/~jhan8/publications/2026Adana.pdf#page=3).
 
-For this example, codes 0 through 5 decode to those integer levels. Code 6 denotes the first extra half-step level, and code 7 the second. Code order is therefore not numerical order: code 6 can represent a value smaller than the value represented by code 5. Treating stored codes as ordinary integers in multiplication would give the wrong result.
+For this example, codes 0 through 5 decode to those integer levels. Code 6 denotes the first extra half-step level, and code 7 the second. Code order is therefore not numerical order. Code 6 can represent a value smaller than the value represented by code 5. Treating stored codes as ordinary integers in multiplication would give the wrong result.
 
 Using m = 2, code 6 first decodes to 2.5. With a group zero-point of 1 and scale 0.2, the reconstructed real value is `0.2×(2.5−1) = 0.3`. Changing the mode to zero makes the same code reconstruct `0.2×(0.5−1) = −0.1`. The code, mode, zero-point, and scale together specify the value. Omitting any of them can change the answer.
 
-This calculation follows Algorithm 1's subtraction convention. The prose immediately before that algorithm says to add the zero-point, whereas the algorithm returns `u−z`. The inconsistency needs resolution in a reproduction; a reader should not infer that both conventions can be mixed within one implementation. [PDF page 3](https://www.ece.ualberta.ca/~jhan8/publications/2026Adana.pdf#page=3).
+This calculation follows Algorithm 1's subtraction convention. The prose immediately before that algorithm says to add the zero-point, whereas the algorithm returns `u−z`. The inconsistency needs resolution in a reproduction. A reader should not infer that both conventions can be mixed within one implementation. [PDF page 3](https://www.ece.ualberta.ca/~jhan8/publications/2026Adana.pdf#page=3).
 
 ### Why format selection has to be cheaper for activations
 
 Weights are known before an inference request, so choosing their group formats can be done ahead of execution and reused. Activations depend on the current input. Choosing their formats is part of the work required to answer that input.
 
-A direct selection procedure tries every candidate mode, rounds every value to each mode's levels, sums the squared reconstruction errors, and chooses the smallest. With four modes and sixteen values, that requires assessing sixty-four value/mode combinations, plus the rounding and error arithmetic. Parallel hardware can reduce elapsed time by performing several assessments together, but that consumes extra circuits rather than eliminating the work.
+A direct selection procedure tries every candidate mode and rounds every value to each mode's levels. It sums the squared reconstruction errors and chooses the smallest. With four modes and sixteen values, that requires assessing sixty-four value/mode combinations, plus the rounding and error arithmetic. Parallel hardware can reduce elapsed time by performing several assessments together. That consumes extra circuits rather than eliminating the work.
 
 Adana's online rule first rounds to integers and half steps, then counts half-step values absent from each candidate mode. It chooses the mode with the fewest such misses. [Algorithm 2, PDF pages 3–4](https://www.ece.ualberta.ca/~jhan8/publications/2026Adana.pdf#page=3). Counters and comparisons can replace repeated floating-point squared-error calculations because the proxy differences have a simple structure.
 
@@ -206,7 +206,7 @@ Consider already scaled inputs [0.48, 0.52, 1.49, 4.1]. Nearest half-step roundi
 
 The proxy loses information about how close an original value was to its nearest half step. That loss can change the selected mode. Here is a constructed counterexample, not a reported model failure.
 
-Take [0.26, 0.26, 3.49, 5], padded with twelve exact zeros to form a sixteen-value group spanning the full base range 0 through 5. Nearest half-step rounding produces two instances of 0.5 and one of 3.5; the remaining values are integers. Mode zero covers the two 0.5 values and misses 3.5: one miss. Mode two covers 3.5 and misses both 0.5 values: two misses. The counting rule selects mode zero.
+Take [0.26, 0.26, 3.49, 5], padded with twelve exact zeros. This forms a sixteen-value group spanning the full base range 0 through 5. Nearest half-step rounding produces two instances of 0.5 and one of 3.5; the remaining values are integers. Mode zero covers the two 0.5 values and misses 3.5: one miss. Mode two covers 3.5 and misses both 0.5 values: two misses. The counting rule selects mode zero.
 
 Now evaluate error against the first three original values. Mode zero reconstructs [0.5, 0.5, 3], giving squared-error sum `2×0.24² + 0.49² = 0.3553`. Mode two reconstructs [0, 0, 3.5], giving `2×0.26² + 0.01² = 0.1353`. The twelve zeros and the value 5 contribute zero under both modes. Dividing by sixteen gives mean squared errors of approximately 0.02221 and 0.00846. The mode preferred by the cheap score has the larger true error.
 
@@ -214,11 +214,11 @@ Why? Recovering a half-step value counted as one miss can avoid a large error or
 
 ### Storage width and arithmetic width are not the same
 
-After decoding and applying the zero-point, the manuscript uses five-bit fixed-point values for three-bit Adana and six-bit values for four-bit Adana. [Section 5, PDF page 4](https://www.ece.ualberta.ca/~jhan8/publications/2026Adana.pdf#page=4). The wider internal representation enables ordinary arithmetic on the decoded levels. A three-bit stored value is not automatically a three-bit multiplier input.
+After decoding and applying the zero-point, the manuscript uses five-bit fixed-point values for three-bit Adana. It uses six-bit values for four-bit Adana. [Section 5, PDF page 4](https://www.ece.ualberta.ca/~jhan8/publications/2026Adana.pdf#page=4). The wider internal representation enables ordinary arithmetic on the decoded levels. A three-bit stored value is not automatically a three-bit multiplier input.
 
 For intuition, represent half-step numbers by doubling them into integers. Then 2.5 becomes 5 and −1.5 becomes −3. Integer multiplication yields −15, corresponding to −15/4 = −3.75 after accounting for both operands' factor of two. The product requires its own range and fractional interpretation. Summing many products needs still more range if overflow is to be avoided.
 
-Shared scales can be applied after a group dot product. If decoded activation values are [1, 2] with scale 0.1 and decoded weights [3, 4] with scale 0.2, the integer-domain sum is `1×3 + 2×4 = 11`; multiplying once by `0.1×0.2` gives 0.22. This avoids applying those same scales separately to both elements before multiplication.
+Shared scales can be applied after a group dot product. Suppose decoded activation values are [1, 2] with scale 0.1 and decoded weights [3, 4] with scale 0.2. Then the integer-domain sum is `1×3 + 2×4 = 11`. Multiplying once by `0.1×0.2` gives 0.22. This avoids applying those same scales separately to both elements before multiplication.
 
 But two groups with different scales cannot generally have their unscaled partial sums added first. If group sums are 11 and 5 with scale products 0.02 and 0.1, the result is `11×0.02 + 5×0.1 = 0.72`. Adding 11 and 5 and using 0.02 gives 0.32, which is wrong. Group boundaries must therefore remain aligned with the computation and its rescaling steps.
 
@@ -228,15 +228,15 @@ In attention, a query is compared with each stored key by a dot product over fea
 
 Adana groups keys within each key vector but groups values across the sequence. It retains an incomplete value group in FP16 and requantizes that partial group as tokens arrive. [Section 4.2, PDF page 4](https://www.ece.ualberta.ca/~jhan8/publications/2026Adana.pdf#page=4).
 
-This creates a cost that a final compressed-cache size does not reveal. For an illustrative group of sixteen arriving values, requantizing prefixes of lengths one through sixteen processes `1+2+…+16 = 136` value instances before the group is complete, rather than sixteen. That is 8.5 times as many quantized value instances for that group's construction under this simplified accounting, not an 8.5× total-runtime claim. Parallelism, reuse, and the surrounding attention work determine actual latency. Keeping the FP16 originals also prevents this process from being confused with repeatedly quantizing previously rounded values.
+This creates a cost that a final compressed-cache size does not reveal. For an illustrative group of sixteen arriving values, requantizing prefixes of lengths one through sixteen processes `1+2+…+16 = 136` value instances. This happens before the group is complete. It is not sixteen. That is 8.5 times as many quantized value instances for that group's construction under this simplified accounting. It is not an 8.5× total-runtime claim. Parallelism, reuse, and the surrounding attention work determine actual latency. Keeping the FP16 originals also prevents this process from being confused with repeatedly quantizing previously rounded values.
 
 ### Count metadata and the quantization engine
 
-For G values of B bits each and H bits of group metadata, effective storage is `B + H/G` bits per value. With an illustrative sixteen metadata bits and four-bit codes, groups of 128 give 4.125 bits per value, while groups of sixteen give five. The smaller groups can match local distributions better, but spend eight times as much metadata per value. These are illustrative metadata assumptions; a reproduction must verify the actual serialized fields and alignment.
+For G values of B bits each and H bits of group metadata, effective storage is `B + H/G` bits per value. With an illustrative sixteen metadata bits and four-bit codes, groups of 128 give 4.125 bits per value. Groups of sixteen give five. The smaller groups can match local distributions better, but spend eight times as much metadata per value. These are illustrative metadata assumptions; a reproduction must verify the actual serialized fields and alignment.
 
-The hardware also buffers incoming FP16 values to obtain the group's minimum and maximum, then scales and rounds them before encoding. A group cannot be finalized before the information needed to select its representation has arrived. Overlapping stages can improve sustained throughput while leaving a startup latency and requiring buffer capacity.
+The hardware also buffers incoming FP16 values to obtain the group's minimum and maximum. It then scales and rounds them before encoding. A group cannot be finalized before the information needed to select its representation has arrived. Overlapping stages can improve sustained throughput while leaving a startup latency and requiring buffer capacity.
 
-The evaluated design includes a quantization engine rather than treating conversion as free. It uses 28-nm synthesis at 500 MHz, 0.9 V, and 25°C, with modeled SRAM and cycle simulation; accelerator comparisons adjust processing-element counts to hold area constant. [Section 6.2, PDF page 6](https://www.ece.ualberta.ca/~jhan8/publications/2026Adana.pdf#page=6). This is not a measured fabricated-chip result. Equal area also means the compared designs need not have equal arithmetic-unit counts.
+The evaluated design includes a quantization engine rather than treating conversion as free. It uses 28-nm synthesis at 500 MHz, 0.9 V, and 25°C, with modeled SRAM and cycle simulation. Accelerator comparisons adjust processing-element counts to hold area constant. [Section 6.2, PDF page 6](https://www.ece.ualberta.ca/~jhan8/publications/2026Adana.pdf#page=6). This is not a measured fabricated-chip result. Equal area also means the compared designs need not have equal arithmetic-unit counts.
 
 ### Preserve the baseline and quality conditions
 
@@ -246,13 +246,13 @@ Energy is the total expenditure over execution; power is its rate over time. The
 
 The low-bit quality comparisons also adapt earlier formats to common group sizes and joint weight/activation quantization, including attention data. [Section 6.1, PDF page 5](https://www.ece.ualberta.ca/~jhan8/publications/2026Adana.pdf#page=5). These are comparisons under the study's imposed configuration, not necessarily the original papers' best configurations.
 
-Table 2 gives Llama-3.2-1B perplexity of 53.95 at three-bit Adana versus 9.75 at FP16. Table 6 labels its sixteen-value-group configuration “lossless,” despite changed perplexities. [PDF pages 5–6](https://www.ece.ualberta.ca/~jhan8/publications/2026Adana.pdf#page=5). Lower perplexity is better. Beating another three-bit format does not mean retaining the original model's quality, and a small task-score change does not establish exact numerical recovery. The “lossless” label must not be given the exact-integer meaning used in HAP's re-encoding explanation.
+Table 2 gives Llama-3.2-1B perplexity of 53.95 at three-bit Adana versus 9.75 at FP16. Table 6 labels its sixteen-value-group configuration “lossless,” despite changed perplexities. [PDF pages 5–6](https://www.ece.ualberta.ca/~jhan8/publications/2026Adana.pdf#page=5). Lower perplexity is better. Beating another three-bit format does not mean retaining the original model's quality. A small task-score change does not establish exact numerical recovery. The “lossless” label must not be given the exact-integer meaning used in HAP's re-encoding explanation.
 
 ### How Adana connects to HAP and DAPA
 
-HAP removes redundant encoding from already quantized activations and schedules variable-width arithmetic. DAPA allocates approximation effort to frequently visited parts of a function. Adana changes which values a short code can represent and makes the choice cheap enough to perform on newly computed activations. These are three separate places where data statistics influence hardware work.
+HAP removes redundant encoding from already quantized activations and schedules variable-width arithmetic. DAPA allocates approximation effort to frequently visited parts of a function. Adana changes which values a short code can represent. It makes the choice cheap enough to perform on newly computed activations. These are three separate places where data statistics influence hardware work.
 
-The useful cross-paper hypothesis is conditional: distribution-aware choices save execution cost when their metadata, selection, conversion, and scheduling costs are smaller than the work removed, while task quality stays within an explicit requirement. It would be weakened by distribution changes, expensive partial-group updates, or a quality requirement that forces wider values. It is not yet a demonstrated long-term trend across conference editions.
+The useful cross-paper hypothesis is conditional. Distribution-aware choices save execution cost when their metadata, selection, conversion, and scheduling costs are smaller than the work removed. Task quality must also stay within an explicit requirement. It would be weakened by distribution changes, expensive partial-group updates, or a quality requirement that forces wider values. It is not yet a demonstrated long-term trend across conference editions.
 
 No Adana model evaluation, quantizer implementation, or hardware synthesis was executed in this pass. The numerical examples check the reasoning, not the reported benchmark results. Exact encoding conventions, full simulation workloads and memory timing, selection-error incidence on real activations, and independent reader comprehension remain open.
 
@@ -262,19 +262,19 @@ No Adana model evaluation, quantizer implementation, or hardware synthesis was e
 
 ### What is established about this paper
 
-The official description identifies SS-BCQ, which approximates scaling factors with sums of powers of two, and CORE, a pipelined matrix engine with block-wise activation scaling and extra processing for important weights. It reports a 3.14 perplexity reduction on OPT-6.7B relative to prior BCQ, and up to 1.41× area efficiency and 2.18× energy efficiency relative to FP–INT accelerators. It does not name those baselines or give absolute perplexity, process, clock, memory conditions, or page references. [Official CORE description](https://63dac.conference-program.com/presentation/?id=RESEARCH1692&sess=sess142).
+The official description identifies SS-BCQ, which approximates scaling factors with sums of powers of two. It also identifies CORE, a pipelined matrix engine with block-wise activation scaling and extra processing for important weights. It reports a 3.14 perplexity reduction on OPT-6.7B relative to prior BCQ. It also reports up to 1.41× area efficiency and 2.18× energy efficiency relative to FP–INT accelerators. It does not name those baselines or give absolute perplexity, process, clock, memory conditions, or page references. [Official CORE description](https://63dac.conference-program.com/presentation/?id=RESEARCH1692&sess=sess142).
 
 A matching full manuscript was not recovered from the title, method-name, author, and laboratory searches in this pass. The explanation below therefore uses explicitly constructed arithmetic to explain the design problem. The examples are not verified CORE encodings, dataflow schedules, or measurements. This evidence level is weaker than the three manuscript-backed discussions above.
 
 ### Begin with one output of matrix multiplication
 
-Matrix multiplication repeatedly computes sums of products. One output can be written as `y = x1w1 + x2w2 + … + xKwK`, where x values are activations, w values are weights, and K is the number of paired terms. Different output columns use different weights with the same input activations.
+Matrix multiplication repeatedly computes sums of products. One output can be written as `y = x1w1 + x2w2 + … + xKwK`. Here x values are activations, w values are weights, and K is the number of paired terms. Different output columns use different weights with the same input activations.
 
-Weight-only quantization stores weights compactly while keeping activations in floating point. The stored weight code is not necessarily the numerical value to multiply. Its decoding rule, scale, and any offset must be accounted for. Small weight storage alone does not prove that multiplication uses a small integer circuit: converting each weight back to floating point can retain substantial arithmetic cost.
+Weight-only quantization stores weights compactly while keeping activations in floating point. The stored weight code is not necessarily the numerical value to multiply. Its decoding rule, scale, and any offset must be accounted for. Small weight storage alone does not prove that multiplication uses a small integer circuit. Converting each weight back to floating point can retain substantial arithmetic cost.
 
 Binary coding offers another way to express the weight. In a constructed two-component signed representation, write each weight as `w = αb1 + βb2`, where each b is either −1 or +1. Two sign bits select among four combinations. If α = 0.5 and β = 0.25, the available weights are −0.75, −0.25, 0.25, and 0.75. These are not arbitrary four-level values; their positions are constrained by the shared coefficients.
 
-For example, changing α to 0.6 while keeping β at 0.25 gives −0.85, −0.35, 0.35, and 0.85. Learning or choosing the coefficients changes the representable levels. More components can provide more combinations, but require more stored bits, signed sums, coefficient information, or some combination of those costs. CORE's exact coding convention remains unrecovered.
+For example, changing α to 0.6 while keeping β at 0.25 gives −0.85, −0.35, 0.35, and 0.85. Learning or choosing the coefficients changes the representable levels. More components can provide more combinations. They require more stored bits, signed sums, coefficient information, or some combination of those costs. CORE's exact coding convention remains unrecovered.
 
 ### Factor the dot product to see what disappears
 
@@ -294,7 +294,7 @@ A coefficient of 0.625 can be expressed exactly as `2^-1 + 2^-3`. Multiplying a 
 
 Not every desired coefficient has a short exact expansion. Approximating 0.6 by 0.625 changes a product with signed sum 10 from 6 to 6.25. The coefficient error of 0.025 is amplified by the sum. With sum −10 the error reverses sign; with sum zero it vanishes. Consequently, coefficient approximation error alone is not enough to predict the final output error.
 
-Allowing more power-of-two terms can improve the coefficient fit while introducing more additions and more term metadata. A design needs to state the number of terms, allowed exponent range, whether negative terms are permitted, and how terms are selected. None of those details is supplied by CORE's captured description.
+Allowing more power-of-two terms can improve the coefficient fit while introducing more additions and more term metadata. A design needs to state the number of terms and the allowed exponent range. It must state whether negative terms are permitted and how terms are selected. None of those details is supplied by CORE's captured description.
 
 Furthermore, a floating-point addition is not just an integer addition on the stored bit patterns. Operands with different exponents need alignment; the result may need normalization and rounding. Power-of-two scaling can also overflow or underflow the supported range. “Shift–add” identifies a promising simplification, not zero-cost or universally exact arithmetic.
 
@@ -302,23 +302,23 @@ Furthermore, a floating-point addition is not just an integer addition on the st
 
 A block scale places several activations into a shared numerical range. Illustratively, a signed four-bit integer range of −8 through 7 with scale 1 can represent positive values up to 7. To include 100 without clipping, the positive-side scale must be at least `100/7 ≈ 14.29`. At that scale, small positive values such as 1, 2, and 3 round to zero.
 
-Splitting [1, 2, 3] from [100] permits a much finer scale for the first block, but requires another scale, another block boundary, and potentially another conversion or partial-sum operation. A mapping that minimizes scale operations must therefore be checked against the resolution it gives up. This example explains the tradeoff; it does not establish CORE's optimization objective or block-selection algorithm.
+Splitting [1, 2, 3] from [100] permits a much finer scale for the first block. It requires another scale and another block boundary. It may also require another conversion or partial-sum operation. A mapping that minimizes scale operations must therefore be checked against the resolution it gives up. This example explains the tradeoff; it does not establish CORE's optimization objective or block-selection algorithm.
 
 Reuse also depends on the workload. If one prepared activation block feeds many output columns, preparation can be amortized across those columns. If a small operation uses it only once, the same preparation cost is proportionally larger. Matrix dimensions, batch size, and reuse count belong in the evidence for acceleration, not just model parameter count.
 
 ### What “important weights” needs to mean operationally
 
-A weight's magnitude is not a complete measure of its effect on an answer. If a weight error δw multiplies activation x, its direct contribution to the output error is `xδw`. A weight error of 0.01 produces an output error of 1 when x = 100, but only 0.0001 when x = 0.01. Correlations, later layers, and the task's decision boundary can change the consequences further.
+A weight's magnitude is not a complete measure of its effect on an answer. If a weight error δw multiplies activation x, its direct contribution to the output error is `xδw`. A weight error of 0.01 produces an output error of 1 when x = 100. It produces only 0.0001 when x = 0.01. Correlations, later layers, and the task's decision boundary can change the consequences further.
 
-Allocating extra processing to important weights could protect a sensitive subset without widening every operation. It also introduces selection, routing, and result-merging costs. The reader needs to know how importance is estimated, whether it changes with input, what the extra unit actually computes, and how its outputs merge with the main path. The official description establishes the existence of the extra processing, not these mechanisms.
+Allocating extra processing to important weights could protect a sensitive subset without widening every operation. It also introduces selection, routing, and result-merging costs. The reader needs to know how importance is estimated and whether it changes with input. The reader also needs to know what the extra unit actually computes. The reader must know how its outputs merge with the main path. The official description establishes the existence of the extra processing, not these mechanisms.
 
-Nor does a small number of protected weights guarantee a small latency contribution. In a constructed system where a main path processes 98% of operations at 100 operations per cycle and an extra path processes 2% at one operation per cycle, 10,000 operations require 98 cycles on the main path but 200 on the extra path. If both run concurrently and their results are required, the extra path determines completion. Distribution of work across units matters as much as the fraction assigned to them.
+Nor does a small number of protected weights guarantee a small latency contribution. Consider a constructed system. A main path processes 98% of operations at 100 operations per cycle. An extra path processes 2% at one operation per cycle. Then 10,000 operations require 98 cycles on the main path but 200 on the extra path. If both run concurrently and their results are required, the extra path determines completion. Distribution of work across units matters as much as the fraction assigned to them.
 
 ### Read the reported efficiency units correctly
 
 Area efficiency divides operation throughput by hardware area. Energy efficiency in TOPS/W divides trillions of operations per second by joules per second, giving trillions of operations per joule. They are not direct measurements of token latency, total model energy, or absolute chip size.
 
-At a fixed operation-count definition and equal throughput, 2.18× operations per joule would correspond to `1/2.18 ≈ 45.9%` as much energy per operation, a 54.1% reduction. It is not a 118% energy reduction. However, that conversion cannot establish whole-model savings when preprocessing, memory transfers, idle periods, or altered operation accounting are excluded.
+Take a fixed operation-count definition and equal throughput. Then 2.18× operations per joule would correspond to `1/2.18 ≈ 45.9%` as much energy per operation. That is a 54.1% reduction. It is not a 118% energy reduction. However, that conversion cannot establish whole-model savings when preprocessing, memory transfers, idle periods, or altered operation accounting are excluded.
 
 For binary-coded execution, operation accounting is particularly important: one nominal model multiply may become several signed additions and scaling terms. Comparing reported TOPS requires knowing whether the numerator counts original model operations or physically executed arithmetic. Changing that convention can change the ratio without changing time or energy.
 
@@ -328,7 +328,7 @@ Similarly, the reported 3.14 perplexity improvement is an absolute difference fr
 
 CORE concerns how compressed weights participate in arithmetic while activations remain a separate representation problem. Adana instead describes a jointly low-bit group format with runtime activation selection. DAPA changes nonlinear functions rather than the dot-product representation. These distinctions prevent “low precision” from hiding incompatible execution assumptions.
 
-A useful hypothesis is that removing an expensive arithmetic primitive helps only when its replacement has sufficiently low addition, scaling, routing, and memory costs at the required model quality. CORE's description motivates testing that hypothesis but does not yet establish its full conditions. No CORE implementation, benchmark, or synthesis was executed. A manuscript-backed rewrite still needs exact coefficient rules, activation mapping, important-weight handling, absolute quality, named baselines, and page-located hardware measurements.
+A useful hypothesis is that removing an expensive arithmetic primitive helps only under one condition. The replacement must have sufficiently low addition, scaling, routing, and memory costs at the required model quality. CORE's description motivates testing that hypothesis but does not yet establish its full conditions. No CORE implementation, benchmark, or synthesis was executed. A manuscript-backed rewrite still needs exact coefficient rules, activation mapping, important-weight handling, absolute quality, named baselines, and page-located hardware measurements.
 
 <span id="explanation-dac-2026-research2410"></span>
 
@@ -336,7 +336,7 @@ A useful hypothesis is that removing an expensive arithmetic primitive helps onl
 
 ### What the paper-specific evidence establishes
 
-CAPA's official description identifies Hybrid Delta Block Floating Point (HDBFP), an integer-based format intended to reduce partial-sum overhead while supporting BF16/FP16, and weight decomposition for INT8/INT4 arithmetic. It reports matching GPU accuracy and 3.98× area efficiency and 4.38× power efficiency relative to an FP–FP baseline. Models, accuracy values, hardware conditions, and detailed format rules are absent. [Official CAPA description](https://63dac.conference-program.com/presentation/?id=RESEARCH2410&sess=sess142).
+CAPA's official description identifies Hybrid Delta Block Floating Point (HDBFP). It is an integer-based format intended to reduce partial-sum overhead while supporting BF16/FP16. The description also identifies weight decomposition for INT8/INT4 arithmetic. It reports matching GPU accuracy and 3.98× area efficiency and 4.38× power efficiency relative to an FP–FP baseline. Models, accuracy values, hardware conditions, and detailed format rules are absent. [Official CAPA description](https://63dac.conference-program.com/presentation/?id=RESEARCH2410&sess=sess142).
 
 The author's laboratory lists the paper, but a matching full manuscript was not recovered in this pass. [DATES publications](https://sites.google.com/yonsei.ac.kr/dates/publications). The following worked examples explain the underlying engineering questions, not verified HDBFP layouts or CAPA schedules. No PDF-page claims are made from a conference description.
 
@@ -344,17 +344,17 @@ The author's laboratory lists the paper, but a matching full manuscript was not 
 
 To compute one matrix-multiplication output, a machine multiplies pairs of values and adds the products. If it processes only some pairs at a time, it retains their sum and adds subsequent products later. That retained value is a partial sum. An accumulator is the hardware that stores and updates it.
 
-Suppose an output is `2×3 + 4×5 + 6×7`. After the first product the partial sum is 6; after the second it is 26; after the third the completed output is 68. Keeping only the most recent product would lose earlier contributions. Spreading the work across cycles or processing units therefore requires a place to retain or merge partial results.
+Suppose an output is `2×3 + 4×5 + 6×7`. After the first product the partial sum is 6. After the second it is 26. After the third the completed output is 68. Keeping only the most recent product would lose earlier contributions. Spreading the work across cycles or processing units therefore requires a place to retain or merge partial results.
 
 Short operands do not imply that a short accumulator is safe. Signed four-bit integers range from −8 to 7. The product of −8 and −8 is 64. Summing 256 such products gives 16,384. A signed fifteen-bit accumulator has maximum 16,383, so it overflows even though every input fits in four bits. Sixteen signed bits can hold this particular worst-case sum. Real formats also need to account for fractional precision, scales, and any later accumulation beyond those 256 terms.
 
-Cancellation does not eliminate intermediate-range requirements. Adding a large positive subtotal and an equally large negative subtotal can produce a small final answer, but both subtotals must be represented first. It is unsafe to size the accumulator only from the final output observed on typical inputs.
+Cancellation does not eliminate intermediate-range requirements. Adding a large positive subtotal and an equally large negative subtotal can produce a small final answer. Both subtotals must be represented first. It is unsafe to size the accumulator only from the final output observed on typical inputs.
 
 ### Why partial sums can dominate storage and movement
 
-Consider a constructed engine holding a 64-by-64 output tile. It needs 4,096 partial sums. At thirty-two bits each, that is 16 KiB; at sixteen bits each, 8 KiB. This says nothing yet about whether sixteen bits are accurate enough, but it shows why the accumulator representation affects more than the arithmetic circuit.
+Consider a constructed engine holding a 64-by-64 output tile. It needs 4,096 partial sums. At thirty-two bits each, that is 16 KiB; at sixteen bits each, 8 KiB. This says nothing yet about whether sixteen bits are accurate enough. It does show why the accumulator representation affects more than the arithmetic circuit.
 
-If those thirty-two-bit partial sums are written to memory and read back between chunks of computation, one full write/read round transfers 32 KiB. Repeating such rounds can consume bandwidth and energy even when weights are stored at four bits. Keeping sums in local registers avoids that memory traffic but spends register capacity and wiring instead. A claimed reduction in partial-sum overhead should identify which of these costs was actually reduced.
+Suppose those thirty-two-bit partial sums are written to memory and read back between chunks of computation. One full write/read round then transfers 32 KiB. Repeating such rounds can consume bandwidth and energy even when weights are stored at four bits. Keeping sums in local registers avoids that memory traffic but spends register capacity and wiring instead. A claimed reduction in partial-sum overhead should identify which of these costs was actually reduced.
 
 Parallel execution adds another issue: each unit may produce its own partial result. Their numerical scales and formats must be compatible at the merge point. Counting only independent multiply throughput omits the work needed to turn those results into one correctly scaled output.
 
@@ -364,7 +364,7 @@ A floating-point value combines a significand with an exponent: the significand 
 
 In a deliberately simplified block format, let each signed four-bit integer q reconstruct as `q×16`. This can represent 64 as q = 4, but values 1 and 1.125 both round to zero. A smaller scale would resolve those small values better but might no longer fit 64. The shared exponent makes range and resolution a group-level decision.
 
-Splitting groups by numerical range, recording local exponent differences, or keeping extra precision can reduce that loss in possible designs. Each option adds metadata or conversion work. The words “Hybrid Delta” in HDBFP's name do not establish which fields CAPA uses, how many bits they have, or when they change. Those details must come from its manuscript or implementation, not from interpreting the acronym.
+Splitting groups by numerical range, recording local exponent differences, or keeping extra precision can reduce that loss in possible designs. Each option adds metadata or conversion work. The words “Hybrid Delta” in HDBFP's name do not establish which fields CAPA uses. They do not establish how many bits the fields have or when they change. Those details must come from its manuscript or implementation, not from interpreting the acronym.
 
 If an accumulator's scale changes during a calculation, its old contents also need conversion. Suppose the retained sum is 12 at scale 1. Changing to scale 4 makes that value integer code 3 exactly. A retained sum of 13 instead rounds to code 3 and reconstructs 12. Later updates now start from a value with error −1. Choosing a new exponent is therefore not just relabeling bits.
 
@@ -374,7 +374,7 @@ BF16 and FP16 are both sixteen-bit floating-point representations, but allocate 
 
 An implementation must handle sign, exponent interpretation, significand precision, rounding, overflow, very small values, and exceptional values. It must also state whether multiplication and accumulation use the input format or a wider internal format. A result converted back to sixteen bits can conceal the extra width used while computing it.
 
-For a concrete general rounding example, suppose an internal format resolves increments of 1/8, while an output format resolves increments of 1/2 in the relevant range. Converting 1.125 to the coarser format can produce 1.0. Converting it back cannot restore the lost 0.125. A round trip that is valid as a numerical approximation is not necessarily reversible.
+For a concrete general rounding example, suppose an internal format resolves increments of 1/8. Suppose an output format resolves increments of 1/2 in the relevant range. Converting 1.125 to the coarser format can produce 1.0. Converting it back cannot restore the lost 0.125. A round trip that is valid as a numerical approximation is not necessarily reversible.
 
 This makes conversion placement important. Converting once at a block boundary and retaining the internal format can cost less than converting after every addition. But delaying conversion may require wider registers and wider interfaces. The efficient location depends on how often data is reused and where the next consumer needs a different format.
 
@@ -384,7 +384,7 @@ An eight-bit integer can be written using a high part and a low part. For an uns
 
 Signed values require particular care. For signed eight-bit two's-complement data, a valid decomposition uses a signed high four-bit part and an unsigned low four-bit part. For −19, the high part is −2 and the low part is 13: `16×(−2)+13 = −19`. Treating the low bit pattern 1101 as signed −3 instead gives −35, which is wrong.
 
-If the hardware's small multiplier accepts only signed four-bit operands, the unsigned low part may need a correction or another representation. The description does not specify CAPA's solution. This example establishes why saying “two four-bit multiplies” is incomplete without signedness, shifting, correction, and accumulator rules.
+If the hardware's small multiplier accepts only signed four-bit operands, the unsigned low part may need a correction. It may instead need another representation. The description does not specify CAPA's solution. This example establishes why saying “two four-bit multiplies” is incomplete without signedness, shifting, correction, and accumulator rules.
 
 Decomposition also does not double useful capacity for free. If each eight-bit product occupies two smaller multipliers, those multipliers cannot simultaneously serve two independent four-bit products. Mixed-precision scheduling needs to allocate units according to actual decomposition cost, while accounting for the combining additions and output routing.
 
@@ -394,7 +394,7 @@ Two implementations can classify the same examples correctly while producing dif
 
 That distinction matters for the description's GPU-accuracy claim. Its evidence does not specify whether “identical” means a task metric, output agreement within a tolerance, or exact numerical equality. Until the evaluation is recovered, it must not be used as a universal arithmetic-correctness guarantee. A close decision boundary, cancellation-heavy sum, or extreme activation could expose differences that an average task score misses.
 
-The efficiency claims likewise need their denominators. Area efficiency compares useful throughput per area; power efficiency generally relates throughput to power, but the description does not provide its explicit units. A 4.38× improvement is not automatically a 4.38× reduction in whole-model energy or a 4.38× speedup. Weight loading, format conversion, partial-sum movement, and idle cycles must be included consistently before making that inference.
+The efficiency claims likewise need their denominators. Area efficiency compares useful throughput per area. Power efficiency generally relates throughput to power. The description does not provide its explicit units. A 4.38× improvement is not automatically a 4.38× reduction in whole-model energy or a 4.38× speedup. Weight loading, format conversion, partial-sum movement, and idle cycles must be included consistently before making that inference.
 
 ### The cross-paper question this makes visible
 
@@ -402,7 +402,7 @@ CORE focuses on replacing multiplication with structured signed sums and cheaper
 
 A useful hypothesis is that intermediate-state representation becomes increasingly important after operand compression makes weight storage cheaper. To test it, measure accumulator capacity, partial-sum traffic, conversion work, and full-output completion alongside multiplier area. It remains a hypothesis, not a demonstrated historical trend from these descriptions.
 
-No CAPA implementation, benchmark, or synthesis was executed. The open work is to recover HDBFP's exact fields and conversion rules, the signed decomposition mechanism, actual model-quality measurements, baseline configuration, and page-located hardware results. The conceptual explanation is expanded; the paper-level evidence remains incomplete.
+No CAPA implementation, benchmark, or synthesis was executed. The open work is to recover HDBFP's exact fields and conversion rules and the signed decomposition mechanism. It also includes actual model-quality measurements, baseline configuration, and page-located hardware results. The conceptual explanation is expanded; the paper-level evidence remains incomplete.
 
 <span id="explanation-dac-2026-research2317"></span>
 
@@ -410,9 +410,9 @@ No CAPA implementation, benchmark, or synthesis was executed. The open work is t
 
 ### Less than one bit is an average, not a fractional physical bit
 
-If every weight independently chooses between two values, its choice requires one bit. A representation can go below one bit per original weight by removing that independence: several original positions share stored information, and a rule reconstructs their values. The resulting model cannot represent every possible independent assignment of the original weights.
+If every weight independently chooses between two values, its choice requires one bit. A representation can go below one bit per original weight by removing that independence. Several original positions share stored information. A rule reconstructs their values. The resulting model cannot represent every possible independent assignment of the original weights.
 
-For a constructed example, store one four-bit value for every eight original positions and determine the mapping without a per-position index. The payload is four bits divided by eight positions, or 0.5 bit per original weight. This says nothing about metadata, uncompressed parameters, reconstruction buffers, or whether the resulting weights are accurate enough.
+For a constructed example, store one four-bit value for every eight original positions. Determine the mapping without a per-position index. The payload is four bits divided by eight positions, or 0.5 bit per original weight. This says nothing about metadata, uncompressed parameters, reconstruction buffers, or whether the resulting weights are accurate enough.
 
 UltraSketchLLM combines one-eighth sketch storage with four-bit quantization for its nominal 0.5-bit setting. The DAC version is arXiv v2, not the earlier differently titled v1. [Section 4.1, PDF page 5](https://arxiv.org/pdf/2506.17255v2#page=5); [version history](https://arxiv.org/abs/2506.17255). This is lossy compression, not a way to store arbitrary independent values without losing information.
 
@@ -422,27 +422,27 @@ A sketch maps each original weight position to a smaller table. A hash is a repe
 
 The manuscript's AbsMaxMin rule keeps the signed value with minimum absolute magnitude in each bucket. Multiple independent rows provide different collision patterns, and retrieval chooses among the row candidates. [Section 3.1, PDF page 3](https://arxiv.org/pdf/2506.17255v2#page=3).
 
-Consider a target weight 0.8. In one row it collides with 0.2, so the bucket retains 0.2. In another it collides with 0.6, so the bucket retains 0.6. Choosing the candidate with greatest absolute magnitude gives 0.6, closer to 0.8 than 0.2. If one row has no smaller-magnitude collision, that row can preserve the original value. More rows create more opportunities for such a candidate, but consume more storage or divide a fixed storage budget into narrower rows.
+Consider a target weight 0.8. In one row it collides with 0.2, so the bucket retains 0.2. In another it collides with 0.6, so the bucket retains 0.6. Choosing the candidate with greatest absolute magnitude gives 0.6, closer to 0.8 than 0.2. If one row has no smaller-magnitude collision, that row can preserve the original value. More rows create more opportunities for such a candidate. They consume more storage or divide a fixed storage budget into narrower rows.
 
-The magnitude property follows directly from the update rule before any later scalar quantization: each bucket containing the target retains a value whose magnitude is no larger than the target's. Choosing any of those candidates cannot exceed the target's magnitude. That is not the same as preserving its sign or guaranteeing small relative error.
+The magnitude property follows directly from the update rule before any later scalar quantization. Each bucket containing the target retains a value whose magnitude is no larger than the target's. Choosing any of those candidates cannot exceed the target's magnitude. That is not the same as preserving its sign or guaranteeing small relative error.
 
 For example, a target +0.8 can collide with −0.6 and reconstruct as −0.6. The reconstructed magnitude is smaller, yet the absolute error is 1.4 and the relative error is 175%. Underestimating magnitude is therefore not a task-quality guarantee. Additional quantization can change the bound again if it rounds a stored magnitude upward.
 
 ### The paper and loaded kernel disagree on the compression rule
 
-The manuscript's Equation 4 specifies minimum absolute magnitude, but Algorithm 1 on page 4 uses a greater-than comparison that selects a maximum. Equation 7 also mixes a binary-matrix declaration with infinity for unmapped positions. These are consequential implementation details, not merely interchangeable notation. [PDF pages 3–4](https://arxiv.org/pdf/2506.17255v2#page=3).
+The manuscript's Equation 4 specifies minimum absolute magnitude. Algorithm 1 on page 4 uses a greater-than comparison that selects a maximum. Equation 7 also mixes a binary-matrix declaration with infinity for unmapped positions. These are consequential implementation details, not merely interchangeable notation. [PDF pages 3–4](https://arxiv.org/pdf/2506.17255v2#page=3).
 
 The public wrapper at commit `ab69c9aeaa60ebc57618bfb66a056fb8eaec18ee` loads `matrix_mul_max.cu`. That kernel starts from zero and retains the candidate with greatest absolute magnitude. It therefore follows a maximum-magnitude rule on the inspected matrix-compression path, not the minimum-magnitude update described in Section 3.1. [Wrapper](https://github.com/suenar/UltraSketchLLM/blob/ab69c9aeaa60ebc57618bfb66a056fb8eaec18ee/src/sketch_matrix_ops.py); [loaded kernel](https://github.com/suenar/UltraSketchLLM/blob/ab69c9aeaa60ebc57618bfb66a056fb8eaec18ee/src/matrix_mul_max.cu).
 
 A two-value bucket makes the difference clear. With [0.2, 0.8], minimum-magnitude compression stores 0.2 and maximum-magnitude compression stores 0.8. Reconstructing the first original position then either preserves 0.2 or increases it to 0.8. The latter is incompatible with the manuscript's underestimation argument for that position.
 
-This is static code evidence, not an executed failure or proof of which revision produced the published results. A reproduction must identify the intended rule, signed retrieval convention, empty-bucket behavior, and matching experimental code before treating the theoretical and implementation claims as one verified result.
+This is static code evidence, not an executed failure or proof of which revision produced the published results. A reproduction must identify the intended rule, signed retrieval convention, empty-bucket behavior, and matching experimental code. It must do so before treating the theoretical and implementation claims as one verified result.
 
 ### A matrix representation changes access order, not the need to select values
 
 The mapping can be represented as a matrix with one selected destination per input position. Suppose three positions map to buckets [0, 1, 0]. A zero/one mapping matrix has rows [1, 0], [0, 1], and [1, 0]. If bucket values are [0.2, 0.5], multiplying them by the matrix transpose reconstructs [0.2, 0.5, 0.2]. The same stored value is reused at both positions assigned to bucket zero.
 
-That reconstruction uses ordinary selection expressed as multiplication and addition. Compression with a minimum-magnitude rule does not use an ordinary sum: a bucket receiving 0.2 and 0.8 must retain 0.2, not add them to obtain 1.0. It requires a different reduction operator or a custom kernel.
+That reconstruction uses ordinary selection expressed as multiplication and addition. Compression with a minimum-magnitude rule does not use an ordinary sum. A bucket receiving 0.2 and 0.8 must retain 0.2. It must not add them to obtain 1.0. It requires a different reduction operator or a custom kernel.
 
 Nor can a minimum reducer simply treat unmapped positions as zeros: zero would beat every nonzero mapped candidate. It must exclude those positions or use a suitable sentinel, with explicit handling for genuine zeros and non-finite values. Conversely, zero-filled selection can work naturally with a maximum-magnitude reduction, which is another reason the min/max discrepancy matters.
 
@@ -450,7 +450,7 @@ Regular matrix operations can execute efficiently on a GPU despite doing more no
 
 ### Count the group rounding, projection cache, and temporary weights
 
-For the paper's group size G = 512 and sketch ratio α = 1/8, its formula `K = ceil(αG)+1` gives 65 stored entries per group. If each is actually packed into four bits, the group payload is `65×4/512 = 0.5078125` bits per original weight, before scale and other metadata. The nominal 0.5-bit figure is not an exact accounting of all bytes. [Section 3.3, PDF pages 4–5](https://arxiv.org/pdf/2506.17255v2#page=4).
+Take the paper's group size G = 512 and sketch ratio α = 1/8. Its formula `K = ceil(αG)+1` gives 65 stored entries per group. If each is actually packed into four bits, the group payload is `65×4/512 = 0.5078125` bits per original weight. This is before scale and other metadata. The nominal 0.5-bit figure is not an exact accounting of all bytes. [Section 3.3, PDF pages 4–5](https://arxiv.org/pdf/2506.17255v2#page=4).
 
 An illustrative dense 512-by-65 projection matrix stored as four-byte floating-point values occupies 133,120 bytes, or 130 KiB. Sharing it across many layers amortizes that cost; using a different configuration or seed can require another matrix. “Index-free” means avoiding a stored index for every weight, not that the mapping mechanism has zero memory cost.
 
@@ -466,33 +466,33 @@ Fake quantization rounds values to a low-bit grid but can retain them inside ord
 
 The public export path applies `fake_quant` and returns stacked sketch tensors; the inspected C++ binding accesses float pointers. These files do not establish a packed four-bit exported representation. [Export path](https://github.com/suenar/UltraSketchLLM/blob/ab69c9aeaa60ebc57618bfb66a056fb8eaec18ee/src/fake_sketch.py#L540); [binding](https://github.com/suenar/UltraSketchLLM/blob/ab69c9aeaa60ebc57618bfb66a056fb8eaec18ee/src/sketch_matrix.cpp).
 
-At 65 float32 entries per 512 weights, that tensor payload would be `65×32/512 = 4.0625` bits per original weight, eight times the corresponding four-bit-packed payload. This is conditional byte accounting for the inspected representation, not a measured checkpoint size or proof that no separate packing path exists. Packing, scales, exported dtype, and load-time unpacking all need verification.
+At 65 float32 entries per 512 weights, that tensor payload would be `65×32/512 = 4.0625` bits per original weight. That is eight times the corresponding four-bit-packed payload. This is conditional byte accounting for the inspected representation. It is not a measured checkpoint size or proof that no separate packing path exists. Packing, scales, exported dtype, and load-time unpacking all need verification.
 
 ### Why training still retains many more parameters than inference
 
 Compression-aware training computes with reconstructed weights so that updates can adapt to compression error. A straight-through estimator sends an approximate gradient through a discrete operation whose ordinary derivative would not provide useful updates. It does not make the discrete reconstruction exactly differentiable.
 
-For a scalar illustration, a rounded forward output may remain unchanged as the underlying weight moves from 0.21 to 0.22. Its local derivative can be zero, but a straight-through rule can pass the incoming gradient as if the operation had derivative one. This permits updates to the original weight while accepting a biased approximation to the true derivative.
+For a scalar illustration, a rounded forward output may remain unchanged as the underlying weight moves from 0.21 to 0.22. Its local derivative can be zero. A straight-through rule can pass the incoming gradient as if the operation had derivative one. This permits updates to the original weight while accepting a biased approximation to the true derivative.
 
-UltraSketchLLM retains the original trainable parameters during fine-tuning and uses activation-based importance to allocate sketch space. [Section 3.2, PDF pages 3–4](https://arxiv.org/pdf/2506.17255v2#page=3). Therefore inference compression must not be advertised as the same reduction in training memory: gradients, optimizer state, and original trainable weights can remain large.
+UltraSketchLLM retains the original trainable parameters during fine-tuning and uses activation-based importance to allocate sketch space. [Section 3.2, PDF pages 3–4](https://arxiv.org/pdf/2506.17255v2#page=3). Therefore inference compression must not be advertised as the same reduction in training memory. Gradients, optimizer state, and original trainable weights can remain large.
 
 Importance based on mean squared activation has a clear local motivation. If output error from one weight perturbation is `aδw`, its expected square is `E[a²]δw²` when δw is fixed. But multiple errors introduce cross terms involving correlations between activations. Ranking each component independently does not fully predict their combined effect, and a changed input distribution can change that ranking.
 
 ### Interpret the evaluation without conflating its metrics
 
-The study evaluates Llama and Qwen models, fine-tunes on two A100 GPUs with context length 512, and compares against AQLM and VPTQ. It reports up to 6.93× peak-memory reduction relative to FP16 and a 14.9× maximum sketch-operator speedup against the hash implementation. [Sections 4–4.2, PDF pages 5–6](https://arxiv.org/pdf/2506.17255v2#page=5).
+The study evaluates Llama and Qwen models and fine-tunes on two A100 GPUs with context length 512. It compares against AQLM and VPTQ. It reports up to 6.93× peak-memory reduction relative to FP16 and a 14.9× maximum sketch-operator speedup against the hash implementation. [Sections 4–4.2, PDF pages 5–6](https://arxiv.org/pdf/2506.17255v2#page=5).
 
-The 14.9× result is not a 14.9× speedup over an uncompressed language model. Figure 11 labels decompression time, while adjacent prose sometimes says compression; that scope should be retained as an unresolved wording issue. Figure 10 concerns first-token latency overhead, not a complete long-output decoding-throughput curve. [PDF page 6](https://arxiv.org/pdf/2506.17255v2#page=6).
+The 14.9× result is not a 14.9× speedup over an uncompressed language model. Figure 11 labels decompression time. Adjacent prose sometimes says compression. That scope should be retained as an unresolved wording issue. Figure 10 concerns first-token latency overhead, not a complete long-output decoding-throughput curve. [PDF page 6](https://arxiv.org/pdf/2506.17255v2#page=6).
 
-The paper also multiplies perplexity by average bit count into a combined metric. That metric deliberately trades quality against storage. In a constructed comparison, perplexity 40 at 0.5 bit gives product 20, while perplexity 10 at four bits gives product 40. The compressed model wins the product metric despite having four times the perplexity. The product is not evidence that language-model quality improved; perplexity, downstream accuracy, and measured memory must remain separately visible.
+The paper also multiplies perplexity by average bit count into a combined metric. That metric deliberately trades quality against storage. In a constructed comparison, perplexity 40 at 0.5 bit gives product 20. Perplexity 10 at four bits gives product 40. The compressed model wins the product metric despite having four times the perplexity. The product is not evidence that language-model quality improved; perplexity, downstream accuracy, and measured memory must remain separately visible.
 
 ### What can be carried into the broader theme
 
 HAP preserves an already quantized integer during re-encoding; UltraSketchLLM ties different weight positions to shared information and reconstructs an approximation. Both can reduce stored bits, but only the former's local exactness argument applies to its integer re-encoding stage. UltraSketchLLM additionally makes reconstruction placement a central memory-system decision.
 
-The testable longer-term hypothesis is that increasingly compressed models shift cost from persistent weight storage toward reconstruction, mapping metadata, and temporary state. Evidence for it requires measured total memory and end-to-end execution at a fixed quality requirement. Nominal bits per weight alone cannot establish that trend.
+The testable longer-term hypothesis is that increasingly compressed models shift cost. The cost moves from persistent weight storage toward reconstruction, mapping metadata, and temporary state. Evidence for it requires measured total memory and end-to-end execution at a fixed quality requirement. Nominal bits per weight alone cannot establish that trend.
 
-No UltraSketchLLM model evaluation, CUDA kernel, or training run was executed. This pass inspected the DAC manuscript and selected files at the pinned commit. The min/max mismatch, signed retrieval, packed-storage path, complete workload conditions, and independent reproduction remain unresolved; the arithmetic examples explain why those gaps matter.
+No UltraSketchLLM model evaluation, CUDA kernel, or training run was executed. This pass inspected the DAC manuscript and selected files at the pinned commit. The min/max mismatch, signed retrieval, packed-storage path, complete workload conditions, and independent reproduction remain unresolved. The arithmetic examples explain why those gaps matter.
 
 <span id="explanation-dac-2026-research3214"></span>
 
@@ -516,7 +516,7 @@ But if every source node has its own scale s_j, the sum becomes `Σ a_j s_j q_j`
 
 Using the two-neighbor example, represent 2 as code 1 with scale 2, and 20 as code 1 with scale 20. Averaging the two codes gives 1. Applying scale 2 afterward gives 2, while applying scale 20 gives 20. Neither gives the correct result 11. A scheme that is convenient for representing each node can therefore be inconvenient for the aggregation arithmetic.
 
-This is the difference between an inner scale, which varies over the summed dimension, and an outer scale, which is fixed for one output row or column. Standard integer matrix multiplication can sum integer products efficiently; a different floating-point scale for every product interferes with that simple execution path.
+This is the difference between an inner scale and an outer scale. An inner scale varies over the summed dimension. An outer scale is fixed for one output row or column. Standard integer matrix multiplication can sum integer products efficiently. A different floating-point scale for every product interferes with that simple execution path.
 
 ### Move the scales into the adjacency values
 
@@ -526,7 +526,7 @@ For the averaging example, A is [0.5, 0.5], X is [2, 20], and the chosen scales 
 
 After that exact rearrangement, TopGQ quantizes the transformed adjacency row-wise and the transformed feature matrix feature-wise. These outer scales can be applied after integer multiplication. The representation choice separates local node normalization from the scales needed by the matrix engine.
 
-The exact identity does not make the quantized version exact. If transformed adjacency coefficient 10 rounds to 9 in a constructed coarse representation, the example's answer becomes 10 instead of 11. Improving the feature range can make the adjacency range harder to represent. TopGQ therefore chooses between dual-axis absorption and feature-wise quantization per layer using calibration error. [Sections 4.1–4.2, PDF pages 3–4](https://arxiv.org/pdf/2608.30394v1#page=3).
+The exact identity does not make the quantized version exact. If transformed adjacency coefficient 10 rounds to 9 in a constructed coarse representation, the example's answer becomes 10. It would otherwise be 11. Improving the feature range can make the adjacency range harder to represent. TopGQ therefore chooses between dual-axis absorption and feature-wise quantization per layer using calibration error. [Sections 4.1–4.2, PDF pages 3–4](https://arxiv.org/pdf/2608.30394v1#page=3).
 
 The edge pattern is preserved when nonzero columns are rescaled: absent edges remain absent. But edge values change, so graph topology and numerical adjacency must not be conflated. Dynamic attention coefficients, changed graphs, zero-valued scale candidates, and numerical overflow need their own implementation rules. The displayed inverse is undefined for a zero scale; reproducing the equations requires checking how the implementation handles that case.
 
@@ -534,7 +534,7 @@ The edge pattern is preserved when nonzero columns are rescaled: absent edges re
 
 For an unseen node, scanning each activation vector can find a suitable minimum and maximum. It also reads every feature and performs reductions each time those parameters are needed. If there are a million nodes with 256 features, even one full scan touches 256 million feature values. At four bytes each, that is approximately one gigabyte of data before counting repeated layers or transfers.
 
-A precomputed lookup can avoid some of that work, but needs a way to decide which stored parameters suit the new node. Using a node identifier alone does not establish anything about its activation distribution. TopGQ instead uses two structural quantities: the node's degree and the mean reciprocal degree of its closed in-neighborhood, including itself. [Equation 9 and Figure 4, PDF page 4](https://arxiv.org/pdf/2608.30394v1#page=4).
+A precomputed lookup can avoid some of that work. It needs a way to decide which stored parameters suit the new node. Using a node identifier alone does not establish anything about its activation distribution. TopGQ instead uses two structural quantities: the node's degree and the mean reciprocal degree of its closed in-neighborhood, including itself. [Equation 9 and Figure 4, PDF page 4](https://arxiv.org/pdf/2608.30394v1#page=4).
 
 For a node with closed-neighborhood degree 3 whose neighborhood degrees are [3, 2, 6], the second quantity is `(1/3 + 1/2 + 1/6)/3 = 1/3`. Its TopPIN pair is therefore `(3, 1/3)`. The reciprocal terms distinguish neighborhoods whose members have different connectivity, even when the target node itself has the same degree.
 
@@ -546,7 +546,7 @@ During calibration, nodes sharing a TopPIN value contribute to a combined minimu
 
 Combining ranges means accommodating all observed values in that group. If two calibration nodes span [−1, 1] and [−10, 10], the combined range must span [−10, 10]. That avoids clipping those observations but sacrifices resolution for the narrower node. Grouping is a tradeoff between parameter reuse and local fit.
 
-Interpolation can provide a parameter when the exact pair is absent from the table; it cannot establish that the unseen node lies within the calibrated numerical range. Distance normalization also matters: raw degree can be much larger numerically than mean reciprocal degree. A nearest-neighbor implementation must specify its metric, feature normalization, number of neighbors, and behavior beyond the observed range. Those choices were not independently checked in code in this pass.
+Interpolation can provide a parameter when the exact pair is absent from the table. It cannot establish that the unseen node lies within the calibrated numerical range. Distance normalization also matters: raw degree can be much larger numerically than mean reciprocal degree. A nearest-neighbor implementation must specify its metric, feature normalization, number of neighbors, and behavior beyond the observed range. Those choices were not independently checked in code in this pass.
 
 The motivation connects topology to accumulation variance, but correlations matter. Summing m independent zero-mean values of variance v gives variance mv. Summing m perfectly correlated copies gives m²v. A graph's path counts alone do not determine which situation applies. Learned transformations, nonlinearities, and feature correlations constrain how far the structural approximation can be generalized.
 
@@ -554,11 +554,11 @@ The motivation connects topology to accumulation variance, but correlations matt
 
 Quantization time is the work needed to produce the deployable low-precision model and its parameters. Inference time is the work needed to answer with that prepared model. A large reduction in preparation time does not imply an equally large reduction in every inference.
 
-Table 2 reports MAG240M quantization in 58.8 minutes for TopGQ versus 2.06 days for DRA, with accuracies 69.14% and 66.13%; the FP32 reference is 69.66%. [PDF page 5](https://arxiv.org/pdf/2608.30394v1#page=5). Converting units gives `2.06×24×60/58.8 ≈ 50.45×` faster preparation than DRA. The difference from FP32 is 0.52 percentage points, not exact accuracy preservation.
+Table 2 reports MAG240M quantization in 58.8 minutes for TopGQ versus 2.06 days for DRA. The accuracies are 69.14% and 66.13%. The FP32 reference is 69.66%. [PDF page 5](https://arxiv.org/pdf/2608.30394v1#page=5). Converting units gives `2.06×24×60/58.8 ≈ 50.45×` faster preparation than DRA. The difference from FP32 is 0.52 percentage points, not exact accuracy preservation.
 
-By contrast, Table 4 reports GCN inference on ogbn-products at 20.53 seconds versus FP32's 34.51 seconds on RTX 4090, and 473.25 versus 754.09 seconds on Jetson AGX Orin. These correspond to approximately 1.68× and 1.59×. [PDF page 6](https://arxiv.org/pdf/2608.30394v1#page=6). They are not fiftyfold inference improvements and do not describe MAG240M inference.
+By contrast, Table 4 reports GCN inference on ogbn-products at 20.53 seconds versus FP32's 34.51 seconds on RTX 4090. It reports 473.25 versus 754.09 seconds on Jetson AGX Orin. These correspond to approximately 1.68× and 1.59×. [PDF page 6](https://arxiv.org/pdf/2608.30394v1#page=6). They are not fiftyfold inference improvements and do not describe MAG240M inference.
 
-Fast preparation can matter even if inference throughput hardly changes. In a constructed update cycle, a model that must be refreshed hourly cannot use a two-day quantization stage without falling far behind. But a 58.8-minute quantization stage would still leave little room in that hour for training, validation, and deployment. The complete refresh process must be timed, not merely one stage.
+Fast preparation can matter even if inference throughput hardly changes. In a constructed update cycle, a model that must be refreshed hourly cannot use a two-day quantization stage. It would fall far behind. But a 58.8-minute quantization stage would still leave little room in that hour for training, validation, and deployment. The complete refresh process must be timed, not merely one stage.
 
 ### Preserve the failures and the experimental setting
 
@@ -566,7 +566,7 @@ The four-bit GCN result on ogbn-products is 39.03% versus FP32's 71.25% in Table
 
 The manuscript also gives ogbn-products four-bit GraphSAGE accuracy as 61.83% in Table 1 and 63.18% in the ablation table. [Tables 1 and 6, PDF pages 5–6](https://arxiv.org/pdf/2608.30394v1#page=5). The discrepancy remains unresolved; the writeup does not silently substitute either value as if they were interchangeable.
 
-Most evaluations use unseen-node or unseen-graph settings, while MAG240M uses the transductive setting where test-node structure and features can already be present during training, without their labels. [Section 5.1, PDF pages 4–5](https://arxiv.org/pdf/2608.30394v1#page=4). These settings provide different evidence about lookup behavior on genuinely new graph structure. They should not be combined into an unconditional generalization claim.
+Most evaluations use unseen-node or unseen-graph settings. MAG240M uses the transductive setting. In that setting, test-node structure and features can already be present during training, without their labels. [Section 5.1, PDF pages 4–5](https://arxiv.org/pdf/2608.30394v1#page=4). These settings provide different evidence about lookup behavior on genuinely new graph structure. They should not be combined into an unconditional generalization claim.
 
 ### What this adds to precision-aware computing
 
@@ -594,7 +594,7 @@ A multiply-accumulate operation multiplies a pair of values and adds the product
 
 The output is a sum of signed contributions. A different number format must still define how it represents each contribution, combines them, and recovers the final scale. It is insufficient to show that an individual multiplication gate is small.
 
-The inputs in this example exceed one. A representation restricted to [0, 1] would require normalization and later scale recovery. For example, dividing every input by ten makes the intermediate dot product 0.09; multiplying the final result by ten restores 0.9 before any approximation error. Normalization is part of the computation, not an optional change of notation.
+The inputs in this example exceed one. A representation restricted to [0, 1] would require normalization and later scale recovery. For example, dividing every input by ten makes the intermediate dot product 0.09. Multiplying the final result by ten restores 0.9 before any approximation error. Normalization is part of the computation, not an optional change of notation.
 
 ### A stream can represent a fraction by counting its ones
 
@@ -610,7 +610,7 @@ Consider these independently constructed four-position examples. Each input cont
 
 Only the first gives the intended product, 0.5×0.5. Correct counts in the inputs do not establish correct overlap between them. Repeating the second pair a thousand times still produces 0.5: extending a systematically unsuitable pattern does not repair it.
 
-There are also two different meanings of precision here. A stream of N positions can represent fractions separated by 1/N. That describes the available count levels. It does not guarantee the result of arithmetic is within 1/N of the desired result; the overlap example violates such a guarantee even when both inputs are represented exactly.
+There are also two different meanings of precision here. A stream of N positions can represent fractions separated by 1/N. That describes the available count levels. It does not guarantee that the result of arithmetic is within 1/N of the desired result. The overlap example violates such a guarantee even when both inputs are represented exactly.
 
 For a separately constructed random experiment, suppose each bit is an independent trial with probability p of being one. The variance of the average of N bits is p(1−p)/N. Its standard deviation is the square root of that quantity. At p = 0.5, N = 256 gives 0.03125; N = 1024 gives 0.015625. Four times as many independent trials halve this measure of random variation. This calculation is not a CO-MAC error model and must not be applied to deterministic sequences without establishing their behavior.
 
@@ -618,9 +618,9 @@ For a separately constructed random experiment, suppose each bit is an independe
 
 Return to weights [−0.6, 0.1, −0.2, 0.4]. Their sorted magnitudes are [0.1, 0.2, 0.4, 0.6]. Starting at zero, the increments are [0.1, 0.1, 0.2, 0.2]. They sum to 0.6, whereas the four magnitudes sum to 1.3.
 
-To make the difference concrete, construct a counter whose unit represents 0.1. Starting from zero separately for targets [1, 2, 4, 6] requires 1 + 2 + 4 + 6 = 13 forward increments, ignoring reset cost. Visiting those targets in one ascending pass requires 1 + 1 + 2 + 2 = 6 increments. The arithmetic illustrates a possible saving in repeated traversal. It does not establish six CO-MAC cycles, a 13/6 measured speedup, or a complete multiplication algorithm.
+To make the difference concrete, construct a counter whose unit represents 0.1. Starting from zero separately for targets [1, 2, 4, 6] requires 13 forward increments. The count is 1 + 2 + 4 + 6. This ignores reset cost. Visiting those targets in one ascending pass requires 1 + 1 + 2 + 2 = 6 increments. The arithmetic illustrates a possible saving in repeated traversal. It does not establish six CO-MAC cycles, a 13/6 measured speedup, or a complete multiplication algorithm.
 
-The reason for that qualification matters. Four different weights may multiply four different activations. A count associated with one activation cannot simply become the product for another. The hardware must explain what state can be shared, how the activation changes are represented, and when the correct contribution is captured. The description's reference to reused increments motivates these questions but does not answer them at circuit level.
+The reason for that qualification matters. Four different weights may multiply four different activations. A count associated with one activation cannot simply become the product for another. The hardware must explain what state can be shared and how the activation changes are represented. It must also explain when the correct contribution is captured. The description's reference to reused increments motivates these questions but does not answer them at circuit level.
 
 ### Reordering must preserve input–weight pairs
 
@@ -636,13 +636,13 @@ Thus weight ordering creates an addressing obligation. For convolution, the impl
 
 ### Delaying sign handling does not remove signed arithmetic
 
-In the same example, positive contributions total 0.3 + 2.8 = 3.1, and negative magnitudes total 1.2 + 1.0 = 2.2. Their difference is 0.9. Computing nonnegative contributions and subtracting later can therefore be algebraically valid.
+In the same example, positive contributions total 0.3 + 2.8 = 3.1. Negative magnitudes total 1.2 + 1.0 = 2.2. Their difference is 0.9. Computing nonnegative contributions and subtracting later can therefore be algebraically valid.
 
-But the implementation must retain enough information to distinguish the two totals. Discarding all signs and summing magnitudes produces 5.3, not 0.9. A simplified illustrative organization uses two increasing counters followed by a subtraction; this is not a claim that CO-MAC uses exactly that organization.
+But the implementation must retain enough information to distinguish the two totals. Discarding all signs and summing magnitudes produces 5.3, not 0.9. A simplified illustrative organization uses two increasing counters followed by a subtraction. This is not a claim that CO-MAC uses exactly that organization.
 
 Counter range also follows intermediate totals, not just the final answer. A computation with positive total 100 and negative total 99 has final output one. Storage sufficient only for one cannot represent the two totals. Delayed cancellation can require substantial intermediate range even when the output is small.
 
-With approximate totals, cancellation can make relative error large. If the intended totals are 3.1 and 3.0, the difference is 0.1. Errors of +0.01 and −0.01 change the result to 0.12: a 20% relative output error despite small errors in each total. This constructed case explains why a claim about accurate products needs a separate check of accumulated outputs.
+With approximate totals, cancellation can make relative error large. If the intended totals are 3.1 and 3.0, the difference is 0.1. Errors of +0.01 and −0.01 change the result to 0.12. That is a 20% relative output error despite small errors in each total. This constructed case explains why a claim about accurate products needs a separate check of accumulated outputs.
 
 ### Read the latency result at its actual scope
 
@@ -654,9 +654,9 @@ Maintaining a long effective stream while reducing physical counter activity cou
 
 ### What this adds to the subtheme
 
-Low-bit quantization changes which numerical values are available. This proposal instead raises a question about how much physical execution a chosen representation requires. The two decisions should be evaluated separately: representation error can stay fixed while execution improves, or execution can become faster because more error is accepted.
+Low-bit quantization changes which numerical values are available. This proposal instead raises a question about how much physical execution a chosen representation requires. The two decisions should be evaluated separately. Representation error can stay fixed while execution improves. Execution can also become faster because more error is accepted.
 
-A useful cross-paper comparison would hold output quality fixed, include representation conversion and data selection, and report full inference time and energy. A longer-term hypothesis is that repeated use of fixed model parameters creates opportunities to prepare an execution order once and reuse it. It remains a hypothesis until preparation cost, weight-update frequency, memory access, and repeated-run savings are measured across cases.
+A useful cross-paper comparison would hold output quality fixed and include representation conversion and data selection. It would report full inference time and energy. A longer-term hypothesis is that repeated use of fixed model parameters creates opportunities. An execution order can be prepared once and reused. It remains a hypothesis until preparation cost, weight-update frequency, memory access, and repeated-run savings are measured across cases.
 
 No CO-MAC circuit, code, benchmark, or synthesis was executed. This discussion is conceptually expanded but still description-backed. It does not satisfy the requested manuscript-page-backed evidence standard yet.
 
@@ -666,13 +666,13 @@ No CO-MAC circuit, code, benchmark, or synthesis was executed. This discussion i
 
 ### The proposal and the evidence boundary
 
-HierPAS targets attention in video-generation transformers. Its description combines an early estimate of attention patterns, sampled entropy to choose retention by head, progressively lower precision for less important regions, configurable selection of the largest entries, and shared multi-precision matrix-multiplication hardware. [Official DAC description](https://63dac.conference-program.com/presentation/?id=RESEARCH259&sess=sess127).
+HierPAS targets attention in video-generation transformers. Its description combines an early estimate of attention patterns and sampled entropy to choose retention by head. It also combines progressively lower precision for less important regions and configurable selection of the largest entries. It also includes shared multi-precision matrix-multiplication hardware. [Official DAC description](https://63dac.conference-program.com/presentation/?id=RESEARCH259&sess=sess127).
 
 The author page confirms the paper but labels its download link “TBD”; following that link returns to the publication list. No manuscript was recovered in this pass. [Author publication page](https://austinliu01.github.io/publication/HierPAS). The following explanation derives the relevant computation and tradeoffs. All numerical examples and error calculations are constructed, not HierPAS results. The exact prediction algorithm, precision levels, selection granularity, and circuit remain unverified.
 
 ### What attention computes
 
-A token is a position represented by a vector of numbers. In a video model, the positions may correspond to regions across space and time; the exact grouping depends on the model. Attention computes how information from other positions contributes to the output at each position.
+A token is a position represented by a vector of numbers. In a video model, the positions may correspond to regions across space and time. The exact grouping depends on the model. Attention computes how information from other positions contributes to the output at each position.
 
 For ordinary scaled dot-product attention, each position supplies a query vector, while positions supplying information have key and value vectors. Query–key dot products form scores. Dividing by the square root of the key dimension controls score scale. Softmax exponentiates these scores and divides by their sum, producing nonnegative weights that sum to one. The output is their weighted sum of value vectors. Multiple heads repeat this with separately learned projections. [Vaswani et al., Sections 3.2.1–3.2.2, PDF pages 4–5](https://arxiv.org/pdf/1706.03762#page=4).
 
@@ -684,9 +684,9 @@ For a scalar teaching example, weights [0.8, 0.15, 0.05] and values [2, 4, 10] g
 
 If N positions each compare against all N positions, there are N² scores per head. Doubling N gives four times as many pairs. Holding feature width fixed, both the score dot products and the weighted-value accumulation scale with this number of pairs.
 
-In a constructed case with 4,096 positions, one head has 16,777,216 pair scores. Materializing every score at two bytes requires 32 MiB. At 8,192 positions it requires 128 MiB. These are sizes of hypothetical fully stored matrices, not minimum memory requirements: an implementation can compute and consume sections without keeping the entire matrix at once. Reducing matrix storage and reducing arithmetic are different achievements.
+In a constructed case with 4,096 positions, one head has 16,777,216 pair scores. Materializing every score at two bytes requires 32 MiB. At 8,192 positions it requires 128 MiB. These are sizes of hypothetical fully stored matrices. They are not minimum memory requirements. An implementation can compute and consume sections without keeping the entire matrix at once. Reducing matrix storage and reducing arithmetic are different achievements.
 
-The relationship also depends on tokenization. Doubling both image width and height at fixed spatial patch size gives four times as many spatial positions; global pairwise attention then has sixteen times as many pairs. If an implementation uses local windows or separates spatial and temporal attention, that calculation must be revised. The recovered HierPAS description does not specify enough model detail to apply these example counts to its evaluation.
+The relationship also depends on tokenization. Doubling both image width and height at fixed spatial patch size gives four times as many spatial positions. Global pairwise attention then has sixteen times as many pairs. If an implementation uses local windows or separates spatial and temporal attention, that calculation must be revised. The recovered HierPAS description does not specify enough model detail to apply these example counts to its evaluation.
 
 ### Removing entries changes both the numerator and normalization
 
@@ -694,7 +694,7 @@ For the [0.8, 0.15, 0.05] example, dropping the last contribution without renorm
 
 More generally, suppose the removed weights sum to δ and every value vector has norm at most V. If retained weights are left unchanged, the removed weighted sum has norm at most δV. This follows by bounding each contribution's norm by its weight times V and adding the bounds.
 
-If retained weights are renormalized and δ < 1, their total rescaling changes the retained contribution by at most another δV. The resulting error is therefore at most 2δV under these assumptions. This is an illustrative worst-case bound for a single attention output, not a HierPAS theorem or a guarantee for the final video. It requires the original weights, a value bound, and the specified normalization policy.
+If retained weights are renormalized and δ < 1, their total rescaling changes the retained contribution. The change is at most another δV. The resulting error is therefore at most 2δV under these assumptions. This is an illustrative worst-case bound for a single attention output. It is not a HierPAS theorem or a guarantee for the final video. It requires the original weights, a value bound, and the specified normalization policy.
 
 Retaining a fraction of entries does not fix δ. Keeping ten of one hundred entries could retain 95% of the attention mass, or only 10% if weights are uniform. Consequently, a retention ratio alone cannot establish accuracy. The distribution of the retained mass and the values it multiplies matter.
 
@@ -704,13 +704,13 @@ For normalized nonnegative weights p, entropy is `−sum(p × log2(p))`, with a 
 
 Keeping one entry preserves all mass in the first case but only one quarter in the second. This explains why concentration information can help select how much of a row or head to retain. A head is one separately parameterized attention computation, so heads need not share the same attention distribution.
 
-However, entropy does not contain the value vectors. In the scalar example, changing values from [2, 4, 10] to [2, 4, 1,000] leaves attention weights and their entropy unchanged. The contribution from the smallest weight increases from 0.5 to 50. An entropy-based decision needs empirical quality checks or additional safeguards; entropy alone is not a bound on the output error.
+However, entropy does not contain the value vectors. In the scalar example, changing values from [2, 4, 10] to [2, 4, 1,000] leaves attention weights unchanged. Their entropy is also unchanged. The contribution from the smallest weight increases from 0.5 to 50. An entropy-based decision needs empirical quality checks or additional safeguards; entropy alone is not a bound on the output error.
 
-Aggregating a head can also conceal unusual rows. If most positions concentrate their attention but a small subset uses a broad distribution, a head-wide retention choice may treat those positions too aggressively. This is a failure case to test, not an observed HierPAS failure.
+Aggregating a head can also conceal unusual rows. Most positions may concentrate their attention while a small subset uses a broad distribution. A head-wide retention choice may be too aggressive. It may treat those positions too aggressively. This is a failure case to test, not an observed HierPAS failure.
 
 ### Sampling reduces decision cost but can miss rare behavior
 
-Computing exact importance from all full-precision scores before skipping those same scores would already pay much of the cost being avoided. A useful predictor must be cheaper than the work it removes. HierPAS's early estimation and sampled entropy are intended to support that decision, but the recovered description does not specify their equations or sampling schedule.
+Computing exact importance from all full-precision scores would already pay much of the cost being avoided. This holds if it is done before skipping those same scores. A useful predictor must be cheaper than the work it removes. HierPAS's early estimation and sampled entropy are intended to support that decision. The recovered description does not specify their equations or sampling schedule.
 
 Consider an illustrative independent sample of 32 rows when 1% of rows exhibit a consequential pattern. The probability of missing all such rows is `0.99^32 ≈ 72.5%`. Increasing the sample to 256 reduces that probability to about 7.6%, while increasing sampling work eightfold. Actual structured or correlated sampling may behave differently; these probabilities are not claims about HierPAS's sampler.
 
@@ -724,25 +724,25 @@ Sparsity removes selected contributions. Reduced precision retains contributions
 
 For a constructed retained scalar product, let attention weight a change by e and value v change by f. The product changes by `e×v + a×f + e×f`. A small error in a is multiplied by v, and an error in v is multiplied by a. Reducing the precision of a small attention weight may be reasonable for some values and inadequate for others.
 
-Errors before softmax require another analysis because changing one score changes the normalization shared by the whole row. The preceding product formula applies after the operands are defined; it cannot by itself certify approximate query–key arithmetic or approximate softmax.
+Errors before softmax require another analysis because changing one score changes the normalization shared by the whole row. The preceding product formula applies after the operands are defined. It cannot by itself certify approximate query–key arithmetic or approximate softmax.
 
-The description does not specify whether each precision tier applies to query/key operands, scores, attention probabilities, values, accumulators, or several of these. Those are distinct design choices. Assigning familiar four-, eight-, or sixteen-bit tiers without the paper would invent the missing method.
+The description does not specify whether each precision tier applies to query/key operands, scores or attention probabilities. It also does not specify whether it applies to values, accumulators, or several of these. Those are distinct design choices. Assigning familiar four-, eight-, or sixteen-bit tiers without the paper would invent the missing method.
 
 ### Hardware must turn fewer selected operations into less elapsed work
 
-Selecting the largest k entries requires comparisons and a way to retain their locations. Matrix multiplication over the selected entries then needs the matching values. If the entries are scattered, selection may save arithmetic while creating additional address generation, small memory transfers, or idle arithmetic lanes.
+Selecting the largest k entries requires comparisons and a way to retain their locations. Matrix multiplication over the selected entries then needs the matching values. If the entries are scattered, selection may save arithmetic. It may also create additional address generation, small memory transfers, or idle arithmetic lanes.
 
 As a constructed scheduling example, two synchronized lanes with jobs requiring two and eight cycles take eight cycles to finish. Their total useful work is ten lane-cycles out of sixteen available. Lowering the short job to one cycle does not shorten the batch: the eight-cycle job still controls completion. Flexible arithmetic must be accompanied by suitable scheduling to realize a latency gain.
 
-Similarly, a dense engine processing a whole tile cannot save proportional work merely because most entries inside that tile are zero. The skip granularity—individual value, group, or tile—determines whether the zero entries are actually omitted. HierPAS mentions configurable selection and a unified multi-precision datapath, but these implementation details remain unrecovered.
+Similarly, a dense engine processing a whole tile cannot save proportional work. This holds even if most entries inside that tile are zero. The skip granularity—individual value, group, or tile—determines whether the zero entries are actually omitted. HierPAS mentions configurable selection and a unified multi-precision datapath, but these implementation details remain unrecovered.
 
-In an illustrative 100 ms workload, suppose affected attention computation takes 80 ms. Cutting it to one quarter gives 20 ms, and the unaffected part still takes 20 ms. Adding 15 ms for prediction, selection, and irregular access yields 55 ms total: about 1.82× overall speedup, not the fourfold reduction suggested by the attention arithmetic alone.
+In an illustrative 100 ms workload, suppose affected attention computation takes 80 ms. Cutting it to one quarter gives 20 ms, and the unaffected part still takes 20 ms. Adding 15 ms for prediction, selection, and irregular access yields 55 ms total. That is about 1.82× overall speedup. It is not the fourfold reduction suggested by the attention arithmetic alone.
 
 ### Interpret the efficiency headline without changing its units
 
-The official description reports up to 178× energy efficiency over NVIDIA H20 and 7.7× over other accelerators, with a qualitative claim of little video-quality loss. It does not supply the energy denominator, competing accelerator names, model settings, quality measures, fabrication process, or measurement methodology. [DAC description](https://63dac.conference-program.com/presentation/?id=RESEARCH259&sess=sess127).
+The official description reports up to 178× energy efficiency over NVIDIA H20 and 7.7× over other accelerators. It also makes a qualitative claim of little video-quality loss. It does not supply the energy denominator, competing accelerator names, model settings, quality measures, fabrication process, or measurement methodology. [DAC description](https://63dac.conference-program.com/presentation/?id=RESEARCH259&sess=sess127).
 
-If efficiency meant matched completed videos per joule, a 178× ratio would imply 1/178 of the energy per video under those matched conditions. If it instead counts operations per joule, the comparison needs a common operation definition, especially when sparsity removes operations and precision changes their cost. The abstract alone does not resolve this distinction.
+If efficiency meant matched completed videos per joule, a 178× ratio would imply 1/178 of the energy per video. This holds under those matched conditions. If it instead counts operations per joule, the comparison needs a common operation definition. This matters especially when sparsity removes operations and precision changes their cost. The abstract alone does not resolve this distinction.
 
 Neither ratio is a latency ratio. Nor does a qualitative quality claim establish equal motion consistency, prompt adherence, fine detail, or behavior on difficult prompts. Those evaluation dimensions are requirements for interpreting the claim, not recovered results. Timing and energy must also state whether prediction, selection, memory transfers, and all generation iterations are included.
 
@@ -750,7 +750,7 @@ Neither ratio is a latency ratio. Nor does a qualitative quality claim establish
 
 HAP removes redundant bits from already quantized activations while retaining recovery information. TopGQ changes scale placement and how quantization parameters are selected. HierPAS proposes choosing both the set of attention contributions and their precision. These intervene at different points, so a single “low precision” label is not an adequate explanation.
 
-A testable longer-term hypothesis is that deciding where to spend computation becomes a substantial part of the accelerator itself. The relevant comparison includes the decision cost, the mistakes made by that decision, the granularity the hardware can skip, and the final output quality. It should also test whether the decision remains reliable as video length, content, and generation stage change. One efficiency headline does not establish that trend across conferences or years.
+A testable longer-term hypothesis is that deciding where to spend computation becomes a substantial part of the accelerator itself. The relevant comparison includes the decision cost and the mistakes made by that decision. It also includes the granularity the hardware can skip and the final output quality. It should also test whether the decision remains reliable as video length, content, and generation stage change. One efficiency headline does not establish that trend across conferences or years.
 
 No HierPAS model, circuit, benchmark, or synthesis was executed. The manuscript-page-backed explanation, evaluation conditions, and independent comprehension check remain unfinished.
 
@@ -760,7 +760,7 @@ No HierPAS model, circuit, benchmark, or synthesis was executed. The manuscript-
 
 ### Identify the part of the representation being changed
 
-PRISM proposes four-bit quantization with one encoded eight-bit scale per group. Its description says the scale representation adapts to the relative importance of values, and reports improved accuracy with 0.62% area and 0.86% energy overhead. [Official DAC description](https://63dac.conference-program.com/presentation/?id=RESEARCH2207&sess=sess145).
+PRISM proposes four-bit quantization with one encoded eight-bit scale per group. Its description says the scale representation adapts to the relative importance of values. It reports improved accuracy with 0.62% area and 0.86% energy overhead. [Official DAC description](https://63dac.conference-program.com/presentation/?id=RESEARCH2207&sess=sess145).
 
 This is the shared-scale quantization paper, not another paper called PRISM about forecasting or instruction following. No manuscript was recovered. In particular, the scale encoding, importance measure, group size, decoder, workloads, and evaluation conditions remain unknown. The examples below explain the problem; they are not PRISM bit layouts or reconstructed experiments.
 
@@ -770,7 +770,7 @@ Write a grouped representation as `decoded_value_i = group_scale × decoded_elem
 
 For an illustrative group, let the scale be 0.3 and decoded element values be [1, 2, 4]. The represented numbers are [0.3, 0.6, 1.2]. If the scale is stored as 0.25 while these element values remain fixed, the decoded numbers become [0.25, 0.5, 1.0]. Every nonzero value has the same relative scale error, −1/6, although its absolute error differs.
 
-The errors here are linked by the shared scale. They are not independent rounding errors that necessarily cancel in a sum. For instance, summing the three decoded numbers changes 2.1 to 1.75. This example deliberately holds element codes fixed to isolate scale error; a quantizer that reselects codes after rounding the scale can produce a different result.
+The errors here are linked by the shared scale. They are not independent rounding errors that necessarily cancel in a sum. For instance, summing the three decoded numbers changes 2.1 to 1.75. This example deliberately holds element codes fixed to isolate scale error. A quantizer that reselects codes after rounding the scale can produce a different result.
 
 More generally, changing scale s by e and decoded element q by f changes their product by `e×q + s×f + e×f`. The first term is scale error, the second is element error, and the third is their interaction. Studying only the four-bit element error omits part of the representation.
 
@@ -796,11 +796,11 @@ Sensitivity itself has a computational meaning. If output y contains a term c×x
 
 ### Include the scale in the storage budget
 
-For four-bit elements, group size G, and one eight-bit scale, storage is `4 + 8/G` bits per value before alignment and any other metadata. At G = 16 this is 4.5 bits, while G = 32 gives 4.25 bits. These are illustrative group sizes, not recovered PRISM settings.
+For four-bit elements, group size G, and one eight-bit scale, storage is `4 + 8/G` bits per value. This is before alignment and any other metadata. At G = 16 this is 4.5 bits, while G = 32 gives 4.25 bits. These are illustrative group sizes, not recovered PRISM settings.
 
-Using smaller groups makes it easier to choose scales for similar values but pays more scale storage. Group composition matters too: combining small values with a large outlier can force a scale that loses the small values, while separating them can require reordering and additional access information.
+Using smaller groups makes it easier to choose scales for similar values but pays more scale storage. Group composition matters too. Combining small values with a large outlier can force a scale that loses the small values. Separating them can require reordering and additional access information.
 
-Adding a hypothetical shared 32-bit tensor scale would cost another `32/M` bits per value for a tensor of M elements. At one million elements that storage overhead is tiny. Its arithmetic, range, and implementation effects could still matter. Removing an extra scale therefore must not automatically be described as a large memory saving; the sharing granularity determines the saving.
+Adding a hypothetical shared 32-bit tensor scale would cost another `32/M` bits per value for a tensor of M elements. At one million elements that storage overhead is tiny. Its arithmetic, range, and implementation effects could still matter. Removing an extra scale therefore must not automatically be described as a large memory saving. The sharing granularity determines the saving.
 
 ### The scale must remain in the dot product
 
@@ -812,11 +812,11 @@ Consequently, a new scale representation affects decoding, scale multiplication,
 
 ### Interpret the small overhead numbers carefully
 
-An area overhead of 0.62% means 1.0062 times the reference area; energy overhead of 0.86% means 1.0086 times the reference energy. They are increases reported alongside an accuracy benefit, not reductions. The description does not identify the reference configuration, accuracy values, process, clock, or measurement method. [DAC description](https://63dac.conference-program.com/presentation/?id=RESEARCH2207&sess=sess145).
+An area overhead of 0.62% means 1.0062 times the reference area. Energy overhead of 0.86% means 1.0086 times the reference energy. They are increases reported alongside an accuracy benefit, not reductions. The description does not identify the reference configuration, accuracy values, process, clock, or measurement method. [DAC description](https://63dac.conference-program.com/presentation/?id=RESEARCH2207&sess=sess145).
 
 Whether this is a favorable tradeoff depends on the quality requirement and the alternatives that meet it. Comparing to a configuration that fails the required quality is useful diagnostically, but it is not a complete deployment comparison. Latency, calibration cost, full storage including scales, and task quality at matched settings remain necessary.
 
-The broader question raised by PRISM is whether scale precision deserves its own allocation policy rather than being fixed after choosing element width. Testing that idea requires separating improvements due to the scale codebook from changes in grouping, calibration, element representation, and hardware budget.
+The broader question raised by PRISM is whether scale precision deserves its own allocation policy. The alternative is that it is fixed after choosing element width. Testing that idea requires separating improvements due to the scale codebook from other changes. Those are changes in grouping, calibration, element representation, and hardware budget.
 
 No PRISM implementation, model benchmark, or synthesis was executed. The paper-specific mechanism remains description-backed rather than manuscript-page-backed.
 
@@ -842,31 +842,31 @@ More exponent bits allow more exponent codes, subject to reserved encodings and 
 
 Imagine an eight-bit teaching format with one sign bit and one mode bit. One mode allocates the remaining six bits as two exponent bits and four fraction bits. Another uses four exponent bits and two fraction bits. This is only a bit-budget example, not MXP's encoding or a complete posit definition.
 
-For magnitude 1.1 at exponent zero, four fraction bits round to 1.125, with error 0.025. Two fraction bits round to 1.0, with error 0.1. The second allocation has more exponent codes available but less detail near this value. A tapered format makes this allocation depend on the encoded value or region instead of using the same field lengths everywhere.
+For magnitude 1.1 at exponent zero, four fraction bits round to 1.125, with error 0.025. Two fraction bits round to 1.0, with error 0.1. The second allocation has more exponent codes available but less detail near this value. A tapered format makes this allocation depend on the encoded value or region. It does not use the same field lengths everywhere.
 
-The decoder must know where each field ends. In the teaching format, a mode bit supplies that information. Other designs can use a self-delimiting pattern whose length identifies the magnitude region. Whichever rule is used consumes coding capacity and requires decoding logic. We have not recovered MXP's actual rule and do not assign it the toy format's mode bit, widths, or code table.
+The decoder must know where each field ends. In the teaching format, a mode bit supplies that information. Other designs can use a self-delimiting pattern whose length identifies the magnitude region. Whichever rule is used consumes coding capacity and requires decoding logic. We have not recovered MXP's actual rule. We do not assign it the toy format's mode bit, widths, or code table.
 
 ### The group scale changes where values fall in the element format
 
 With a group scale of eight, input 8.8 becomes normalized element value 1.1. Applying the two teaching allocations above reconstructs 9.0 or 8.0, with absolute errors 0.2 or 0.8. The group scale multiplies the element error as well as the element value.
 
-This means the scale selection and element codebook must be considered together. A scale can move many normalized values into a region with finer spacing, but may move others toward a coarse or unsupported region. Minimizing scale error by itself does not necessarily minimize the decoded tensor error.
+This means the scale selection and element codebook must be considered together. A scale can move many normalized values into a region with finer spacing. It may move others toward a coarse or unsupported region. Minimizing scale error by itself does not necessarily minimize the decoded tensor error.
 
-Consider a group containing values near one and a value near one hundred. A wider-range element format might allow both without increasing the shared scale as much as a narrower-range format. But that is not a free improvement: the far-from-center value may receive fewer fraction bits, decoding may become more complex, or precision elsewhere may change. The actual codebook is needed to calculate which effect dominates.
+Consider a group containing values near one and a value near one hundred. A wider-range element format might allow both without increasing the shared scale as much as a narrower-range format. But that is not a free improvement. The far-from-center value may receive fewer fraction bits. Decoding may become more complex. Precision elsewhere may change. The actual codebook is needed to calculate which effect dominates.
 
 ### Tapered precision is not automatically importance-aware precision
 
 A representation that gives more detail to a particular magnitude region protects values in that region. That is a statement about numerical location, not necessarily about task importance.
 
-For a constructed linear output, compare a small input 0.01 multiplied by 1,000 with a large input 100 multiplied by 0.001. Their contributions are ten and 0.1. A representation policy that equates magnitude with importance could protect the wrong input. What matters is how representation error propagates through the consuming computation.
+For a constructed linear output, compare a small input 0.01 multiplied by 1,000. Then compare a large input 100 multiplied by 0.001. Their contributions are ten and 0.1. A representation policy that equates magnitude with importance could protect the wrong input. What matters is how representation error propagates through the consuming computation.
 
-Likewise, lower average squared representation error does not guarantee that all tasks improve. Errors concentrated on a few decisive values can change a classification or generated answer. The relevant tests should report model-level quality as well as local quantization error, and should include outliers and changed input distributions.
+Likewise, lower average squared representation error does not guarantee that all tasks improve. Errors concentrated on a few decisive values can change a classification or generated answer. The relevant tests should report model-level quality as well as local quantization error. They should include outliers and changed input distributions.
 
 The official description uses an optimality claim, but does not define the optimization objective, admissible formats, or proof. It cannot establish a universally optimal range–precision balance. The defensible interpretation remains a reported improvement under conditions that have not yet been recovered.
 
 ### A matching accelerator must do more than store the format
 
-A matrix multiplier receives two encoded elements, decodes their signs and magnitudes, forms a product, and aligns that product with an accumulated subtotal. Variable field lengths can change decoding and alignment work even when every stored element occupies the same number of bits.
+A matrix multiplier receives two encoded elements and decodes their signs and magnitudes. It forms a product. It aligns that product with an accumulated subtotal. Variable field lengths can change decoding and alignment work even when every stored element occupies the same number of bits.
 
 A shorter fraction can make an individual multiplication simpler only if the hardware actually exploits it. A design that decodes every element into the same wider internal representation may save memory but not proportionally reduce arithmetic. A design with several execution modes must account for mode control, routing, accumulation width, and unequal workloads. These are alternatives to inspect, not descriptions of the missing MXP circuit.
 
@@ -876,17 +876,17 @@ Cancellation provides a simple warning. Products 100 and −99 have final sum on
 
 ### Storage and power claims need explicit denominators
 
-If an element uses b bits, its group contains G elements, and the group scale uses h bits, the payload plus scale costs `b + h/G` bits per value. Alignment, exceptional-value handling, padding, and other metadata can increase this. MXP's b, G, and h are not available in the description, so an effective bits-per-value figure cannot yet be calculated for the paper.
+Suppose an element uses b bits, its group contains G elements, and the group scale uses h bits. Then the payload plus scale costs `b + h/G` bits per value. Alignment, exceptional-value handling, padding, and other metadata can increase this. MXP's b, G, and h are not available in the description. An effective bits-per-value figure therefore cannot yet be calculated for the paper.
 
 Lower power is not the same as lower energy. In a constructed comparison, a reference consuming 10 W for one second uses 10 J. A replacement consuming 8 W for two seconds uses 16 J: lower power but higher energy. The elapsed time and matched amount of completed work determine the interpretation.
 
-The abstract provides no numerical area, power, latency, accuracy, or energy results; it does not name the baselines, model variants, process, or evaluation method. We therefore cannot rank MXP against PRISM, ordinary floating point, or another accelerator on efficiency from the available evidence.
+The abstract provides no numerical area, power, latency, accuracy, or energy results. It does not name the baselines, model variants, process, or evaluation method. We therefore cannot rank MXP against PRISM, ordinary floating point, or another accelerator on efficiency from the available evidence.
 
 ### The comparison this pair of papers motivates
 
-PRISM and MXP suggest separating at least three decisions: which values share a scale, how that scale is represented, and how each scaled element is encoded. A complete comparison changes one decision at a time where possible, or reports the combined design honestly when they cannot be separated.
+PRISM and MXP suggest separating at least three decisions. These are which values share a scale, how that scale is represented, and how each scaled element is encoded. A complete comparison changes one decision at a time where possible. Where they cannot be separated, it reports the combined design honestly.
 
-The longer-term hypothesis is that low-bit formats will increasingly be judged as full numerical systems rather than by element width alone. Evidence would need to include the scale policy, codebook, accumulation, conversion, memory layout, output quality, and hardware cost. Two descriptions establish related research questions, not a demonstrated temporal trend or a winning universal format.
+The longer-term hypothesis is that low-bit formats will increasingly be judged as full numerical systems. They will not be judged by element width alone. Evidence would need to include the scale policy, codebook, accumulation, conversion, memory layout, output quality, and hardware cost. Two descriptions establish related research questions, not a demonstrated temporal trend or a winning universal format.
 
 No MXP implementation, model benchmark, or synthesis was executed. The exact encoding, manuscript-page-backed method, experimental conditions, and independent comprehension review remain open.
 
@@ -898,9 +898,9 @@ No MXP implementation, model benchmark, or synthesis was executed. The exact enc
 
 “Think Before You Prune” introduces RESP: self-generated calibration, decode-only gradient importance, and periodic regeneration during structured pruning. [Official DAC description](https://63dac.conference-program.com/presentation/?id=RESEARCH2650&sess=sess176). The inspected manuscript is the December 2025 preprint, not a recovered DAC camera-ready version. [Preprint](https://arxiv.org/pdf/2512.02185v1#page=1).
 
-A model produces its next token from the prompt and the tokens already generated. Removing parameters can change the next-token probabilities. Once the generated token changes, later computations receive a different prefix, so subsequent behavior can diverge further. A pruning rule therefore needs evidence about the computations used during generation, not only about reconstructing intermediate values on unrelated text.
+A model produces its next token from the prompt and the tokens already generated. Removing parameters can change the next-token probabilities. Once the generated token changes, later computations receive a different prefix, so subsequent behavior can diverge further. A pruning rule therefore needs evidence about the computations used during generation. Evidence only about reconstructing intermediate values on unrelated text is not enough.
 
-For a constructed two-choice step, suppose the original probabilities are 0.51 and 0.49. A small change reverses them to 0.49 and 0.51. A highest-probability decoder selects a different token, even though the probability vectors are close. Sampling need not choose the same token either. The new prefix changes the inputs to the next step. This example illustrates why local numerical similarity need not preserve a whole generated answer; it is not a measurement from RESP.
+For a constructed two-choice step, suppose the original probabilities are 0.51 and 0.49. A small change reverses them to 0.49 and 0.51. A highest-probability decoder selects a different token, even though the probability vectors are close. Sampling need not choose the same token either. The new prefix changes the inputs to the next step. This example illustrates why local numerical similarity need not preserve a whole generated answer. It is not a measurement from RESP.
 
 ### What structured pruning actually removes
 
@@ -914,7 +914,7 @@ The two matrices originally contain 12 + 6 = 18 parameters; afterward they conta
 
 A calibration set is a limited collection of inputs used to estimate which parts of a trained model are important. If a unit is useful only on behavior missing from that set, its estimated importance can be misleadingly low.
 
-RESP uses task prompts and the model's generated output as calibration data. [DAC description](https://63dac.conference-program.com/presentation/?id=RESEARCH2650&sess=sess176). The distinction is distributional: generated text supplies prefixes the model actually reaches, whereas a human solution may use a different sequence even when both end with the same answer.
+RESP uses task prompts and the model's generated output as calibration data. [DAC description](https://63dac.conference-program.com/presentation/?id=RESEARCH2650&sess=sess176). The distinction is distributional. Generated text supplies prefixes the model actually reaches. A human solution may use a different sequence even when both end with the same answer.
 
 This does not establish that generated text is true, complete, or a faithful account of an internal decision process. It is observable output used to measure sensitivity. A model may generate an incorrect answer confidently; preserving its likelihood preserves that behavior too. Self-generated calibration consequently needs independent evaluation against task answers rather than treating its own output as proof of correctness.
 
@@ -928,13 +928,13 @@ Negative log-probability penalizes assigning low probability to an observed toke
 
 Masking the prompt's direct loss terms does not remove the prompt from the computation. Generated-token predictions still depend on prompt representations, and their gradients can pass through parameters used to process the prompt. Thus “decode-only” should not be read as “prompt processing is irrelevant” or “no prompt computation occurs.”
 
-As a constructed weighting example, a sequence has 100 prompt tokens and ten generated tokens. A uniform full-sequence average gives generated positions only 10/110 of the token weight. Restricting the loss to those ten changes that weighting. It does not necessarily make gradients eleven times larger, because token gradients can differ in magnitude and direction; it changes the objective being differentiated.
+As a constructed weighting example, a sequence has 100 prompt tokens and ten generated tokens. A uniform full-sequence average gives generated positions only 10/110 of the token weight. Restricting the loss to those ten changes that weighting. It does not necessarily make gradients eleven times larger, because token gradients can differ in magnitude and direction. It changes the objective being differentiated.
 
 ### Why multiply a gradient by the weight being removed?
 
 For a scalar weight w, setting it to zero changes it by −w. A first-order expansion predicts loss change approximately `(gradient with respect to w) × (−w)`. The absolute product gives a magnitude estimate of that change.
 
-In a teaching example, weight 2 with gradient 0.01 has absolute product 0.02. Weight 0.1 with gradient 1 has product 0.1. A magnitude-only rule would regard the second weight as smaller; the gradient-weight rule estimates it as more consequential for this particular loss and data.
+In a teaching example, weight 2 with gradient 0.01 has absolute product 0.02. Weight 0.1 with gradient 1 has product 0.1. A magnitude-only rule would regard the second weight as smaller. The gradient-weight rule estimates it as more consequential for this particular loss and data.
 
 The estimate is local even though removing a weight may be a large change. For the constructed loss `L(w) = (w−1)^2`, at w = 1 the loss and gradient are both zero. The first-order score is zero, yet setting w to zero increases loss to one. A zero gradient does not prove a weight can safely be deleted.
 
@@ -944,11 +944,11 @@ Removing several weights can also create interactions not captured by summing in
 
 A ranking measured on the dense model describes its current computation. After pruning, previously redundant structures may become important, and generated prefixes can change. Continuing to prune using the original data and sensitivities can therefore become increasingly inappropriate.
 
-RESP replaces calibration outputs at pruning milestones while retaining the prompt set and token budget. [Sections 4.3–5.1, PDF pages 5–6](https://arxiv.org/pdf/2512.02185v1#page=5). Conceptually, the loop is: generate outputs with the current model, measure sensitivity on those outputs, remove the next structures, and repeat.
+RESP replaces calibration outputs at pruning milestones while retaining the prompt set and token budget. [Sections 4.3–5.1, PDF pages 5–6](https://arxiv.org/pdf/2512.02185v1#page=5). Conceptually, the loop is as follows. Generate outputs with the current model. Measure sensitivity on those outputs. Remove the next structures, and repeat.
 
 Regeneration follows the changed model; it does not restore deleted parameters or automatically correct a mistaken answer. It can keep calibration representative while also inheriting the pruned model's new errors. The useful balance is an empirical question, especially when the remaining model already generates poor text.
 
-Pruning milestones require a fixed denominator. If 20% of the original structures have been removed, reaching 30% removes ten percentage points of the original count, or 12.5% of the remaining 80%. Removing another 10% of what remains instead reaches 28%. Structure sizes can differ, so counting structures and counting parameters need not give the same sparsity either. The implementation's exact accounting must be checked before reproducing a target ratio.
+Pruning milestones require a fixed denominator. If 20% of the original structures have been removed, reaching 30% removes ten percentage points of the original count. That is 12.5% of the remaining 80%. Removing another 10% of what remains instead reaches 28%. Structure sizes can differ, so counting structures and counting parameters need not give the same sparsity either. The implementation's exact accounting must be checked before reproducing a target ratio.
 
 ### Read the reported accuracy against the dense reference
 
@@ -962,13 +962,13 @@ Regeneration is not uniformly better: at 30% pruning, GSM8K accuracy is 91.36% w
 
 ### Preserve evaluation conditions and unresolved details
 
-The setup uses 500 training prompts per task, 2,048-token calibration caps, temperature 0.6, seed zero, and a separate model to extract final answers. The first 10% of blocks and final block are protected. [Section 5.1, PDF page 6](https://arxiv.org/pdf/2512.02185v1#page=6).
+The setup uses 500 training prompts per task, 2,048-token calibration caps, temperature 0.6 and seed zero. It uses a separate model to extract final answers. The first 10% of blocks and final block are protected. [Section 5.1, PDF page 6](https://arxiv.org/pdf/2512.02185v1#page=6).
 
 A final-answer extractor is part of the measurement procedure. Holding it fixed helps comparison, but does not make its judgments infallible. A reproduction should examine extraction mistakes, truncated outputs, decoding settings, and variability across seeds. Answer accuracy also does not directly measure whether intermediate text is coherent or correct.
 
 One calibration refresh can generate up to `500×2,048 = 1,024,000` output tokens per task under the stated cap. This is a calculated upper bound, not observed token use or runtime. Gradient calculation adds further computation and memory; not updating weights through training does not make calibration free.
 
-The inspected preprint does not establish an end-to-end hardware speedup. A smaller model can reduce work per token while generating more tokens. For a constructed case, reducing per-token time from 10 ms to 7 ms but increasing output length from 1,000 to 1,600 tokens changes decode time from 10 seconds to 11.2 seconds. Parameter sparsity alone cannot determine latency, energy, or peak memory.
+The inspected preprint does not establish an end-to-end hardware speedup. A smaller model can reduce work per token while generating more tokens. Consider a constructed case. Per-token time falls from 10 ms to 7 ms, but output length rises from 1,000 to 1,600 tokens. Decode time then changes from 10 seconds to 11.2 seconds. Parameter sparsity alone cannot determine latency, energy, or peak memory.
 
 The tables also represent different experimental paths: regeneration-ratio ablations should not silently replace main-table values. A reproducible comparison needs the checkpoint, pruning sequence, normalization, structure dependencies, and exact sparsity denominator, not just the name RESP.
 
@@ -976,7 +976,7 @@ The tables also represent different experimental paths: regeneration-ratio ablat
 
 PRISM and MXP change how retained numerical values are represented. HierPAS selects attention contributions during computation. RESP removes parameterized structures using a calibration-dependent sensitivity estimate. All can reduce cost, but they act on different objects and have different failure conditions.
 
-The testable longer-term hypothesis is that compression decisions must be refreshed when compression itself changes the behavior used to make those decisions. RESP supplies a concrete example to investigate, not evidence that every compression method needs regeneration. Testing the broader hypothesis requires multiple tasks, controlled refresh budgets, independent quality measurements, and full deployment timing.
+The testable longer-term hypothesis is that compression decisions must be refreshed. This holds when compression itself changes the behavior used to make those decisions. RESP supplies a concrete example to investigate, not evidence that every compression method needs regeneration. Testing the broader hypothesis requires multiple tasks, controlled refresh budgets, independent quality measurements, and full deployment timing.
 
 No RESP code, model benchmark, or pruning run was executed. Camera-ready reconciliation, implementation-level verification, reproduction, and independent comprehension review remain open.
 
@@ -986,11 +986,11 @@ No RESP code, model benchmark, or pruning run was executed. Camera-ready reconci
 
 ### Begin with what a complex number stores
 
-A complex number has two real components: `z = a + bi`, with `i² = −1`. Storing both a and b preserves the pair. Replacing z with only a generally loses information, but representing the pair with two real-valued channels does not inherently lose information. The arithmetic and learned constraints, not the word “real,” determine what is preserved.
+A complex number has two real components: `z = a + bi`, with `i² = −1`. Storing both a and b preserves the pair. Replacing z with only a generally loses information. Representing the pair with two real-valued channels does not inherently lose information. The arithmetic and learned constraints, not the word “real,” determine what is preserved.
 
 For example, `(2 + 3i)(4 + 5i) = −7 + 22i`. The direct calculation forms four real products: 2×4, 3×5, 2×5, and 3×4. Subtracting the first pair gives −7; adding the second pair gives 22. Two unrelated real multiplications would omit the cross terms and compute a different operation.
 
-Four products describe this direct implementation, not a universal lower bound. The same example can use `p = 2×4 = 8`, `q = 3×5 = 15`, and `r = (2+3)(4+5) = 45`; then the real result is p−q and the imaginary result is r−p−q. That uses three multiplications with additional additions and different intermediate ranges. This constructed identity is not the paper's accelerator design.
+Four products describe this direct implementation, not a universal lower bound. The same example can use `p = 2×4 = 8`, `q = 3×5 = 15`, and `r = (2+3)(4+5) = 45`. Then the real result is p−q and the imaginary result is r−p−q. That uses three multiplications with additional additions and different intermediate ranges. This constructed identity is not the paper's accelerator design.
 
 ### What the paper adds
 
@@ -1020,13 +1020,13 @@ Random masks over fixed learned weights are an approximation to a distribution o
 
 ### Check dropout scaling before comparing software and hardware
 
-Figure 3 masks channels and then multiplies retained data by the keep rate. [PDF page 4](https://arxiv.org/pdf/2604.19993v1#page=4). Selected public code uses other conventions: the PyTorch complex-dropout module multiplies by the reciprocal keep rate, whereas the inspected Keras layer only applies the mask. [Pinned PyTorch module](https://github.com/zehuanzhang/BayesCVNN/blob/26556cc74ea07fce99e49a1878d4f1f279680d46/Software/Complex-Valued/complex_dropout.py), [pinned Keras layer](https://github.com/zehuanzhang/BayesCVNN/blob/26556cc74ea07fce99e49a1878d4f1f279680d46/Hardeware/converter/keras/BernoulliDropout.py).
+Figure 3 masks channels and then multiplies retained data by the keep rate. [PDF page 4](https://arxiv.org/pdf/2604.19993v1#page=4). Selected public code uses other conventions. The PyTorch complex-dropout module multiplies by the reciprocal keep rate. The inspected Keras layer only applies the mask. [Pinned PyTorch module](https://github.com/zehuanzhang/BayesCVNN/blob/26556cc74ea07fce99e49a1878d4f1f279680d46/Software/Complex-Valued/complex_dropout.py), [pinned Keras layer](https://github.com/zehuanzhang/BayesCVNN/blob/26556cc74ea07fce99e49a1878d4f1f279680d46/Hardeware/converter/keras/BernoulliDropout.py).
 
 These conventions have different means unless compensated elsewhere. Let the input be x = 4 and the keep probability r = 0.5. Multiplying retained values by r produces output two half the time and zero otherwise, for mean one. Applying the mask alone gives mean two. Dividing retained values by r produces eight half the time, for mean four. In general the means are r²x, rx, and x respectively.
 
 The distinction is not cosmetic when comparing trained models, numerical validation, or predicted uncertainty. Compensation in other layers could reconcile a convention, but that must be demonstrated along the actual training-to-hardware path. The selected-file inspection does not establish which convention generated the published hardware results. This remains an unresolved reproduction issue, not a claim that the whole experiment is invalid.
 
-Mask sharing differs too: the inspected PyTorch code makes channel masks per batch example for four-dimensional inputs, while the Keras layer broadcasts one channel mask across the batch. That matters when interpreting independence across examples or batching repeated samples. No end-to-end conversion path was executed or fully traced.
+Mask sharing differs too. The inspected PyTorch code makes channel masks per batch example for four-dimensional inputs. The Keras layer broadcasts one channel mask across the batch. That matters when interpreting independence across examples or batching repeated samples. No end-to-end conversion path was executed or fully traced.
 
 ### Search for a stated objective, not an undefined best model
 
@@ -1036,7 +1036,7 @@ Accuracy counts correct predictions. Calibration asks whether confidence agrees 
 
 Lower calibration error need not mean higher accuracy. A model can become less confident on wrong answers and improve calibration without correcting them. Conversely, a classifier can answer more questions correctly while becoming more overconfident on its remaining errors. Both quantities matter, and neither guarantees behavior outside the evaluated distribution.
 
-The CHAR results illustrate this tradeoff: the manual configuration has accuracy 82.81% and ECE 0.59%; the minimum-ECE configuration has 77.06% and 0.53%. [Table 1, PDF page 5](https://arxiv.org/pdf/2604.19993v1#page=5). The calibration improvement accompanies a 5.75-percentage-point accuracy loss. It is not an improvement in every objective.
+The CHAR results illustrate this tradeoff. The manual configuration has accuracy 82.81% and ECE 0.59%. The minimum-ECE configuration has 77.06% and 0.53%. [Table 1, PDF page 5](https://arxiv.org/pdf/2604.19993v1#page=5). The calibration improvement accompanies a 5.75-percentage-point accuracy loss. It is not an improvement in every objective.
 
 Counting dropout components is also only a hardware-cost proxy. A component operating on a small tensor need not cost the same as one operating on a much larger tensor. Mask generation, width, parallelism, routing, and buffering affect actual cost. Evidence from the evaluated designs does not make component count universally interchangeable with silicon area or power.
 
@@ -1048,7 +1048,7 @@ In a simplified schedule where each real sub-operation takes one time unit, four
 
 Sharing an engine also changes storage lifetimes. Results from the first round must remain available while the second round runs. Duplicating engines increases simultaneous demand for operands. Whether the faster arithmetic organization improves full latency depends on memory supply and other stages.
 
-Dropout does not eliminate the cost of obtaining an uncertainty estimate. Multiple forward passes must still be produced, either sequentially, in parallel with more resources, or with carefully justified reuse of computation. Any reused state must preserve the intended mask behavior rather than inadvertently make supposedly different samples identical.
+Dropout does not eliminate the cost of obtaining an uncertainty estimate. Multiple forward passes must still be produced. They can be produced sequentially, in parallel with more resources, or with carefully justified reuse of computation. Any reused state must preserve the intended mask behavior rather than inadvertently make supposedly different samples identical.
 
 ### Keep the performance denominators aligned
 
@@ -1066,7 +1066,7 @@ This paper is not primarily a low-bit quantizer. It belongs in the discussion be
 
 RESP uses sensitivity measurements to remove structures. BayesCVNN deliberately varies selected structures during repeated inference to characterize prediction variation. Both depend on what the measurements actually mean, but their purposes and correctness conditions differ.
 
-A testable longer-term hypothesis is that useful uncertainty estimates need a joint budget for output quality, calibration, sample count, and hardware cost. Faster sampling is valuable only if the sampling procedure remains consistent with the trained model and the required uncertainty behavior. The dropout-convention discrepancy is precisely the kind of implementation boundary that such a comparison must resolve.
+A testable longer-term hypothesis is that useful uncertainty estimates need a joint budget. The budget covers output quality, calibration, sample count, and hardware cost. Faster sampling is valuable only if the sampling procedure remains consistent with the trained model and the required uncertainty behavior. The dropout-convention discrepancy is precisely the kind of implementation boundary that such a comparison must resolve.
 
 No BayesCVNN training, inference, HLS synthesis, or FPGA execution was performed. Selected code at the pinned revision was read only. Dropout-convention reconciliation, measurement provenance, broader uncertainty tests, and independent comprehension review remain open.
 
@@ -1084,7 +1084,7 @@ No manuscript was recovered. “Column energy” is not defined in the descripti
 
 For matrices A and B, output entry `C[i,j] = sum_k A[i,k]×B[k,j]`. The shared index k identifies which input components must be paired. Rearranging stored values is safe only if the implementation preserves this pairing and the correct output destination.
 
-Consider one constructed output row with input [2, 3, 5, 7] and weight columns [4, 0, 0, 6] and [0, 8, 9, 0]. The outputs are `2×4 + 7×6 = 50` and `3×8 + 5×9 = 69`. Zero products need not contribute to the sums.
+Consider one constructed output row with input [2, 3, 5, 7]. The weight columns are [4, 0, 0, 6] and [0, 8, 9, 0]. The outputs are `2×4 + 7×6 = 50` and `3×8 + 5×9 = 69`. Zero products need not contribute to the sums.
 
 Storing the first column as the compact list [4, 6] is insufficient by itself. Its original row indices [0, 3] identify input values [2, 7]. Pairing [4, 6] with the first two input values [2, 3] instead produces 26. Compression has removed positions as well as zeros, so metadata must restore their meaning during execution.
 
@@ -1096,13 +1096,13 @@ In a toy column with 256 signed eight-bit entries, dense storage is 256 bytes. S
 
 For this simple encoding, the break-even nonzero fraction is one half before other overhead. It is not a universal sparse-format threshold: run lengths, block indices, shared tables, and compressed indices change the calculation. It demonstrates why a reported matrix-compression ratio needs to include its metadata format.
 
-Metadata also consumes bandwidth. If the arithmetic unit receives a value but its matching index or table entry has not arrived, the multiply cannot safely proceed. A separate metadata fetcher may reduce that delay, but its throughput, cache behavior, and synchronization must be measured.
+Metadata also consumes bandwidth. Suppose the arithmetic unit receives a value. Its matching index or table entry may not have arrived. The multiply then cannot safely proceed. A separate metadata fetcher may reduce that delay, but its throughput, cache behavior, and synchronization must be measured.
 
 ### Sparse work can be unevenly distributed
 
 A processing element is a small arithmetic unit that performs operations such as multiplication and accumulation. An array contains many such units. A systolic organization moves operands or partial results between neighboring units on a coordinated schedule.
 
-Suppose four lanes receive sparse columns with [8, 1, 1, 2] useful operations and each lane completes one operation per cycle. If all start together and synchronize after their columns, the group takes eight cycles. There are twelve useful operations in 32 available lane-cycles, for 37.5% utilization.
+Suppose four lanes receive sparse columns with [8, 1, 1, 2] useful operations. Each lane completes one operation per cycle. If all start together and synchronize after their columns, the group takes eight cycles. There are twelve useful operations in 32 available lane-cycles, for 37.5% utilization.
 
 An ideal redistribution could divide twelve independent operations into three per lane, but matrix products are not necessarily freely interchangeable. Moving work can require different inputs, destination tags, and partial-sum merges. A schedule that balances operation counts but doubles operand traffic may lose much of the expected benefit.
 
@@ -1110,9 +1110,9 @@ This is why compression and scheduling need to be evaluated together. A compact 
 
 ### Partial sums must merge without losing identity or precision
 
-Split the first example's output 50 into contributions 8 and 42. Two units can compute them separately, but the merger must add both to the same output and must not count either twice. If a later operation reuses the accumulator before the 42 arrives, the result can be corrupted despite correct individual products.
+Split the first example's output 50 into contributions 8 and 42. Two units can compute them separately. The merger must add both to the same output and must not count either twice. If a later operation reuses the accumulator before the 42 arrives, the result can be corrupted despite correct individual products.
 
-A hardware implementation therefore needs an ordering or tagging rule, a way to recognize completed outputs, and sufficient buffering when contributors arrive at different times. A dedicated partial-sum adder is a component, not by itself a proof that these conditions hold.
+A hardware implementation therefore needs an ordering or tagging rule and a way to recognize completed outputs. It also needs sufficient buffering when contributors arrive at different times. A dedicated partial-sum adder is a component, not by itself a proof that these conditions hold.
 
 Arithmetic range also matters. One product of signed eight-bit values can be as large as `(−128)×(−128) = 16,384`. Summing 256 such products gives 4,194,304, which exceeds the maximum positive value of a signed 23-bit integer, 4,194,303. At least 24 signed bits are needed for that constructed worst case without saturation or another policy. Eight-bit inputs do not imply an eight-bit accumulator.
 
@@ -1122,35 +1122,35 @@ If intermediate results are rounded or saturated, reassociating their additions 
 
 If a hypothetical compression rule drops a column with small squared norm, it is using a numerical importance proxy. That is different from measuring joules consumed when processing that column. Switching activity, memory accesses, operand widths, and control logic affect electrical energy.
 
-Nor does small numerical magnitude guarantee a small output contribution. A discarded weight of 0.001 multiplied by an activation of 1,000 contributes one. Whether that matters depends on other contributions and the task. A rule that drops nonzero values requires an error or quality evaluation; merely repacking existing zeros does not introduce that particular error.
+Nor does small numerical magnitude guarantee a small output contribution. A discarded weight of 0.001 multiplied by an activation of 1,000 contributes one. Whether that matters depends on other contributions and the task. A rule that drops nonzero values requires an error or quality evaluation. Merely repacking existing zeros does not introduce that particular error.
 
-The manuscript must resolve which operation PEACE performs. Until then, the atlas should not classify its compression as lossless, assign it a specific norm formula, or claim task accuracy is preserved. The current subtheme placement remains a routing choice requiring finer mechanism-level reconciliation.
+The manuscript must resolve which operation PEACE performs. Until then, the atlas should not classify its compression as lossless or assign it a specific norm formula. It should also not claim task accuracy is preserved. The current subtheme placement remains a routing choice requiring finer mechanism-level reconciliation.
 
 ### An instruction extension does not eliminate transfer costs
 
 A processor instruction can request accelerator work through a defined interface. The work still needs operands, metadata, a result destination, and completion handling. If a matrix must first be compressed or copied into a special layout, that preparation may dominate short jobs.
 
-For a constructed recurring workload, suppose compression takes 20 ms and each execution saves 0.2 ms. One hundred executions merely recover the preparation time; more than one hundred are needed for a net time saving, ignoring other overhead. Fixed weights reused many times differ from matrices regenerated for every input.
+For a constructed recurring workload, suppose compression takes 20 ms and each execution saves 0.2 ms. One hundred executions merely recover the preparation time. More than one hundred are needed for a net time saving, ignoring other overhead. Fixed weights reused many times differ from matrices regenerated for every input.
 
 Similarly, reducing one GEMM operation from 10 ms to 6 ms saves four milliseconds. If new packing and dispatch add five milliseconds, the full operation becomes slower. Timing only the arithmetic array would conceal that reversal.
 
 ### Keep the reported metrics in their proper units
 
-The description reports 2.705 mm² at 14 nm, peak INT8 efficiency of 88 GOPS/W, 1.60–1.67× speedup over a RISC-V core across fourteen LLMs, and comparisons of 4.4× PE density, 1.79× average speed, and 2.53× energy efficiency against other designs. Baseline names and full conditions are absent. [DAC description](https://63dac.conference-program.com/presentation/?id=RESEARCH1885&sess=sess175).
+The description reports 2.705 mm² at 14 nm and peak INT8 efficiency of 88 GOPS/W. It reports 1.60–1.67× speedup over a RISC-V core across fourteen LLMs. It also reports comparisons of 4.4× PE density, 1.79× average speed, and 2.53× energy efficiency against other designs. Baseline names and full conditions are absent. [DAC description](https://63dac.conference-program.com/presentation/?id=RESEARCH1885&sess=sess175).
 
 GOPS/W divides billions of operations per second by watts. It is an efficiency measure, not throughput alone. Under a consistent operation definition, 88 GOPS/W corresponds to about 11.36 picojoules per counted operation. Without power, it does not establish the number of operations completed per second. Whether a multiply-accumulate counts as one operation or two must also be stated.
 
-A 1.60× speed ratio leaves 62.5% of baseline time, a 37.5% reduction. A 2.53× efficiency ratio corresponds to about 39.5% of baseline energy per matched unit of work if that is the denominator used. These quantities cannot be combined with a density maximum to describe a single operating point unless the evaluation establishes that they belong to the same configuration.
+A 1.60× speed ratio leaves 62.5% of baseline time, a 37.5% reduction. A 2.53× efficiency ratio corresponds to about 39.5% of baseline energy per matched unit of work. This holds if that is the denominator used. These quantities cannot be combined with a density maximum to describe a single operating point. The evaluation would have to establish that they belong to the same configuration.
 
-Higher processing-element density means more such units per area under the reported definition. It does not guarantee higher useful throughput if metadata or memory cannot supply them. A 14 nm area report also does not, by itself, establish a fabricated-chip measurement; synthesis, physical design, and measured silicon are different evidence levels.
+Higher processing-element density means more such units per area under the reported definition. It does not guarantee higher useful throughput if metadata or memory cannot supply them. A 14 nm area report also does not, by itself, establish a fabricated-chip measurement. Synthesis, physical design, and measured silicon are different evidence levels.
 
-The missing conditions include model names, matrix sizes, sparsity patterns, clock, memory bandwidth, numerical accuracy, operation counting, and whether preparation is included. The present evidence cannot support a fair ranking against dense GPU inference or all sparse accelerators.
+The missing conditions include model names, matrix sizes, sparsity patterns, clock and memory bandwidth. They also include numerical accuracy, operation counting, and whether preparation is included. The present evidence cannot support a fair ranking against dense GPU inference or all sparse accelerators.
 
 ### What PEACE adds to the comparison
 
-RESP removes model structures; CO-MAC changes an execution order; PEACE connects matrix representation to operand supply and partial-result merging. All involve reducing work or its cost, but preserving indices and accumulation is central to matrix compression in a way that a simple bit-width comparison misses.
+RESP removes model structures; CO-MAC changes an execution order; PEACE connects matrix representation to operand supply and partial-result merging. All involve reducing work or its cost. Preserving indices and accumulation is central to matrix compression in a way that a simple bit-width comparison misses.
 
-A testable long-term hypothesis is that metadata processing increasingly determines whether compressed arithmetic delivers a system benefit. Testing it requires the fraction of time and energy spent fetching metadata, selecting operands, waiting for imbalanced work, and merging results across multiple workloads. The hypothesis is not established by this one description.
+A testable long-term hypothesis is that metadata processing increasingly determines whether compressed arithmetic delivers a system benefit. Testing it requires the fraction of time and energy spent fetching metadata, selecting operands and waiting for imbalanced work. It also requires the share spent merging results across multiple workloads. The hypothesis is not established by this one description.
 
 No PEACE code, model benchmark, circuit, or synthesis was executed. This explanation closes the missing individual-writing slot, not the manuscript, evidence, classification, or independent comprehension requirements.
 
@@ -1164,4 +1164,4 @@ Measure both numerical behavior and application output. For a model, use a clear
 
 Hold the required answer quality fixed and compare full execution time, energy, storage, and hardware cost. Include encoding, decoding, scaling, conversion, metadata, and correction. State whether training or calibration is required and whether that work is included.
 
-The useful research conclusion is a conditional one: a particular representation and execution method reduces a stated cost while satisfying a stated output requirement on the tested inputs. Extending that result to new models, workloads, or hardware requires checking which of those conditions still hold.
+The useful research conclusion is a conditional one. A particular representation and execution method reduces a stated cost while satisfying a stated output requirement on the tested inputs. Extending that result to new models, workloads, or hardware requires checking which of those conditions still hold.

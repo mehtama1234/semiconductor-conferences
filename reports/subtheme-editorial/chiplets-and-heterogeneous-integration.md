@@ -12,7 +12,7 @@ Heterogeneous hardware contains different kinds of processing resources. Near-me
 
 The reason to combine them is that an operation may need many bytes transferred for relatively little arithmetic. Arithmetic intensity measures operations per byte moved at a specified memory boundary. Increasing available arithmetic does little for such an operation if the data cannot arrive faster. Conversely, adding bandwidth does little once the available arithmetic is the limiting resource.
 
-The boundary must be stated. An operation can reuse data efficiently inside a processing unit while repeatedly fetching those same data across a more expensive connection elsewhere. Counting only local transfers can conceal that cost.
+The boundary must be stated. An operation can reuse data efficiently inside a processing unit. It may still repeatedly fetch those same data across a more expensive connection elsewhere. Counting only local transfers can conceal that cost.
 
 <span id="explanation-dac-2026-research2417"></span>
 
@@ -22,7 +22,7 @@ The boundary must be stated. An operation can reuse data efficiently inside a pr
 
 Autoregressive decoding generates one token, or output symbol, at a time with the target language model. Speculative decoding adds a draft model that proposes a sequence or tree of candidate tokens. The target model then checks those candidates. The system accepts a prefix or selected paths according to its verification rule and rejects the rest. Rejected candidates consume computation and memory but do not become output.
 
-The useful unit is therefore accepted output tokens per elapsed time, together with output-quality and sampling conditions. A design that verifies many candidates can still be slow if the acceptance rate is low or if tree management and data movement dominate. Acceptance is not a fixed hardware property: it depends on the draft and target models, prompt distribution, generated length, tree width, sampling rule and the exact verification algorithm.
+The useful unit is therefore accepted output tokens per elapsed time, together with output-quality and sampling conditions. A design that verifies many candidates can still be slow. This happens if the acceptance rate is low or if tree management and data movement dominate. Acceptance is not a fixed hardware property. It depends on the draft and target models, prompt distribution, generated length and tree width. It also depends on the sampling rule and the exact verification algorithm.
 
 #### What the heterogeneous hardware is changing
 
@@ -32,15 +32,15 @@ These decisions are conditional on a stated boundary. Data can be local to one d
 
 #### Why Branch-KV storage needs correctness rules
 
-Attention uses key and value state from earlier positions. A tree of candidate continuations shares a prefix and then creates private branch state. The memory system must identify shared state, branch-private state and state that can be reclaimed after verification. It must prevent one branch from reading another branch's incompatible state and must preserve the accepted path after rejected branches are discarded.
+Attention uses key and value state from earlier positions. A tree of candidate continuations shares a prefix and then creates private branch state. The memory system must identify shared state, branch-private state and state that can be reclaimed after verification. It must prevent one branch from reading another branch's incompatible state. It must also preserve the accepted path after rejected branches are discarded.
 
-The Branch-KV pool can reduce fragmentation only if its allocation unit, metadata, sharing rule and reclamation procedure are defined. It also needs to handle a candidate tree whose width changes over time. A claimed reduction in wasted storage must be measured against metadata, copying, synchronization and the state-transfer work needed to verify and commit a path.
+The Branch-KV pool can reduce fragmentation only if its allocation unit, metadata, sharing rule and reclamation procedure are defined. It also needs to handle a candidate tree whose width changes over time. A claimed reduction in wasted storage must be measured against metadata, copying and synchronization. It must also be measured against the state-transfer work needed to verify and commit a path.
 
 #### What hybrid bonding does and does not prove
 
-Hybrid bonding may provide closely spaced electrical connections and a dense physical arrangement. The system claim still depends on link capacity, latency, memory bandwidth, die area, power delivery, heat removal, bond yield and assembly cost. A simulated link or an abstract bandwidth assumption is not a measured package result. The comparison must identify whether the reported factor is a kernel, accelerator, decoding-loop or complete user-visible latency measurement.
+Hybrid bonding may provide closely spaced electrical connections and a dense physical arrangement. The system claim still depends on link capacity, latency, memory bandwidth and die area. It also depends on power delivery, heat removal, bond yield and assembly cost. A simulated link or an abstract bandwidth assumption is not a measured package result. The comparison must identify whether the reported factor is a kernel, accelerator, decoding-loop or complete user-visible latency measurement.
 
-The correct comparison holds the target model, draft model, prompts, generated lengths, tree policy, acceptance rule and output-quality requirement fixed. It reports candidate tokens, accepted tokens, acceptance rate, verification time, data-transfer time, Branch-KV capacity and overhead, end-to-end latency, energy and the physical resource budget. Separate package feasibility requires bond pitch, process, thermal, yield and manufacturing assumptions.
+The correct comparison holds the target model, draft model, prompts, generated lengths, tree policy, acceptance rule and output-quality requirement fixed. It reports candidate tokens, accepted tokens, acceptance rate, verification time and data-transfer time. It also reports Branch-KV capacity and overhead, end-to-end latency, energy and the physical resource budget. Separate package feasibility requires bond pitch, process, thermal, yield and manufacturing assumptions.
 
 The captured DAC description supports a hybrid-bonding heterogeneous accelerator for tree-structured speculative decoding. It reports no acceptance rate, accepted-token throughput, latency, energy, area, thermal, bond, yield or workload-diverse result. The evidence supports a hardware direction and its evaluation requirements, not demonstrated decoding improvement or a manufacturing conclusion.
 
@@ -48,21 +48,21 @@ The captured DAC description supports a hybrid-bonding heterogeneous accelerator
 
 ## What HBSpec changes
 
-[HBSpec](../observed-subthemes/chiplets-and-heterogeneous-integration.md#paper-dac-2026-research2417) places customized processing elements on an incorporated logic die to increase near-memory computation capacity. Its official description adds communication-aware data mapping to reduce cross-bank access, an arithmetic-intensity-aware operator scheduler, and a Branch-KV pool intended to eliminate memory fragmentation.
+[HBSpec](../observed-subthemes/chiplets-and-heterogeneous-integration.md#paper-dac-2026-research2417) places customized processing elements on an incorporated logic die to increase near-memory computation capacity. Its official description adds communication-aware data mapping to reduce cross-bank access. It also adds an arithmetic-intensity-aware operator scheduler. A third addition is a Branch-KV pool intended to eliminate memory fragmentation.
 
-It reports performance factors of 15.56×, 2.36×, and 2.13× over NPU-only, NPU-plus-LPDDR, and NPU-plus-hybrid-bonding baselines, respectively. The description does not define the measured performance quantity, averaging method, model pairs, tree dimensions, acceptance rates, or baseline resource matching. Nor does it expose measured-silicon versus simulation methodology. The three factors must remain separate, and should not be relabeled as energy savings or user-visible latency reductions. [Official HBSpec description](https://63dac.conference-program.com/presentation/?id=RESEARCH2417&sess=sess142).
+It reports performance factors of 15.56×, 2.36×, and 2.13× over NPU-only, NPU-plus-LPDDR, and NPU-plus-hybrid-bonding baselines, respectively. The description does not define the measured performance quantity or averaging method. It also does not define model pairs, tree dimensions, acceptance rates, or baseline resource matching. Nor does it expose measured-silicon versus simulation methodology. The three factors must remain separate, and should not be relabeled as energy savings or user-visible latency reductions. [Official HBSpec description](https://63dac.conference-program.com/presentation/?id=RESEARCH2417&sess=sess142).
 
 A memory bank is a separately managed part of a memory array. Mapping related data to suitable banks can change which accesses compete and which transfers must cross bank boundaries. But locality and balance can conflict: concentrating related data may reduce some transfers while overloading a bank. A complete assessment should measure both effects.
 
-An operator scheduler assigns pieces of computation to available execution resources. Its decision must account for input location and transfer cost as well as arithmetic demand. Reassigning an operation is useful only if the savings exceed the cost of getting data to that resource and returning the result where it is needed.
+An operator scheduler assigns pieces of computation to available execution resources. Its decision must account for input location and transfer cost as well as arithmetic demand. Reassigning an operation is useful only if the savings exceed a cost. That cost is getting data to that resource and returning the result where it is needed.
 
 ## Branch storage needs correctness as well as capacity
 
-The key/value cache stores attention information from earlier token positions. For a candidate tree, branches may share earlier positions and diverge later. Memory management must distinguish state that is still shared, state private to a candidate, and state no longer needed after verification.
+The key/value cache stores attention information from earlier token positions. For a candidate tree, branches may share earlier positions and diverge later. Memory management must distinguish state that is still shared and state private to a candidate. It must also identify state no longer needed after verification.
 
 Fragmentation means allocated or free space is divided in a way that prevents efficient use. A pool can organize allocation, but its name alone does not establish zero waste. The full method must explain allocation granularity, metadata, reclamation, and whether partial blocks can be reused. The short source does not supply those details.
 
-Correctness checks must ensure that one branch does not use another branch's incompatible state. After accepting a path, the system must preserve its required state while safely reclaiming rejected paths. These are validation requirements for tree-state management, not claims that a particular undocumented HBSpec implementation uses reference counting, paging, or any other specific mechanism.
+Correctness checks must ensure that one branch does not use another branch's incompatible state. After accepting a path, the system must preserve its required state while safely reclaiming rejected paths. These are validation requirements for tree-state management. They are not claims that a particular undocumented HBSpec implementation uses reference counting, paging, or any other specific mechanism.
 
 ## What a meaningful end-to-end test would measure
 
@@ -74,6 +74,6 @@ The package assessment also needs bond pitch, link capacity, memory organization
 
 ## Connection to the wider theme and evidence boundary
 
-The conceptual connection is that a branching algorithm changes memory demand and available parallelism, which can change the preferred arrangement of compute and memory. This is an inference from the design problem. One paper does not establish a long-term trend or show that hybrid bonding is necessary for every speculative-decoding workload.
+The conceptual connection is that a branching algorithm changes memory demand and available parallelism. These changes can change the preferred arrangement of compute and memory. This is an inference from the design problem. One paper does not establish a long-term trend or show that hybrid bonding is necessary for every speculative-decoding workload.
 
-The official description was refreshed on 2026-09-07 and supersedes the historical card's missing-result statement where cited above. Author publication lists confirm the work, but no full manuscript was recovered, so page-backed implementation and evaluation conditions remain missing. H2-LLM and the authors' earlier adaptive draft-length paper are related but distinct works; their numbers cannot substitute for HBSpec's missing experiments.
+The official description was refreshed on 2026-09-07 and supersedes the historical card's missing-result statement where cited above. Author publication lists confirm the work, but no full manuscript was recovered, so page-backed implementation and evaluation conditions remain missing. H2-LLM and the authors' earlier adaptive draft-length paper are related but distinct works. Their numbers cannot substitute for HBSpec's missing experiments.

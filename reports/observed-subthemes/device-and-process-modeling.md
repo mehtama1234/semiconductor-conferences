@@ -38,7 +38,7 @@ Inputs can include geometry, material parameters, or operating conditions, depen
 
 The captured description provides no dataset, split procedure, process range, prediction error, or extrapolation results. It therefore does not establish transfer across technologies or calibration against measured silicon. A symbolic expression that can be evaluated at an arbitrary input does not establish that the output is meaningful there.
 
-For use in a larger simulator, further properties can matter, including smoothness and numerical behavior where the simulator evaluates or differentiates the model. The record does not specify such integration or demonstrate complete simulator execution.
+For use in a larger simulator, further properties can matter. These include smoothness and numerical behavior where the simulator evaluates or differentiates the model. The record does not specify such integration or demonstrate complete simulator execution.
 
 ## Judge the model through the decision it supports
 
@@ -54,32 +54,32 @@ Runtime must include the relevant model-building costs as well as repeated evalu
 
 A detailed device or interconnect calculation may solve many coupled physical quantities for one geometry and operating condition. Design–technology co-optimization needs to evaluate many candidate geometries, materials, or circuit choices. A compact model approximates the relation between inputs and outputs so that this evaluation can be repeated more cheaply.
 
-The inputs might include geometry, material properties, temperature, voltage, frequency or process parameters, and the output might be a delay, capacitance, resistance, current or another device quantity. The paper's captured description does not identify which quantity is modeled, so no specific device equation is attributed to it. The central requirement is that the compact model preserve the part of the physical relation that changes the design decision.
+The inputs might include geometry, material properties, temperature, voltage, frequency or process parameters. The output might be a delay, capacitance, resistance, current or another device quantity. The paper's captured description does not identify which quantity is modeled, so no specific device equation is attributed to it. The central requirement is that the compact model preserve the part of the physical relation that changes the design decision.
 
 ### Distillation has two different fidelity targets
 
 A neural model can represent a complicated relation through learned numerical operations. A symbolic model expresses a relation as explicit functions and parameters. Distilling one into the other can improve inspection or evaluation cost, but it creates two separate tests. The symbolic expression may reproduce the neural model, while both may still disagree with a trusted physical simulator or measurement.
 
-The description names EKAN as the neural-to-symbolic method but does not expose its architecture, fitting objective, expression grammar, selection rule or stopping criterion. “Physics-prior” also does not identify which physical laws are encoded, how strongly they are enforced, or what residual violations remain. An expression that looks physically plausible can still have the wrong scale, wrong limiting behavior or invalid dependence on an unobserved variable.
+The description names EKAN as the neural-to-symbolic method. It does not expose its architecture, fitting objective, expression grammar, selection rule or stopping criterion. “Physics-prior” also does not identify which physical laws are encoded, how strongly they are enforced, or what residual violations remain. An expression that looks physically plausible can still have the wrong scale. It can also have the wrong limiting behavior or invalid dependence on an unobserved variable.
 
 ### Validity is a region, not a property of the expression alone
 
-Every fitted model has a domain: the geometries, materials, process conditions and operating range represented during construction and validation. Interpolation within that domain is different from extrapolation to a new material, dimension or process node. A symbolic expression can be evaluated outside its training range because the mathematics permits the input; that does not show that the prediction is physically meaningful there.
+Every fitted model has a domain: the geometries, materials, process conditions and operating range represented during construction and validation. Interpolation within that domain is different from extrapolation to a new material, dimension or process node. A symbolic expression can be evaluated outside its training range because the mathematics permits the input. That does not show that the prediction is physically meaningful there.
 
-The model also has to behave well when embedded in a larger optimizer or simulator. If the downstream tool differentiates the model, discontinuities or unstable derivatives can change the search. If a design decision depends on a small difference between candidates, an average prediction error can be less informative than ranking errors near a constraint boundary.
+The model also has to behave well when embedded in a larger optimizer or simulator. If the downstream tool differentiates the model, discontinuities or unstable derivatives can change the search. A design decision may depend on a small difference between candidates. In that case, an average prediction error can be less informative than ranking errors near a constraint boundary.
 
 ### The downstream design decision is the strongest test
 
-The useful question is not only whether the symbolic model has a low prediction error. It is whether designs selected using the compact model remain acceptable when evaluated with a trusted physical reference. A complete comparison should report model construction, neural training, symbolic distillation, repeated evaluation, reference simulation, failed candidates and any amortization across designs.
+The useful question is not only whether the symbolic model has a low prediction error. It is whether designs selected using the compact model remain acceptable when evaluated with a trusted physical reference. A complete comparison should report model construction, neural training, symbolic distillation and repeated evaluation. It should also report reference simulation, failed candidates and any amortization across designs.
 
-The stored record names a neural compact model and a traditional analytical model as comparison categories, but gives no process range, dataset, split, prediction error, extrapolation result, runtime, or silicon correlation. These are not minor omissions: they determine whether the model is a usable DTCO component or only a representation of a particular training set.
+The stored record names a neural compact model and a traditional analytical model as comparison categories. It gives no process range, dataset, split, prediction error, extrapolation result, runtime, or silicon correlation. These are not minor omissions. They determine whether the model is a usable DTCO component or only a representation of a particular training set.
 
 ### What the paper establishes and what remains open
 
-The accessible description establishes a proposed physics-prior neural-to-symbolic compact-model flow for BEOL-compatible DTCO using EKAN. It does not establish the modeled physical quantity, physical-law guarantees, process transfer, measured-silicon agreement, downstream design improvement, or symbolic-model superiority. A stronger evaluation would publish inputs/outputs, materials and geometry, priors, expression form, training and distillation budget, process range, train/test split, physical reference, error and ranking metrics, extrapolation tests, simulator integration and design-level outcomes.
+The accessible description establishes a proposed physics-prior neural-to-symbolic compact-model flow for BEOL-compatible DTCO using EKAN. It does not establish the modeled physical quantity, physical-law guarantees, process transfer, measured-silicon agreement, downstream design improvement, or symbolic-model superiority. A stronger evaluation would publish inputs/outputs, materials and geometry, priors, expression form, and training and distillation budget. It would also publish process range, train/test split, physical reference, error and ranking metrics. It would publish extrapolation tests, simulator integration and design-level outcomes too.
 
 [Official DAC description, record RESEARCH2336](https://63dac.conference-program.com/presentation/?id=RESEARCH2336&sess=sess109)
-The paper motivates combining physical knowledge with explicit learned expressions for efficient design analysis. The current official description supports that methodological direction, not a verified physical model, a measured process improvement, or a general claim that symbolic models are superior. Those conclusions require calibrated references, declared validity ranges, reproducible model construction, and downstream decision checks.
+The paper motivates combining physical knowledge with explicit learned expressions for efficient design analysis. The current official description supports that methodological direction. It does not support a verified physical model or a measured process improvement. It does not support a general claim that symbolic models are superior. Those conclusions require calibrated references, declared validity ranges, reproducible model construction, and downstream decision checks.
 
 ## Compare the results carefully
 

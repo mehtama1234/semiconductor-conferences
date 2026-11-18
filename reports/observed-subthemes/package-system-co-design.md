@@ -24,7 +24,7 @@ The source does not specify the density windows, allowed density range, hole rul
 
 ## What BLADE proposes
 
-The official description says BLADE expands planes from skeletons while enforcing metal-density and degassing constraints. A skeleton here is the starting geometric structure identified by the source, not a complete final plane. The exact construction and expansion rules are not exposed, so the explanation cannot claim a particular connectivity guarantee or geometric algorithm.
+The official description says BLADE expands planes from skeletons while enforcing metal-density and degassing constraints. A skeleton here is the starting geometric structure identified by the source, not a complete final plane. The exact construction and expansion rules are not exposed. The explanation therefore cannot claim a particular connectivity guarantee or geometric algorithm.
 
 The method combines a fast IR-drop evaluator with bi-level Bayesian optimization. Bayesian optimization uses accumulated evaluations to guide which candidates to examine next when evaluating every choice is expensive. “Bi-level” indicates two levels of optimization in the proposed method. The short description does not identify the variables assigned to each level or their coordination procedure.
 
@@ -34,13 +34,13 @@ The important relationship is that candidate selection depends on an electrical 
 
 BLADE is evaluated on six system-in-package cases. The captured description does not name the baseline methods or report numerical IR-drop improvements, absolute runtime, or package geometry. Six cases do not establish six independent technologies or broad transfer to other fabrication processes.
 
-A meaningful comparison would use the same source and load locations, current demands, layer stack, manufacturing rules, and acceptance limits. It would report whether all constraints are satisfied, how voltage loss is distributed across the package, and how much time is spent generating and evaluating candidates.
+A meaningful comparison would use the same source and load locations, current demands, layer stack, manufacturing rules, and acceptance limits. It would report whether all constraints are satisfied. It would also report how voltage loss is distributed across the package. Finally, it would report how much time is spent generating and evaluating candidates.
 
-Search results also need their total budget. Comparing a long optimized run with a short baseline run can confuse additional effort with a better method. Preparation of the fast evaluator, failed candidates, and any final repair should be counted separately and included where they belong in the intended workflow.
+Search results also need their total budget. Comparing a long optimized run with a short baseline run can confuse additional effort with a better method. Preparation of the fast evaluator, failed candidates, and any final repair should be counted separately. They should be included where they belong in the intended workflow.
 
 ## From synthesis to physical confidence
 
-Passing the encoded metal-density rules establishes compliance with those rules, not measured absence of warpage. Likewise, a predicted low IR drop is not a physical voltage measurement. Stronger evidence would validate the electrical evaluator against a trusted reference and assess the manufacturing assumptions with the appropriate process evidence.
+Passing the encoded metal-density rules establishes compliance with those rules, not measured absence of warpage. Likewise, a predicted low IR drop is not a physical voltage measurement. Stronger evidence would validate the electrical evaluator against a trusted reference. It would also assess the manufacturing assumptions with the appropriate process evidence.
 
 The paper motivates treating electrical and fabrication requirements together while generating package structures. That is the defensible cross-level insight: package geometry constrains useful power delivery, so optimization cannot consider either requirement in isolation. The current record does not establish a complete system performance gain, improved production yield, or a general deployment recommendation. Those conclusions would require additional measured or calibrated evidence beyond the reported six-case scope.
 
@@ -48,25 +48,25 @@ The paper motivates treating electrical and fabrication requirements together wh
 
 ## BLADE: package-plane search must satisfy geometry, electrical, and manufacturing contracts together
 
-A package power/ground plane is a conductive network that distributes supply and return current across package layers. Its shape changes path resistance and therefore voltage loss, but the package process may impose a metal-density window to reduce warpage and require degassing holes. Those holes remove or interrupt candidate metal regions. A plane that is electrically favorable under an unconstrained model can therefore be illegal or mechanically unsuitable.
+A package power/ground plane is a conductive network that distributes supply and return current across package layers. Its shape changes path resistance and therefore voltage loss. However, the package process may impose a metal-density window to reduce warpage and require degassing holes. Those holes remove or interrupt candidate metal regions. A plane that is electrically favorable under an unconstrained model can therefore be illegal or mechanically unsuitable.
 
-BLADE is described as expanding a power/ground-plane skeleton while enforcing metal density and degassing constraints. The skeleton is a starting geometry, not evidence that the final candidate is connected, routable, manufacturable, or free of current bottlenecks. The captured description does not specify the representation, layer stack, expansion moves, connectivity checks, hole placement rules, density window, material model, or boundary conditions.
+BLADE is described as expanding a power/ground-plane skeleton while enforcing metal density and degassing constraints. The skeleton is a starting geometry. It is not evidence that the final candidate is connected, routable, manufacturable, or free of current bottlenecks. The captured description does not specify the representation, layer stack, expansion moves, or connectivity checks. It also does not specify hole placement rules, density window, material model, or boundary conditions.
 
 ### The evaluator and the search can fail independently
 
-The method combines a fast IR-drop evaluator with bi-level Bayesian optimization. Bayesian optimization uses previous candidate evaluations to choose where to sample next; bi-level means that the search has two coordinated levels, but the source does not identify their variables, acquisition functions, nesting, constraints, or stopping rule. A fast evaluator is useful only if its ranking agrees with a trusted electrical analysis over the relevant geometry and load range.
+The method combines a fast IR-drop evaluator with bi-level Bayesian optimization. Bayesian optimization uses previous candidate evaluations to choose where to sample next. Bi-level means that the search has two coordinated levels. However, the source does not identify their variables, acquisition functions, nesting, constraints, or stopping rule. A fast evaluator is useful only if its ranking agrees with a trusted electrical analysis. The agreement must hold over the relevant geometry and load range.
 
-Validate both stages separately. Compare evaluator voltage fields, worst drops, current density and constraint violations against a trusted package solver on held-out planes. Then compare the optimizer's selected candidate with the best candidate found under a fixed evaluation budget, including failed or infeasible proposals, surrogate fitting, acquisition optimization, constraint handling, initialization, retries and final repair. A lower surrogate objective is not proof of lower physical IR drop.
+Validate both stages separately. Compare evaluator voltage fields, worst drops, current density and constraint violations against a trusted package solver on held-out planes. Then compare the optimizer's selected candidate with the best candidate found under a fixed evaluation budget. Include failed or infeasible proposals, surrogate fitting, acquisition optimization, constraint handling, initialization, retries and final repair. A lower surrogate objective is not proof of lower physical IR drop.
 
 ### Density compliance is not warpage measurement
 
-Metal density must be defined over a region and window: a package-wide average can hide local windows that violate process rules. Satisfying an encoded density constraint shows only that the candidate meets that encoded rule. It does not establish mechanical warpage, laminate behavior, thermal expansion, fabrication yield, or the manufacturability of contacts, vias and degassing openings. Those claims require the process stack, mechanical model or measured package evidence.
+Metal density must be defined over a region and window. A package-wide average can hide local windows that violate process rules. Satisfying an encoded density constraint shows only that the candidate meets that encoded rule. It does not establish mechanical warpage, laminate behavior, thermal expansion, or fabrication yield. It also does not establish the manufacturability of contacts, vias and degassing openings. Those claims require the process stack, mechanical model or measured package evidence.
 
 ### IR-drop comparisons need the complete electrical boundary
 
-Report source and sink locations, current waveforms, layer resistances, vias, return paths, temperature, frequency, allowable voltage limits, solver tolerances and whether coupling or transient behavior is modeled. Measure spatial distributions and worst-case percentiles, not only an average. Include plane generation, evaluator time, constraint checking, repair and any downstream extraction in the search budget. Compare against named prior synthesis methods with the same geometry, loads, rules, solver and evaluation budget.
+Report source and sink locations, current waveforms, layer resistances, vias, return paths, temperature, and frequency. Also report allowable voltage limits, solver tolerances and whether coupling or transient behavior is modeled. Measure spatial distributions and worst-case percentiles, not only an average. Include plane generation, evaluator time, constraint checking, repair and any downstream extraction in the search budget. Compare against named prior synthesis methods with the same geometry, loads, rules, solver and evaluation budget.
 
-The six SiP cases establish an evaluation scope, not broad process transfer. The source reports that BLADE satisfies the metal-density constraint and achieves superior IR-drop performance, but provides no numerical IR-drop gain, baseline identity, geometry, runtime, mechanical result, fabricated-package measurement or yield. The evidence supports constrained package P/G-plane synthesis, not demonstrated production-ready power integrity, warpage control, or general package-system improvement.
+The six SiP cases establish an evaluation scope, not broad process transfer. The source reports that BLADE satisfies the metal-density constraint and achieves superior IR-drop performance. However, it provides no numerical IR-drop gain, baseline identity, geometry, runtime, mechanical result, fabricated-package measurement or yield. The evidence supports constrained package P/G-plane synthesis, not demonstrated production-ready power integrity, warpage control, or general package-system improvement.
 
 ## Compare the results carefully
 

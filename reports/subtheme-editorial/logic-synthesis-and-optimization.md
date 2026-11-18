@@ -22,21 +22,21 @@ The multiple-node Boolean-optimization record proposes transformations across mo
 
 #### Why one-node rewriting can stop too early
 
-A Boolean network contains nodes whose outputs feed other nodes. A single-node rewrite replaces one function while holding the surrounding network mostly fixed. That restriction makes search manageable, but the best change may require several nodes to change together: one node may be simplified only if another node is reshaped, two similar computations may become a shared intermediate, or a duplicated term may be removed only after downstream logic is reorganized.
+A Boolean network contains nodes whose outputs feed other nodes. A single-node rewrite replaces one function while holding the surrounding network mostly fixed. That restriction makes search manageable. However, the best change may require several nodes to change together. One node may be simplified only if another node is reshaped. Two similar computations may become a shared intermediate. A duplicated term may be removed only after downstream logic is reorganized.
 
-Multi-node optimization searches a larger window and considers a coordinated replacement. The replacement must preserve every affected output, not only the output of one selected node. It must also preserve constraints on constants, unused outputs, fanout, state boundaries if present and interfaces to the rest of the network.
+Multi-node optimization searches a larger window and considers a coordinated replacement. The replacement must preserve every affected output, not only the output of one selected node. It must also preserve constraints on constants, unused outputs, fanout and state boundaries if present. It must preserve interfaces to the rest of the network too.
 
 #### Why fewer nodes is not the same as better hardware
 
 Sharing an intermediate can reduce duplicated logic, but it can increase fanout and wire length. A shared signal may need buffers, larger drivers or longer routes. A rewrite that reduces the Boolean graph can therefore increase delay, power or congestion after technology mapping. Conversely, a duplicated expression can be better when it keeps timing-critical paths local.
 
-The objective must state whether it optimizes abstract node count, mapped cell area, timing, power, switching, congestion or a weighted combination. The equivalence check must cover all outputs under the same input assumptions. A larger replacement can also create more solver work and more opportunities for timeout or incomplete search; failure to find a replacement is not evidence that no better replacement exists.
+The objective must state what it optimizes. Options are abstract node count, mapped cell area, timing, power, switching, congestion or a weighted combination. The equivalence check must cover all outputs under the same input assumptions. A larger replacement can also create more solver work. It can create more opportunities for timeout or incomplete search. Failure to find a replacement is not evidence that no better replacement exists.
 
 #### What a complete multi-node evaluation needs
 
-Define the rewrite window, number of nodes, allowed operators, shared-boundary signals, constant and don't-care assumptions, equivalence method, timeout and cost function. Compare single-node rewriting, commercial synthesis and the multi-node method on the same combinational networks, technology library, constraints and mapping flow. Report accepted and rejected candidates, equivalence-check time, search time, timeout rate, memory, area, timing, power, fanout, buffering, congestion and downstream repair.
+Define the rewrite window, number of nodes, allowed operators, shared-boundary signals, and constant and don't-care assumptions. Also define the equivalence method, timeout and cost function. Compare single-node rewriting, commercial synthesis and the multi-node method on the same combinational networks, technology library, constraints and mapping flow. Report accepted and rejected candidates, equivalence-check time, search time, timeout rate and memory. Also report area, timing, power, fanout, buffering, congestion and downstream repair.
 
-Test circuits with common subexpressions, reconvergent paths, high fanout, irregular structure and multiple outputs. Measure both local graph change and final mapped implementation. The captured official description identifies multiple-node Boolean optimization but reports no area, delay, power, runtime or benchmark result. The evidence supports coordinated rewriting as a search direction, not proven mapped-circuit improvement or universal advantage over local or commercial synthesis.
+Test circuits with common subexpressions, reconvergent paths, high fanout, irregular structure and multiple outputs. Measure both local graph change and final mapped implementation. The captured official description identifies multiple-node Boolean optimization but reports no area, delay, power, runtime or benchmark result. The evidence supports coordinated rewriting as a search direction. It does not show proven mapped-circuit improvement or universal advantage over local or commercial synthesis.
 
 ## Satisfiability reasoning can check a candidate
 
@@ -52,21 +52,21 @@ An unfinished search does not prove that a better implementation does not exist.
 
 #### What the optimizer is trying to change
 
-The method starts with a logic or mapped circuit and selects a local region for replacement. It searches for a smaller implementation that produces the same required outputs and does not violate a delay constraint. The local boundary limits the number of signals and nodes under consideration, which makes the search more manageable but prevents the method from seeing improvements that require distant or coordinated changes.
+The method starts with a logic or mapped circuit and selects a local region for replacement. It searches for a smaller implementation that produces the same required outputs and does not violate a delay constraint. The local boundary limits the number of signals and nodes under consideration. This makes the search more manageable. It also prevents the method from seeing improvements that require distant or coordinated changes.
 
 SAT can encode the original and candidate functions and ask whether an input exists that makes them differ. If no satisfying counterexample exists under the model, the candidate is functionally equivalent for the encoded assumptions. The optimizer can combine this correctness condition with candidate-shape and area constraints, then search for a feasible replacement.
 
 #### What the delay constraint actually means
 
-Delay is not a Boolean property. A synthesis tool may estimate it from cell timing tables, logic depth, fanout, wire assumptions or a simplified timing graph. The candidate can satisfy that estimate while failing after mapping, placement, routing, parasitic extraction, voltage/temperature corners or input-slew and output-load changes.
+Delay is not a Boolean property. A synthesis tool may estimate it from cell timing tables, logic depth, fanout, wire assumptions or a simplified timing graph. The candidate can satisfy that estimate while failing after mapping, placement, routing, or parasitic extraction. It can also fail across voltage/temperature corners or input-slew and output-load changes.
 
-The acceptance rule must state whether delay is a hard limit, a worst-path limit, a slack constraint or a weighted objective. It must identify the timing model and whether area counts cells, gate equivalents, transistor area or a later physical result. A smaller circuit that increases a non-critical path may be acceptable; one that slightly changes the critical path may violate the actual design target.
+The acceptance rule must state what delay is. Options are a hard limit, a worst-path limit, a slack constraint or a weighted objective. It must identify the timing model and whether area counts cells, gate equivalents, transistor area or a later physical result. A smaller circuit that increases a non-critical path may be acceptable. One that slightly changes the critical path may violate the actual design target.
 
 #### Why local SAT search has a resource boundary
 
-The search has at least three costs: generating candidates, proving equivalence and evaluating the area/timing model. SAT difficulty depends on the region, logic structure and encoding. A timeout means the solver did not establish feasibility or infeasibility within the budget; it does not prove that no better replacement exists. The system should record accepted, rejected, timed-out and unresolved regions separately.
+The search has at least three costs: generating candidates, proving equivalence and evaluating the area/timing model. SAT difficulty depends on the region, logic structure and encoding. A timeout means the solver did not establish feasibility or infeasibility within the budget. It does not prove that no better replacement exists. The system should record accepted, rejected, timed-out and unresolved regions separately.
 
-Compare heuristic area optimization and SAT-free local search on the same mapped circuits, library, timing constraints and compute budget. Report area change, delay/slack change, power, solver time, total runtime, memory, timeout rate, number of regions, equivalence failures and downstream repair. Then run placement, routing, extraction and signoff checks. The captured official description reports no area, delay, solve-time, memory or circuit-suite results. The evidence supports a delay-constrained local-search direction, not proven PPA improvement or timing closure.
+Compare heuristic area optimization and SAT-free local search on the same mapped circuits, library, timing constraints and compute budget. Report area change, delay/slack change, power, solver time, total runtime and memory. Also report timeout rate, number of regions, equivalence failures and downstream repair. Then run placement, routing, extraction and signoff checks. The captured official description reports no area, delay, solve-time, memory or circuit-suite results. The evidence supports a delay-constrained local-search direction, not proven PPA improvement or timing closure.
 
 ## Transistor-network synthesis changes the implementation level
 
@@ -80,21 +80,21 @@ Electrical behavior and layout constraints still matter. A transistor-count impr
 
 #### What is being mapped
 
-Logic synthesis starts with a Boolean network and must produce a physical switching network. A cut divides a network region from the signals entering and leaving it. A mapper can enumerate or select candidate implementations for a cut, then connect those local choices into a larger circuit. A transistor network describes how transistors connect to realize the pull-up and pull-down behavior of CMOS logic rather than treating a gate as an indivisible library object.
+Logic synthesis starts with a Boolean network and must produce a physical switching network. A cut divides a network region from the signals entering and leaving it. A mapper can enumerate or select candidate implementations for a cut, then connect those local choices into a larger circuit. A transistor network describes how transistors connect to realize the pull-up and pull-down behavior of CMOS logic. It does not treat a gate as an indivisible library object.
 
-This representation can expose transistor arrangements that ordinary gate mapping cannot see. It also introduces more physical constraints. Series and parallel devices affect resistance, capacitance, signal rise and fall, leakage, input dependence and layout. A smaller transistor count is only one possible cost and may not predict final area or timing after sizing, buffering and routing.
+This representation can expose transistor arrangements that ordinary gate mapping cannot see. It also introduces more physical constraints. Series and parallel devices affect resistance, capacitance, signal rise and fall, leakage, input dependence and layout. A smaller transistor count is only one possible cost. It may not predict final area or timing after sizing, buffering and routing.
 
 #### What SAT-based refinement contributes
 
-SAT reasoning encodes Boolean conditions and asks whether an assignment exists that satisfies them. For a candidate replacement, an equivalence check can ask whether there is an input on which the original and candidate produce different outputs. If no such input exists under the encoded model, the functions are equivalent for that model. A refinement step can use this reasoning to search around a mapped candidate or reject a functionally wrong one.
+SAT reasoning encodes Boolean conditions and asks whether an assignment exists that satisfies them. For a candidate replacement, an equivalence check can ask a question. It asks whether there is an input on which the original and candidate produce different outputs. If no such input exists under the encoded model, the functions are equivalent for that model. A refinement step can use this reasoning to search around a mapped candidate or reject a functionally wrong one.
 
-The result depends on the encoding. Sequential state, unknown values, input constraints, timing assumptions, power behavior and analog transistor effects are not automatically captured by a Boolean formula. A SAT proof of combinational equivalence does not prove setup/hold behavior, delay, power, reliability, layout legality or manufacturability. The mapper must also state how it handles unresolved searches and candidates that pass logic checking but fail electrical checks.
+The result depends on the encoding. A Boolean formula does not automatically capture sequential state, unknown values, input constraints or timing assumptions. It also does not automatically capture power behavior or analog transistor effects. A SAT proof of combinational equivalence does not prove setup/hold behavior, delay, power, reliability, layout legality or manufacturability. The mapper must also state how it handles unresolved searches and candidates that pass logic checking but fail electrical checks.
 
 #### What a complete transistor-synthesis evaluation needs
 
-Fix the input networks, transistor or cell library, process assumptions, voltage, loads, timing constraints and output requirements. Compare conventional logic synthesis, non-refined transistor mapping and SAT-refined mapping with the same equivalence rule and implementation flow. Report mapped area, transistor count, delay, slew, power, leakage, congestion, search time, SAT time, memory, unresolved cases and downstream repair cost.
+Fix the input networks, transistor or cell library, process assumptions, voltage, loads, timing constraints and output requirements. Compare conventional logic synthesis, non-refined transistor mapping and SAT-refined mapping with the same equivalence rule and implementation flow. Report mapped area, transistor count, delay, slew, power, leakage and congestion. Also report search time, SAT time, memory, unresolved cases and downstream repair cost.
 
-Then perform electrical and physical validation: device sizing, parasitic extraction, layout checks, timing across corners, power across workloads, reliability limits and representative larger designs. Test sharing, reconvergent logic, high fanout, irregular cuts and circuits that make the search difficult. The captured official description claims area-oriented transistor synthesis but reports no area, delay, power, SAT cost or benchmark result. The evidence supports a cut-based mapping and refinement direction, not proven area improvement, global optimality or post-layout readiness.
+Then perform electrical and physical validation. This covers device sizing, parasitic extraction, layout checks, timing across corners, power across workloads, reliability limits and representative larger designs. Test sharing, reconvergent logic, high fanout, irregular cuts and circuits that make the search difficult. The captured official description claims area-oriented transistor synthesis but reports no area, delay, power, SAT cost or benchmark result. The evidence supports a cut-based mapping and refinement direction, not proven area improvement, global optimality or post-layout readiness.
 
 ## How to compare synthesis methods
 
@@ -102,4 +102,4 @@ Use the same input circuits, functional requirements, technology library or devi
 
 Measure final area together with timing and power where relevant. State whether costs come from an abstract graph, mapped cells, or extracted physical implementation. Include later repair and optimization steps because they can change the apparent benefit.
 
-Test circuits with different amounts of sharing and structural regularity. A strong explanation identifies why the replacement is useful, what additional cost it introduces, and which implementation conditions preserve the benefit. That supports reuse beyond a single favorable benchmark.
+Test circuits with different amounts of sharing and structural regularity. A strong explanation identifies why the replacement is useful and what additional cost it introduces. It also identifies which implementation conditions preserve the benefit. That supports reuse beyond a single favorable benchmark.

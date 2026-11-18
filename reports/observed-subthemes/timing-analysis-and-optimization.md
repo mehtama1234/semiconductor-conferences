@@ -24,21 +24,21 @@ The proposed method coordinates work at the warp level, the GPU execution groupi
 
 Placement performs other work besides timing analysis. Consequently, accelerating the analyzer need not accelerate the entire placement process by the same factor. The [expanded manuscript discussion](#explanation-dac-2026-research004) now supplies selected absolute times, circuit conditions and a timing-quality regression that the original description omitted. A fair evaluation still needs comparable timing conclusions and designs meeting the same constraints.
 
-The engine also supports differentiable analysis: computing information about how an analysis objective changes as adjustable quantities change. That can guide optimization, but an available gradient does not prove that every suggested physical change is legal or improves the final routed circuit. Gradient cost, optimization convergence, and completed design quality require separate measurements.
+The engine also supports differentiable analysis: computing information about how an analysis objective changes as adjustable quantities change. That can guide optimization. An available gradient does not prove that every suggested physical change is legal or improves the final routed circuit. Gradient cost, optimization convergence, and completed design quality require separate measurements.
 
 ## Powerpath: reducing the search needed for cell constraints
 
 [Powerpath](../observed-subthemes/timing-analysis-and-optimization.md#paper-dac-2026-research025) targets sequential-constraint characterization. Finding a limiting timing condition can require repeated detailed circuit simulations as a search narrows the acceptable interval. A reliable estimate that starts the search closer to the answer can reduce that work.
 
-The method uses a supply-current signature from an already required reference-delay simulation. “Internal-probe-free” means the proposed estimate does not require the internal probes targeted by its comparison; it does not mean no simulation or measurement information is needed. The description identifies affine lookup-table calibration and online ridge regression. In plain terms, these calibrate a relationship between observed information and the search estimate, with the regression regularized to limit unstable fitting.
+The method uses a supply-current signature from an already required reference-delay simulation. “Internal-probe-free” means the proposed estimate does not require the internal probes targeted by its comparison; it does not mean no simulation or measurement information is needed. The description identifies affine lookup-table calibration and online ridge regression. In plain terms, these calibrate a relationship between observed information and the search estimate. The regression is regularized to limit unstable fitting.
 
 The reported evaluation uses post-layout TSMC 5 nm and 12 nm libraries across five process-voltage-temperature corners. A corner specifies the conditions under which the model is evaluated. The description reports 1.5-fold acceleration with affine calibration and 3.6-fold acceleration with statistical calibration. Those results should remain attached to their respective methods, not summarized as a single universal gain.
 
-The description calls the accuracy suitable for final design checking, but does not provide error distributions. That wording is a source claim rather than an independently established accuracy bound. Evaluation should inspect cases where interval reduction might exclude the true boundary, along with the fallback and extra simulation cost when an estimate is poor.
+The description calls the accuracy suitable for final design checking, but does not provide error distributions. That wording is a source claim rather than an independently established accuracy bound. Evaluation should inspect cases where interval reduction might exclude the true boundary. It should also inspect the fallback and extra simulation cost when an estimate is poor.
 
 ## The end-to-end research question
 
-These papers address complementary parts of timing work: creating constraints and propagating timing through a design. They motivate asking how much complete design turnaround improves when both costs fall while the final acceptance criteria remain unchanged. They do not demonstrate their integration. Any combined study must count calibration, data conversion, GPU transfers, repeated optimization, and final reference checks before claiming a full-flow improvement.
+These papers address complementary parts of timing work: creating constraints and propagating timing through a design. They motivate asking how much complete design turnaround improves when both costs fall while the final acceptance criteria remain unchanged. They do not demonstrate their integration. Any combined study must count calibration, data conversion, GPU transfers, repeated optimization, and final reference checks. It must do so before claiming a full-flow improvement.
 
 ### Compare the changed work and the remaining responsibility
 
@@ -51,9 +51,9 @@ These papers address complementary parts of timing work: creating constraints an
 
 The sequence is important: a faster consumer of timing models cannot repair an incorrect constraint supplied upstream. Conversely, spending more effort on accurate characterization does not ensure that a parallel analyzer combines and propagates its inputs correctly. Each stage needs its own check, and the combined flow needs a check of the final design.
 
-For an independent budget example, suppose characterization costs forty time units and repeated analysis sixty. Halving the first and tripling the speed of the second gives a total of forty, so overall speedup is 2.5×, not 6×. Those gains act on different portions of the budget. If the library is already characterized and reused unchanged, its preparation saving contributes nothing to that particular design run. If a new library must be built, omitting preparation would understate the actual work.
+For an independent budget example, suppose characterization costs forty time units and repeated analysis sixty. Halving the first and tripling the speed of the second gives a total of forty. Overall speedup is therefore 2.5×, not 6×. Those gains act on different portions of the budget. If the library is already characterized and reused unchanged, its preparation saving contributes nothing to that particular design run. If a new library must be built, omitting preparation would understate the actual work.
 
-The durable hypothesis is that reducing repeated estimation work is valuable when the reused information remains valid and errors are detected before acceptance. Test it with unchanged criteria, an explicit reuse lifetime and complete recovery costs. Reject a stronger claim of field-wide progress until comparable editions and task populations support it. Two selected DAC papers establish neither deployment prevalence nor a historical trend across ISCA, DAC and ICCAD.
+The durable hypothesis is that reducing repeated estimation work is valuable. This holds when the reused information remains valid and errors are detected before acceptance. Test it with unchanged criteria, an explicit reuse lifetime and complete recovery costs. Reject a stronger claim of field-wide progress until comparable editions and task populations support it. Two selected DAC papers establish neither deployment prevalence nor a historical trend across ISCA, DAC and ICCAD.
 
 <span id="explanation-dac-2026-research025"></span>
 
@@ -61,15 +61,15 @@ The durable hypothesis is that reducing repeated estimation work is valuable whe
 
 ### What the available source establishes
 
-The official description uses a supply-current signature from a required reference-delay simulation to estimate sequential constraints. It names affine calibration and online ridge regression, reporting 1.5× and 3.6× acceleration respectively on post-layout TSMC 5nm/12nm libraries across five process-voltage-temperature corners. These are separate configurations, not factors to multiply. [Official Description and Authors](https://63dac.conference-program.com/presentation/?id=RESEARCH025&sess=sess155)
+The official description uses a supply-current signature from a required reference-delay simulation to estimate sequential constraints. It names affine calibration and online ridge regression. It reports 1.5× and 3.6× acceleration respectively on post-layout TSMC 5nm/12nm libraries across five process-voltage-temperature corners. These are separate configurations, not factors to multiply. [Official Description and Authors](https://63dac.conference-program.com/presentation/?id=RESEARCH025&sess=sess155)
 
 Title and author searches on 2026-09-08 did not recover the target manuscript or a verified target artifact. Related characterization papers are not substitutes. The source says code and data are open, but this pass did not locate and inspect that release. No manuscript page citations, estimator equations, error distributions or fallback details are available. No circuit simulation was executed. The reasoning below is explanatory, not a reconstruction of Powerpath.
 
 ### Characterization creates a model used by later analysis
 
-A sequential cell stores state. A flip-flop, for example, captures a data value in relation to a clock event. The physical transistors do not switch instantaneously. Input transitions close to the capture event can change the output delay or prevent the intended capture under the specified observation criterion.
+A sequential cell stores state. A flip-flop, for example, captures a data value in relation to a clock event. The physical transistors do not switch instantaneously. Input transitions close to the capture event can change the output delay. They can also prevent the intended capture under the specified observation criterion.
 
-Characterization evaluates the cell under controlled conditions to determine values that a larger timing analyzer can use. Setup concerns how early data must become stable before capture. Hold concerns how long it must remain stable afterward. Their numerical values depend on the cell and conditions; neither is a universal fixed interval that can be inferred from its logical function alone.
+Characterization evaluates the cell under controlled conditions to determine values that a larger timing analyzer can use. Setup concerns how early data must become stable before capture. Hold concerns how long it must remain stable afterward. Their numerical values depend on the cell and conditions. Neither is a universal fixed interval that can be inferred from its logical function alone.
 
 For an independent example, fix a rising clock edge at time zero and vary a data transition before it. At a separation of 40 picoseconds, the output meets the chosen criterion; at 20 picoseconds, it does not. The task is to find a boundary between these outcomes to a chosen resolution. A picosecond is one trillionth of a second. The specific boundary and criterion here are illustrative, not paper measurements.
 
@@ -79,7 +79,7 @@ An acceptance criterion must say what counts as success. It could involve the co
 
 For a simplified monotone search, maintain one passing endpoint and one failing endpoint. Test their midpoint and retain the half containing the transition. Starting with an interval of width 128ps, seven halvings reduce the width to 1ps. Starting with a correctly bracketed interval of width 16ps takes four halvings to reach that resolution.
 
-A predictor can save expensive tests by supplying the narrower interval. But if the true transition is at 30ps and the predicted interval is `[40,56]`, refinement inside that interval cannot recover it. The final answer can be very precise about the wrong region. Numerical convergence is not evidence that the initial interval was valid.
+A predictor can save expensive tests by supplying the narrower interval. But suppose the true transition is at 30ps and the predicted interval is `[40,56]`. Refinement inside that interval cannot recover it. The final answer can be very precise about the wrong region. Numerical convergence is not evidence that the initial interval was valid.
 
 Before using a narrow bracket, check its endpoints under the actual criterion. If both pass or both fail, expand or revert to a trusted search procedure. This is a proposed safeguard, not a verified feature of Powerpath. More complicated or nonmonotone behavior requires a search method appropriate to that behavior; binary-search reasoning alone does not establish it.
 
@@ -89,7 +89,7 @@ Supply current changes as internal capacitances charge and discharge and transis
 
 However, an aggregate waveform can combine contributions from several internal events. Two internal behaviors may produce similar summaries. A selected feature can also change with supply voltage, input transition shape or loading. Predictive usefulness therefore requires calibration and validation across the conditions in which the estimate will be used.
 
-Reusing an already required simulation can avoid an extra simulator invocation. It does not make feature extraction, fitting or failed predictions free. The complete budget must include any work needed to obtain a usable estimate and to confirm or repair the search interval.
+Reusing an already required simulation can avoid an extra simulator invocation. It does not make feature extraction, fitting or failed predictions free. The complete budget must include any work needed to obtain a usable estimate. It must also include work to confirm or repair the search interval.
 
 ### Calibration corrects an estimate under observed conditions
 
@@ -97,7 +97,7 @@ An affine correction applies a scale and offset: corrected estimate equals `a×r
 
 Ridge regression fits a weighted combination of features while penalizing large coefficients. The penalty can make fitting less sensitive to noisy or strongly correlated features. It still relies on the relationship between the features and the target remaining useful. Online fitting updates the model as observations arrive; early samples and later samples may consequently receive different-quality predictions.
 
-To evaluate that procedure, record the order of samples, the information available at each prediction, and the reference outcome obtained afterward. A prediction made after seeing its own target is not a prospective estimate. Separating calibration and evaluation prevents an apparently accurate interval from relying on information unavailable when the real search starts.
+To evaluate that procedure, record the order of samples and the information available at each prediction. Also record the reference outcome obtained afterward. A prediction made after seeing its own target is not a prospective estimate. Separating calibration and evaluation prevents an apparently accurate interval from relying on information unavailable when the real search starts.
 
 ### Statistical accuracy needs more than a small average error
 
@@ -105,17 +105,17 @@ A process-voltage-temperature corner specifies a particular operating and manufa
 
 Suppose 999 estimates each have absolute error 0.1ps, but one misses by 20ps. The average absolute error is only 0.1199ps. A narrow interval of ±1ps might work well for almost every sample and still miss the exceptional boundary. If that exceptional region determines a reliability decision, the average alone is inadequate.
 
-Useful measurements include boundary error, interval coverage, fallback frequency and cost, and the distribution of failures across cell and constraint types. The reference search also needs a stated tolerance and criterion. Calling an outcome suitable for final design checking cannot replace those measurements.
+Useful measurements include boundary error, interval coverage, and fallback frequency and cost. They also include the distribution of failures across cell and constraint types. The reference search also needs a stated tolerance and criterion. Calling an outcome suitable for final design checking cannot replace those measurements.
 
 ### Connect characterization speed to complete design work
 
-For an independent cost calculation, let a baseline characterization require one reference simulation and seven search simulations, each costing one time unit. A revised method uses the same reference, four search simulations and 0.2 units of estimator work. Total time falls from eight to 5.2 units, about 1.54× faster. If a fraction of cases requires fallback, those additional simulations reduce the aggregate gain.
+For an independent cost calculation, let a baseline characterization require one reference simulation and seven search simulations. Each costs one time unit. A revised method uses the same reference, four search simulations and 0.2 units of estimator work. Total time falls from eight to 5.2 units, about 1.54× faster. If a fraction of cases requires fallback, those additional simulations reduce the aggregate gain.
 
 This is a different optimization from [Warp-STAR](#explanation-dac-2026-research004), which reorganizes graph analysis using already supplied timing models. Better characterization can improve model availability or preparation time; faster graph propagation can improve repeated design evaluation. Neither paper alone establishes the performance or accuracy of a combined flow.
 
-The bounded hypothesis is that information already produced by a required simulation can reduce later search work when the predicted bracket is checked and the original acceptance criterion is preserved. It weakens if the useful feature requires undisclosed extra work, if rare errors escape detection, or if calibration cost dominates on new libraries. Manuscript recovery, exact feature and search definitions, validated failure handling and independent review remain open.
+The bounded hypothesis is that information already produced by a required simulation can reduce later search work. This holds when the predicted bracket is checked and the original acceptance criterion is preserved. It weakens if the useful feature requires undisclosed extra work. It also weakens if rare errors escape detection, or if calibration cost dominates on new libraries. Manuscript recovery, exact feature and search definitions, validated failure handling and independent review remain open.
 
-The correction boundary is explicit: test setup, hold and removal constraints, Monte Carlo samples, PVT coverage, 5 nm and 12 nm libraries, interval bracketing, tail errors, fallback behavior and signoff criteria separately. The 1.5× and 3.6× source claims are not evidence of reliable tail-safe sequential characterization across libraries and statistical conditions.
+The correction boundary is explicit. Test setup, hold and removal constraints, Monte Carlo samples, PVT coverage, and 5 nm and 12 nm libraries separately. Also test interval bracketing, tail errors, fallback behavior and signoff criteria separately. The 1.5× and 3.6× source claims are not evidence of reliable tail-safe sequential characterization across libraries and statistical conditions.
 The evidence supports search reduction, not demonstrated reliable tail-safe sequential characterization.
 
 <span id="explanation-dac-2026-research004"></span>
@@ -140,7 +140,7 @@ A pin is a connection point on a circuit element. A timing arc describes how a t
 
 For an illustrative late-arrival calculation, one input arrives at 2ns and crosses an arc taking 3ns. Another arrives at 4ns and crosses an arc taking 2ns. The candidate output arrivals are five and six nanoseconds. The conservative latest arrival is six, not their sum or average. If the output is required by 5.5ns, its setup slack is −0.5ns.
 
-Backward propagation answers a complementary question. To deliver an output by 5.5ns through a 2ns arc, the corresponding input must arrive by 3.5ns under this simplified model. Multiple downstream requirements can constrain the same upstream point. A parallel implementation must preserve both the operation being computed and the dependencies that make its inputs valid.
+Backward propagation answers a complementary question. To deliver an output by 5.5ns through a 2ns arc, the corresponding input must arrive by 3.5ns. This holds under this simplified model. Multiple downstream requirements can constrain the same upstream point. A parallel implementation must preserve both the operation being computed and the dependencies that make its inputs valid.
 
 The earliest arrival matters for other checks, including whether new data arrives too soon after capture. Replacing every operation with a maximum would therefore not constitute a general timing analyzer. Transition direction, early/late conditions, clock relationships and exceptions must retain their distinct meanings.
 
@@ -150,17 +150,17 @@ A GPU executes groups of threads that share instruction issue. When threads in s
 
 Consider a deliberately simplified four-lane group assigned nets with one, one, one and thirteen receiving pins. If each lane processes one pin per iteration, the group requires thirteen iterations. It performs sixteen useful pin operations over fifty-two lane-iteration opportunities: about 30.8% utilization in this model.
 
-If those sixteen pin operations can instead be divided evenly among the four lanes, they need four iterations before accounting for coordination. That is an opportunity, not a guaranteed speedup. Finding each pin's net, fetching data, combining partial results and synchronizing threads all take work. Real hardware can also schedule other groups while one waits; the four-lane example does not model an entire GPU.
+If those sixteen pin operations can instead be divided evenly among the four lanes, they need four iterations. This is before accounting for coordination. That is an opportunity, not a guaranteed speedup. Finding each pin's net, fetching data, combining partial results and synchronizing threads all take work. Real hardware can also schedule other groups while one waits; the four-lane example does not model an entire GPU.
 
 For very small nets, assigning a whole group to a net may leave lanes idle. For large nets, distributing its pins can expose more parallel work. The circuit's distribution of net sizes therefore matters more than a single average pin count. A scheduling policy needs evaluation on both broad shallow graphs and narrow dependency-heavy ones.
 
 ### Shared quantities require a defined combination operation
 
-Each receiving pin contributes load that can affect a driver's delay. A reduction combines contributions into one result. For loads 1, 2, 3 and 4, a tree reduction can first form 3 and 7, then combine them into 10. Separate partial sums avoid having every thread update the same location unsafely.
+Each receiving pin contributes load that can affect a driver's delay. A reduction combines contributions into one result. For loads 1, 2, 3 and 4, a tree reduction can first form 3 and 7. It can then combine them into 10. Separate partial sums avoid having every thread update the same location unsafely.
 
-Without synchronization, two threads might both read an old sum of zero, compute their additions independently and write one and two. The final value can be two rather than three. The lost contribution is a correctness error, not an acceptable numerical approximation. More concurrency is useful only when these updates have defined ordering or a correct combination scheme.
+Without synchronization, two threads might both read an old sum of zero. They might compute their additions independently and write one and two. The final value can be two rather than three. The lost contribution is a correctness error, not an acceptable numerical approximation. More concurrency is useful only when these updates have defined ordering or a correct combination scheme.
 
-Even a race-free parallel sum can differ slightly from a sequential floating-point sum because finite-precision addition is not associative. This is different from dropping an update. Comparisons should distinguish tolerated numerical differences from invalid dependencies, and should examine their effect on the optimization decisions made from the results.
+Even a race-free parallel sum can differ slightly from a sequential floating-point sum because finite-precision addition is not associative. This is different from dropping an update. Comparisons should distinguish tolerated numerical differences from invalid dependencies. They should also examine their effect on the optimization decisions made from the results.
 
 ### Graph levels restrict when parallel work can start
 
@@ -182,11 +182,11 @@ Overlapping gradient calculations with ordinary timing work can reduce elapsed t
 
 Total negative slack, abbreviated TNS, aggregates violations over the chosen endpoints. With signed slacks, values closer to zero indicate less total lateness. For example, endpoint slacks −2, −1 and +4 sum to TNS −3 when only negative terms contribute. The positive margin at the third endpoint does not cancel the other violations.
 
-A smaller magnitude of TNS can coexist with a worse single endpoint, so worst slack and the number of violating endpoints are also useful. Where a table displays negative TNS, simply saying “lower is better” is ambiguous: a more negative signed value indicates greater aggregate violation. Preserve signs and explain the convention before comparing results.
+A smaller magnitude of TNS can coexist with a worse single endpoint. Worst slack and the number of violating endpoints are therefore also useful. Where a table displays negative TNS, simply saying “lower is better” is ambiguous. A more negative signed value indicates greater aggregate violation. Preserve signs and explain the convention before comparing results.
 
-Suppose analysis consumes sixty of one hundred seconds in a placement run. Making that portion 2.4 times faster gives `40 + 60/2.4 = 65` seconds if everything else stays fixed. The full-run speedup is about 1.54, not 2.4. If faster analysis also changes how often the placer requests feedback, the algorithm's trajectory and output may change too; the fixed-work calculation no longer describes the whole comparison.
+Suppose analysis consumes sixty of one hundred seconds in a placement run. Making that portion 2.4 times faster gives `40 + 60/2.4 = 65` seconds if everything else stays fixed. The full-run speedup is about 1.54, not 2.4. If faster analysis also changes how often the placer requests feedback, the algorithm's trajectory and output may change too. The fixed-work calculation then no longer describes the whole comparison.
 
-The bounded insight is that reorganizing irregular work can make timing feedback cheaper, but useful end-to-end improvement requires comparable constraints and acceptable final designs. It weakens if scheduling overhead consumes the savings, timing accuracy changes materially, or faster placement worsens required outcomes. Full artifact inspection, matched correctness checks, routed-design evaluation and independent comprehension review remain open.
+The bounded insight is that reorganizing irregular work can make timing feedback cheaper. Useful end-to-end improvement requires comparable constraints and acceptable final designs. It weakens if scheduling overhead consumes the savings, timing accuracy changes materially, or faster placement worsens required outcomes. Full artifact inspection, matched correctness checks, routed-design evaluation and independent comprehension review remain open.
 
 ## Compare the results carefully
 
