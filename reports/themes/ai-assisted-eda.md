@@ -8,7 +8,7 @@ A subtheme groups related technical problems. A mechanism describes the particul
 
 ## Chip design is a long chain of choices that software helps make
 
-A designer states what a circuit must do and which limits it must meet. **Electronic design automation (EDA)** is the software that turns that statement into a circuit and then a physical layout.
+A designer states what a circuit must do and which limits it must meet. Here, **electronic design automation (EDA)** is the software that turns it into a circuit, then a physical layout.
 
 There are many choices along the way:
 

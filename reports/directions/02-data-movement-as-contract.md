@@ -38,7 +38,7 @@ Challenge paper: `dac-2026-research2268` (alternative_mechanism; source tier `of
 
 Memory-centric progress can come from host-side layout and access scheduling, not necessarily compute offload. The title/body system-name discrepancy remains unresolved.
 
-**What would weaken the direction:** The direction is weakened if a matched-recall comparison shows that host-side placement and scheduling provide the same end-to-end result after including CXL traffic, speculation, capacity and host overhead, without a distinct near-memory benefit.
+**What would weaken the direction**. It is weakened if a matched-recall comparison shows host-side placement and scheduling give the same end-to-end result. That comparison must include CXL traffic, speculation, capacity and host overhead. It must also show no distinct near-memory benefit.
 
 **Next evidence:** Resolve TierANNS/COGA identity and compare recall, working-set capacity, speculation traffic and host overhead against near-memory alternatives.
 

@@ -42,20 +42,20 @@ research questions.</p>
 <p>The project’s central question is:</p>
 <blockquote>
 <p>How do choices about algorithms, hardware, memory, physical design, and checking
-affect one another—and which proposed improvements still help when the complete
+affect one another? Which proposed improvements still help when the complete
 job, its required answer, and its real operating conditions are measured?</p>
 </blockquote>
 <p>This atlas is a bounded research intelligence product, not a market forecast,
 conference ranking, or accepted scientific review. Its uncertainty boundaries
 are part of the result.</p>
 <div class="rs-sh"><h2 class="rs-h2">Read the connected explanation first</h2></div>
-<p>The ten <a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/reports/themes/README.md">theme articles</a> now contain expanded first-principles discussions. They are connected by one practical question: when a paper removes one cost, what new cost or correctness obligation appears elsewhere?</p><p>This section explains three recurring relationships. They are interpretations of selected evidence, not measured historical trends or proof that the proposed systems have been integrated.</p>
+<p>The ten <a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/reports/themes/README.md">theme articles</a> now contain expanded first-principles discussions. They are connected by one practical question.</p><p>When a paper removes one cost, what new cost or correctness obligation appears elsewhere? This section explains three recurring relationships.</p><p>They are interpretations of selected evidence, not measured historical trends or proof that the proposed systems have been integrated.</p>
 <h3>1. A smaller representation changes more than storage</h3>
 <p>Start with values needed by a computation. A compact encoding can reduce their stored size, but an execution unit must still obtain usable operands.</p><p>It may need decoding, position information, or a conversion step. If an encoding is approximate, the output-quality requirement changes the comparison too.</p>
-<p>This creates a chain of consequences: smaller stored values can free memory; free memory can admit more concurrent work; concurrent work can improve total throughput<span class="ck-gloss"> (how much work is finished per second)</span> while increasing each request's wait. A storage saving is therefore not automatically a response-time improvement.</p>
-<p>The manuscript-backed <a href="../subthemes/memory-hierarchy-and-persistence.html#explanation-isca-2026-program-008">lossless-weight-compression explanation</a> supplies a concrete counterexample to that shortcut. Its recovered serving table reports higher throughput alongside longer median time per output token, and its conflicting batch counts remain unresolved.</p><p>The <a href="../subthemes/sparse-and-irregular-compute.html#explanation-dac-2026-research680">SPADE explanation</a> exposes a different boundary: quality-benchmark scores and similarity to a dense-generated video need not improve together. Neither record supports the broad claim that less stored or executed work preserves every desirable outcome.</p>
+<p>This creates a chain of consequences. Smaller stored values can free memory. Free memory can admit more concurrent work. Concurrent work can improve total throughput<span class="ck-gloss"> (how much work is finished per second)</span> while increasing each request's wait. A storage saving is therefore not automatically a response-time improvement.</p>
+<p>The manuscript-backed <a href="../subthemes/memory-hierarchy-and-persistence.html#explanation-isca-2026-program-008">lossless-weight-compression explanation</a> supplies a concrete counterexample to that shortcut. Its recovered serving table reports higher throughput alongside longer median time per output token.</p><p>Its conflicting batch counts remain unresolved. The <a href="../subthemes/sparse-and-irregular-compute.html#explanation-dac-2026-research680">SPADE explanation</a> exposes a different boundary: quality-benchmark scores and similarity to a dense-generated video need not improve together.</p><p>Neither record supports the broad claim that less stored or executed work preserves every desirable outcome.</p>
 <p>For a teaching example, suppose a job transfers 100 MB and computes for ten milliseconds. Halving the transferred bytes matters greatly if transfers originally take 50 milliseconds, but little if they take one.</p><p>If decoding adds five milliseconds, the latter job becomes slower under a sequential model. The bottleneck and the added work determine the result, not compression ratio alone.</p>
-<p>Follow this relationship through <a href="../themes/architecture-and-accelerators.html">architecture</a>, <a href="../themes/memory-interconnect-and-storage.html">memory</a>, <a href="../themes/analog-mixed-signal-and-emerging-devices.html">analog representation and conversion</a>, and <a href="../themes/systems-applications-and-workloads.html">systems</a>. The long-term hypothesis is that representation and execution increasingly need joint evaluation where movement dominates.</p><p>It would be weakened by matched results showing that movement is already minor or that decoding and coordination consume the saving.</p>
+<p>Follow this relationship through <a href="../themes/architecture-and-accelerators.html">architecture</a>, <a href="../themes/memory-interconnect-and-storage.html">memory</a>, <a href="../themes/analog-mixed-signal-and-emerging-devices.html">analog representation and conversion</a>, and <a href="../themes/systems-applications-and-workloads.html">systems</a>. The long-term hypothesis is that representation and execution increasingly need joint evaluation where movement dominates.</p><p>It would be weakened by matched results showing that movement is already minor. It would also be weakened if decoding and coordination consume the saving.</p>
 <h3>2. Earlier decisions help only when later checks still accept the result</h3>
 <p>A tool can make design decisions cheaply by using an approximate representation or a learned estimate. It can screen more candidates, reuse a prior calculation, or propose a repair. The selected result must nevertheless satisfy the original behavior and physical requirements.</p>
 <section class="ck-ledger"><header><h4>Worked example, with the numbers</h4><span class="t t-le">from the papers</span></header><ol><li><div>Consider a timing limit of 100 picoseconds. A prediction of 99.9 appears valid even if the actual arrival is 100.2 and therefore late.</div></li></ol></section><p>The error is numerically small but changes the acceptance decision. Likewise, a local layout edit can remove one spacing violation while introducing another.</p><p>A useful model must be evaluated where its errors affect decisions, not only by its average numerical error.</p>
@@ -63,12 +63,12 @@ are part of the result.</p>
 <p>Follow this relationship through <a href="../themes/design-methodology-and-tooling.html">tooling</a>, <a href="../themes/ai-assisted-eda.html">AI-assisted EDA</a>, <a href="../themes/physical-design-and-manufacturing.html">physical design</a>, and <a href="../themes/verification-and-validation.html">verification</a>. A testable hypothesis is that cheaper early decisions reduce total design effort when exact fallback and repair remain affordable.</p><p>It weakens when optimistic estimates select invalid candidates, reject useful ones, or create enough rework to erase the initial saving.</p>
 <h3>3. Reorganizing resources changes the operating conditions</h3>
 <p>Adding memory, splitting functions across dies, or reallocating power changes where work executes and what it must communicate. The resulting system may need different placement, scheduling, cooling, or protection rules. The local resource increase is not itself proof of a useful complete system.</p>
-<p>The manuscript-backed <a href="../subthemes/memory-hierarchy-and-persistence.html#explanation-isca-2026-program-045">Vistara explanation</a> distinguishes adding capacity from replacing local memory at fixed capacity; a system can benefit from the first while regressing in the second. The <a href="../subthemes/chiplet-system-architecture.html#duet-give-different-inference-phases-different-hardware">phase-specific DUET explanation</a> preserves simulation and synthesis boundaries and an assumption of matched phase throughput.</p><p>It does not establish a complete multi-request scheduler or manufactured package. <a href="../subthemes/energy-and-thermal-efficiency.html#lit-silicon-one-gpus-temperature-can-affect-other-gpus-progress">Lit Silicon</a> supplies a further connection between synchronization and power allocation, while retaining separate policies and measurement limits.</p>
+<p>The manuscript-backed <a href="../subthemes/memory-hierarchy-and-persistence.html#explanation-isca-2026-program-045">Vistara explanation</a> distinguishes adding capacity from replacing local memory at fixed capacity. A system can benefit from the first while regressing in the second.</p><p>The <a href="../subthemes/chiplet-system-architecture.html#duet-give-different-inference-phases-different-hardware">phase-specific DUET explanation</a> preserves simulation and synthesis boundaries and an assumption of matched phase throughput. It does not establish a complete multi-request scheduler or manufactured package. <a href="../subthemes/energy-and-thermal-efficiency.html#lit-silicon-one-gpus-temperature-can-affect-other-gpus-progress">Lit Silicon</a> supplies a further connection between synchronization and power allocation, while retaining separate policies and measurement limits.</p>
 <section class="ck-ledger"><header><h4>Worked example, with the numbers</h4><span class="t t-le">from the papers</span></header><ol><li><div>For an illustrative dependency, two workers taking eight and ten milliseconds finish a shared stage in ten. Slowing the first to nine may leave stage time unchanged; slowing it to twelve makes the stage slower.</div></li></ol></section><p>A local power reduction must be interpreted through the shared completion requirement.</p>
 <p>Follow this relationship through <a href="../themes/chiplets-3d-and-packaging.html">chiplets and packaging</a>, <a href="../themes/memory-interconnect-and-storage.html">memory</a>, <a href="../themes/systems-applications-and-workloads.html">systems</a>, and <a href="../themes/power-reliability-and-security.html">power, reliability, and security</a>. A hypothesis is that resource allocation needs workload and physical conditions together.</p><p>Challenge it using phase changes, contention, hot regions, failures, and the total cost of moving or reconfiguring work. These are proposed evaluation conditions, not asserted failures of every linked method.</p>
 <div class="rs-sh"><h2 class="rs-h2">What makes these insights durable rather than slogans</h2></div>
 <p>Each relationship identifies a mechanism, the conditions under which it could help, and evidence that could contradict it. A new paper can strengthen the relationship, narrow it to a workload, or show that its added costs dominate.</p><p>Merely finding another title with a similar term does none of those things.</p>
-<p>To establish a trend over time, compare equivalent populations across editions: the same paper types, collection rules, technical definitions, and evidence depth. Otherwise an apparent increase can come from more complete source recovery or changed conference scope.</p><p>Cross-conference complementarity also needs explicit compatibility: a compiler result and a package result do not form a validated system unless their interfaces, workloads, numerical rules, and physical conditions align.</p>
+<p>To establish a trend over time, compare equivalent populations across editions. Use the same paper types, collection rules, technical definitions, and evidence depth.</p><p>Otherwise an apparent increase can come from more complete source recovery or changed conference scope. Cross-conference complementarity also needs explicit compatibility.</p><p>A compiler result and a package result do not form a validated system on their own. They do so only if their interfaces, workloads, numerical rules, and physical conditions align.</p>
 <p>The older <a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/reports/technology-direction-synthesis-v1.md">technology direction synthesis</a> and <a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/reports/directions/evidence/README.md">direction dossiers</a> retain historical interpretation and traceability. They still need reconciliation with the newer manuscript-backed corrections. The connected reading above does not silently promote their claims or replace their review gates.</p>
 <p>All ten parent discussions are written; the individual subtheme and paper explanations remain uneven. Missing full papers, unresolved source discrepancies, classification decisions, equivalent historical evidence, and independent comprehension/scientific review remain open. Passing software and link checks proves none of those requirements complete.</p>
 <div class="rs-sh"><h2 class="rs-h2">The end-to-end evidence path</h2></div>
@@ -194,12 +194,9 @@ are part of the result.</p>
 <li><a href="../directions/05-physical-reality-in-the-loop.html">Physical reality re-enters abstraction layers</a></li>
 <li><a href="../directions/06-evaluation-as-research.html">Evaluation becomes a research frontier</a></li>
 </ul>
-<p>Each page has a direct link to its paper-level evidence dossier. The machine
-registry preserves source-ledger direction IDs separately from these conceptual
-direction IDs so synthesis does not silently collapse distinct taxonomies.</p>
+<p>Each page has a direct link to its paper-level evidence dossier. The machine registry preserves source-ledger direction IDs separately from these conceptual direction IDs. This keeps synthesis from silently collapsing distinct taxonomies.</p>
 <div class="rs-sh"><h2 class="rs-h2">Current evidence state</h2></div>
-<p>The current checkpoint contains 1,589 inventory records and a selected technical
-sample of 582 records: 544 DAC, 17 ISCA, and 21 ICCAD. The direction layer is
+<p>The current checkpoint contains 1,589 inventory records. It also has a selected technical sample of 582 records: 544 DAC, 17 ISCA, and 21 ICCAD. The direction layer is
 supported by selected evidence references and condition-aware dossiers, but the
 evidence is asymmetric:</p>
 <ul>
@@ -208,23 +205,21 @@ evidence is asymmetric:</p>
   records.</li>
 <li>ICCAD uses a 2025 fallback with deeper physical-design and methodology cases.</li>
 </ul>
-<p>The condition register currently tracks 60 direction-paper references, including
-explicit counterpressure records: 38 are condition-complete in the adjudicated
-ledgers and 22 remain partial. Independent
+<p>The condition register currently tracks 60 direction-paper references, including explicit counterpressure records. Of these, 38 are condition-complete in the adjudicated ledgers and 22 remain partial. Independent
 review verdicts remain zero. These facts constrain the strength of every
 synthesis statement.</p>
 <p>A supplementary <a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/reports/source-condition-extraction-batch-v1.md">source-condition extraction batch</a>
 now makes explicit official-description context discoverable for nine DAC
-records, including CXL<span class="ck-gloss"> (Compute Express Link: a standard link that lets chips share memory)</span> hardware, 28 nm silicon-verified CIM<span class="ck-gloss"> (compute in memory: arithmetic done inside the memory array)</span>, HLS<span class="ck-gloss"> (high-level synthesis: turning ordinary program code into hardware)</span> synthesis,
-NPU<span class="ck-gloss"> (neural processing unit: a chip built to run AI models)</span>/SoC, 3D-IC thermal, and MoE GPU<span class="ck-gloss"> (a chip with thousands of small arithmetic units, first built for graphics)</span> settings. These remain description-tier
+records. The settings include CXL<span class="ck-gloss"> (Compute Express Link: a standard link that lets chips share memory)</span> hardware, 28 nm silicon-verified CIM<span class="ck-gloss"> (compute in memory: arithmetic done inside the memory array)</span>, HLS<span class="ck-gloss"> (high-level synthesis: turning ordinary program code into hardware)</span> synthesis,
+NPU<span class="ck-gloss"> (neural processing unit: a chip built to run AI models)</span>/SoC, 3D-IC thermal, and MoE GPU<span class="ck-gloss"> (a chip with thousands of small arithmetic units, first built for graphics)</span>. These remain description-tier
 extractions pending full-paper reconciliation and independent review.</p>
 <p>Existing deeper <a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/reports/primary-condition-assessment-register-v1.md">primary-condition assessments</a>
 also surface author-preprint and artifact evidence for five anchors, including
 Strix, MappingEvolve, Exact-T, NotSoTiny, and HLSArchOpt. Their unresolved
 conditions and pending independent-review states remain attached.</p>
 <p>The <a href="direction-review-gate-v1.html">direction review gate</a> is the explicit stopping
-boundary for promotion: all six canonical directions have prepared anchor packets,
-but independent verdicts are currently zero, so none is yet eligible for a
+boundary for promotion. All six canonical directions have prepared anchor packets,
+but independent verdicts are currently zero. So none is yet eligible for a
 longitudinal trend claim.</p>
 <div class="rs-sh"><h2 class="rs-h2">What the atlas can currently support</h2></div>
 <ul>
@@ -254,10 +249,7 @@ longitudinal trend claim.</p>
 <li>Prepare and obtain independent review; preserve objections and resolutions.</li>
 <li>Rebuild the dated manifest and publish remaining gaps.</li>
 </ol>
-<p>The atlas is successful when a reader can move from a conceptual claim to the
-exact paper and source conditions, understand what each conference contributes,
-see what would falsify the interpretation, and know why the project is or is not
-allowed to call the result a long-term trend.</p><p class="mut">Written as <a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/reports/research-atlas-index-v1.md">reports/research-atlas-index-v1.md</a> in the course repository.</p>
+<p>The atlas is successful when a reader can do four things. The reader can move from a conceptual claim to the exact paper and source conditions.</p><p>The reader can understand what each conference contributes and see what would falsify the interpretation. The reader can also know why the project is or is not allowed to call the result a long-term trend.</p><p class="mut">Written as <a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/reports/research-atlas-index-v1.md">reports/research-atlas-index-v1.md</a> in the course repository.</p>
 
 
 </div>

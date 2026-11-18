@@ -10,7 +10,7 @@ research questions.
 The project’s central question is:
 
 > How do choices about algorithms, hardware, memory, physical design, and checking
-> affect one another—and which proposed improvements still help when the complete
+> affect one another? Which proposed improvements still help when the complete
 > job, its required answer, and its real operating conditions are measured?
 
 This atlas is a bounded research intelligence product, not a market forecast,
@@ -19,19 +19,19 @@ are part of the result.
 
 ## Read the connected explanation first
 
-The ten [theme articles](themes/README.md) now contain expanded first-principles discussions. They are connected by one practical question: when a paper removes one cost, what new cost or correctness obligation appears elsewhere? This section explains three recurring relationships. They are interpretations of selected evidence, not measured historical trends or proof that the proposed systems have been integrated.
+The ten [theme articles](themes/README.md) now contain expanded first-principles discussions. They are connected by one practical question. When a paper removes one cost, what new cost or correctness obligation appears elsewhere? This section explains three recurring relationships. They are interpretations of selected evidence, not measured historical trends or proof that the proposed systems have been integrated.
 
 ### 1. A smaller representation changes more than storage
 
 Start with values needed by a computation. A compact encoding can reduce their stored size, but an execution unit must still obtain usable operands. It may need decoding, position information, or a conversion step. If an encoding is approximate, the output-quality requirement changes the comparison too.
 
-This creates a chain of consequences: smaller stored values can free memory; free memory can admit more concurrent work; concurrent work can improve total throughput while increasing each request's wait. A storage saving is therefore not automatically a response-time improvement.
+This creates a chain of consequences. Smaller stored values can free memory. Free memory can admit more concurrent work. Concurrent work can improve total throughput while increasing each request's wait. A storage saving is therefore not automatically a response-time improvement.
 
-The manuscript-backed [lossless-weight-compression explanation](observed-subthemes/memory-hierarchy-and-persistence.md#explanation-isca-2026-program-008) supplies a concrete counterexample to that shortcut. Its recovered serving table reports higher throughput alongside longer median time per output token, and its conflicting batch counts remain unresolved. The [SPADE explanation](observed-subthemes/sparse-and-irregular-compute.md#explanation-dac-2026-research680) exposes a different boundary: quality-benchmark scores and similarity to a dense-generated video need not improve together. Neither record supports the broad claim that less stored or executed work preserves every desirable outcome.
+The manuscript-backed [lossless-weight-compression explanation](observed-subthemes/memory-hierarchy-and-persistence.md#explanation-isca-2026-program-008) supplies a concrete counterexample to that shortcut. Its recovered serving table reports higher throughput alongside longer median time per output token. Its conflicting batch counts remain unresolved. The [SPADE explanation](observed-subthemes/sparse-and-irregular-compute.md#explanation-dac-2026-research680) exposes a different boundary: quality-benchmark scores and similarity to a dense-generated video need not improve together. Neither record supports the broad claim that less stored or executed work preserves every desirable outcome.
 
 For a teaching example, suppose a job transfers 100 MB and computes for ten milliseconds. Halving the transferred bytes matters greatly if transfers originally take 50 milliseconds, but little if they take one. If decoding adds five milliseconds, the latter job becomes slower under a sequential model. The bottleneck and the added work determine the result, not compression ratio alone.
 
-Follow this relationship through [architecture](themes/architecture-and-accelerators.md), [memory](themes/memory-interconnect-and-storage.md), [analog representation and conversion](themes/analog-mixed-signal-and-emerging-devices.md), and [systems](themes/systems-applications-and-workloads.md). The long-term hypothesis is that representation and execution increasingly need joint evaluation where movement dominates. It would be weakened by matched results showing that movement is already minor or that decoding and coordination consume the saving.
+Follow this relationship through [architecture](themes/architecture-and-accelerators.md), [memory](themes/memory-interconnect-and-storage.md), [analog representation and conversion](themes/analog-mixed-signal-and-emerging-devices.md), and [systems](themes/systems-applications-and-workloads.md). The long-term hypothesis is that representation and execution increasingly need joint evaluation where movement dominates. It would be weakened by matched results showing that movement is already minor. It would also be weakened if decoding and coordination consume the saving.
 
 ### 2. Earlier decisions help only when later checks still accept the result
 
@@ -47,7 +47,7 @@ Follow this relationship through [tooling](themes/design-methodology-and-tooling
 
 Adding memory, splitting functions across dies, or reallocating power changes where work executes and what it must communicate. The resulting system may need different placement, scheduling, cooling, or protection rules. The local resource increase is not itself proof of a useful complete system.
 
-The manuscript-backed [Vistara explanation](observed-subthemes/memory-hierarchy-and-persistence.md#explanation-isca-2026-program-045) distinguishes adding capacity from replacing local memory at fixed capacity; a system can benefit from the first while regressing in the second. The [phase-specific DUET explanation](observed-subthemes/chiplet-system-architecture.md#duet-give-different-inference-phases-different-hardware) preserves simulation and synthesis boundaries and an assumption of matched phase throughput. It does not establish a complete multi-request scheduler or manufactured package. [Lit Silicon](observed-subthemes/energy-and-thermal-efficiency.md#lit-silicon-one-gpus-temperature-can-affect-other-gpus-progress) supplies a further connection between synchronization and power allocation, while retaining separate policies and measurement limits.
+The manuscript-backed [Vistara explanation](observed-subthemes/memory-hierarchy-and-persistence.md#explanation-isca-2026-program-045) distinguishes adding capacity from replacing local memory at fixed capacity. A system can benefit from the first while regressing in the second. The [phase-specific DUET explanation](observed-subthemes/chiplet-system-architecture.md#duet-give-different-inference-phases-different-hardware) preserves simulation and synthesis boundaries and an assumption of matched phase throughput. It does not establish a complete multi-request scheduler or manufactured package. [Lit Silicon](observed-subthemes/energy-and-thermal-efficiency.md#lit-silicon-one-gpus-temperature-can-affect-other-gpus-progress) supplies a further connection between synchronization and power allocation, while retaining separate policies and measurement limits.
 
 For an illustrative dependency, two workers taking eight and ten milliseconds finish a shared stage in ten. Slowing the first to nine may leave stage time unchanged; slowing it to twelve makes the stage slower. A local power reduction must be interpreted through the shared completion requirement.
 
@@ -57,7 +57,7 @@ Follow this relationship through [chiplets and packaging](themes/chiplets-3d-and
 
 Each relationship identifies a mechanism, the conditions under which it could help, and evidence that could contradict it. A new paper can strengthen the relationship, narrow it to a workload, or show that its added costs dominate. Merely finding another title with a similar term does none of those things.
 
-To establish a trend over time, compare equivalent populations across editions: the same paper types, collection rules, technical definitions, and evidence depth. Otherwise an apparent increase can come from more complete source recovery or changed conference scope. Cross-conference complementarity also needs explicit compatibility: a compiler result and a package result do not form a validated system unless their interfaces, workloads, numerical rules, and physical conditions align.
+To establish a trend over time, compare equivalent populations across editions. Use the same paper types, collection rules, technical definitions, and evidence depth. Otherwise an apparent increase can come from more complete source recovery or changed conference scope. Cross-conference complementarity also needs explicit compatibility. A compiler result and a package result do not form a validated system on their own. They do so only if their interfaces, workloads, numerical rules, and physical conditions align.
 
 The older [technology direction synthesis](technology-direction-synthesis-v1.md) and [direction dossiers](directions/evidence/README.md) retain historical interpretation and traceability. They still need reconciliation with the newer manuscript-backed corrections. The connected reading above does not silently promote their claims or replace their review gates.
 
@@ -131,14 +131,11 @@ The current direction layer is mechanism-first:
 - [Physical reality re-enters abstraction layers](directions/05-physical-reality-in-the-loop.md)
 - [Evaluation becomes a research frontier](directions/06-evaluation-as-research.md)
 
-Each page has a direct link to its paper-level evidence dossier. The machine
-registry preserves source-ledger direction IDs separately from these conceptual
-direction IDs so synthesis does not silently collapse distinct taxonomies.
+Each page has a direct link to its paper-level evidence dossier. The machine registry preserves source-ledger direction IDs separately from these conceptual direction IDs. This keeps synthesis from silently collapsing distinct taxonomies.
 
 ## Current evidence state
 
-The current checkpoint contains 1,589 inventory records and a selected technical
-sample of 582 records: 544 DAC, 17 ISCA, and 21 ICCAD. The direction layer is
+The current checkpoint contains 1,589 inventory records. It also has a selected technical sample of 582 records: 544 DAC, 17 ISCA, and 21 ICCAD. The direction layer is
 supported by selected evidence references and condition-aware dossiers, but the
 evidence is asymmetric:
 
@@ -147,16 +144,14 @@ evidence is asymmetric:
   records.
 - ICCAD uses a 2025 fallback with deeper physical-design and methodology cases.
 
-The condition register currently tracks 60 direction-paper references, including
-explicit counterpressure records: 38 are condition-complete in the adjudicated
-ledgers and 22 remain partial. Independent
+The condition register currently tracks 60 direction-paper references, including explicit counterpressure records. Of these, 38 are condition-complete in the adjudicated ledgers and 22 remain partial. Independent
 review verdicts remain zero. These facts constrain the strength of every
 synthesis statement.
 
 A supplementary [source-condition extraction batch](source-condition-extraction-batch-v1.md)
 now makes explicit official-description context discoverable for nine DAC
-records, including CXL hardware, 28 nm silicon-verified CIM, HLS synthesis,
-NPU/SoC, 3D-IC thermal, and MoE GPU settings. These remain description-tier
+records. The settings include CXL hardware, 28 nm silicon-verified CIM, HLS synthesis,
+NPU/SoC, 3D-IC thermal, and MoE GPU. These remain description-tier
 extractions pending full-paper reconciliation and independent review.
 
 Existing deeper [primary-condition assessments](primary-condition-assessment-register-v1.md)
@@ -165,8 +160,8 @@ Strix, MappingEvolve, Exact-T, NotSoTiny, and HLSArchOpt. Their unresolved
 conditions and pending independent-review states remain attached.
 
 The [direction review gate](direction-review-gate-v1.md) is the explicit stopping
-boundary for promotion: all six canonical directions have prepared anchor packets,
-but independent verdicts are currently zero, so none is yet eligible for a
+boundary for promotion. All six canonical directions have prepared anchor packets,
+but independent verdicts are currently zero. So none is yet eligible for a
 longitudinal trend claim.
 
 ## What the atlas can currently support
@@ -197,7 +192,4 @@ longitudinal trend claim.
 7. Prepare and obtain independent review; preserve objections and resolutions.
 8. Rebuild the dated manifest and publish remaining gaps.
 
-The atlas is successful when a reader can move from a conceptual claim to the
-exact paper and source conditions, understand what each conference contributes,
-see what would falsify the interpretation, and know why the project is or is not
-allowed to call the result a long-term trend.
+The atlas is successful when a reader can do four things. The reader can move from a conceptual claim to the exact paper and source conditions. The reader can understand what each conference contributes and see what would falsify the interpretation. The reader can also know why the project is or is not allowed to call the result a long-term trend.

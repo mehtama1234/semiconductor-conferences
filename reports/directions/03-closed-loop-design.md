@@ -41,7 +41,7 @@ Challenge paper: `dac-2026-research399` (validation_boundary; source tier `offic
 
 Reference-model rechecking supports a fidelity hierarchy, but is not independent silicon validation and can miss candidates excluded by surrogate misranking.
 
-**What would weaken the direction:** The direction is weakened if surrogate ranking error frequently excludes the true best candidates, or if full reference-model evaluation removes the reported advantage after the complete acquisition and recheck budget is counted.
+**What would weaken the direction**. It is weakened if surrogate ranking error frequently excludes the true best candidates. It is also weakened if full reference-model evaluation removes the reported advantage. This is judged after counting the complete acquisition and recheck budget.
 
 **Next evidence:** Recover acquisition budget, rejected-candidate checks, ranking error, objective weights and reference-model calibration.
 

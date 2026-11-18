@@ -25,7 +25,7 @@ These are counts of coded records and labels in the selected ISCA, DAC, and ICCA
 
 ## Observed subtheme registry
 
-The registry below is intentionally exhaustive. Labels marked `expanded` were not in the starter taxonomy but recur in the adjudicated sample and therefore deserve direct navigation or future consolidation review.
+The registry below is intentionally exhaustive. Labels marked `expanded` were not in the starter taxonomy. They recur in the adjudicated sample and therefore deserve direct navigation or future consolidation review.
 
 ### AI-assisted EDA
 
@@ -202,8 +202,8 @@ The registry below is intentionally exhaustive. Labels marked `expanded` were no
 1. Start with a canonical theme to understand the first-principles boundary.
 2. Use this registry to find the observed subtheme and representative paper IDs.
 3. Open the theme page for source-backed paper cards and condition gaps.
-4. Move from the paper mechanism to the five high-value cross-cutting subtheme pages and six long-term direction pages only when the evidence supports that connection.
+4. Move from the paper mechanism to the five high-value cross-cutting subtheme pages and six long-term direction pages. Do so only when the evidence supports that connection.
 
 ## Taxonomy maintenance rule
 
-Do not split a label merely because titles differ, and do not merge labels merely because they share a workload. Promote an observed subtheme into a stable conceptual category only after at least two records expose the same mechanism boundary, or after a primary-source review demonstrates that the apparent distinction is real. Preserve aliases and uncertainty in the machine registry.
+Do not split a label merely because titles differ, and do not merge labels merely because they share a workload. Promote an observed subtheme into a stable conceptual category only in one of two cases. The first is that at least two records expose the same mechanism boundary. The second is that a primary-source review demonstrates the apparent distinction is real. Preserve aliases and uncertainty in the machine registry.

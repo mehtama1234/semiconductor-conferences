@@ -22,7 +22,7 @@ The check must return something useful: which property failed, where, or which r
 
 ## Different checks prove different things, so keep them apart
 
-Three kinds of tool can use this loop: a language model writing circuit code, a compiler ordering operations, and a placement tool choosing locations. Their checks differ:
+Three kinds of tool can use this loop. One is a language model writing circuit code. Another is a compiler ordering operations. The third is a placement tool choosing locations. Their checks differ:
 
 - **Compiling** shows a tool accepts the code's syntax and structure.
 - **Simulating** selected inputs checks those runs only.
@@ -43,7 +43,7 @@ Challenge paper: `dac-2026-research2760` (evaluation_counterpressure; source tie
 
 Tool-grounded generation does not establish general capability if benchmark difficulty and contamination differ.
 
-**What would weaken the direction:** The direction is weakened if matched held-out designs under equal compute produce no higher valid-completion or equivalence rate than the baseline, or if the apparent gain disappears after contamination controls.
+**What would weaken the direction**. It is weakened if matched held-out designs under equal compute produce no higher valid-completion or equivalence rate than the baseline. It is also weakened if the apparent gain disappears after contamination controls.
 
 **Next evidence:** Recover task-level results, held-out dates, contamination tests and equivalence assumptions; compare matched models and budgets.
 

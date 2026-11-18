@@ -71,7 +71,7 @@ These are the source-backed references currently attached to the direction. Diff
 
 ## What is actually comparable
 
-The comparison should be made at the mechanism and constraint level first. A fair comparison holds six things fixed: the workload or design set, the hardware or simulator assumptions, the baseline, the metric, the test budget, and what counts as a failure.
+The comparison should be made at the mechanism and constraint level first. A fair comparison holds six things fixed. The first three are the workload or design set, the hardware or simulator assumptions, and the baseline. The last three are the metric, the test budget, and what counts as a failure.
 
 ### Required matched fields
 

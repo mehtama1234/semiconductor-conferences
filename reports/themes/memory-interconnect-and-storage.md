@@ -73,7 +73,7 @@ A system can have room to spare and fast links, yet still be slow. A chain of sm
 > - If each request must wait for the previous value, at most ten million requests finish per second.
 > - That is 10 million × 64 = **640 million useful bytes per second**.
 > - A nominal 20-billion-byte-per-second connection does not change this limit.
-> - Independent requests can overlap. To sustain 20 billion bytes per second with these sizes and this latency, an idealized model needs at least **32 requests in flight**.
+> - Independent requests can overlap. With these sizes and this latency, an idealized model needs at least **32 requests in flight**. That is the minimum to sustain 20 billion bytes per second.
 
 Protocol traffic, queueing and implementation limits can raise that number, or stop the rate being reached.
 
@@ -113,7 +113,7 @@ The second exposes access-cost regressions that the first can hide. Its discussi
 
 Moving data pays off only if enough later accesses benefit from the move.
 
-A **placement policy** chooses where data should live. **Migration** is the work of moving it while keeping its contents and accesses correct. Copying bytes is only part of that. Readers and writers must never see a half-moved page, or update a copy about to be thrown away.
+A **placement policy** chooses where data should live. Here, **migration** is the work of moving it while keeping its contents and accesses correct. Copying bytes is only part of that. Readers and writers must never see a half-moved page, or update a copy about to be thrown away.
 
 > **Worked example (illustrative).** Moving a page costs 10 microseconds. Each later access saves 100 nanoseconds.
 >
@@ -181,7 +181,7 @@ A durable update promises more than a successful read: after a failure, recovery
 
 A successful read means the consumer got the required value under the access rules. A durable update must also survive a specified failure. Data sitting in a volatile cache may be visible now, and gone after power loss.
 
-> **Example (conceptual, not taken from a paper in this sample).** An update changes a stored record and an index pointing to it.
+> **Example (conceptual, not taken from a paper in this sample)**. An update changes a stored record and an index pointing to it.
 >
 > - If the index survives a crash but the record does not, recovery finds a pointer to incomplete data.
 > - If the record survives but the index does not, recovery needs a defined way to handle the unreferenced record.
@@ -227,7 +227,7 @@ A device can expose bytes that an application cannot use safely or efficiently u
 
 These are interpretations to test, not demonstrated ISCA–DAC–ICCAD trends. A cross-conference account must match workloads, source depth, comparison conditions and edition coverage before inferring change over time.
 
-**Be careful:** the current selected sample and missing sources do not support a conference ranking or a claim of historical growth.
+**Be careful:** the current selected sample and missing sources do not support a conference ranking. They also do not support a claim of historical growth.
 
 The expanded [memory hierarchy chapter](../observed-subthemes/memory-hierarchy-and-persistence.md) gives a deeper reading path for fourteen records. Other memory, storage and interconnect branches below still need fuller explanations and source recovery. This parent discussion does not replace that work, or independent scientific and comprehension review.
 

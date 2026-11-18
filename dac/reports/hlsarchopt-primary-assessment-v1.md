@@ -23,9 +23,7 @@ is withheld until comparable benchmark conditions are available.
 
 ## Stored synthesis reports
 
-The pinned text and XML reports agree on selected fields: latency 335,494 cycles
-(reported as 3.355 ms at a 10 ns target), interval 229,703 cycles, and estimated
-clock period 8.419 ns. Resource estimates are 1,122 BRAM_18K, 1,840 DSP48E,
+The pinned text and XML reports agree on selected fields. Latency is 335,494 cycles (reported as 3.355 ms at a 10 ns target). The interval is 229,703 cycles. The estimated clock period is 8.419 ns. Resource estimates are 1,122 BRAM_18K, 1,840 DSP48E,
 214,730 FF and 172,278 LUT. File hashes and locators are in the assessment.
 
 These are stored HLS estimates, not post-route timing or fresh measurements.

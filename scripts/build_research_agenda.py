@@ -133,7 +133,7 @@ def build() -> dict:
     (ROOT / "data/research-agenda-v1.json").write_text(json.dumps(result, indent=2) + "\n")
     lines = [
         "# Research agenda v1", "",
-        "This is the execution layer for the living research atlas. It makes the path from provisional synthesis to defensible long-term insight explicit: evidence conditions → counterpressure → independent review → matched comparison → longitudinal promotion.", "",
+        "This is the execution layer for the living research atlas. It makes the path from provisional synthesis to defensible long-term insight explicit. The path runs in this order: evidence conditions, counterpressure, independent review, matched comparison, and longitudinal promotion.", "",
         f"Current gate: **{result['current_gate']['independent_review_count']} independent verdicts** across **{result['current_gate']['synthesis_anchor_count']} synthesis anchors**; **{result['current_gate']['condition_reference_count']} direction references** and **{result['current_gate']['comparison_dossier_count']} comparison dossiers** are tracked.", "",
         "## Work packages", "", "| ID | Workstream | Status | Priority | Depends on | Deliverable |", "|---|---|---|---|---|---|",
     ]

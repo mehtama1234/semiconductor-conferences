@@ -1,6 +1,6 @@
 # Research agenda v1
 
-This is the execution layer for the living research atlas. It makes the path from provisional synthesis to defensible long-term insight explicit: evidence conditions → counterpressure → independent review → matched comparison → longitudinal promotion.
+This is the execution layer for the living research atlas. It makes the path from provisional synthesis to defensible long-term insight explicit. The path runs in this order: evidence conditions, counterpressure, independent review, matched comparison, and longitudinal promotion.
 
 Current gate: **0 independent verdicts** across **37 synthesis anchors**; **60 direction references** and **6 comparison dossiers** are tracked.
 

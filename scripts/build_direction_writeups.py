@@ -20,7 +20,7 @@ A design process considers many candidates. If a requirement is checked only aft
 3. The next design decision uses that report.
 
 The check must return something useful: which property failed, where, or which resource went over its limit. A bare pass or fail may rule a candidate out without saying how to improve it."""),
-  ('Different checks prove different things, so keep them apart', """Three kinds of tool can use this loop: a language model writing circuit code, a compiler ordering operations, and a placement tool choosing locations. Their checks differ:
+  ('Different checks prove different things, so keep them apart', """Three kinds of tool can use this loop. One is a language model writing circuit code. Another is a compiler ordering operations. The third is a placement tool choosing locations. Their checks differ:
 
 - **Compiling** shows a tool accepts the code's syntax and structure.
 - **Simulating** selected inputs checks those runs only.

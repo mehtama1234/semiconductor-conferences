@@ -45,7 +45,7 @@ Splitting work across dies makes each part cheaper or faster, but adds a cost wh
 > **Worked example (illustrative, not from a paper).** Two stages run one after the other.
 >
 > - One implementation: 3 + 3 = **6 milliseconds**.
-> - Partitioned: each stage drops to 2 milliseconds, but a 3-millisecond transfer sits between them: 2 + 3 + 2 = **7 milliseconds**.
+> - Partitioned: each stage drops to 2 milliseconds, but a 3-millisecond transfer sits between them. The total is 2 + 3 + 2 = **7 milliseconds**.
 >
 > Overlapping different requests may raise throughput. It does not remove the dependency inside this request.
 
@@ -125,7 +125,7 @@ The [systems theme](systems-applications-and-workloads.md) adds a further duty: 
 
 Temperature depends on where heat is made and how it escapes, not only on total power.
 
-**Power** is the rate of energy use. **Temperature** depends on where heat is produced and how it flows through materials to the surroundings. Two designs with the same total power can have different hot spots. Grouping power-dense parts together can raise local temperature, even at fixed total power.
+**Power** is the rate of energy use. The **temperature** depends on where heat is produced and how it flows through materials to the surroundings. Two designs with the same total power can have different hot spots. Grouping power-dense parts together can raise local temperature, even at fixed total power.
 
 > **Worked example (simplified steady state).** Temperature rise = power × thermal resistance.
 >

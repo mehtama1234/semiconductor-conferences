@@ -108,7 +108,7 @@
 <li>If each request must wait for the previous value, at most ten million requests finish per second.</li>
 <li>That is 10 million × 64 = <strong>640 million useful bytes per second</strong>.</li>
 <li>A nominal 20-billion-byte-per-second connection does not change this limit.</li>
-<li>Independent requests can overlap. To sustain 20 billion bytes per second with these sizes and this latency, an idealized model needs at least <strong>32 requests in flight</strong>.</li>
+<li>Independent requests can overlap. With these sizes and this latency, an idealized model needs at least <strong>32 requests in flight</strong>. That is the minimum to sustain 20 billion bytes per second.</li>
 </ul>
 </blockquote>
 <p>Protocol traffic, queueing and implementation limits can raise that number, or stop the rate being reached.</p>
@@ -141,7 +141,7 @@
 <p><strong>Be careful:</strong> this is stronger evidence than a claim that all addressable memory acts like local memory. It is not a universal service result.</p>
 <div class="rs-sh"><h2 class="rs-h2">Placement is a decision with an upfront cost</h2></div>
 <p>Moving data pays off only if enough later accesses benefit from the move.</p>
-<p>A <strong>placement policy</strong> chooses where data should live. <strong>Migration</strong> is the work of moving it while keeping its contents and accesses correct. Copying bytes is only part of that.</p><p>Readers and writers must never see a half-moved page, or update a copy about to be thrown away.</p>
+<p>A <strong>placement policy</strong> chooses where data should live. Here, <strong>migration</strong> is the work of moving it while keeping its contents and accesses correct.</p><p>Copying bytes is only part of that. Readers and writers must never see a half-moved page, or update a copy about to be thrown away.</p>
 <blockquote>
 <p><strong>Worked example (illustrative).</strong> Moving a page costs 10 microseconds. Each later access saves 100 nanoseconds.</p>
 <ul>
@@ -196,7 +196,7 @@
 <p>A durable update promises more than a successful read: after a failure, recovery must give an allowed state.</p>
 <p>A successful read means the consumer got the required value under the access rules. A durable update must also survive a specified failure. Data sitting in a volatile cache may be visible now, and gone after power loss.</p>
 <blockquote>
-<p><strong>Example (conceptual, not taken from a paper in this sample).</strong> An update changes a stored record and an index pointing to it.</p>
+<p><strong>Example (conceptual, not taken from a paper in this sample)</strong>. An update changes a stored record and an index pointing to it.</p>
 <ul>
 <li>If the index survives a crash but the record does not, recovery finds a pointer to incomplete data.</li>
 <li>If the record survives but the index does not, recovery needs a defined way to handle the unreferenced record.</li>
@@ -281,7 +281,7 @@
 </table>
 <p>A device can expose bytes that an application cannot use safely or efficiently under its allocation and service rules. That is the reason behind the first row.</p>
 <p>These are interpretations to test, not demonstrated ISCA–DAC–ICCAD trends. A cross-conference account must match workloads, source depth, comparison conditions and edition coverage before inferring change over time.</p>
-<p><strong>Be careful:</strong> the current selected sample and missing sources do not support a conference ranking or a claim of historical growth.</p>
+<p><strong>Be careful:</strong> the current selected sample and missing sources do not support a conference ranking. They also do not support a claim of historical growth.</p>
 <p>The expanded <a href="../subthemes/memory-hierarchy-and-persistence.html">memory hierarchy chapter</a> gives a deeper reading path for fourteen records. Other memory, storage and interconnect branches below still need fuller explanations and source recovery. This parent discussion does not replace that work, or independent scientific and comprehension review.</p>
 <p class="rs-k">Subthemes and how to study them</p><div class="rs-sh"><h2 class="rs-h2">The subthemes in this theme, <i>and how to read them</i></h2></div>
 <p>Each link opens the subtheme discussion and its captured paper records. Explanatory depth varies: some papers have expanded individual explanations; others still have only brief discussion or evidence cards. Source locations and unresolved conditions remain visible.</p>

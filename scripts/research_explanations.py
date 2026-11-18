@@ -55,7 +55,7 @@ Each can cut one transfer while adding scheduling, copying or coordination work 
 
 Fewer remote bytes is useful evidence about one cost. The final claim needs completion time or energy under the full conditions.''')],
  'ai-assisted-eda': [
- ('Chip design is a long chain of choices that software helps make', '''A designer states what a circuit must do and which limits it must meet. **Electronic design automation (EDA)** is the software that turns that statement into a circuit and then a physical layout.
+ ('Chip design is a long chain of choices that software helps make', '''A designer states what a circuit must do and which limits it must meet. Here, **electronic design automation (EDA)** is the software that turns it into a circuit, then a physical layout.
 
 There are many choices along the way:
 
@@ -182,7 +182,7 @@ Together these choices decide run time, memory use, circuit size, and the effort
 - A **graph** can show which operations depend on which.
 - A **schedule** assigns operations to times or resources.
 
-Removing redundant work can also change memory traffic or available parallelism. So a tool needs two things: a rule for which changes keep the design correct, and a cost model for picking useful ones.'''),
+Removing redundant work can also change memory traffic or available parallelism. So a tool needs two things. One is a rule for which changes keep the design correct. The other is a cost model for picking useful ones.'''),
  ('The subthemes change the steps, the search, the structure, or the benchmarks', '''- **Compilation and synthesis** methods change the sequence of transformations.
 - **Search** methods choose configurations or implementations.
 - **Graph and partitioning** methods organize connected work.
@@ -224,7 +224,7 @@ All selected records in this theme come from DAC. So they cannot show a three-co
 These differ greatly. But each must say exactly how a physical state stands for the input. It must also say how the output is read.'''),
  ('The device is only part of the cost: conversion and correction count too', '''Inputs may need converting from digital values. Outputs may need measuring and converting back.
 
-Noise, temperature, differences between devices, and measurement precision can all change the result. **Calibration** adjusts operation using measured device behavior, and it also costs time or hardware.
+Noise, temperature, differences between devices, and measurement precision can all change the result. Here, **calibration** adjusts operation using measured device behavior. It also costs time or hardware.
 
 Any claimed saving must include the conversion, control and correction work around the device.'''),
  ('The subthemes use very different physics, with different accuracy measures', '''- **Analog circuit automation** designs continuous-signal circuits.

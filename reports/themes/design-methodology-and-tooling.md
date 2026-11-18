@@ -21,7 +21,7 @@ A representation makes some properties visible and hides others.
 - A **graph** can show which operations depend on which.
 - A **schedule** assigns operations to times or resources.
 
-Removing redundant work can also change memory traffic or available parallelism. So a tool needs two things: a rule for which changes keep the design correct, and a cost model for picking useful ones.
+Removing redundant work can also change memory traffic or available parallelism. So a tool needs two things. One is a rule for which changes keep the design correct. The other is a cost model for picking useful ones.
 
 ## The subthemes change the steps, the search, the structure, or the benchmarks
 
@@ -82,7 +82,7 @@ The representation does not price every implementation effect. One crossing sign
 
 The [optimization and search chapter](../observed-subthemes/optimization-and-search-methods.md) links this to Impart's multilevel partitioning and the other captured search methods. Their current descriptions do not establish complete downstream conditions. The useful question is which left-out costs could change the selected solution.
 
-**Coarsening** merges several objects into fewer, larger ones before searching. It makes the problem cheaper, but temporarily hides choices about how the merged objects differ. **Refinement** restores the detail and allows adjustments. So a good coarse solution is a starting point. Its quality depends on what the grouping kept, and what refinement can recover.
+**Coarsening** merges several objects into fewer, larger ones before searching. It makes the problem cheaper, but temporarily hides choices about how the merged objects differ. Here, **refinement** restores the detail and allows adjustments. So a good coarse solution is a starting point. Its quality depends on what the grouping kept, and what refinement can recover.
 
 ## A transformation needs a validity condition before a cost estimate
 
@@ -138,7 +138,7 @@ A compiler can take longer to produce code that runs faster. A search can try mo
 > **Worked example (illustrative, not DyTuner results).** Tuning costs 10 seconds. It cuts each later run from 5 to 4 milliseconds.
 >
 > - Break-even: 10 seconds ÷ 1 millisecond saved = **10,000 compatible runs**.
-> - If the input or hardware changes after 100 runs, and the result cannot be reused: only 100 × 1 ms = **0.1 second** saved.
+> - If the input or hardware changes after 100 runs, the result cannot be reused. Only 100 × 1 ms = **0.1 second** is saved.
 
 The same accounting applies to a design tool used once per product versus many times during exploration. Record total preparation and validation costs, as well as the final result's performance. Reuse assumptions must name what invalidates the work. Shape, layout, target hardware, constraints, library versions or model parameters may each matter.
 

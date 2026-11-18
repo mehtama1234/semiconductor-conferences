@@ -36,7 +36,7 @@ Challenge paper: `dac-2026-research1862` (cross_layer_coupling; source tier `off
 
 Heat control affects accuracy, not only speed. A reported tolerance does not mean zero accuracy loss, and it does not prove wide use.
 
-**What would weaken the direction:** The direction is weakened if measured temperature and programming variation pushes task accuracy beyond the declared error budget, or if calibration cost and thermal control erase the claimed efficiency benefit.
+**What would weaken the direction**. It is weakened if measured temperature and programming variation push task accuracy beyond the declared error budget. It is also weakened if calibration cost and thermal control erase the claimed efficiency benefit.
 
 **Next evidence:** Separate ambient, die and programming temperature ranges; recover accuracy denominators, calibration cost and measured prototype conditions.
 

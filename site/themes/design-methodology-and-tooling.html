@@ -50,7 +50,7 @@
 <li>A <strong>graph</strong> can show which operations depend on which.</li>
 <li>A <strong>schedule</strong> assigns operations to times or resources.</li>
 </ul>
-<p>Removing redundant work can also change memory traffic or available parallelism. So a tool needs two things: a rule for which changes keep the design correct, and a cost model for picking useful ones.</p>
+<p>Removing redundant work can also change memory traffic or available parallelism. So a tool needs two things. One is a rule for which changes keep the design correct. The other is a cost model for picking useful ones.</p>
 <div class="rs-sh"><h2 class="rs-h2">The subthemes change the steps, the search, the structure, <i>or the benchmarks</i></h2></div>
 <ul>
 <li><strong>Compilation and synthesis</strong> methods change the sequence of transformations.</li>
@@ -120,7 +120,7 @@
 <p>In a circuit, one signal can connect a driver to several receivers. Grouping objects into partitions can cut the connections that cross partition boundaries, while respecting capacity limits.</p>
 <p>The representation does not price every implementation effect. One crossing signal driving ten distant receivers and another driving one nearby receiver may each count as one cut.</p><p>Their physical load, traffic and timing can differ. A lower cut count is evidence about that objective, not proof of a faster final system.</p>
 <p>The <a href="../subthemes/optimization-and-search-methods.html">optimization and search chapter</a> links this to Impart's multilevel partitioning and the other captured search methods. Their current descriptions do not establish complete downstream conditions. The useful question is which left-out costs could change the selected solution.</p>
-<p><strong>Coarsening</strong> merges several objects into fewer, larger ones before searching. It makes the problem cheaper, but temporarily hides choices about how the merged objects differ. <strong>Refinement</strong> restores the detail and allows adjustments.</p><p>So a good coarse solution is a starting point. Its quality depends on what the grouping kept, and what refinement can recover.</p>
+<p><strong>Coarsening</strong> merges several objects into fewer, larger ones before searching. It makes the problem cheaper, but temporarily hides choices about how the merged objects differ.</p><p>Here, <strong>refinement</strong> restores the detail and allows adjustments. So a good coarse solution is a starting point.</p><p>Its quality depends on what the grouping kept, and what refinement can recover.</p>
 <div class="rs-sh"><h2 class="rs-h2">A transformation needs a validity condition before a cost estimate</h2></div>
 <p>Before asking whether a changed program is faster, show it still computes the right thing.</p>
 <p>Two implementations can compute the same intended result with different operation orders or storage. Whether they are equivalent depends on the arithmetic and execution rules:</p>
@@ -163,7 +163,7 @@
 <p><strong>Worked example (illustrative, not DyTuner results).</strong> Tuning costs 10 seconds. It cuts each later run from 5 to 4 milliseconds.</p>
 <ul>
 <li>Break-even: 10 seconds ÷ 1 millisecond saved = <strong>10,000 compatible runs</strong>.</li>
-<li>If the input or hardware changes after 100 runs, and the result cannot be reused: only 100 × 1 ms = <strong>0.1 second</strong> saved.</li>
+<li>If the input or hardware changes after 100 runs, the result cannot be reused. Only 100 × 1 ms = <strong>0.1 second</strong> is saved.</li>
 </ul>
 </blockquote>
 <p>The same accounting applies to a design tool used once per product versus many times during exploration. Record total preparation and validation costs, as well as the final result's performance.</p><p>Reuse assumptions must name what invalidates the work. Shape, layout, target hardware, constraints, library versions or model parameters may each matter.</p>

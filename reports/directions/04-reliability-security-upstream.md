@@ -37,7 +37,7 @@ Challenge paper: `dac-2026-research1494` (threat_model_extension; source tier `o
 
 Confidentiality and integrity do not imply availability; security claims depend on scheduler trust and resource arbitration.
 
-**What would weaken the direction:** The direction is weakened if an in-scope adversary can still starve or delay an attested workload under the stated admission and scheduler policy, or if the availability guarantee requires an unmodeled trusted component.
+**What would weaken the direction**. It is weakened if an in-scope adversary can still starve or delay an attested workload. This applies under the stated admission and scheduler policy. It is also weakened if the availability guarantee requires an unmodeled trusted component.
 
 **Next evidence:** Inspect adversary powers, trusted computing base, admission policy and contention workload before generalizing availability guarantees.
 

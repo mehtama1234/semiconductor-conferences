@@ -64,7 +64,7 @@ A paper can improve one choice while making another more expensive.
 
 ## Separate three limits before selecting an accelerator
 
-A job is held back by arithmetic, by data traffic, or by a chain of steps that must wait for each other.
+A job is held back by arithmetic or by data traffic. It can also be held back by a chain of steps that must wait for each other.
 
 > **Worked example.** A job needs 100 million operations and moves 200 million bytes through its slowest memory interface.
 >
@@ -98,7 +98,7 @@ Decoding also uses hardware and time. A compact format pays off when its storage
 Two papers show this question from different angles:
 
 - [HAP's individual explanation](../observed-subthemes/approximate-and-precision-aware-compute.md#explanation-dac-2026-research1999) separates exactly recovering an already quantized activation from preserving the original floating-point result. Its evaluation uses synthesis and simulation, not measured fabricated silicon.
-- [Duet](../observed-subthemes/sparse-and-irregular-compute.md#explanation-dac-2026-research1419) asks the same at bit level: which digits are redundant, how are signs and positions recovered, and what work remains after skipping? Its manuscript is still missing.
+- [Duet](../observed-subthemes/sparse-and-irregular-compute.md#explanation-dac-2026-research1419) asks the same at bit level. Which digits are redundant? How are signs and positions recovered? What work remains after skipping? Its manuscript is still missing.
 
 **Be careful:** HAP and Duet raise a shared question. Their evidence is not equally complete, and their results are not interchangeable.
 
@@ -171,7 +171,7 @@ Finding more papers with matching titles is not enough to test them. Within each
 3. report spreads and regressions, not only good averages;
 4. across editions, use the same collection rules, and tell missing manuscripts apart from measured negative results.
 
-**Be careful:** the current sample cannot show that ISCA, DAC or ICCAD leads a trend, or that a mechanism is growing. Conference identity is not an experimental control. A useful cross-conference link asks whether separately tested parts can meet one compatible set of requirements. A compiler result, an accelerator result and a layout result are separate evidence. They join up only when their interfaces, formats, sizes and test conditions match.
+**Be careful:** the current sample cannot show that ISCA, DAC or ICCAD leads a trend. It also cannot show that a mechanism is growing. Conference identity is not an experimental control. A useful cross-conference link asks whether separately tested parts can meet one compatible set of requirements. A compiler result, an accelerator result and a layout result are separate evidence. They join up only when their interfaces, formats, sizes and test conditions match.
 
 ## What an end-to-end comparison must retain
 

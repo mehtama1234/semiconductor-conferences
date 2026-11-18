@@ -2,13 +2,15 @@
  "comparisons/closed-loop-design.html": [
   "surrogate",
   "CIM",
-  "PDE"
+  "PDE",
+  "baseline"
  ],
  "comparisons/constraints-become-executable.html": [
   "HLS",
   "FPGA",
   "RTL",
-  "LLM"
+  "LLM",
+  "baseline"
  ],
  "comparisons/data-movement-as-contract.html": [
   "KV",
@@ -20,6 +22,7 @@
   "LLM",
   "GEMM",
   "ASIC",
+  "baseline",
   "latency"
  ],
  "comparisons/evaluation-as-research.html": [
@@ -27,11 +30,13 @@
   "HLS",
   "FPGA",
   "LLM",
-  "PDE"
+  "PDE",
+  "baseline"
  ],
  "comparisons/physical-reality-in-the-loop.html": [
   "GPU",
-  "LLM"
+  "LLM",
+  "baseline"
  ],
  "comparisons/reliability-security-upstream.html": [
   "ECC",
@@ -39,6 +44,7 @@
   "NPU",
   "CPU",
   "GPU",
+  "baseline",
   "throughput"
  ],
  "course-map.html": [
@@ -67,7 +73,6 @@
  "deep-reads/hlsarchopt-primary-assessment-v1.html": [
   "HLS",
   "LLM",
-  "latency",
   "LUT",
   "baseline"
  ],

@@ -68,7 +68,7 @@
 <p><strong>Worked example (illustrative, not from a paper).</strong> Two stages run one after the other.</p>
 <ul>
 <li>One implementation: 3 + 3 = <strong>6 milliseconds</strong>.</li>
-<li>Partitioned: each stage drops to 2 milliseconds, but a 3-millisecond transfer sits between them: 2 + 3 + 2 = <strong>7 milliseconds</strong>.</li>
+<li>Partitioned: each stage drops to 2 milliseconds, but a 3-millisecond transfer sits between them. The total is 2 + 3 + 2 = <strong>7 milliseconds</strong>.</li>
 </ul>
 <p>Overlapping different requests may raise throughput<span class="ck-gloss"> (how much work is finished per second)</span>. It does not remove the dependency inside this request.</p>
 </blockquote>
@@ -127,7 +127,7 @@
 <p>The <a href="systems-applications-and-workloads.html">systems theme</a> adds a further duty: judge queueing, admission, first response and generation pace together.</p>
 <div class="rs-sh"><h2 class="rs-h2">Thermal feasibility is spatial and time-dependent</h2></div>
 <p>Temperature depends on where heat is made and how it escapes, not only on total power.</p>
-<p><strong>Power</strong> is the rate of energy use. <strong>Temperature</strong> depends on where heat is produced and how it flows through materials to the surroundings. Two designs with the same total power can have different hot spots.</p><p>Grouping power-dense parts together can raise local temperature, even at fixed total power.</p>
+<p><strong>Power</strong> is the rate of energy use. The <strong>temperature</strong> depends on where heat is produced and how it flows through materials to the surroundings.</p><p>Two designs with the same total power can have different hot spots. Grouping power-dense parts together can raise local temperature, even at fixed total power.</p>
 <blockquote>
 <p><strong>Worked example (simplified steady state).</strong> Temperature rise = power × thermal resistance.</p>
 <p>20 watts through a path of 2 kelvin per watt: 20 × 2 = <strong>40 kelvin</strong> rise.</p>

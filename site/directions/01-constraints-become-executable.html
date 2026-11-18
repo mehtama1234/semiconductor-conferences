@@ -51,7 +51,7 @@
 </ol>
 <p>The check must return something useful: which property failed, where, or which resource went over its limit. A bare pass or fail may rule a candidate out without saying how to improve it.</p>
 <div class="rs-sh"><h2 class="rs-h2">Different checks prove different things, <i>so keep them apart</i></h2></div>
-<p>Three kinds of tool can use this loop: a language model writing circuit code, a compiler ordering operations, and a placement tool choosing locations. Their checks differ:</p>
+<p>Three kinds of tool can use this loop. One is a language model writing circuit code. Another is a compiler ordering operations. The third is a placement tool choosing locations. Their checks differ:</p>
 <ul>
 <li><strong>Compiling</strong> shows a tool accepts the code's syntax and structure.</li>
 <li><strong>Simulating</strong> selected inputs checks those runs only.</li>
@@ -68,7 +68,7 @@
 <p class="rs-k">Counterpressure and falsification boundary</p><div class="rs-sh"><h2 class="rs-h2">The paper that pushes back, <i>and what would disprove the direction</i></h2></div>
 <p>Challenge paper: <code>dac-2026-research2760</code> (evaluation_counterpressure; source tier <code>official_description</code>). <a href="https://63dac.conference-program.com/?post_type=page&amp;p=16&amp;id=RESEARCH2760&amp;sess=sess166">Open the recorded source</a>.</p>
 <p>Tool-grounded generation does not establish general capability if benchmark difficulty and contamination differ.</p>
-<p><strong>What would weaken the direction:</strong> The direction is weakened if matched held-out designs under equal compute produce no higher valid-completion or equivalence rate than the baseline<span class="ck-gloss"> (the existing method a new result is compared against)</span>, or if the apparent gain disappears after contamination controls.</p>
+<p><strong>What would weaken the direction</strong>. It is weakened if matched held-out designs under equal compute produce no higher valid-completion or equivalence rate than the baseline<span class="ck-gloss"> (the existing method a new result is compared against)</span>. It is also weakened if the apparent gain disappears after contamination controls.</p>
 <p><strong>Next evidence:</strong> Recover task-level results, held-out dates, contamination tests and equivalence assumptions; compare matched models and budgets.</p>
 <p class="rs-k">Paper evidence and open conditions</p><div class="rs-sh"><h2 class="rs-h2">The papers behind it, <i>and the conditions still unknown</i></h2></div>
 <p><a href="https://github.com/mehtama1234/semiconductor-conferences/blob/main/reports/directions/evidence/01-constraints-become-executable-evidence.md">Read the paper evidence dossier</a>. It connects this discussion to the recorded sources and unresolved conditions.</p>

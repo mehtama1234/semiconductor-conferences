@@ -100,7 +100,7 @@
 <p>A paper can improve one choice while making another more expensive.</p>
 <p><strong>Be careful:</strong> the explanations below link paper evidence through these choices. They do not show a historical trend or a ranking across unrelated applications. The numbers in this theme are teaching calculations, not paper measurements.</p>
 <div class="rs-sh"><h2 class="rs-h2">Separate three limits before selecting an accelerator</h2></div>
-<p>A job is held back by arithmetic, by data traffic, or by a chain of steps that must wait for each other.</p>
+<p>A job is held back by arithmetic or by data traffic. It can also be held back by a chain of steps that must wait for each other.</p>
 <blockquote>
 <p><strong>Worked example.</strong> A job needs 100 million operations and moves 200 million bytes through its slowest memory interface.</p>
 <ul>
@@ -132,7 +132,7 @@
 <p>Two papers show this question from different angles:</p>
 <ul>
 <li><a href="../subthemes/approximate-and-precision-aware-compute.html#explanation-dac-2026-research1999">HAP's individual explanation</a> separates exactly recovering an already quantized activation from preserving the original floating-point result. Its evaluation uses synthesis and simulation, not measured fabricated silicon.</li>
-<li><a href="../subthemes/sparse-and-irregular-compute.html#explanation-dac-2026-research1419">Duet</a> asks the same at bit level: which digits are redundant, how are signs and positions recovered, and what work remains after skipping? Its manuscript is still missing.</li>
+<li><a href="../subthemes/sparse-and-irregular-compute.html#explanation-dac-2026-research1419">Duet</a> asks the same at bit level. Which digits are redundant? How are signs and positions recovered? What work remains after skipping? Its manuscript is still missing.</li>
 </ul>
 <p><strong>Be careful:</strong> HAP and Duet raise a shared question. Their evidence is not equally complete, and their results are not interchangeable.</p>
 <h3>Sparse values require addresses and completed reductions</h3>
@@ -225,7 +225,7 @@
 <li>report spreads and regressions, not only good averages;</li>
 <li>across editions, use the same collection rules, and tell missing manuscripts apart from measured negative results.</li>
 </ol>
-<p><strong>Be careful:</strong> the current sample cannot show that ISCA, DAC or ICCAD leads a trend, or that a mechanism is growing. Conference identity is not an experimental control.</p><p>A useful cross-conference link asks whether separately tested parts can meet one compatible set of requirements. A compiler result, an accelerator result and a layout result are separate evidence.</p><p>They join up only when their interfaces, formats, sizes and test conditions match.</p>
+<p><strong>Be careful:</strong> the current sample cannot show that ISCA, DAC or ICCAD leads a trend. It also cannot show that a mechanism is growing.</p><p>Conference identity is not an experimental control. A useful cross-conference link asks whether separately tested parts can meet one compatible set of requirements.</p><p>A compiler result, an accelerator result and a layout result are separate evidence. They join up only when their interfaces, formats, sizes and test conditions match.</p>
 <div class="rs-sh"><h2 class="rs-h2">What an end-to-end comparison must retain</h2></div>
 <p>A fast middle step speeds up the whole job only as much as the other steps allow.</p>
 <blockquote>

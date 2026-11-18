@@ -20,32 +20,32 @@ Synthesis anchors: **37**; independent verdicts: **0**.
 ## Required next actions
 
 ### Constraints Become Executable
-- Reconcile adjudicated-row gaps with supplementary source-condition fields for anchor papers; preserve source tiers and explicitly bind any remaining workload, hardware/process, baseline, metric, and limit gaps.
+- Reconcile adjudicated-row gaps with supplementary source-condition fields for anchor papers. Preserve source tiers and explicitly bind any remaining workload, hardware/process, baseline, metric, and limit gaps.
 - Obtain two independent source-entailment verdicts per review packet and resolve disagreements.
 - Re-run the longitudinal protocol only after direction mapping and condition fields survive review.
 
 ### Data Movement As Contract
-- Reconcile adjudicated-row gaps with supplementary source-condition fields for anchor papers; preserve source tiers and explicitly bind any remaining workload, hardware/process, baseline, metric, and limit gaps.
+- Reconcile adjudicated-row gaps with supplementary source-condition fields for anchor papers. Preserve source tiers and explicitly bind any remaining workload, hardware/process, baseline, metric, and limit gaps.
 - Obtain two independent source-entailment verdicts per review packet and resolve disagreements.
 - Re-run the longitudinal protocol only after direction mapping and condition fields survive review.
 
 ### Reliability Security Upstream
-- Reconcile adjudicated-row gaps with supplementary source-condition fields for anchor papers; preserve source tiers and explicitly bind any remaining workload, hardware/process, baseline, metric, and limit gaps.
+- Reconcile adjudicated-row gaps with supplementary source-condition fields for anchor papers. Preserve source tiers and explicitly bind any remaining workload, hardware/process, baseline, metric, and limit gaps.
 - Obtain two independent source-entailment verdicts per review packet and resolve disagreements.
 - Re-run the longitudinal protocol only after direction mapping and condition fields survive review.
 
 ### Physical Reality In The Loop
-- Reconcile adjudicated-row gaps with supplementary source-condition fields for anchor papers; preserve source tiers and explicitly bind any remaining workload, hardware/process, baseline, metric, and limit gaps.
+- Reconcile adjudicated-row gaps with supplementary source-condition fields for anchor papers. Preserve source tiers and explicitly bind any remaining workload, hardware/process, baseline, metric, and limit gaps.
 - Obtain two independent source-entailment verdicts per review packet and resolve disagreements.
 - Re-run the longitudinal protocol only after direction mapping and condition fields survive review.
 
 ### Closed Loop Design
-- Reconcile adjudicated-row gaps with supplementary source-condition fields for anchor papers; preserve source tiers and explicitly bind any remaining workload, hardware/process, baseline, metric, and limit gaps.
+- Reconcile adjudicated-row gaps with supplementary source-condition fields for anchor papers. Preserve source tiers and explicitly bind any remaining workload, hardware/process, baseline, metric, and limit gaps.
 - Obtain two independent source-entailment verdicts per review packet and resolve disagreements.
 - Re-run the longitudinal protocol only after direction mapping and condition fields survive review.
 
 ### Evaluation As Research
-- Reconcile adjudicated-row gaps with supplementary source-condition fields for anchor papers; preserve source tiers and explicitly bind any remaining workload, hardware/process, baseline, metric, and limit gaps.
+- Reconcile adjudicated-row gaps with supplementary source-condition fields for anchor papers. Preserve source tiers and explicitly bind any remaining workload, hardware/process, baseline, metric, and limit gaps.
 - Obtain two independent source-entailment verdicts per review packet and resolve disagreements.
 - Re-run the longitudinal protocol only after direction mapping and condition fields survive review.
 

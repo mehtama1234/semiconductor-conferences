@@ -88,7 +88,7 @@
 </ul>
 <p>Early placement may estimate wire length with a simple distance. Final routing may need detours around obstacles or crowded areas, so that estimate is optimistic.</p>
 <blockquote>
-<p><strong>Worked example (simplified: one track per connection).</strong> A corridor has room for 8 parallel tracks. 10 connections need to cross it.</p>
+<p><strong>Worked example (simplified: one track per connection)</strong>. A corridor has room for 8 parallel tracks. 10 connections need to cross it.</p>
 <ul>
 <li>At least 10 − 8 = <strong>2</strong> cannot use the corridor as assigned.</li>
 <li>They need another route, another layer if one exists, or a placement change.</li>
@@ -123,7 +123,7 @@
 <ul>
 <li>Strengthening the second cell cuts its delay by <strong>4</strong> time units.</li>
 <li>The extra load adds <strong>3</strong> units to the first cell's delay. Net saving: 4 − 3 = <strong>1</strong> unit, not 4.</li>
-<li>If the new size shifts placement and adds <strong>2</strong> units of wiring delay: −4 + 3 + 2 = <strong>1 unit worse</strong>.</li>
+<li>Suppose the new size shifts placement and adds <strong>2</strong> units of wiring delay. The total is −4 + 3 + 2 = <strong>1 unit worse</strong>.</li>
 </ul>
 </blockquote>
 <p><a href="../subthemes/placement-routing-and-timing.html#paper-dac-2026-research1317">HyPAS's recorded method</a> argues for choosing placement and sizing together. Its current evidence does not establish complete prediction error, repair cost or final gain.</p><p>Optimizing jointly opens up more choices, but makes credit harder to assign. An evaluation must separate the combined result from each part's contribution.</p>
@@ -236,7 +236,7 @@
 </tr>
 </tbody>
 </table>
-<p>The full flow also includes failed candidates and repair. An optimizer that runs for ten minutes but needs ninety minutes of clean-up is not a ten-minute route to a finished layout.</p><p>Fixing geometry can change electrical behavior, and fixing electrical behavior can need new geometry. Done means the chosen result meets every applicable requirement together, under stated conditions.</p>
+<p>The full flow also includes failed candidates and repair. A ten-minute optimizer run is not a ten-minute route to a finished layout if it needs ninety minutes of clean-up.</p><p>Fixing geometry can change electrical behavior, and fixing electrical behavior can need new geometry. Done means the chosen result meets every applicable requirement together, under stated conditions.</p>
 <div class="rs-sh"><h2 class="rs-h2">Long-term hypotheses and disconfirming evidence</h2></div>
 <p>Three readings are worth testing; each names what would weaken it.</p>
 <table>
@@ -266,7 +266,7 @@
 </tbody>
 </table>
 <p>These are bounded interpretations, not established ISCA–DAC–ICCAD time trends. Comparable processes, rule sets, circuits, operating assumptions, tool budgets, source depth and editions are still needed.</p>
-<p><strong>Be careful:</strong> this parent synthesis does not complete the deeper individual-paper writing, manufacturing validation, source recovery, or independent review still needed below.</p>
+<p><strong>Be careful:</strong> this parent synthesis does not complete the deeper work still needed below. That work is individual-paper writing, manufacturing validation, source recovery, and independent review.</p>
 <p class="rs-k">Subthemes and how to study them</p><div class="rs-sh"><h2 class="rs-h2">The subthemes in this theme, <i>and how to read them</i></h2></div>
 <p>Each link opens the subtheme discussion and its captured paper records. Explanatory depth varies: some papers have expanded individual explanations; others still have only brief discussion or evidence cards. Source locations and unresolved conditions remain visible.</p>
 <h3><a href="../subthemes/placement-routing-and-floorplanning.html">Placement routing and floorplanning</a></h3>

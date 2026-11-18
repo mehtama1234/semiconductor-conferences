@@ -1,9 +1,9 @@
 {
  "pages": 161,
- "sentences": 40887,
- "over_20_words": 108,
+ "sentences": 41054,
+ "over_20_words": 7,
  "pages_with_cliches": [],
- "terms_glossed": 1361,
+ "terms_glossed": 1360,
  "rows": [
   {
    "page": "reports/themes/README.md",
@@ -18,8 +18,8 @@
   },
   {
    "page": "reports/themes/ai-assisted-eda.md",
-   "sentences": 166,
-   "over_20_words": 1,
+   "sentences": 167,
+   "over_20_words": 0,
    "vague_words": [
     "efficient"
    ],
@@ -35,14 +35,12 @@
     "RTL",
     "baseline"
    ],
-   "long_examples": [
-    "A designer states what a circuit must do and which limits it must meet. **Electronic design automation (EDA)** is the software that turns that statement into a circuit and then a physical layout."
-   ]
+   "long_examples": []
   },
   {
    "page": "reports/themes/analog-mixed-signal-and-emerging-devices.md",
-   "sentences": 181,
-   "over_20_words": 2,
+   "sentences": 184,
+   "over_20_words": 0,
    "vague_words": [
     "efficient",
     "robust"
@@ -56,15 +54,12 @@
     "inference",
     "latency"
    ],
-   "long_examples": [
-    "Noise, temperature, differences between devices, and measurement precision can all change the result. **Calibration** adjusts operation using measured device behavior, and it also costs time or hardware.",
-    "In an **analog** operation, a continuously varying quantity, such as voltage or current, stands for a value within a defined range."
-   ]
+   "long_examples": []
   },
   {
    "page": "reports/themes/architecture-and-accelerators.md",
-   "sentences": 182,
-   "over_20_words": 3,
+   "sentences": 187,
+   "over_20_words": 0,
    "vague_words": [
     "efficient",
     "substantial"
@@ -80,16 +75,12 @@
     "baseline",
     "inference"
    ],
-   "long_examples": [
-    "A job is held back by arithmetic, by data traffic, or by a chain of steps that must wait for each other.",
-    "Duet asks the same at bit level: which digits are redundant, how are signs and positions recovered, and what work remains after skipping?",
-    "**Be careful:** the current sample cannot show that ISCA, DAC or ICCAD leads a trend, or that a mechanism is growing."
-   ]
+   "long_examples": []
   },
   {
    "page": "reports/themes/chiplets-3d-and-packaging.md",
-   "sentences": 176,
-   "over_20_words": 2,
+   "sentences": 178,
+   "over_20_words": 0,
    "vague_words": [
     "efficient"
    ],
@@ -103,15 +94,12 @@
     "latency",
     "throughput"
    ],
-   "long_examples": [
-    "Partitioned: each stage drops to 2 milliseconds, but a 3-millisecond transfer sits between them: 2 + 3 + 2 = **7 milliseconds**.",
-    "**Power** is the rate of energy use. **Temperature** depends on where heat is produced and how it flows through materials to the surroundings."
-   ]
+   "long_examples": []
   },
   {
    "page": "reports/themes/design-methodology-and-tooling.md",
-   "sentences": 193,
-   "over_20_words": 3,
+   "sentences": 197,
+   "over_20_words": 0,
    "vague_words": [
     "efficient"
    ],
@@ -122,16 +110,12 @@
     "accelerator",
     "baseline"
    ],
-   "long_examples": [
-    "So a tool needs two things: a rule for which changes keep the design correct, and a cost model for picking useful ones.",
-    "It makes the problem cheaper, but temporarily hides choices about how the merged objects differ. **Refinement** restores the detail and allows adjustments.",
-    "If the input or hardware changes after 100 runs, and the result cannot be reused: only 100 × 1 ms = **0.1 second** saved."
-   ]
+   "long_examples": []
   },
   {
    "page": "reports/themes/memory-interconnect-and-storage.md",
-   "sentences": 204,
-   "over_20_words": 4,
+   "sentences": 208,
+   "over_20_words": 0,
    "vague_words": [
     "efficient",
     "efficiently",
@@ -158,17 +142,12 @@
     "quantization",
     "throughput"
    ],
-   "long_examples": [
-    "To sustain 20 billion bytes per second with these sizes and this latency, an idealized model needs at least **32 requests in flight**.",
-    "A **placement policy** chooses where data should live. **Migration** is the work of moving it while keeping its contents and accesses correct.",
-    "**Example (conceptual, not taken from a paper in this sample).** An update changes a stored record and an index pointing to it.",
-    "**Be careful:** the current selected sample and missing sources do not support a conference ranking or a claim of historical growth."
-   ]
+   "long_examples": []
   },
   {
    "page": "reports/themes/physical-design-and-manufacturing.md",
-   "sentences": 182,
-   "over_20_words": 5,
+   "sentences": 185,
+   "over_20_words": 1,
    "vague_words": [
     "efficient",
     "robust"
@@ -184,10 +163,6 @@
     "slack"
    ],
    "long_examples": [
-    "**Worked example (simplified: one track per connection).** A corridor has room for 8 parallel tracks. 10 connections need to cross it.",
-    "If the new size shifts placement and adds **2** units of wiring delay: −4 + 3 + 2 = **1 unit worse**.",
-    "An optimizer that runs for ten minutes but needs ninety minutes of clean-up is not a ten-minute route to a finished layout.",
-    "**Be careful:** this parent synthesis does not complete the deeper individual-paper writing, manufacturing validation, source recovery, or independent review still needed below.",
     "Start with Design Technology Co-Optimization for Network on Chip in High Performance CPUs at 3nm Node Using Monolithic 3D and Backside Interconnect Technologies."
    ]
   },
@@ -217,8 +192,8 @@
   },
   {
    "page": "reports/themes/systems-applications-and-workloads.md",
-   "sentences": 220,
-   "over_20_words": 3,
+   "sentences": 223,
+   "over_20_words": 0,
    "vague_words": [
     "efficient"
    ],
@@ -232,11 +207,7 @@
     "latency",
     "throughput"
    ],
-   "long_examples": [
-    "**Worked example (illustrative fixed wait).** A request waits 20 milliseconds, transfers data for 10, computes for 30 and returns its result in 5.",
-    "**Offline processing** starts with all the work available, and usually aims for the shortest total completion time. **Online service** also faces arrival times, waiting and response limits.",
-    "Once the server is at capacity, waiting work grows by about 110 − 100 = **10 requests per second**, assuming no rejection or cancellation."
-   ]
+   "long_examples": []
   },
   {
    "page": "reports/themes/verification-and-validation.md",
@@ -2779,36 +2750,31 @@
   },
   {
    "page": "reports/directions/01-constraints-become-executable.md",
-   "sentences": 43,
-   "over_20_words": 2,
+   "sentences": 48,
+   "over_20_words": 0,
    "vague_words": [],
    "cliches": [],
    "field_terms_glossed_on_first_use": [
     "baseline"
    ],
-   "long_examples": [
-    "Three kinds of tool can use this loop: a language model writing circuit code, a compiler ordering operations, and a placement tool choosing locations.",
-    "**What would weaken the direction:** The direction is weakened if matched held-out designs under equal compute produce no higher valid-completion or equivalence rate than the baseline, or if the apparent gain disappears after contamination controls."
-   ]
+   "long_examples": []
   },
   {
    "page": "reports/directions/02-data-movement-as-contract.md",
-   "sentences": 42,
-   "over_20_words": 1,
+   "sentences": 45,
+   "over_20_words": 0,
    "vague_words": [],
    "cliches": [],
    "field_terms_glossed_on_first_use": [
     "CXL",
     "bandwidth"
    ],
-   "long_examples": [
-    "**What would weaken the direction:** The direction is weakened if a matched-recall comparison shows that host-side placement and scheduling provide the same end-to-end result after including CXL traffic, speculation, capacity and host overhead, without a distinct near-memory benefit."
-   ]
+   "long_examples": []
   },
   {
    "page": "reports/directions/03-closed-loop-design.md",
-   "sentences": 39,
-   "over_20_words": 1,
+   "sentences": 42,
+   "over_20_words": 0,
    "vague_words": [
     "efficient"
    ],
@@ -2816,44 +2782,36 @@
    "field_terms_glossed_on_first_use": [
     "surrogate"
    ],
-   "long_examples": [
-    "**What would weaken the direction:** The direction is weakened if surrogate ranking error frequently excludes the true best candidates, or if full reference-model evaluation removes the reported advantage after the complete acquisition and recheck budget is counted."
-   ]
+   "long_examples": []
   },
   {
    "page": "reports/directions/04-reliability-security-upstream.md",
-   "sentences": 37,
-   "over_20_words": 1,
+   "sentences": 40,
+   "over_20_words": 0,
    "vague_words": [],
    "cliches": [],
    "field_terms_glossed_on_first_use": [],
-   "long_examples": [
-    "**What would weaken the direction:** The direction is weakened if an in-scope adversary can still starve or delay an attested workload under the stated admission and scheduler policy, or if the availability guarantee requires an unmodeled trusted component."
-   ]
+   "long_examples": []
   },
   {
    "page": "reports/directions/05-physical-reality-in-the-loop.md",
-   "sentences": 39,
-   "over_20_words": 1,
+   "sentences": 41,
+   "over_20_words": 0,
    "vague_words": [],
    "cliches": [],
    "field_terms_glossed_on_first_use": [],
-   "long_examples": [
-    "**What would weaken the direction:** The direction is weakened if measured temperature and programming variation pushes task accuracy beyond the declared error budget, or if calibration cost and thermal control erase the claimed efficiency benefit."
-   ]
+   "long_examples": []
   },
   {
    "page": "reports/directions/06-evaluation-as-research.md",
-   "sentences": 41,
-   "over_20_words": 1,
+   "sentences": 43,
+   "over_20_words": 0,
    "vague_words": [],
    "cliches": [],
    "field_terms_glossed_on_first_use": [
     "PPA"
    ],
-   "long_examples": [
-    "**What would weaken the direction:** The direction is weakened if PVT and yield distributions exceed the declared accuracy/error budget, or if a matched exact-arithmetic design meets the same task accuracy with better total PPA and robustness."
-   ]
+   "long_examples": []
   },
   {
    "page": "reports/comparisons/README.md",
@@ -2866,8 +2824,8 @@
   },
   {
    "page": "reports/comparisons/closed-loop-design.md",
-   "sentences": 21,
-   "over_20_words": 1,
+   "sentences": 23,
+   "over_20_words": 0,
    "vague_words": [
     "efficient",
     "robust"
@@ -2879,14 +2837,12 @@
     "baseline",
     "surrogate"
    ],
-   "long_examples": [
-    "A fair comparison holds six things fixed: the workload or design set, the hardware or simulator assumptions, the baseline, the metric, the test budget, and what counts as a failure."
-   ]
+   "long_examples": []
   },
   {
    "page": "reports/comparisons/constraints-become-executable.md",
-   "sentences": 22,
-   "over_20_words": 1,
+   "sentences": 24,
+   "over_20_words": 0,
    "vague_words": [],
    "cliches": [],
    "field_terms_glossed_on_first_use": [
@@ -2896,14 +2852,12 @@
     "RTL",
     "baseline"
    ],
-   "long_examples": [
-    "A fair comparison holds six things fixed: the workload or design set, the hardware or simulator assumptions, the baseline, the metric, the test budget, and what counts as a failure."
-   ]
+   "long_examples": []
   },
   {
    "page": "reports/comparisons/data-movement-as-contract.md",
-   "sentences": 28,
-   "over_20_words": 1,
+   "sentences": 30,
+   "over_20_words": 0,
    "vague_words": [
     "efficient"
    ],
@@ -2922,14 +2876,12 @@
     "baseline",
     "latency"
    ],
-   "long_examples": [
-    "A fair comparison holds six things fixed: the workload or design set, the hardware or simulator assumptions, the baseline, the metric, the test budget, and what counts as a failure."
-   ]
+   "long_examples": []
   },
   {
    "page": "reports/comparisons/evaluation-as-research.md",
-   "sentences": 28,
-   "over_20_words": 1,
+   "sentences": 30,
+   "over_20_words": 0,
    "vague_words": [
     "efficient",
     "robust"
@@ -2944,14 +2896,12 @@
     "baseline",
     "surrogate"
    ],
-   "long_examples": [
-    "A fair comparison holds six things fixed: the workload or design set, the hardware or simulator assumptions, the baseline, the metric, the test budget, and what counts as a failure."
-   ]
+   "long_examples": []
   },
   {
    "page": "reports/comparisons/physical-reality-in-the-loop.md",
-   "sentences": 18,
-   "over_20_words": 1,
+   "sentences": 20,
+   "over_20_words": 0,
    "vague_words": [],
    "cliches": [],
    "field_terms_glossed_on_first_use": [
@@ -2959,14 +2909,12 @@
     "LLM",
     "baseline"
    ],
-   "long_examples": [
-    "A fair comparison holds six things fixed: the workload or design set, the hardware or simulator assumptions, the baseline, the metric, the test budget, and what counts as a failure."
-   ]
+   "long_examples": []
   },
   {
    "page": "reports/comparisons/reliability-security-upstream.md",
-   "sentences": 20,
-   "over_20_words": 1,
+   "sentences": 22,
+   "over_20_words": 0,
    "vague_words": [
     "efficient",
     "robust"
@@ -2981,9 +2929,7 @@
     "baseline",
     "throughput"
    ],
-   "long_examples": [
-    "A fair comparison holds six things fixed: the workload or design set, the hardware or simulator assumptions, the baseline, the metric, the test budget, and what counts as a failure."
-   ]
+   "long_examples": []
   },
   {
    "page": "dac/reports/atb-primary-assessment-v1.md",
@@ -3063,20 +3009,17 @@
   },
   {
    "page": "dac/reports/hlsarchopt-primary-assessment-v1.md",
-   "sentences": 19,
-   "over_20_words": 1,
+   "sentences": 22,
+   "over_20_words": 0,
    "vague_words": [],
    "cliches": [],
    "field_terms_glossed_on_first_use": [
     "HLS",
     "LLM",
     "LUT",
-    "baseline",
-    "latency"
+    "baseline"
    ],
-   "long_examples": [
-    "The pinned text and XML reports agree on selected fields: latency 335,494 cycles (reported as 3.355 ms at a 10 ns target), interval 229,703 cycles, and estimated clock period 8.419 ns."
-   ]
+   "long_examples": []
   },
   {
    "page": "dac/reports/hybrimoe-primary-conditions-v1.md",
@@ -3170,8 +3113,8 @@
   },
   {
    "page": "reports/reading-guide-v1.md",
-   "sentences": 40,
-   "over_20_words": 6,
+   "sentences": 53,
+   "over_20_words": 0,
    "vague_words": [],
    "cliches": [],
    "field_terms_glossed_on_first_use": [
@@ -3192,18 +3135,12 @@
     "quantization",
     "throughput"
    ],
-   "long_examples": [
-    "**Bandwidth:** data transferred per unit time. **Capacity:** data that can be stored. **Locality:** how closely the location and timing of data access allow values to be reused without expensive transfers.",
-    "**EDA:** electronic design automation, software used to construct and check circuits. **RTL:** register-transfer level, a description of stored circuit state and the operations that update it. **HLS:** high-level synthesis, which constructs hardware from a higher-level program description.",
-    "**FPGA:** a field-programmable gate array, hardware with configurable logic and connections. **ASIC:** an application-specific integrated circuit, fabricated for a particular design. **GPU:** a graphics processing unit, also used to execute many computation tasks in parallel.",
-    "**PIM:** processing in memory, methods that perform computation in or close to memory structures. **CXL:** Compute Express Link, a connection standard used in some processor, device, and memory systems.",
-    "**LLM:** a large language model. **Inference:** executing a trained model to produce outputs. **KV cache:** stored attention keys and values used when a language model generates further output. **MoE:** mixture of experts, a model organization that chooses among parts of the model for particular inputs."
-   ]
+   "long_examples": []
   },
   {
    "page": "reports/expanded-taxonomy-v1.md",
-   "sentences": 17,
-   "over_20_words": 3,
+   "sentences": 21,
+   "over_20_words": 0,
    "vague_words": [
     "efficient",
     "robust"
@@ -3215,16 +3152,12 @@
     "inference",
     "lithography"
    ],
-   "long_examples": [
-    "Labels marked X were not in the starter taxonomy but recur in the adjudicated sample and therefore deserve direct navigation or future consolidation review.",
-    "Move from the paper mechanism to the five high-value cross-cutting subtheme pages and six long-term direction pages only when the evidence supports that connection.",
-    "Promote an observed subtheme into a stable conceptual category only after at least two records expose the same mechanism boundary, or after a primary-source review demonstrates that the apparent distinction is real."
-   ]
+   "long_examples": []
   },
   {
    "page": "reports/field-directions-and-hypotheses-v1.md",
-   "sentences": 152,
-   "over_20_words": 35,
+   "sentences": 217,
+   "over_20_words": 0,
    "vague_words": [
     "robust"
    ],
@@ -3253,18 +3186,12 @@
     "surrogate",
     "throughput"
    ],
-   "long_examples": [
-    "The selected papers suggest an important research question: **how much of a system's constraints can be made explicit while choosing its algorithm, architecture, mapping and runtime policy?** Optimizing arithmetic alone leaves data movement, physical feasibility, correctness and search cost unresolved.",
-    "The original cross-conference sample began with 72 records; current coding contains 582 (544 DAC, 17 ISCA, 21 ICCAD), none independently accepted here.",
-    "It adds evaluation counterpressure, alternative mechanisms and explicit validation boundaries; all six cases remain description-level and independently unreviewed, not measured falsifications.",
-    "The NotSoTiny follow-up now adds selected preprint conditions without promoting the original description: task selection, checker semantics and benchmark version must accompany any capability comparison.",
-    "This is a concrete implementation caveat, not demonstrated inflation of the paper's scores; matched run provenance and timeout incidence are still missing."
-   ]
+   "long_examples": []
   },
   {
    "page": "reports/research-atlas-index-v1.md",
-   "sentences": 118,
-   "over_20_words": 14,
+   "sentences": 138,
+   "over_20_words": 0,
    "vague_words": [],
    "cliches": [],
    "field_terms_glossed_on_first_use": [
@@ -3277,29 +3204,23 @@
     "baseline",
     "throughput"
    ],
-   "long_examples": [
-    "How do choices about algorithms, hardware, memory, physical design, and checking affect one another—and which proposed improvements still help when the complete job, its required answer, and its real operating conditions are measured?",
-    "They are connected by one practical question: when a paper removes one cost, what new cost or correctness obligation appears elsewhere?",
-    "This creates a chain of consequences: smaller stored values can free memory; free memory can admit more concurrent work; concurrent work can improve total throughput while increasing each request's wait.",
-    "Its recovered serving table reports higher throughput alongside longer median time per output token, and its conflicting batch counts remain unresolved.",
-    "It would be weakened by matched results showing that movement is already minor or that decoding and coordination consume the saving."
-   ]
+   "long_examples": []
   },
   {
    "page": "reports/direction-review-gate-v1.md",
-   "sentences": 34,
-   "over_20_words": 11,
+   "sentences": 40,
+   "over_20_words": 5,
    "vague_words": [],
    "cliches": [],
    "field_terms_glossed_on_first_use": [
     "baseline"
    ],
    "long_examples": [
-    "Reconcile adjudicated-row gaps with supplementary source-condition fields for anchor papers; preserve source tiers and explicitly bind any remaining workload, hardware/process, baseline, metric, and limit gaps.",
-    "Reconcile adjudicated-row gaps with supplementary source-condition fields for anchor papers; preserve source tiers and explicitly bind any remaining workload, hardware/process, baseline, metric, and limit gaps.",
-    "Reconcile adjudicated-row gaps with supplementary source-condition fields for anchor papers; preserve source tiers and explicitly bind any remaining workload, hardware/process, baseline, metric, and limit gaps.",
-    "Reconcile adjudicated-row gaps with supplementary source-condition fields for anchor papers; preserve source tiers and explicitly bind any remaining workload, hardware/process, baseline, metric, and limit gaps.",
-    "Reconcile adjudicated-row gaps with supplementary source-condition fields for anchor papers; preserve source tiers and explicitly bind any remaining workload, hardware/process, baseline, metric, and limit gaps."
+    "**Constraints Become Executable**: X (adjudicated=partial, combined=complete), X (adjudicated=partial, combined=complete), X (adjudicated=partial, combined=complete), X (adjudicated=partial, combined=complete), X (adjudicated=complete, combined=complete), X (adjudicated=complete, combined=complete), X (adjudicated=complete, combined=complete), X (adjudicated=complete, combined=complete).",
+    "**Data Movement As Contract**: X (adjudicated=partial, combined=complete), X (adjudicated=partial, combined=complete), X (adjudicated=partial, combined=complete), X (adjudicated=complete, combined=complete), X (adjudicated=complete, combined=complete), X (adjudicated=complete, combined=complete), X (adjudicated=complete, combined=complete), X (adjudicated=complete, combined=complete), X (adjudicated=complete, combined=complete), X (adjudicated=complete, combined=complete), X (adjudicated=complete, combined=complete), X (adjudicated=complete, combined=complete), X (adjudicated=complete, combined=complete), X (adjudicated=complete, combined=complete), X (adjudicated=complete, combined=complete).",
+    "**Reliability Security Upstream**: X (adjudicated=partial, combined=complete), X (adjudicated=partial, combined=complete), X (adjudicated=partial, combined=complete), X (adjudicated=partial, combined=complete), X (adjudicated=complete, combined=complete), X (adjudicated=complete, combined=complete), X (adjudicated=complete, combined=complete).",
+    "**Closed Loop Design**: X (adjudicated=partial, combined=complete), X (adjudicated=partial, combined=complete), X (adjudicated=partial, combined=complete), X (adjudicated=complete, combined=complete), X (adjudicated=complete, combined=complete), X (adjudicated=complete, combined=complete).",
+    "**Evaluation As Research**: X (adjudicated=partial, combined=complete), X (adjudicated=partial, combined=complete), X (adjudicated=partial, combined=complete), X (adjudicated=partial, combined=complete), X (adjudicated=complete, combined=complete), X (adjudicated=partial, combined=complete), X (adjudicated=partial, combined=complete), X (adjudicated=partial, combined=complete), X (adjudicated=complete, combined=complete), X (adjudicated=complete, combined=complete), X (adjudicated=complete, combined=complete), X (adjudicated=complete, combined=complete), X (adjudicated=complete, combined=complete), X (adjudicated=complete, combined=complete)."
    ]
   },
   {
@@ -3317,16 +3238,14 @@
   },
   {
    "page": "reports/research-agenda-v1.md",
-   "sentences": 43,
-   "over_20_words": 1,
+   "sentences": 44,
+   "over_20_words": 0,
    "vague_words": [],
    "cliches": [],
    "field_terms_glossed_on_first_use": [
     "baseline"
    ],
-   "long_examples": [
-    "It makes the path from provisional synthesis to defensible long-term insight explicit: evidence conditions → counterpressure → independent review → matched comparison → longitudinal promotion."
-   ]
+   "long_examples": []
   },
   {
    "page": "reports/evidence-summary-v1.md",

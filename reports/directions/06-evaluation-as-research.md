@@ -40,7 +40,7 @@ Challenge paper: `dac-2026-research2014` (accuracy_constraint; source tier `offi
 
 Representation and circuit approximation require an explicit error budget; nominal PPA alone is insufficient. Tool compatibility is not experimental reproduction.
 
-**What would weaken the direction:** The direction is weakened if PVT and yield distributions exceed the declared accuracy/error budget, or if a matched exact-arithmetic design meets the same task accuracy with better total PPA and robustness.
+**What would weaken the direction**. It is weakened if PVT and yield distributions exceed the declared accuracy/error budget. It is also weakened if a matched exact-arithmetic design meets the same task accuracy with better total PPA and robustness.
 
 **Next evidence:** Recover task-level accuracy limits, error propagation, PVT/yield distributions and matched exact-arithmetic baselines.
 

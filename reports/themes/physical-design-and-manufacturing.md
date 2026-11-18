@@ -65,7 +65,7 @@ Where parts are placed decides how many wires must squeeze through each region.
 
 Early placement may estimate wire length with a simple distance. Final routing may need detours around obstacles or crowded areas, so that estimate is optimistic.
 
-> **Worked example (simplified: one track per connection).** A corridor has room for 8 parallel tracks. 10 connections need to cross it.
+> **Worked example (simplified: one track per connection)**. A corridor has room for 8 parallel tracks. 10 connections need to cross it.
 >
 > - At least 10 − 8 = **2** cannot use the corridor as assigned.
 > - They need another route, another layer if one exists, or a placement change.
@@ -107,7 +107,7 @@ A stronger driver may charge its load faster. It can also take more area, use mo
 >
 > - Strengthening the second cell cuts its delay by **4** time units.
 > - The extra load adds **3** units to the first cell's delay. Net saving: 4 − 3 = **1** unit, not 4.
-> - If the new size shifts placement and adds **2** units of wiring delay: −4 + 3 + 2 = **1 unit worse**.
+> - Suppose the new size shifts placement and adds **2** units of wiring delay. The total is −4 + 3 + 2 = **1 unit worse**.
 
 [HyPAS's recorded method](../observed-subthemes/placement-routing-and-timing.md#paper-dac-2026-research1317) argues for choosing placement and sizing together. Its current evidence does not establish complete prediction error, repair cost or final gain. Optimizing jointly opens up more choices, but makes credit harder to assign. An evaluation must separate the combined result from each part's contribution.
 
@@ -190,7 +190,7 @@ Each claimed gain needs companion evidence before it counts as a finished result
 | Faster physical estimation | Decision-relevant errors and validation of selected candidates |
 | Better inspection scores | Real defect ground truth, false alarms, and separate yield evidence |
 
-The full flow also includes failed candidates and repair. An optimizer that runs for ten minutes but needs ninety minutes of clean-up is not a ten-minute route to a finished layout. Fixing geometry can change electrical behavior, and fixing electrical behavior can need new geometry. Done means the chosen result meets every applicable requirement together, under stated conditions.
+The full flow also includes failed candidates and repair. A ten-minute optimizer run is not a ten-minute route to a finished layout if it needs ninety minutes of clean-up. Fixing geometry can change electrical behavior, and fixing electrical behavior can need new geometry. Done means the chosen result meets every applicable requirement together, under stated conditions.
 
 ## Long-term hypotheses and disconfirming evidence
 
@@ -204,7 +204,7 @@ Three readings are worth testing; each names what would weaken it.
 
 These are bounded interpretations, not established ISCA–DAC–ICCAD time trends. Comparable processes, rule sets, circuits, operating assumptions, tool budgets, source depth and editions are still needed.
 
-**Be careful:** this parent synthesis does not complete the deeper individual-paper writing, manufacturing validation, source recovery, or independent review still needed below.
+**Be careful:** this parent synthesis does not complete the deeper work still needed below. That work is individual-paper writing, manufacturing validation, source recovery, and independent review.
 
 ## Subthemes and how to study them
 

@@ -75,7 +75,7 @@
 </ol>
 <p>Some applications need one more step. A robot must apply the command. A database must make an update recoverable. A user must receive the answer over a network. Measuring only the arithmetic leaves out part of what the application needs done.</p>
 <blockquote>
-<p><strong>Worked example (illustrative fixed wait).</strong> A request waits 20 milliseconds, transfers data for 10, computes for 30 and returns its result in 5.</p>
+<p><strong>Worked example (illustrative fixed wait)</strong>. A request waits 20 milliseconds, transfers data for 10, computes for 30 and returns its result in 5.</p>
 <ul>
 <li>Total, if the stages run one after another: 20 + 10 + 30 + 5 = <strong>65 milliseconds</strong>.</li>
 <li>Make computation three times faster: 20 + 10 + 10 + 5 = <strong>45 milliseconds</strong>.</li>
@@ -101,7 +101,7 @@
 <li>successfully completed tasks.</li>
 </ul>
 <p>None can stand in for another without the workload and a conversion rule. Even equal output counts can hide unequal output quality.</p>
-<p><strong>Offline processing</strong> starts with all the work available, and usually aims for the shortest total completion time. <strong>Online service</strong> also faces arrival times, waiting and response limits. A fast offline batch does not show good online service when requests arrive irregularly or need different amounts of work.</p>
+<p>Here, <strong>offline processing</strong> starts with all the work available. It usually aims for the shortest total completion time. <strong>Online service</strong> also faces arrival times, waiting and response limits.</p><p>A fast offline batch does not show good online service when requests arrive irregularly or need different amounts of work.</p>
 <div class="rs-sh"><h2 class="rs-h2">Throughput and response time can move in opposite directions</h2></div>
 <p>Finishing more requests per second can still make each request wait longer.</p>
 <blockquote>
@@ -150,7 +150,7 @@
 <blockquote>
 <p><strong>Worked example.</strong> A server can sustain 100 equal requests per second. Requests keep arriving at 110 per second.</p>
 <ul>
-<li>Once the server is at capacity, waiting work grows by about 110 − 100 = <strong>10 requests per second</strong>, assuming no rejection or cancellation.</li>
+<li>Once the server is at capacity, waiting work grows by about 110 − 100 = <strong>10 requests per second</strong>. This assumes no rejection or cancellation.</li>
 <li>A tenfold faster routing decision cannot fix this, if routing was not the limiting work.</li>
 </ul>
 </blockquote>

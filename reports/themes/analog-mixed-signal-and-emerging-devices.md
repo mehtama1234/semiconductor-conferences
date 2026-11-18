@@ -19,7 +19,7 @@ These differ greatly. But each must say exactly how a physical state stands for 
 
 Inputs may need converting from digital values. Outputs may need measuring and converting back.
 
-Noise, temperature, differences between devices, and measurement precision can all change the result. **Calibration** adjusts operation using measured device behavior, and it also costs time or hardware.
+Noise, temperature, differences between devices, and measurement precision can all change the result. Here, **calibration** adjusts operation using measured device behavior. It also costs time or hardware.
 
 Any claimed saving must include the conversion, control and correction work around the device.
 
@@ -47,7 +47,7 @@ When physics does arithmetic, the way a number is stored as a voltage sets its p
 A computation must represent its inputs, transform them, and make its output available.
 
 - In a **digital** interface, a value may be a bit pattern.
-- In an **analog** operation, a continuously varying quantity, such as voltage or current, stands for a value within a defined range.
+- In an **analog** operation, a continuously varying quantity stands for a value within a defined range. Voltage and current are examples.
 
 **Conversion** links the two. It is part of the computation's cost and error, not a detail to ignore.
 

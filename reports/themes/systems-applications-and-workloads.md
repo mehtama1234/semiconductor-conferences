@@ -53,7 +53,7 @@ A request:
 
 Some applications need one more step. A robot must apply the command. A database must make an update recoverable. A user must receive the answer over a network. Measuring only the arithmetic leaves out part of what the application needs done.
 
-> **Worked example (illustrative fixed wait).** A request waits 20 milliseconds, transfers data for 10, computes for 30 and returns its result in 5.
+> **Worked example (illustrative fixed wait)**. A request waits 20 milliseconds, transfers data for 10, computes for 30 and returns its result in 5.
 >
 > - Total, if the stages run one after another: 20 + 10 + 30 + 5 = **65 milliseconds**.
 > - Make computation three times faster: 20 + 10 + 10 + 5 = **45 milliseconds**.
@@ -84,7 +84,7 @@ A rate must name its unit. Possible units include:
 
 None can stand in for another without the workload and a conversion rule. Even equal output counts can hide unequal output quality.
 
-**Offline processing** starts with all the work available, and usually aims for the shortest total completion time. **Online service** also faces arrival times, waiting and response limits. A fast offline batch does not show good online service when requests arrive irregularly or need different amounts of work.
+Here, **offline processing** starts with all the work available. It usually aims for the shortest total completion time. **Online service** also faces arrival times, waiting and response limits. A fast offline batch does not show good online service when requests arrive irregularly or need different amounts of work.
 
 ## Throughput and response time can move in opposite directions
 
@@ -141,7 +141,7 @@ When requests arrive faster than the server can handle, no speed-up elsewhere st
 
 > **Worked example.** A server can sustain 100 equal requests per second. Requests keep arriving at 110 per second.
 >
-> - Once the server is at capacity, waiting work grows by about 110 − 100 = **10 requests per second**, assuming no rejection or cancellation.
+> - Once the server is at capacity, waiting work grows by about 110 − 100 = **10 requests per second**. This assumes no rejection or cancellation.
 > - A tenfold faster routing decision cannot fix this, if routing was not the limiting work.
 
 Average arrivals below capacity still allow temporary queues.

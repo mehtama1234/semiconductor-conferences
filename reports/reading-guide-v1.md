@@ -17,23 +17,36 @@ Start with a [theme](themes/README.md) for the underlying technical explanation.
 
 **Baseline:** the comparison method or system. A speedup has meaning only relative to this choice and its settings.
 
-**Latency:** elapsed time for an operation or request. **Throughput:** work completed per unit time. Increasing throughput can increase how long an individual request waits.
+- **Latency:** elapsed time for an operation or request.
+- **Throughput:** work completed per unit time. Increasing throughput can increase how long an individual request waits.
 
-**Bandwidth:** data transferred per unit time. **Capacity:** data that can be stored. **Locality:** how closely the location and timing of data access allow values to be reused without expensive transfers.
+- **Bandwidth:** data transferred per unit time.
+- **Capacity:** data that can be stored.
+- **Locality:** how closely the location and timing of data access allow values to be reused without expensive transfers.
 
 **Energy and power:** energy is consumed while doing work; power is the rate of energy use. A power rating is not a measurement of energy per completed workload.
 
 **Precision and quantization:** precision concerns how finely numbers are represented. Quantization maps values onto a limited set of representations. Using fewer bits can reduce storage and arithmetic cost while changing numerical error.
 
-**EDA:** electronic design automation, software used to construct and check circuits. **RTL:** register-transfer level, a description of stored circuit state and the operations that update it. **HLS:** high-level synthesis, which constructs hardware from a higher-level program description.
+- **EDA:** electronic design automation, software used to construct and check circuits.
+- **RTL:** register-transfer level, a description of stored circuit state and the operations that update it.
+- **HLS:** high-level synthesis, which constructs hardware from a higher-level program description.
 
-**FPGA:** a field-programmable gate array, hardware with configurable logic and connections. **ASIC:** an application-specific integrated circuit, fabricated for a particular design. **GPU:** a graphics processing unit, also used to execute many computation tasks in parallel.
+- **FPGA:** a field-programmable gate array, hardware with configurable logic and connections.
+- **ASIC:** an application-specific integrated circuit, fabricated for a particular design.
+- **GPU:** a graphics processing unit, also used to execute many computation tasks in parallel.
 
-**PIM:** processing in memory, methods that perform computation in or close to memory structures. **CXL:** Compute Express Link, a connection standard used in some processor, device, and memory systems. The particular version and implementation matter to a performance claim.
+- **PIM:** processing in memory, methods that perform computation in or close to memory structures.
+- **CXL:** Compute Express Link, a connection standard used in some processor, device, and memory systems. The particular version and implementation matter to a performance claim.
 
-**LLM:** a large language model. **Inference:** executing a trained model to produce outputs. **KV cache:** stored attention keys and values used when a language model generates further output. **MoE:** mixture of experts, a model organization that chooses among parts of the model for particular inputs.
+- **LLM:** a large language model.
+- **Inference:** executing a trained model to produce outputs.
+- **KV cache:** stored attention keys and values used when a language model generates further output.
+- **MoE:** mixture of experts, a model organization that chooses among parts of the model for particular inputs.
 
-**GEMM:** general matrix multiplication. **LUT:** a lookup table, which stores results or values to retrieve later. **ECC:** an error-correcting code, which adds information that can detect or correct specified data errors.
+- **GEMM:** general matrix multiplication.
+- **LUT:** a lookup table, which stores results or values to retrieve later.
+- **ECC:** an error-correcting code, which adds information that can detect or correct specified data errors.
 
 **PPA:** power, performance, and area. These are separate objectives. A paper should state how each changes and how any combined score is calculated.
 
